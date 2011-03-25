@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage{latexsym, qtree, stmaryrd}
+\usepackage{amssymb}
+\begin{document}
+
+
+\bigskip
+\begin{quote} 
+(1) $ \emptyset \nvdash  (A \vee  A) \equiv  A $
+\end{quote} 
+\bigskip
+
+\Tree[.{\framebox{$(A \vee  A) \equiv  A, 0\varominus $} \\ $0\mathcal{R} 0$ \\ \framebox{$\neg ((A \vee  A) \equiv  A), 0\varoplus $}} [.{\framebox{$A \vee  A, 0\varominus $} \\ $\neg A, 0\varominus $ \\ \framebox{$\neg (A \vee  A), 0\varoplus $} \\ $A, 0\varominus $}  ] 
+[.{\framebox{$\neg (A \vee  A), 0\varominus $} \\ $A, 0\varominus $ \\ \framebox{$A \vee  A, 0\varoplus $}} [.{$A, 0\varoplus $ \\ $ \varotimes  $}  ] 
+[.{$A, 0\varoplus $ \\ $ \varotimes  $}  ]  ]  ]\bigskip
+
+Counter Model: 
+
+\bigskip
+\noindent $\mathcal{W} = \{ w_0\} $\\
+$\mathcal{R} = \{ \langle w_0,w_0 \rangle \} $\\
+$ \mathcal{\nu}_{w_0}(A)=.5 $ \\
+\bigskip
+
+
+
+
+ \end{document}

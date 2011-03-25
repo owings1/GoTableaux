@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage{latexsym, qtree, stmaryrd}
+\usepackage{amssymb}
+\begin{document}
+
+
+\bigskip
+\begin{quote} 
+(1) $ A \vee  B\vdash  \neg (\neg (A \wedge  A) \wedge  \neg (B \wedge  B)) $
+\end{quote} 
+\bigskip
+
+\Tree[.{\framebox{$A \vee  B, 0\varoplus $} \\ \framebox{$\neg (\neg (A \wedge  A) \wedge  \neg (B \wedge  B)), 0\varominus $} \\ $0\mathcal{R} 0$ \\ \framebox{$\neg (A \wedge  A) \wedge  \neg (B \wedge  B), 0\varoplus $} \\ \framebox{$\neg (A \wedge  A), 0\varoplus $} \\ \framebox{$\neg (B \wedge  B), 0\varoplus $}} [.{$A, 0\varoplus $} [.{$A, 0\varominus $ \\ $ \varotimes  $}  ] 
+[.{$A, 0\varominus $ \\ $ \varotimes  $}  ]  ] 
+[.{$B, 0\varoplus $} [.{$A, 0\varominus $} [.{$B, 0\varominus $ \\ $ \varotimes  $}  ] 
+[.{$B, 0\varominus $ \\ $ \varotimes  $}  ]  ] 
+[.{$A, 0\varominus $} [.{$B, 0\varominus $ \\ $ \varotimes  $}  ] 
+[.{$B, 0\varominus $ \\ $ \varotimes  $}  ]  ]  ]  ]
+
+\bigskip
+\begin{quote} 
+(2) $ \neg (\neg (A \wedge  A) \wedge  \neg (B \wedge  B))\vdash  A \vee  B $
+\end{quote} 
+\bigskip
+
+\Tree[.{\framebox{$\neg (\neg (A \wedge  A) \wedge  \neg (B \wedge  B)), 0\varoplus $} \\ \framebox{$A \vee  B, 0\varominus $} \\ $0\mathcal{R} 0$ \\ \framebox{$\neg (A \vee  B), 0\varoplus $} \\ $A, 0\varominus $ \\ $B, 0\varominus $} [.{\framebox{$\neg (A \wedge  A), 0\varominus $} \\ \framebox{$A \wedge  A, 0\varoplus $} \\ $A, 0\varoplus $ \\ $ \varotimes  $}  ] 
+[.{\framebox{$\neg (B \wedge  B), 0\varominus $} \\ \framebox{$B \wedge  B, 0\varoplus $} \\ $B, 0\varoplus $ \\ $ \varotimes  $}  ]  ]
+
+
+ \end{document}

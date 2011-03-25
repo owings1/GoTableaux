@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage{latexsym, qtree, stmaryrd}
+\usepackage{amssymb}
+\begin{document}
+
+
+\bigskip
+\begin{quote} 
+(1) $ \neg (((A \vee  B) \vee  C) \vee  ((D \vee  E) \vee  F))\vdash  \neg ((A \vee  B) \vee  C) \wedge  \neg ((D \vee  E) \vee  F) $
+\end{quote} 
+\bigskip
+
+\Tree[.{\framebox{$\neg (((A \vee  B) \vee  C) \vee  ((D \vee  E) \vee  F)), 0\varoplus $} \\ \framebox{$\neg ((A \vee  B) \vee  C) \wedge  \neg ((D \vee  E) \vee  F), 0\varominus $} \\ $0\mathcal{R} 0$ \\ \framebox{$\neg (\neg ((A \vee  B) \vee  C) \wedge  \neg ((D \vee  E) \vee  F)), 0\varoplus $} \\ \framebox{$(A \vee  B) \vee  C, 0\varominus $} \\ \framebox{$(D \vee  E) \vee  F, 0\varominus $} \\ \framebox{$\neg ((A \vee  B) \vee  C), 0\varoplus $} \\ \framebox{$\neg ((D \vee  E) \vee  F), 0\varoplus $} \\ \framebox{$A \vee  B, 0\varominus $} \\ $C, 0\varominus $ \\ \framebox{$\neg (A \vee  B), 0\varoplus $} \\ \framebox{$D \vee  E, 0\varominus $} \\ $F, 0\varominus $ \\ \framebox{$\neg (D \vee  E), 0\varoplus $} \\ $A, 0\varominus $ \\ $B, 0\varominus $ \\ $D, 0\varominus $ \\ $E, 0\varominus $} [.{$\neg ((A \vee  B) \vee  C), 0\varominus $ \\ $ \varotimes  $}  ] 
+[.{$\neg ((D \vee  E) \vee  F), 0\varominus $ \\ $ \varotimes  $}  ]  ]
+
+\bigskip
+\begin{quote} 
+(2) $ (A \vee  B) \wedge  (A \vee  C)\vdash  A \vee  (B \wedge  C) $
+\end{quote} 
+\bigskip
+
+\Tree[.{\framebox{$(A \vee  B) \wedge  (A \vee  C), 0\varoplus $} \\ \framebox{$A \vee  (B \wedge  C), 0\varominus $} \\ $0\mathcal{R} 0$ \\ \framebox{$A \vee  B, 0\varoplus $} \\ \framebox{$A \vee  C, 0\varoplus $} \\ \framebox{$\neg (A \vee  (B \wedge  C)), 0\varoplus $} \\ $A, 0\varominus $ \\ \framebox{$B \wedge  C, 0\varominus $} \\ \framebox{$\neg (B \wedge  C), 0\varoplus $}} [.{$A, 0\varoplus $ \\ $ \varotimes  $}  ] 
+[.{$B, 0\varoplus $} [.{$A, 0\varoplus $ \\ $ \varotimes  $}  ] 
+[.{$C, 0\varoplus $} [.{$B, 0\varominus $ \\ $ \varotimes  $}  ] 
+[.{$C, 0\varominus $ \\ $ \varotimes  $}  ]  ]  ]  ]
+
+
+ \end{document}

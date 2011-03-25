@@ -1,0 +1,17 @@
+\documentclass{article}
+\usepackage{latexsym, qtree, stmaryrd}
+\usepackage{amssymb}
+\begin{document}
+
+
+\bigskip
+\begin{quote} 
+(1) $ \emptyset \vdash  (A \vee  A) \equiv  (A \vee  A) $
+\end{quote} 
+\bigskip
+
+\Tree[.{\framebox{$(A \vee  A) \equiv  (A \vee  A), 0\varominus $} \\ $0\mathcal{R} 0$ \\ \framebox{$\neg ((A \vee  A) \equiv  (A \vee  A)), 0\varoplus $}} [.{$\neg (A \vee  A), 0\varominus $ \\ \framebox{$A \vee  A, 0\varominus $} \\ $\neg (A \vee  A), 0\varoplus $ \\ $ \varotimes  $}  ] 
+[.{\framebox{$A \vee  A, 0\varominus $} \\ $\neg (A \vee  A), 0\varominus $ \\ $\neg (A \vee  A), 0\varoplus $ \\ $ \varotimes  $}  ]  ]
+
+
+ \end{document}
