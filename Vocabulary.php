@@ -1,13 +1,10 @@
 <?php
-
 require_once 'Doug/SimpleNotifier.php';
-
-// creates in createOperator()
-require_once 'Operator.php';
-
-// creates in getSentence()
-require_once 'Sentence.php';
-
+require_once 'Operator.php'; // creates in createOperator()
+require_once 'Sentence.php'; // creates in getSentence()
+/**
+ * Represents a vocabulary
+ */
 class Vocabulary
 {
 	protected 	$items = array(),				// (string) Symbol => (int) typeFlag
