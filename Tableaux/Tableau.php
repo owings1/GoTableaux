@@ -63,8 +63,6 @@ class Tableaux_Tableau
 				throw new Exception( 'branch must be instance of Tableaux_Branch. ' . get_class( $branch ) . ' passed.' );
 			}
 			
-			//$this->n->notify( 'attaching branch with ' . count( $branch->getNodes() ) .' nodes' );
-			
 			$this->branches[] = $branch;
 		}
 	}
