@@ -1,105 +1,179 @@
 <?php
-require_once 'Doug/SimpleNotifier.php';
-class Tableaux_Branch
+/**
+ * Defines the Branch class.
+ * @package Tableaux
+ * @author Douglas Owings
+ */
+
+/**
+ * Represents a tableau branch.
+ * @package Tableaux
+ * @author Douglas Owings
+ */
+class Branch
 {
-	protected 	$nodes = array(),
-				$closed = false;
+	/**
+	 * Holds the nodes of the branch.
+	 * @var array Array of {@link Node} objects.
+	 * @access private
+	 */
+	protected $nodes = array();
 	
-	function addNode( Tableaux_Node $node )
+	/**
+	 * Tracks whether the branch is closed.
+	 * @var boolean
+	 * @access private
+	 */
+	protected $closed = false;
+	
+	/**
+	 * Adds a node to the branch.
+	 *
+	 * @param Node $node The node to add.
+	 * @return Branch Current instance, for chaining.
+	 */
+	public function addNode( Node $node )
 	{
 		$this->nodes[] = $node;
+		return $this;
 	}
-	function removeNode( Tableaux_Node $node )
+	
+	/**
+	 * Removes all reference of a node from the branch.
+	 *
+	 * @param Node $node The node to remove. If the node is on the 
+	 *							  branch in multiple places, each reference is
+	 *							  removed.
+	 * @return Branch Current instance, for chaining.
+	 */
+	public function removeNode( Node $node )
 	{
 		$nodes = array();
-		foreach ( $this->nodes as $oldNode ){
-			if ( $node !== $oldNode ){
-				$nodes[] = $oldNode;
-			}
-		}
+		foreach ( $this->nodes as $oldNode )
+			if ( $node !== $oldNode ) $nodes[] = $oldNode;
 		$this->nodes = $nodes;
+		return $this;
 	}
-	function getNodes()
+	
+	/**
+	 * Gets the nodes on the branch.
+	 *
+	 * @return array Array of {@link Node nodes}.
+	 */
+	public function getNodes()
 	{
 		return $this->nodes;
 	}
-	function getUntickedNodes()
+	
+	/**
+	 * Gets all nodes on the branch that are unticked relative to the branch.
+	 *
+	 * @return array Array of {@link Node nodes}.
+	 */
+	public function getUntickedNodes()
 	{
-		$n = new Doug_SimpleNotifier( 'Branch' );
-		//$n->notify( 'getting unticked nodes' );
 		$nodes = array();
-		foreach ( $this->nodes as $node ){
-			if ( ! $node->ticked( $this ) ){
-				$nodes[] = $node;
-			}
-		}
-		//$n->notify( count( $nodes ) . ' unticked nodes found' );
+		foreach ( $this->nodes as $node )
+			if ( ! $node->ticked( $this )) $nodes[] = $node;
 		return $nodes;
 	}
-	function getTickedNodes()
+	
+	/**
+	 * Gets all nodes on the branch that are ticked relative to the branch.
+	 *
+	 * @return array Array of Node objects.
+	 */
+	public function getTickedNodes()
 	{
 		$nodes = array();
-		foreach ( $this->nodes as $node ){
-			if ( $node->ticked( $this ) ){
-				$nodes[] = $node;
-			}
-		}
+		foreach ( $this->nodes as $node )
+			if ( $node->ticked( $this )) $nodes[] = $node;
 		return $nodes;
-	}	
-	function close()
+	}
+	
+	/**
+	 * Closes the branch.
+	 *
+	 * @return Branch Current instance, for chaining.
+	 */
+	public function close()
 	{
 		$this->closed = true;
+		return $this;
 	}
-	function isClosed()
+	
+	/**
+	 * Checks whether the branch is closed.
+	 *
+	 * @return boolean Whether the branch is closed.
+	 */
+	public function isClosed()
 	{
 		return $this->closed;
 	}
-	function hasNode( Tableaux_Node $node )
+	
+	/**
+	 * Checks whether a node is on the branch.
+	 *
+	 * @param Node $node The node to check.
+	 * @return boolean Whether the node is on the branch.
+	 */
+	public function hasNode( Node $node )
 	{
 		return in_array( $node, $this->nodes, true );
 	}
-	function copy()
+	
+	/**
+	 * Clones the branch. Maintains references to the nodes.
+	 *
+	 * @return Branch The new copy.
+	 */
+	public function copy()
 	{
 		$newBranch = clone $this;
-		foreach ( $this->getTickedNodes() as $node ){
+		foreach ( $this->getTickedNodes() as $node )
 			$node->tick( $newBranch );
-		}
 		return $newBranch;
 	}
+	
+	/**
+	 * Gets all nodes that are on each of an array of branches.
+	 *
+	 * @param array $branches Array of {@link Branch branches}.
+	 * @return array Array of common {@link Node nodes}. 
+	 */
 	public static function getCommonNodes( array $branches )
 	{
-		$nodes = array();
-		foreach ( $branches as $branch ){
-			if ( ! $branch instanceof Tableaux_Branch ){
-				throw new Exception();
-			}
+		$nodes = $commonNodes = array();
+		foreach ( $branches as $branch ) {
+			if ( !$branch instanceof Branch ) 
+				throw new TableauxException();
 			$nodes = array_merge( $nodes, $branch->getNodes() );
 		}
-		$commonNodes = array();
-		foreach ( $nodes as $node ){
-			// Assume commonality
-			$common = true;
-			
-			foreach ( $branches as $branch ){
-				if ( ! $branch->hasNode( $node )){
-					$common = false;
+		foreach ( $nodes as $node ) {
+			$isCommon = true;			
+			foreach ( $branches as $branch )
+				if ( ! $branch->hasNode( $node )) {
+					$isCommon = false;
+					break;
 				}
-			}
-			if ( $common ){
-				$commonNodes[] = $node;
-			}
+			if ( $isCommon ) $commonNodes[] = $node;
 		}
 		return array_unique( $commonNodes );
 	}
-	static function getBranchesWithNode( array $branches, Tableaux_Node $node )
+	
+	/**
+	 * Gets all branches that have a particular node on them.
+	 *
+	 * @param array $branches Array of {@link Branch branches}.
+	 * @param Node $node The node to search for.
+	 * @return array Array of branches.
+	 */
+	public static function getBranchesWithNode( array $branches, Node $node )
 	{
 		$b = array();
-		foreach ( $branches as $branch ){
-			if ( $branch->hasNode( $node )){
-				$b[] = $branch;
-			}
-		}
+		foreach ( $branches as $branch )
+			if ( $branch->hasNode( $node )) $b[] = $branch;
 		return $b;
 	}
 }
-?>

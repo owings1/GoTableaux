@@ -1,19 +1,67 @@
 <?php
+/**
+ * Defines the Node base class.
+ * @package Tableaux
+ * @author Douglas Owings
+ */
 
-abstract class Tableaux_Node
+/**
+ * Represents a node on a branch.
+ * @package Tableaux
+ * @author Douglas Owings
+ */
+abstract class Node
 {
-	protected 	$ticked = array();
+	/**
+	 * Holds the branches relative to which the node is ticked.
+	 * @var array Array of Branch objects.
+	 * @access private
+	 */
+	protected $tickedBranches = array();
 	
-	function tick( Tableaux_Branch $branch )
+	/**
+	 * Ticks the node relative to a branch.
+	 *
+	 * @param Branch $branch The branch relative to which to tick the
+	 *								  node.
+	 * @return Node Current instance, for chaining.
+	 */
+	public function tickAtBranch( Branch $branch )
 	{
-		if ( ! in_array( $branch, $this->ticked, true )){
-			$this->ticked[] = $branch;
-		}
+		if ( !in_array( $branch, $this->tickedBranches, true ))
+			$this->tickedBranches[] = $branch;
+		return $this;
 	}
-	function ticked( Tableaux_Branch $branch )
+	
+	/**
+	 * Checks whether the node is ticked relative to a particular branch.
+	 *
+	 * @param Branch $branch The branch relative to which to check.
+	 * @return boolean Whether the node is ticked relative to $branch.
+	 */
+	public function isTickedAtBranch( Branch $branch )
 	{
 		return in_array( $branch, $this->ticked, true );
 	}
+	
+	/**
+	 * Alias of Node::tickAtBranch()
+	 *
+	 * @param Branch $branch
+	 * @return Node
+	 */
+	public function tick( Branch $branch )
+	{
+		return $this->tickAtBranch( $branch );
+	}
+	
+	/**
+	 * Alias of Node::isTickedAtBranch()
+	 * @param Branch $branch
+	 * @return boolean 
+	 */
+	public function ticked( Branch $branch )
+	{
+		return $this->isTickedAtBranch( $branch );
+	}
 }
-
-?>
