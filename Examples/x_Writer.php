@@ -1,6 +1,6 @@
 <?php
 
-$writer = new Tableaux_Writer_LaTeX_Qtree();
+$writer = new Writer_LaTeX_Qtree();
 $writer->setTranslation( GoModal::getLaTeXTranslations() );
 
 
@@ -65,7 +65,7 @@ for ( $i = 0; $i < count( $arguments ); $i++ ){
 	$TeX .= $writer->write();
 	
 	if ( ! $tableau->isValid( $openBranch )){
-		$counterModel = GoModal_Branch::induceModel( $openBranch );
+		$counterModel = GoModalBranch::induceModel( $openBranch );
 		$TeX .= "\n\n\bigskip\n\n";
 		$TeX .= "Counter Model: \n\n\\bigskip\n";
 		$TeX .= '\\noindent $\\mathcal{W} = \\{ ';

@@ -1,16 +1,16 @@
 <?php
 
-class GoModal_Rule_Sentence_DisjunctionDes implements Tableaux_Rule
+class GoModal_Rule_Sentence_DisjunctionDes implements Rule
 {
-	public function apply( Tableaux_Branch $branch )
+	public function apply( Branch $branch )
 	{
 		
 		
-		if ( ! $branch instanceof GoModal_Branch ){
+		if ( ! $branch instanceof GoModalBranch ){
 			throw new Exception( 'branch must be a GoModal instance' );
 		}
 		
-		$disjNodes = GoModal_Branch::getNodesByOperatorName( $branch->getDesignatedNodes( true ), 'DISJUNCTION' );
+		$disjNodes = GoModalBranch::getNodesByOperatorName( $branch->getDesignatedNodes( true ), 'DISJUNCTION' );
 		
 		if ( empty( $disjNodes )){
 			return false;

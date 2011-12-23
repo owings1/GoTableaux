@@ -26,13 +26,13 @@ $arguments = array(
 	)
 );
 //\neg(\neg(A\vee A)\vee\neg(B\vee B))
-$writer = new Tableaux_Writer_LaTeX_Qtree();
+$writer = new Writer_LaTeX_Qtree();
 $writer->setTranslation( GoModal::getLaTeXTranslations() );
 
 
 
 $TeX 	= 	'\\documentclass{article}' . "\n"
-		.	Tableaux_Writer_LaTeX_Qtree::getTeXUsePackageStr() . "\n" 
+		.	Writer_LaTeX_Qtree::getTeXUsePackageStr() . "\n" 
 		.	'\\usepackage{amssymb}' . "\n"
 		.	'\\begin{document}' . "\n";
 		
@@ -55,7 +55,7 @@ foreach ( $arguments as $i => $argument ){
 	$TeX .= $writer->write();
 	
 	if ( ! $tableau->isValid( $openBranch )){
-		$counterModel = GoModal_Branch::induceModel( $openBranch );
+		$counterModel = GoModalBranch::induceModel( $openBranch );
 		$TeX .= "\bigskip\n\n";
 		$TeX .= "Counter Model: \n\n\\bigskip\n";
 		$TeX .= '\\noindent $\\mathcal{W} = \\{ ';

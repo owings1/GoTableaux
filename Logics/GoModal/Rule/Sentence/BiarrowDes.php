@@ -1,16 +1,16 @@
 <?php
 
-class GoModal_Rule_Sentence_BiarrowDes implements Tableaux_Rule
+class GoModal_Rule_Sentence_BiarrowDes implements Rule
 {
-	public function apply( Tableaux_Branch $branch )
+	public function apply( Branch $branch )
 	{
 		
 		
-		if ( ! $branch instanceof GoModal_Branch ){
+		if ( ! $branch instanceof GoModalBranch ){
 			throw new Exception( 'branch must be a GoModal instance' );
 		}
 		
-		$arrowNodes = GoModal_Branch::getNodesByOperatorName( $branch->getDesignatedNodes( true ), 'BIARROW' );
+		$arrowNodes = GoModalBranch::getNodesByOperatorName( $branch->getDesignatedNodes( true ), 'BIARROW' );
 		
 		if ( empty( $arrowNodes )){
 			return false;
@@ -26,7 +26,7 @@ class GoModal_Rule_Sentence_BiarrowDes implements Tableaux_Rule
 		$operands = $node->getSentence()->getOperands();
 		
 		// create new sentence
-		$newSentence = new Sentence_Molecular();
+		$newSentence = new MolecularSentence();
 		
 		// set operator to arrow
 		$newSentence->setOperator( $arrow );
@@ -39,7 +39,7 @@ class GoModal_Rule_Sentence_BiarrowDes implements Tableaux_Rule
 		$sentence_a = $vocabulary->oldOrNew( $newSentence );
 		
 		// create new sentence
-		$newSentence = new Sentence_Molecular();
+		$newSentence = new MolecularSentence();
 		
 		// set operator to arrow
 		$newSentence->setOperator( $arrow );

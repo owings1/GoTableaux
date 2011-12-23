@@ -1,16 +1,16 @@
 <?php
 
-class GoModal_Rule_Sentence_MatCondDes implements Tableaux_Rule
+class GoModal_Rule_Sentence_MatCondDes implements Rule
 {
-	public function apply( Tableaux_Branch $branch )
+	public function apply( Branch $branch )
 	{
 		
 		
-		if ( ! $branch instanceof GoModal_Branch ){
+		if ( ! $branch instanceof GoModalBranch ){
 			throw new Exception( 'branch must be a GoModal instance' );
 		}
 		
-		$condNodes = GoModal_Branch::getNodesByOperatorName( $branch->getDesignatedNodes( true ), 'MATERIALCONDITIONAL' );
+		$condNodes = GoModalBranch::getNodesByOperatorName( $branch->getDesignatedNodes( true ), 'MATERIALCONDITIONAL' );
 		
 		if ( empty( $condNodes )){
 			return false;
@@ -26,7 +26,7 @@ class GoModal_Rule_Sentence_MatCondDes implements Tableaux_Rule
 		$operands = $node->getSentence()->getOperands();
 		
 		// create new sentence
-		$newSentence = new Sentence_Molecular();
+		$newSentence = new MolecularSentence();
 		
 		// set operator to negation
 		$newSentence->setOperator( $operator );

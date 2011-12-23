@@ -1,14 +1,14 @@
 <?php
 
-class GoModal_Rule_Sentence_DisjunctionUndes implements Tableaux_Rule
+class GoModal_Rule_Sentence_DisjunctionUndes implements Rule
 {
-	public function apply( Tableaux_Branch $branch )
+	public function apply( Branch $branch )
 	{
-		if ( ! $branch instanceof GoModal_Branch ){
+		if ( ! $branch instanceof GoModalBranch ){
 			throw new Exception( 'branch must be a GoModal instance' );
 		}
 		
-		$disjNodes = GoModal_Branch::getNodesByOperatorName( $branch->getUndesignatedNodes( true ), 'DISJUNCTION' );
+		$disjNodes = GoModalBranch::getNodesByOperatorName( $branch->getUndesignatedNodes( true ), 'DISJUNCTION' );
 		
 		if ( empty( $disjNodes )){
 			return false;
@@ -20,7 +20,7 @@ class GoModal_Rule_Sentence_DisjunctionUndes implements Tableaux_Rule
 		$operator = $vocabulary->getOperatorByName( 'NEGATION' );
 		
 		$operand = $node->getSentence();
-		$newSentence = new Sentence_Molecular();
+		$newSentence = new MolecularSentence();
 		$newSentence->setOperator( $operator );
 		$newSentence->addOperand( $operand );
 		$sentence = $vocabulary->oldOrNew( $newSentence );

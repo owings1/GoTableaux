@@ -17,7 +17,7 @@
   <tr>
     <td colspan="2" class="header-menu">
       
-                        
+                                                                  
                                     		[ <a href="../classtrees_Syntax.html" class="menu">class tree: Syntax</a> ]
 		[ <a href="../elementindex_Syntax.html" class="menu">index: Syntax</a> ]
             [ <a href="../elementindex.html" class="menu">all elements</a> ]
@@ -32,6 +32,9 @@
 		<div class="package-title">Syntax</div>
       <b>Packages:</b><br />
   <div class="package">
+              <a href="../li_Logic.html">Logic</a><br />
+              <a href="../li_ModelTheory.html">ModelTheory</a><br />
+              <a href="../li_Proof.html">Proof</a><br />
               <a href="../li_Syntax.html">Syntax</a><br />
               <a href="../li_Tableaux.html">Tableaux</a><br />
       	</div>
@@ -87,7 +90,7 @@ Source Location: /Syntax/Argument.php<br /><br />
 
         		<p align="center" class="short-description"><strong>Represents an argument as a set of premises and one conclusion.
 </strong></p>
-<span class="description"><p>Represents an argument as a set of premises and one conclusion.</p></span>
+
 		<p class="notes">
 			Located in <a class="field" href="_Syntax---Argument.php.html">/Syntax/Argument.php</a> [<span class="field">line 13</span>]
 		</p>
@@ -153,7 +156,7 @@ Source Location: /Syntax/Argument.php<br /><br />
 													<div class="var-title">
 					<tr><td class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
 					<td class="var-title"><a href="#$premises" title="details" class="var-name-summary">$premises</a>&nbsp;&nbsp;</td>
-					<td class="var-summary-description">The set of premises.</td></tr>
+					<td class="var-summary-description">The set of premises. An array of <a href="../Syntax/Sentence.html">Sentence</a> objects.</td></tr>
 				</div>
 										</table>
 			</div>
@@ -225,7 +228,7 @@ Source Location: /Syntax/Argument.php<br /><br />
 
 	<p align="center" class="short-description"><strong>The conclusion.
 </strong></p>
-<span class="description"><p>The conclusion.</p></span>	<strong>API Tags:</strong><br />
+	<strong>API Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
@@ -249,9 +252,9 @@ Source Location: /Syntax/Argument.php<br /><br />
 		</span>
 	</div>
 
-	<p align="center" class="short-description"><strong>The set of premises.
+	<p align="center" class="short-description"><strong>The set of premises. An array of <a href="../Syntax/Sentence.html">Sentence</a> objects.
 </strong></p>
-<span class="description"><p>The set of premises. An array of <a href="../Syntax/Sentence.html">Sentence</a> objects.</p></span>	<strong>API Tags:</strong><br />
+	<strong>API Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
@@ -298,7 +301,7 @@ $sentence&nbsp;
 
 	<p align="center" class="short-description"><strong>Adds a premise to the argument.
 </strong></p>
-<span class="description"><p>Adds a premise to the argument.</p></span>
+
 			<strong>Parameters:</strong><br />
 			<table border="0" cellspacing="0" cellpadding="0">
 					<tr><td class="indent">
@@ -313,7 +316,7 @@ $sentence&nbsp;
 	<strong>API Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Current instance, for chaining.</td>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Current instance.</td>
   </tr>
   <tr>
     <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
@@ -346,7 +349,7 @@ $premises&nbsp;
 
 	<p align="center" class="short-description"><strong>Adds multiple premises to the argument.
 </strong></p>
-<span class="description"><p>Adds multiple premises to the argument.</p></span>
+
 			<strong>Parameters:</strong><br />
 			<table border="0" cellspacing="0" cellpadding="0">
 					<tr><td class="indent">
@@ -361,7 +364,7 @@ $premises&nbsp;
 	<strong>API Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Current instance, for chaining.</td>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Current instance.</td>
   </tr>
   <tr>
     <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
@@ -392,7 +395,7 @@ $premises&nbsp;
 
 	<p align="center" class="short-description"><strong>Gets the conclusion of the argument.
 </strong></p>
-<span class="description"><p>Gets the conclusion of the argument.</p></span>
+
 	<br />
 	<strong>API Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
@@ -428,7 +431,7 @@ $premises&nbsp;
 
 	<p align="center" class="short-description"><strong>Gets all the premises of the argument.
 </strong></p>
-<span class="description"><p>Gets all the premises of the argument.</p></span>
+
 	<br />
 	<strong>API Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
@@ -466,7 +469,7 @@ $sentence&nbsp;
 
 	<p align="center" class="short-description"><strong>Sets the conclusion of the argument.
 </strong></p>
-<span class="description"><p>Sets the conclusion of the argument.</p></span>
+
 			<strong>Parameters:</strong><br />
 			<table border="0" cellspacing="0" cellpadding="0">
 					<tr><td class="indent">
@@ -481,7 +484,7 @@ $sentence&nbsp;
 	<strong>API Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Current instance, for chaining.</td>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Current instance.</td>
   </tr>
   <tr>
     <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
@@ -500,7 +503,7 @@ $sentence&nbsp;
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Wed, 21 Dec 2011 04:15:58 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Thu, 22 Dec 2011 23:18:36 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

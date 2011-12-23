@@ -17,7 +17,7 @@
   <tr>
     <td colspan="2" class="header-menu">
       
-                        
+                                                                  
                                     		[ <a href="../classtrees_Syntax.html" class="menu">class tree: Syntax</a> ]
 		[ <a href="../elementindex_Syntax.html" class="menu">index: Syntax</a> ]
             [ <a href="../elementindex.html" class="menu">all elements</a> ]
@@ -32,14 +32,16 @@
 		<div class="package-title">Syntax</div>
       <b>Packages:</b><br />
   <div class="package">
+              <a href="../li_Logic.html">Logic</a><br />
+              <a href="../li_ModelTheory.html">ModelTheory</a><br />
+              <a href="../li_Proof.html">Proof</a><br />
               <a href="../li_Syntax.html">Syntax</a><br />
               <a href="../li_Tableaux.html">Tableaux</a><br />
       	</div>
       <br />
                         <b>Files:</b><br />
         <div class="package">
-				<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---Argument.php.html">Argument.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---AtomicSentence.php.html">AtomicSentence.php</a></span><br />
+				<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---AtomicSentence.php.html">AtomicSentence.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---MolecularSentence.php.html">MolecularSentence.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---Operator.php.html">Operator.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---ParserException.php.html">ParserException.php</a></span><br />
@@ -52,8 +54,7 @@
             <br />
                   <b>Classes:</b><br />
         <div class="package">
-		    		<a href="../Syntax/Argument.html">Argument</a>    	 <br />
-	    		<a href="../Syntax/AtomicSentence.html">AtomicSentence</a>    	 <br />
+		    		<a href="../Syntax/AtomicSentence.html">AtomicSentence</a>    	 <br />
 	    		<a href="../Syntax/MolecularSentence.html">MolecularSentence</a>    	 <br />
 	    		<a href="../Syntax/Operator.html">Operator</a>    	 <br />
 	    		<a href="../Syntax/ParserException.html">ParserException</a>    	 <br />
@@ -88,7 +89,7 @@ Source Location: /Syntax/SentenceParser/StandardSentenceParser.php<br /><br />
 
         		<p align="center" class="short-description"><strong>Represents the standard sentence parser.
 </strong></p>
-<span class="description"><p>Represents the standard sentence parser.</p></span>
+
 		<p class="notes">
 			Located in <a class="field" href="_Syntax---SentenceParser---StandardSentenceParser.php.html">/Syntax/SentenceParser/StandardSentenceParser.php</a> [<span class="field">line 18</span>]
 		</p>
@@ -174,7 +175,7 @@ Source Location: /Syntax/SentenceParser/StandardSentenceParser.php<br /><br />
 											<span class="method-definition"><a href="../Syntax/SentenceParser.html#methodclosePosFromOpenPos">SentenceParser::closePosFromOpenPos()</a></span>
 										</dt>
 										<dd>
-											<span class="method-definition">Finds a string's for the corresponding close mark of an open mark at the given position.</span>
+											<span class="method-definition">Finds a string's for the corresponding close mark of an open mark at the  given position.</span>
 										</dd>
 																			<dt>
 											<span class="method-definition"><a href="../Syntax/SentenceParser.html#methodcreateWithVocabulary">SentenceParser::createWithVocabulary()</a></span>
@@ -322,7 +323,7 @@ Source Location: /Syntax/SentenceParser/StandardSentenceParser.php<br /><br />
 			<a name='method_detail'></a>
 
 <a name="methodsentenceToString" id="sentenceToString"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
 	<span class="method-title">sentenceToString</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 26]</span>
@@ -341,7 +342,7 @@ $sentence&nbsp;
 
 	<p align="center" class="short-description"><strong>Gets a string representation of a <a href="../Syntax/Sentence.html">sentence</a>.
 </strong></p>
-<span class="description"><p>Gets a string representation of a <a href="../Syntax/Sentence.html">sentence</a>.</p></span>
+
 			<strong>Parameters:</strong><br />
 			<table border="0" cellspacing="0" cellpadding="0">
 					<tr><td class="indent">
@@ -376,7 +377,7 @@ $sentence&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodstringToSentence" id="stringToSentence"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
 	<span class="method-title">stringToSentence</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 39]</span>
@@ -395,7 +396,7 @@ $sentenceStr&nbsp;
 
 	<p align="center" class="short-description"><strong>Creates a <a href="../Syntax/Sentence.html">sentence</a> from a string.
 </strong></p>
-<span class="description"><p>Creates a <a href="../Syntax/Sentence.html">sentence</a> from a string.</p></span>
+
 			<strong>Parameters:</strong><br />
 			<table border="0" cellspacing="0" cellpadding="0">
 					<tr><td class="indent">
@@ -436,7 +437,7 @@ $sentenceStr&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="method_atomicToString" id="_atomicToString"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
 	<span class="method-title">_atomicToString</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 168]</span>
@@ -455,7 +456,7 @@ $sentence&nbsp;
 
 	<p align="center" class="short-description"><strong>Makes a string representation of an atomic sentence.
 </strong></p>
-<span class="description"><p>Makes a string representation of an atomic sentence.</p></span>
+
 			<strong>Parameters:</strong><br />
 			<table border="0" cellspacing="0" cellpadding="0">
 					<tr><td class="indent">
@@ -484,7 +485,7 @@ $sentence&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="method_molecularToString" id="_molecularToString"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
 	<span class="method-title">_molecularToString</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 182]</span>
@@ -503,7 +504,7 @@ $sentence&nbsp;
 
 	<p align="center" class="short-description"><strong>Makes a string representation of a molecular sentence.
 </strong></p>
-<span class="description"><p>Makes a string representation of a molecular sentence.</p></span>
+
 			<strong>Parameters:</strong><br />
 			<table border="0" cellspacing="0" cellpadding="0">
 					<tr><td class="indent">
@@ -535,7 +536,7 @@ $sentence&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="method_parseAtomic" id="_parseAtomic"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
 	<span class="method-title">_parseAtomic</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 95]</span>
@@ -554,7 +555,7 @@ $sentenceStr&nbsp;
 
 	<p align="center" class="short-description"><strong>Parses an atomic sentence string.
 </strong></p>
-<span class="description"><p>Parses an atomic sentence string.</p></span>
+
 			<strong>Parameters:</strong><br />
 			<table border="0" cellspacing="0" cellpadding="0">
 					<tr><td class="indent">
@@ -586,7 +587,7 @@ $sentenceStr&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="method_readSentence" id="_readSentence"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
 	<span class="method-title">_readSentence</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 121]</span>
@@ -605,7 +606,7 @@ $string&nbsp;
 
 	<p align="center" class="short-description"><strong>Reads a string for the first occurrence of a sentence expression.
 </strong></p>
-<span class="description"><p>Reads a string for the first occurrence of a sentence expression.</p></span>
+
 			<strong>Parameters:</strong><br />
 			<table border="0" cellspacing="0" cellpadding="0">
 					<tr><td class="indent">
@@ -640,7 +641,7 @@ $string&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="method_sentenceToString" id="_sentenceToString"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
 	<span class="method-title">_sentenceToString</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 152]</span>
@@ -659,7 +660,7 @@ $sentence&nbsp;
 
 	<p align="center" class="short-description"><strong>Makes a string representation of a sentence with outer parentheses.
 </strong></p>
-<span class="description"><p>Makes a string representation of a sentence with outer parentheses.</p></span>
+
 			<strong>Parameters:</strong><br />
 			<table border="0" cellspacing="0" cellpadding="0">
 					<tr><td class="indent">
@@ -693,7 +694,7 @@ $sentence&nbsp;
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Wed, 21 Dec 2011 04:15:59 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Fri, 23 Dec 2011 02:19:44 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

@@ -1,15 +1,15 @@
 <?php
 
-class GoModal_Rule_Sentence_DiamondDes implements Tableaux_Rule
+class GoModal_Rule_Sentence_DiamondDes implements Rule
 {
-	public function apply( Tableaux_Branch $branch )
+	public function apply( Branch $branch )
 	{
 		
-		if ( ! $branch instanceof GoModal_Branch ){
+		if ( ! $branch instanceof GoModalBranch ){
 			throw new Exception( 'branch must be a GoModal instance' );
 		}
 		
-		$posNodes = GoModal_Branch::getNodesByOperatorName( $branch->getDesignatedNodes( true ), 'POSSIBILITY' );
+		$posNodes = GoModalBranch::getNodesByOperatorName( $branch->getDesignatedNodes( true ), 'POSSIBILITY' );
 		
 		
 		if ( empty( $posNodes )){

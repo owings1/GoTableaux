@@ -6,23 +6,23 @@
  */
 
 /**
- * GoModal implementation of {@link Tableaux_ClosureRule}.
+ * GoModal implementation of {@link ClosureRule}.
  * @package GoModal
  * @author Douglas Owings
  */
-class GoModal_ClosureRule implements Tableaux_ClosureRule
+class GoModal_ClosureRule implements ClosureRule
 {
 	/**
-	 * Implements Tableaux_ClosureRule::doesApply()
+	 * Implements ClosureRule::doesApply()
 	 *
-	 * @param Tableaux_Branch $branch
+	 * @param Branch $branch
 	 * @return boolean
-	 * @throws {@link Tableaux_TableauException}
+	 * @throws {@link TableauException}
 	 */
-	public function doesApply( Tableaux_Branch $branch )
+	public function doesApply( Branch $branch )
 	{
-		if ( !$branch instanceof GoModal_Branch )
-			throw new Tableaux_TableauException( 'branch must be a GoModal instance' );
+		if ( !$branch instanceof GoModalBranch )
+			throw new TableauException( 'branch must be a GoModal instance' );
 		
 		$desNodes   = $branch->getDesignatedNodes();
 		
@@ -34,8 +34,8 @@ class GoModal_ClosureRule implements Tableaux_ClosureRule
 		/*		Check for a Designated Sentence Whose Negation Is Designated			*/
 		
 		/*		Get Designated Negated Nodes			*/
-		$desNegNodes = GoModal_Branch::getNodesByOperatorName( $desNodes, 'NEGATION' );
-		foreach ( $desNegNodes as $node ){
+		$desNegNodes = GoModalBranch::getNodesByOperatorName( $desNodes, 'NEGATION' );
+		foreach ( $desNegNodes as $node ) {
 			$operands = $node->getSentence()->getOperands();
 			$operand = $operands[0];
 			if ( $branch->hasSentenceNodeWithAttr( $operand, $node->getI(), true ))

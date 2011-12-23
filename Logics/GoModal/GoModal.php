@@ -1,6 +1,16 @@
 <?php
+/**
+ * Defines the GoModal logic class.
+ * @package GoModalLogic
+ * @author Douglas Owings
+ */
 
-require_once 'Tableaux/Tableau.php';
+/**
+ * Loads the {@link Logic} base class.
+ */
+require_once '../../Logic/Logic.php';
+
+require_once '../../Logic/ProofSystem/TableauxSystem.php';
 
 require_once 'Branch.php';
 
@@ -57,41 +67,31 @@ require_once 'Rule/Sentence/NegDiamondDes.php';
 require_once 'Rule/Sentence/NegDiamondUndes.php';
 
 
-class GoModal
+class GoModal extends Logic
 {
-	protected static $vocabulary;
+	public $defaultLexicon = array(
+		'openMarks' => array('('),
+		'closeMarks' => array(')'),
+		'separators' => array(' '),
+		'subscripts' => array('_'),
+		'atomicSymbols' => array('A', 'B', 'C', 'D', 'E', 'F'),
+		'operators' => array(
+			'&' => array('name' => 'CONJUNCTION', 'arity' => 2),
+			'V' => array('name' => 'DISJUNCTION', 'arity' => 2),
+			'>' => array('name' => 'MATERIALCONDITIONAL', 'arity' => 2),
+			'<' => array('name' => 'MATERIALBICONDITIONAL', 'arity' => 2),
+			'-' => array('name' => 'ARROW', 'arity' => 2),
+			'%' => array('name' => 'BIARROW', 'arity' => 2),
+			'~' => array('name' => 'NEGATION', 'arity' => 1),
+			'N' => array('name' => 'NECESSITY', 'arity' => 1),
+			'P' => array('name' => 'POSSIBILITY', 'arity' => 1)
+		)
+	);
 	
-	protected static function createVocabulary()
-	{
-		$v = new Vocabulary();
 
-		$v->addAtomic( 'A' );
-		$v->addAtomic( 'B' );
-		$v->addAtomic( 'C' );
-		$v->addAtomic( 'D' );
-		$v->addAtomic( 'E' );
-		$v->addAtomic( 'F' );
-
-		$v->addOpenMark( '(' );
-		$v->addCloseMark( ')' );
-
-		$v->addSeparator( ' ' );
-
-		$v->createOperator( '&', 2, 'CONJUNCTION' );
-		$v->createOperator( '~', 1, 'NEGATION' );
-		$v->createOperator( 'V', 2, 'DISJUNCTION' );
-		$v->createOperator( 'N', 1, 'NECESSITY' );
-		$v->createOperator( 'P', 1, 'POSSIBILITY' );
-		$v->createOperator( '>', 2, 'MATERIALCONDITIONAL' );
-		$v->createOperator( '<>', 2, 'MATERIALBICONDITIONAL' );
-		$v->createOperator( '->', 2, 'ARROW' );
-		$v->createOperator( '<->', 2, 'BIARROW' );
-		
-		self::$vocabulary = $v;	
-	}
 	protected static function createTableau( Argument $argument )
 	{
-		$t = new Tableaux_Tableau( $argument );
+		$t = new Tableau( $argument );
 		$t->setInitialRule( new GoModal_InitialRule );
 		$t->setClosureRule( new GoModal_ClosureRule );
 		

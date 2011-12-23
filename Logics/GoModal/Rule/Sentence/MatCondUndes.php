@@ -1,14 +1,14 @@
 <?php
 
-class GoModal_Rule_Sentence_MatCondUndes implements Tableaux_Rule
+class GoModal_Rule_Sentence_MatCondUndes implements Rule
 {
-	public function apply( Tableaux_Branch $branch )
+	public function apply( Branch $branch )
 	{
-		if ( ! $branch instanceof GoModal_Branch ){
+		if ( ! $branch instanceof GoModalBranch ){
 			throw new Exception( 'branch must be a GoModal instance' );
 		}
 		
-		$condNodes = GoModal_Branch::getNodesByOperatorName( $branch->getUndesignatedNodes( true ), 'MATERIALCONDITIONAL' );
+		$condNodes = GoModalBranch::getNodesByOperatorName( $branch->getUndesignatedNodes( true ), 'MATERIALCONDITIONAL' );
 		
 		
 		if ( empty( $condNodes )){
@@ -25,7 +25,7 @@ class GoModal_Rule_Sentence_MatCondUndes implements Tableaux_Rule
 		$operator = $vocabulary->getOperatorByName( 'NEGATION' );
 		
 		// create new sentence
-		$newSentence = new Sentence_Molecular();
+		$newSentence = new MolecularSentence();
 		
 		// set operator to negation
 		$newSentence->setOperator( $operator );

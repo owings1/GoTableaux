@@ -1,14 +1,14 @@
 <?php
 
-class GoModal_Rule_Sentence_ConjunctionUndes implements Tableaux_Rule
+class GoModal_Rule_Sentence_ConjunctionUndes implements Rule
 {
-	public function apply( Tableaux_Branch $branch )
+	public function apply( Branch $branch )
 	{
-		if ( ! $branch instanceof GoModal_Branch ){
+		if ( ! $branch instanceof GoModalBranch ){
 			throw new Exception( 'branch must be a GoModal instance' );
 		}
 		
-		$conjNodes = GoModal_Branch::getNodesByOperatorName( $branch->getUndesignatedNodes( true ), 'CONJUNCTION' );
+		$conjNodes = GoModalBranch::getNodesByOperatorName( $branch->getUndesignatedNodes( true ), 'CONJUNCTION' );
 		
 		if ( empty( $conjNodes )){
 			return false;
@@ -24,7 +24,7 @@ class GoModal_Rule_Sentence_ConjunctionUndes implements Tableaux_Rule
 		$operand = $node->getSentence();
 		
 		// create new sentence
-		$newSentence = new Sentence_Molecular();
+		$newSentence = new MolecularSentence();
 		
 		// set operator to negation
 		$newSentence->setOperator( $operator );

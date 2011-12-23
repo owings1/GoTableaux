@@ -17,7 +17,7 @@
   <tr>
     <td colspan="2" class="header-menu">
       
-                                      
+                                                                                
                       		[ <a href="classtrees_Tableaux.html" class="menu">class tree: Tableaux</a> ]
 		[ <a href="elementindex_Tableaux.html" class="menu">index: Tableaux</a> ]
             [ <a href="elementindex.html" class="menu">all elements</a> ]
@@ -32,6 +32,9 @@
 		<div class="package-title">Tableaux</div>
       <b>Packages:</b><br />
   <div class="package">
+              <a href="li_Logic.html">Logic</a><br />
+              <a href="li_ModelTheory.html">ModelTheory</a><br />
+              <a href="li_Proof.html">Proof</a><br />
               <a href="li_Syntax.html">Syntax</a><br />
               <a href="li_Tableaux.html">Tableaux</a><br />
       	</div>
@@ -42,39 +45,34 @@
 
 <h1>Class Trees for Package Tableaux</h1>
 <hr />
+<div class="classtree">Root interface BranchRule</div><br />
+<ul>
+<li><a href="Tableaux/BranchRule.html">BranchRule</a></li></ul>
+
+<hr />
 <div class="classtree">Root interface ClosureRule</div><br />
 <ul>
 <li><a href="Tableaux/ClosureRule.html">ClosureRule</a></li></ul>
 
 <hr />
-<div class="classtree">Root interface InitialRule</div><br />
-<ul>
-<li><a href="Tableaux/InitialRule.html">InitialRule</a></li></ul>
-
-<hr />
-<div class="classtree">Root interface Rule</div><br />
-<ul>
-<li><a href="Tableaux/Rule.html">Rule</a></li></ul>
-
-<hr />
 <div class="classtree">Root class Branch</div><br />
 <ul>
-<li><a href="Tableaux/Branch.html">Branch</a></li></ul>
-
-<hr />
-<div class="classtree">Root class Inference</div><br />
-<ul>
-<li><a href="Tableaux/Inference.html">Inference</a></li></ul>
-
-<hr />
-<div class="classtree">Root class InferenceSet</div><br />
-<ul>
-<li><a href="Tableaux/InferenceSet.html">InferenceSet</a></li></ul>
+<li><a href="Tableaux/Branch.html">Branch</a><ul>
+<li><a href="Tableaux/ModalBranch.html">ModalBranch</a><ul>
+<li><a href="Tableaux/ManyValuedModalBranch.html">ManyValuedModalBranch</a></li></ul></li>
+</ul></li>
+</ul>
 
 <hr />
 <div class="classtree">Root class Node</div><br />
 <ul>
-<li><a href="Tableaux/Node.html">Node</a></li></ul>
+<li><a href="Tableaux/Node.html">Node</a><ul>
+<li><a href="Tableaux/ModalAccessNode.html">ModalAccessNode</a></li><li><a href="Tableaux/SentenceNode.html">SentenceNode</a><ul>
+<li><a href="Tableaux/ModalSentenceNode.html">ModalSentenceNode</a><ul>
+<li><a href="Tableaux/ManyValuedModalSentenceNode.html">ManyValuedModalSentenceNode</a></li></ul></li>
+</ul></li>
+</ul></li>
+</ul>
 
 <hr />
 <div class="classtree">Root class Structure</div><br />
@@ -84,7 +82,20 @@
 <hr />
 <div class="classtree">Root class Tableau</div><br />
 <ul>
-<li><a href="Tableaux/Tableau.html">Tableau</a></li></ul>
+<li><a href="Proof/Proof.html">Proof</a> <b>(Different package)</b><ul><li><a href="Tableaux/Tableau.html">Tableau</a></li></ul></li>
+</ul>
+
+<hr />
+<div class="classtree">Root class TableauException</div><br />
+<ul>
+<li><a href="Proof/ProofException.html">ProofException</a> <b>(Different package)</b><ul><li><a href="Tableaux/TableauException.html">TableauException</a></li></ul></li>
+</ul>
+
+<hr />
+<div class="classtree">Root class TableauxSystem</div><br />
+<ul>
+<li><a href="Proof/ProofSystem.html">ProofSystem</a> <b>(Different package)</b><ul><li><a href="Tableaux/TableauxSystem.html">TableauxSystem</a></li></ul></li>
+</ul>
 
 <hr />
 <div class="classtree">Root class Writer</div><br />
@@ -96,11 +107,11 @@
 <hr />
 <div class="classtree">Root class Exception</div><br />
 <ul>
-<li><a href="Tableaux/TableauException.html">TableauException</a></li><li><a href="Tableaux/Talbeaux_RuleException.html">Talbeaux_RuleException</a></li><li><a href="Tableaux/WriterException.html">WriterException</a></li></ul>
+<li><a href="Tableaux/RuleException.html">RuleException</a></li><li><a href="Tableaux/WriterException.html">WriterException</a></li></ul>
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Wed, 21 Dec 2011 04:15:58 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Fri, 23 Dec 2011 02:19:41 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

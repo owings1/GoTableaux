@@ -1,20 +1,20 @@
 <?php
 
-class GoModal_Rule_Sentence_ArrowDes implements Tableaux_Rule
+class GoModal_Rule_Sentence_ArrowDes implements Rule
 {
-	public function apply( Tableaux_Branch $branch )
+	public function apply( Branch $branch )
 	{
 		
 		
-		if ( ! $branch instanceof GoModal_Branch ){
+		if ( ! $branch instanceof GoModalBranch ){
 			throw new Exception( 'branch must be a GoModal instance' );
 		}
 		
-		$arrowNodes = GoModal_Branch::getNodesByOperatorName( $branch->getDesignatedNodes( true ), 'ARROW' );
+		$arrowNodes = GoModalBranch::getNodesByOperatorName( $branch->getDesignatedNodes( true ), 'ARROW' );
 		
-		if ( empty( $arrowNodes )){
+		if ( empty( $arrowNodes ))
 			return false;
-		}
+		
 		
 		$node = $arrowNodes[0];
 		
@@ -29,7 +29,7 @@ class GoModal_Rule_Sentence_ArrowDes implements Tableaux_Rule
 		$operands = $node->getSentence()->getOperands();
 		
 		// create new sentence
-		$newSentence = new Sentence_Molecular();
+		$newSentence = new MolecularSentence();
 		
 		// set operator to negation
 		$newSentence->setOperator( $negation );
@@ -41,7 +41,7 @@ class GoModal_Rule_Sentence_ArrowDes implements Tableaux_Rule
 		$negLhs = $vocabulary->oldOrNew( $newSentence );
 		
 		// create new sentence
-		$newSentence = new Sentence_Molecular();
+		$newSentence = new MolecularSentence();
 		
 		// set operator to disjunction
 		$newSentence->setOperator( $disjunction );
@@ -54,7 +54,7 @@ class GoModal_Rule_Sentence_ArrowDes implements Tableaux_Rule
 		$disj = $vocabulary->oldOrNew( $newSentence );
 		
 		// create new sentence
-		$newSentence = new Sentence_Molecular();
+		$newSentence = new MolecularSentence();
 		
 		// set operator to negation
 		$newSentence->setOperator( $negation );
@@ -80,7 +80,7 @@ class GoModal_Rule_Sentence_ArrowDes implements Tableaux_Rule
 		$node->tick( $branch );
 		$node->tick( $branch_b );
 		
-		return array( 0 => $branch, $branch_b );
+		return array( $branch_b );
 	}
 }
 ?>

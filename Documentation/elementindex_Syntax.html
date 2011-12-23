@@ -17,8 +17,8 @@
   <tr>
     <td colspan="2" class="header-menu">
       
-                        
-                                    		[ <a href="classtrees_Syntax.html" class="menu">class tree: Syntax</a> ]
+                                                                                
+                      		[ <a href="classtrees_Syntax.html" class="menu">class tree: Syntax</a> ]
 		[ <a href="elementindex_Syntax.html" class="menu">index: Syntax</a> ]
             [ <a href="elementindex.html" class="menu">all elements</a> ]
     </td>
@@ -32,14 +32,16 @@
 		<div class="package-title">Syntax</div>
       <b>Packages:</b><br />
   <div class="package">
-              <a href="li_Syntax.html">Syntax</a><br />
+              <a href="li_Logic.html">Logic</a><br />
+              <a href="li_ModelTheory.html">ModelTheory</a><br />
+              <a href="li_Proof.html">Proof</a><br />
               <a href="li_Tableaux.html">Tableaux</a><br />
+              <a href="li_Syntax.html">Syntax</a><br />
       	</div>
       <br />
                         <b>Files:</b><br />
         <div class="package">
-				<span style="padding-left: 1em;"><a href="Syntax/_Syntax---Argument.php.html">Argument.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="Syntax/_Syntax---AtomicSentence.php.html">AtomicSentence.php</a></span><br />
+				<span style="padding-left: 1em;"><a href="Syntax/_Syntax---AtomicSentence.php.html">AtomicSentence.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="Syntax/_Syntax---MolecularSentence.php.html">MolecularSentence.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="Syntax/_Syntax---Operator.php.html">Operator.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="Syntax/_Syntax---ParserException.php.html">ParserException.php</a></span><br />
@@ -52,8 +54,7 @@
             <br />
                   <b>Classes:</b><br />
         <div class="package">
-		    		<a href="Syntax/Argument.html">Argument</a>    	 <br />
-	    		<a href="Syntax/AtomicSentence.html">AtomicSentence</a>    	 <br />
+		    		<a href="Syntax/AtomicSentence.html">AtomicSentence</a>    	 <br />
 	    		<a href="Syntax/MolecularSentence.html">MolecularSentence</a>    	 <br />
 	    		<a href="Syntax/Operator.html">Operator</a>    	 <br />
 	    		<a href="Syntax/ParserException.html">ParserException</a>    	 <br />
@@ -71,8 +72,11 @@
 <h1>Element index for package Syntax</h1>
 	<h3>Package indexes</h3>
 	<ul>
-						<li><a href="elementindex_Tableaux.html">Tableaux</a></li>
-			</ul>
+				<li><a href="elementindex_Logic.html">Logic</a></li>
+					<li><a href="elementindex_ModelTheory.html">ModelTheory</a></li>
+					<li><a href="elementindex_Proof.html">Proof</a></li>
+					<li><a href="elementindex_Tableaux.html">Tableaux</a></li>
+					</ul>
 	[ <a href="elementindex_Syntax.html#a">a</a> ]
 	[ <a href="elementindex_Syntax.html#c">c</a> ]
 	[ <a href="elementindex_Syntax.html#d">d</a> ]
@@ -110,7 +114,7 @@
 							<dt><b>_sentenceToString</b></dt>
 				<dd>in file StandardSentenceParser.php, method <a href="Syntax/StandardSentenceParser.html#method_sentenceToString">StandardSentenceParser::_sentenceToString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Makes a string representation of a sentence with outer parentheses.</dd>
 							<dt><b>__construct</b></dt>
-				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#method__construct">Vocabulary::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
+				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#method__construct">Vocabulary::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor. Initializes lexicon.</dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file Operator.php, method <a href="Syntax/Operator.html#method__construct">Operator::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
 					</dl>
@@ -125,35 +129,27 @@
 		<h2>a</h2>
 		<dl>
 							<dt><b>$arity</b></dt>
-				<dd>in file Operator.php, variable <a href="Syntax/Operator.html#var$arity">Operator::$arity</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The arity of the operator.</dd>
+				<dd>in file Operator.php, variable <a href="Syntax/Operator.html#var$arity">Operator::$arity</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the arity of the operator.</dd>
 							<dt><b>addAtomicSymbol</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodaddAtomicSymbol">Vocabulary::addAtomicSymbol()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds an atomic symbol.</dd>
 							<dt><b>addCloseMark</b></dt>
-				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodaddCloseMark">Vocabulary::addCloseMark()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a closing punctuation symbol, e.</dd>
+				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodaddCloseMark">Vocabulary::addCloseMark()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a closing punctuation symbol, e.g. ')'.</dd>
 							<dt><b>addOpenMark</b></dt>
-				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodaddOpenMark">Vocabulary::addOpenMark()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds an opening punctuation symbol, e.</dd>
+				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodaddOpenMark">Vocabulary::addOpenMark()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds an opening punctuation symbol, e.g. '('.</dd>
 							<dt><b>addOperand</b></dt>
 				<dd>in file MolecularSentence.php, method <a href="Syntax/MolecularSentence.html#methodaddOperand">MolecularSentence::addOperand()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds an operand, or many operands.</dd>
 							<dt><b>addOuterParens</b></dt>
 				<dd>in file SentenceParser.php, method <a href="Syntax/SentenceParser.html#methodaddOuterParens">SentenceParser::addOuterParens()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds outer parentheses to a string.</dd>
-							<dt><b>addPremise</b></dt>
-				<dd>in file Argument.php, method <a href="Syntax/Argument.html#methodaddPremise">Argument::addPremise()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a premise to the argument.</dd>
-							<dt><b>addPremises</b></dt>
-				<dd>in file Argument.php, method <a href="Syntax/Argument.html#methodaddPremises">Argument::addPremises()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds multiple premises to the argument.</dd>
 							<dt><b>addSeparator</b></dt>
-				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodaddSeparator">Vocabulary::addSeparator()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a separator symbol, e.</dd>
+				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodaddSeparator">Vocabulary::addSeparator()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a separator symbol, e.g. a space character.</dd>
 							<dt><b>addSubscriptSymbol</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodaddSubscriptSymbol">Vocabulary::addSubscriptSymbol()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the symbol used for subscripting atomic symbols</dd>
 							<dt><b>addSymbol</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodaddSymbol">Vocabulary::addSymbol()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a symbol to the vocabulary.</dd>
-							<dt><b>Argument</b></dt>
-				<dd>in file Argument.php, class <a href="Syntax/Argument.html">Argument</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents an argument as a set of premises and one conclusion.</dd>
 							<dt><b>ATOMIC</b></dt>
 				<dd>in file Vocabulary.php, class constant <a href="Syntax/Vocabulary.html#constATOMIC">Vocabulary::ATOMIC</a></dd>
 							<dt><b>AtomicSentence</b></dt>
 				<dd>in file AtomicSentence.php, class <a href="Syntax/AtomicSentence.html">AtomicSentence</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents an atomic sentence.</dd>
-							<dt><b>Argument.php</b></dt>
-				<dd>procedural page <a href="Syntax/_Syntax---Argument.php.html">Argument.php</a></dd>
 							<dt><b>AtomicSentence.php</b></dt>
 				<dd>procedural page <a href="Syntax/_Syntax---AtomicSentence.php.html">AtomicSentence.php</a></dd>
 					</dl>
@@ -167,16 +163,16 @@
 	<div>
 		<h2>c</h2>
 		<dl>
-							<dt><b>$conclusion</b></dt>
-				<dd>in file Argument.php, variable <a href="Syntax/Argument.html#var$conclusion">Argument::$conclusion</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The conclusion.</dd>
 							<dt><b>closePosFromOpenPos</b></dt>
-				<dd>in file SentenceParser.php, method <a href="Syntax/SentenceParser.html#methodclosePosFromOpenPos">SentenceParser::closePosFromOpenPos()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Finds a string's for the corresponding close mark of an open mark at the given position.</dd>
+				<dd>in file SentenceParser.php, method <a href="Syntax/SentenceParser.html#methodclosePosFromOpenPos">SentenceParser::closePosFromOpenPos()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Finds a string's for the corresponding close mark of an open mark at the  given position.</dd>
 							<dt><b>createAtomic</b></dt>
 				<dd>in file Sentence.php, method <a href="Syntax/Sentence.html#methodcreateAtomic">Sentence::createAtomic()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates an atomic sentence.</dd>
 							<dt><b>createMolecular</b></dt>
 				<dd>in file Sentence.php, method <a href="Syntax/Sentence.html#methodcreateMolecular">Sentence::createMolecular()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates a molecular sentence.</dd>
 							<dt><b>createOperator</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodcreateOperator">Vocabulary::createOperator()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates an operator and adds it to the vocabulary items.</dd>
+							<dt><b>createWithLexicon</b></dt>
+				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodcreateWithLexicon">Vocabulary::createWithLexicon()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates an instance with a lexicon.</dd>
 							<dt><b>createWithMsgInputPos</b></dt>
 				<dd>in file ParserException.php, method <a href="Syntax/ParserException.html#methodcreateWithMsgInputPos">ParserException::createWithMsgInputPos()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates an instance with message, input, and position parameters.</dd>
 							<dt><b>createWithOptions</b></dt>
@@ -215,8 +211,6 @@
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodgetAtomicSymbols">Vocabulary::getAtomicSymbols()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the atomic symbols.</dd>
 							<dt><b>getCloseMarks</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodgetCloseMarks">Vocabulary::getCloseMarks()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the close marks.</dd>
-							<dt><b>getConclusion</b></dt>
-				<dd>in file Argument.php, method <a href="Syntax/Argument.html#methodgetConclusion">Argument::getConclusion()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the conclusion of the argument.</dd>
 							<dt><b>getItems</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodgetItems">Vocabulary::getItems()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all items in vocabulary of a type flag.</dd>
 							<dt><b>getLabel</b></dt>
@@ -235,8 +229,6 @@
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodgetOperatorBySymbol">Vocabulary::getOperatorBySymbol()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets Operator object by its symbol.</dd>
 							<dt><b>getOperatorSymbols</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodgetOperatorSymbols">Vocabulary::getOperatorSymbols()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all operator symbols.</dd>
-							<dt><b>getPremises</b></dt>
-				<dd>in file Argument.php, method <a href="Syntax/Argument.html#methodgetPremises">Argument::getPremises()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all the premises of the argument.</dd>
 							<dt><b>getSeparators</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodgetSeparators">Vocabulary::getSeparators()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the separators.</dd>
 							<dt><b>getSubscript</b></dt>
@@ -244,9 +236,9 @@
 							<dt><b>getSubscriptSymbols</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodgetSubscriptSymbols">Vocabulary::getSubscriptSymbols()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the subscript symbol.</dd>
 							<dt><b>getSymbol</b></dt>
-				<dd>in file Operator.php, method <a href="Syntax/Operator.html#methodgetSymbol">Operator::getSymbol()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the operator symbol.</dd>
-							<dt><b>getSymbol</b></dt>
 				<dd>in file AtomicSentence.php, method <a href="Syntax/AtomicSentence.html#methodgetSymbol">AtomicSentence::getSymbol()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the atomic symbol.</dd>
+							<dt><b>getSymbol</b></dt>
+				<dd>in file Operator.php, method <a href="Syntax/Operator.html#methodgetSymbol">Operator::getSymbol()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the operator symbol.</dd>
 							<dt><b>getSymbolType</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodgetSymbolType">Vocabulary::getSymbolType()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets item type by symbol.</dd>
 							<dt><b>grabParenGroup</b></dt>
@@ -265,7 +257,9 @@
 							<dt><b>$input</b></dt>
 				<dd>in file ParserException.php, variable <a href="Syntax/ParserException.html#var$input">ParserException::$input</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Input string for which error was raised.</dd>
 							<dt><b>$items</b></dt>
-				<dd>in file Vocabulary.php, variable <a href="Syntax/Vocabulary.html#var$items">Vocabulary::$items</a><br>&nbsp;&nbsp;&nbsp;&nbsp;All vocabulary items, including operators. type flag.</dd>
+				<dd>in file Vocabulary.php, variable <a href="Syntax/Vocabulary.html#var$items">Vocabulary::$items</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a hash of all vocabulary items, including operators.</dd>
+							<dt><b>insertLexicon</b></dt>
+				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodinsertLexicon">Vocabulary::insertLexicon()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds an array of lexical items to the vocabulary.</dd>
 							<dt><b>isOperatorType</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodisOperatorType">Vocabulary::isOperatorType()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether a type flag is of an operator.</dd>
 					</dl>
@@ -295,7 +289,7 @@
 		<h2>n</h2>
 		<dl>
 							<dt><b>$name</b></dt>
-				<dd>in file Operator.php, variable <a href="Syntax/Operator.html#var$name">Operator::$name</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The human name of the operator, e.</dd>
+				<dd>in file Operator.php, variable <a href="Syntax/Operator.html#var$name">Operator::$name</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the name of the operator.</dd>
 					</dl>
 	</div>
 	<a name="o"></a>
@@ -312,7 +306,7 @@
 							<dt><b>$operator</b></dt>
 				<dd>in file MolecularSentence.php, variable <a href="Syntax/MolecularSentence.html#var$operator">MolecularSentence::$operator</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds an Operator instance.</dd>
 							<dt><b>$operators</b></dt>
-				<dd>in file Vocabulary.php, variable <a href="Syntax/Vocabulary.html#var$operators">Vocabulary::$operators</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Operators.</dd>
+				<dd>in file Vocabulary.php, variable <a href="Syntax/Vocabulary.html#var$operators">Vocabulary::$operators</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the operators.</dd>
 							<dt><b>Operator</b></dt>
 				<dd>in file Operator.php, class <a href="Syntax/Operator.html">Operator</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents an operator.</dd>
 							<dt><b>Operator.php</b></dt>
@@ -330,8 +324,6 @@
 		<dl>
 							<dt><b>$position</b></dt>
 				<dd>in file ParserException.php, variable <a href="Syntax/ParserException.html#var$position">ParserException::$position</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Character position of parse error.</dd>
-							<dt><b>$premises</b></dt>
-				<dd>in file Argument.php, variable <a href="Syntax/Argument.html#var$premises">Argument::$premises</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The set of premises.</dd>
 							<dt><b>ParserException</b></dt>
 				<dd>in file ParserException.php, class <a href="Syntax/ParserException.html">ParserException</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a parsing exception.</dd>
 							<dt><b>PUNCT_CLOSE</b></dt>
@@ -354,7 +346,7 @@
 		<h2>r</h2>
 		<dl>
 							<dt><b>registerSentence</b></dt>
-				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodregisterSentence">Vocabulary::registerSentence()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a sentence to the registry. already in the registry, the passed sentence is ignored, and the stored sentence is returned.</dd>
+				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodregisterSentence">Vocabulary::registerSentence()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a sentence to the registry.</dd>
 							<dt><b>removeSeparators</b></dt>
 				<dd>in file SentenceParser.php, method <a href="Syntax/SentenceParser.html#methodremoveSeparators">SentenceParser::removeSeparators()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Removes separator (whitespace) characters from a string.</dd>
 					</dl>
@@ -369,23 +361,21 @@
 		<h2>s</h2>
 		<dl>
 							<dt><b>$sentences</b></dt>
-				<dd>in file Vocabulary.php, variable <a href="Syntax/Vocabulary.html#var$sentences">Vocabulary::$sentences</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sentence registry, used for tracking <a href="Syntax/Sentence.html">Sentence</a> instances, to ensure object identity with sentence form identity. string relative to parser, value is sentence object.</dd>
+				<dd>in file Vocabulary.php, variable <a href="Syntax/Vocabulary.html#var$sentences">Vocabulary::$sentences</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the set of sentences.</dd>
 							<dt><b>$subscript</b></dt>
 				<dd>in file AtomicSentence.php, variable <a href="Syntax/AtomicSentence.html#var$subscript">AtomicSentence::$subscript</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Subscript of the atomic symbol.</dd>
 							<dt><b>$symbol</b></dt>
-				<dd>in file Operator.php, variable <a href="Syntax/Operator.html#var$symbol">Operator::$symbol</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The symbol with which the operator is created.</dd>
+				<dd>in file Operator.php, variable <a href="Syntax/Operator.html#var$symbol">Operator::$symbol</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the operator's symbol.</dd>
 							<dt><b>$symbol</b></dt>
-				<dd>in file AtomicSentence.php, variable <a href="Syntax/AtomicSentence.html#var$symbol">AtomicSentence::$symbol</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Atomic symbol, e.</dd>
+				<dd>in file AtomicSentence.php, variable <a href="Syntax/AtomicSentence.html#var$symbol">AtomicSentence::$symbol</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Atomic symbol, e.g. 'A' or 'B'.</dd>
 							<dt><b>Sentence</b></dt>
 				<dd>in file Sentence.php, class <a href="Syntax/Sentence.html">Sentence</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a sentence.</dd>
 							<dt><b>SentenceParser</b></dt>
 				<dd>in file SentenceParser.php, class <a href="Syntax/SentenceParser.html">SentenceParser</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a sentence parser.</dd>
 							<dt><b>sentenceToString</b></dt>
-				<dd>in file StandardSentenceParser.php, method <a href="Syntax/StandardSentenceParser.html#methodsentenceToString">StandardSentenceParser::sentenceToString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets a string representation of a <a href="Syntax/Sentence.html">sentence</a>.</dd>
-							<dt><b>sentenceToString</b></dt>
 				<dd>in file SentenceParser.php, method <a href="Syntax/SentenceParser.html#methodsentenceToString">SentenceParser::sentenceToString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the string representation of a <a href="Syntax/Sentence.html">sentence</a>.</dd>
-							<dt><b>setConclusion</b></dt>
-				<dd>in file Argument.php, method <a href="Syntax/Argument.html#methodsetConclusion">Argument::setConclusion()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the conclusion of the argument.</dd>
+							<dt><b>sentenceToString</b></dt>
+				<dd>in file StandardSentenceParser.php, method <a href="Syntax/StandardSentenceParser.html#methodsentenceToString">StandardSentenceParser::sentenceToString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets a string representation of a <a href="Syntax/Sentence.html">sentence</a>.</dd>
 							<dt><b>setLabel</b></dt>
 				<dd>in file AtomicSentence.php, method <a href="Syntax/AtomicSentence.html#methodsetLabel">AtomicSentence::setLabel()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Alias for <a href="Syntax/AtomicSentence.html#methodsetSymbol">AtomicSentence::setSymbol()</a>.</dd>
 							<dt><b>setOperator</b></dt>
@@ -435,7 +425,7 @@
 		<h2>v</h2>
 		<dl>
 							<dt><b>$vocabulary</b></dt>
-				<dd>in file SentenceParser.php, variable <a href="Syntax/SentenceParser.html#var$vocabulary">SentenceParser::$vocabulary</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Stores a reference to the <a href="Syntax/Vocabulary.html">vocabulary</a> relative to which to parse.</dd>
+				<dd>in file SentenceParser.php, variable <a href="Syntax/SentenceParser.html#var$vocabulary">SentenceParser::$vocabulary</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Stores a reference to the <a href="Syntax/Vocabulary.html">vocabulary</a> relative to  which to parse.</dd>
 							<dt><b>Vocabulary.php</b></dt>
 				<dd>procedural page <a href="Syntax/_Syntax---Vocabulary.php.html">Vocabulary.php</a></dd>
 							<dt><b>VocabularyException.php</b></dt>
@@ -448,7 +438,7 @@
 	</div>
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Wed, 21 Dec 2011 04:15:57 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Fri, 23 Dec 2011 02:19:41 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

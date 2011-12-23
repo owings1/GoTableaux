@@ -17,7 +17,7 @@
   <tr>
     <td colspan="2" class="header-menu">
       
-                        
+                                                                  
                                     		[ <a href="../classtrees_Syntax.html" class="menu">class tree: Syntax</a> ]
 		[ <a href="../elementindex_Syntax.html" class="menu">index: Syntax</a> ]
             [ <a href="../elementindex.html" class="menu">all elements</a> ]
@@ -32,14 +32,16 @@
 		<div class="package-title">Syntax</div>
       <b>Packages:</b><br />
   <div class="package">
+              <a href="../li_Logic.html">Logic</a><br />
+              <a href="../li_ModelTheory.html">ModelTheory</a><br />
+              <a href="../li_Proof.html">Proof</a><br />
               <a href="../li_Syntax.html">Syntax</a><br />
               <a href="../li_Tableaux.html">Tableaux</a><br />
       	</div>
       <br />
                         <b>Files:</b><br />
         <div class="package">
-				<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---Argument.php.html">Argument.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---AtomicSentence.php.html">AtomicSentence.php</a></span><br />
+				<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---AtomicSentence.php.html">AtomicSentence.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---MolecularSentence.php.html">MolecularSentence.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---Operator.php.html">Operator.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---ParserException.php.html">ParserException.php</a></span><br />
@@ -52,8 +54,7 @@
             <br />
                   <b>Classes:</b><br />
         <div class="package">
-		    		<a href="../Syntax/Argument.html">Argument</a>    	 <br />
-	    		<a href="../Syntax/AtomicSentence.html">AtomicSentence</a>    	 <br />
+		    		<a href="../Syntax/AtomicSentence.html">AtomicSentence</a>    	 <br />
 	    		<a href="../Syntax/MolecularSentence.html">MolecularSentence</a>    	 <br />
 	    		<a href="../Syntax/Operator.html">Operator</a>    	 <br />
 	    		<a href="../Syntax/ParserException.html">ParserException</a>    	 <br />
@@ -87,9 +88,9 @@ Source Location: /Syntax/Operator.php<br /><br />
 
         		<p align="center" class="short-description"><strong>Represents an operator.
 </strong></p>
-<span class="description"><p>Represents an operator.</p></span>
+
 		<p class="notes">
-			Located in <a class="field" href="_Syntax---Operator.php.html">/Syntax/Operator.php</a> [<span class="field">line 13</span>]
+			Located in <a class="field" href="_Syntax---Operator.php.html">/Syntax/Operator.php</a> [<span class="field">line 19</span>]
 		</p>
 
 		
@@ -99,9 +100,16 @@ Source Location: /Syntax/Operator.php<br /><br />
 				<strong>Author(s):</strong>
 		<ul>
 		  			 			 <li>Douglas Owings</li>
-			 		  		</ul>
+			 		  			 		  		</ul>
 		
-		
+		<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>See:</strong>&nbsp;&nbsp;</td><td><a href="../Syntax/Vocabulary.html#methodcreateOperator">Vocabulary::createOperator()</a></td>
+  </tr>
+</table>
+<br />
+
 <strong>Information Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
 	</table>
@@ -148,17 +156,17 @@ Source Location: /Syntax/Operator.php<br /><br />
 																															<div class="var-title">
 					<tr><td class="var-title"><span class="var-type-summary">integer</span>&nbsp;&nbsp;</td>
 					<td class="var-title"><a href="#$arity" title="details" class="var-name-summary">$arity</a>&nbsp;&nbsp;</td>
-					<td class="var-summary-description">The arity of the operator.</td></tr>
+					<td class="var-summary-description">Holds the arity of the operator.</td></tr>
 				</div>
 													<div class="var-title">
 					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
 					<td class="var-title"><a href="#$name" title="details" class="var-name-summary">$name</a>&nbsp;&nbsp;</td>
-					<td class="var-summary-description">The human name of the operator, e.</td></tr>
+					<td class="var-summary-description">Holds the name of the operator.</td></tr>
 				</div>
 													<div class="var-title">
 					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
 					<td class="var-title"><a href="#$symbol" title="details" class="var-name-summary">$symbol</a>&nbsp;&nbsp;</td>
-					<td class="var-summary-description">The symbol with which the operator is created.</td></tr>
+					<td class="var-summary-description">Holds the operator's symbol.</td></tr>
 				</div>
 										</table>
 			</div>
@@ -219,13 +227,13 @@ Source Location: /Syntax/Operator.php<br /><br />
 		<span class="var-title">
 			<span class="var-type">integer</span>&nbsp;&nbsp;
 			<span class="var-name">$arity</span>
-						<span class="smalllinenumber">[line 27]</span>
+						<span class="smalllinenumber">[line 33]</span>
 		</span>
 	</div>
 
-	<p align="center" class="short-description"><strong>The arity of the operator.
+	<p align="center" class="short-description"><strong>Holds the arity of the operator.
 </strong></p>
-<span class="description"><p>The arity of the operator.</p></span>	<strong>API Tags:</strong><br />
+	<strong>API Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
@@ -245,13 +253,13 @@ Source Location: /Syntax/Operator.php<br /><br />
 		<span class="var-title">
 			<span class="var-type">string</span>&nbsp;&nbsp;
 			<span class="var-name">$name</span>
-						<span class="smalllinenumber">[line 20]</span>
+						<span class="smalllinenumber">[line 26]</span>
 		</span>
 	</div>
 
-	<p align="center" class="short-description"><strong>The human name of the operator, e.
+	<p align="center" class="short-description"><strong>Holds the name of the operator.
 </strong></p>
-<span class="description"><p>The human name of the operator, e.g. 'Conjunction'</p></span>	<strong>API Tags:</strong><br />
+	<strong>API Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
@@ -271,13 +279,13 @@ Source Location: /Syntax/Operator.php<br /><br />
 		<span class="var-title">
 			<span class="var-type">string</span>&nbsp;&nbsp;
 			<span class="var-name">$symbol</span>
-						<span class="smalllinenumber">[line 34]</span>
+						<span class="smalllinenumber">[line 40]</span>
 		</span>
 	</div>
 
-	<p align="center" class="short-description"><strong>The symbol with which the operator is created.
+	<p align="center" class="short-description"><strong>Holds the operator's symbol.
 </strong></p>
-<span class="description"><p>The symbol with which the operator is created.</p></span>	<strong>API Tags:</strong><br />
+	<strong>API Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
@@ -308,7 +316,7 @@ Source Location: /Syntax/Operator.php<br /><br />
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">Constructor __construct</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 43]</span>
+	<span class="method-title">Constructor __construct</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 51]</span>
 </div>
 <br />
 
@@ -326,7 +334,7 @@ $name&nbsp;
 
 	<p align="center" class="short-description"><strong>Constructor.
 </strong></p>
-<span class="description"><p>Constructor.</p></span>
+
 			<strong>Parameters:</strong><br />
 			<table border="0" cellspacing="0" cellpadding="0">
 					<tr><td class="indent">
@@ -334,23 +342,36 @@ $name&nbsp;
 				<td>
 				<span class="var-name">$symbol:&nbsp;</span></td>
 				<td>
-							</td></tr>
+				<span class="var-description"> The operator symbol.</span>			</td></tr>
 					<tr><td class="indent">
 				<span class="var-type">integer</span>&nbsp;&nbsp;</td>
 				<td>
 				<span class="var-name">$arity:&nbsp;</span></td>
 				<td>
-							</td></tr>
+				<span class="var-description"> The arity of the operator.</span>			</td></tr>
 					<tr><td class="indent">
 				<span class="var-type">string</span>&nbsp;&nbsp;</td>
 				<td>
 				<span class="var-name">$name:&nbsp;</span></td>
 				<td>
-							</td></tr>
+				<span class="var-description"> The human name of the operator, e.g. 'Conjunction'.</span>			</td></tr>
 				</table>
 
 	<br />
-	
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>See:</strong>&nbsp;&nbsp;</td><td><a href="../Syntax/Vocabulary.html#methodcreateOperator">Vocabulary::createOperator()</a></td>
+  </tr>
+</table>
+<br />
+
+<strong>Information Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Throws:</strong>&nbsp;&nbsp;</td><td>VobabularyException on parameter errors.</td>
+  </tr>
+</table>
 
 		
 		<br />
@@ -360,7 +381,7 @@ $name&nbsp;
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">getArity</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 72]</span>
+	<span class="method-title">getArity</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 80]</span>
 </div>
 <br />
 
@@ -374,7 +395,7 @@ $name&nbsp;
 
 	<p align="center" class="short-description"><strong>Gets the arity of the operator.
 </strong></p>
-<span class="description"><p>Gets the arity of the operator.</p></span>
+
 	<br />
 	<strong>API Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
@@ -393,7 +414,7 @@ $name&nbsp;
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">getName</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 62]</span>
+	<span class="method-title">getName</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 70]</span>
 </div>
 <br />
 
@@ -407,7 +428,7 @@ $name&nbsp;
 
 	<p align="center" class="short-description"><strong>Gets the name of the operator.
 </strong></p>
-<span class="description"><p>Gets the name of the operator.</p></span>
+
 	<br />
 	<strong>API Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
@@ -426,7 +447,7 @@ $name&nbsp;
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">getSymbol</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 82]</span>
+	<span class="method-title">getSymbol</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 90]</span>
 </div>
 <br />
 
@@ -440,7 +461,7 @@ $name&nbsp;
 
 	<p align="center" class="short-description"><strong>Gets the operator symbol.
 </strong></p>
-<span class="description"><p>Gets the operator symbol.</p></span>
+
 	<br />
 	<strong>API Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
@@ -461,7 +482,7 @@ $name&nbsp;
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Wed, 21 Dec 2011 04:15:59 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Fri, 23 Dec 2011 02:19:44 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

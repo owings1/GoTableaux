@@ -1,15 +1,15 @@
 <?php
 
-class GoModal_Rule_Sentence_BoxUndes implements Tableaux_Rule
+class GoModal_Rule_Sentence_BoxUndes implements Rule
 {
-	public function apply( Tableaux_Branch $branch )
+	public function apply( Branch $branch )
 	{
 		
-		if ( ! $branch instanceof GoModal_Branch ){
+		if ( ! $branch instanceof GoModalBranch ){
 			throw new Exception( 'branch must be a GoModal instance' );
 		}
 		
-		$necNodes = GoModal_Branch::getNodesByOperatorName( $branch->getUndesignatedNodes( true ), 'NECESSITY' );
+		$necNodes = GoModalBranch::getNodesByOperatorName( $branch->getUndesignatedNodes( true ), 'NECESSITY' );
 		
 		if ( empty( $necNodes )){
 			return false;
@@ -25,7 +25,7 @@ class GoModal_Rule_Sentence_BoxUndes implements Tableaux_Rule
 		$boxSentence = $node->getSentence();
 		
 		// create negated box sentence
-		$newSentence = new Sentence_Molecular();
+		$newSentence = new MolecularSentence();
 		$newSentence->setOperator( $negation );
 		$newSentence->addOperand( $boxSentence );
 		
