@@ -10,7 +10,7 @@ class GoModal_Rule_Sentence_BiarrowDes implements Rule
 			throw new Exception( 'branch must be a GoModal instance' );
 		}
 		
-		$arrowNodes = GoModalBranch::getNodesByOperatorName( $branch->getDesignatedNodes( true ), 'BIARROW' );
+		$arrowNodes = SentenceNode::findNodesByOperatorName( $branch->getDesignatedNodes( true ), 'BIARROW' );
 		
 		if ( empty( $arrowNodes )){
 			return false;

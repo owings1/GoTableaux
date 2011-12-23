@@ -41,14 +41,20 @@
       <br />
                         <b>Files:</b><br />
         <div class="package">
-				<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Branch.php.html">Branch.php</a></span><br />
+				<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node---AccessNode.php.html">AccessNode.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Branch.php.html">Branch.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---BranchRule.php.html">BranchRule.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---ClosureRule.php.html">ClosureRule.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Branch---ManyValuedModalBranch.php.html">ManyValuedModalBranch.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node---ManyValuedModalSentenceNode.php.html">ManyValuedModalSentenceNode.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node---ModalAccessNode.php.html">ModalAccessNode.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---ManyValuedModalTableauxSystem.php.html">ManyValuedModalTableauxSystem.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Branch---ModalBranch.php.html">ModalBranch.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node---ModalNode.php.html">ModalNode.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Rule---ModalReflexiveRule.php.html">ModalReflexiveRule.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node---ModalSentenceNode.php.html">ModalSentenceNode.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---ModalTableau.php.html">ModalTableau.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---ModalTableauxSystem.php.html">ModalTableauxSystem.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Rule---ModalTransitiveRule.php.html">ModalTransitiveRule.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node.php.html">Node.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Writer---LaTeX---Qtree.php.html">Qtree.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---RuleException.php.html">RuleException.php</a></span><br />
@@ -65,15 +71,21 @@
         <div class="package">
 		    		<a href="../Tableaux/BranchRule.html">BranchRule</a>    	 <br />
 	    		<a href="../Tableaux/ClosureRule.html">ClosureRule</a>    	 <br />
+	    		<a href="../Tableaux/ModalNode.html">ModalNode</a>    	 <br />
 	  </div>
                   <b>Classes:</b><br />
         <div class="package">
-		    		<a href="../Tableaux/Branch.html">Branch</a>    	 <br />
+		    		<a href="../Tableaux/AccessNode.html">AccessNode</a>    	 <br />
+	    		<a href="../Tableaux/Branch.html">Branch</a>    	 <br />
 	    		<a href="../Tableaux/ManyValuedModalBranch.html">ManyValuedModalBranch</a>    	 <br />
 	    		<a href="../Tableaux/ManyValuedModalSentenceNode.html">ManyValuedModalSentenceNode</a>    	 <br />
-	    		<a href="../Tableaux/ModalAccessNode.html">ModalAccessNode</a>    	 <br />
+	    		<a href="../Tableaux/ManyValuedModalTableauxSystem.html">ManyValuedModalTableauxSystem</a>    	 <br />
 	    		<a href="../Tableaux/ModalBranch.html">ModalBranch</a>    	 <br />
+	    		<a href="../Tableaux/ModalReflexiveRule.html">ModalReflexiveRule</a>    	 <br />
 	    		<a href="../Tableaux/ModalSentenceNode.html">ModalSentenceNode</a>    	 <br />
+	    		<a href="../Tableaux/ModalTableau.html">ModalTableau</a>    	 <br />
+	    		<a href="../Tableaux/ModalTableauxSystem.html">ModalTableauxSystem</a>    	 <br />
+	    		<a href="../Tableaux/ModalTransitiveRule.html">ModalTransitiveRule</a>    	 <br />
 	    		<a href="../Tableaux/Node.html">Node</a>    	 <br />
 	    		<a href="../Tableaux/RuleException.html">RuleException</a>    	 <br />
 	    		<a href="../Tableaux/SentenceNode.html">SentenceNode</a>    	 <br />
@@ -168,6 +180,23 @@ Source Location: /ProofSystem/Tableaux/Branch/ManyValuedModalBranch.php<br /><br
 				</tr>
 				<tr>
 					<td width="30%">
+													<p>Inherited From <span class="classname"><a href="../Tableaux/ModalBranch.html">ModalBranch</a></span></p>
+							<blockquote>
+								<dl>
+																			<dt>
+											<span class="method-definition"><a href="../Tableaux/ModalBranch.html#var$accessNodes">ModalBranch::$accessNodes</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../Tableaux/ModalBranch.html#var$sentenceNodes">ModalBranch::$sentenceNodes</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																	</dl>
+							</blockquote>
 													<p>Inherited From <span class="classname"><a href="../Tableaux/Branch.html">Branch</a></span></p>
 							<blockquote>
 								<dl>
@@ -191,46 +220,10 @@ Source Location: /ProofSystem/Tableaux/Branch/ManyValuedModalBranch.php<br /><br
 							<blockquote>
 								<dl>
 																			<dt>
-											<span class="method-definition"><a href="../Tableaux/ModalBranch.html#methodgetAccessNodes">ModalBranch::getAccessNodes()</a></span>
-										</dt>
-										<dd>
-											<span class="method-definition">Gets all modal access nodes on the branch.</span>
-										</dd>
-																			<dt>
-											<span class="method-definition"><a href="../Tableaux/ModalBranch.html#methodgetAccessNodesByI">ModalBranch::getAccessNodesByI()</a></span>
-										</dt>
-										<dd>
-											<span class="method-definition">Gets all modal access nodes that have a given first index.</span>
-										</dd>
-																			<dt>
-											<span class="method-definition"><a href="../Tableaux/ModalBranch.html#methodgetAccessNodesByIJ">ModalBranch::getAccessNodesByIJ()</a></span>
-										</dt>
-										<dd>
-											<span class="method-definition">Gets all modal access nodes that have the given indexes.</span>
-										</dd>
-																			<dt>
-											<span class="method-definition"><a href="../Tableaux/ModalBranch.html#methodgetAccessNodesByJ">ModalBranch::getAccessNodesByJ()</a></span>
-										</dt>
-										<dd>
-											<span class="method-definition">Gets all modal access nodes that have a given second index.</span>
-										</dd>
-																			<dt>
-											<span class="method-definition"><a href="../Tableaux/ModalBranch.html#methodgetIsAndJsFromAccessNodes">ModalBranch::getIsAndJsFromAccessNodes()</a></span>
+											<span class="method-definition"><a href="../Tableaux/ModalBranch.html#methodgetIndexesFromNodes">ModalBranch::getIndexesFromNodes()</a></span>
 										</dt>
 										<dd>
 											<span class="method-definition">Gets all world indexes that appear in an array of modal access nodes.</span>
-										</dd>
-																			<dt>
-											<span class="method-definition"><a href="../Tableaux/ModalBranch.html#methodgetIsFromSentenceNodes">ModalBranch::getIsFromSentenceNodes()</a></span>
-										</dt>
-										<dd>
-											<span class="method-definition">Gets all world indexes that appear in an array of modal sentence nodes.</span>
-										</dd>
-																			<dt>
-											<span class="method-definition"><a href="../Tableaux/ModalBranch.html#methodgetNodesByOperatorName">ModalBranch::getNodesByOperatorName()</a></span>
-										</dt>
-										<dd>
-											<span class="method-definition">Gets all modal sentence nodes in an array of nodes, whose sentence's  operator has a particular name.</span>
 										</dd>
 																	</dl>
 							</blockquote>
@@ -254,18 +247,6 @@ Source Location: /ProofSystem/Tableaux/Branch/ManyValuedModalBranch.php<br /><br
 										</dt>
 										<dd>
 											<span class="method-definition">Clones the branch. Maintains references to the nodes.</span>
-										</dd>
-																			<dt>
-											<span class="method-definition"><a href="../Tableaux/Branch.html#methodgetBranchesWithNode">Branch::getBranchesWithNode()</a></span>
-										</dt>
-										<dd>
-											<span class="method-definition">Gets all branches that have a particular node on them.</span>
-										</dd>
-																			<dt>
-											<span class="method-definition"><a href="../Tableaux/Branch.html#methodgetCommonNodes">Branch::getCommonNodes()</a></span>
-										</dt>
-										<dd>
-											<span class="method-definition">Gets all nodes that are on each of an array of branches.</span>
 										</dd>
 																			<dt>
 											<span class="method-definition"><a href="../Tableaux/Branch.html#methodgetNodes">Branch::getNodes()</a></span>
@@ -551,7 +532,7 @@ $untickedOnly = false]&nbsp;
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Fri, 23 Dec 2011 02:19:43 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Fri, 23 Dec 2011 11:16:30 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

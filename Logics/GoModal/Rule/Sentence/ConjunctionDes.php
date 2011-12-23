@@ -9,7 +9,7 @@ class GoModal_Rule_Sentence_ConjunctionDes implements Rule
 			throw new Exception( 'branch must be a GoModal instance' );
 		}
 		
-		$conjNodes = GoModalBranch::getNodesByOperatorName( $branch->getDesignatedNodes( true ), 'CONJUNCTION' );
+		$conjNodes = SentenceNode::findNodesByOperatorName( $branch->getDesignatedNodes( true ), 'CONJUNCTION' );
 		
 		if ( empty( $conjNodes )){
 			return false;

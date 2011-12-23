@@ -9,7 +9,7 @@ class GoModal_Rule_Sentence_BoxDes implements Rule
 			throw new Exception( 'branch must be a GoModal instance' );
 		}
 		
-		$necNodes = GoModalBranch::getNodesByOperatorName( $branch->getDesignatedNodes( true ), 'NECESSITY' );
+		$necNodes = SentenceNode::findNodesByOperatorName( $branch->getDesignatedNodes( true ), 'NECESSITY' );
 		
 		if ( empty( $necNodes )){
 			return false;

@@ -10,7 +10,7 @@ class GoModal_Rule_Sentence_NegMatBicondDes implements Rule
 			throw new Exception( 'branch must be a GoModal instance' );
 		}
 		
-		$negNodes = GoModalBranch::getNodesByOperatorName( $branch->getDesignatedNodes( true ), 'NEGATION' );
+		$negNodes = SentenceNode::findNodesByOperatorName( $branch->getDesignatedNodes( true ), 'NEGATION' );
 		
 		$negBicondNodes = array();
 		

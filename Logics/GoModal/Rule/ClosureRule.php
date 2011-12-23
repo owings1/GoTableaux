@@ -34,7 +34,7 @@ class GoModal_ClosureRule implements ClosureRule
 		/*		Check for a Designated Sentence Whose Negation Is Designated			*/
 		
 		/*		Get Designated Negated Nodes			*/
-		$desNegNodes = GoModalBranch::getNodesByOperatorName( $desNodes, 'NEGATION' );
+		$desNegNodes = SentenceNode::findNodesByOperatorName( $desNodes, 'NEGATION' );
 		foreach ( $desNegNodes as $node ) {
 			$operands = $node->getSentence()->getOperands();
 			$operand = $operands[0];

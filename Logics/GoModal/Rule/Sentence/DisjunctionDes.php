@@ -10,7 +10,7 @@ class GoModal_Rule_Sentence_DisjunctionDes implements Rule
 			throw new Exception( 'branch must be a GoModal instance' );
 		}
 		
-		$disjNodes = GoModalBranch::getNodesByOperatorName( $branch->getDesignatedNodes( true ), 'DISJUNCTION' );
+		$disjNodes = SentenceNode::findNodesByOperatorName( $branch->getDesignatedNodes( true ), 'DISJUNCTION' );
 		
 		if ( empty( $disjNodes )){
 			return false;

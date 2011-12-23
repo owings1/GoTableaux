@@ -11,6 +11,11 @@
 require_once 'LogicException.php';
 
 /**
+ * Loads the {@link ProofSystem} interface.
+ */
+require_once 'ProofSystem.php';
+
+/**
  * Loads the {@link Vocabulary} class.
  */
 require_once 'Syntax/Vocabulary.php';
@@ -27,7 +32,13 @@ abstract class Logic {
 	 * @var array Associate array of lexical items.
 	 * @see Vocabulary::__construct()
 	 */
-	public $defaultLexicon = array();
+	public $lexicon = array();
+	
+	/**
+	 * Defines the proof system class.
+	 * @var string Class name.
+	 */
+	public $proofSystemClass = 'ProofSystem';
 	
 	/**
 	 * Holds a reference to the vocabulary.
@@ -53,49 +64,13 @@ abstract class Logic {
 	/**
 	 * Constructor. 
 	 *
-	 * Initializes the vocabulary, with optional overrides and additions to the
-	 * default lexicon.
-	 *
-	 * @param array $lexicon Lexicon overrides.
-	 * @see Logic::initVocabulary()
+	 * Initializes the vocabulary and the proof system.
 	 */
 	public function __construct()
 	{
-		$this->initVocabulary();
-		$this->initProofSystem();
-	}
-	
-	/**
-	 * Initializes the vocabulary. 
-	 *
-	 * Called when changes are made to vocabulary properties after instance 
-	 * creation.
-	 *
-	 * @param array $lexicon Associative array of vocabulary properties to
-	 *						 override. Any property not overridden will default
-	 *						 to the object's defined properties.
-	 * @return Logic Current instance.
-	 */
-	public function initVocabulary( array $lexicon )
-	{
-		$lexicon 	= array_merge( $this->defaultLexicon, $lexicon );
-		$vocabulary = Vocabulary::createWithLexicon( $lexicon );
-		return $this->setVocabulary( $vocabulary );
-	}
-	
-	/**
-	 * Sets the vocabulary to use. 
-	 * 
-	 * This is done automatically by the construct, and when 
-	 * {@link Logic::initVocabulary() initVocabulary()} is called.
-	 *
-	 * @param Vocabulary $vocabulary The vocabulary instance to use.
-	 * @return Logic Current instance.
-	 */
-	public function setVocabulary( Vocabulary $vocabulary )
-	{
-		$this->vocabulary = $vocabulary;
-		return $this;
+		$this->vocabalary = Vocabulary::createWithLexicon( $this->lexicon );
+		$this->proofSystem = new $this->proofSystemClass;
+		$this->proofSystem->setVocabulary( $this->vocabulary );
 	}
 	
 	/**
@@ -108,28 +83,5 @@ abstract class Logic {
 		return $this->vocabulary;
 	}
 	
-	/**
-	 * Initialize the proof system. 
-	 *
-	 * Called by constructor. Uses class name in {@link $proofSystemClass}.
-	 *
-	 * @param string $proofSystemClass The class name of the proof system to
-	 *								   use. Default is $this->proofSystemClass.
-	 * @return Logic Current instance.
-	 * @throws {@link LogicException} on empty class name or class not found.
-	 */
-	public function initProofSystem( $proofSystemClass = null )
-	{
-		if ( empty( $proofSystemClass )) {
-			$proofSystemClass = $this->proofSystemClass;
-			if ( empty( $proofSystemClass ))
-				throw new LogicException( 'No class name specified for proof system. Set Logic::proofSystemClass.' );
-		}
-		
-		if ( !class_exists( $proofSystemClass ))
-			throw new LogicException( "Class $proofSystemClass not found." );
-		
-		$proofSystem = new $proofSystemClass;
-	}
-	
+
 }

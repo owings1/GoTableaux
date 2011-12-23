@@ -9,7 +9,7 @@ class GoModal_Rule_Sentence_DiamondDes implements Rule
 			throw new Exception( 'branch must be a GoModal instance' );
 		}
 		
-		$posNodes = GoModalBranch::getNodesByOperatorName( $branch->getDesignatedNodes( true ), 'POSSIBILITY' );
+		$posNodes = SentenceNode::findNodesByOperatorName( $branch->getDesignatedNodes( true ), 'POSSIBILITY' );
 		
 		
 		if ( empty( $posNodes )){

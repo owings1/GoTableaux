@@ -55,6 +55,11 @@
 <li><a href="Tableaux/ClosureRule.html">ClosureRule</a></li></ul>
 
 <hr />
+<div class="classtree">Root interface ModalNode</div><br />
+<ul>
+<li><a href="Tableaux/ModalNode.html">ModalNode</a></li></ul>
+
+<hr />
 <div class="classtree">Root class Branch</div><br />
 <ul>
 <li><a href="Tableaux/Branch.html">Branch</a><ul>
@@ -64,11 +69,21 @@
 </ul>
 
 <hr />
+<div class="classtree">Root class ModalReflexiveRule</div><br />
+<ul>
+<li><a href="Tableaux/ModalReflexiveRule.html">ModalReflexiveRule</a> (implements <a href="Tableaux/BranchRule.html">BranchRule</a>)</li></ul>
+
+<hr />
+<div class="classtree">Root class ModalTransitiveRule</div><br />
+<ul>
+<li><a href="Tableaux/ModalTransitiveRule.html">ModalTransitiveRule</a> (implements <a href="Tableaux/BranchRule.html">BranchRule</a>)</li></ul>
+
+<hr />
 <div class="classtree">Root class Node</div><br />
 <ul>
 <li><a href="Tableaux/Node.html">Node</a><ul>
-<li><a href="Tableaux/ModalAccessNode.html">ModalAccessNode</a></li><li><a href="Tableaux/SentenceNode.html">SentenceNode</a><ul>
-<li><a href="Tableaux/ModalSentenceNode.html">ModalSentenceNode</a><ul>
+<li><a href="Tableaux/AccessNode.html">AccessNode</a> (implements <a href="Tableaux/ModalNode.html">ModalNode</a>)</li><li><a href="Tableaux/SentenceNode.html">SentenceNode</a><ul>
+<li><a href="Tableaux/ModalSentenceNode.html">ModalSentenceNode</a> (implements <a href="Tableaux/ModalNode.html">ModalNode</a>)<ul>
 <li><a href="Tableaux/ManyValuedModalSentenceNode.html">ManyValuedModalSentenceNode</a></li></ul></li>
 </ul></li>
 </ul></li>
@@ -82,7 +97,9 @@
 <hr />
 <div class="classtree">Root class Tableau</div><br />
 <ul>
-<li><a href="Proof/Proof.html">Proof</a> <b>(Different package)</b><ul><li><a href="Tableaux/Tableau.html">Tableau</a></li></ul></li>
+<li><a href="Proof/Proof.html">Proof</a> <b>(Different package)</b><ul><li><a href="Tableaux/Tableau.html">Tableau</a><ul>
+<li><a href="Tableaux/ModalTableau.html">ModalTableau</a></li></ul></li>
+</ul></li>
 </ul>
 
 <hr />
@@ -94,7 +111,10 @@
 <hr />
 <div class="classtree">Root class TableauxSystem</div><br />
 <ul>
-<li><a href="Proof/ProofSystem.html">ProofSystem</a> <b>(Different package)</b><ul><li><a href="Tableaux/TableauxSystem.html">TableauxSystem</a></li></ul></li>
+<li><a href="Tableaux/TableauxSystem.html">TableauxSystem</a> (implements ProofSystem)<ul>
+<li><a href="Tableaux/ModalTableauxSystem.html">ModalTableauxSystem</a><ul>
+<li><a href="Tableaux/ManyValuedModalTableauxSystem.html">ManyValuedModalTableauxSystem</a></li></ul></li>
+</ul></li>
 </ul>
 
 <hr />
@@ -111,7 +131,7 @@
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Fri, 23 Dec 2011 02:19:41 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Fri, 23 Dec 2011 11:16:28 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

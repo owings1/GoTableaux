@@ -1,9 +1,14 @@
 <?php
 /**
- * Defines the base ProofSystem class.
+ * Defines the base ProofSystem interface.
  * @package Proof
  * @author Douglas Owings
  */
+
+/**
+ * Loads the {@link Proof} base class.
+ */
+require_once 'Proof.php';
 
 /**
  * Loads the {@link ProofException} class.
@@ -18,6 +23,20 @@ require_once 'ProofException.php';
 abstract class ProofSystem
 {	
 	/**
+	 * Defines the proof class name for the system.
+	 * @var string Class name.
+	 * @see ProofSystem::evaluateArgument()
+	 */
+	protected $proofClass = 'Proof';
+	
+	/**
+	 * Holds the Logic's vocabulary.
+	 * @var Vocabulary
+	 * @access private
+	 */
+	protected $vocabulary;
+	
+	/**
 	 * Evaluates an argument.
 	 *
 	 * @param Argument $argument The argument to be evaluated.
@@ -25,7 +44,36 @@ abstract class ProofSystem
 	 *								counterexample, if is is invalid.
 	 * @throws {@link ProofException} on errors.
 	 */
-	abstract public function evaluateArgument( Argument $argument );
+	public function evaluateArgument( Argument $argument )
+	{
+		$proofClass = $this->proofClass;
+		$proof = new $proofClass( $argument );
+		$this->buildProof( $proof );
+		if ( $this->isValid( $proof )) return $proof;
+		else return $this->getCounterexample( $proof );
+	}
+	
+	/**
+	 * Sets the vocabulary.
+	 *
+	 * @param Vocabulary $vocabulary The vocabulary of the logic.
+	 * @return void
+	 */
+	public function setVocabulary( Vocabulary $vocabulary )
+	{
+		$this->vocabulary = $vocabulary;
+	}
+	
+	/**
+	 * Gets an operator from the logic's vocabulary.
+	 *
+	 * @param string $name The name of the operator.
+	 * @return Operator The operator object.
+	 */
+	public function getOperator( $name )
+	{
+		return $this->vocabulary->getOperatorByName( $name );
+	}
 	
 	/**
 	 * Constructor.
@@ -45,6 +93,14 @@ abstract class ProofSystem
 	 * @throws {@link ProofException} on type errors.
 	 */
 	abstract public function isValid( Proof $proof );
+	
+	/**
+	 * Builds a proof.
+	 *
+	 * @param Proof $proof The proof object to operate on.
+	 * @return void
+	 */
+	abstract public function buildProof( Proof $proof );
 	
 	/**
 	 * Gets a counterexample from a proof.

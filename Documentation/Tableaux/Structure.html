@@ -41,14 +41,20 @@
       <br />
                         <b>Files:</b><br />
         <div class="package">
-				<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Branch.php.html">Branch.php</a></span><br />
+				<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node---AccessNode.php.html">AccessNode.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Branch.php.html">Branch.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---BranchRule.php.html">BranchRule.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---ClosureRule.php.html">ClosureRule.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Branch---ManyValuedModalBranch.php.html">ManyValuedModalBranch.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node---ManyValuedModalSentenceNode.php.html">ManyValuedModalSentenceNode.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node---ModalAccessNode.php.html">ModalAccessNode.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---ManyValuedModalTableauxSystem.php.html">ManyValuedModalTableauxSystem.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Branch---ModalBranch.php.html">ModalBranch.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node---ModalNode.php.html">ModalNode.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Rule---ModalReflexiveRule.php.html">ModalReflexiveRule.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node---ModalSentenceNode.php.html">ModalSentenceNode.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---ModalTableau.php.html">ModalTableau.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---ModalTableauxSystem.php.html">ModalTableauxSystem.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Rule---ModalTransitiveRule.php.html">ModalTransitiveRule.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node.php.html">Node.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Writer---LaTeX---Qtree.php.html">Qtree.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---RuleException.php.html">RuleException.php</a></span><br />
@@ -65,15 +71,21 @@
         <div class="package">
 		    		<a href="../Tableaux/BranchRule.html">BranchRule</a>    	 <br />
 	    		<a href="../Tableaux/ClosureRule.html">ClosureRule</a>    	 <br />
+	    		<a href="../Tableaux/ModalNode.html">ModalNode</a>    	 <br />
 	  </div>
                   <b>Classes:</b><br />
         <div class="package">
-		    		<a href="../Tableaux/Branch.html">Branch</a>    	 <br />
+		    		<a href="../Tableaux/AccessNode.html">AccessNode</a>    	 <br />
+	    		<a href="../Tableaux/Branch.html">Branch</a>    	 <br />
 	    		<a href="../Tableaux/ManyValuedModalBranch.html">ManyValuedModalBranch</a>    	 <br />
 	    		<a href="../Tableaux/ManyValuedModalSentenceNode.html">ManyValuedModalSentenceNode</a>    	 <br />
-	    		<a href="../Tableaux/ModalAccessNode.html">ModalAccessNode</a>    	 <br />
+	    		<a href="../Tableaux/ManyValuedModalTableauxSystem.html">ManyValuedModalTableauxSystem</a>    	 <br />
 	    		<a href="../Tableaux/ModalBranch.html">ModalBranch</a>    	 <br />
+	    		<a href="../Tableaux/ModalReflexiveRule.html">ModalReflexiveRule</a>    	 <br />
 	    		<a href="../Tableaux/ModalSentenceNode.html">ModalSentenceNode</a>    	 <br />
+	    		<a href="../Tableaux/ModalTableau.html">ModalTableau</a>    	 <br />
+	    		<a href="../Tableaux/ModalTableauxSystem.html">ModalTableauxSystem</a>    	 <br />
+	    		<a href="../Tableaux/ModalTransitiveRule.html">ModalTransitiveRule</a>    	 <br />
 	    		<a href="../Tableaux/Node.html">Node</a>    	 <br />
 	    		<a href="../Tableaux/RuleException.html">RuleException</a>    	 <br />
 	    		<a href="../Tableaux/SentenceNode.html">SentenceNode</a>    	 <br />
@@ -151,6 +163,8 @@ Source Location: /ProofSystem/Tableaux/Structure.php<br /><br />
 		<p align="center" class="short-description"><strong><a href="#sec_methods">Methods</a></strong></p>
 		<ul>
 		  		  <li><a href="../Tableaux/Structure.html#methodbuild">build</a></li>
+		  		  <li><a href="../Tableaux/Structure.html#methodfindBranchesWithNode">findBranchesWithNode</a></li>
+		  		  <li><a href="../Tableaux/Structure.html#methodfindNodesCommonToBranches">findNodesCommonToBranches</a></li>
 		  		  <li><a href="../Tableaux/Structure.html#methodgetInstance">getInstance</a></li>
 		  		  <li><a href="../Tableaux/Structure.html#methodgetNodes">getNodes</a></li>
 		  		  <li><a href="../Tableaux/Structure.html#methodgetStructures">getStructures</a></li>
@@ -225,6 +239,20 @@ Source Location: /ProofSystem/Tableaux/Structure.php<br /><br />
 				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
 																				<div class="method-definition">
 					<tr><td class="method-definition">static
+											<span class="method-result">array</span>&nbsp;&nbsp;
+					</td>
+					<td class="method-definition"><a href="#findBranchesWithNode" title="details" class="method-name">findBranchesWithNode</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Gets all branches that have a particular node on them.</td></tr>
+				</div>
+																<div class="method-definition">
+					<tr><td class="method-definition">static
+											<span class="method-result">array</span>&nbsp;&nbsp;
+					</td>
+					<td class="method-definition"><a href="#findNodesCommonToBranches" title="details" class="method-name">findNodesCommonToBranches</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Gets all nodes that are on each of an array of branches.</td></tr>
+				</div>
+																<div class="method-definition">
+					<tr><td class="method-definition">static
 											<span class="method-result"><a href="../Tableaux/Structure.html">Structure</a></span>&nbsp;&nbsp;
 					</td>
 					<td class="method-definition"><a href="#getInstance" title="details" class="method-name">getInstance</a>()&nbsp;&nbsp;</td>
@@ -242,7 +270,7 @@ Source Location: /ProofSystem/Tableaux/Structure.php<br /><br />
 										<td class="method-definition"><a href="#build" title="details" class="method-name">build</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Builds the tree structure.</td></tr>
 				</div>
-																								<div class="method-definition">
+																																								<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result">array</span>&nbsp;&nbsp;</td>
 										<td class="method-definition"><a href="#getNodes" title="details" class="method-name">getNodes</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Gets the nodes of the current structure.</td></tr>
@@ -288,7 +316,7 @@ Source Location: /ProofSystem/Tableaux/Structure.php<br /><br />
 												</div>
 		<div class="info-box-body">
 			<a name="var$closed" id="$closed"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -312,7 +340,7 @@ Source Location: /ProofSystem/Tableaux/Structure.php<br /><br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="var$nodes" id="$nodes"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -336,7 +364,7 @@ Source Location: /ProofSystem/Tableaux/Structure.php<br /><br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="var$structures" id="$structures"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -360,7 +388,7 @@ Source Location: /ProofSystem/Tableaux/Structure.php<br /><br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="var$tableau" id="$tableau"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -384,7 +412,7 @@ Source Location: /ProofSystem/Tableaux/Structure.php<br /><br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="var$tickedNodes" id="$tickedNodes"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -420,8 +448,111 @@ Source Location: /ProofSystem/Tableaux/Structure.php<br /><br />
 					</div>
 		<div class="info-box-body">
 			<a name='method_detail'></a>
-<a name="methodgetInstance" id="getInstance"><!-- --></a>
+<a name="methodfindBranchesWithNode" id="findBranchesWithNode"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">static method findBranchesWithNode</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 73]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>static array findBranchesWithNode(
+array
+$searchBranches, <a href="../Tableaux/Node.html">Node</a>
+$node&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Gets all branches that have a particular node on them.
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$searchBranches:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> Array of <a href="../Tableaux/Branch.html">Branch</a>es to search.</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type"><a href="../Tableaux/Node.html">Node</a></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$node:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> The node to search for.</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Array of branches.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodfindNodesCommonToBranches" id="findNodesCommonToBranches"><!-- --></a>
 <div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">static method findNodesCommonToBranches</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 87]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>static array findNodesCommonToBranches(
+array
+$branches&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Gets all nodes that are on each of an array of branches.
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$branches:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> Array of <a href="../Tableaux/Branch.html">Branch</a>es.</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Array of common <a href="../Tableaux/Node.html">nodes</a>.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodgetInstance" id="getInstance"><!-- --></a>
+<div class="oddrow">
 
 <div class="method-header">
 	<span class="method-title">static method getInstance</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 59]</span>
@@ -469,10 +600,10 @@ $tableau&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodsubtract" id="subtract"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">static method subtract</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 73]</span>
+	<span class="method-title">static method subtract</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 111]</span>
 </div>
 <br />
 
@@ -525,10 +656,10 @@ $b&nbsp;
 </div>
 
 <a name="methodbuild" id="build"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">build</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 98]</span>
+	<span class="method-title">build</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 136]</span>
 </div>
 <br />
 
@@ -561,10 +692,10 @@ $b&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodgetNodes" id="getNodes"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">getNodes</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 109]</span>
+	<span class="method-title">getNodes</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 147]</span>
 </div>
 <br />
 
@@ -583,7 +714,7 @@ $b&nbsp;
 	<strong>API Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Array of <a href="../Tableaux/Node.html">Node</a> objects.</td>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Array of <a href="../Tableaux/Node.html">Node</a>s.</td>
   </tr>
   <tr>
     <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
@@ -597,10 +728,10 @@ $b&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodgetStructures" id="getStructures"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">getStructures</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 119]</span>
+	<span class="method-title">getStructures</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 157]</span>
 </div>
 <br />
 
@@ -619,7 +750,7 @@ $b&nbsp;
 	<strong>API Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Array of Structure objects.</td>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Array of <a href="../Tableaux/Structure.html">Structure</a>s.</td>
   </tr>
   <tr>
     <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
@@ -633,10 +764,10 @@ $b&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodisClosed" id="isClosed"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">isClosed</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 140]</span>
+	<span class="method-title">isClosed</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 178]</span>
 </div>
 <br />
 
@@ -669,10 +800,10 @@ $b&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodnodeIsTicked" id="nodeIsTicked"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">nodeIsTicked</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 130]</span>
+	<span class="method-title">nodeIsTicked</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 168]</span>
 </div>
 <br />
 
@@ -717,10 +848,10 @@ $node&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodsetTableau" id="setTableau"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">setTableau</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 87]</span>
+	<span class="method-title">setTableau</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 125]</span>
 </div>
 <br />
 
@@ -765,10 +896,10 @@ $tableau&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodstructurize" id="structurize"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">structurize</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 151]</span>
+	<span class="method-title">structurize</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 189]</span>
 </div>
 <br />
 
@@ -777,7 +908,7 @@ $tableau&nbsp;
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
 		<code>void structurize(
 array
-$b&nbsp;
+$branches&nbsp;
 )</code>
     </td></tr></table>
     </td></tr></table><br /></div>
@@ -790,9 +921,9 @@ $b&nbsp;
 					<tr><td class="indent">
 				<span class="var-type">array</span>&nbsp;&nbsp;</td>
 				<td>
-				<span class="var-name">$b:&nbsp;</span></td>
+				<span class="var-name">$branches:&nbsp;</span></td>
 				<td>
-							</td></tr>
+				<span class="var-description"> Array of <a href="../Tableaux/Branch.html">Branch</a>es to structurize.</span>			</td></tr>
 				</table>
 
 	<br />
@@ -815,7 +946,7 @@ $b&nbsp;
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Fri, 23 Dec 2011 02:19:44 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Fri, 23 Dec 2011 11:16:32 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

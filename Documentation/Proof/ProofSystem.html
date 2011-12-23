@@ -71,9 +71,9 @@ Source Location: /ProofSystem/ProofSystem.php<br /><br />
 	<div class="info-box-title">Class Overview</div>
 	<div class="nav-bar">
 					<span class="disabled">Class Overview</span>
-							| <a href="#sec-descendants">Descendants</a>
-				
-													| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+						
+											| <a href="#sec-var-summary">Property Summary</a> | <a href="#sec-vars">Properties Detail</a>
+														| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
 								</div>
 	<div class="info-box-body">
 		<table width="100%" border="0">
@@ -83,7 +83,7 @@ Source Location: /ProofSystem/ProofSystem.php<br /><br />
 </strong></p>
 
 		<p class="notes">
-			Located in <a class="field" href="_ProofSystem---ProofSystem.php.html">/ProofSystem/ProofSystem.php</a> [<span class="field">line 18</span>]
+			Located in <a class="field" href="_ProofSystem---ProofSystem.php.html">/ProofSystem/ProofSystem.php</a> [<span class="field">line 23</span>]
 		</p>
 
 		
@@ -108,11 +108,18 @@ Source Location: /ProofSystem/ProofSystem.php<br /><br />
 	</table>
 		</td>
 
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec_vars">Properties</a></strong></p>
+		<ul>
+		  		  <li><a href="../Proof/ProofSystem.html#var$proofClass">$proofClass</a></li>
+		  		</ul>
+		</td>
 		
 				<td valign="top" width="20%" class="class-overview">
 		<p align="center" class="short-description"><strong><a href="#sec_methods">Methods</a></strong></p>
 		<ul>
 		  		  <li><a href="../Proof/ProofSystem.html#method__construct">__construct</a></li>
+		  		  <li><a href="../Proof/ProofSystem.html#methodbuildProof">buildProof</a></li>
 		  		  <li><a href="../Proof/ProofSystem.html#methodevaluateArgument">evaluateArgument</a></li>
 		  		  <li><a href="../Proof/ProofSystem.html#methodgetCounterexample">getCounterexample</a></li>
 		  		  <li><a href="../Proof/ProofSystem.html#methodisValid">isValid</a></li>
@@ -124,49 +131,51 @@ Source Location: /ProofSystem/ProofSystem.php<br /><br />
 	</div>
 </div>
 
-	<a name="sec-descendants"></a>
+
+
+
+	<a name="sec-var-summary"></a>
 	<div class="info-box">
-		<div class="info-box-title">Descendants</div>
+		<div class="info-box-title">Property Summary</span></div>
 		<div class="nav-bar">
 			<a href="#sec-description">Class Overview</a>
-							| <span class="disabled">Descendants</span>
-																	| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
-									</div>
+									| <span class="disabled">Property Summary</span> | <a href="#sec-vars">Properties Detail</a>
+												| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+							    				</div>
 		<div class="info-box-body">
-			<table cellpadding="2" cellspacing="0" class="class-table">
-				<tr>
-					<th class="class-table-header">Child Class</th>
-					<th class="class-table-header">Description</th>
-				</tr>
-								<tr>
-					<td style="padding-right: 2em"><a href="../Tableaux/TableauxSystem.html">TableauxSystem</a></td>
-					<td>
-											Represents a tableaux proof system.
-										</td>
-				</tr>
-							</table>
+			<div class="var-summary">
+			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
+																			<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$proofClass" title="details" class="var-name-summary">$proofClass</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Defines the proof class name for the system.</td></tr>
+				</div>
+										</table>
+			</div>
 			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
 		</div>
 	</div>
-
-
-
 
 	<a name="sec-method-summary"></a>
 	<div class="info-box">
 		<div class="info-box-title">Method Summary</span></div>
 		<div class="nav-bar">
 			<a href="#sec-description">Class Overview</a>
-							| <a href="#sec-descendants">Descendants</a>
-									    					| <span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+																		| <a href="#sec-var-summary">Property Summary</a> | <a href="#sec-vars">Properties Detail</a>
+							    					| <span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
 		</div>
 		<div class="info-box-body">
 			<div class="method-summary">
 				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
-																																																<div class="method-definition">
+																																																								<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result">ProofSystem</span>&nbsp;&nbsp;</td>
 										<td class="method-definition"><a href="#__construct" title="details" class="method-name">__construct</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Constructor.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#buildProof" title="details" class="method-name">buildProof</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Builds a proof.</td></tr>
 				</div>
 																<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result"><a href="../Proof/Proof.html">Proof</a>|<a href="../Proof/Counterexample.html">Counterexample</a></span>&nbsp;&nbsp;</td>
@@ -189,14 +198,54 @@ Source Location: /ProofSystem/ProofSystem.php<br /><br />
 		</div>
 	</div>
 
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Properties</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Class Overview</a>
+													| <a href="#sec-var-summary">Property Summary</a> | <span class="disabled">Properties Detail</span>
+															| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+												</div>
+		<div class="info-box-body">
+			<a name="var$proofClass" id="$proofClass"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$proofClass</span>
+			 = <span class="var-default"> 'Proof'</span>			<span class="smalllinenumber">[line 30]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Defines the proof class name for the system.
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>See:</strong>&nbsp;&nbsp;</td><td><a href="../Proof/ProofSystem.html#methodevaluateArgument">ProofSystem::evaluateArgument()</a></td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+		</div>
+	</div>
 
 	<a name="sec-methods"></a>
 	<div class="info-box">
 		<div class="info-box-title">Methods</div>
 		<div class="nav-bar">
 			<a href="#sec-description">Class Overview</a>
-							| <a href="#sec-descendants">Descendants</a>
-																			| <a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+																		| <a href="#sec-var-summary">Property Summary</a> | <a href="#sec-vars">Properties Detail</a>
+																	| <a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
 					</div>
 		<div class="info-box-body">
 			<a name='method_detail'></a>
@@ -205,7 +254,7 @@ Source Location: /ProofSystem/ProofSystem.php<br /><br />
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">Constructor __construct</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 38]</span>
+	<span class="method-title">Constructor __construct</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 57]</span>
 </div>
 <br />
 
@@ -240,11 +289,59 @@ Source Location: /ProofSystem/ProofSystem.php<br /><br />
 		<br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
-<a name="methodevaluateArgument" id="evaluateArgument"><!-- --></a>
+<a name="methodbuildProof" id="buildProof"><!-- --></a>
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">evaluateArgument</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 28]</span>
+	<span class="method-title">buildProof</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 74]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>void buildProof(
+<a href="../Proof/Proof.html">Proof</a>
+$proof&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Builds a proof.
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type"><a href="../Proof/Proof.html">Proof</a></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$proof:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> The proof object to operate on.</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Abstract:</strong>&nbsp;&nbsp;</td><td></td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodevaluateArgument" id="evaluateArgument"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">evaluateArgument</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 40]</span>
 </div>
 <br />
 
@@ -278,9 +375,6 @@ $argument&nbsp;
     <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>A proof, if the argument is valid, or a                                 counterexample, if is is invalid.</td>
   </tr>
   <tr>
-    <td class="indent"><strong>Abstract:</strong>&nbsp;&nbsp;</td><td></td>
-  </tr>
-  <tr>
     <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
   </tr>
 </table>
@@ -294,22 +388,14 @@ $argument&nbsp;
 </table>
 
 		
-			<hr class="separator" />
-		<div class="notes">Redefined in descendants as:</div>
-		<ul class="redefinitions">
-					<li>
-				<a href="../Tableaux/TableauxSystem.html#methodevaluateArgument">TableauxSystem::evaluateArgument()</a>
-								: Evaluates an argument.
-							</li>
-				</ul>
 		<br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodgetCounterexample" id="getCounterexample"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">getCounterexample</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 56]</span>
+	<span class="method-title">getCounterexample</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 83]</span>
 </div>
 <br />
 
@@ -359,22 +445,14 @@ $proof&nbsp;
 </table>
 
 		
-			<hr class="separator" />
-		<div class="notes">Redefined in descendants as:</div>
-		<ul class="redefinitions">
-					<li>
-				<a href="../Tableaux/TableauxSystem.html#methodgetCounterexample">TableauxSystem::getCounterexample()</a>
-								: Gets a counterexample from a Tableau proof.
-							</li>
-				</ul>
 		<br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodisValid" id="isValid"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">isValid</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 47]</span>
+	<span class="method-title">isValid</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 66]</span>
 </div>
 <br />
 
@@ -424,14 +502,6 @@ $proof&nbsp;
 </table>
 
 		
-			<hr class="separator" />
-		<div class="notes">Redefined in descendants as:</div>
-		<ul class="redefinitions">
-					<li>
-				<a href="../Tableaux/TableauxSystem.html#methodisValid">TableauxSystem::isValid()</a>
-								: Checks whether a Tableau is a valid proof.
-							</li>
-				</ul>
 		<br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
@@ -441,7 +511,7 @@ $proof&nbsp;
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Fri, 23 Dec 2011 02:19:44 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Fri, 23 Dec 2011 11:16:31 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

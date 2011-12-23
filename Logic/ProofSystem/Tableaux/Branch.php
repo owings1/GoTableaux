@@ -27,68 +27,27 @@ class Branch
 	protected $closed = false;
 	
 	/**
-	 * Gets all nodes that are on each of an array of branches.
-	 *
-	 * @param array $branches Array of {@link Branch branches}.
-	 * @return array Array of common {@link Node nodes}. 
-	 */
-	public static function getCommonNodes( array $branches )
-	{
-		$nodes = $commonNodes = array();
-		foreach ( $branches as $branch ) {
-			if ( !$branch instanceof Branch ) 
-				throw new TableauxException();
-			$nodes = array_merge( $nodes, $branch->getNodes() );
-		}
-		foreach ( $nodes as $node ) {
-			$isCommon = true;			
-			foreach ( $branches as $branch )
-				if ( ! $branch->hasNode( $node )) {
-					$isCommon = false;
-					break;
-				}
-			if ( $isCommon ) $commonNodes[] = $node;
-		}
-		return array_unique( $commonNodes );
-	}
-	
-	/**
-	 * Gets all branches that have a particular node on them.
-	 *
-	 * @param array $branches Array of {@link Branch branches}.
-	 * @param Node $node The node to search for.
-	 * @return array Array of branches.
-	 */
-	public static function getBranchesWithNode( array $branches, Node $node )
-	{
-		$b = array();
-		foreach ( $branches as $branch )
-			if ( $branch->hasNode( $node )) $b[] = $branch;
-		return $b;
-	}
-	
-	/**
 	 * Adds a node to the branch.
 	 *
 	 * @param Node|array $node The node or array of nodes to add.
-	 * @return Branch Current instance.
+	 * @return void
 	 */
-	public function addNode( $nodes )
+	protected function addNode( $nodes )
 	{
-		if ( is_array( $nodes )) foreach ( $nodes as $node ) $this->_addNode( $node );
-		else $this->_addNode( $nodes );
+		if ( is_array( $nodes )) foreach ( $nodes as $node ) $this->addNode( $node );
+		elseif ( !$nodes instanceof Node ) throw new TableauException( 'Node is not instance of Node.' ); 
+		else $this->nodes[] = $nodes;
 		return $this;
 	}
 	
 	/**
 	 * Removes all reference of a node from the branch.
 	 *
-	 * @param Node $node The node to remove. If the node is on the 
-	 *							  branch in multiple places, each reference is
-	 *							  removed.
-	 * @return Branch Current instance.
+	 * @param Node $node The node to remove. If the node is on the branch in
+	 *					 multiple places, each reference is removed.
+	 * @return void
 	 */
-	public function removeNode( Node $node )
+	protected function removeNode( Node $node )
 	{
 		$nodes = array();
 		foreach ( $this->nodes as $oldNode )

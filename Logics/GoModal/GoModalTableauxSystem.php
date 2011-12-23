@@ -8,7 +8,17 @@
 /**
  * Loads the {@link TableauxSystem} parent class.
  */
-require_once '../../Logic/TableauxSystem.php';
+require_once '../../Logic/ProofSystem/TableauxSystem.php';
+
+/**
+ * Loads the {@link ManyValuedModalSentenceNode} node class.
+ */
+require_once '../../Logic/ProofSystem/Tableaux/Node/ManyValuedModalSentenceNode.php';
+
+/**
+ * Loads the {@link AccessNode} node class.
+ */
+require_once '../../Logic/ProofSystem/Tableaux/Node/AccessNode.php';
 
 /**
  * Represents the GoModal tableaux system.
@@ -26,6 +36,21 @@ class GoModalTableauxSystem extends TableauxSystem
 		
 	}
 	
+	public function buildTrunk( Tableau $tableau, Argument $argument )
+	{
+		$premises 	= $argument->getPremises();
+		$conclusion = $argument->getConclusion();
+				
+		$nodes = array();
+		
+		foreach ( $premises as $premise )
+			$nodes[] = new ManyValuedModalSentenceNode( $premise, 0, true ));
+		
+		if ( !empty( $conclusion ))
+			$nodes[] = new ManyValuedModalSentenceNode( $conclusion, 0, false ));
+		
+		$tableau->createBranch( $nodes );
+	}
 	/**
 	 * Induces a model from an open branch.
 	 *

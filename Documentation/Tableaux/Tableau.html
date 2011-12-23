@@ -41,14 +41,20 @@
       <br />
                         <b>Files:</b><br />
         <div class="package">
-				<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Branch.php.html">Branch.php</a></span><br />
+				<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node---AccessNode.php.html">AccessNode.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Branch.php.html">Branch.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---BranchRule.php.html">BranchRule.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---ClosureRule.php.html">ClosureRule.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Branch---ManyValuedModalBranch.php.html">ManyValuedModalBranch.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node---ManyValuedModalSentenceNode.php.html">ManyValuedModalSentenceNode.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node---ModalAccessNode.php.html">ModalAccessNode.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---ManyValuedModalTableauxSystem.php.html">ManyValuedModalTableauxSystem.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Branch---ModalBranch.php.html">ModalBranch.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node---ModalNode.php.html">ModalNode.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Rule---ModalReflexiveRule.php.html">ModalReflexiveRule.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node---ModalSentenceNode.php.html">ModalSentenceNode.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---ModalTableau.php.html">ModalTableau.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---ModalTableauxSystem.php.html">ModalTableauxSystem.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Rule---ModalTransitiveRule.php.html">ModalTransitiveRule.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node.php.html">Node.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Writer---LaTeX---Qtree.php.html">Qtree.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---RuleException.php.html">RuleException.php</a></span><br />
@@ -65,15 +71,21 @@
         <div class="package">
 		    		<a href="../Tableaux/BranchRule.html">BranchRule</a>    	 <br />
 	    		<a href="../Tableaux/ClosureRule.html">ClosureRule</a>    	 <br />
+	    		<a href="../Tableaux/ModalNode.html">ModalNode</a>    	 <br />
 	  </div>
                   <b>Classes:</b><br />
         <div class="package">
-		    		<a href="../Tableaux/Branch.html">Branch</a>    	 <br />
+		    		<a href="../Tableaux/AccessNode.html">AccessNode</a>    	 <br />
+	    		<a href="../Tableaux/Branch.html">Branch</a>    	 <br />
 	    		<a href="../Tableaux/ManyValuedModalBranch.html">ManyValuedModalBranch</a>    	 <br />
 	    		<a href="../Tableaux/ManyValuedModalSentenceNode.html">ManyValuedModalSentenceNode</a>    	 <br />
-	    		<a href="../Tableaux/ModalAccessNode.html">ModalAccessNode</a>    	 <br />
+	    		<a href="../Tableaux/ManyValuedModalTableauxSystem.html">ManyValuedModalTableauxSystem</a>    	 <br />
 	    		<a href="../Tableaux/ModalBranch.html">ModalBranch</a>    	 <br />
+	    		<a href="../Tableaux/ModalReflexiveRule.html">ModalReflexiveRule</a>    	 <br />
 	    		<a href="../Tableaux/ModalSentenceNode.html">ModalSentenceNode</a>    	 <br />
+	    		<a href="../Tableaux/ModalTableau.html">ModalTableau</a>    	 <br />
+	    		<a href="../Tableaux/ModalTableauxSystem.html">ModalTableauxSystem</a>    	 <br />
+	    		<a href="../Tableaux/ModalTransitiveRule.html">ModalTransitiveRule</a>    	 <br />
 	    		<a href="../Tableaux/Node.html">Node</a>    	 <br />
 	    		<a href="../Tableaux/RuleException.html">RuleException</a>    	 <br />
 	    		<a href="../Tableaux/SentenceNode.html">SentenceNode</a>    	 <br />
@@ -99,7 +111,8 @@ Source Location: /ProofSystem/Tableaux/Tableau.php<br /><br />
 	<div class="info-box-title">Class Overview</div>
 	<div class="nav-bar">
 					<span class="disabled">Class Overview</span>
-						
+							| <a href="#sec-descendants">Descendants</a>
+				
 					| <a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
 											| <a href="#sec-var-summary">Property Summary</a> | <a href="#sec-vars">Properties Detail</a>
 														| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
@@ -161,12 +174,39 @@ Source Location: /ProofSystem/Tableaux/Tableau.php<br /><br />
 	</div>
 </div>
 
+	<a name="sec-descendants"></a>
+	<div class="info-box">
+		<div class="info-box-title">Descendants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Class Overview</a>
+							| <span class="disabled">Descendants</span>
+										| <a href="#sec-inherited">Inherited Properties and Methods</a>
+												| <a href="#sec-var-summary">Property Summary</a> | <a href="#sec-vars">Properties Detail</a>
+														| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+									</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Child Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../Tableaux/ModalTableau.html">ModalTableau</a></td>
+					<td>
+											Represents a tableau for a modal logic.
+										</td>
+				</tr>
+							</table>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+		</div>
+	</div>
 
 	<a name="sec-inherited"></a>
 	<div class="info-box">
 		<div class="info-box-title">Inherited Properties, Constants, and Methods</div>
 		<div class="nav-bar">
 			<a href="#sec-description">Class Overview</a>
+							| <a href="#sec-descendants">Descendants</a>
 						| <span class="disabled">Inherited Properties, Constants, and Methods</span>
 												| <a href="#sec-var-summary">Property Summary</a> | <a href="#sec-vars">Properties Detail</a>
 																			| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
@@ -189,12 +229,6 @@ Source Location: /ProofSystem/Tableaux/Tableau.php<br /><br />
 										<dd>
 											<span class="method-definition"></span>
 										</dd>
-																			<dt>
-											<span class="method-definition"><a href="../Proof/Proof.html#var$proofSystem">Proof::$proofSystem</a></span>
-										</dt>
-										<dd>
-											<span class="method-definition"></span>
-										</dd>
 																	</dl>
 							</blockquote>
 											</td>
@@ -206,31 +240,13 @@ Source Location: /ProofSystem/Tableaux/Tableau.php<br /><br />
 											<span class="method-definition"><a href="../Proof/Proof.html#method__construct">Proof::__construct()</a></span>
 										</dt>
 										<dd>
-											<span class="method-definition">Constructor. Initializes argument and proof system.</span>
-										</dd>
-																			<dt>
-											<span class="method-definition"><a href="../Proof/Proof.html#methodbuild">Proof::build()</a></span>
-										</dt>
-										<dd>
-											<span class="method-definition">Builds the proof.</span>
+											<span class="method-definition">Constructor. Initializes argument.</span>
 										</dd>
 																			<dt>
 											<span class="method-definition"><a href="../Proof/Proof.html#methodgetArgument">Proof::getArgument()</a></span>
 										</dt>
 										<dd>
 											<span class="method-definition">Gets the Argument object.</span>
-										</dd>
-																			<dt>
-											<span class="method-definition"><a href="../Proof/Proof.html#methodgetProofSystem">Proof::getProofSystem()</a></span>
-										</dt>
-										<dd>
-											<span class="method-definition">Gets the proof system.</span>
-										</dd>
-																			<dt>
-											<span class="method-definition"><a href="../Proof/Proof.html#methodisValid">Proof::isValid()</a></span>
-										</dt>
-										<dd>
-											<span class="method-definition">Determines whether the built proof is valid.</span>
 										</dd>
 																	</dl>
 							</blockquote>
@@ -249,6 +265,7 @@ Source Location: /ProofSystem/Tableaux/Tableau.php<br /><br />
 		<div class="info-box-title">Property Summary</span></div>
 		<div class="nav-bar">
 			<a href="#sec-description">Class Overview</a>
+							| <a href="#sec-descendants">Descendants</a>
 										| <a href="#sec-inherited">Inherited Properties and Methods</a>
 						| <span class="disabled">Property Summary</span> | <a href="#sec-vars">Properties Detail</a>
 												| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
@@ -282,6 +299,7 @@ Source Location: /ProofSystem/Tableaux/Tableau.php<br /><br />
 		<div class="info-box-title">Method Summary</span></div>
 		<div class="nav-bar">
 			<a href="#sec-description">Class Overview</a>
+							| <a href="#sec-descendants">Descendants</a>
 										| <a href="#sec-inherited">Inherited Properties and Methods</a>
 															| <a href="#sec-var-summary">Property Summary</a> | <a href="#sec-vars">Properties Detail</a>
 							    					| <span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
@@ -345,13 +363,14 @@ Source Location: /ProofSystem/Tableaux/Tableau.php<br /><br />
 		<div class="info-box-title">Properties</div>
 		<div class="nav-bar">
 			<a href="#sec-description">Class Overview</a>
+							| <a href="#sec-descendants">Descendants</a>
 										| <a href="#sec-inherited">Inherited Properties and Methods</a>
 										| <a href="#sec-var-summary">Property Summary</a> | <span class="disabled">Properties Detail</span>
 															| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
 												</div>
 		<div class="info-box-body">
 			<a name="var$branchClass" id="$branchClass"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -380,7 +399,7 @@ Source Location: /ProofSystem/Tableaux/Tableau.php<br /><br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="var$branches" id="$branches"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -406,7 +425,7 @@ Source Location: /ProofSystem/Tableaux/Tableau.php<br /><br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="var$structure" id="$structure"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -439,6 +458,7 @@ Source Location: /ProofSystem/Tableaux/Tableau.php<br /><br />
 		<div class="info-box-title">Methods</div>
 		<div class="nav-bar">
 			<a href="#sec-description">Class Overview</a>
+							| <a href="#sec-descendants">Descendants</a>
 										| <a href="#sec-inherited">Inherited Properties and Methods</a>
 															| <a href="#sec-var-summary">Property Summary</a> | <a href="#sec-vars">Properties Detail</a>
 																	| <a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
@@ -447,7 +467,7 @@ Source Location: /ProofSystem/Tableaux/Tableau.php<br /><br />
 			<a name='method_detail'></a>
 
 <a name="methodattach" id="attach"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
 	<span class="method-title">attach</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 79]</span>
@@ -495,7 +515,7 @@ $branches&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodclearBranches" id="clearBranches"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
 	<span class="method-title">clearBranches</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 138]</span>
@@ -528,7 +548,7 @@ $branches&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodcopy" id="copy"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
 	<span class="method-title">copy</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 159]</span>
@@ -564,7 +584,7 @@ $branches&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodcreateBranch" id="createBranch"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
 	<span class="method-title">createBranch</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 62]</span>
@@ -622,7 +642,7 @@ $attachToTableau = true]&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methoddetach" id="detach"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
 	<span class="method-title">detach</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 122]</span>
@@ -670,7 +690,7 @@ $branches&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodgetBranches" id="getBranches"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
 	<span class="method-title">getBranches</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 98]</span>
@@ -706,7 +726,7 @@ $branches&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodgetOpenBranches" id="getOpenBranches"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
 	<span class="method-title">getOpenBranches</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 108]</span>
@@ -742,7 +762,7 @@ $branches&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodgetStructure" id="getStructure"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
 	<span class="method-title">getStructure</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 148]</span>
@@ -778,7 +798,7 @@ $branches&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="method_buildStructure" id="_buildStructure"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
 	<span class="method-title">_buildStructure</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 173]</span>
@@ -819,7 +839,7 @@ $branches&nbsp;
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Fri, 23 Dec 2011 02:19:44 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Fri, 23 Dec 2011 11:16:32 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

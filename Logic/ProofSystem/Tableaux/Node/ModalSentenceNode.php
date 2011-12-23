@@ -18,7 +18,7 @@ require_once 'SentenceNode.php';
  * @package Tableaux
  * @author Douglas Owings
  */
-class ModalSentenceNode extends SentenceNode
+class ModalSentenceNode extends SentenceNode implements ModalNode
 {
 	/**
 	 * Holds a reference to the "world" index.

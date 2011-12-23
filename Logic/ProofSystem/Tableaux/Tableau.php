@@ -11,6 +11,11 @@
 require_once '../Proof.php';
 
 /**
+ * Loads the {@link Branch} class.
+ */
+require_once 'Branch.php';
+
+/**
  * Loads the {@link TableauException} class.
  */
 require_once 'TableauException.php';
@@ -28,9 +33,9 @@ require_once 'Structure.php';
  * @author Douglas Owings
  */
 class Tableau extends Proof
-{
+{	
 	/**
-	 * Defines the class name for the tableau's branches;
+	 * Defines the branch class.
 	 * @var string Class name.
 	 * @see Tableau::createBranch()
 	 */
@@ -56,8 +61,7 @@ class Tableau extends Proof
 	 * @param Node|array Node or array of nodes to add to the branch.
 	 * @param boolean $attachToTableau Whether to attach the branch to the 
 	 *								   tableau. Default is true.
-	 * @return Branch the 
-	 * @see $branchClass
+	 * @return Branch The created instance.
 	 */
 	public function createBranch( $nodes = null, $attachToTableau = true )
 	{

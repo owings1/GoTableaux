@@ -9,7 +9,7 @@ class GoModal_Rule_Sentence_NegDiamondDes implements Rule
 			throw new Exception( 'branch must be a GoModal instance' );
 		}
 		
-		$negNodes = GoModalBranch::getNodesByOperatorName( $branch->getDesignatedNodes( true ), 'NEGATION' );
+		$negNodes = SentenceNode::findNodesByOperatorName( $branch->getDesignatedNodes( true ), 'NEGATION' );
 		
 		$negDiamNodes = array();
 		foreach ( $negNodes as $node ){

@@ -67,9 +67,9 @@ require_once 'Rule/Sentence/NegDiamondDes.php';
 require_once 'Rule/Sentence/NegDiamondUndes.php';
 
 
-class GoModal extends Logic
+class GoModalLogic extends Logic
 {
-	public $defaultLexicon = array(
+	public $lexicon = array(
 		'openMarks' => array('('),
 		'closeMarks' => array(')'),
 		'separators' => array(' '),

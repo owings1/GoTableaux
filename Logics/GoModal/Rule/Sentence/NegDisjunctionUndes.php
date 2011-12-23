@@ -8,7 +8,7 @@ class GoModal_Rule_Sentence_NegDisjunctionUndes implements Rule
 			throw new Exception( 'branch must be a GoModal instance' );
 		}
 		
-		$negNodes = GoModalBranch::getNodesByOperatorName( $branch->getUndesignatedNodes( true ), 'NEGATION' );
+		$negNodes = SentenceNode::findNodesByOperatorName( $branch->getUndesignatedNodes( true ), 'NEGATION' );
 		
 		$negDisjNodes = array();
 		

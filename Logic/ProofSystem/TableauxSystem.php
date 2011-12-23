@@ -6,9 +6,19 @@
  */
 
 /**
- * Loads the {@link ProofSystem} parent class.
+ * Loads the {@link ProofSystem} interface.
  */
 require_once 'ProofSystem.php';
+
+/**
+ * Loads the {@link ClosureRule} interface.
+ */
+require_once 'ClosureRule.php';
+
+/**
+ * Loads the {@link BranchRule} interface.
+ */
+require_once 'BranchRule.php';
 
 /**
  * Loads the {@link Tableau} class.
@@ -25,13 +35,27 @@ require_once '../ModelTheory/Model.php';
  * @package Tableaux
  * @author Douglas Owings
  */
-abstract class TableauxSystem extends ProofSystem
+abstract class TableauxSystem implements ProofSystem
 {
+	/**
+	 * Defines the closure rule class for the logic.
+	 * @var string Class name of closure rule.
+	 */
+	public $closureRuleClass = 'ClosureRule';
+	
+	/**
+	 * Defines the branch rule classes for the logic.
+	 * @var array Array of class names of branch rules.
+	 * @see TableauxSystem::__construct()
+	 * @see TableauxSystem::addBranchRules()
+	 */
+	public $branchRuleClasses = array();
+	
 	/**
 	 * Defines the tableau proof class.
 	 * @var string Class name of tableau.
 	 */
-	protected $tableauClass = 'Tableau';
+	protected $proofClass = 'Tableau';
 	
 	/**
 	 * @var ClosureRule
@@ -44,15 +68,24 @@ abstract class TableauxSystem extends ProofSystem
 	protected $branchRules = array();
 	
 	/**
-	 * Sets the closure rule.
+	 * Constructor.
 	 *
-	 * @param ClosureRule $closureRule The closure rule.
-	 * @return TableauxSystem Current instance.
+	 * Loads the rules of the tableaux system.
+	 *
+	 * @see $closureRuleClass
+	 * @see $branchRuleClasses
 	 */
-	public function setClosureRule( ClosureRule $closureRule )
+	public function __construct()
 	{
-		$this->closureRule = $closureRule;
-		return $this;
+		if ( !class_exists( $this->closureRuleClass ))
+			throw new TableauException( "Class {$this->closureRuleClass} not found." );
+		$this->closureRule = new $this->closureRuleClass;
+		if ( empty( $this->branchRuleClasses ))
+			throw new TableauException( 'Branch rules cannot be empty. Set TableauxSystem::$branchRuleClasses' );
+		foreach ( $this->branchRuleClasses as $class ) {
+			if ( !class_exists( $class )) throw new TableauException( "Class $class not found." );
+			$this->addBranchRules( new $class );
+		}
 	}
 	
 	/**
@@ -75,10 +108,6 @@ abstract class TableauxSystem extends ProofSystem
 	public function applyClosureRule( Tableau $tableau )
 	{
 		$closureRule = $this->getClosureRule();
-		
-		if ( empty( $closureRule )) 
-			throw new TableauException( 'No closure rule set for Tableaux System.' );
-		
 		foreach ( $tableau->getOpenBranches() as $branch )
 			if ( $closureRule->doesApply( $branch )) $branch->close();
 	}
@@ -91,10 +120,15 @@ abstract class TableauxSystem extends ProofSystem
 	 */
 	public function addBranchRules( $branchRules )
 	{
-		if ( is_array( $branchRules ))
-			foreach ( $branchRules as $rule ) $this->_addBranchRule( $rule );
-		else $this->_addBranchRule( $branchRules );
-		
+		if ( is_array( $branchRules )) {
+			foreach ( $branchRules as $rule ) $this->addBranchRules( $rule );
+			return $this;
+		}
+		$branchRule = $branchRules;
+		if ( !$branchRule instanceof BranchRule )
+			throw new TableauException( 'Branch rule must be instance of BranchRule.' );
+		if ( !in_array( $branchRule, $this->branchRules, true ))
+			$this->branchRules[] = $branchRule;
 		return $this;
 	}
 	
@@ -109,21 +143,16 @@ abstract class TableauxSystem extends ProofSystem
 	}
 	
 	/**
-	 * Evaluates an argument.
+	 * Builds a tableau.
 	 *
-	 * @param Argument $argument The argument to be evaluated.
-	 * @return Tableau|Model A tableau proof, if the argument is valid, or a
-	 *						 countermodel, if is is invalid.
-	 * @throws {@link ProofException} on errors.
+	 * @param Tableau $tableau The tableau to build.
+	 * @return void
 	 */
-	public function evaluateArgument( Argument $argument )
+	public function buildProof( Proof $tableau )
 	{
-		$tableauClass = $this->tableauClass;
-		$tableau = new $tableauClass;
 		$this->buildTrunk( $tableau, $argument );
 		
 		$branchRules = $this->getBranchRules();
-		if ( empty( $branchRules )) throw new TableauException( 'Rule set cannot be empty.' );
 		
 		$i = 0;
 		do {
@@ -133,21 +162,14 @@ abstract class TableauxSystem extends ProofSystem
 			foreach ( $tableau->getOpenBranches() as $branch ) {
 				$result = $rule->apply( $branch );
 				if ( $result !== false ) {
-					$i = 0;
 					$ruleDidApply = true;
+					$i = 0;
 					if ( !empty( $result )) $tableau->attach( $result );
 				}
 			}
 		} while ( $ruleDidApply || isset( $branchRules[++$i] ));
 		
 		$this->applyClosureRule( $tableau );
-		
-		if ( $this->isValid( $tableau )) {
-			$tableau->buildStructure();
-			return $tableau;
-		}
-		
-		return $this->getCounterExample( $tableau );
 	}
 	/**
 	 * Checks whether a Tableau is a valid proof.
@@ -158,8 +180,6 @@ abstract class TableauxSystem extends ProofSystem
 	 */
 	public function isValid( Proof $proof )
 	{
-		if ( !$proof instanceof $this->proofClass )
-			throw new ProofException( "Proof is not an instance of {$this->proofClass}." );
 		$openBranches = $proof->getOpenBranches();
 		return empty( $openBranches );
 	}
@@ -170,19 +190,14 @@ abstract class TableauxSystem extends ProofSystem
 	 * A counterexample for a tableaux system is a model induced from an open
 	 * branch. 
 	 *
-	 * @param Tableau $proof The tableau from which to build the counterexample
+	 * @param Tableau $tableau The tableau from which to build the counterexample
 	 * @return Counterexample The counterexample extracted from the proof.
 	 * @throws {@link ProofException} on type error.
 	 * @throws {@link TableauException} on no open branches.
 	 */
-	public function getCounterexample( Proof $proof )
+	public function getCounterexample( Proof $tableau )
 	{
-		if ( !$proof instanceof Tableau )
-			throw new ProofException( "Proof is not an instance of class Tableau." );
-		$openBranches = $proof->getOpenBranches();
-		if ( empty( $openBranches ))
-			throw new TableauException( 'No open branches found on tableau.' );
-		return $this->induceModel( array_pop( $openBranches ));
+		return $this->induceModel( array_pop( $tableau->getOpenBranches(); ));
 	}
 	
 	/**
@@ -201,16 +216,4 @@ abstract class TableauxSystem extends ProofSystem
 	 * @return void
 	 */
 	abstract public function buildTrunk( Tableau $tableau, Argument $argument );
-	
-	/**
-	 * Adds a tableau rule.
-	 *
-	 * @param BranchRule The rule to add.
-	 * @return void
-	 */
-	protected function _addBranchRule( BranchRule $branchRule )
-	{
-		if ( !in_array( $branchRule, $this->branchRules, true ))
-			$this->branchRules[] = $branchRule;
-	}
 }

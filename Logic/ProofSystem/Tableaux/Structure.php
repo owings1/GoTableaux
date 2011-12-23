@@ -62,6 +62,44 @@ class Structure
 		$instance->setTableau( $tableau );
 		return $instance;
 	}
+
+	/**
+	 * Gets all branches that have a particular node on them.
+	 *
+	 * @param array $searchBranches Array of {@link Branch}es to search.
+	 * @param Node $node The node to search for.
+	 * @return array Array of branches.
+	 */
+	protected static function findBranchesWithNode( array $searchBranches, Node $node )
+	{
+		$branches = array();
+		foreach ( $searchBranches as $branch )
+			if ( $branch->hasNode( $node )) $branches[] = $branch;
+		return $branches;
+	}
+	
+	/**
+	 * Gets all nodes that are on each of an array of branches.
+	 *
+	 * @param array $branches Array of {@link Branch}es.
+	 * @return array Array of common {@link Node nodes}. 
+	 */
+	protected static function findNodesCommonToBranches( array $branches )
+	{
+		$nodes = $commonNodes = array();
+		foreach ( $branches as $branch ) $nodes = array_merge( $nodes, $branch->getNodes() );
+		foreach ( $nodes as $node ) {
+			$isCommon = true;			
+			foreach ( $branches as $branch )
+				if ( $branch->hasNode( $node )) continue;
+				else {
+					$isCommon = false;
+					break;
+				}
+			if ( $isCommon ) $commonNodes[] = $node;
+		}
+		return array_unique( $commonNodes );
+	}
 	
 	/**
 	 * Subtracts one array from another, reference strict.
@@ -104,7 +142,7 @@ class Structure
 	/**
 	 * Gets the nodes of the current structure.
 	 *
-	 * @return array Array of {@link Node} objects.
+	 * @return array Array of {@link Node}s.
 	 */
 	public function getNodes()
 	{
@@ -114,7 +152,7 @@ class Structure
 	/**
 	 * Gets the child structures of the current structure.
 	 *
-	 * @return array Array of Structure objects.
+	 * @return array Array of {@link Structure}s.
 	 */
 	public function getStructures()
 	{
@@ -145,23 +183,19 @@ class Structure
 	/**
 	 * Recursive structurizing function.
 	 *
-	 * @param array $b
+	 * @param array $branches Array of {@link Branch}es to structurize.
 	 * @return void
 	 */
-	protected function structurize( array $b )
+	protected function structurize( array $branches )
 	{
-		if ( empty( $b )) return;
-		
-		$branches = $b;
+		if ( empty( $banches )) return;
 		
 		// get nodes that are common to branches
-		$nodes = Branch::getCommonNodes( $branches );
+		$nodes = self::findNodesCommonToBranches( $branches );
 		
 		foreach ( $nodes as $node ){
 			$ticked = false;
-			foreach ( $branches as $branch )
-				$ticked |= $node->isTickedAtBranch( $branch );
-				
+			foreach ( $branches as $branch ) $ticked |= $node->isTickedAtBranch( $branch );
 			if ( $ticked ) $this->tickedNodes[] = $node;
 		}
 		// remove nodes from branches
@@ -171,7 +205,7 @@ class Structure
 		// assign nodes to structure
 		$this->nodes = $nodes;
 		
-		if ( count( $branches ) > 1 ) {
+		if ( count( $branches ) > 1 ) 
 			while ( ! empty( $branches )) {
 				// grab first node from a branch
 				$branch = $branches[0];
@@ -179,7 +213,7 @@ class Structure
 				$node 	= $n[0];
 				
 				// group branches that have that node
-				$group = Branch::getBranchesWithNode( $branches, $node );
+				$group = self::findBranchesWithNode( $branches, $node );
 				
 				// remove them from $branches
 				$branches = self::subtract( $branches, $group );
@@ -191,9 +225,9 @@ class Structure
 				// structurize branches
 				$structure->structurize( $group );
 			}
-		} else {
-			$b = $branches[0];
-			if ( $b->isClosed() ) $this->closed = true;
+		else {
+			$branch = $branches[0];
+			if ( $branch->isClosed() ) $this->closed = true;
 		}	
 	}
 }

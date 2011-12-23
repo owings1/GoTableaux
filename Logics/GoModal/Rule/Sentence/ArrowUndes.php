@@ -8,7 +8,7 @@ class GoModal_Rule_Sentence_ArrowUndes implements Rule
 			throw new Exception( 'branch must be a GoModal instance' );
 		}
 		
-		$condNodes = GoModalBranch::getNodesByOperatorName( $branch->getUndesignatedNodes( true ), 'ARROW' );
+		$condNodes = SentenceNode::findNodesByOperatorName( $branch->getUndesignatedNodes( true ), 'ARROW' );
 		
 		
 		if ( empty( $condNodes )){

@@ -8,7 +8,7 @@ class GoModal_Rule_Sentence_MatCondUndes implements Rule
 			throw new Exception( 'branch must be a GoModal instance' );
 		}
 		
-		$condNodes = GoModalBranch::getNodesByOperatorName( $branch->getUndesignatedNodes( true ), 'MATERIALCONDITIONAL' );
+		$condNodes = SentenceNode::findNodesByOperatorName( $branch->getUndesignatedNodes( true ), 'MATERIALCONDITIONAL' );
 		
 		
 		if ( empty( $condNodes )){

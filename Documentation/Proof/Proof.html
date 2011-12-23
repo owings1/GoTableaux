@@ -84,7 +84,7 @@ Source Location: /ProofSystem/Proof.php<br /><br />
 </strong></p>
 
 		<p class="notes">
-			Located in <a class="field" href="_ProofSystem---Proof.php.html">/ProofSystem/Proof.php</a> [<span class="field">line 19</span>]
+			Located in <a class="field" href="_ProofSystem---Proof.php.html">/ProofSystem/Proof.php</a> [<span class="field">line 14</span>]
 		</p>
 
 		
@@ -113,7 +113,6 @@ Source Location: /ProofSystem/Proof.php<br /><br />
 		<p align="center" class="short-description"><strong><a href="#sec_vars">Properties</a></strong></p>
 		<ul>
 		  		  <li><a href="../Proof/Proof.html#var$argument">$argument</a></li>
-		  		  <li><a href="../Proof/Proof.html#var$proofSystem">$proofSystem</a></li>
 		  		</ul>
 		</td>
 		
@@ -121,10 +120,7 @@ Source Location: /ProofSystem/Proof.php<br /><br />
 		<p align="center" class="short-description"><strong><a href="#sec_methods">Methods</a></strong></p>
 		<ul>
 		  		  <li><a href="../Proof/Proof.html#method__construct">__construct</a></li>
-		  		  <li><a href="../Proof/Proof.html#methodbuild">build</a></li>
 		  		  <li><a href="../Proof/Proof.html#methodgetArgument">getArgument</a></li>
-		  		  <li><a href="../Proof/Proof.html#methodgetProofSystem">getProofSystem</a></li>
-		  		  <li><a href="../Proof/Proof.html#methodisValid">isValid</a></li>
 		  		</ul>
 		</td>
 		
@@ -173,15 +169,10 @@ Source Location: /ProofSystem/Proof.php<br /><br />
 		<div class="info-box-body">
 			<div class="var-summary">
 			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
-																									<div class="var-title">
+																			<div class="var-title">
 					<tr><td class="var-title"><span class="var-type-summary"><a href="../Logic/Argument.html">Argument</a></span>&nbsp;&nbsp;</td>
 					<td class="var-title"><a href="#$argument" title="details" class="var-name-summary">$argument</a>&nbsp;&nbsp;</td>
 					<td class="var-summary-description">Holds the argument for the proof.</td></tr>
-				</div>
-													<div class="var-title">
-					<tr><td class="var-title"><span class="var-type-summary"><a href="../Proof/ProofSystem.html">ProofSystem</a></span>&nbsp;&nbsp;</td>
-					<td class="var-title"><a href="#$proofSystem" title="details" class="var-name-summary">$proofSystem</a>&nbsp;&nbsp;</td>
-					<td class="var-summary-description">Holds a reference to the proof system.</td></tr>
 				</div>
 										</table>
 			</div>
@@ -201,30 +192,15 @@ Source Location: /ProofSystem/Proof.php<br /><br />
 		<div class="info-box-body">
 			<div class="method-summary">
 				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
-																																																								<div class="method-definition">
+																																<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result">Proof</span>&nbsp;&nbsp;</td>
 										<td class="method-definition"><a href="#__construct" title="details" class="method-name">__construct</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Constructor. Initializes argument and proof system.</td></tr>
-				</div>
-																<div class="method-definition">
-											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
-										<td class="method-definition"><a href="#build" title="details" class="method-name">build</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Builds the proof.</td></tr>
+					<td class="method-definition">Constructor. Initializes argument.</td></tr>
 				</div>
 																<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result"><a href="../Logic/Argument.html">Argument</a></span>&nbsp;&nbsp;</td>
 										<td class="method-definition"><a href="#getArgument" title="details" class="method-name">getArgument</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Gets the Argument object.</td></tr>
-				</div>
-																<div class="method-definition">
-											<tr><td class="method-definition"><span class="method-result"><a href="../Proof/ProofSystem.html">ProofSystem</a></span>&nbsp;&nbsp;</td>
-										<td class="method-definition"><a href="#getProofSystem" title="details" class="method-name">getProofSystem</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Gets the proof system.</td></tr>
-				</div>
-																<div class="method-definition">
-											<tr><td class="method-definition"><span class="method-result">boolean</span>&nbsp;&nbsp;</td>
-										<td class="method-definition"><a href="#isValid" title="details" class="method-name">isValid</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Determines whether the built proof is valid.</td></tr>
 				</div>
 												</table>
 			</div>
@@ -249,37 +225,11 @@ Source Location: /ProofSystem/Proof.php<br /><br />
 		<span class="var-title">
 			<span class="var-type"><a href="../Logic/Argument.html">Argument</a></span>&nbsp;&nbsp;
 			<span class="var-name">$argument</span>
-						<span class="smalllinenumber">[line 26]</span>
+						<span class="smalllinenumber">[line 21]</span>
 		</span>
 	</div>
 
 	<p align="center" class="short-description"><strong>Holds the argument for the proof.
-</strong></p>
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
-  </tr>
-</table>
-<br />
-
-
-	
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
-<a name="var$proofSystem" id="$proofSystem"><!-- --></A>
-<div class="evenrow">
-
-	<div class="var-header">
-		<span class="var-title">
-			<span class="var-type"><a href="../Proof/ProofSystem.html">ProofSystem</a></span>&nbsp;&nbsp;
-			<span class="var-name">$proofSystem</span>
-						<span class="smalllinenumber">[line 33]</span>
-		</span>
-	</div>
-
-	<p align="center" class="short-description"><strong>Holds a reference to the proof system.
 </strong></p>
 	<strong>API Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
@@ -310,10 +260,10 @@ Source Location: /ProofSystem/Proof.php<br /><br />
 			<a name='method_detail'></a>
 
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">Constructor __construct</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 41]</span>
+	<span class="method-title">Constructor __construct</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 28]</span>
 </div>
 <br />
 
@@ -322,13 +272,12 @@ Source Location: /ProofSystem/Proof.php<br /><br />
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
 		<code>Proof __construct(
 Argument
-$argument, <a href="../Proof/ProofSystem.html">ProofSystem</a>
-$proofSystem&nbsp;
+$argument&nbsp;
 )</code>
     </td></tr></table>
     </td></tr></table><br /></div>
 
-	<p align="center" class="short-description"><strong>Constructor. Initializes argument and proof system.
+	<p align="center" class="short-description"><strong>Constructor. Initializes argument.
 </strong></p>
 
 			<strong>Parameters:</strong><br />
@@ -339,12 +288,6 @@ $proofSystem&nbsp;
 				<span class="var-name">$argument:&nbsp;</span></td>
 				<td>
 				<span class="var-description"> Argument for the proof.</span>			</td></tr>
-					<tr><td class="indent">
-				<span class="var-type"><a href="../Proof/ProofSystem.html">ProofSystem</a></span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$proofSystem:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> Proof system to use.</span>			</td></tr>
 				</table>
 
 	<br />
@@ -361,53 +304,11 @@ $proofSystem&nbsp;
 		<br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
-<a name="methodbuild" id="build"><!-- --></a>
-<div class="evenrow">
-
-<div class="method-header">
-	<span class="method-title">build</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 73]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code>void build(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Builds the proof.
-</strong></p>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Abstract:</strong>&nbsp;&nbsp;</td><td></td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-<br />
-
-<strong>Information Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Throws:</strong>&nbsp;&nbsp;</td><td><a href="../Proof/ProofException.html">ProofException</a> on errors.</td>
-  </tr>
-</table>
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
 <a name="methodgetArgument" id="getArgument"><!-- --></a>
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">getArgument</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 52]</span>
+	<span class="method-title">getArgument</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 38]</span>
 </div>
 <br />
 
@@ -439,100 +340,13 @@ $proofSystem&nbsp;
 		<br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
-<a name="methodgetProofSystem" id="getProofSystem"><!-- --></a>
-<div class="evenrow">
-
-<div class="method-header">
-	<span class="method-title">getProofSystem</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 62]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code><a href="../Proof/ProofSystem.html">ProofSystem</a> getProofSystem(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Gets the proof system.
-</strong></p>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The proof system for the proof.</td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-<br />
-
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
-<a name="methodisValid" id="isValid"><!-- --></a>
-<div class="oddrow">
-
-<div class="method-header">
-	<span class="method-title">isValid</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 81]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code>boolean isValid(
-<a href="../Proof/Counterexample.html">Counterexample</a>|null
-&$counterexample&nbsp;
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Determines whether the built proof is valid.
-</strong></p>
-
-			<strong>Parameters:</strong><br />
-			<table border="0" cellspacing="0" cellpadding="0">
-					<tr><td class="indent">
-				<span class="var-type"><a href="../Proof/Counterexample.html">Counterexample</a>|null</span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">&$counterexample:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> Holds a counterexample, if any.</span>			</td></tr>
-				</table>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Whether the argument is valid.</td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Abstract:</strong>&nbsp;&nbsp;</td><td></td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-<br />
-
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
 		</div>
 	</div>
 
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Fri, 23 Dec 2011 02:19:44 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Fri, 23 Dec 2011 11:16:31 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

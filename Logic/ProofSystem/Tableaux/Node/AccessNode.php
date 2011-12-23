@@ -1,6 +1,6 @@
 <?php
 /**
- * Defines the ModalAccessNode class.
+ * Defines the AccessNode class.
  * @package Tableaux
  * @author Douglas Owings
  */
@@ -15,7 +15,7 @@ require_once '../Node.php';
  * @package Tableaux
  * @author Douglas Owings
  */
-class ModalAccessNode extends Node
+class AccessNode extends Node implements ModalNode
 {
 	/**
 	 * Holds a reference to the seeing world index.
@@ -48,7 +48,7 @@ class ModalAccessNode extends Node
 	 * Sets the first index.
 	 *
 	 * @param integer $i The index.
-	 * @return ModalAccessNode Current instance
+	 * @return AccessNode Current instance
 	 */
 	public function setI( $i )
 	{
@@ -70,7 +70,7 @@ class ModalAccessNode extends Node
 	 * Sets the second index.
 	 *
 	 * @param integer $j The second index.
-	 * @return ModalAccessNode Current instance.
+	 * @return AccessNode Current instance.
 	 */
 	public function setJ( $j )
 	{

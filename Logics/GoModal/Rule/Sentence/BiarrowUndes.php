@@ -8,7 +8,7 @@ class GoModal_Rule_Sentence_BiarrowUndes implements Rule
 			throw new Exception( 'branch must be a GoModal instance' );
 		}
 		
-		$condNodes = GoModalBranch::getNodesByOperatorName( $branch->getUndesignatedNodes( true ), 'BIARROW' );
+		$condNodes = SentenceNode::findNodesByOperatorName( $branch->getUndesignatedNodes( true ), 'BIARROW' );
 		
 		
 		if ( empty( $condNodes )){
