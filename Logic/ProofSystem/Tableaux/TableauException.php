@@ -8,7 +8,7 @@
 /**
  * Loads the parent {@link ProofException} class.
  */
-require_once '../ProofException.php';
+require_once 'GoTableaux/Logic/ProofSystem/ProofException.php';
 
 /**
  * Represents a tableau proof exception.

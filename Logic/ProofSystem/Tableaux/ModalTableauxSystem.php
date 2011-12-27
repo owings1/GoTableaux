@@ -8,12 +8,12 @@
 /**
  * Loads the {@link TableauxSystem} parent class.
  */
-require_once '../TableauxSystem.php';
+require_once 'GoTableaux/Logic/ProofSystem/TableauxSystem.php';
 
 /**
  * Loads the {@link ModalTableau} proof class.
  */
-require_once 'ModalTableau.php';
+require_once 'Tableau/ModalTableau.php';
 
 /**
  * Loads the {@link ModalSentenceNode} class.

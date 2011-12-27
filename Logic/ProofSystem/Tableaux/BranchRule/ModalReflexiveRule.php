@@ -8,7 +8,7 @@
 /**
  * Loads the {@link BranchRule} interface.
  */
-require_once '../BranchRule.php';
+require_once 'GoTableaux/Logic/ProofSystem/Tableaux/BranchRule.php';
 
 /**
  * Implements the reflexivity rule for a standard modal tableaux system.
@@ -27,9 +27,10 @@ class ModalReflexiveRule implements BranchRule
 	 * a node for least index.
 	 *
 	 * @param ModalBranch $branch The modal branch to search and apply the rule to.
+	 * @param TableauxSystem $tableauxSystem The Tableaux system.
 	 * @return boolean Whether the rule was applied.
 	 */
-	public function apply( Branch $branch )
+	public function apply( Branch $branch, TableauxSystem $tableauxSystem )
 	{
 		if ( !$indexes = array_diff( $branch->getAllIndexes(), $branch->getReflexiveNodes() ))
 			return false;

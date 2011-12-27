@@ -11,14 +11,9 @@
 require_once 'ModalTableauxSystem.php';
 
 /**
- * Loads the {@link ManyValuedModalSentenceNode} class.
+ * Loads the {@link ManyValuedModalTableau} class.
  */
-require_once 'Node/ManyValuedModalSentenceNode.php';
-
-/**
- * Loads the {@link ManyValuedAccessNode} class
- */
-require_once 'Node/ManyValuedAccessNode.php';
+require_once 'Tableau/ManyValuedModalTableau.php';
 
 /**
  * Represents a tableaux system for a many-valued modal logic.
@@ -27,26 +22,13 @@ require_once 'Node/ManyValuedAccessNode.php';
  */
 class ManyValuedModalTableauxSystem extends ModalTableauxSystem
 {
-	protected $sentenceNodeClass = 'ManyValuedModalSentenceNode';
-	
-	protected $accessNodeClass = 'ManyValuedAccessNode';
+	protected $proofClass = 'ManyValuedModalTableau';
 	
 	public function buildTrunk( Tableau $tableau, Argument $argument )
 	{
-		$nodes = array();
-		
-		$sentenceNodeClass = $this->sentenceNodeClass;
-		
-		$premises 	= $argument->getPremises();
-		$conclusion = $argument->getConclusion();
-				
-		foreach ( $premises as $premise )
-			$nodes[] = new $sentenceNodeClass( $premise, 0, true ));
-		
-		if ( !empty( $conclusion ))
-			$nodes[] = new $sentenceNodeClass( $conclusion, 0, false ));
-		
-		$tableau->createBranch( $nodes );
+		$branch = $tableau->createBranch();
+		foreach ( $argument->getPremises() as $premise ) $branch->addSentenceNode( $premise, 0, true );
+		$branch->addSentenceNode( $argument->getConclusion(), 0, false );
 	}
 	
 	public function induceModel( Branch $branch )

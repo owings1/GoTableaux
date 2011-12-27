@@ -112,8 +112,10 @@ Source Location: /Syntax/Vocabulary.php<br /><br />
 				<td valign="top" width="20%" class="class-overview">
 		<p align="center" class="short-description"><strong><a href="#sec_vars">Properties</a></strong></p>
 		<ul>
+		  		  <li><a href="../Syntax/Vocabulary.html#var$atomicSentences">$atomicSentences</a></li>
 		  		  <li><a href="../Syntax/Vocabulary.html#var$items">$items</a></li>
 		  		  <li><a href="../Syntax/Vocabulary.html#var$operators">$operators</a></li>
+		  		  <li><a href="../Syntax/Vocabulary.html#var$operatorSymbols">$operatorSymbols</a></li>
 		  		  <li><a href="../Syntax/Vocabulary.html#var$sentences">$sentences</a></li>
 		  		</ul>
 		</td>
@@ -137,6 +139,7 @@ Source Location: /Syntax/Vocabulary.php<br /><br />
 		  		  <li><a href="../Syntax/Vocabulary.html#methodgetOperatorByName">getOperatorByName</a></li>
 		  		  <li><a href="../Syntax/Vocabulary.html#methodgetOperatorBySymbol">getOperatorBySymbol</a></li>
 		  		  <li><a href="../Syntax/Vocabulary.html#methodgetOperatorSymbols">getOperatorSymbols</a></li>
+		  		  <li><a href="../Syntax/Vocabulary.html#methodgetSentences">getSentences</a></li>
 		  		  <li><a href="../Syntax/Vocabulary.html#methodgetSeparators">getSeparators</a></li>
 		  		  <li><a href="../Syntax/Vocabulary.html#methodgetSubscriptSymbols">getSubscriptSymbols</a></li>
 		  		  <li><a href="../Syntax/Vocabulary.html#methodgetSymbolType">getSymbolType</a></li>
@@ -208,7 +211,12 @@ Source Location: /Syntax/Vocabulary.php<br /><br />
 		<div class="info-box-body">
 			<div class="var-summary">
 			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
-																															<div class="var-title">
+																																											<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$atomicSentences" title="details" class="var-name-summary">$atomicSentences</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Holds the set of atomic sentencents.</td></tr>
+				</div>
+													<div class="var-title">
 					<tr><td class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
 					<td class="var-title"><a href="#$items" title="details" class="var-name-summary">$items</a>&nbsp;&nbsp;</td>
 					<td class="var-summary-description">Holds a hash of all vocabulary items, including operators.</td></tr>
@@ -217,6 +225,11 @@ Source Location: /Syntax/Vocabulary.php<br /><br />
 					<tr><td class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
 					<td class="var-title"><a href="#$operators" title="details" class="var-name-summary">$operators</a>&nbsp;&nbsp;</td>
 					<td class="var-summary-description">Holds the operators.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$operatorSymbols" title="details" class="var-name-summary">$operatorSymbols</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Holds the operator symbols.</td></tr>
 				</div>
 													<div class="var-title">
 					<tr><td class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
@@ -248,7 +261,7 @@ Source Location: /Syntax/Vocabulary.php<br /><br />
 					<td class="method-definition"><a href="#createWithLexicon" title="details" class="method-name">createWithLexicon</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Creates an instance with a lexicon.</td></tr>
 				</div>
-																																																																																																								<div class="method-definition">
+																																																																																																																<div class="method-definition">
 					<tr><td class="method-definition">static
 											<span class="method-result">boolean</span>&nbsp;&nbsp;
 					</td>
@@ -331,6 +344,11 @@ Source Location: /Syntax/Vocabulary.php<br /><br />
 					<td class="method-definition">Gets all operator symbols.</td></tr>
 				</div>
 																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">array</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#getSentences" title="details" class="method-name">getSentences</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Gets the set of sentences.</td></tr>
+				</div>
+																<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result">array|string</span>&nbsp;&nbsp;</td>
 										<td class="method-definition"><a href="#getSeparators" title="details" class="method-name">getSeparators</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Gets the separators.</td></tr>
@@ -353,7 +371,7 @@ Source Location: /Syntax/Vocabulary.php<br /><br />
 																								<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result"><a href="../Syntax/Sentence.html">Sentence</a></span>&nbsp;&nbsp;</td>
 										<td class="method-definition"><a href="#registerSentence" title="details" class="method-name">registerSentence</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Adds a sentence to the registry.</td></tr>
+					<td class="method-definition">Adds a sentence to the vocabulary, maintaining uniqueness.</td></tr>
 				</div>
 												</table>
 			</div>
@@ -371,8 +389,34 @@ Source Location: /Syntax/Vocabulary.php<br /><br />
 																			| <a href="#sec-const-summary">Constants Summary</a> | <a href="#sec-consts">Constants Detail</a>
 									</div>
 		<div class="info-box-body">
-			<a name="var$items" id="$items"><!-- --></A>
+			<a name="var$atomicSentences" id="$atomicSentences"><!-- --></A>
 <div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>&nbsp;&nbsp;
+			<span class="var-name">$atomicSentences</span>
+			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 67]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Holds the set of atomic sentencents.
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$items" id="$items"><!-- --></A>
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -398,19 +442,45 @@ Source Location: /Syntax/Vocabulary.php<br /><br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="var$operators" id="$operators"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">array</span>&nbsp;&nbsp;
 			<span class="var-name">$operators</span>
-			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 41]</span>
+			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 49]</span>
 		</span>
 	</div>
 
 	<p align="center" class="short-description"><strong>Holds the operators.
 </strong></p>
-<span class="description"><p>Key is operator symbol; value is <a href="../Syntax/Operator.html">operator</a> object.</p></span>	<strong>API Tags:</strong><br />
+<span class="description"><p>Key is operator name; value is <a href="../Syntax/Operator.html">operator</a> object.</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$operatorSymbols" id="$operatorSymbols"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>&nbsp;&nbsp;
+			<span class="var-name">$operatorSymbols</span>
+			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 40]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Holds the operator symbols.
+</strong></p>
+	<strong>API Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
@@ -430,7 +500,7 @@ Source Location: /Syntax/Vocabulary.php<br /><br />
 		<span class="var-title">
 			<span class="var-type">array</span>&nbsp;&nbsp;
 			<span class="var-name">$sentences</span>
-			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 53]</span>
+			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 61]</span>
 		</span>
 	</div>
 
@@ -470,7 +540,7 @@ Source Location: /Syntax/Vocabulary.php<br /><br />
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">static method createWithLexicon</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 69]</span>
+	<span class="method-title">static method createWithLexicon</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 83]</span>
 </div>
 <br />
 
@@ -518,7 +588,7 @@ $lexicon&nbsp;
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">static method isOperatorType</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 80]</span>
+	<span class="method-title">static method isOperatorType</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 94]</span>
 </div>
 <br />
 
@@ -567,7 +637,7 @@ $flag&nbsp;
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">Constructor __construct</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 106]</span>
+	<span class="method-title">Constructor __construct</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 120]</span>
 </div>
 <br />
 
@@ -575,8 +645,8 @@ $flag&nbsp;
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
 		<code>Vocabulary __construct(
-[array
-$lexicon = array()]&nbsp;
+array
+$lexicon&nbsp;
 )</code>
     </td></tr></table>
     </td></tr></table><br /></div>
@@ -590,9 +660,9 @@ $lexicon = array()]&nbsp;
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'atomicSymbols'&nbsp;</span>=&gt;&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'A'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'B'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'C'</span><span class="src-sym">)</span><span class="src-sym">,</span></div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'subscripts'&nbsp;</span>=&gt;&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'_'</span><span class="src-sym">)</span><span class="src-sym">,</span></div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'separators'&nbsp;</span>=&gt;&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'&nbsp;'</span><span class="src-sym">)</span><span class="src-sym">,</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'operators'&nbsp;</span>=&gt;&nbsp;<span class="src-key">array</span><span class="src-sym">(</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'&amp;'&nbsp;</span>=&gt;&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'name'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'Conjunction'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'arity'&nbsp;</span>=&gt;&nbsp;<span class="src-num">2</span><span class="src-sym">)</span><span class="src-sym">,</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'~'&nbsp;</span>=&gt;&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'name'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'Negation'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'arity'&nbsp;</span>=&gt;&nbsp;<span class="src-num">1</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'operatorSymbols'&nbsp;</span>=&gt;&nbsp;<span class="src-key">array</span><span class="src-sym">(</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'&amp;'&nbsp;</span>=&gt;&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'Conjunction'&nbsp;</span>=&gt;&nbsp;<span class="src-num">2</span><span class="src-sym">)</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">'~'&nbsp;</span>=&gt;&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'Negation'&nbsp;&nbsp;</span>=&gt;&nbsp;<span class="src-num">1</span><span class="src-sym">)</span></div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">)</span></div></li>
 <li><div class="src-line">&nbsp;<span class="src-sym">))</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
@@ -625,7 +695,7 @@ $lexicon = array()]&nbsp;
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">addAtomicSymbol</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 117]</span>
+	<span class="method-title">addAtomicSymbol</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 131]</span>
 </div>
 <br />
 
@@ -673,7 +743,7 @@ $symbol&nbsp;
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">addCloseMark</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 186]</span>
+	<span class="method-title">addCloseMark</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 200]</span>
 </div>
 <br />
 
@@ -721,7 +791,7 @@ $symbol&nbsp;
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">addOpenMark</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 163]</span>
+	<span class="method-title">addOpenMark</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 177]</span>
 </div>
 <br />
 
@@ -769,7 +839,7 @@ $symbol&nbsp;
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">addSeparator</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 209]</span>
+	<span class="method-title">addSeparator</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 223]</span>
 </div>
 <br />
 
@@ -817,7 +887,7 @@ $symbol&nbsp;
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">addSubscriptSymbol</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 140]</span>
+	<span class="method-title">addSubscriptSymbol</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 154]</span>
 </div>
 <br />
 
@@ -865,7 +935,7 @@ $symbol&nbsp;
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">addSymbol</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 377]</span>
+	<span class="method-title">addSymbol</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 427]</span>
 </div>
 <br />
 
@@ -926,7 +996,7 @@ $typeFlag&nbsp;
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">createOperator</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 235]</span>
+	<span class="method-title">createOperator</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 249]</span>
 </div>
 <br />
 
@@ -994,7 +1064,7 @@ $name&nbsp;
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">getAtomicSymbols</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 129]</span>
+	<span class="method-title">getAtomicSymbols</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 143]</span>
 </div>
 <br />
 
@@ -1042,7 +1112,7 @@ $single = false]&nbsp;
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">getCloseMarks</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 198]</span>
+	<span class="method-title">getCloseMarks</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 212]</span>
 </div>
 <br />
 
@@ -1090,7 +1160,7 @@ $single = false]&nbsp;
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">getItems</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 401]</span>
+	<span class="method-title">getItems</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 451]</span>
 </div>
 <br />
 
@@ -1145,7 +1215,7 @@ $single = false]&nbsp;
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">getOpenMarks</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 175]</span>
+	<span class="method-title">getOpenMarks</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 189]</span>
 </div>
 <br />
 
@@ -1193,7 +1263,7 @@ $single = false]&nbsp;
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">getOperatorByName</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 281]</span>
+	<span class="method-title">getOperatorByName</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 294]</span>
 </div>
 <br />
 
@@ -1247,7 +1317,7 @@ $name&nbsp;
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">getOperatorBySymbol</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 296]</span>
+	<span class="method-title">getOperatorBySymbol</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 309]</span>
 </div>
 <br />
 
@@ -1301,7 +1371,7 @@ $symbol&nbsp;
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">getOperatorSymbols</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 265]</span>
+	<span class="method-title">getOperatorSymbols</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 278]</span>
 </div>
 <br />
 
@@ -1345,11 +1415,47 @@ $arity = 0]&nbsp;
 		<br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
-<a name="methodgetSeparators" id="getSeparators"><!-- --></a>
+<a name="methodgetSentences" id="getSentences"><!-- --></a>
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">getSeparators</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 221]</span>
+	<span class="method-title">getSentences</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 382]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>array getSentences(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Gets the set of sentences.
+</strong></p>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Array of <a href="../Syntax/Sentence.html">Sentence</a>s.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodgetSeparators" id="getSeparators"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">getSeparators</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 235]</span>
 </div>
 <br />
 
@@ -1394,10 +1500,10 @@ $single = false]&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodgetSubscriptSymbols" id="getSubscriptSymbols"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">getSubscriptSymbols</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 152]</span>
+	<span class="method-title">getSubscriptSymbols</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 166]</span>
 </div>
 <br />
 
@@ -1442,10 +1548,10 @@ $single = false]&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodgetSymbolType" id="getSymbolType"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">getSymbolType</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 310]</span>
+	<span class="method-title">getSymbolType</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 323]</span>
 </div>
 <br />
 
@@ -1496,10 +1602,10 @@ $symbol&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodinsertLexicon" id="insertLexicon"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">insertLexicon</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 348]</span>
+	<span class="method-title">insertLexicon</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 394]</span>
 </div>
 <br />
 
@@ -1541,10 +1647,10 @@ $lexicon&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodregisterSentence" id="registerSentence"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">registerSentence</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 333]</span>
+	<span class="method-title">registerSentence</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 343]</span>
 </div>
 <br />
 
@@ -1553,15 +1659,14 @@ $lexicon&nbsp;
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
 		<code><a href="../Syntax/Sentence.html">Sentence</a> registerSentence(
 <a href="../Syntax/Sentence.html">Sentence</a>
-$sentence, <a href="../Syntax/SentenceParser.html">SentenceParser</a>
-$parser&nbsp;
+$sentence&nbsp;
 )</code>
     </td></tr></table>
     </td></tr></table><br /></div>
 
-	<p align="center" class="short-description"><strong>Adds a sentence to the registry.
+	<p align="center" class="short-description"><strong>Adds a sentence to the vocabulary, maintaining uniqueness.
 </strong></p>
-<span class="description"><p>If a sentence of the same form is already in the registry, the passed  sentence is ignored, and the stored sentence is returned. Sentence form  is taken from the parser. When extending the <a href="../Syntax/SentenceParser.html">SentenceParser</a>, the  <a href="../Syntax/SentenceParser.html#methodstringToSentence">parsing function</a> should  return the value of this function.</p></span>
+<span class="description"><p>If the sentence, or one of the same form is already in the vocabulary,  then that sentence is returned. Otherwise the passed sentence is  returned. When extending the <a href="../Syntax/SentenceParser.html">SentenceParser</a>, the  <a href="../Syntax/SentenceParser.html#methodstringToSentence">parsing function</a> should  return the value of this function.</p></span>
 			<strong>Parameters:</strong><br />
 			<table border="0" cellspacing="0" cellpadding="0">
 					<tr><td class="indent">
@@ -1570,19 +1675,13 @@ $parser&nbsp;
 				<span class="var-name">$sentence:&nbsp;</span></td>
 				<td>
 				<span class="var-description"> The sentence to add.</span>			</td></tr>
-					<tr><td class="indent">
-				<span class="var-type"><a href="../Syntax/SentenceParser.html">SentenceParser</a></span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$parser:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> The parser from which to get the form.</span>			</td></tr>
 				</table>
 
 	<br />
 	<strong>API Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The sentence instance. If the sentence is new to the                     registry, it is returned. Otherwise, the existing                     sentence is returned.</td>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Old or new sentence.</td>
   </tr>
   <tr>
     <td class="indent"><strong>See:</strong>&nbsp;&nbsp;</td><td><a href="../Syntax/SentenceParser.html#methodstringToSentence">SentenceParser::stringToSentence()</a></td>
@@ -1611,13 +1710,13 @@ $parser&nbsp;
 									</div>
 		<div class="info-box-body">
 			<a name="constATOMIC" id="ATOMIC"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-name">ATOMIC</span>
 			 = <span class="var-default"> 0</span>
-			<span class="smalllinenumber">[line 56]</span>
+			<span class="smalllinenumber">[line 70]</span>
 		</span>
 	</div>
 
@@ -1627,13 +1726,13 @@ $parser&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="constCTRL_SUBSCRIPT" id="CTRL_SUBSCRIPT"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-name">CTRL_SUBSCRIPT</span>
 			 = <span class="var-default"> -4</span>
-			<span class="smalllinenumber">[line 60]</span>
+			<span class="smalllinenumber">[line 74]</span>
 		</span>
 	</div>
 
@@ -1643,13 +1742,13 @@ $parser&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="constPUNCT_CLOSE" id="PUNCT_CLOSE"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-name">PUNCT_CLOSE</span>
 			 = <span class="var-default"> -2</span>
-			<span class="smalllinenumber">[line 58]</span>
+			<span class="smalllinenumber">[line 72]</span>
 		</span>
 	</div>
 
@@ -1659,13 +1758,13 @@ $parser&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="constPUNCT_OPEN" id="PUNCT_OPEN"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-name">PUNCT_OPEN</span>
 			 = <span class="var-default"> -1</span>
-			<span class="smalllinenumber">[line 57]</span>
+			<span class="smalllinenumber">[line 71]</span>
 		</span>
 	</div>
 
@@ -1675,13 +1774,13 @@ $parser&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="constPUNCT_SEPARATOR" id="PUNCT_SEPARATOR"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-name">PUNCT_SEPARATOR</span>
 			 = <span class="var-default"> -3</span>
-			<span class="smalllinenumber">[line 59]</span>
+			<span class="smalllinenumber">[line 73]</span>
 		</span>
 	</div>
 
@@ -1695,7 +1794,7 @@ $parser&nbsp;
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Fri, 23 Dec 2011 11:16:32 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Tue, 27 Dec 2011 03:19:00 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

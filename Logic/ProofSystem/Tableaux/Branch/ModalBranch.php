@@ -8,24 +8,24 @@
 /**
  * Loads the {@link TableauException} class.
  */
-require_once '../TableauException.php';
+require_once 'GoTableaux/Logic/ProofSystem/Tableaux/TableauException.php';
 
 /**
  * Loads the {@link Branch} parent class.
  */
-require_once '../Branch.php';
+require_once 'GoTableaux/Logic/ProofSystem/Tableaux/Branch.php';
 
 /**
  * Loads the {@link ModalSentenceNode} node class.
  * @see ModalBranch::createSentenceNode()
  */
-require_once 'Node/ModalSentenceNode.php';
+require_once 'GoTableaux/Logic/ProofSystem/Tableaux/Node/ModalSentenceNode.php';
 
 /**
  * Loads the {@link AccessNode} node class.
  * @see ModalBranch::createAccessNode()
  */
-require_once 'Node/AccessNode.php';
+require_once 'GoTableaux/Logic/ProofSystem/Tableaux/Node/AccessNode.php';
 
 /**
  * Represents a modal logic tableau branch.
@@ -55,7 +55,7 @@ class ModalBranch extends Branch
 	public static function getIndexesFromNodes( array $nodes )
 	{
 		$indexes = array();
-		foreach ( $nodes as $node ) 
+		foreach ( $nodes as $node ) {
 			if ( $node instanceof ModalNode ) $indexes[] = $node->getI();
 			if ( $node instanceof AccessNode ) $indexes[] = $node->getJ();
 		}
@@ -218,14 +218,14 @@ class ModalBranch extends Branch
 	 *
 	 * @param Sentence $sentence The sentence to add.
 	 * @param integer $index The world index of the node.
-	 * @param boolean $allowDuplicate Whether to allow a duplicate node being
-	 *								  added. Default is true.
 	 * @return ModalBranch Current instance.
 	 */
-	public function addSentenceNode( Sentence $sentence, $i, $allowDuplicate = true )
+	public function createSentenceNode( Sentence $sentence, $i )
 	{
-		if ( $allowDuplicate || !$this->hasSentenceNode( $sentence, $i ))
+		if ( !$this->hasSentenceNode( $sentence, $i )) {
+			$sentence = $this->registerSentence( $sentence );
 			$this->addNode( new ModalSentenceNode( $sentence, $i ));
+		}
 		return $this;
 	}
 	

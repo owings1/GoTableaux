@@ -33,33 +33,21 @@ class Operator
 	protected $arity;
 	
 	/**
-	 * Holds the operator's symbol.
-	 * @var string Single character.
-	 * @access private
-	 */ 
-	protected $symbol;
-	
-	/**
 	 * Constructor.
 	 *
-	 * @param string $symbol The operator symbol.
-	 * @param integer $arity The arity of the operator.
 	 * @param string $name The human name of the operator, e.g. 'Conjunction'.
+	 * @param integer $arity The arity of the operator.
 	 * @throws {@link VobabularyException} on parameter errors.
 	 * @see Vocabulary::createOperator()
 	 */
-	function __construct( $symbol, $arity, $name )
+	function __construct( $name, $arity )
 	{
-		if ( strlen( $symbol ) !== 1 )
-			throw new VobabularyException( 'Operator symbol must be exactly one character long.' );
-		if ( empty( $name ))
+	if ( empty( $name ))
 			throw new VobabularyException( 'Operator name cannot be empty' );
 		if ( $arity < 1 )
 			throw new VobabularyException( 'Arity must be greater than zero.' );
-
 		$this->name 	= $name;
 		$this->arity 	= (int) $arity;
-		$this->symbol 	= $symbol;
 	}
 	
 	/**
@@ -80,15 +68,5 @@ class Operator
 	function getArity()
 	{
 		return $this->arity;
-	}
-	
-	/**
-	 * Gets the operator symbol.
-	 *
-	 * @return string The symbol of the operator.
-	 */
-	function getSymbol()
-	{
-		return $this->symbol;
 	}
 }

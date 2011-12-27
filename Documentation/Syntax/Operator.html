@@ -120,7 +120,6 @@ Source Location: /Syntax/Operator.php<br /><br />
 		<ul>
 		  		  <li><a href="../Syntax/Operator.html#var$arity">$arity</a></li>
 		  		  <li><a href="../Syntax/Operator.html#var$name">$name</a></li>
-		  		  <li><a href="../Syntax/Operator.html#var$symbol">$symbol</a></li>
 		  		</ul>
 		</td>
 		
@@ -130,7 +129,6 @@ Source Location: /Syntax/Operator.php<br /><br />
 		  		  <li><a href="../Syntax/Operator.html#method__construct">__construct</a></li>
 		  		  <li><a href="../Syntax/Operator.html#methodgetArity">getArity</a></li>
 		  		  <li><a href="../Syntax/Operator.html#methodgetName">getName</a></li>
-		  		  <li><a href="../Syntax/Operator.html#methodgetSymbol">getSymbol</a></li>
 		  		</ul>
 		</td>
 		
@@ -153,7 +151,7 @@ Source Location: /Syntax/Operator.php<br /><br />
 		<div class="info-box-body">
 			<div class="var-summary">
 			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
-																															<div class="var-title">
+																									<div class="var-title">
 					<tr><td class="var-title"><span class="var-type-summary">integer</span>&nbsp;&nbsp;</td>
 					<td class="var-title"><a href="#$arity" title="details" class="var-name-summary">$arity</a>&nbsp;&nbsp;</td>
 					<td class="var-summary-description">Holds the arity of the operator.</td></tr>
@@ -162,11 +160,6 @@ Source Location: /Syntax/Operator.php<br /><br />
 					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
 					<td class="var-title"><a href="#$name" title="details" class="var-name-summary">$name</a>&nbsp;&nbsp;</td>
 					<td class="var-summary-description">Holds the name of the operator.</td></tr>
-				</div>
-													<div class="var-title">
-					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
-					<td class="var-title"><a href="#$symbol" title="details" class="var-name-summary">$symbol</a>&nbsp;&nbsp;</td>
-					<td class="var-summary-description">Holds the operator's symbol.</td></tr>
 				</div>
 										</table>
 			</div>
@@ -185,7 +178,7 @@ Source Location: /Syntax/Operator.php<br /><br />
 		<div class="info-box-body">
 			<div class="method-summary">
 				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
-																																																<div class="method-definition">
+																																								<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result">Operator</span>&nbsp;&nbsp;</td>
 										<td class="method-definition"><a href="#__construct" title="details" class="method-name">__construct</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Constructor.</td></tr>
@@ -199,11 +192,6 @@ Source Location: /Syntax/Operator.php<br /><br />
 											<tr><td class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
 										<td class="method-definition"><a href="#getName" title="details" class="method-name">getName</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Gets the name of the operator.</td></tr>
-				</div>
-																<div class="method-definition">
-											<tr><td class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
-										<td class="method-definition"><a href="#getSymbol" title="details" class="method-name">getSymbol</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Gets the operator symbol.</td></tr>
 				</div>
 												</table>
 			</div>
@@ -272,32 +260,6 @@ Source Location: /Syntax/Operator.php<br /><br />
 		<br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
-<a name="var$symbol" id="$symbol"><!-- --></A>
-<div class="oddrow">
-
-	<div class="var-header">
-		<span class="var-title">
-			<span class="var-type">string</span>&nbsp;&nbsp;
-			<span class="var-name">$symbol</span>
-						<span class="smalllinenumber">[line 40]</span>
-		</span>
-	</div>
-
-	<p align="center" class="short-description"><strong>Holds the operator's symbol.
-</strong></p>
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
-  </tr>
-</table>
-<br />
-
-
-	
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
 		</div>
 	</div>
 
@@ -313,10 +275,10 @@ Source Location: /Syntax/Operator.php<br /><br />
 			<a name='method_detail'></a>
 
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">Constructor __construct</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 51]</span>
+	<span class="method-title">Constructor __construct</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 43]</span>
 </div>
 <br />
 
@@ -325,9 +287,8 @@ Source Location: /Syntax/Operator.php<br /><br />
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
 		<code>Operator __construct(
 string
-$symbol, integer
-$arity, string
-$name&nbsp;
+$name, integer
+$arity&nbsp;
 )</code>
     </td></tr></table>
     </td></tr></table><br /></div>
@@ -340,21 +301,15 @@ $name&nbsp;
 					<tr><td class="indent">
 				<span class="var-type">string</span>&nbsp;&nbsp;</td>
 				<td>
-				<span class="var-name">$symbol:&nbsp;</span></td>
+				<span class="var-name">$name:&nbsp;</span></td>
 				<td>
-				<span class="var-description"> The operator symbol.</span>			</td></tr>
+				<span class="var-description"> The human name of the operator, e.g. 'Conjunction'.</span>			</td></tr>
 					<tr><td class="indent">
 				<span class="var-type">integer</span>&nbsp;&nbsp;</td>
 				<td>
 				<span class="var-name">$arity:&nbsp;</span></td>
 				<td>
 				<span class="var-description"> The arity of the operator.</span>			</td></tr>
-					<tr><td class="indent">
-				<span class="var-type">string</span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$name:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> The human name of the operator, e.g. 'Conjunction'.</span>			</td></tr>
 				</table>
 
 	<br />
@@ -378,10 +333,10 @@ $name&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodgetArity" id="getArity"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">getArity</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 80]</span>
+	<span class="method-title">getArity</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 68]</span>
 </div>
 <br />
 
@@ -411,10 +366,10 @@ $name&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodgetName" id="getName"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">getName</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 70]</span>
+	<span class="method-title">getName</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 58]</span>
 </div>
 <br />
 
@@ -443,46 +398,13 @@ $name&nbsp;
 		<br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
-<a name="methodgetSymbol" id="getSymbol"><!-- --></a>
-<div class="oddrow">
-
-<div class="method-header">
-	<span class="method-title">getSymbol</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 90]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code>string getSymbol(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Gets the operator symbol.
-</strong></p>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The symbol of the operator.</td>
-  </tr>
-</table>
-<br />
-
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
 		</div>
 	</div>
 
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Fri, 23 Dec 2011 11:16:31 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Tue, 27 Dec 2011 03:18:59 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

@@ -44,7 +44,7 @@
 				<span style="padding-left: 1em;"><a href="Proof/_ProofSystem---Counterexample.php.html">Counterexample.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="Proof/_ProofSystem---Proof.php.html">Proof.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="Proof/_ProofSystem---ProofException.php.html">ProofException.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="Proof/_ProofSystem---ProofSystem.php.html">ProofSystem.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="Proof/_ProofSystem.php.html">ProofSystem.php</a></span><br />
 	  </div>
             <br />
             <b>Interfaces:</b><br />
@@ -77,6 +77,9 @@
 	[ <a href="elementindex_Proof.html#g">g</a> ]
 	[ <a href="elementindex_Proof.html#i">i</a> ]
 	[ <a href="elementindex_Proof.html#p">p</a> ]
+	[ <a href="elementindex_Proof.html#r">r</a> ]
+	[ <a href="elementindex_Proof.html#s">s</a> ]
+	[ <a href="elementindex_Proof.html#v">v</a> ]
 	[ <a href="elementindex_Proof.html#_">_</a> ]
 <br /><br />
 	<a name="_"></a>
@@ -129,6 +132,8 @@
 	<div>
 		<h2>c</h2>
 		<dl>
+							<dt><b>constructProofForArgument</b></dt>
+				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodconstructProofForArgument">ProofSystem::constructProofForArgument()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs a proof for an argument.</dd>
 							<dt><b>Counterexample</b></dt>
 				<dd>in file Counterexample.php, class <a href="Proof/Counterexample.html">Counterexample</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a counter example to an argument.</dd>
 							<dt><b>Counterexample.php</b></dt>
@@ -145,7 +150,7 @@
 		<h2>e</h2>
 		<dl>
 							<dt><b>evaluateArgument</b></dt>
-				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodevaluateArgument">ProofSystem::evaluateArgument()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Evaluates an argument.</dd>
+				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodevaluateArgument">ProofSystem::evaluateArgument()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs a proof an argument.</dd>
 					</dl>
 	</div>
 	<a name="g"></a>
@@ -161,6 +166,12 @@
 				<dd>in file Proof.php, method <a href="Proof/Proof.html#methodgetArgument">Proof::getArgument()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the Argument object.</dd>
 							<dt><b>getCounterexample</b></dt>
 				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodgetCounterexample">ProofSystem::getCounterexample()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets a counterexample from a proof.</dd>
+							<dt><b>getOperator</b></dt>
+				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodgetOperator">ProofSystem::getOperator()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets an operator from the logic's vocabulary.</dd>
+							<dt><b>getProofSystem</b></dt>
+				<dd>in file Proof.php, method <a href="Proof/Proof.html#methodgetProofSystem">Proof::getProofSystem()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the ProofSystem object.</dd>
+							<dt><b>getVocabulary</b></dt>
+				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodgetVocabulary">ProofSystem::getVocabulary()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the vocabulary.</dd>
 					</dl>
 	</div>
 	<a name="i"></a>
@@ -173,7 +184,9 @@
 		<h2>i</h2>
 		<dl>
 							<dt><b>isValid</b></dt>
-				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodisValid">ProofSystem::isValid()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether a putative proof is valid.</dd>
+				<dd>in file Proof.php, method <a href="Proof/Proof.html#methodisValid">Proof::isValid()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether the proof is valid</dd>
+							<dt><b>isValidProof</b></dt>
+				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodisValidProof">ProofSystem::isValidProof()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether a putative proof is valid.</dd>
 					</dl>
 	</div>
 	<a name="p"></a>
@@ -187,6 +200,8 @@
 		<dl>
 							<dt><b>$proofClass</b></dt>
 				<dd>in file ProofSystem.php, variable <a href="Proof/ProofSystem.html#var$proofClass">ProofSystem::$proofClass</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Defines the proof class name for the system.</dd>
+							<dt><b>$proofSystem</b></dt>
+				<dd>in file Proof.php, variable <a href="Proof/Proof.html#var$proofSystem">Proof::$proofSystem</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the proof system.</dd>
 							<dt><b>Proof</b></dt>
 				<dd>in file Proof.php, class <a href="Proof/Proof.html">Proof</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a proof.</dd>
 							<dt><b>ProofException</b></dt>
@@ -198,12 +213,51 @@
 							<dt><b>ProofException.php</b></dt>
 				<dd>procedural page <a href="Proof/_ProofSystem---ProofException.php.html">ProofException.php</a></dd>
 							<dt><b>ProofSystem.php</b></dt>
-				<dd>procedural page <a href="Proof/_ProofSystem---ProofSystem.php.html">ProofSystem.php</a></dd>
+				<dd>procedural page <a href="Proof/_ProofSystem.php.html">ProofSystem.php</a></dd>
+					</dl>
+	</div>
+	<a name="r"></a>
+	<div class="index-letter-section">
+		<div style="float: left" class="index-letter-title">r</div>
+		<div style="float: right"><a href="#top">[Top]</a></div>
+		<div style="clear: both"></div>
+	</div>
+	<div>
+		<h2>r</h2>
+		<dl>
+							<dt><b>registerSentence</b></dt>
+				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodregisterSentence">ProofSystem::registerSentence()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Registers a sentence in the logic's vocabulary.</dd>
+					</dl>
+	</div>
+	<a name="s"></a>
+	<div class="index-letter-section">
+		<div style="float: left" class="index-letter-title">s</div>
+		<div style="float: right"><a href="#top">[Top]</a></div>
+		<div style="clear: both"></div>
+	</div>
+	<div>
+		<h2>s</h2>
+		<dl>
+							<dt><b>setVocabulary</b></dt>
+				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodsetVocabulary">ProofSystem::setVocabulary()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the vocabulary.</dd>
+					</dl>
+	</div>
+	<a name="v"></a>
+	<div class="index-letter-section">
+		<div style="float: left" class="index-letter-title">v</div>
+		<div style="float: right"><a href="#top">[Top]</a></div>
+		<div style="clear: both"></div>
+	</div>
+	<div>
+		<h2>v</h2>
+		<dl>
+							<dt><b>$vocabulary</b></dt>
+				<dd>in file ProofSystem.php, variable <a href="Proof/ProofSystem.html#var$vocabulary">ProofSystem::$vocabulary</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the Logic's vocabulary.</dd>
 					</dl>
 	</div>
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Fri, 23 Dec 2011 11:16:28 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Tue, 27 Dec 2011 03:18:55 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

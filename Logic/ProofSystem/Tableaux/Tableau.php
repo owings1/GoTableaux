@@ -8,7 +8,7 @@
 /**
  * Loads the {@link Proof} parent class.
  */
-require_once '../Proof.php';
+require_once 'GoTableaux/Logic/ProofSystem/Proof.php';
 
 /**
  * Loads the {@link Branch} class.
@@ -63,12 +63,12 @@ class Tableau extends Proof
 	 *								   tableau. Default is true.
 	 * @return Branch The created instance.
 	 */
-	public function createBranch( $nodes = null, $attachToTableau = true )
+	public function createBranch( $nodes = null )
 	{
 		$branchClass = $this->branchClass;
-		$branch = new $branchClass;
+		$branch = new $branchClass( $this );
 		if ( !empty( $nodes )) $branch->addNode( $nodes );
-		if ( $attachToTableau ) $this->attach( $branch );
+		$this->attach( $branch );
 		return $branch;
 	}
 	
@@ -118,6 +118,16 @@ class Tableau extends Proof
 	}
 	
 	/**
+	 * Checks whether there are any open branches on the tree.
+	 *
+	 * @return boolean Whether there are any open branches.
+	 */
+	public function hasOpenBranches()
+	{
+		return (bool) $this->getOpenBranches();
+	}
+	
+	/**
 	 * Removes one or more branches from the tree.
 	 *
 	 * @param Branch|array $branches The branch or array of branches to remove.
@@ -143,6 +153,15 @@ class Tableau extends Proof
 	{
 		$this->branches = array();
 	}
+	
+	/**
+	 * Alias for Proof::getProofSystem()
+	 */
+	public function getTableauxSystem()
+	{
+		return $this->getProofSystem();
+	}
+	
 	
 	/**
 	 * Gets the tableau's tree structure representation.

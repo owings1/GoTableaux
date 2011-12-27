@@ -27,6 +27,67 @@ class Branch
 	protected $closed = false;
 	
 	/**
+	 * Holds a reference to the tableau.
+	 * @var Tableau
+	 * @access private
+	 */
+	protected $tableau;
+	
+	/**
+	 * Constructor.
+	 *
+	 * Initializes the tableau.
+	 *
+	 * @param Tableau $tableau The tableau of the branch.
+	 */
+	public function __construct( Tableau $tableau )
+	{
+		$this->tableau = $tableau;
+	}
+	
+	/**
+	 * Gets the tableau.
+	 *
+	 * @return Tableau The tableau.
+	 */
+	public function getTableau()
+	{
+		return $this->tableau;
+	}
+	
+	/**
+	 * Gets the tableaux system of the tableau.
+	 *
+	 * @return TableauxSystem The tableaux system.
+	 */
+	public function getTableauxSystem()
+	{
+		return $this->getTableau()->getTableauxSystem();
+	}
+	
+	/**
+	 * Registers a sentence in the logic's vocabulary
+	 *
+	 * @param Sentence $sentence The sentence to register.
+	 * @return Sentence The sentence, or the one in the registry.
+	 */
+	public function registerSentence( Sentence $sentence )
+	{
+		return $this->getTableauxSystem()->registerSentence( $sentence );
+	}
+	
+	/**
+	 * Gets an operator from the logic's vocabulary by its name.
+	 *
+	 * @param string $name The name of the operator.
+	 * @return Operator The operator.
+	 */
+	public function getOperator( $name )
+	{
+		return $this->getTableauxSystem()->getOperator( $name );
+	}
+	
+	/**
 	 * Adds a node to the branch.
 	 *
 	 * @param Node|array $node The node or array of nodes to add.
@@ -74,8 +135,8 @@ class Branch
 	public function getUntickedNodes()
 	{
 		$nodes = array();
-		foreach ( $this->nodes as $node )
-			if ( ! $node->ticked( $this )) $nodes[] = $node;
+		foreach ( $this->getNodes() as $node )
+			if ( ! $node->isTickedAtBranch( $this )) $nodes[] = $node;
 		return $nodes;
 	}
 	
@@ -87,8 +148,8 @@ class Branch
 	public function getTickedNodes()
 	{
 		$nodes = array();
-		foreach ( $this->nodes as $node )
-			if ( $node->ticked( $this )) $nodes[] = $node;
+		foreach ( $this->getNodes() as $node )
+			if ( $node->isTickedAtBranch( $this )) $nodes[] = $node;
 		return $nodes;
 	}
 	
@@ -121,7 +182,7 @@ class Branch
 	 */
 	public function hasNode( Node $node )
 	{
-		return in_array( $node, $this->nodes, true );
+		return in_array( $node, $this->getNodes(), true );
 	}
 	
 	/**
@@ -133,8 +194,76 @@ class Branch
 	{
 		$newBranch = clone $this;
 		foreach ( $this->getTickedNodes() as $node )
-			$node->tick( $newBranch );
+			$node->tickAtBranch( $newBranch );
 		return $newBranch;
+	}
+	
+	/**
+	 * Branches the branch.
+	 *
+	 * Copies the branch, attaches the copy to the tableau, and returns the new
+	 * branch.
+	 *
+	 * @return Branch The new branch
+	 */
+	public function branch()
+	{
+		$newBranch = $this->copy();
+		$this->getTableau()->attach( $newBranch );
+		return $newBranch;
+	}
+	
+	/**
+	 * Gets any {@link SentenceNode}s on the branch that have a given operator
+	 * as its sentence's main connective.
+	 *
+	 * @param string $operatorName The name of the operator.
+	 * @param boolean $untickedOnly Whether to include unticked nodes only. 
+	 *								Default is false.
+	 * @return array Array of {@link SentenceNode}s.
+	 */
+	public function getNodesByOperatorName( $operatorName, $untickedOnly = false )
+	{
+		$nodes = array();
+		$searchNodes = $untickedOnly ? $this->getUntickedNodes() : $this->getNodes();
+		foreach ( $searchNodes as $node ) 
+			if ( $node->getSentence()->getOperatorName() === $operatorName ) $nodes[] = $node;
+		return $nodes;
+	}
+	
+	/**
+	 * Gets any {@link SentenceNode}s by two operator names.
+	 *
+	 * Returns sentence nodes whose first operator is a given operator, and 
+	 * whose first operand is a molecular sentence with the given second
+	 * operator.
+	 *
+	 * @param string $firstOperatorName The name of the first operator.
+	 * @param string $secondOperatorName The name of the second operator.
+	 * @param boolean $untickedOnly Whether to include unticked nodes only.
+	 *								Default is false.
+	 */
+	public function getNodesByTwoOperatorNames( $firstOperatorName, $secondOperatorName, $untickedOnly = false )
+	{
+		$nodes = array();
+		$searchNodes = $this->getNodesByOperatorName( $firstOperatorName, $untickedOnly );
+		foreach ( $searchNodes as $node ) {
+			list( $firstOperand ) = $node->getSentence()->getOperands();
+			if ( $firstOperand->getOperatorName() === $secondOperatorName ) $nodes[] = $node;
+		}
+		return $nodes;
+	}
+	
+	/**
+	 * Ticks a node relative to the branch.
+	 *
+	 * @param Node $node The node to tick.
+	 * @return Branch Current instance.
+	 */
+	public function tickNode( Node $node )
+	{
+		$node->tickAtBranch( $this );
+		return $this;
 	}
 	
 	/**

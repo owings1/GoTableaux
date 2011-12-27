@@ -125,6 +125,7 @@ Source Location: /Syntax/MolecularSentence.php<br /><br />
 		  		  <li><a href="../Syntax/MolecularSentence.html#methodaddOperand">addOperand</a></li>
 		  		  <li><a href="../Syntax/MolecularSentence.html#methodgetOperands">getOperands</a></li>
 		  		  <li><a href="../Syntax/MolecularSentence.html#methodgetOperator">getOperator</a></li>
+		  		  <li><a href="../Syntax/MolecularSentence.html#methodsetOperands">setOperands</a></li>
 		  		  <li><a href="../Syntax/MolecularSentence.html#methodsetOperator">setOperator</a></li>
 		  		  <li><a href="../Syntax/MolecularSentence.html#method_addOperand">_addOperand</a></li>
 		  		</ul>
@@ -170,6 +171,12 @@ Source Location: /Syntax/MolecularSentence.php<br /><br />
 										</dt>
 										<dd>
 											<span class="method-definition">Creates a molecular sentence.</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../Syntax/Sentence.html#methodgetOperatorName">Sentence::getOperatorName()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Gets the operator name.</span>
 										</dd>
 																	</dl>
 							</blockquote>
@@ -223,7 +230,7 @@ Source Location: /Syntax/MolecularSentence.php<br /><br />
 		<div class="info-box-body">
 			<div class="method-summary">
 				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
-																																																								<div class="method-definition">
+																																																																<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result"><a href="../Syntax/MolecularSentence.html">MolecularSentence</a></span>&nbsp;&nbsp;</td>
 										<td class="method-definition"><a href="#addOperand" title="details" class="method-name">addOperand</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Adds an operand, or many operands.</td></tr>
@@ -237,6 +244,11 @@ Source Location: /Syntax/MolecularSentence.php<br /><br />
 											<tr><td class="method-definition"><span class="method-result"><a href="../Syntax/Operator.html">Operator</a></span>&nbsp;&nbsp;</td>
 										<td class="method-definition"><a href="#getOperator" title="details" class="method-name">getOperator</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Gets the Operator object.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result"><a href="../Syntax/MolecularSentence.html">MolecularSentence</a></span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#setOperands" title="details" class="method-name">setOperands</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Sets the operands.</td></tr>
 				</div>
 																<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result"><a href="../Syntax/MolecularSentence.html">MolecularSentence</a></span>&nbsp;&nbsp;</td>
@@ -265,7 +277,7 @@ Source Location: /Syntax/MolecularSentence.php<br /><br />
 												</div>
 		<div class="info-box-body">
 			<a name="var$operands" id="$operands"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -291,7 +303,7 @@ Source Location: /Syntax/MolecularSentence.php<br /><br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="var$operator" id="$operator"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -332,7 +344,7 @@ Source Location: /Syntax/MolecularSentence.php<br /><br />
 			<a name='method_detail'></a>
 
 <a name="methodaddOperand" id="addOperand"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
 	<span class="method-title">addOperand</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 52]</span>
@@ -380,10 +392,10 @@ $operand&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodgetOperands" id="getOperands"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">getOperands</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 90]</span>
+	<span class="method-title">getOperands</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 103]</span>
 </div>
 <br />
 
@@ -416,7 +428,7 @@ $operand&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodgetOperator" id="getOperator"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
 	<span class="method-title">getOperator</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 80]</span>
@@ -439,6 +451,54 @@ $operand&nbsp;
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The sentence's operator.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodsetOperands" id="setOperands"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">setOperands</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 91]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code><a href="../Syntax/MolecularSentence.html">MolecularSentence</a> setOperands(
+array
+$operands&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Sets the operands.
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$operands:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> Array of <a href="../Syntax/Sentence.html">Sentence</a>s.</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Current isntace.</td>
   </tr>
   <tr>
     <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
@@ -550,7 +610,7 @@ $operand&nbsp;
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Fri, 23 Dec 2011 11:16:31 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Tue, 27 Dec 2011 03:18:58 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

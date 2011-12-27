@@ -41,7 +41,7 @@ abstract class Node
 	 */
 	public function isTickedAtBranch( Branch $branch )
 	{
-		return in_array( $branch, $this->ticked, true );
+		return in_array( $branch, $this->tickedBranches, true );
 	}
 	
 	/**

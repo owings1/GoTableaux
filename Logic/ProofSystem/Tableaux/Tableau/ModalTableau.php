@@ -8,12 +8,12 @@
 /**
  * Loads the {@link Tableau} parent class.
  */
-require_once 'Tableau.php';
+require_once 'GoTableaux/Logic/ProofSystem/Tableaux/Tableau.php';
 
 /**
  * Loads the {@link ModalBranch} class.
  */
-require_once 'Branch/ModalBranch.php';
+require_once 'GoTableaux/Logic/ProofSystem/Tableaux/Branch/ModalBranch.php';
 
 /**
  * Represents a tableau for a modal logic.

@@ -8,7 +8,7 @@
 /**
  * Loads {@link Sentence} class.
  */
-require_once 'Sentence.php';
+require_once 'GoTableaux/Logic/Syntax/Sentence.php';
 
 /**
  * Represents the standard sentence parser.
@@ -38,6 +38,7 @@ class StandardSentenceParser extends SentenceParser
 	 */
 	public function stringToSentence( $sentenceStr )
 	{
+		$vocabulary  = $this->getVocabulary();
 		$sentenceStr = $this->removeSeparators( $sentenceStr );
 		$sentenceStr = $this->dropOuterParens( $sentenceStr );
 		
@@ -47,24 +48,24 @@ class StandardSentenceParser extends SentenceParser
 		$firstSentenceStr = $this->_readSentence( $sentenceStr );
 		
 		if ( $firstSentenceStr === $sentenceStr ) {
-			$firstSymbolType = $this->vocabulary->getSymbolType( $sentenceStr{0} );
+			$firstSymbolType = $vocabulary->getSymbolType( $sentenceStr{0} );
 			if ( $firstSymbolType === Vocabulary::ATOMIC ) {
 				$newSentence = $this->_parseAtomic( $sentenceStr );
-				return $this->vocabulary->registerSentence( $newSentence, $this );
+				return $this->registerSentence( $newSentence );
 			}
 			if ( $firstSymbolType === 1 ) {
-				$operator 		= $this->vocabulary->getOperatorBySymbol( $sentenceStr{0} );
+				$operator 		= $vocabulary->getOperatorBySymbol( $sentenceStr{0} );
 				$operandStr 	= substr( $sentenceStr, 1 );
 				$operand 		= $this->stringToSentence( $operandStr );
 				$newSentence 	= Sentence::createMolecular( $operator, array( $operand ));
-				return $this->vocabulary->registerSentence( $newSentence, $this );
+				return $this->registerSentence( $newSentence );
 			}
 			throw ParserException::createWithMsgInputPos( 'Unexpected symbol type.', $sentenceStr, 0 );
 		}
 		
 		$pos 			= strlen( $firstSentenceStr );
 		$nextSymbol 	= $sentenceStr{$pos};
-		$nextSymbolType = $this->vocabulary->getSymbolType( $nextSymbol );
+		$nextSymbolType = $vocabulary->getSymbolType( $nextSymbol );
 		
 		if ( $nextSymbolType !== 2 )
 			throw ParserException::createWithMsgInputPos( 'Unexpected symbol. Expecting binary operator.', $sentenceStr, $pos );
@@ -75,13 +76,13 @@ class StandardSentenceParser extends SentenceParser
 		if ( $rightStr !== $secondSentenceStr )
 			throw ParserException::createWithMsgInputPos( 'Invalid right operand string.', $sentenceStr, $pos + 1 );
 		
-		$operator = $this->vocabulary->getOperatorBySymbol( $nextSymbol );
+		$operator = $vocabulary->getOperatorBySymbol( $nextSymbol );
 		$operands = array(
 			$this->stringToSentence( $firstSentenceStr ),
 			$this->stringToSentence( $secondSentenceStr )
 		);
 		$newSentence = Sentence::createMolecular( $operator, $operands );
-		return $this->vocabulary->registerSentence( $newSentence, $this );
+		return $this->registerSentence( $newSentence );
 	}
 	
 	/**
@@ -120,11 +121,12 @@ class StandardSentenceParser extends SentenceParser
 	 */
 	protected function _readSentence( $string )
 	{	
-		$firstSymbolType = $this->vocabulary->getSymbolType( $string{0} );
+		$vocabulary = $this->getVocabulary();
+		$firstSymbolType = $vocabulary->getSymbolType( $string{0} );
 		switch ( $firstSymbolType ) {
 			case Vocabulary::ATOMIC :
 				$hasSubscript = strlen( $string ) > 1 && 
-								$this->vocabulary->getSymbolType( $string{1} ) === Vocabulary::CTRL_SUBSCRIPT;
+								$vocabulary->getSymbolType( $string{1} ) === Vocabulary::CTRL_SUBSCRIPT;
 				$firstSentenceStr = $hasSubscript ? substr( $string, 0, 2 ) . intval( substr( $string, 2 ))
 												  : $string{0};
 				break;
@@ -181,13 +183,14 @@ class StandardSentenceParser extends SentenceParser
 	 */
 	protected function _molecularToString( MolecularSentence $sentence )
 	{
+		$vocabulary		= $this->getVocabulary();
 		$operator		= $sentence->getOperator();
 		$operands		= $sentence->getOperands();
 		$operatorSymbol = $operator->getSymbol();
 		$arity			= $operator->getArity();
-		$openMark 		= $this->vocabulary->getOpenMarks( true );
-		$closeMark 		= $this->vocabulary->getCloseMarks( true );
-		$separator		= $this->vocabulary->getSeparators( true );
+		$openMark 		= $vocabulary->getOpenMarks( true );
+		$closeMark 		= $vocabulary->getCloseMarks( true );
+		$separator		= $vocabulary->getSeparators( true );
 
 		switch ( $arity ) {
 			case 1:

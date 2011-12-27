@@ -47,4 +47,15 @@ class Sentence
 		$sentence = new MolecularSentence;
 		return $sentence->setOperator( $operator )->addOperand( $operands );
 	}
+	
+	/**
+	 * Gets the operator name.
+	 *
+	 * @return string|false The name of the operator, or false if atomic.
+	 */
+	public function getOperatorName()
+	{
+		if ( $this instanceof AtomicSentence ) return false;
+		return $this->getOperator()->getName();
+	}
 }

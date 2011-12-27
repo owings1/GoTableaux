@@ -6,7 +6,7 @@
  */
 
 /**
- * Loads the RuleException class.
+ * Loads the {@link RuleException} class.
  */
 require_once 'RuleException.php';
 
@@ -28,11 +28,12 @@ interface BranchRule
 	 * original tableau.
 	 *
 	 * @param Branch $branch The branch to which to apply the rule.
+	 * @param TableauxSystem $tableauxSystem The Tableaux system.
 	 * @return Branch|array|boolean Resulting branch, or array of branches to 
 	 * 		attach to the tree, or whether the rule applied to the branch. The 
 	 *		original branch need not (but can) be returned, as it will by 
 	 *		default remain on the tree.
 	 * @throws {@link RuleException} on any errors.
 	 */
-	public function apply( Branch $branch );
+	public function apply( Branch $branch, TableauxSystem $tableauxSystem );
 }

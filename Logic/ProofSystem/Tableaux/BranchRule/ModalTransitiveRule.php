@@ -8,7 +8,7 @@
 /**
  * Loads the {@link BranchRule} interface.
  */
-require_once '../BranchRule.php';
+require_once 'GoTableaux/Logic/ProofSystem/Tableaux/BranchRule.php';
 
 /**
  * Implements the transitivity rule for a modal tableaux system.
@@ -25,9 +25,10 @@ class ModalTransitiveRule implements BranchRule
 	 * found is remedied.
 	 *
 	 * @param ModalBranch $branch The modal branch to search and apply the rule to.
+	 * @param TableauxSystem $tableauxSystem The Tableaux system.
 	 * @return boolean Whether the rule was applied.
 	 */
-	public function apply( Branch $branch )
+	public function apply( Branch $branch, TableauxSystem $tableauxSystem )
 	{
 		foreach ( $branch->getAllIndexes() as $index ) 
 			if ( !$branch->indexIsTransitive( $index, $newIndex )) {

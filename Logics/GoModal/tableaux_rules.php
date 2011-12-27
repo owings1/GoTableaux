@@ -1,7 +1,7 @@
 <?php
 /**
- * Defines the GoModal_ClosureRule class.
- * @package GoModal
+ * Defines the tableaux rules for the CPL Tableaux system.
+ * @package CPL
  * @author Douglas Owings
  */
 
@@ -10,7 +10,7 @@
  * @package GoModal
  * @author Douglas Owings
  */
-class GoModal_ClosureRule implements ClosureRule
+class GoModalClosureRule implements ClosureRule
 {
 	/**
 	 * Implements ClosureRule::doesApply()
@@ -19,16 +19,14 @@ class GoModal_ClosureRule implements ClosureRule
 	 * @return boolean
 	 * @throws {@link TableauException}
 	 */
-	public function doesApply( Branch $branch )
+	public function doesApply( Branch $branch, TableauxSystem $tableauxSystem )
 	{
-		if ( !$branch instanceof GoModalBranch )
-			throw new TableauException( 'branch must be a GoModal instance' );
 		
 		$desNodes   = $branch->getDesignatedNodes();
 		
 		/*		Check for a Sentence That Is Both Designated and Undesignated		*/
 		foreach ( $desNodes as $desNode )
-			if ( $branch->hasSentenceNodeWithAttr( $desNode->getSentence(), $desNode->getI(), false ))
+			if ( $branch->hasSentenceNode( $desNode->getSentence(), $desNode->getI(), false ))
 				return true;
 		
 		/*		Check for a Designated Sentence Whose Negation Is Designated			*/

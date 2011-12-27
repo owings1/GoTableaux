@@ -32,9 +32,17 @@ class Vocabulary
 	protected $items = array();
 	
 	/**
+	 * Holds the operator symbols.
+	 *
+	 * @var array Key is symbol, value is operator name.
+	 * @access private
+	 */
+	protected $operatorSymbols = array();
+	
+	/**
 	 * Holds the operators. 
 	 *
-	 * Key is operator symbol; value is {@link Operator operator} object.
+	 * Key is operator name; value is {@link Operator operator} object.
 	 * @var array Array of {@link Operator}s.
 	 * @access private
 	 */
@@ -51,6 +59,12 @@ class Vocabulary
 	 * @access private
 	 */
 	protected $sentences = array();
+	
+	/**
+	 * Holds the set of atomic sentencents.
+	 * @var array Array of {@link AtomicSentence}s.
+	 */
+	protected $atomicSentences = array();
 	
 	// Operator Symbols are Flagged by Positive n = arity
 	const ATOMIC 			= 0;
@@ -94,18 +108,18 @@ class Vocabulary
 	 *		'atomicSymbols' => array('A', 'B', 'C'),
 	 *		'subscripts' => array('_'),
 	 *		'separators' => array(' '),
-	 *		'operators' => array(
-	 *			'&' => array('name' => 'Conjunction', 'arity' => 2),
-	 *			'~' => array('name' => 'Negation', 'arity' => 1)
+	 *		'operatorSymbols' => array(
+	 *			'&' => array('Conjunction' => 2),
+	 *			'~' => array('Negation'  => 1)
 	 *		)
 	 * ));
 	 * ?>
 	 * </code>
 	 * @param array $lexicon Structured array of lexical items.
 	 */
-	public function __construct( array $lexicon = array() )
+	public function __construct( array $lexicon )
 	{
-		if ( !empty( $lexicon )) $this->insertLexicon( $lexicon );
+		$this->insertLexicon( $lexicon );
 	}
 	
 	/**
@@ -243,14 +257,13 @@ class Vocabulary
 		if ( empty( $name ))
 			throw new VocabularyException( 'Operator name cannot be empty.' );
 		
-		foreach ( $this->operators as $operator )
-			if ( $operator->getName() === $name )
-				throw new VocabularyException ( "Operator $name is already in vocabulary." );
+		if ( isset( $this->operators[$name] ))
+			throw new VocabularyException ( "Operator $name is already in vocabulary." );
 		
+		$newOperator = new Operator( $name, $arity );
 		$this->addSymbol( $symbol, $arity );
-		
-		$newOperator = new Operator( $symbol, $arity, $name );
-		$this->operators[$symbol] = $newOperator;
+		$this->operators[$name] = $newOperator;
+		$this->operatorSymbols[$symbol] = $name;
 		return $newOperator;
 	}
 	
@@ -266,7 +279,7 @@ class Vocabulary
 	{
 		if ( $arity > 0 ) return $this->getItems( $arity );
 		$items = array();
-		foreach ( $this->operators as $symbol => $op )
+		foreach ( array_keys( $this->operatorSymbols ) as $symbol )
 			$items[$symbol] = $this->items[$symbol];
 		return $items;
 	}
@@ -280,9 +293,9 @@ class Vocabulary
 	 */
 	public function getOperatorByName( $name )
 	{
-		foreach ( $this->operators as $operator )
-			if ( $operator->getName() == $name ) return $operator;
-		throw new VocabularyException( "No operator with name $name in vocabulary." );
+		if ( !isset( $this->operators[$name] ))
+			throw new VocabularyException( "No operator with name $name in vocabulary." );
+		return $this->operators[$name];
 	}
 	
 	/**
@@ -295,9 +308,9 @@ class Vocabulary
 	 */
 	public function getOperatorBySymbol( $symbol )
 	{
-		if ( !isset( $this->operators[$symbol] ))
+		if ( !isset( $this->operatorSymbols[$symbol] ))
 			throw new VocabularyException( "$symbol is not an operator symbol in the vocabulary." );
-		return $this->operators[$symbol];
+		return $this->getOperatorByName( $this->operatorSymbols[$symbol] );
 	}
 	
 	/**
@@ -315,27 +328,60 @@ class Vocabulary
 	}
 	
 	/**
-	 * Adds a sentence to the registry. 
+	 * Adds a sentence to the vocabulary, maintaining uniqueness.
 	 *
-	 * If a sentence of the same form is already in the registry, the passed
-	 * sentence is ignored, and the stored sentence is returned. Sentence form
-	 * is taken from the parser. When extending the {@link SentenceParser}, the
+	 * If the sentence, or one of the same form is already in the vocabulary,
+	 * then that sentence is returned. Otherwise the passed sentence is
+	 * returned. When extending the {@link SentenceParser}, the
 	 * {@link SentenceParser::stringToSentence() parsing function} should
 	 * return the value of this function.
 	 *
 	 * @param Sentence $sentence The sentence to add.
-	 * @param SentenceParser $parser The parser from which to get the form.
-	 * @return Sentence The sentence instance. If the sentence is new to the
-	 *					registry, it is returned. Otherwise, the existing 
-	 *					sentence is returned.
+	 * @return Sentence Old or new sentence.
 	 * @see SentenceParser::stringToSentence()
 	 */
-	public function registerSentence( Sentence $sentence, SentenceParser $parser )
+	public function registerSentence( Sentence $sentence )
 	{
-		$sentenceForm = $parser->sentenceToString( $sentence );
-		if ( !isset( $this->sentences[$sentenceForm] ))
-			$this->sentences[$sentenceForm] = $sentence;
-		return $this->sentences[$sentenceForm];
+		if ( in_array( $sentence, $this->sentences, true )) return $sentence;
+		if ( $sentence instanceof AtomicSentence ) {
+			foreach ( $this->atomicSentences as $atomicSentence )
+				if ( $atomicSentence->getSymbol() === $sentence->getSymbol() &&
+					 $atomicSentence->getSubscript() === $sentence->getSubscript()
+				) return $atomicSentence;
+			$atomicSymbol = $sentence->getSymbol();
+			if ( $this->getSymbolType( $atomicSymbol ) !== self::ATOMIC )
+				throw new VocabularyException( "$atomicSymbol is not in the atomic symbols." );
+			$this->atomicSentences[] = $sentence;
+			$this->sentences[] = $sentence;
+			return $sentence;
+		}
+		$operator = $sentence->getOperator();
+		if ( !in_array( $operator, $this->operators, true ))
+			throw new VocabularyExcepetion( 'Operator ' . $operator->getName() . ' is not in the vocabulary.' );
+		$oldOperands = $sentence->getOperands();
+		$newOperands = array();
+		foreach ( $oldOperands as $operand ) $newOperands[] = $this->registerSentence( $operand );
+		$sentence->setOperands( $newOperands );
+		foreach ( $this->sentences as $s )
+			if ( $s instanceof MolecularSentence && $s->getOperator() === $operator ) {
+				$operands = $s->getOperands();
+				$isSame = false;
+				foreach ($operands as $key => $operand) 
+					if ( $operand === $newOperands[$key] ) $isSame = true;
+				if ( $isSame ) return $s;
+			}
+		$this->sentences[] = $sentence;
+		return $sentence;
+	}
+	
+	/**
+	 * Gets the set of sentences.
+	 *
+	 * @return array Array of {@link Sentence}s.
+	 */
+	public function getSentences()
+	{
+		return $this->sentences;
 	}
 	
 	/**
@@ -362,9 +408,13 @@ class Vocabulary
 		if ( !empty( $lexicon['separators'] ))
 			foreach ( $lexicon['separators'] as $separator ) $this->addSeparator( $separator );
 		
-		if ( !empty( $lexicon['operators'] ))
-			foreach ( $lexicon['operators'] as $symbol => $props )
-				$this->createOperator( $symbol, $props['arity'], $props['name'] );
+		if ( !empty( $lexicon['operatorSymbols'] ))
+			foreach ( $lexicon['operatorSymbols'] as $symbol => $operator ) {
+				list( $operatorName ) = array_keys( $operator );
+				$arity = $operator[$operatorName];
+				$this->createOperator( $symbol, $arity, $operatorName );
+			}
+				
 	}
 	/**
 	 * Adds a symbol to the vocabulary.

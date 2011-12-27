@@ -8,7 +8,7 @@
 /**
  * Loads the {@link Counterexample} interface.
  */
-require_once '../ProofSystem/Counterexample.php';
+require_once 'GoTableaux/Logic/ProofSystem/Counterexample.php';
 
 /**
  * Represents model-theoretic model.

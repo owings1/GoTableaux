@@ -88,4 +88,5 @@ class AtomicSentence extends Sentence
 	{
 		return $this->subscript;
 	}
+
 }

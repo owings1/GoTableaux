@@ -91,7 +91,7 @@ Source Location: /Syntax/SentenceParser.php<br /><br />
 </strong></p>
 
 		<p class="notes">
-			Located in <a class="field" href="_Syntax---SentenceParser.php.html">/Syntax/SentenceParser.php</a> [<span class="field">line 23</span>]
+			Located in <a class="field" href="_Syntax---SentenceParser.php.html">/Syntax/SentenceParser.php</a> [<span class="field">line 28</span>]
 		</p>
 
 		
@@ -130,7 +130,10 @@ Source Location: /Syntax/SentenceParser.php<br /><br />
 		  		  <li><a href="../Syntax/SentenceParser.html#methodclosePosFromOpenPos">closePosFromOpenPos</a></li>
 		  		  <li><a href="../Syntax/SentenceParser.html#methodcreateWithVocabulary">createWithVocabulary</a></li>
 		  		  <li><a href="../Syntax/SentenceParser.html#methoddropOuterParens">dropOuterParens</a></li>
+		  		  <li><a href="../Syntax/SentenceParser.html#methodgetVocabulary">getVocabulary</a></li>
 		  		  <li><a href="../Syntax/SentenceParser.html#methodgrabParenGroup">grabParenGroup</a></li>
+		  		  <li><a href="../Syntax/SentenceParser.html#methodparseArgument">parseArgument</a></li>
+		  		  <li><a href="../Syntax/SentenceParser.html#methodregisterSentence">registerSentence</a></li>
 		  		  <li><a href="../Syntax/SentenceParser.html#methodremoveSeparators">removeSeparators</a></li>
 		  		  <li><a href="../Syntax/SentenceParser.html#methodsentenceToString">sentenceToString</a></li>
 		  		  <li><a href="../Syntax/SentenceParser.html#methodsetVocabulary">setVocabulary</a></li>
@@ -215,7 +218,7 @@ Source Location: /Syntax/SentenceParser.php<br /><br />
 					<td class="method-definition"><a href="#createWithVocabulary" title="details" class="method-name">createWithVocabulary</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Creates an instance.</td></tr>
 				</div>
-																																																																<div class="method-definition">
+																																																																																								<div class="method-definition">
 					<tr><td class="method-definition">static
 											<span class="method-result">integer|boolean</span>&nbsp;&nbsp;
 					</td>
@@ -238,9 +241,24 @@ Source Location: /Syntax/SentenceParser.php<br /><br />
 					<td class="method-definition">Drops outer parentheses from a string, if they exist.</td></tr>
 				</div>
 																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result"><a href="../Syntax/Vocabulary.html">Vocabulary</a></span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#getVocabulary" title="details" class="method-name">getVocabulary</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Gets the vocabulary.</td></tr>
+				</div>
+																<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
 										<td class="method-definition"><a href="#grabParenGroup" title="details" class="method-name">grabParenGroup</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Parses first complete parenthesized group in a string.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result"><a href="../Logic/Argument.html">Argument</a></span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#parseArgument" title="details" class="method-name">parseArgument</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Parses and creates an argument.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result"><a href="../Syntax/Sentence.html">Sentence</a></span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#registerSentence" title="details" class="method-name">registerSentence</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Registers a sentence with the vocabulary.</td></tr>
 				</div>
 																<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
@@ -284,13 +302,13 @@ Source Location: /Syntax/SentenceParser.php<br /><br />
 												</div>
 		<div class="info-box-body">
 			<a name="var$vocabulary" id="$vocabulary"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type"><a href="../Syntax/Vocabulary.html">Vocabulary</a></span>&nbsp;&nbsp;
 			<span class="var-name">$vocabulary</span>
-						<span class="smalllinenumber">[line 32]</span>
+						<span class="smalllinenumber">[line 37]</span>
 		</span>
 	</div>
 
@@ -324,10 +342,10 @@ Source Location: /Syntax/SentenceParser.php<br /><br />
 		<div class="info-box-body">
 			<a name='method_detail'></a>
 <a name="methodcreateWithVocabulary" id="createWithVocabulary"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">static method createWithVocabulary</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 41]</span>
+	<span class="method-title">static method createWithVocabulary</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 46]</span>
 </div>
 <br />
 
@@ -376,10 +394,10 @@ $type = 'Standard']&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodstrPosArr" id="strPosArr"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">static method strPosArr</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 62]</span>
+	<span class="method-title">static method strPosArr</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 67]</span>
 </div>
 <br />
 
@@ -446,10 +464,10 @@ $offset = 0], [string
 </div>
 
 <a name="methodaddOuterParens" id="addOuterParens"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">addOuterParens</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 213]</span>
+	<span class="method-title">addOuterParens</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 259]</span>
 </div>
 <br />
 
@@ -494,10 +512,10 @@ $string&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodclosePosFromOpenPos" id="closePosFromOpenPos"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">closePosFromOpenPos</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 229]</span>
+	<span class="method-title">closePosFromOpenPos</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 275]</span>
 </div>
 <br />
 
@@ -555,10 +573,10 @@ $openPos&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methoddropOuterParens" id="dropOuterParens"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">dropOuterParens</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 195]</span>
+	<span class="method-title">dropOuterParens</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 241]</span>
 </div>
 <br />
 
@@ -602,11 +620,53 @@ $string&nbsp;
 		<br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
+<a name="methodgetVocabulary" id="getVocabulary"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">getVocabulary</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 98]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code><a href="../Syntax/Vocabulary.html">Vocabulary</a> getVocabulary(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Gets the vocabulary.
+</strong></p>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The vocabulary.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+<strong>Information Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Throws:</strong>&nbsp;&nbsp;</td><td><a href="../Syntax/ParserException.html">ParserException</a> on empty vocabulary.</td>
+  </tr>
+</table>
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
 <a name="methodgrabParenGroup" id="grabParenGroup"><!-- --></a>
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">grabParenGroup</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 161]</span>
+	<span class="method-title">grabParenGroup</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 207]</span>
 </div>
 <br />
 
@@ -670,11 +730,127 @@ $offset = 0]&nbsp;
 		<br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
+<a name="methodparseArgument" id="parseArgument"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">parseArgument</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 124]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code><a href="../Logic/Argument.html">Argument</a> parseArgument(
+array|string
+$premiseStrings, 
+$conclusionString, string
+$conclusion&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Parses and creates an argument.
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">array|string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$premiseStrings:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> Array of premise string, a single                                         premise string, or an empty value.</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$conclusion:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> The conclusion string.</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type"></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$conclusionString:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The resulting argument.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+<strong>Information Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Throws:</strong>&nbsp;&nbsp;</td><td><a href="../Syntax/ParserException.html">ParserException</a> on parse errors.</td>
+  </tr>
+</table>
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodregisterSentence" id="registerSentence"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">registerSentence</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 110]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code><a href="../Syntax/Sentence.html">Sentence</a> registerSentence(
+<a href="../Syntax/Sentence.html">Sentence</a>
+$sentence&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Registers a sentence with the vocabulary.
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type"><a href="../Syntax/Sentence.html">Sentence</a></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$sentence:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> The sentence to register.</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The sentence from the vocabulary.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
 <a name="methodremoveSeparators" id="removeSeparators"><!-- --></a>
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">removeSeparators</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 144]</span>
+	<span class="method-title">removeSeparators</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 190]</span>
 </div>
 <br />
 
@@ -722,7 +898,7 @@ $string&nbsp;
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">sentenceToString</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 93]</span>
+	<span class="method-title">sentenceToString</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 139]</span>
 </div>
 <br />
 
@@ -781,7 +957,7 @@ $sentence&nbsp;
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">setVocabulary</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 81]</span>
+	<span class="method-title">setVocabulary</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 86]</span>
 </div>
 <br />
 
@@ -829,7 +1005,7 @@ $vocabulary&nbsp;
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">stringToSentence</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 124]</span>
+	<span class="method-title">stringToSentence</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 170]</span>
 </div>
 <br />
 
@@ -850,14 +1026,14 @@ $sentenceStr&nbsp;
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">if&nbsp;</span><span class="src-sym">(</span><span class="src-var">$stringIsAtomicSentence</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;base&nbsp;case</span></div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$newSentence&nbsp;</span>=&nbsp;<span class="src-id"><a href="../Syntax/Sentence.html">Sentence</a></span><span class="src-sym">::</span><a href="../Syntax/Sentence.html#methodcreateAtomic">createAtomic</a><span class="src-sym">(&nbsp;</span><span class="src-var">$sentenceStr&nbsp;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id"><a href="../Syntax/SentenceParser.html#var$vocabulary">vocabulary</a></span><span class="src-sym">-&gt;</span><span class="src-id">registerSentence</span><span class="src-sym">(&nbsp;</span><span class="src-var">$newSentence</span><span class="src-sym">,&nbsp;</span><span class="src-var">$this&nbsp;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id"><a href="../Syntax/SentenceParser.html#var$vocabulary">vocabulary</a></span><span class="src-sym">-&gt;</span><a href="../Syntax/SentenceParser.html#methodregisterSentence">registerSentence</a><span class="src-sym">(&nbsp;</span><span class="src-var">$newSentence</span><span class="src-sym">,&nbsp;</span><span class="src-var">$this&nbsp;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list<span class="src-sym">(&nbsp;</span><span class="src-var">$operandStr</span><span class="src-sym">,&nbsp;</span><span class="src-var">$operatorSymbol&nbsp;</span><span class="src-sym">)&nbsp;</span>=&nbsp;<span class="src-id">someParsingFunction</span><span class="src-sym">(&nbsp;</span><span class="src-var">$sentenceStr&nbsp;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$operator&nbsp;</span>=&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id"><a href="../Syntax/SentenceParser.html#var$vocabulary">vocabulary</a></span><span class="src-sym">-&gt;</span><span class="src-id">getOperatorBySymbol</span><span class="src-sym">(&nbsp;</span><span class="src-var">$operatorSymbol&nbsp;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;recur</span></div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$operand&nbsp;</span>=&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../Syntax/SentenceParser.html#methodstringToSentence">stringToSentence</a><span class="src-sym">(&nbsp;</span><span class="src-var">$operandStr&nbsp;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$newSentence&nbsp;</span>=&nbsp;<span class="src-id"><a href="../Syntax/Sentence.html">Sentence</a></span><span class="src-sym">::</span><a href="../Syntax/Sentence.html#methodcreateMolecular">createMolecular</a><span class="src-sym">(&nbsp;</span><span class="src-var">$operator</span><span class="src-sym">,&nbsp;</span><span class="src-key">array</span><span class="src-sym">(&nbsp;</span><span class="src-var">$operand&nbsp;</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id"><a href="../Syntax/SentenceParser.html#var$vocabulary">vocabulary</a></span><span class="src-sym">-&gt;</span><span class="src-id">registerSentence</span><span class="src-sym">(&nbsp;</span><span class="src-var">$newSentence</span><span class="src-sym">,&nbsp;</span><span class="src-var">$this&nbsp;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return&nbsp;</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id"><a href="../Syntax/SentenceParser.html#var$vocabulary">vocabulary</a></span><span class="src-sym">-&gt;</span><a href="../Syntax/SentenceParser.html#methodregisterSentence">registerSentence</a><span class="src-sym">(&nbsp;</span><span class="src-var">$newSentence</span><span class="src-sym">,&nbsp;</span><span class="src-var">$this&nbsp;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line">&nbsp;<span class="src-sym">}</span></div></li>
 </ol></p></span>
 			<strong>Parameters:</strong><br />
@@ -908,7 +1084,7 @@ $sentenceStr&nbsp;
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">trimSeparators</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 132]</span>
+	<span class="method-title">trimSeparators</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 178]</span>
 </div>
 <br />
 
@@ -958,7 +1134,7 @@ $string&nbsp;
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Fri, 23 Dec 2011 11:16:32 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Tue, 27 Dec 2011 03:18:59 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

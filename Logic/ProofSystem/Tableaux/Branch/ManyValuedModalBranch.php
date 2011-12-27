@@ -11,6 +11,11 @@
 require_once 'ModalBranch.php';
 
 /**
+ * Loads the {@link ManyValuedModalSentenceNode} node class.
+ */
+require_once 'GoTableaux/Logic/ProofSystem/Tableaux/Node/ManyValuedModalSentenceNode.php';
+
+/**
  * Represents a tableau branch with designation markers for a many-valued 
  * modal logic.
  * @package Tableaux
@@ -18,6 +23,41 @@ require_once 'ModalBranch.php';
  */
 class ManyValuedModalBranch extends ModalBranch
 {
+	/**
+	 * Adds a sentence node to the branch.
+	 *
+	 * @param Sentence $sentence The sentence to place on the node.
+	 * @param integer $i The world index to place on the node.
+	 * @param boolean $isDesignated The designation flag of the node.
+	 * @return ManyValuedModalBranch Current instance.
+	 */
+	public function addSentenceNode( Sentence $sentence, $i, $isDesignated )
+	{
+		if ( !$this->hasSentenceNode( $sentence, $i, $isDesignated )) {
+			$sentence = $this->registerSentence( $sentence );
+			$this->addNode( new ManyValuedModalSentenceNode( $sentence, $i, $isDesignated ));
+		}		
+		return $this;
+	}
+	
+	/**
+	 * Checks whether a sentence node with the given attributes is on the branch.
+	 *
+	 * @param Sentence $sentence The sentence to search for.
+	 * @param integer $i The world index of the node.
+	 * @param boolean $isDesignated The designation flag of the node.
+	 * @return boolean Whether such a node is on the branch.
+	 */
+	public function hasSentenceNode( Sentence $sentence, $i, $isDesignated )
+	{
+		foreach ( $this->getSentenceNodes() as $node )
+			if ( $node->getSentence === $sentence && 
+				 $node->getI() === $i && 
+				 $node->isDesignated() === $isDesignated
+				) return true;
+		return false;
+	}
+	
 	/**
 	 * Gets all designated sentence nodes on the branch.
 	 *
@@ -28,8 +68,10 @@ class ManyValuedModalBranch extends ModalBranch
 	public function getDesignatedNodes( $untickedOnly = false )
 	{
 		$nodes = array();
-		foreach ( $this->getSentenceNodes( $untickedOnly ) as $node )
-			if ( $node->isDesignated() ) $nodes[] = $node;
+		foreach ( $this->getSentenceNodes() as $node )
+			if ( $node->isDesignated() && 
+				 !( $untickedOnly && $node->isTickedAtBranch( $this ))
+				) $nodes[] = $node;
 		return $nodes;
 	}
 	
@@ -43,27 +85,10 @@ class ManyValuedModalBranch extends ModalBranch
 	public function getUndesignatedNodes( $untickedOnly = false )
 	{
 		$nodes = array();
-		foreach ( $this->getSentenceNodes( $untickedOnly ) as $node )
-			if ( ! $node->isDesignated() ) $nodes[] = $node;
+		foreach ( $this->getSentenceNodes() as $node )
+			if ( ! $node->isDesignated() && 
+				 !( $untickedOnly && $node->isTickedAtBranch( $this )) 
+				) $nodes[] = $node;
 		return $nodes;
-	}
-	
-	/**
-	 * Checks for the existence on the branch of a node with particular attributes.
-	 *
-	 * @param Sentence $sentence The sentence of the nodes.
-	 * @param integer $i The world index of the nodes.
-	 * @param boolean $isDesignated Whether the node is designated.
-	 * @param boolean $untickedOnly Whether to limit search to unticked nodes.
-	 *								Default is false.
-	 * @return boolean Whether a node with the given attributes appears on the branch.
-	 */
-	public function hasSentenceNodeWithAttr( Sentence $sentence, $i, $isDesignated, $untickedOnly = false )
-	{
-		$nodes = ( $isDesignated ) ? $this->getDesignatedNodes( $untickedOnly ) 
-								   : $this->getUndesignatedNodes( $untickedOnly );
-		foreach ( $nodes as $node ) 
-			if ( $node->getSentence() === $sentence && $node->getI() === $i ) return true;
-		return false;
 	}
 }

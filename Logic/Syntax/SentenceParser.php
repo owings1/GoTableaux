@@ -6,14 +6,19 @@
  */
 
 /**
- * Loads {@link ParserException} class.
+ * Loads the {@link ParserException} class.
  */
 require_once 'ParserException.php';
 
 /**
- * Loads {@link StandardSentenceParser} class, which is the default parser class.
+ * Loads the {@link StandardSentenceParser} class, which is the default parser class.
  */
 require_once 'SentenceParser/StandardSentenceParser.php';
+
+/**
+ * Loads the {@link Argument} class.
+ */
+require_once 'GoTableaux/Logic/Argument.php';
 
 /**
  * Represents a sentence parser.
@@ -82,6 +87,47 @@ abstract class SentenceParser
 	{
 		$this->vocabulary = $vocabulary;
 		return $this;
+	}
+	
+	/**
+	 * Gets the vocabulary.
+	 *
+	 * @return Vocabulary The vocabulary.
+	 * @throws {@link ParserException} on empty vocabulary.
+	 */
+	public function getVocabulary()
+	{
+		if ( empty( $this->vocabulary )) throw new ParserException( 'Parser vocabulary is empty.' );
+		return $this->vocabulary;
+	}
+	
+	/**
+	 * Registers a sentence with the vocabulary.
+	 *
+	 * @param Sentence $sentence The sentence to register.
+	 * @return Sentence The sentence from the vocabulary.
+	 */
+	public function registerSentence( Sentence $sentence )
+	{
+		return $this->getVocabulary()->registerSentence( $sentence );
+	}
+	
+	/**
+	 * Parses and creates an argument.
+	 *
+	 * @param array|string $premiseStrings Array of premise string, a single 
+	 *								 	   premise string, or an empty value.
+	 * @param string $conclusion The conclusion string.
+	 * @return Argument The resulting argument.
+	 * @throws {@link ParserException} on parse errors.
+	 */
+	public function parseArgument( $premiseStrings , $conclusionString )
+	{
+		$premises = array();
+		foreach ( (array) $premiseStrings as $sentenceStr )
+			$premises[] = $this->stringToSentence( $sentenceStr );
+		$conclusion = $this->stringToSentence( $conclusionString );
+		return Argument::createWithPremisesAndConclusion( $premises, $conclusion );
 	}
 	
 	/**

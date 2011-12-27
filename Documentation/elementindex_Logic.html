@@ -43,14 +43,12 @@
         <div class="package">
 				<span style="padding-left: 1em;"><a href="Logic/_Argument.php.html">Argument.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="Logic/_Logic.php.html">Logic.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="Logic/_LogicException.php.html">LogicException.php</a></span><br />
 	  </div>
             <br />
                   <b>Classes:</b><br />
         <div class="package">
 		    		<a href="Logic/Argument.html">Argument</a>    	 <br />
 	    		<a href="Logic/Logic.html">Logic</a>    	 <br />
-	    		<a href="Logic/LogicException.html">LogicException</a>    	 <br />
 	  </div>
                 </td>
     <td>
@@ -67,9 +65,7 @@
 			</ul>
 	[ <a href="elementindex_Logic.html#a">a</a> ]
 	[ <a href="elementindex_Logic.html#c">c</a> ]
-	[ <a href="elementindex_Logic.html#d">d</a> ]
 	[ <a href="elementindex_Logic.html#g">g</a> ]
-	[ <a href="elementindex_Logic.html#i">i</a> ]
 	[ <a href="elementindex_Logic.html#l">l</a> ]
 	[ <a href="elementindex_Logic.html#p">p</a> ]
 	[ <a href="elementindex_Logic.html#s">s</a> ]
@@ -121,19 +117,8 @@
 				<dd>in file Argument.php, variable <a href="Logic/Argument.html#var$conclusion">Argument::$conclusion</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The conclusion.</dd>
 							<dt><b>$consequences</b></dt>
 				<dd>in file Logic.php, variable <a href="Logic/Logic.html#var$consequences">Logic::$consequences</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds evaluated logical consequences.</dd>
-					</dl>
-	</div>
-	<a name="d"></a>
-	<div class="index-letter-section">
-		<div style="float: left" class="index-letter-title">d</div>
-		<div style="float: right"><a href="#top">[Top]</a></div>
-		<div style="clear: both"></div>
-	</div>
-	<div>
-		<h2>d</h2>
-		<dl>
-							<dt><b>$defaultLexicon</b></dt>
-				<dd>in file Logic.php, variable <a href="Logic/Logic.html#var$defaultLexicon">Logic::$defaultLexicon</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Defines the default lexicon for initializing the vocabulary.</dd>
+							<dt><b>createWithPremisesAndConclusion</b></dt>
+				<dd>in file Argument.php, method <a href="Logic/Argument.html#methodcreateWithPremisesAndConclusion">Argument::createWithPremisesAndConclusion()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates an argument with given premises and conclusion.</dd>
 					</dl>
 	</div>
 	<a name="g"></a>
@@ -149,23 +134,10 @@
 				<dd>in file Argument.php, method <a href="Logic/Argument.html#methodgetConclusion">Argument::getConclusion()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the conclusion of the argument.</dd>
 							<dt><b>getPremises</b></dt>
 				<dd>in file Argument.php, method <a href="Logic/Argument.html#methodgetPremises">Argument::getPremises()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all the premises of the argument.</dd>
+							<dt><b>getProofSystem</b></dt>
+				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodgetProofSystem">Logic::getProofSystem()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the proof system.</dd>
 							<dt><b>getVocabulary</b></dt>
 				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodgetVocabulary">Logic::getVocabulary()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the vocabulary.</dd>
-					</dl>
-	</div>
-	<a name="i"></a>
-	<div class="index-letter-section">
-		<div style="float: left" class="index-letter-title">i</div>
-		<div style="float: right"><a href="#top">[Top]</a></div>
-		<div style="clear: both"></div>
-	</div>
-	<div>
-		<h2>i</h2>
-		<dl>
-							<dt><b>initProofSystem</b></dt>
-				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodinitProofSystem">Logic::initProofSystem()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Initialize the proof system.</dd>
-							<dt><b>initVocabulary</b></dt>
-				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodinitVocabulary">Logic::initVocabulary()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Initializes the vocabulary.</dd>
 					</dl>
 	</div>
 	<a name="l"></a>
@@ -177,14 +149,12 @@
 	<div>
 		<h2>l</h2>
 		<dl>
+							<dt><b>$lexicon</b></dt>
+				<dd>in file Logic.php, variable <a href="Logic/Logic.html#var$lexicon">Logic::$lexicon</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Defines the default lexicon for initializing the vocabulary.</dd>
 							<dt><b>Logic</b></dt>
 				<dd>in file Logic.php, class <a href="Logic/Logic.html">Logic</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a Logic.</dd>
 							<dt><b>Logic.php</b></dt>
 				<dd>procedural page <a href="Logic/_Logic.php.html">Logic.php</a></dd>
-							<dt><b>LogicException</b></dt>
-				<dd>in file LogicException.php, class <a href="Logic/LogicException.html">LogicException</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a Logic exception.</dd>
-							<dt><b>LogicException.php</b></dt>
-				<dd>procedural page <a href="Logic/_LogicException.php.html">LogicException.php</a></dd>
 					</dl>
 	</div>
 	<a name="p"></a>
@@ -196,10 +166,14 @@
 	<div>
 		<h2>p</h2>
 		<dl>
+							<dt><b>$parser</b></dt>
+				<dd>in file Logic.php, variable <a href="Logic/Logic.html#var$parser">Logic::$parser</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the parser.</dd>
 							<dt><b>$premises</b></dt>
 				<dd>in file Argument.php, variable <a href="Logic/Argument.html#var$premises">Argument::$premises</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The set of premises. An array of <a href="Syntax/Sentence.html">Sentence</a> objects.</dd>
 							<dt><b>$proofSystem</b></dt>
 				<dd>in file Logic.php, variable <a href="Logic/Logic.html#var$proofSystem">Logic::$proofSystem</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the proof system.</dd>
+							<dt><b>$proofSystemClass</b></dt>
+				<dd>in file Logic.php, variable <a href="Logic/Logic.html#var$proofSystemClass">Logic::$proofSystemClass</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Defines the proof system class.</dd>
 					</dl>
 	</div>
 	<a name="s"></a>
@@ -213,8 +187,6 @@
 		<dl>
 							<dt><b>setConclusion</b></dt>
 				<dd>in file Argument.php, method <a href="Logic/Argument.html#methodsetConclusion">Argument::setConclusion()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the conclusion of the argument.</dd>
-							<dt><b>setVocabulary</b></dt>
-				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodsetVocabulary">Logic::setVocabulary()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the vocabulary to use.</dd>
 					</dl>
 	</div>
 	<a name="v"></a>
@@ -232,7 +204,7 @@
 	</div>
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Fri, 23 Dec 2011 11:16:28 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Tue, 27 Dec 2011 03:18:55 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

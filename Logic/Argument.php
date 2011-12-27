@@ -27,6 +27,19 @@ class Argument
 	protected $conclusion;
 	
 	/**
+	 * Creates an argument with given premises and conclusion.
+	 *
+	 * @param array $premises The premises of the argument.
+	 * @param Sentence $conclusion The conclusion of the argument.
+	 * @return Argument The created instance.
+	 */
+	public static function createWithPremisesAndConclusion( $premises, Sentence $conclusion )
+	{
+		$argument = new self;
+		$premises = (array) $premises;
+		return $argument->addPremises( $premises )->setConclusion( $conclusion );
+	}
+	/**
 	 * Adds a premise to the argument.
 	 *
 	 * @param Sentence $sentence The premise to add.

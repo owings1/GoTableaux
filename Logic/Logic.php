@@ -6,11 +6,6 @@
  */
 
 /**
- * Loads the {@link LogicException} class.
- */
-require_once 'LogicException.php';
-
-/**
  * Loads the {@link ProofSystem} interface.
  */
 require_once 'ProofSystem.php';
@@ -19,6 +14,11 @@ require_once 'ProofSystem.php';
  * Loads the {@link Vocabulary} class.
  */
 require_once 'Syntax/Vocabulary.php';
+
+/**
+ * Loads the {@link Argument} class.
+ */
+require_once 'Argument.php';
 
 /**
  * Represents a Logic.
@@ -39,6 +39,13 @@ abstract class Logic {
 	 * @var string Class name.
 	 */
 	public $proofSystemClass = 'ProofSystem';
+	
+	/**
+	 * Holds a reference to the parser.
+	 * @var SentenceParser
+	 * @access private
+	 */
+	protected $parser;
 	
 	/**
 	 * Holds a reference to the vocabulary.
@@ -62,26 +69,44 @@ abstract class Logic {
 	protected $consequences = array();
 	
 	/**
-	 * Constructor. 
+	 * Constructor.
 	 *
-	 * Initializes the vocabulary and the proof system.
-	 */
-	public function __construct()
+	 * Sets the parser.
+	 *
+	 * @param SentenceParser $parser The parser for the logic instance.
+	 */	
+	public function __construct( SentenceParser $parser )
 	{
-		$this->vocabalary = Vocabulary::createWithLexicon( $this->lexicon );
-		$this->proofSystem = new $this->proofSystemClass;
-		$this->proofSystem->setVocabulary( $this->vocabulary );
+		$parser->setVocabulary( $this->getVocabulary() );
+		$this->parser = $parser;
 	}
 	
 	/**
 	 * Gets the vocabulary.
 	 *
-	 * @return Vocabulary The vocabulary.
+	 * Lazily instantiates vocabulary.
+	 *
+	 * @return Vocabulary The logic's vocabulary.
 	 */
 	public function getVocabulary()
 	{
+		if ( empty( $this->vocabulary ))
+			$this->vocabulary = Vocabulary::createWithLexicon( $this->lexicon );
 		return $this->vocabulary;
 	}
-	
-
+	/**
+	 * Gets the proof system.
+	 *
+	 * Lazily instantiates proof system.
+	 * 
+	 * @return ProofSystem The logic's proof system.
+	 */
+	public function getProofSystem()
+	{
+		if ( empty( $this->proofSystem )) {
+			$this->proofSystem = new $this->proofSystemClass;
+			$this->proofSystem->setVocabulary( $this->getVocabulary() );
+		}
+		return $this->proofSystem;
+	}
 }

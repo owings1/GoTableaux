@@ -43,14 +43,12 @@
         <div class="package">
 				<span style="padding-left: 1em;"><a href="../Logic/_Argument.php.html">Argument.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Logic/_Logic.php.html">Logic.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="../Logic/_LogicException.php.html">LogicException.php</a></span><br />
 	  </div>
             <br />
                   <b>Classes:</b><br />
         <div class="package">
 		    		<a href="../Logic/Argument.html">Argument</a>    	 <br />
 	    		<a href="../Logic/Logic.html">Logic</a>    	 <br />
-	    		<a href="../Logic/LogicException.html">LogicException</a>    	 <br />
 	  </div>
                 </td>
     <td>
@@ -109,6 +107,7 @@ Source Location: /Argument.php<br /><br />
 		<ul>
 		  		  <li><a href="../Logic/Argument.html#methodaddPremise">addPremise</a></li>
 		  		  <li><a href="../Logic/Argument.html#methodaddPremises">addPremises</a></li>
+		  		  <li><a href="../Logic/Argument.html#methodcreateWithPremisesAndConclusion">createWithPremisesAndConclusion</a></li>
 		  		  <li><a href="../Logic/Argument.html#methodgetConclusion">getConclusion</a></li>
 		  		  <li><a href="../Logic/Argument.html#methodgetPremises">getPremises</a></li>
 		  		  <li><a href="../Logic/Argument.html#methodsetConclusion">setConclusion</a></li>
@@ -161,7 +160,14 @@ Source Location: /Argument.php<br /><br />
 		<div class="info-box-body">
 			<div class="method-summary">
 				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
-																																																								<div class="method-definition">
+																												<div class="method-definition">
+					<tr><td class="method-definition">static
+											<span class="method-result"><a href="../Logic/Argument.html">Argument</a></span>&nbsp;&nbsp;
+					</td>
+					<td class="method-definition"><a href="#createWithPremisesAndConclusion" title="details" class="method-name">createWithPremisesAndConclusion</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Creates an argument with given premises and conclusion.</td></tr>
+				</div>
+																																												<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result"><a href="../Logic/Argument.html">Argument</a></span>&nbsp;&nbsp;</td>
 										<td class="method-definition"><a href="#addPremise" title="details" class="method-name">addPremise</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Adds a premise to the argument.</td></tr>
@@ -171,7 +177,7 @@ Source Location: /Argument.php<br /><br />
 										<td class="method-definition"><a href="#addPremises" title="details" class="method-name">addPremises</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Adds multiple premises to the argument.</td></tr>
 				</div>
-																<div class="method-definition">
+																								<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result"><a href="../Syntax/Sentence.html">Sentence</a></span>&nbsp;&nbsp;</td>
 										<td class="method-definition"><a href="#getConclusion" title="details" class="method-name">getConclusion</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Gets the conclusion of the argument.</td></tr>
@@ -202,7 +208,7 @@ Source Location: /Argument.php<br /><br />
 												</div>
 		<div class="info-box-body">
 			<a name="var$conclusion" id="$conclusion"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -228,7 +234,7 @@ Source Location: /Argument.php<br /><br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="var$premises" id="$premises"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -266,12 +272,67 @@ Source Location: /Argument.php<br /><br />
 					</div>
 		<div class="info-box-body">
 			<a name='method_detail'></a>
+<a name="methodcreateWithPremisesAndConclusion" id="createWithPremisesAndConclusion"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">static method createWithPremisesAndConclusion</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 36]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>static <a href="../Logic/Argument.html">Argument</a> createWithPremisesAndConclusion(
+array
+$premises, Sentence
+$conclusion&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Creates an argument with given premises and conclusion.
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$premises:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> The premises of the argument.</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type"><a href="../Syntax/Sentence.html">Sentence</a></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$conclusion:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> The conclusion of the argument.</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The created instance.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
 
 <a name="methodaddPremise" id="addPremise"><!-- --></a>
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">addPremise</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 35]</span>
+	<span class="method-title">addPremise</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 48]</span>
 </div>
 <br />
 
@@ -319,7 +380,7 @@ $sentence&nbsp;
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">addPremises</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 47]</span>
+	<span class="method-title">addPremises</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 60]</span>
 </div>
 <br />
 
@@ -367,7 +428,7 @@ $premises&nbsp;
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">getConclusion</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 81]</span>
+	<span class="method-title">getConclusion</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 94]</span>
 </div>
 <br />
 
@@ -403,7 +464,7 @@ $premises&nbsp;
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">getPremises</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 59]</span>
+	<span class="method-title">getPremises</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 72]</span>
 </div>
 <br />
 
@@ -439,7 +500,7 @@ $premises&nbsp;
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">setConclusion</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 70]</span>
+	<span class="method-title">setConclusion</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 83]</span>
 </div>
 <br />
 
@@ -489,7 +550,7 @@ $sentence&nbsp;
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Fri, 23 Dec 2011 11:16:29 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Tue, 27 Dec 2011 03:18:56 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

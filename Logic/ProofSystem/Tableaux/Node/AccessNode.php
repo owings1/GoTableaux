@@ -8,7 +8,12 @@
 /**
  * Loads the {@link Node} parent class.
  */
-require_once '../Node.php';
+require_once 'GoTableaux/Logic/ProofSystem/Tableaux/Node.php';
+
+/**
+ * Loads the {@link ModalNode} interface.
+ */
+require_once 'ModalNode.php';
 
 /**
  * Represents a modal logic access relation node.

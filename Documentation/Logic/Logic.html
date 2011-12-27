@@ -43,14 +43,12 @@
         <div class="package">
 				<span style="padding-left: 1em;"><a href="../Logic/_Argument.php.html">Argument.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Logic/_Logic.php.html">Logic.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="../Logic/_LogicException.php.html">LogicException.php</a></span><br />
 	  </div>
             <br />
                   <b>Classes:</b><br />
         <div class="package">
 		    		<a href="../Logic/Argument.html">Argument</a>    	 <br />
 	    		<a href="../Logic/Logic.html">Logic</a>    	 <br />
-	    		<a href="../Logic/LogicException.html">LogicException</a>    	 <br />
 	  </div>
                 </td>
     <td>
@@ -78,7 +76,7 @@ Source Location: /Logic.php<br /><br />
 </strong></p>
 
 		<p class="notes">
-			Located in <a class="field" href="_Logic.php.html">/Logic.php</a> [<span class="field">line 23</span>]
+			Located in <a class="field" href="_Logic.php.html">/Logic.php</a> [<span class="field">line 28</span>]
 		</p>
 
 		
@@ -107,8 +105,10 @@ Source Location: /Logic.php<br /><br />
 		<p align="center" class="short-description"><strong><a href="#sec_vars">Properties</a></strong></p>
 		<ul>
 		  		  <li><a href="../Logic/Logic.html#var$consequences">$consequences</a></li>
-		  		  <li><a href="../Logic/Logic.html#var$defaultLexicon">$defaultLexicon</a></li>
+		  		  <li><a href="../Logic/Logic.html#var$lexicon">$lexicon</a></li>
+		  		  <li><a href="../Logic/Logic.html#var$parser">$parser</a></li>
 		  		  <li><a href="../Logic/Logic.html#var$proofSystem">$proofSystem</a></li>
+		  		  <li><a href="../Logic/Logic.html#var$proofSystemClass">$proofSystemClass</a></li>
 		  		  <li><a href="../Logic/Logic.html#var$vocabulary">$vocabulary</a></li>
 		  		</ul>
 		</td>
@@ -117,10 +117,8 @@ Source Location: /Logic.php<br /><br />
 		<p align="center" class="short-description"><strong><a href="#sec_methods">Methods</a></strong></p>
 		<ul>
 		  		  <li><a href="../Logic/Logic.html#method__construct">__construct</a></li>
+		  		  <li><a href="../Logic/Logic.html#methodgetProofSystem">getProofSystem</a></li>
 		  		  <li><a href="../Logic/Logic.html#methodgetVocabulary">getVocabulary</a></li>
-		  		  <li><a href="../Logic/Logic.html#methodinitProofSystem">initProofSystem</a></li>
-		  		  <li><a href="../Logic/Logic.html#methodinitVocabulary">initVocabulary</a></li>
-		  		  <li><a href="../Logic/Logic.html#methodsetVocabulary">setVocabulary</a></li>
 		  		</ul>
 		</td>
 		
@@ -143,20 +141,30 @@ Source Location: /Logic.php<br /><br />
 		<div class="info-box-body">
 			<div class="var-summary">
 			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
-																																					<div class="var-title">
+																																																	<div class="var-title">
 					<tr><td class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
 					<td class="var-title"><a href="#$consequences" title="details" class="var-name-summary">$consequences</a>&nbsp;&nbsp;</td>
 					<td class="var-summary-description">Holds evaluated logical consequences.</td></tr>
 				</div>
 													<div class="var-title">
 					<tr><td class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
-					<td class="var-title"><a href="#$defaultLexicon" title="details" class="var-name-summary">$defaultLexicon</a>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$lexicon" title="details" class="var-name-summary">$lexicon</a>&nbsp;&nbsp;</td>
 					<td class="var-summary-description">Defines the default lexicon for initializing the vocabulary.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary"><a href="../Syntax/SentenceParser.html">SentenceParser</a></span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$parser" title="details" class="var-name-summary">$parser</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Holds a reference to the parser.</td></tr>
 				</div>
 													<div class="var-title">
 					<tr><td class="var-title"><span class="var-type-summary"><a href="../Proof/ProofSystem.html">ProofSystem</a></span>&nbsp;&nbsp;</td>
 					<td class="var-title"><a href="#$proofSystem" title="details" class="var-name-summary">$proofSystem</a>&nbsp;&nbsp;</td>
 					<td class="var-summary-description">Holds a reference to the proof system.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$proofSystemClass" title="details" class="var-name-summary">$proofSystemClass</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Defines the proof system class.</td></tr>
 				</div>
 													<div class="var-title">
 					<tr><td class="var-title"><span class="var-type-summary"><a href="../Syntax/Vocabulary.html">Vocabulary</a></span>&nbsp;&nbsp;</td>
@@ -180,30 +188,20 @@ Source Location: /Logic.php<br /><br />
 		<div class="info-box-body">
 			<div class="method-summary">
 				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
-																																																								<div class="method-definition">
+																																								<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result">Logic</span>&nbsp;&nbsp;</td>
 										<td class="method-definition"><a href="#__construct" title="details" class="method-name">__construct</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Constructor.</td></tr>
 				</div>
 																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result"><a href="../Proof/ProofSystem.html">ProofSystem</a></span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#getProofSystem" title="details" class="method-name">getProofSystem</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Gets the proof system.</td></tr>
+				</div>
+																<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result"><a href="../Syntax/Vocabulary.html">Vocabulary</a></span>&nbsp;&nbsp;</td>
 										<td class="method-definition"><a href="#getVocabulary" title="details" class="method-name">getVocabulary</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Gets the vocabulary.</td></tr>
-				</div>
-																<div class="method-definition">
-											<tr><td class="method-definition"><span class="method-result"><a href="../Logic/Logic.html">Logic</a></span>&nbsp;&nbsp;</td>
-										<td class="method-definition"><a href="#initProofSystem" title="details" class="method-name">initProofSystem</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Initialize the proof system.</td></tr>
-				</div>
-																<div class="method-definition">
-											<tr><td class="method-definition"><span class="method-result"><a href="../Logic/Logic.html">Logic</a></span>&nbsp;&nbsp;</td>
-										<td class="method-definition"><a href="#initVocabulary" title="details" class="method-name">initVocabulary</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Initializes the vocabulary.</td></tr>
-				</div>
-																<div class="method-definition">
-											<tr><td class="method-definition"><span class="method-result"><a href="../Logic/Logic.html">Logic</a></span>&nbsp;&nbsp;</td>
-										<td class="method-definition"><a href="#setVocabulary" title="details" class="method-name">setVocabulary</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Sets the vocabulary to use.</td></tr>
 				</div>
 												</table>
 			</div>
@@ -227,7 +225,7 @@ Source Location: /Logic.php<br /><br />
 		<span class="var-title">
 			<span class="var-type">array</span>&nbsp;&nbsp;
 			<span class="var-name">$consequences</span>
-			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 51]</span>
+			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 69]</span>
 		</span>
 	</div>
 
@@ -246,14 +244,14 @@ Source Location: /Logic.php<br /><br />
 		<br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
-<a name="var$defaultLexicon" id="$defaultLexicon"><!-- --></A>
+<a name="var$lexicon" id="$lexicon"><!-- --></A>
 <div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">array</span>&nbsp;&nbsp;
-			<span class="var-name">$defaultLexicon</span>
-			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 30]</span>
+			<span class="var-name">$lexicon</span>
+			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 35]</span>
 		</span>
 	</div>
 
@@ -275,14 +273,40 @@ Source Location: /Logic.php<br /><br />
 		<br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
-<a name="var$proofSystem" id="$proofSystem"><!-- --></A>
+<a name="var$parser" id="$parser"><!-- --></A>
 <div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../Syntax/SentenceParser.html">SentenceParser</a></span>&nbsp;&nbsp;
+			<span class="var-name">$parser</span>
+						<span class="smalllinenumber">[line 48]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Holds a reference to the parser.
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$proofSystem" id="$proofSystem"><!-- --></A>
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type"><a href="../Proof/ProofSystem.html">ProofSystem</a></span>&nbsp;&nbsp;
 			<span class="var-name">$proofSystem</span>
-						<span class="smalllinenumber">[line 44]</span>
+						<span class="smalllinenumber">[line 62]</span>
 		</span>
 	</div>
 
@@ -301,6 +325,32 @@ Source Location: /Logic.php<br /><br />
 		<br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
+<a name="var$proofSystemClass" id="$proofSystemClass"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$proofSystemClass</span>
+			 = <span class="var-default"> 'ProofSystem'</span>			<span class="smalllinenumber">[line 41]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Defines the proof system class.
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
 <a name="var$vocabulary" id="$vocabulary"><!-- --></A>
 <div class="evenrow">
 
@@ -308,7 +358,7 @@ Source Location: /Logic.php<br /><br />
 		<span class="var-title">
 			<span class="var-type"><a href="../Syntax/Vocabulary.html">Vocabulary</a></span>&nbsp;&nbsp;
 			<span class="var-name">$vocabulary</span>
-						<span class="smalllinenumber">[line 37]</span>
+						<span class="smalllinenumber">[line 55]</span>
 		</span>
 	</div>
 
@@ -345,7 +395,7 @@ Source Location: /Logic.php<br /><br />
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">Constructor __construct</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 62]</span>
+	<span class="method-title">Constructor __construct</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 78]</span>
 </div>
 <br />
 
@@ -353,30 +403,63 @@ Source Location: /Logic.php<br /><br />
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
 		<code>Logic __construct(
-array
-$lexicon&nbsp;
+SentenceParser
+$parser&nbsp;
 )</code>
     </td></tr></table>
     </td></tr></table><br /></div>
 
 	<p align="center" class="short-description"><strong>Constructor.
 </strong></p>
-<span class="description"><p>Initializes the vocabulary, with optional overrides and additions to the  default lexicon.</p></span>
+<span class="description"><p>Sets the parser.</p></span>
 			<strong>Parameters:</strong><br />
 			<table border="0" cellspacing="0" cellpadding="0">
 					<tr><td class="indent">
-				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<span class="var-type"><a href="../Syntax/SentenceParser.html">SentenceParser</a></span>&nbsp;&nbsp;</td>
 				<td>
-				<span class="var-name">$lexicon:&nbsp;</span></td>
+				<span class="var-name">$parser:&nbsp;</span></td>
 				<td>
-				<span class="var-description"> Lexicon overrides.</span>			</td></tr>
+				<span class="var-description"> The parser for the logic instance.</span>			</td></tr>
 				</table>
 
 	<br />
 	<strong>API Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td class="indent"><strong>See:</strong>&nbsp;&nbsp;</td><td><a href="../Logic/Logic.html#methodinitVocabulary">Logic::initVocabulary()</a></td>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodgetProofSystem" id="getProofSystem"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">getProofSystem</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 104]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code><a href="../Proof/ProofSystem.html">ProofSystem</a> getProofSystem(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Gets the proof system.
+</strong></p>
+<span class="description"><p>Lazily instantiates proof system.</p></span>
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The logic's proof system.</td>
   </tr>
   <tr>
     <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
@@ -390,10 +473,10 @@ $lexicon&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodgetVocabulary" id="getVocabulary"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">getVocabulary</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 106]</span>
+	<span class="method-title">getVocabulary</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 91]</span>
 </div>
 <br />
 
@@ -407,162 +490,12 @@ $lexicon&nbsp;
 
 	<p align="center" class="short-description"><strong>Gets the vocabulary.
 </strong></p>
-
+<span class="description"><p>Lazily instantiates vocabulary.</p></span>
 	<br />
 	<strong>API Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The vocabulary.</td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-<br />
-
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
-<a name="methodinitProofSystem" id="initProofSystem"><!-- --></a>
-<div class="oddrow">
-
-<div class="method-header">
-	<span class="method-title">initProofSystem</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 121]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code><a href="../Logic/Logic.html">Logic</a> initProofSystem(
-[string
-$proofSystemClass = null]&nbsp;
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Initialize the proof system.
-</strong></p>
-<span class="description"><p>Called by constructor. Uses class name in $proofSystemClass.</p></span>
-			<strong>Parameters:</strong><br />
-			<table border="0" cellspacing="0" cellpadding="0">
-					<tr><td class="indent">
-				<span class="var-type">string</span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$proofSystemClass:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> The class name of the proof system to                                    use. Default is $this-&gt;proofSystemClass.</span>			</td></tr>
-				</table>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Current instance.</td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-<br />
-
-<strong>Information Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Throws:</strong>&nbsp;&nbsp;</td><td><a href="../Logic/LogicException.html">LogicException</a> on empty class name or class not found.</td>
-  </tr>
-</table>
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
-<a name="methodinitVocabulary" id="initVocabulary"><!-- --></a>
-<div class="evenrow">
-
-<div class="method-header">
-	<span class="method-title">initVocabulary</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 79]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code><a href="../Logic/Logic.html">Logic</a> initVocabulary(
-array
-$lexicon&nbsp;
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Initializes the vocabulary.
-</strong></p>
-<span class="description"><p>Called when changes are made to vocabulary properties after instance  creation.</p></span>
-			<strong>Parameters:</strong><br />
-			<table border="0" cellspacing="0" cellpadding="0">
-					<tr><td class="indent">
-				<span class="var-type">array</span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$lexicon:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> Associative array of vocabulary properties to                          override. Any property not overridden will default                          to the object's defined properties.</span>			</td></tr>
-				</table>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Current instance.</td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-<br />
-
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
-<a name="methodsetVocabulary" id="setVocabulary"><!-- --></a>
-<div class="oddrow">
-
-<div class="method-header">
-	<span class="method-title">setVocabulary</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 95]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code><a href="../Logic/Logic.html">Logic</a> setVocabulary(
-Vocabulary
-$vocabulary&nbsp;
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Sets the vocabulary to use.
-</strong></p>
-<span class="description"><p>This is done automatically by the construct, and when  <a href="../Logic/Logic.html#methodinitVocabulary">initVocabulary()</a> is called.</p></span>
-			<strong>Parameters:</strong><br />
-			<table border="0" cellspacing="0" cellpadding="0">
-					<tr><td class="indent">
-				<span class="var-type"><a href="../Syntax/Vocabulary.html">Vocabulary</a></span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$vocabulary:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> The vocabulary instance to use.</span>			</td></tr>
-				</table>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Current instance.</td>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The logic's vocabulary.</td>
   </tr>
   <tr>
     <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
@@ -581,7 +514,7 @@ $vocabulary&nbsp;
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Fri, 23 Dec 2011 11:16:29 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Tue, 27 Dec 2011 03:18:57 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

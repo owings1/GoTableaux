@@ -11,6 +11,11 @@
 require_once 'SentenceNode.php';
 
 /**
+ * Loads the {@link ModalNode} interface.
+ */
+require_once 'ModalNode.php';
+
+/**
  * Represents a modal sentence tableau node.
  *
  * A modal sentence node has a sentence and a "world" integer index.

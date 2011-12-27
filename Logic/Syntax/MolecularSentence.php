@@ -83,6 +83,19 @@ class MolecularSentence extends Sentence
 	}
 	
 	/**
+	 * Sets the operands.
+	 *
+	 * @param array $operands Array of {@link Sentence}s.
+	 * @return MolecularSentence Current isntace.
+	 */
+	public function setOperands( array $operands )
+	{
+		$this->operands = array();
+		foreach ( $operands as $operand ) $this->_addOperand( $operand );
+		return $this;
+	}
+	
+	/**
 	 * Gets the operands.
 	 *
 	 * @return array The sentence's operands. An array of {@link Sentence} objects.

@@ -1,6 +1,6 @@
 <?php
 /**
- * Defines the base ProofSystem interface.
+ * Defines the ProofSystem base class.
  * @package Proof
  * @author Douglas Owings
  */
@@ -8,12 +8,12 @@
 /**
  * Loads the {@link Proof} base class.
  */
-require_once 'Proof.php';
+require_once 'ProofSystem/Proof.php';
 
 /**
  * Loads the {@link ProofException} class.
  */
-require_once 'ProofException.php';
+require_once 'ProofSystem/ProofException.php';
 
 /**
  * Represents a proof system.
@@ -25,19 +25,19 @@ abstract class ProofSystem
 	/**
 	 * Defines the proof class name for the system.
 	 * @var string Class name.
-	 * @see ProofSystem::evaluateArgument()
+	 * @see ProofSystem::constructProofForArgument()
 	 */
 	protected $proofClass = 'Proof';
 	
 	/**
-	 * Holds the Logic's vocabulary.
+	 * Holds a reference to the Logic's vocabulary.
 	 * @var Vocabulary
 	 * @access private
 	 */
 	protected $vocabulary;
 	
 	/**
-	 * Evaluates an argument.
+	 * Constructs a proof an argument.
 	 *
 	 * @param Argument $argument The argument to be evaluated.
 	 * @return Proof|Counterexample A proof, if the argument is valid, or a
@@ -46,11 +46,36 @@ abstract class ProofSystem
 	 */
 	public function evaluateArgument( Argument $argument )
 	{
-		$proofClass = $this->proofClass;
-		$proof = new $proofClass( $argument );
-		$this->buildProof( $proof );
-		if ( $this->isValid( $proof )) return $proof;
+		$proof = $this->constructProofForArgument( $argument );
+		if ( $proof->isValid() ) return $proof;
 		else return $this->getCounterexample( $proof );
+	}
+	
+	/**
+	 * Constructs a proof for an argument.
+	 * 
+	 * @param Argument $argument The argument for which to construct the proof.
+	 * @return Poof $proof The constructed proof object.
+	 */
+	public function constructProofForArgument( Argument $argument )
+	{
+		$proofClass = $this->proofClass;
+		$proof = new $proofClass( $argument, $this );
+		$this->buildProof( $proof );
+		return $proof;
+	}
+	
+	/**
+	 * Gets the vocabulary.
+	 *
+	 * @return Vocabulary $vocabulary The logic's vocabulary.
+	 * @throws {@link ProofException} on empty vocabulary.
+	 * @see Logic::getProofSystem()
+	 */
+	public function getVocabulary()
+	{
+		if ( empty( $this->vocabulary )) throw new ProofException( 'No vocabulary is set for the proof system.' );
+		return $this->vocabulary;
 	}
 	
 	/**
@@ -69,10 +94,23 @@ abstract class ProofSystem
 	 *
 	 * @param string $name The name of the operator.
 	 * @return Operator The operator object.
+	 * @see Vocabulary::getOperatorByName()
 	 */
 	public function getOperator( $name )
 	{
-		return $this->vocabulary->getOperatorByName( $name );
+		return $this->getVocabulary()->getOperatorByName( $name );
+	}
+	
+	/**
+	 * Registers a sentence in the logic's vocabulary.
+	 *
+	 * @param Sentence $sentence The sentence to register
+	 * @return Sentence The sentence or the one from the registry, if found.
+	 * @see Vocabulary::registerSentence()
+	 */
+	public function registerSentence( Sentence $sentence )
+	{
+		return $this->getVocabulary()->registerSentence( $sentence );
 	}
 	
 	/**
@@ -92,7 +130,7 @@ abstract class ProofSystem
 	 * @return boolean Whether the proof is valid.
 	 * @throws {@link ProofException} on type errors.
 	 */
-	abstract public function isValid( Proof $proof );
+	abstract public function isValidProof( Proof $proof );
 	
 	/**
 	 * Builds a proof.

@@ -1,6 +1,6 @@
 <?php
 
-class GoModal_Rule_Sentence_ArrowDes implements Rule
+class GoModalBranchRule_ArrowDes implements BranchRule
 {
 	public function apply( Branch $branch )
 	{
