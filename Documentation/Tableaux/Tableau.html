@@ -61,12 +61,13 @@
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node.php.html">Node.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Branch---PropositionalBranch.php.html">PropositionalBranch.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---PropositionalTableauxSystem.php.html">PropositionalTableauxSystem.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Writer---LaTeX---Qtree.php.html">Qtree.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node---SentenceNode.php.html">SentenceNode.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---TableauWriter---SimpleTableauWriter.php.html">SimpleTableauWriter.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Structure.php.html">Structure.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Tableau.php.html">Tableau.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---TableauWriter.php.html">TableauWriter.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---TableauWriter---TableauWriter_LaTeX_Qtree.php.html">TableauWriter_LaTeX_Qtree.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---TableauxSystem.php.html">TableauxSystem.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Writer.php.html">Writer.php</a></span><br />
 	  </div>
             <br />
             <b>Interfaces:</b><br />
@@ -94,11 +95,12 @@
 	    		<a href="../Tableaux/PropositionalBranch.html">PropositionalBranch</a>    	 <br />
 	    		<a href="../Tableaux/PropositionalTableauxSystem.html">PropositionalTableauxSystem</a>    	 <br />
 	    		<a href="../Tableaux/SentenceNode.html">SentenceNode</a>    	 <br />
+	    		<a href="../Tableaux/SimpleTableauWriter.html">SimpleTableauWriter</a>    	 <br />
 	    		<a href="../Tableaux/Structure.html">Structure</a>    	 <br />
 	    		<a href="../Tableaux/Tableau.html">Tableau</a>    	 <br />
+	    		<a href="../Tableaux/TableauWriter.html">TableauWriter</a>    	 <br />
+	    		<a href="../Tableaux/TableauWriter_LaTeX_Qtree.html">TableauWriter_LaTeX_Qtree</a>    	 <br />
 	    		<a href="../Tableaux/TableauxSystem.html">TableauxSystem</a>    	 <br />
-	    		<a href="../Tableaux/Writer.html">Writer</a>    	 <br />
-	    		<a href="../Tableaux/Writer_LaTeX_Qtree.html">Writer_LaTeX_Qtree</a>    	 <br />
 	  </div>
                 </td>
     <td>
@@ -127,7 +129,7 @@ Source Location: /ProofSystem/Tableaux/Tableau.php<br /><br />
 </strong></p>
 
 		<p class="notes">
-			Located in <a class="field" href="_ProofSystem---Tableaux---Tableau.php.html">/ProofSystem/Tableaux/Tableau.php</a> [<span class="field">line 35</span>]
+			Located in <a class="field" href="_ProofSystem---Tableaux---Tableau.php.html">/ProofSystem/Tableaux/Tableau.php</a> [<span class="field">line 34</span>]
 		</p>
 
 		
@@ -168,7 +170,6 @@ Source Location: /ProofSystem/Tableaux/Tableau.php<br /><br />
 		  		  <li><a href="../Tableaux/Tableau.html#methodgetOpenBranches">getOpenBranches</a></li>
 		  		  <li><a href="../Tableaux/Tableau.html#methodgetStructure">getStructure</a></li>
 		  		  <li><a href="../Tableaux/Tableau.html#methodhasOpenBranches">hasOpenBranches</a></li>
-		  		  <li><a href="../Tableaux/Tableau.html#method_buildStructure">_buildStructure</a></li>
 		  		</ul>
 		</td>
 		
@@ -299,7 +300,7 @@ Source Location: /ProofSystem/Tableaux/Tableau.php<br /><br />
 		<div class="info-box-body">
 			<div class="method-summary">
 				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
-																																																																																																<div class="method-definition">
+																																																																																								<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result"><a href="../Tableaux/Tableau.html">Tableau</a></span>&nbsp;&nbsp;</td>
 										<td class="method-definition"><a href="#attach" title="details" class="method-name">attach</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Attaches one or more branches to the tree.</td></tr>
@@ -344,11 +345,6 @@ Source Location: /ProofSystem/Tableaux/Tableau.php<br /><br />
 										<td class="method-definition"><a href="#hasOpenBranches" title="details" class="method-name">hasOpenBranches</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Checks whether there are any open branches on the tree.</td></tr>
 				</div>
-																<div class="method-definition">
-											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
-										<td class="method-definition"><a href="#_buildStructure" title="details" class="method-name">_buildStructure</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Builds the tree structure.</td></tr>
-				</div>
 												</table>
 			</div>
 			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
@@ -366,13 +362,13 @@ Source Location: /ProofSystem/Tableaux/Tableau.php<br /><br />
 												</div>
 		<div class="info-box-body">
 			<a name="var$branchClass" id="$branchClass"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">string</span>&nbsp;&nbsp;
 			<span class="var-name">$branchClass</span>
-			 = <span class="var-default"> 'Branch'</span>			<span class="smalllinenumber">[line 42]</span>
+			 = <span class="var-default"> 'Branch'</span>			<span class="smalllinenumber">[line 41]</span>
 		</span>
 	</div>
 
@@ -395,13 +391,13 @@ Source Location: /ProofSystem/Tableaux/Tableau.php<br /><br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="var$branches" id="$branches"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">array</span>&nbsp;&nbsp;
 			<span class="var-name">$branches</span>
-			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 49]</span>
+			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 48]</span>
 		</span>
 	</div>
 
@@ -421,13 +417,13 @@ Source Location: /ProofSystem/Tableaux/Tableau.php<br /><br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="var$structure" id="$structure"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type"><a href="../Tableaux/Structure.html">Structure</a></span>&nbsp;&nbsp;
 			<span class="var-name">$structure</span>
-						<span class="smalllinenumber">[line 56]</span>
+						<span class="smalllinenumber">[line 55]</span>
 		</span>
 	</div>
 
@@ -462,10 +458,10 @@ Source Location: /ProofSystem/Tableaux/Tableau.php<br /><br />
 			<a name='method_detail'></a>
 
 <a name="methodattach" id="attach"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">attach</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 83]</span>
+	<span class="method-title">attach</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 82]</span>
 </div>
 <br />
 
@@ -510,10 +506,10 @@ $branches&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodclearBranches" id="clearBranches"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">clearBranches</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 152]</span>
+	<span class="method-title">clearBranches</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 151]</span>
 </div>
 <br />
 
@@ -543,10 +539,10 @@ $branches&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodcopy" id="copy"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">copy</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 173]</span>
+	<span class="method-title">copy</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 176]</span>
 </div>
 <br />
 
@@ -579,10 +575,10 @@ $branches&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodcreateBranch" id="createBranch"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">createBranch</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 66]</span>
+	<span class="method-title">createBranch</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 65]</span>
 </div>
 <br />
 
@@ -634,10 +630,10 @@ $attachToTableau&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methoddetach" id="detach"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">detach</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 136]</span>
+	<span class="method-title">detach</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 135]</span>
 </div>
 <br />
 
@@ -682,10 +678,10 @@ $branches&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodgetBranches" id="getBranches"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">getBranches</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 102]</span>
+	<span class="method-title">getBranches</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 101]</span>
 </div>
 <br />
 
@@ -718,10 +714,10 @@ $branches&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodgetOpenBranches" id="getOpenBranches"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">getOpenBranches</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 112]</span>
+	<span class="method-title">getOpenBranches</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 111]</span>
 </div>
 <br />
 
@@ -754,10 +750,10 @@ $branches&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodgetStructure" id="getStructure"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">getStructure</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 162]</span>
+	<span class="method-title">getStructure</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 161]</span>
 </div>
 <br />
 
@@ -790,10 +786,10 @@ $branches&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodhasOpenBranches" id="hasOpenBranches"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">hasOpenBranches</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 125]</span>
+	<span class="method-title">hasOpenBranches</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 124]</span>
 </div>
 <br />
 
@@ -825,49 +821,13 @@ $branches&nbsp;
 		<br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
-<a name="method_buildStructure" id="_buildStructure"><!-- --></a>
-<div class="oddrow">
-
-<div class="method-header">
-	<span class="method-title">_buildStructure</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 187]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code>void _buildStructure(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Builds the tree structure.
-</strong></p>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Uses:</strong>&nbsp;&nbsp;</td><td><a href="../Tableaux/Structure.html">Structure</a></td>
-  </tr>
-</table>
-<br />
-
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
 		</div>
 	</div>
 
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Fri, 06 Jan 2012 11:10:25 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Thu, 12 Jan 2012 18:06:59 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

@@ -101,6 +101,7 @@ Source Location: /Utilities.php<br /><br />
 		<p align="center" class="short-description"><strong><a href="#sec_methods">Methods</a></strong></p>
 		<ul>
 		  		  <li><a href="../Logic/Utilities.html#methodarrayDiff">arrayDiff</a></li>
+		  		  <li><a href="../Logic/Utilities.html#methodsortByStrLen">sortByStrLen</a></li>
 		  		  <li><a href="../Logic/Utilities.html#methodstrPosArr">strPosArr</a></li>
 		  		</ul>
 		</td>
@@ -126,10 +127,17 @@ Source Location: /Utilities.php<br /><br />
 				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
 												<div class="method-definition">
 					<tr><td class="method-definition">static
-											<span class="method-result">void</span>&nbsp;&nbsp;
+											<span class="method-result">array</span>&nbsp;&nbsp;
 					</td>
 					<td class="method-definition"><a href="#arrayDiff" title="details" class="method-name">arrayDiff</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition"></td></tr>
+					<td class="method-definition">Strictly subtracts one array from the other.</td></tr>
+				</div>
+																<div class="method-definition">
+					<tr><td class="method-definition">static
+											<span class="method-result">integer</span>&nbsp;&nbsp;
+					</td>
+					<td class="method-definition"><a href="#sortByStrLen" title="details" class="method-name">sortByStrLen</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Sorts two strings by their length.</td></tr>
 				</div>
 																<div class="method-definition">
 					<tr><td class="method-definition">static
@@ -138,7 +146,7 @@ Source Location: /Utilities.php<br /><br />
 					<td class="method-definition"><a href="#strPosArr" title="details" class="method-name">strPosArr</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Searches a string for the first occurrence of any string in a given array.</td></tr>
 				</div>
-																																</table>
+																																								</table>
 			</div>
 			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
 		</div>
@@ -158,14 +166,14 @@ Source Location: /Utilities.php<br /><br />
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">static method arrayDiff</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 15]</span>
+	<span class="method-title">static method arrayDiff</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 22]</span>
 </div>
 <br />
 
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code>static void arrayDiff(
+		<code>static array arrayDiff(
 array
 $a, array
 $b&nbsp;
@@ -173,7 +181,9 @@ $b&nbsp;
     </td></tr></table>
     </td></tr></table><br /></div>
 
-	
+	<p align="center" class="short-description"><strong>Strictly subtracts one array from the other.
+</strong></p>
+
 			<strong>Parameters:</strong><br />
 			<table border="0" cellspacing="0" cellpadding="0">
 					<tr><td class="indent">
@@ -181,13 +191,68 @@ $b&nbsp;
 				<td>
 				<span class="var-name">$a:&nbsp;</span></td>
 				<td>
-							</td></tr>
+				<span class="var-description"> The first array.</span>			</td></tr>
 					<tr><td class="indent">
 				<span class="var-type">array</span>&nbsp;&nbsp;</td>
 				<td>
 				<span class="var-name">$b:&nbsp;</span></td>
 				<td>
-							</td></tr>
+				<span class="var-description"> The array of items to subtract.</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The resulting array.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodsortByStrLen" id="sortByStrLen"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">static method sortByStrLen</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 37]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>static integer sortByStrLen(
+string
+$a, string
+$b&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Sorts two strings by their length.
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$a:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> The first string.</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$b:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> The second string.</span>			</td></tr>
 				</table>
 
 	<br />
@@ -205,10 +270,10 @@ $b&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodstrPosArr" id="strPosArr"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">static method strPosArr</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 33]</span>
+	<span class="method-title">static method strPosArr</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 52]</span>
 </div>
 <br />
 
@@ -280,7 +345,7 @@ $offset = 0], [string
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Fri, 06 Jan 2012 11:10:25 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Thu, 12 Jan 2012 18:06:59 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

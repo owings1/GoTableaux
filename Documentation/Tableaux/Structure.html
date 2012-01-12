@@ -61,12 +61,13 @@
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node.php.html">Node.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Branch---PropositionalBranch.php.html">PropositionalBranch.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---PropositionalTableauxSystem.php.html">PropositionalTableauxSystem.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Writer---LaTeX---Qtree.php.html">Qtree.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node---SentenceNode.php.html">SentenceNode.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---TableauWriter---SimpleTableauWriter.php.html">SimpleTableauWriter.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Structure.php.html">Structure.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Tableau.php.html">Tableau.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---TableauWriter.php.html">TableauWriter.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---TableauWriter---TableauWriter_LaTeX_Qtree.php.html">TableauWriter_LaTeX_Qtree.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---TableauxSystem.php.html">TableauxSystem.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Writer.php.html">Writer.php</a></span><br />
 	  </div>
             <br />
             <b>Interfaces:</b><br />
@@ -94,11 +95,12 @@
 	    		<a href="../Tableaux/PropositionalBranch.html">PropositionalBranch</a>    	 <br />
 	    		<a href="../Tableaux/PropositionalTableauxSystem.html">PropositionalTableauxSystem</a>    	 <br />
 	    		<a href="../Tableaux/SentenceNode.html">SentenceNode</a>    	 <br />
+	    		<a href="../Tableaux/SimpleTableauWriter.html">SimpleTableauWriter</a>    	 <br />
 	    		<a href="../Tableaux/Structure.html">Structure</a>    	 <br />
 	    		<a href="../Tableaux/Tableau.html">Tableau</a>    	 <br />
+	    		<a href="../Tableaux/TableauWriter.html">TableauWriter</a>    	 <br />
+	    		<a href="../Tableaux/TableauWriter_LaTeX_Qtree.html">TableauWriter_LaTeX_Qtree</a>    	 <br />
 	    		<a href="../Tableaux/TableauxSystem.html">TableauxSystem</a>    	 <br />
-	    		<a href="../Tableaux/Writer.html">Writer</a>    	 <br />
-	    		<a href="../Tableaux/Writer_LaTeX_Qtree.html">Writer_LaTeX_Qtree</a>    	 <br />
 	  </div>
                 </td>
     <td>
@@ -126,7 +128,7 @@ Source Location: /ProofSystem/Tableaux/Structure.php<br /><br />
 </strong></p>
 <span class="description"><p>This is a simple composition structure class which takes a <a href="../Tableaux/Tableau.html">Tableau</a>  object and creates a tree structure from its branches. Thinking of a branch  as a tuple of nodes, a single node can appear on more than one branch. This  is helpful in applying rules. This class collapses common nodes into one  structure. A structure comprises an array of <a href="../Tableaux/Node.html">Node</a> objects, and an  array of self-similar Structure objects.</p></span>
 		<p class="notes">
-			Located in <a class="field" href="_ProofSystem---Tableaux---Structure.php.html">/ProofSystem/Tableaux/Structure.php</a> [<span class="field">line 21</span>]
+			Located in <a class="field" href="_ProofSystem---Tableaux---Structure.php.html">/ProofSystem/Tableaux/Structure.php</a> [<span class="field">line 26</span>]
 		</p>
 
 		
@@ -136,16 +138,9 @@ Source Location: /ProofSystem/Tableaux/Structure.php<br /><br />
 				<strong>Author(s):</strong>
 		<ul>
 		  			 			 <li>Douglas Owings</li>
-			 		  			 		  		</ul>
+			 		  		</ul>
 		
-		<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Usedby:</strong>&nbsp;&nbsp;</td><td><a href="../Tableaux/Tableau.html#method_buildStructure">Tableau::_buildStructure()</a></td>
-  </tr>
-</table>
-<br />
-
+		
 <strong>Information Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
 	</table>
@@ -175,7 +170,6 @@ Source Location: /ProofSystem/Tableaux/Structure.php<br /><br />
 		  		  <li><a href="../Tableaux/Structure.html#methodnodeIsTicked">nodeIsTicked</a></li>
 		  		  <li><a href="../Tableaux/Structure.html#methodsetTableau">setTableau</a></li>
 		  		  <li><a href="../Tableaux/Structure.html#methodstructurize">structurize</a></li>
-		  		  <li><a href="../Tableaux/Structure.html#methodsubtract">subtract</a></li>
 		  		</ul>
 		</td>
 		
@@ -261,14 +255,7 @@ Source Location: /ProofSystem/Tableaux/Structure.php<br /><br />
 					<td class="method-definition"><a href="#getInstance" title="details" class="method-name">getInstance</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Creates an instance from a tableau.</td></tr>
 				</div>
-																																																																<div class="method-definition">
-					<tr><td class="method-definition">static
-											<span class="method-result">array</span>&nbsp;&nbsp;
-					</td>
-					<td class="method-definition"><a href="#subtract" title="details" class="method-name">subtract</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Subtracts one array from another, reference strict.</td></tr>
-				</div>
-																				<div class="method-definition">
+																																																																				<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result"><a href="../Tableaux/Structure.html">Structure</a></span>&nbsp;&nbsp;</td>
 										<td class="method-definition"><a href="#build" title="details" class="method-name">build</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Builds the tree structure.</td></tr>
@@ -303,7 +290,7 @@ Source Location: /ProofSystem/Tableaux/Structure.php<br /><br />
 										<td class="method-definition"><a href="#structurize" title="details" class="method-name">structurize</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Recursive structurizing function.</td></tr>
 				</div>
-																				</table>
+												</table>
 			</div>
 			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
 		</div>
@@ -319,13 +306,13 @@ Source Location: /ProofSystem/Tableaux/Structure.php<br /><br />
 												</div>
 		<div class="info-box-body">
 			<a name="var$closed" id="$closed"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">boolean</span>&nbsp;&nbsp;
 			<span class="var-name">$closed</span>
-			 = <span class="var-default"> false</span>			<span class="smalllinenumber">[line 51]</span>
+			 = <span class="var-default"> false</span>			<span class="smalllinenumber">[line 56]</span>
 		</span>
 	</div>
 
@@ -343,13 +330,13 @@ Source Location: /ProofSystem/Tableaux/Structure.php<br /><br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="var$nodes" id="$nodes"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">array</span>&nbsp;&nbsp;
 			<span class="var-name">$nodes</span>
-			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 33]</span>
+			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 38]</span>
 		</span>
 	</div>
 
@@ -367,13 +354,13 @@ Source Location: /ProofSystem/Tableaux/Structure.php<br /><br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="var$structures" id="$structures"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">array</span>&nbsp;&nbsp;
 			<span class="var-name">$structures</span>
-			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 45]</span>
+			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 50]</span>
 		</span>
 	</div>
 
@@ -391,13 +378,13 @@ Source Location: /ProofSystem/Tableaux/Structure.php<br /><br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="var$tableau" id="$tableau"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type"><a href="../Tableaux/Tableau.html">Tableau</a></span>&nbsp;&nbsp;
 			<span class="var-name">$tableau</span>
-						<span class="smalllinenumber">[line 27]</span>
+						<span class="smalllinenumber">[line 32]</span>
 		</span>
 	</div>
 
@@ -415,13 +402,13 @@ Source Location: /ProofSystem/Tableaux/Structure.php<br /><br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="var$tickedNodes" id="$tickedNodes"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">array</span>&nbsp;&nbsp;
 			<span class="var-name">$tickedNodes</span>
-			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 39]</span>
+			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 44]</span>
 		</span>
 	</div>
 
@@ -452,10 +439,10 @@ Source Location: /ProofSystem/Tableaux/Structure.php<br /><br />
 		<div class="info-box-body">
 			<a name='method_detail'></a>
 <a name="methodfindBranchesWithNode" id="findBranchesWithNode"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">static method findBranchesWithNode</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 73]</span>
+	<span class="method-title">static method findBranchesWithNode</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 78]</span>
 </div>
 <br />
 
@@ -507,10 +494,10 @@ $node&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodfindNodesCommonToBranches" id="findNodesCommonToBranches"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">static method findNodesCommonToBranches</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 87]</span>
+	<span class="method-title">static method findNodesCommonToBranches</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 92]</span>
 </div>
 <br />
 
@@ -541,7 +528,7 @@ $branches&nbsp;
 	<strong>API Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Array of common <a href="../Tableaux/Node.html">nodes</a>.</td>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Array of common <a href="../Tableaux/Node.html">Node</a>s.</td>
   </tr>
   <tr>
     <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
@@ -555,10 +542,10 @@ $branches&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodgetInstance" id="getInstance"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">static method getInstance</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 59]</span>
+	<span class="method-title">static method getInstance</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 64]</span>
 </div>
 <br />
 
@@ -602,67 +589,12 @@ $tableau&nbsp;
 		<br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
-<a name="methodsubtract" id="subtract"><!-- --></a>
-<div class="oddrow">
-
-<div class="method-header">
-	<span class="method-title">static method subtract</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 111]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code>static array subtract(
-array
-$a, array
-$b&nbsp;
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Subtracts one array from another, reference strict.
-</strong></p>
-
-			<strong>Parameters:</strong><br />
-			<table border="0" cellspacing="0" cellpadding="0">
-					<tr><td class="indent">
-				<span class="var-type">array</span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$a:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> The first array.</span>			</td></tr>
-					<tr><td class="indent">
-				<span class="var-type">array</span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$b:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> The second array.</span>			</td></tr>
-				</table>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>An array of everything in $a that is not also in $b.</td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
-  </tr>
-</table>
-<br />
-
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
 
 <a name="methodbuild" id="build"><!-- --></a>
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">build</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 136]</span>
+	<span class="method-title">build</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 126]</span>
 </div>
 <br />
 
@@ -698,7 +630,7 @@ $b&nbsp;
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">getNodes</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 147]</span>
+	<span class="method-title">getNodes</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 137]</span>
 </div>
 <br />
 
@@ -734,7 +666,7 @@ $b&nbsp;
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">getStructures</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 157]</span>
+	<span class="method-title">getStructures</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 147]</span>
 </div>
 <br />
 
@@ -770,7 +702,7 @@ $b&nbsp;
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">isClosed</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 178]</span>
+	<span class="method-title">isClosed</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 168]</span>
 </div>
 <br />
 
@@ -806,7 +738,7 @@ $b&nbsp;
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">nodeIsTicked</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 168]</span>
+	<span class="method-title">nodeIsTicked</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 158]</span>
 </div>
 <br />
 
@@ -854,7 +786,7 @@ $node&nbsp;
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">setTableau</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 125]</span>
+	<span class="method-title">setTableau</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 115]</span>
 </div>
 <br />
 
@@ -902,7 +834,7 @@ $tableau&nbsp;
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">structurize</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 189]</span>
+	<span class="method-title">structurize</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 180]</span>
 </div>
 <br />
 
@@ -949,7 +881,7 @@ $branches&nbsp;
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Fri, 06 Jan 2012 11:10:25 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Thu, 12 Jan 2012 18:06:59 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

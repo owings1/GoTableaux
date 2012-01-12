@@ -61,12 +61,13 @@
 			<span style="padding-left: 1em;"><a href="Tableaux/_ProofSystem---Tableaux---Node.php.html">Node.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="Tableaux/_ProofSystem---Tableaux---Branch---PropositionalBranch.php.html">PropositionalBranch.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="Tableaux/_ProofSystem---Tableaux---PropositionalTableauxSystem.php.html">PropositionalTableauxSystem.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="Tableaux/_ProofSystem---Tableaux---Writer---LaTeX---Qtree.php.html">Qtree.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="Tableaux/_ProofSystem---Tableaux---Node---SentenceNode.php.html">SentenceNode.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="Tableaux/_ProofSystem---Tableaux---TableauWriter---SimpleTableauWriter.php.html">SimpleTableauWriter.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="Tableaux/_ProofSystem---Tableaux---Structure.php.html">Structure.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="Tableaux/_ProofSystem---Tableaux---Tableau.php.html">Tableau.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="Tableaux/_ProofSystem---Tableaux---TableauWriter.php.html">TableauWriter.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="Tableaux/_ProofSystem---Tableaux---TableauWriter---TableauWriter_LaTeX_Qtree.php.html">TableauWriter_LaTeX_Qtree.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="Tableaux/_ProofSystem---TableauxSystem.php.html">TableauxSystem.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="Tableaux/_ProofSystem---Tableaux---Writer.php.html">Writer.php</a></span><br />
 	  </div>
             <br />
             <b>Interfaces:</b><br />
@@ -94,11 +95,12 @@
 	    		<a href="Tableaux/PropositionalBranch.html">PropositionalBranch</a>    	 <br />
 	    		<a href="Tableaux/PropositionalTableauxSystem.html">PropositionalTableauxSystem</a>    	 <br />
 	    		<a href="Tableaux/SentenceNode.html">SentenceNode</a>    	 <br />
+	    		<a href="Tableaux/SimpleTableauWriter.html">SimpleTableauWriter</a>    	 <br />
 	    		<a href="Tableaux/Structure.html">Structure</a>    	 <br />
 	    		<a href="Tableaux/Tableau.html">Tableau</a>    	 <br />
+	    		<a href="Tableaux/TableauWriter.html">TableauWriter</a>    	 <br />
+	    		<a href="Tableaux/TableauWriter_LaTeX_Qtree.html">TableauWriter_LaTeX_Qtree</a>    	 <br />
 	    		<a href="Tableaux/TableauxSystem.html">TableauxSystem</a>    	 <br />
-	    		<a href="Tableaux/Writer.html">Writer</a>    	 <br />
-	    		<a href="Tableaux/Writer_LaTeX_Qtree.html">Writer_LaTeX_Qtree</a>    	 <br />
 	  </div>
                 </td>
     <td>
@@ -126,7 +128,6 @@
 	[ <a href="elementindex_Tableaux.html#m">m</a> ]
 	[ <a href="elementindex_Tableaux.html#n">n</a> ]
 	[ <a href="elementindex_Tableaux.html#p">p</a> ]
-	[ <a href="elementindex_Tableaux.html#q">q</a> ]
 	[ <a href="elementindex_Tableaux.html#s">s</a> ]
 	[ <a href="elementindex_Tableaux.html#t">t</a> ]
 	[ <a href="elementindex_Tableaux.html#w">w</a> ]
@@ -153,32 +154,28 @@
 				<dd>in file ManyValuedModalBranch.php, method <a href="Tableaux/ManyValuedModalBranch.html#method_addNode">ManyValuedModalBranch::_addNode()</a></dd>
 							<dt><b>_addNode</b></dt>
 				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#method_addNode">Branch::_addNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a node to the branch.</dd>
-							<dt><b>_buildStructure</b></dt>
-				<dd>in file Tableau.php, method <a href="Tableaux/Tableau.html#method_buildStructure">Tableau::_buildStructure()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Builds the tree structure.</dd>
-							<dt><b>_removeNode</b></dt>
-				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#method_removeNode">ModalBranch::_removeNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Removes a node from the branch.</dd>
-							<dt><b>_removeNode</b></dt>
-				<dd>in file ManyValuedModalBranch.php, method <a href="Tableaux/ManyValuedModalBranch.html#method_removeNode">ManyValuedModalBranch::_removeNode()</a></dd>
 							<dt><b>_removeNode</b></dt>
 				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#method_removeNode">Branch::_removeNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Removes all references to a node from the branch.</dd>
 							<dt><b>_removeNode</b></dt>
 				<dd>in file ManyValuedBranch.php, method <a href="Tableaux/ManyValuedBranch.html#method_removeNode">ManyValuedBranch::_removeNode()</a></dd>
+							<dt><b>_removeNode</b></dt>
+				<dd>in file ManyValuedModalBranch.php, method <a href="Tableaux/ManyValuedModalBranch.html#method_removeNode">ManyValuedModalBranch::_removeNode()</a></dd>
+							<dt><b>_removeNode</b></dt>
+				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#method_removeNode">ModalBranch::_removeNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Removes a node from the branch.</dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file TableauxSystem.php, method <a href="Tableaux/TableauxSystem.html#method__construct">TableauxSystem::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file SentenceNode.php, method <a href="Tableaux/SentenceNode.html#method__construct">SentenceNode::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
 							<dt><b>__construct</b></dt>
-				<dd>in file Writer.php, method <a href="Tableaux/Writer.html#method__construct">Writer::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file ManyValuedSentenceNode.php, method <a href="Tableaux/ManyValuedSentenceNode.html#method__construct">ManyValuedSentenceNode::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#method__construct">Branch::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
+				<dd>in file ModalSentenceNode.php, method <a href="Tableaux/ModalSentenceNode.html#method__construct">ModalSentenceNode::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file ManyValuedModalSentenceNode.php, method <a href="Tableaux/ManyValuedModalSentenceNode.html#method__construct">ManyValuedModalSentenceNode::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
 							<dt><b>__construct</b></dt>
+				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#method__construct">Branch::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
+							<dt><b>__construct</b></dt>
 				<dd>in file AccessNode.php, method <a href="Tableaux/AccessNode.html#method__construct">AccessNode::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
 							<dt><b>__construct</b></dt>
-				<dd>in file ModalSentenceNode.php, method <a href="Tableaux/ModalSentenceNode.html#method__construct">ModalSentenceNode::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
+				<dd>in file ManyValuedSentenceNode.php, method <a href="Tableaux/ManyValuedSentenceNode.html#method__construct">ManyValuedSentenceNode::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
 					</dl>
 	</div>
 	<a name="a"></a>
@@ -277,19 +274,19 @@
 		<h2>c</h2>
 		<dl>
 							<dt><b>$closed</b></dt>
-				<dd>in file Branch.php, variable <a href="Tableaux/Branch.html#var$closed">Branch::$closed</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Tracks whether the branch is closed.</dd>
-							<dt><b>$closed</b></dt>
 				<dd>in file Structure.php, variable <a href="Tableaux/Structure.html#var$closed">Structure::$closed</a></dd>
+							<dt><b>$closed</b></dt>
+				<dd>in file Branch.php, variable <a href="Tableaux/Branch.html#var$closed">Branch::$closed</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Tracks whether the branch is closed.</dd>
 							<dt><b>$closeMarker</b></dt>
-				<dd>in file Writer.php, variable <a href="Tableaux/Writer.html#var$closeMarker">Writer::$closeMarker</a></dd>
+				<dd>in file TableauWriter_LaTeX_Qtree.php, variable <a href="Tableaux/TableauWriter_LaTeX_Qtree.html#var$closeMarker">TableauWriter_LaTeX_Qtree::$closeMarker</a></dd>
 							<dt><b>$closeMarker</b></dt>
-				<dd>in file Qtree.php, variable <a href="Tableaux/Writer_LaTeX_Qtree.html#var$closeMarker">Writer_LaTeX_Qtree::$closeMarker</a></dd>
+				<dd>in file TableauWriter.php, variable <a href="Tableaux/TableauWriter.html#var$closeMarker">TableauWriter::$closeMarker</a></dd>
 							<dt><b>$closureRule</b></dt>
 				<dd>in file TableauxSystem.php, variable <a href="Tableaux/TableauxSystem.html#var$closureRule">TableauxSystem::$closureRule</a></dd>
 							<dt><b>$closureRuleClass</b></dt>
 				<dd>in file TableauxSystem.php, variable <a href="Tableaux/TableauxSystem.html#var$closureRuleClass">TableauxSystem::$closureRuleClass</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Defines the closure rule class name for the logic.</dd>
 							<dt><b>$conMarker</b></dt>
-				<dd>in file Qtree.php, variable <a href="Tableaux/Writer_LaTeX_Qtree.html#var$conMarker">Writer_LaTeX_Qtree::$conMarker</a></dd>
+				<dd>in file TableauWriter_LaTeX_Qtree.php, variable <a href="Tableaux/TableauWriter_LaTeX_Qtree.html#var$conMarker">TableauWriter_LaTeX_Qtree::$conMarker</a></dd>
 							<dt><b>clearBranches</b></dt>
 				<dd>in file Tableau.php, method <a href="Tableaux/Tableau.html#methodclearBranches">Tableau::clearBranches()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Clears all branches from the tree.</dd>
 							<dt><b>close</b></dt>
@@ -370,21 +367,21 @@
 							<dt><b>getBranchRules</b></dt>
 				<dd>in file TableauxSystem.php, method <a href="Tableaux/TableauxSystem.html#methodgetBranchRules">TableauxSystem::getBranchRules()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the tableau branch rules.</dd>
 							<dt><b>getCloseMarker</b></dt>
-				<dd>in file Writer.php, method <a href="Tableaux/Writer.html#methodgetCloseMarker">Writer::getCloseMarker()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the close marker.</dd>
+				<dd>in file TableauWriter.php, method <a href="Tableaux/TableauWriter.html#methodgetCloseMarker">TableauWriter::getCloseMarker()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the close marker.</dd>
 							<dt><b>getClosureRule</b></dt>
 				<dd>in file TableauxSystem.php, method <a href="Tableaux/TableauxSystem.html#methodgetClosureRule">TableauxSystem::getClosureRule()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the closure rule.</dd>
 							<dt><b>getCounterexample</b></dt>
 				<dd>in file TableauxSystem.php, method <a href="Tableaux/TableauxSystem.html#methodgetCounterexample">TableauxSystem::getCounterexample()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets a counterexample from a Tableau proof.</dd>
 							<dt><b>getDesignatedNodes</b></dt>
-				<dd>in file ManyValuedBranch.php, method <a href="Tableaux/ManyValuedBranch.html#methodgetDesignatedNodes">ManyValuedBranch::getDesignatedNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all designated sentence nodes on the branch.</dd>
-							<dt><b>getDesignatedNodes</b></dt>
 				<dd>in file ManyValuedModalBranch.php, method <a href="Tableaux/ManyValuedModalBranch.html#methodgetDesignatedNodes">ManyValuedModalBranch::getDesignatedNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all designated sentence nodes on the branch.</dd>
+							<dt><b>getDesignatedNodes</b></dt>
+				<dd>in file ManyValuedBranch.php, method <a href="Tableaux/ManyValuedBranch.html#methodgetDesignatedNodes">ManyValuedBranch::getDesignatedNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all designated sentence nodes on the branch.</dd>
+							<dt><b>getI</b></dt>
+				<dd>in file ModalSentenceNode.php, method <a href="Tableaux/ModalSentenceNode.html#methodgetI">ModalSentenceNode::getI()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the index.</dd>
 							<dt><b>getI</b></dt>
 				<dd>in file AccessNode.php, method <a href="Tableaux/AccessNode.html#methodgetI">AccessNode::getI()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the first index</dd>
 							<dt><b>getI</b></dt>
 				<dd>in file ModalNode.php, method <a href="Tableaux/ModalNode.html#methodgetI">ModalNode::getI()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the index, or the first index, of a modal node.</dd>
-							<dt><b>getI</b></dt>
-				<dd>in file ModalSentenceNode.php, method <a href="Tableaux/ModalSentenceNode.html#methodgetI">ModalSentenceNode::getI()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the index.</dd>
 							<dt><b>getIndexes</b></dt>
 				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodgetIndexes">ModalBranch::getIndexes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all world indexes that appear on the branch.</dd>
 							<dt><b>getInstance</b></dt>
@@ -411,6 +408,8 @@
 				<dd>in file SentenceNode.php, method <a href="Tableaux/SentenceNode.html#methodgetSentence">SentenceNode::getSentence()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the sentence.</dd>
 							<dt><b>getSentenceNodes</b></dt>
 				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodgetSentenceNodes">Branch::getSentenceNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all sentence nodes on the branch.</dd>
+							<dt><b>getSentenceWriter</b></dt>
+				<dd>in file TableauWriter.php, method <a href="Tableaux/TableauWriter.html#methodgetSentenceWriter">TableauWriter::getSentenceWriter()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the sentence writer object.</dd>
 							<dt><b>getStructure</b></dt>
 				<dd>in file Tableau.php, method <a href="Tableaux/Tableau.html#methodgetStructure">Tableau::getStructure()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the tableau's tree structure representation.</dd>
 							<dt><b>getStructures</b></dt>
@@ -418,9 +417,13 @@
 							<dt><b>getTableau</b></dt>
 				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodgetTableau">Branch::getTableau()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the tableau.</dd>
 							<dt><b>getTeXUsePackageStr</b></dt>
-				<dd>in file Qtree.php, method <a href="Tableaux/Writer_LaTeX_Qtree.html#methodgetTeXUsePackageStr">Writer_LaTeX_Qtree::getTeXUsePackageStr()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the \usepackage LaTeX string to place at the head of a LaTeX file.</dd>
+				<dd>in file TableauWriter_LaTeX_Qtree.php, method <a href="Tableaux/TableauWriter_LaTeX_Qtree.html#methodgetTeXUsePackageStr">TableauWriter_LaTeX_Qtree::getTeXUsePackageStr()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the \usepackage LaTeX string to place at the head of a LaTeX file.</dd>
 							<dt><b>getTickedNodes</b></dt>
 				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodgetTickedNodes">Branch::getTickedNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all nodes on the branch that are ticked relative to the branch.</dd>
+							<dt><b>getTickMarker</b></dt>
+				<dd>in file TableauWriter.php, method <a href="Tableaux/TableauWriter.html#methodgetTickMarker">TableauWriter::getTickMarker()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the tick marker.</dd>
+							<dt><b>getTranslations</b></dt>
+				<dd>in file TableauWriter.php, method <a href="Tableaux/TableauWriter.html#methodgetTranslations">TableauWriter::getTranslations()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the translations.</dd>
 							<dt><b>getUndesignatedNodes</b></dt>
 				<dd>in file ManyValuedModalBranch.php, method <a href="Tableaux/ManyValuedModalBranch.html#methodgetUndesignatedNodes">ManyValuedModalBranch::getUndesignatedNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all undesignated sentence nodes on the branch.</dd>
 							<dt><b>getUndesignatedNodes</b></dt>
@@ -581,11 +584,11 @@
 		<h2>n</h2>
 		<dl>
 							<dt><b>$nodes</b></dt>
-				<dd>in file Branch.php, variable <a href="Tableaux/Branch.html#var$nodes">Branch::$nodes</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the <a href="Tableaux/Node.html">nodes</a> of the branch.</dd>
-							<dt><b>$nodes</b></dt>
 				<dd>in file Structure.php, variable <a href="Tableaux/Structure.html#var$nodes">Structure::$nodes</a></dd>
+							<dt><b>$nodes</b></dt>
+				<dd>in file Branch.php, variable <a href="Tableaux/Branch.html#var$nodes">Branch::$nodes</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the <a href="Tableaux/Node.html">nodes</a> of the branch.</dd>
 							<dt><b>$nonConMarker</b></dt>
-				<dd>in file Qtree.php, variable <a href="Tableaux/Writer_LaTeX_Qtree.html#var$nonConMarker">Writer_LaTeX_Qtree::$nonConMarker</a></dd>
+				<dd>in file TableauWriter_LaTeX_Qtree.php, variable <a href="Tableaux/TableauWriter_LaTeX_Qtree.html#var$nonConMarker">TableauWriter_LaTeX_Qtree::$nonConMarker</a></dd>
 							<dt><b>Node</b></dt>
 				<dd>in file Node.php, class <a href="Tableaux/Node.html">Node</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a node on a branch.</dd>
 							<dt><b>nodeIsTicked</b></dt>
@@ -615,19 +618,6 @@
 				<dd>in file PropositionalTableauxSystem.php, class <a href="Tableaux/PropositionalTableauxSystem.html">PropositionalTableauxSystem</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a bivalent propositional tableaux system.</dd>
 					</dl>
 	</div>
-	<a name="q"></a>
-	<div class="index-letter-section">
-		<div style="float: left" class="index-letter-title">q</div>
-		<div style="float: right"><a href="#top">[Top]</a></div>
-		<div style="clear: both"></div>
-	</div>
-	<div>
-		<h2>q</h2>
-		<dl>
-							<dt><b>Qtree.php</b></dt>
-				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---Writer---LaTeX---Qtree.php.html">Qtree.php</a></dd>
-					</dl>
-	</div>
 	<a name="s"></a>
 	<div class="index-letter-section">
 		<div style="float: left" class="index-letter-title">s</div>
@@ -641,8 +631,8 @@
 				<dd>in file SentenceNode.php, variable <a href="Tableaux/SentenceNode.html#var$sentence">SentenceNode::$sentence</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the sentence on the node</dd>
 							<dt><b>$sentenceNodes</b></dt>
 				<dd>in file Branch.php, variable <a href="Tableaux/Branch.html#var$sentenceNodes">Branch::$sentenceNodes</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the <a href="Tableaux/SentenceNode.html">SentenceNode</a>s of the branch.</dd>
-							<dt><b>$structure</b></dt>
-				<dd>in file Writer.php, variable <a href="Tableaux/Writer.html#var$structure">Writer::$structure</a></dd>
+							<dt><b>$sentenceWriter</b></dt>
+				<dd>in file TableauWriter.php, variable <a href="Tableaux/TableauWriter.html#var$sentenceWriter">TableauWriter::$sentenceWriter</a></dd>
 							<dt><b>$structure</b></dt>
 				<dd>in file Tableau.php, variable <a href="Tableaux/Tableau.html#var$structure">Tableau::$structure</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the tree structure.</dd>
 							<dt><b>$structures</b></dt>
@@ -651,14 +641,16 @@
 				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---Node---SentenceNode.php.html">SentenceNode.php</a></dd>
 							<dt><b>Structure.php</b></dt>
 				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---Structure.php.html">Structure.php</a></dd>
+							<dt><b>SimpleTableauWriter.php</b></dt>
+				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---TableauWriter---SimpleTableauWriter.php.html">SimpleTableauWriter.php</a></dd>
 							<dt><b>SentenceNode</b></dt>
 				<dd>in file SentenceNode.php, class <a href="Tableaux/SentenceNode.html">SentenceNode</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a sentence tableau node.</dd>
 							<dt><b>setCloseMarker</b></dt>
-				<dd>in file Writer.php, method <a href="Tableaux/Writer.html#methodsetCloseMarker">Writer::setCloseMarker()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the symbol with which to mark a closed branch.</dd>
-							<dt><b>setDesignation</b></dt>
-				<dd>in file ManyValuedSentenceNode.php, method <a href="Tableaux/ManyValuedSentenceNode.html#methodsetDesignation">ManyValuedSentenceNode::setDesignation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the designation flag.</dd>
+				<dd>in file TableauWriter.php, method <a href="Tableaux/TableauWriter.html#methodsetCloseMarker">TableauWriter::setCloseMarker()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the symbol with which to mark a closed branch.</dd>
 							<dt><b>setDesignation</b></dt>
 				<dd>in file ManyValuedModalSentenceNode.php, method <a href="Tableaux/ManyValuedModalSentenceNode.html#methodsetDesignation">ManyValuedModalSentenceNode::setDesignation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the designation flag.</dd>
+							<dt><b>setDesignation</b></dt>
+				<dd>in file ManyValuedSentenceNode.php, method <a href="Tableaux/ManyValuedSentenceNode.html#methodsetDesignation">ManyValuedSentenceNode::setDesignation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the designation flag.</dd>
 							<dt><b>setI</b></dt>
 				<dd>in file AccessNode.php, method <a href="Tableaux/AccessNode.html#methodsetI">AccessNode::setI()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the first index.</dd>
 							<dt><b>setI</b></dt>
@@ -667,22 +659,22 @@
 				<dd>in file AccessNode.php, method <a href="Tableaux/AccessNode.html#methodsetJ">AccessNode::setJ()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the second index.</dd>
 							<dt><b>setSentence</b></dt>
 				<dd>in file SentenceNode.php, method <a href="Tableaux/SentenceNode.html#methodsetSentence">SentenceNode::setSentence()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the sentence.</dd>
-							<dt><b>setTableau</b></dt>
-				<dd>in file Writer.php, method <a href="Tableaux/Writer.html#methodsetTableau">Writer::setTableau()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the tableau to write.</dd>
+							<dt><b>setSentenceWriter</b></dt>
+				<dd>in file TableauWriter.php, method <a href="Tableaux/TableauWriter.html#methodsetSentenceWriter">TableauWriter::setSentenceWriter()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the sentence writer object.</dd>
 							<dt><b>setTableau</b></dt>
 				<dd>in file Structure.php, method <a href="Tableaux/Structure.html#methodsetTableau">Structure::setTableau()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the tableau to represent.</dd>
+							<dt><b>setTickMarker</b></dt>
+				<dd>in file TableauWriter.php, method <a href="Tableaux/TableauWriter.html#methodsetTickMarker">TableauWriter::setTickMarker()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the symbol with which to mark a ticked node.</dd>
 							<dt><b>setTranslation</b></dt>
-				<dd>in file Writer.php, method <a href="Tableaux/Writer.html#methodsetTranslation">Writer::setTranslation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets a string translation to perform.</dd>
-							<dt><b>sortByStrLen</b></dt>
-				<dd>in file Writer.php, method <a href="Tableaux/Writer.html#methodsortByStrLen">Writer::sortByStrLen()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sorts two strings by their length.</dd>
+				<dd>in file TableauWriter.php, method <a href="Tableaux/TableauWriter.html#methodsetTranslation">TableauWriter::setTranslation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets a string translation to perform.</dd>
+							<dt><b>SimpleTableauWriter</b></dt>
+				<dd>in file SimpleTableauWriter.php, class <a href="Tableaux/SimpleTableauWriter.html">SimpleTableauWriter</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a simple tableau proof writer.</dd>
 							<dt><b>strip</b></dt>
-				<dd>in file Qtree.php, method <a href="Tableaux/Writer_LaTeX_Qtree.html#methodstrip">Writer_LaTeX_Qtree::strip()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Strips parentheses.</dd>
+				<dd>in file TableauWriter_LaTeX_Qtree.php, method <a href="Tableaux/TableauWriter_LaTeX_Qtree.html#methodstrip">TableauWriter_LaTeX_Qtree::strip()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Strips parentheses.</dd>
 							<dt><b>Structure</b></dt>
 				<dd>in file Structure.php, class <a href="Tableaux/Structure.html">Structure</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents the proper 'tree' structure of a tableau.</dd>
 							<dt><b>structurize</b></dt>
 				<dd>in file Structure.php, method <a href="Tableaux/Structure.html#methodstructurize">Structure::structurize()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Recursive structurizing function.</dd>
-							<dt><b>subtract</b></dt>
-				<dd>in file Structure.php, method <a href="Tableaux/Structure.html#methodsubtract">Structure::subtract()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Subtracts one array from another, reference strict.</dd>
 					</dl>
 	</div>
 	<a name="t"></a>
@@ -697,21 +689,29 @@
 							<dt><b>$tableau</b></dt>
 				<dd>in file Structure.php, variable <a href="Tableaux/Structure.html#var$tableau">Structure::$tableau</a></dd>
 							<dt><b>$tableau</b></dt>
-				<dd>in file Writer.php, variable <a href="Tableaux/Writer.html#var$tableau">Writer::$tableau</a></dd>
-							<dt><b>$tableau</b></dt>
 				<dd>in file Branch.php, variable <a href="Tableaux/Branch.html#var$tableau">Branch::$tableau</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the tableau.</dd>
 							<dt><b>$tickedNodes</b></dt>
 				<dd>in file Branch.php, variable <a href="Tableaux/Branch.html#var$tickedNodes">Branch::$tickedNodes</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the ticked <a href="Tableaux/Node.html">Node</a>s.</dd>
 							<dt><b>$tickedNodes</b></dt>
 				<dd>in file Structure.php, variable <a href="Tableaux/Structure.html#var$tickedNodes">Structure::$tickedNodes</a></dd>
+							<dt><b>$tickMarker</b></dt>
+				<dd>in file TableauWriter.php, variable <a href="Tableaux/TableauWriter.html#var$tickMarker">TableauWriter::$tickMarker</a></dd>
 							<dt><b>$translations</b></dt>
-				<dd>in file Writer.php, variable <a href="Tableaux/Writer.html#var$translations">Writer::$translations</a></dd>
+				<dd>in file TableauWriter.php, variable <a href="Tableaux/TableauWriter.html#var$translations">TableauWriter::$translations</a></dd>
 							<dt><b>Tableau.php</b></dt>
 				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---Tableau.php.html">Tableau.php</a></dd>
+							<dt><b>TableauWriter_LaTeX_Qtree.php</b></dt>
+				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---TableauWriter---TableauWriter_LaTeX_Qtree.php.html">TableauWriter_LaTeX_Qtree.php</a></dd>
+							<dt><b>TableauWriter.php</b></dt>
+				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---TableauWriter.php.html">TableauWriter.php</a></dd>
 							<dt><b>TableauxSystem.php</b></dt>
 				<dd>procedural page <a href="Tableaux/_ProofSystem---TableauxSystem.php.html">TableauxSystem.php</a></dd>
 							<dt><b>Tableau</b></dt>
 				<dd>in file Tableau.php, class <a href="Tableaux/Tableau.html">Tableau</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableau for an argument.</dd>
+							<dt><b>TableauWriter</b></dt>
+				<dd>in file TableauWriter.php, class <a href="Tableaux/TableauWriter.html">TableauWriter</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableaux writer.</dd>
+							<dt><b>TableauWriter_LaTeX_Qtree</b></dt>
+				<dd>in file TableauWriter_LaTeX_Qtree.php, class <a href="Tableaux/TableauWriter_LaTeX_Qtree.html">TableauWriter_LaTeX_Qtree</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Writes trees in LaTeX using the qtree package.</dd>
 							<dt><b>TableauxSystem</b></dt>
 				<dd>in file TableauxSystem.php, class <a href="Tableaux/TableauxSystem.html">TableauxSystem</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableaux proof system.</dd>
 							<dt><b>tickAtBranch</b></dt>
@@ -719,7 +719,7 @@
 							<dt><b>tickNode</b></dt>
 				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodtickNode">Branch::tickNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Ticks a node relative to the branch.</dd>
 							<dt><b>translate</b></dt>
-				<dd>in file Writer.php, method <a href="Tableaux/Writer.html#methodtranslate">Writer::translate()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Performs translations.</dd>
+				<dd>in file TableauWriter.php, method <a href="Tableaux/TableauWriter.html#methodtranslate">TableauWriter::translate()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Performs translations.</dd>
 					</dl>
 	</div>
 	<a name="w"></a>
@@ -731,27 +731,25 @@
 	<div>
 		<h2>w</h2>
 		<dl>
-							<dt><b>Writer.php</b></dt>
-				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---Writer.php.html">Writer.php</a></dd>
-							<dt><b>write</b></dt>
-				<dd>in file Writer.php, method <a href="Tableaux/Writer.html#methodwrite">Writer::write()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Writes the tree structure.</dd>
-							<dt><b>write</b></dt>
-				<dd>in file Qtree.php, method <a href="Tableaux/Writer_LaTeX_Qtree.html#methodwrite">Writer_LaTeX_Qtree::write()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Implements Writer::write()</dd>
 							<dt><b>writeArgument</b></dt>
-				<dd>in file Qtree.php, method <a href="Tableaux/Writer_LaTeX_Qtree.html#methodwriteArgument">Writer_LaTeX_Qtree::writeArgument()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Implements Writer::writeArgument()</dd>
+				<dd>in file TableauWriter_LaTeX_Qtree.php, method <a href="Tableaux/TableauWriter_LaTeX_Qtree.html#methodwriteArgument">TableauWriter_LaTeX_Qtree::writeArgument()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Implements Writer::writeArgument()</dd>
 							<dt><b>writeArgument</b></dt>
-				<dd>in file Writer.php, method <a href="Tableaux/Writer.html#methodwriteArgument">Writer::writeArgument()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Writes the tableau's argument.</dd>
-							<dt><b>Writer</b></dt>
-				<dd>in file Writer.php, class <a href="Tableaux/Writer.html">Writer</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableaux writer.</dd>
-							<dt><b>Writer_LaTeX_Qtree</b></dt>
-				<dd>in file Qtree.php, class <a href="Tableaux/Writer_LaTeX_Qtree.html">Writer_LaTeX_Qtree</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Writes trees in LaTeX using the qtree package.</dd>
+				<dd>in file SimpleTableauWriter.php, method <a href="Tableaux/SimpleTableauWriter.html#methodwriteArgument">SimpleTableauWriter::writeArgument()</a></dd>
+							<dt><b>writeArgument</b></dt>
+				<dd>in file TableauWriter.php, method <a href="Tableaux/TableauWriter.html#methodwriteArgument">TableauWriter::writeArgument()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Writes the tableau's argument.</dd>
 							<dt><b>writeStructure</b></dt>
-				<dd>in file Qtree.php, method <a href="Tableaux/Writer_LaTeX_Qtree.html#methodwriteStructure">Writer_LaTeX_Qtree::writeStructure()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Writes a structure (recursive).</dd>
+				<dd>in file TableauWriter_LaTeX_Qtree.php, method <a href="Tableaux/TableauWriter_LaTeX_Qtree.html#methodwriteStructure">TableauWriter_LaTeX_Qtree::writeStructure()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Writes a structure (recursive).</dd>
+							<dt><b>writeTableau</b></dt>
+				<dd>in file TableauWriter_LaTeX_Qtree.php, method <a href="Tableaux/TableauWriter_LaTeX_Qtree.html#methodwriteTableau">TableauWriter_LaTeX_Qtree::writeTableau()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Implements Writer::write()</dd>
+							<dt><b>writeTableau</b></dt>
+				<dd>in file TableauWriter.php, method <a href="Tableaux/TableauWriter.html#methodwriteTableau">TableauWriter::writeTableau()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Writes the tree structure.</dd>
+							<dt><b>writeTableau</b></dt>
+				<dd>in file SimpleTableauWriter.php, method <a href="Tableaux/SimpleTableauWriter.html#methodwriteTableau">SimpleTableauWriter::writeTableau()</a></dd>
 					</dl>
 	</div>
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Fri, 06 Jan 2012 11:10:21 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Thu, 12 Jan 2012 18:06:53 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

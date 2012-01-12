@@ -48,7 +48,9 @@
 			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---ParserUtilities.php.html">ParserUtilities.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---Sentence.php.html">Sentence.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---SentenceParser.php.html">SentenceParser.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---SentenceWriter.php.html">SentenceWriter.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---SentenceParser---StandardSentenceParser.php.html">StandardSentenceParser.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---SentenceWriter---StandardSentenceWriter.php.html">StandardSentenceWriter.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---Vocabulary.php.html">Vocabulary.php</a></span><br />
 	  </div>
             <br />
@@ -60,7 +62,9 @@
 	    		<a href="../Syntax/ParserUtilities.html">ParserUtilities</a>    	 <br />
 	    		<a href="../Syntax/Sentence.html">Sentence</a>    	 <br />
 	    		<a href="../Syntax/SentenceParser.html">SentenceParser</a>    	 <br />
+	    		<a href="../Syntax/SentenceWriter.html">SentenceWriter</a>    	 <br />
 	    		<a href="../Syntax/StandardSentenceParser.html">StandardSentenceParser</a>    	 <br />
+	    		<a href="../Syntax/StandardSentenceWriter.html">StandardSentenceWriter</a>    	 <br />
 	    		<a href="../Syntax/Vocabulary.html">Vocabulary</a>    	 <br />
 	  </div>
                 </td>
@@ -89,7 +93,7 @@ Source Location: /Syntax/SentenceParser/StandardSentenceParser.php<br /><br />
 </strong></p>
 
 		<p class="notes">
-			Located in <a class="field" href="_Syntax---SentenceParser---StandardSentenceParser.php.html">/Syntax/SentenceParser/StandardSentenceParser.php</a> [<span class="field">line 23</span>]
+			Located in <a class="field" href="_Syntax---SentenceParser---StandardSentenceParser.php.html">/Syntax/SentenceParser/StandardSentenceParser.php</a> [<span class="field">line 18</span>]
 		</p>
 
 		
@@ -113,7 +117,6 @@ Source Location: /Syntax/SentenceParser/StandardSentenceParser.php<br /><br />
 				<td valign="top" width="20%" class="class-overview">
 		<p align="center" class="short-description"><strong><a href="#sec_methods">Methods</a></strong></p>
 		<ul>
-		  		  <li><a href="../Syntax/StandardSentenceParser.html#methodsentenceToString">sentenceToString</a></li>
 		  		  <li><a href="../Syntax/StandardSentenceParser.html#methodstringToSentence">stringToSentence</a></li>
 		  		</ul>
 		</td>
@@ -147,12 +150,6 @@ Source Location: /Syntax/SentenceParser/StandardSentenceParser.php<br /><br />
 							<blockquote>
 								<dl>
 																			<dt>
-											<span class="method-definition"><a href="../Syntax/SentenceParser.html#methodsentenceToString">SentenceParser::sentenceToString()</a></span>
-										</dt>
-										<dd>
-											<span class="method-definition">Gets the string representation of a <a href="../Syntax/Sentence.html">sentence</a>.</span>
-										</dd>
-																			<dt>
 											<span class="method-definition"><a href="../Syntax/SentenceParser.html#methodstringToSentence">SentenceParser::stringToSentence()</a></span>
 										</dt>
 										<dd>
@@ -182,12 +179,7 @@ Source Location: /Syntax/SentenceParser/StandardSentenceParser.php<br /><br />
 		<div class="info-box-body">
 			<div class="method-summary">
 				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
-																																<div class="method-definition">
-											<tr><td class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
-										<td class="method-definition"><a href="#sentenceToString" title="details" class="method-name">sentenceToString</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Gets a string representation of a <a href="../Syntax/Sentence.html">sentence</a>.</td></tr>
-				</div>
-																<div class="method-definition">
+																								<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result"><a href="../Syntax/Sentence.html">Sentence</a></span>&nbsp;&nbsp;</td>
 										<td class="method-definition"><a href="#stringToSentence" title="details" class="method-name">stringToSentence</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Creates a <a href="../Syntax/Sentence.html">sentence</a> from a string.</td></tr>
@@ -210,72 +202,11 @@ Source Location: /Syntax/SentenceParser/StandardSentenceParser.php<br /><br />
 		<div class="info-box-body">
 			<a name='method_detail'></a>
 
-<a name="methodsentenceToString" id="sentenceToString"><!-- --></a>
+<a name="methodstringToSentence" id="stringToSentence"><!-- --></a>
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">sentenceToString</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 32]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code>string sentenceToString(
-<a href="../Syntax/Sentence.html">Sentence</a>
-$sentence, <a href="../Syntax/Vocabulary.html">Vocabulary</a>
-$vocabulary&nbsp;
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Gets a string representation of a <a href="../Syntax/Sentence.html">sentence</a>.
-</strong></p>
-
-			<strong>Parameters:</strong><br />
-			<table border="0" cellspacing="0" cellpadding="0">
-					<tr><td class="indent">
-				<span class="var-type"><a href="../Syntax/Sentence.html">Sentence</a></span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$sentence:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> The sentence to represent.</span>			</td></tr>
-					<tr><td class="indent">
-				<span class="var-type"><a href="../Syntax/Vocabulary.html">Vocabulary</a></span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$vocabulary:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> The vocabulary relative to which to represent.</span>			</td></tr>
-				</table>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The string representation of the sentence.</td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-<br />
-
-
-			<hr class="separator" />
-		<div class="notes">Redefinition of:</div>
-		<dl>
-			<dt><a href="../Syntax/SentenceParser.html#methodsentenceToString">SentenceParser::sentenceToString()</a></dt>
-						<dd>Gets the string representation of a <a href="../Syntax/Sentence.html">sentence</a>.</dd>
-					</dl>
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
-<a name="methodstringToSentence" id="stringToSentence"><!-- --></a>
-<div class="evenrow">
-
-<div class="method-header">
-	<span class="method-title">stringToSentence</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 46]</span>
+	<span class="method-title">stringToSentence</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 28]</span>
 </div>
 <br />
 
@@ -344,7 +275,7 @@ $vocabulary&nbsp;
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Fri, 06 Jan 2012 11:10:25 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Thu, 12 Jan 2012 18:06:59 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>
