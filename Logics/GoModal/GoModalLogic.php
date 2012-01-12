@@ -1,7 +1,7 @@
 <?php
 /**
  * Defines the GoModal logic class.
- * @package GoModalLogic
+ * @package GoModal
  * @author Douglas Owings
  */
 
@@ -15,7 +15,11 @@ require_once 'GoTableaux/Logic/Logic.php';
  */
 require_once 'GoModalTableauxSystem.php';
 
-
+/**
+ * Represents the GoModal language.
+ * @package GoModal
+ * @author Douglas Owings
+ */
 class GoModalLogic extends Logic
 {
 	public $proofSystemClass = 'GoModalTableauxSystem';

@@ -25,14 +25,14 @@ class ModalTransitiveRule implements BranchRule
 	 * found is remedied.
 	 *
 	 * @param ModalBranch $branch The modal branch to search and apply the rule to.
-	 * @param TableauxSystem $tableauxSystem The Tableaux system.
+	 * @param Logic $logic The Tableaux system.
 	 * @return boolean Whether the rule was applied.
 	 */
-	public function apply( Branch $branch, TableauxSystem $tableauxSystem )
+	public function apply( Branch $branch, Logic $logic )
 	{
 		foreach ( $branch->getAllIndexes() as $index ) 
 			if ( !$branch->indexIsTransitive( $index, $newIndex )) {
-				$branch->addAccessNode( $index, $newIndex );
+				$branch->createAccessNode( $index, $newIndex );
 				return true;
 			}
 		return false;

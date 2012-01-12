@@ -6,11 +6,16 @@
  */
 
 /**
+ * Loads the {@link TableauWriter} parent class.
+ */
+require_once 'GoTableaux/Logic/ProofSystem/Tableaux/TableauWriter.php';
+
+/**
  * Writes trees in LaTeX using the qtree package.
  * @package Tableaux
  * @author Douglas Owings
  */
-class Writer_LaTeX_Qtree extends Writer
+class TableauWriter_LaTeX_Qtree extends TableauWriter
 {
 	/**
 	 * @var string
@@ -55,12 +60,11 @@ class Writer_LaTeX_Qtree extends Writer
 	 *
 	 * @return string The string representation of the tableau's argument.
 	 */
-	public function writeArgument()
+	public function writeArgument( Argument $argument )
 	{
 		// add: strip parentheses
 		$string = '$ ';
-		$arg = $this->tableau->getArgument();
-		$premises = $arg->getPremises();
+		$premises = $argument->getPremises();
 		if ( count( $premises ) == 0 ){
 			$string .= '\\emptyset ';
 		}
@@ -77,7 +81,7 @@ class Writer_LaTeX_Qtree extends Writer
 
 		}
 		$string .= ( $this->tableau->isValid() ) ? $this->conMarker : $this->nonConMarker;
-		$string .= ' ' . self::strip( $this->translate( $arg->getConclusion()->__tostring() )) . ' $';
+		$string .= ' ' . self::strip( $this->translate( $argument->getConclusion()->__tostring() )) . ' $';
 		return $string;
 	}
 	
@@ -86,10 +90,10 @@ class Writer_LaTeX_Qtree extends Writer
 	 *
 	 * @return string The string representation of the tableau structure.
 	 */
-	public function write()
+	public function writeTableau( Tableau $tableau )
 	{
 		$string = '\Tree[.';
-		$string .= self::writeStructure( $this->structure );
+		$string .= $this->writeStructure( $tableau->getStructure() );
 		$string .= ' ]';
 		return $string;
 	}
@@ -100,7 +104,7 @@ class Writer_LaTeX_Qtree extends Writer
 	 * @param Structure $structure The structure to write.
 	 * @return string The string representation of the structure.
 	 */
-	protected function writeStructure( Structure $structure )
+	public function writeStructure( Structure $structure )
 	{
 		$string = '{';
 		foreach ( $structure->getNodes() as $node ){

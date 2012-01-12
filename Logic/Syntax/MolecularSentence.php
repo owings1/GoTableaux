@@ -8,7 +8,7 @@
 /**
  * Loads {@link VocabularyException} class.
  */
-require_once 'VocabularyException.php';
+require_once 'GoTableaux/Logic/Exceptions/VocabularyException.php';
 
 /**
  * Represents a molecular sentence.

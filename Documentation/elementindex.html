@@ -17,7 +17,7 @@
   <tr>
     <td colspan="2" class="header-menu">
       
-                                                                                        [ <a href="elementindex.html" class="menu">all elements</a> ]
+                                                                                                      [ <a href="elementindex.html" class="menu">all elements</a> ]
     </td>
   </tr>
   <tr><td colspan="2" class="header-line"><img src="media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
@@ -30,6 +30,7 @@
       <b>Packages:</b><br />
   <div class="package">
               <a href="li_Logic.html">Logic</a><br />
+              <a href="li_Exceptions.html">Exceptions</a><br />
               <a href="li_ModelTheory.html">ModelTheory</a><br />
               <a href="li_Proof.html">Proof</a><br />
               <a href="li_Tableaux.html">Tableaux</a><br />
@@ -45,6 +46,7 @@
 <h3>Package Indexes</h3>
 <ul>
 	<li><a href="elementindex_Logic.html">Logic</a></li>
+	<li><a href="elementindex_Exceptions.html">Exceptions</a></li>
 	<li><a href="elementindex_ModelTheory.html">ModelTheory</a></li>
 	<li><a href="elementindex_Proof.html">Proof</a></li>
 	<li><a href="elementindex_Tableaux.html">Tableaux</a></li>
@@ -70,6 +72,7 @@
 	[ <a href="elementindex.html#r">r</a> ]
 	[ <a href="elementindex.html#s">s</a> ]
 	[ <a href="elementindex.html#t">t</a> ]
+	[ <a href="elementindex.html#u">u</a> ]
 	[ <a href="elementindex.html#v">v</a> ]
 	[ <a href="elementindex.html#w">w</a> ]
 	[ <a href="elementindex.html#_">_</a> ]
@@ -84,41 +87,35 @@
 		<h2>a</h2>
 		<dl>
 							<dt><b>$accessNodes</b></dt>
-				<dd>in file ModalBranch.php, variable <a href="Tableaux/ModalBranch.html#var$accessNodes">ModalBranch::$accessNodes</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the access nodes.</dd>
+				<dd>in file ModalBranch.php, variable <a href="Tableaux/ModalBranch.html#var$accessNodes">ModalBranch::$accessNodes</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the <a href="Tableaux/AccessNode.html">AccessNode</a>s.</dd>
+							<dt><b>$accessRelation</b></dt>
+				<dd>in file ModalBranch.php, variable <a href="Tableaux/ModalBranch.html#var$accessRelation">ModalBranch::$accessRelation</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Hashes the access relation.</dd>
 							<dt><b>$argument</b></dt>
 				<dd>in file Proof.php, variable <a href="Proof/Proof.html#var$argument">Proof::$argument</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the argument for the proof.</dd>
 							<dt><b>$arity</b></dt>
 				<dd>in file Operator.php, variable <a href="Syntax/Operator.html#var$arity">Operator::$arity</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the arity of the operator.</dd>
 							<dt><b>$atomicSentences</b></dt>
-				<dd>in file Vocabulary.php, variable <a href="Syntax/Vocabulary.html#var$atomicSentences">Vocabulary::$atomicSentences</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the set of atomic sentencents.</dd>
+				<dd>in file Vocabulary.php, variable <a href="Syntax/Vocabulary.html#var$atomicSentences">Vocabulary::$atomicSentences</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the set of <a href="Syntax/AtomicSentence.html">atomic sentences</a>.</dd>
 							<dt><b>accesses</b></dt>
 				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodaccesses">ModalBranch::accesses()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether a given world index accesses another.</dd>
 							<dt><b>AccessNode</b></dt>
 				<dd>in file AccessNode.php, class <a href="Tableaux/AccessNode.html">AccessNode</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a modal logic access relation node.</dd>
-							<dt><b>addAccessNode</b></dt>
-				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodaddAccessNode">ModalBranch::addAccessNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a new access node for the given two integer indexes.</dd>
 							<dt><b>addAtomicSymbol</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodaddAtomicSymbol">Vocabulary::addAtomicSymbol()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds an atomic symbol.</dd>
 							<dt><b>addBranchRules</b></dt>
 				<dd>in file TableauxSystem.php, method <a href="Tableaux/TableauxSystem.html#methodaddBranchRules">TableauxSystem::addBranchRules()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds tableau rules. Duplicate entries are ignored.</dd>
 							<dt><b>addCloseMark</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodaddCloseMark">Vocabulary::addCloseMark()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a closing punctuation symbol, e.g. ')'.</dd>
-							<dt><b>addNode</b></dt>
-				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodaddNode">ModalBranch::addNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a node to the branch.</dd>
-							<dt><b>addNode</b></dt>
-				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodaddNode">Branch::addNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a node to the branch.</dd>
 							<dt><b>addOpenMark</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodaddOpenMark">Vocabulary::addOpenMark()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds an opening punctuation symbol, e.g. '('.</dd>
 							<dt><b>addOperand</b></dt>
 				<dd>in file MolecularSentence.php, method <a href="Syntax/MolecularSentence.html#methodaddOperand">MolecularSentence::addOperand()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds an operand, or many operands.</dd>
 							<dt><b>addOuterParens</b></dt>
-				<dd>in file SentenceParser.php, method <a href="Syntax/SentenceParser.html#methodaddOuterParens">SentenceParser::addOuterParens()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds outer parentheses to a string.</dd>
+				<dd>in file ParserUtilities.php, method <a href="Syntax/ParserUtilities.html#methodaddOuterParens">ParserUtilities::addOuterParens()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds outer parentheses to a string.</dd>
 							<dt><b>addPremise</b></dt>
 				<dd>in file Argument.php, method <a href="Logic/Argument.html#methodaddPremise">Argument::addPremise()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a premise to the argument.</dd>
 							<dt><b>addPremises</b></dt>
 				<dd>in file Argument.php, method <a href="Logic/Argument.html#methodaddPremises">Argument::addPremises()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds multiple premises to the argument.</dd>
-							<dt><b>addSentenceNode</b></dt>
-				<dd>in file ManyValuedModalBranch.php, method <a href="Tableaux/ManyValuedModalBranch.html#methodaddSentenceNode">ManyValuedModalBranch::addSentenceNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a sentence node to the branch.</dd>
 							<dt><b>addSeparator</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodaddSeparator">Vocabulary::addSeparator()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a separator symbol, e.g. a space character.</dd>
 							<dt><b>addSubscriptSymbol</b></dt>
@@ -126,17 +123,21 @@
 							<dt><b>addSymbol</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodaddSymbol">Vocabulary::addSymbol()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a symbol to the vocabulary.</dd>
 							<dt><b>apply</b></dt>
-				<dd>in file ModalReflexiveRule.php, method <a href="Tableaux/ModalReflexiveRule.html#methodapply">ModalReflexiveRule::apply()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Implements the Reflexive Rule.</dd>
-							<dt><b>apply</b></dt>
 				<dd>in file BranchRule.php, method <a href="Tableaux/BranchRule.html#methodapply">BranchRule::apply()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Applies the rule to a branch.</dd>
+							<dt><b>apply</b></dt>
+				<dd>in file ModalReflexiveRule.php, method <a href="Tableaux/ModalReflexiveRule.html#methodapply">ModalReflexiveRule::apply()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Implements the Reflexive Rule.</dd>
 							<dt><b>apply</b></dt>
 				<dd>in file ModalTransitiveRule.php, method <a href="Tableaux/ModalTransitiveRule.html#methodapply">ModalTransitiveRule::apply()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Implements the Transitive Rule.</dd>
 							<dt><b>applyClosureRule</b></dt>
 				<dd>in file TableauxSystem.php, method <a href="Tableaux/TableauxSystem.html#methodapplyClosureRule">TableauxSystem::applyClosureRule()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Applies the closure rule to a tableau.</dd>
+							<dt><b>applyOperatorToOperands</b></dt>
+				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodapplyOperatorToOperands">Logic::applyOperatorToOperands()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Applies an operator to some operands to generate a new sentence.</dd>
 							<dt><b>Argument</b></dt>
 				<dd>in file Argument.php, class <a href="Logic/Argument.html">Argument</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents an argument as a set of premises and one conclusion.</dd>
 							<dt><b>Argument.php</b></dt>
 				<dd>procedural page <a href="Logic/_Argument.php.html">Argument.php</a></dd>
+							<dt><b>arrayDiff</b></dt>
+				<dd>in file Utilities.php, method <a href="Logic/Utilities.html#methodarrayDiff">Utilities::arrayDiff()</a></dd>
 							<dt><b>ATOMIC</b></dt>
 				<dd>in file Vocabulary.php, class constant <a href="Syntax/Vocabulary.html#constATOMIC">Vocabulary::ATOMIC</a></dd>
 							<dt><b>AtomicSentence</b></dt>
@@ -159,33 +160,35 @@
 		<h2>b</h2>
 		<dl>
 							<dt><b>$branchClass</b></dt>
+				<dd>in file ModalTableauxSystem.php, variable <a href="Tableaux/ModalTableauxSystem.html#var$branchClass">ModalTableauxSystem::$branchClass</a></dd>
+							<dt><b>$branchClass</b></dt>
+				<dd>in file PropositionalTableauxSystem.php, variable <a href="Tableaux/PropositionalTableauxSystem.html#var$branchClass">PropositionalTableauxSystem::$branchClass</a></dd>
+							<dt><b>$branchClass</b></dt>
+				<dd>in file TableauxSystem.php, variable <a href="Tableaux/TableauxSystem.html#var$branchClass">TableauxSystem::$branchClass</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Defines the branch class name for the tableaux.</dd>
+							<dt><b>$branchClass</b></dt>
 				<dd>in file Tableau.php, variable <a href="Tableaux/Tableau.html#var$branchClass">Tableau::$branchClass</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Defines the branch class.</dd>
 							<dt><b>$branchClass</b></dt>
-				<dd>in file ModalTableau.php, variable <a href="Tableaux/ModalTableau.html#var$branchClass">ModalTableau::$branchClass</a></dd>
+				<dd>in file ManyValuedModalTableauxSystem.php, variable <a href="Tableaux/ManyValuedModalTableauxSystem.html#var$branchClass">ManyValuedModalTableauxSystem::$branchClass</a></dd>
 							<dt><b>$branchClass</b></dt>
-				<dd>in file PropositionalTableau.php, variable <a href="Tableaux/PropositionalTableau.html#var$branchClass">PropositionalTableau::$branchClass</a></dd>
-							<dt><b>$branchClass</b></dt>
-				<dd>in file ManyValuedModalTableau.php, variable <a href="Tableaux/ManyValuedModalTableau.html#var$branchClass">ManyValuedModalTableau::$branchClass</a></dd>
-							<dt><b>$branchClass</b></dt>
-				<dd>in file ManyValuedTableau.php, variable <a href="Tableaux/ManyValuedTableau.html#var$branchClass">ManyValuedTableau::$branchClass</a></dd>
+				<dd>in file ManyValuedTableauxSystem.php, variable <a href="Tableaux/ManyValuedTableauxSystem.html#var$branchClass">ManyValuedTableauxSystem::$branchClass</a></dd>
 							<dt><b>$branches</b></dt>
 				<dd>in file Tableau.php, variable <a href="Tableaux/Tableau.html#var$branches">Tableau::$branches</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the branches on the tree.</dd>
 							<dt><b>$branchRuleClasses</b></dt>
-				<dd>in file TableauxSystem.php, variable <a href="Tableaux/TableauxSystem.html#var$branchRuleClasses">TableauxSystem::$branchRuleClasses</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Defines the branch rule classes for the logic.</dd>
+				<dd>in file TableauxSystem.php, variable <a href="Tableaux/TableauxSystem.html#var$branchRuleClasses">TableauxSystem::$branchRuleClasses</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Defines the branch rule classes names for the logic.</dd>
 							<dt><b>$branchRules</b></dt>
 				<dd>in file TableauxSystem.php, variable <a href="Tableaux/TableauxSystem.html#var$branchRules">TableauxSystem::$branchRules</a></dd>
-							<dt><b>Branch</b></dt>
-				<dd>in file Branch.php, class <a href="Tableaux/Branch.html">Branch</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableau branch.</dd>
 							<dt><b>branch</b></dt>
 				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodbranch">Branch::branch()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Branches the branch.</dd>
+							<dt><b>Branch</b></dt>
+				<dd>in file Branch.php, class <a href="Tableaux/Branch.html">Branch</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableau branch.</dd>
 							<dt><b>BranchRule</b></dt>
 				<dd>in file BranchRule.php, class <a href="Tableaux/BranchRule.html">BranchRule</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableau rule that applies to a branch.</dd>
 							<dt><b>build</b></dt>
 				<dd>in file Structure.php, method <a href="Tableaux/Structure.html#methodbuild">Structure::build()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Builds the tree structure.</dd>
 							<dt><b>buildProof</b></dt>
-				<dd>in file TableauxSystem.php, method <a href="Tableaux/TableauxSystem.html#methodbuildProof">TableauxSystem::buildProof()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Builds a tableau.</dd>
-							<dt><b>buildProof</b></dt>
 				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodbuildProof">ProofSystem::buildProof()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Builds a proof.</dd>
+							<dt><b>buildProof</b></dt>
+				<dd>in file TableauxSystem.php, method <a href="Tableaux/TableauxSystem.html#methodbuildProof">TableauxSystem::buildProof()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Builds a tableau.</dd>
 							<dt><b>buildTrunk</b></dt>
 				<dd>in file TableauxSystem.php, method <a href="Tableaux/TableauxSystem.html#methodbuildTrunk">TableauxSystem::buildTrunk()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs the initial list (trunk) for an argument.</dd>
 							<dt><b>buildTrunk</b></dt>
@@ -212,9 +215,9 @@
 		<h2>c</h2>
 		<dl>
 							<dt><b>$closed</b></dt>
-				<dd>in file Branch.php, variable <a href="Tableaux/Branch.html#var$closed">Branch::$closed</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Tracks whether the branch is closed.</dd>
-							<dt><b>$closed</b></dt>
 				<dd>in file Structure.php, variable <a href="Tableaux/Structure.html#var$closed">Structure::$closed</a></dd>
+							<dt><b>$closed</b></dt>
+				<dd>in file Branch.php, variable <a href="Tableaux/Branch.html#var$closed">Branch::$closed</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Tracks whether the branch is closed.</dd>
 							<dt><b>$closeMarker</b></dt>
 				<dd>in file Writer.php, variable <a href="Tableaux/Writer.html#var$closeMarker">Writer::$closeMarker</a></dd>
 							<dt><b>$closeMarker</b></dt>
@@ -222,19 +225,17 @@
 							<dt><b>$closureRule</b></dt>
 				<dd>in file TableauxSystem.php, variable <a href="Tableaux/TableauxSystem.html#var$closureRule">TableauxSystem::$closureRule</a></dd>
 							<dt><b>$closureRuleClass</b></dt>
-				<dd>in file TableauxSystem.php, variable <a href="Tableaux/TableauxSystem.html#var$closureRuleClass">TableauxSystem::$closureRuleClass</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Defines the closure rule class for the logic.</dd>
+				<dd>in file TableauxSystem.php, variable <a href="Tableaux/TableauxSystem.html#var$closureRuleClass">TableauxSystem::$closureRuleClass</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Defines the closure rule class name for the logic.</dd>
 							<dt><b>$conclusion</b></dt>
 				<dd>in file Argument.php, variable <a href="Logic/Argument.html#var$conclusion">Argument::$conclusion</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The conclusion.</dd>
 							<dt><b>$conMarker</b></dt>
 				<dd>in file Qtree.php, variable <a href="Tableaux/Writer_LaTeX_Qtree.html#var$conMarker">Writer_LaTeX_Qtree::$conMarker</a></dd>
-							<dt><b>$consequences</b></dt>
-				<dd>in file Logic.php, variable <a href="Logic/Logic.html#var$consequences">Logic::$consequences</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds evaluated logical consequences.</dd>
 							<dt><b>clearBranches</b></dt>
 				<dd>in file Tableau.php, method <a href="Tableaux/Tableau.html#methodclearBranches">Tableau::clearBranches()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Clears all branches from the tree.</dd>
 							<dt><b>close</b></dt>
 				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodclose">Branch::close()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Closes the branch.</dd>
 							<dt><b>closePosFromOpenPos</b></dt>
-				<dd>in file SentenceParser.php, method <a href="Syntax/SentenceParser.html#methodclosePosFromOpenPos">SentenceParser::closePosFromOpenPos()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Finds a string's for the corresponding close mark of an open mark at the  given position.</dd>
+				<dd>in file ParserUtilities.php, method <a href="Syntax/ParserUtilities.html#methodclosePosFromOpenPos">ParserUtilities::closePosFromOpenPos()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Finds a string's for the corresponding close mark of an open mark at the  given position.</dd>
 							<dt><b>ClosureRule</b></dt>
 				<dd>in file ClosureRule.php, class <a href="Tableaux/ClosureRule.html">ClosureRule</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableau closure rule.</dd>
 							<dt><b>constructProofForArgument</b></dt>
@@ -245,6 +246,8 @@
 				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodcopy">Branch::copy()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Clones the branch. Maintains references to the nodes.</dd>
 							<dt><b>Counterexample</b></dt>
 				<dd>in file Counterexample.php, class <a href="Proof/Counterexample.html">Counterexample</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a counter example to an argument.</dd>
+							<dt><b>createAccessNode</b></dt>
+				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodcreateAccessNode">ModalBranch::createAccessNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a new access node for the given two integer indexes.</dd>
 							<dt><b>createAtomic</b></dt>
 				<dd>in file Sentence.php, method <a href="Syntax/Sentence.html#methodcreateAtomic">Sentence::createAtomic()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates an atomic sentence.</dd>
 							<dt><b>createBranch</b></dt>
@@ -253,22 +256,22 @@
 				<dd>in file Sentence.php, method <a href="Syntax/Sentence.html#methodcreateMolecular">Sentence::createMolecular()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates a molecular sentence.</dd>
 							<dt><b>createNode</b></dt>
 				<dd>in file PropositionalBranch.php, method <a href="Tableaux/PropositionalBranch.html#methodcreateNode">PropositionalBranch::createNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates a node on the branch.</dd>
-							<dt><b>createNode</b></dt>
-				<dd>in file ManyValuedBranch.php, method <a href="Tableaux/ManyValuedBranch.html#methodcreateNode">ManyValuedBranch::createNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates a node on the branch.</dd>
+							<dt><b>createNodeWithDesignation</b></dt>
+				<dd>in file ManyValuedBranch.php, method <a href="Tableaux/ManyValuedBranch.html#methodcreateNodeWithDesignation">ManyValuedBranch::createNodeWithDesignation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates a node on the branch.</dd>
 							<dt><b>createOperator</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodcreateOperator">Vocabulary::createOperator()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates an operator and adds it to the vocabulary items.</dd>
-							<dt><b>createSentenceNode</b></dt>
-				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodcreateSentenceNode">ModalBranch::createSentenceNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a new sentence node to the branch.</dd>
+							<dt><b>createSentenceNodeAtIndex</b></dt>
+				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodcreateSentenceNodeAtIndex">ModalBranch::createSentenceNodeAtIndex()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a new sentence node to the branch.</dd>
+							<dt><b>createSentenceNodeAtIndexWithDesignation</b></dt>
+				<dd>in file ManyValuedModalBranch.php, method <a href="Tableaux/ManyValuedModalBranch.html#methodcreateSentenceNodeAtIndexWithDesignation">ManyValuedModalBranch::createSentenceNodeAtIndexWithDesignation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a sentence node to the branch.</dd>
 							<dt><b>createWithLexicon</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodcreateWithLexicon">Vocabulary::createWithLexicon()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates an instance with a lexicon.</dd>
 							<dt><b>createWithMsgInputPos</b></dt>
-				<dd>in file ParserException.php, method <a href="Syntax/ParserException.html#methodcreateWithMsgInputPos">ParserException::createWithMsgInputPos()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates an instance with message, input, and position parameters.</dd>
+				<dd>in file ParserException.php, method <a href="Exceptions/ParserException.html#methodcreateWithMsgInputPos">ParserException::createWithMsgInputPos()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates an instance with message, input, and position parameters.</dd>
 							<dt><b>createWithOptions</b></dt>
-				<dd>in file ParserException.php, method <a href="Syntax/ParserException.html#methodcreateWithOptions">ParserException::createWithOptions()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates an instance with options array.</dd>
+				<dd>in file ParserException.php, method <a href="Exceptions/ParserException.html#methodcreateWithOptions">ParserException::createWithOptions()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates an instance with options array.</dd>
 							<dt><b>createWithPremisesAndConclusion</b></dt>
 				<dd>in file Argument.php, method <a href="Logic/Argument.html#methodcreateWithPremisesAndConclusion">Argument::createWithPremisesAndConclusion()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates an argument with given premises and conclusion.</dd>
-							<dt><b>createWithVocabulary</b></dt>
-				<dd>in file SentenceParser.php, method <a href="Syntax/SentenceParser.html#methodcreateWithVocabulary">SentenceParser::createWithVocabulary()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates an instance.</dd>
 							<dt><b>CTRL_SUBSCRIPT</b></dt>
 				<dd>in file Vocabulary.php, class constant <a href="Syntax/Vocabulary.html#constCTRL_SUBSCRIPT">Vocabulary::CTRL_SUBSCRIPT</a></dd>
 							<dt><b>Counterexample.php</b></dt>
@@ -286,12 +289,16 @@
 	<div>
 		<h2>d</h2>
 		<dl>
+							<dt><b>$designatedNodes</b></dt>
+				<dd>in file ManyValuedBranch.php, variable <a href="Tableaux/ManyValuedBranch.html#var$designatedNodes">ManyValuedBranch::$designatedNodes</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the designated nodes</dd>
+							<dt><b>$designatedNodes</b></dt>
+				<dd>in file ManyValuedModalBranch.php, variable <a href="Tableaux/ManyValuedModalBranch.html#var$designatedNodes">ManyValuedModalBranch::$designatedNodes</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the designated nodes.</dd>
 							<dt><b>detach</b></dt>
 				<dd>in file Tableau.php, method <a href="Tableaux/Tableau.html#methoddetach">Tableau::detach()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Removes one or more branches from the tree.</dd>
 							<dt><b>doesApply</b></dt>
 				<dd>in file ClosureRule.php, method <a href="Tableaux/ClosureRule.html#methoddoesApply">ClosureRule::doesApply()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Determines whether a branch should be closed, according to the  implementation of the rule.</dd>
 							<dt><b>dropOuterParens</b></dt>
-				<dd>in file SentenceParser.php, method <a href="Syntax/SentenceParser.html#methoddropOuterParens">SentenceParser::dropOuterParens()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Drops outer parentheses from a string, if they exist.</dd>
+				<dd>in file ParserUtilities.php, method <a href="Syntax/ParserUtilities.html#methoddropOuterParens">ParserUtilities::dropOuterParens()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Drops outer parentheses from a string, if they exist.</dd>
 					</dl>
 	</div>
 	<a name="e"></a>
@@ -318,8 +325,6 @@
 		<dl>
 							<dt><b>findBranchesWithNode</b></dt>
 				<dd>in file Structure.php, method <a href="Tableaux/Structure.html#methodfindBranchesWithNode">Structure::findBranchesWithNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all branches that have a particular node on them.</dd>
-							<dt><b>findNodesByOperatorName</b></dt>
-				<dd>in file SentenceNode.php, method <a href="Tableaux/SentenceNode.html#methodfindNodesByOperatorName">SentenceNode::findNodesByOperatorName()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all modal sentence nodes in an array of nodes, whose sentence's  operator has a particular name.</dd>
 							<dt><b>findNodesCommonToBranches</b></dt>
 				<dd>in file Structure.php, method <a href="Tableaux/Structure.html#methodfindNodesCommonToBranches">Structure::findNodesCommonToBranches()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all nodes that are on each of an array of branches.</dd>
 					</dl>
@@ -333,26 +338,22 @@
 	<div>
 		<h2>g</h2>
 		<dl>
-							<dt><b>getAccessedIndexes</b></dt>
-				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodgetAccessedIndexes">ModalBranch::getAccessedIndexes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all the second indexes of access nodes by a particular first index.</dd>
 							<dt><b>getAccessNodes</b></dt>
 				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodgetAccessNodes">ModalBranch::getAccessNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all modal access nodes on the branch.</dd>
-							<dt><b>getAccessNodesByI</b></dt>
-				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodgetAccessNodesByI">ModalBranch::getAccessNodesByI()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all modal access nodes that have a given first index.</dd>
-							<dt><b>getAccessNodesByJ</b></dt>
-				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodgetAccessNodesByJ">ModalBranch::getAccessNodesByJ()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all modal access nodes that have a given second index.</dd>
-							<dt><b>getAllIndexes</b></dt>
-				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodgetAllIndexes">ModalBranch::getAllIndexes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all world indexes that appear on the branch.</dd>
+							<dt><b>getAccessRelation</b></dt>
+				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodgetAccessRelation">ModalBranch::getAccessRelation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the access relation.</dd>
 							<dt><b>getArgument</b></dt>
 				<dd>in file Proof.php, method <a href="Proof/Proof.html#methodgetArgument">Proof::getArgument()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the Argument object.</dd>
 							<dt><b>getArity</b></dt>
 				<dd>in file Operator.php, method <a href="Syntax/Operator.html#methodgetArity">Operator::getArity()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the arity of the operator.</dd>
 							<dt><b>getAtomicSymbols</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodgetAtomicSymbols">Vocabulary::getAtomicSymbols()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the atomic symbols.</dd>
+							<dt><b>getBranchClass</b></dt>
+				<dd>in file TableauxSystem.php, method <a href="Tableaux/TableauxSystem.html#methodgetBranchClass">TableauxSystem::getBranchClass()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the branch class name.</dd>
 							<dt><b>getBranches</b></dt>
 				<dd>in file Tableau.php, method <a href="Tableaux/Tableau.html#methodgetBranches">Tableau::getBranches()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all branches on the tree.</dd>
 							<dt><b>getBranchRules</b></dt>
-				<dd>in file TableauxSystem.php, method <a href="Tableaux/TableauxSystem.html#methodgetBranchRules">TableauxSystem::getBranchRules()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets tableau rules.</dd>
+				<dd>in file TableauxSystem.php, method <a href="Tableaux/TableauxSystem.html#methodgetBranchRules">TableauxSystem::getBranchRules()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the tableau branch rules.</dd>
 							<dt><b>getCloseMarker</b></dt>
 				<dd>in file Writer.php, method <a href="Tableaux/Writer.html#methodgetCloseMarker">Writer::getCloseMarker()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the close marker.</dd>
 							<dt><b>getCloseMarks</b></dt>
@@ -367,32 +368,38 @@
 				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodgetCounterexample">ProofSystem::getCounterexample()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets a counterexample from a proof.</dd>
 							<dt><b>getDesignatedNodes</b></dt>
 				<dd>in file ManyValuedModalBranch.php, method <a href="Tableaux/ManyValuedModalBranch.html#methodgetDesignatedNodes">ManyValuedModalBranch::getDesignatedNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all designated sentence nodes on the branch.</dd>
+							<dt><b>getDesignatedNodes</b></dt>
+				<dd>in file ManyValuedBranch.php, method <a href="Tableaux/ManyValuedBranch.html#methodgetDesignatedNodes">ManyValuedBranch::getDesignatedNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all designated sentence nodes on the branch.</dd>
 							<dt><b>getI</b></dt>
 				<dd>in file ModalSentenceNode.php, method <a href="Tableaux/ModalSentenceNode.html#methodgetI">ModalSentenceNode::getI()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the index.</dd>
 							<dt><b>getI</b></dt>
 				<dd>in file AccessNode.php, method <a href="Tableaux/AccessNode.html#methodgetI">AccessNode::getI()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the first index</dd>
 							<dt><b>getI</b></dt>
 				<dd>in file ModalNode.php, method <a href="Tableaux/ModalNode.html#methodgetI">ModalNode::getI()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the index, or the first index, of a modal node.</dd>
-							<dt><b>getIndexesFromNodes</b></dt>
-				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodgetIndexesFromNodes">ModalBranch::getIndexesFromNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all world indexes that appear in an array of modal access nodes.</dd>
+							<dt><b>getIndexes</b></dt>
+				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodgetIndexes">ModalBranch::getIndexes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all world indexes that appear on the branch.</dd>
 							<dt><b>getInstance</b></dt>
 				<dd>in file Structure.php, method <a href="Tableaux/Structure.html#methodgetInstance">Structure::getInstance()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates an instance from a tableau.</dd>
 							<dt><b>getItems</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodgetItems">Vocabulary::getItems()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all items in vocabulary of a type flag.</dd>
 							<dt><b>getJ</b></dt>
 				<dd>in file AccessNode.php, method <a href="Tableaux/AccessNode.html#methodgetJ">AccessNode::getJ()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the second index.</dd>
-							<dt><b>getLabel</b></dt>
-				<dd>in file AtomicSentence.php, method <a href="Syntax/AtomicSentence.html#methodgetLabel">AtomicSentence::getLabel()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Alias for <a href="Syntax/AtomicSentence.html#methodgetSymbol">AtomicSentence::getSymbol()</a>.</dd>
+							<dt><b>getLogic</b></dt>
+				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodgetLogic">ProofSystem::getLogic()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the logic instance.</dd>
 							<dt><b>getName</b></dt>
 				<dd>in file Operator.php, method <a href="Syntax/Operator.html#methodgetName">Operator::getName()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the name of the operator.</dd>
 							<dt><b>getNodes</b></dt>
-				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodgetNodes">Branch::getNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the nodes on the branch.</dd>
-							<dt><b>getNodes</b></dt>
 				<dd>in file Structure.php, method <a href="Tableaux/Structure.html#methodgetNodes">Structure::getNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the nodes of the current structure.</dd>
+							<dt><b>getNodes</b></dt>
+				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodgetNodes">Branch::getNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the nodes on the branch.</dd>
 							<dt><b>getNodesByOperatorName</b></dt>
 				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodgetNodesByOperatorName">Branch::getNodesByOperatorName()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets any <a href="Tableaux/SentenceNode.html">SentenceNode</a>s on the branch that have a given operator  as its sentence's main connective.</dd>
+							<dt><b>getNodesByOperatorNameAndDesignation</b></dt>
+				<dd>in file ManyValuedBranch.php, method <a href="Tableaux/ManyValuedBranch.html#methodgetNodesByOperatorNameAndDesignation">ManyValuedBranch::getNodesByOperatorNameAndDesignation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all nodes that have a certain operator name and designation.</dd>
 							<dt><b>getNodesByTwoOperatorNames</b></dt>
 				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodgetNodesByTwoOperatorNames">Branch::getNodesByTwoOperatorNames()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets any <a href="Tableaux/SentenceNode.html">SentenceNode</a>s by two operator names.</dd>
+							<dt><b>getNodesByTwoOperatorNamesAndDesignation</b></dt>
+				<dd>in file ManyValuedBranch.php, method <a href="Tableaux/ManyValuedBranch.html#methodgetNodesByTwoOperatorNamesAndDesignation">ManyValuedBranch::getNodesByTwoOperatorNamesAndDesignation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all nodes that have a two operator names and a certain designation.</dd>
 							<dt><b>getOpenBranches</b></dt>
 				<dd>in file Tableau.php, method <a href="Tableaux/Tableau.html#methodgetOpenBranches">Tableau::getOpenBranches()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all open branches on the tree.</dd>
 							<dt><b>getOpenMarks</b></dt>
@@ -400,9 +407,7 @@
 							<dt><b>getOperands</b></dt>
 				<dd>in file MolecularSentence.php, method <a href="Syntax/MolecularSentence.html#methodgetOperands">MolecularSentence::getOperands()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the operands.</dd>
 							<dt><b>getOperator</b></dt>
-				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodgetOperator">ProofSystem::getOperator()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets an operator from the logic's vocabulary.</dd>
-							<dt><b>getOperator</b></dt>
-				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodgetOperator">Branch::getOperator()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets an operator from the logic's vocabulary by its name.</dd>
+				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodgetOperator">Logic::getOperator()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets an operator from the logic's vocabulary.</dd>
 							<dt><b>getOperator</b></dt>
 				<dd>in file MolecularSentence.php, method <a href="Syntax/MolecularSentence.html#methodgetOperator">MolecularSentence::getOperator()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the Operator object.</dd>
 							<dt><b>getOperatorByName</b></dt>
@@ -416,17 +421,15 @@
 							<dt><b>getPremises</b></dt>
 				<dd>in file Argument.php, method <a href="Logic/Argument.html#methodgetPremises">Argument::getPremises()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all the premises of the argument.</dd>
 							<dt><b>getProofSystem</b></dt>
-				<dd>in file Proof.php, method <a href="Proof/Proof.html#methodgetProofSystem">Proof::getProofSystem()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the ProofSystem object.</dd>
-							<dt><b>getProofSystem</b></dt>
 				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodgetProofSystem">Logic::getProofSystem()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the proof system.</dd>
+							<dt><b>getProofSystem</b></dt>
+				<dd>in file Proof.php, method <a href="Proof/Proof.html#methodgetProofSystem">Proof::getProofSystem()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the ProofSystem object.</dd>
 							<dt><b>getReflexiveIndexes</b></dt>
 				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodgetReflexiveIndexes">ModalBranch::getReflexiveIndexes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all world indexes that &quot;see&quot; themselves.</dd>
-							<dt><b>getReflexiveNodes</b></dt>
-				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodgetReflexiveNodes">ModalBranch::getReflexiveNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Get all modal access nodes whose first and second indexes are equal.</dd>
 							<dt><b>getSentence</b></dt>
 				<dd>in file SentenceNode.php, method <a href="Tableaux/SentenceNode.html#methodgetSentence">SentenceNode::getSentence()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the sentence.</dd>
 							<dt><b>getSentenceNodes</b></dt>
-				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodgetSentenceNodes">ModalBranch::getSentenceNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all modal sentence nodes on the branch.</dd>
+				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodgetSentenceNodes">Branch::getSentenceNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all sentence nodes on the branch.</dd>
 							<dt><b>getSentences</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodgetSentences">Vocabulary::getSentences()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the set of sentences.</dd>
 							<dt><b>getSeparators</b></dt>
@@ -441,30 +444,24 @@
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodgetSubscriptSymbols">Vocabulary::getSubscriptSymbols()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the subscript symbol.</dd>
 							<dt><b>getSymbol</b></dt>
 				<dd>in file AtomicSentence.php, method <a href="Syntax/AtomicSentence.html#methodgetSymbol">AtomicSentence::getSymbol()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the atomic symbol.</dd>
+							<dt><b>getSymbolForOperator</b></dt>
+				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodgetSymbolForOperator">Vocabulary::getSymbolForOperator()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the symbol used for a particular operator.</dd>
 							<dt><b>getSymbolType</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodgetSymbolType">Vocabulary::getSymbolType()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets item type by symbol.</dd>
 							<dt><b>getTableau</b></dt>
 				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodgetTableau">Branch::getTableau()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the tableau.</dd>
-							<dt><b>getTableauxSystem</b></dt>
-				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodgetTableauxSystem">Branch::getTableauxSystem()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the tableaux system of the tableau.</dd>
-							<dt><b>getTableauxSystem</b></dt>
-				<dd>in file Tableau.php, method <a href="Tableaux/Tableau.html#methodgetTableauxSystem">Tableau::getTableauxSystem()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Alias for Proof::getProofSystem()</dd>
 							<dt><b>getTeXUsePackageStr</b></dt>
 				<dd>in file Qtree.php, method <a href="Tableaux/Writer_LaTeX_Qtree.html#methodgetTeXUsePackageStr">Writer_LaTeX_Qtree::getTeXUsePackageStr()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the \usepackage LaTeX string to place at the head of a LaTeX file.</dd>
 							<dt><b>getTickedNodes</b></dt>
 				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodgetTickedNodes">Branch::getTickedNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all nodes on the branch that are ticked relative to the branch.</dd>
+							<dt><b>getUndesignatedNodes</b></dt>
+				<dd>in file ManyValuedBranch.php, method <a href="Tableaux/ManyValuedBranch.html#methodgetUndesignatedNodes">ManyValuedBranch::getUndesignatedNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all undesignated sentence nodes on the branch.</dd>
 							<dt><b>getUndesignatedNodes</b></dt>
 				<dd>in file ManyValuedModalBranch.php, method <a href="Tableaux/ManyValuedModalBranch.html#methodgetUndesignatedNodes">ManyValuedModalBranch::getUndesignatedNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all undesignated sentence nodes on the branch.</dd>
 							<dt><b>getUntickedNodes</b></dt>
 				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodgetUntickedNodes">Branch::getUntickedNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all nodes on the branch that are unticked relative to the branch.</dd>
 							<dt><b>getVocabulary</b></dt>
 				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodgetVocabulary">Logic::getVocabulary()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the vocabulary.</dd>
-							<dt><b>getVocabulary</b></dt>
-				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodgetVocabulary">ProofSystem::getVocabulary()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the vocabulary.</dd>
-							<dt><b>getVocabulary</b></dt>
-				<dd>in file SentenceParser.php, method <a href="Syntax/SentenceParser.html#methodgetVocabulary">SentenceParser::getVocabulary()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the vocabulary.</dd>
-							<dt><b>grabParenGroup</b></dt>
-				<dd>in file SentenceParser.php, method <a href="Syntax/SentenceParser.html#methodgrabParenGroup">SentenceParser::grabParenGroup()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Parses first complete parenthesized group in a string.</dd>
 					</dl>
 	</div>
 	<a name="h"></a>
@@ -476,18 +473,18 @@
 	<div>
 		<h2>h</h2>
 		<dl>
-							<dt><b>hasAccessNode</b></dt>
-				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodhasAccessNode">ModalBranch::hasAccessNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks for existence of access node with given indexes.</dd>
 							<dt><b>hasNode</b></dt>
 				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodhasNode">Branch::hasNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether a node is on the branch.</dd>
+							<dt><b>hasNodeWithSentence</b></dt>
+				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodhasNodeWithSentence">Branch::hasNodeWithSentence()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether a sentence is on the branch.</dd>
 							<dt><b>hasOpenBranches</b></dt>
 				<dd>in file Tableau.php, method <a href="Tableaux/Tableau.html#methodhasOpenBranches">Tableau::hasOpenBranches()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether there are any open branches on the tree.</dd>
 							<dt><b>hasSentence</b></dt>
 				<dd>in file PropositionalBranch.php, method <a href="Tableaux/PropositionalBranch.html#methodhasSentence">PropositionalBranch::hasSentence()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether a sentence is on the branch.</dd>
-							<dt><b>hasSentenceNode</b></dt>
-				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodhasSentenceNode">ModalBranch::hasSentenceNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks for existence of sentence node with given sentence and index.</dd>
-							<dt><b>hasSentenceNode</b></dt>
-				<dd>in file ManyValuedModalBranch.php, method <a href="Tableaux/ManyValuedModalBranch.html#methodhasSentenceNode">ManyValuedModalBranch::hasSentenceNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether a sentence node with the given attributes is on the branch.</dd>
+							<dt><b>hasSentenceAtIndex</b></dt>
+				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodhasSentenceAtIndex">ModalBranch::hasSentenceAtIndex()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks for existence of sentence node with given sentence and index.</dd>
+							<dt><b>hasSentenceAtIndexWithDesignation</b></dt>
+				<dd>in file ManyValuedModalBranch.php, method <a href="Tableaux/ManyValuedModalBranch.html#methodhasSentenceAtIndexWithDesignation">ManyValuedModalBranch::hasSentenceAtIndexWithDesignation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether a sentence node with the given attributes is on the branch.</dd>
 							<dt><b>hasSentenceWithDesignation</b></dt>
 				<dd>in file ManyValuedBranch.php, method <a href="Tableaux/ManyValuedBranch.html#methodhasSentenceWithDesignation">ManyValuedBranch::hasSentenceWithDesignation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether a sentence is on the branch.</dd>
 					</dl>
@@ -502,11 +499,13 @@
 		<h2>i</h2>
 		<dl>
 							<dt><b>$i</b></dt>
-				<dd>in file AccessNode.php, variable <a href="Tableaux/AccessNode.html#var$i">AccessNode::$i</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the seeing world index.</dd>
-							<dt><b>$i</b></dt>
 				<dd>in file ModalSentenceNode.php, variable <a href="Tableaux/ModalSentenceNode.html#var$i">ModalSentenceNode::$i</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the &quot;world&quot; index.</dd>
+							<dt><b>$i</b></dt>
+				<dd>in file AccessNode.php, variable <a href="Tableaux/AccessNode.html#var$i">AccessNode::$i</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the seeing world index.</dd>
+							<dt><b>$indexes</b></dt>
+				<dd>in file ModalBranch.php, variable <a href="Tableaux/ModalBranch.html#var$indexes">ModalBranch::$indexes</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Hashes the indexes on the branch.</dd>
 							<dt><b>$input</b></dt>
-				<dd>in file ParserException.php, variable <a href="Syntax/ParserException.html#var$input">ParserException::$input</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Input string for which error was raised.</dd>
+				<dd>in file ParserException.php, variable <a href="Exceptions/ParserException.html#var$input">ParserException::$input</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Input string for which error was raised.</dd>
 							<dt><b>$isDesignated</b></dt>
 				<dd>in file ManyValuedSentenceNode.php, variable <a href="Tableaux/ManyValuedSentenceNode.html#var$isDesignated">ManyValuedSentenceNode::$isDesignated</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the designation flag.</dd>
 							<dt><b>$isDesignated</b></dt>
@@ -571,6 +570,8 @@
 		<dl>
 							<dt><b>$lexicon</b></dt>
 				<dd>in file Logic.php, variable <a href="Logic/Logic.html#var$lexicon">Logic::$lexicon</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Defines the default lexicon for initializing the vocabulary.</dd>
+							<dt><b>$logic</b></dt>
+				<dd>in file ProofSystem.php, variable <a href="Proof/ProofSystem.html#var$logic">ProofSystem::$logic</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the logic instance.</dd>
 							<dt><b>Logic</b></dt>
 				<dd>in file Logic.php, class <a href="Logic/Logic.html">Logic</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a Logic.</dd>
 							<dt><b>Logic.php</b></dt>
@@ -592,14 +593,10 @@
 				<dd>in file ManyValuedModalBranch.php, class <a href="Tableaux/ManyValuedModalBranch.html">ManyValuedModalBranch</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableau branch with designation markers for a many-valued  modal logic.</dd>
 							<dt><b>ManyValuedModalSentenceNode</b></dt>
 				<dd>in file ManyValuedModalSentenceNode.php, class <a href="Tableaux/ManyValuedModalSentenceNode.html">ManyValuedModalSentenceNode</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a sentence node on a branch of a many-valued modal logic tableau.</dd>
-							<dt><b>ManyValuedModalTableau</b></dt>
-				<dd>in file ManyValuedModalTableau.php, class <a href="Tableaux/ManyValuedModalTableau.html">ManyValuedModalTableau</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableau for a many-valued modal logic.</dd>
 							<dt><b>ManyValuedModalTableauxSystem</b></dt>
 				<dd>in file ManyValuedModalTableauxSystem.php, class <a href="Tableaux/ManyValuedModalTableauxSystem.html">ManyValuedModalTableauxSystem</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableaux system for a many-valued modal logic.</dd>
 							<dt><b>ManyValuedSentenceNode</b></dt>
 				<dd>in file ManyValuedSentenceNode.php, class <a href="Tableaux/ManyValuedSentenceNode.html">ManyValuedSentenceNode</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a sentence node on a branch of a many-valued logic tableau.</dd>
-							<dt><b>ManyValuedTableau</b></dt>
-				<dd>in file ManyValuedTableau.php, class <a href="Tableaux/ManyValuedTableau.html">ManyValuedTableau</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableau for a propositional logic.</dd>
 							<dt><b>ManyValuedTableauxSystem</b></dt>
 				<dd>in file ManyValuedTableauxSystem.php, class <a href="Tableaux/ManyValuedTableauxSystem.html">ManyValuedTableauxSystem</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a many-valued propositional tableaux system.</dd>
 							<dt><b>ModalBranch</b></dt>
@@ -610,8 +607,6 @@
 				<dd>in file ModalReflexiveRule.php, class <a href="Tableaux/ModalReflexiveRule.html">ModalReflexiveRule</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Implements the reflexivity rule for a standard modal tableaux system.</dd>
 							<dt><b>ModalSentenceNode</b></dt>
 				<dd>in file ModalSentenceNode.php, class <a href="Tableaux/ModalSentenceNode.html">ModalSentenceNode</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a modal sentence tableau node.</dd>
-							<dt><b>ModalTableau</b></dt>
-				<dd>in file ModalTableau.php, class <a href="Tableaux/ModalTableau.html">ModalTableau</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableau for a modal logic.</dd>
 							<dt><b>ModalTableauxSystem</b></dt>
 				<dd>in file ModalTableauxSystem.php, class <a href="Tableaux/ModalTableauxSystem.html">ModalTableauxSystem</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a bivalent modal tableaux system.</dd>
 							<dt><b>ModalTransitiveRule</b></dt>
@@ -646,12 +641,6 @@
 				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---Node---ModalNode.php.html">ModalNode.php</a></dd>
 							<dt><b>ModalSentenceNode.php</b></dt>
 				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---Node---ModalSentenceNode.php.html">ModalSentenceNode.php</a></dd>
-							<dt><b>ManyValuedModalTableau.php</b></dt>
-				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---Tableau---ManyValuedModalTableau.php.html">ManyValuedModalTableau.php</a></dd>
-							<dt><b>ManyValuedTableau.php</b></dt>
-				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---Tableau---ManyValuedTableau.php.html">ManyValuedTableau.php</a></dd>
-							<dt><b>ModalTableau.php</b></dt>
-				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---Tableau---ModalTableau.php.html">ModalTableau.php</a></dd>
 							<dt><b>MolecularSentence.php</b></dt>
 				<dd>procedural page <a href="Syntax/_Syntax---MolecularSentence.php.html">MolecularSentence.php</a></dd>
 					</dl>
@@ -668,11 +657,13 @@
 							<dt><b>$name</b></dt>
 				<dd>in file Operator.php, variable <a href="Syntax/Operator.html#var$name">Operator::$name</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the name of the operator.</dd>
 							<dt><b>$nodes</b></dt>
-				<dd>in file Structure.php, variable <a href="Tableaux/Structure.html#var$nodes">Structure::$nodes</a></dd>
+				<dd>in file Branch.php, variable <a href="Tableaux/Branch.html#var$nodes">Branch::$nodes</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the <a href="Tableaux/Node.html">nodes</a> of the branch.</dd>
 							<dt><b>$nodes</b></dt>
-				<dd>in file Branch.php, variable <a href="Tableaux/Branch.html#var$nodes">Branch::$nodes</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the nodes of the branch.</dd>
+				<dd>in file Structure.php, variable <a href="Tableaux/Structure.html#var$nodes">Structure::$nodes</a></dd>
 							<dt><b>$nonConMarker</b></dt>
 				<dd>in file Qtree.php, variable <a href="Tableaux/Writer_LaTeX_Qtree.html#var$nonConMarker">Writer_LaTeX_Qtree::$nonConMarker</a></dd>
+							<dt><b>negate</b></dt>
+				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodnegate">Logic::negate()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Negates a sentence.</dd>
 							<dt><b>Node</b></dt>
 				<dd>in file Node.php, class <a href="Tableaux/Node.html">Node</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a node on a branch.</dd>
 							<dt><b>nodeIsTicked</b></dt>
@@ -700,6 +691,12 @@
 				<dd>in file Vocabulary.php, variable <a href="Syntax/Vocabulary.html#var$operatorSymbols">Vocabulary::$operatorSymbols</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the operator symbols.</dd>
 							<dt><b>Operator</b></dt>
 				<dd>in file Operator.php, class <a href="Syntax/Operator.html">Operator</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents an operator.</dd>
+							<dt><b>OPER_BINARY</b></dt>
+				<dd>in file Vocabulary.php, class constant <a href="Syntax/Vocabulary.html#constOPER_BINARY">Vocabulary::OPER_BINARY</a></dd>
+							<dt><b>OPER_TERNARY</b></dt>
+				<dd>in file Vocabulary.php, class constant <a href="Syntax/Vocabulary.html#constOPER_TERNARY">Vocabulary::OPER_TERNARY</a></dd>
+							<dt><b>OPER_UNARY</b></dt>
+				<dd>in file Vocabulary.php, class constant <a href="Syntax/Vocabulary.html#constOPER_UNARY">Vocabulary::OPER_UNARY</a></dd>
 							<dt><b>Operator.php</b></dt>
 				<dd>procedural page <a href="Syntax/_Syntax---Operator.php.html">Operator.php</a></dd>
 					</dl>
@@ -713,56 +710,48 @@
 	<div>
 		<h2>p</h2>
 		<dl>
-							<dt><b>$parser</b></dt>
-				<dd>in file Logic.php, variable <a href="Logic/Logic.html#var$parser">Logic::$parser</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the parser.</dd>
 							<dt><b>$position</b></dt>
-				<dd>in file ParserException.php, variable <a href="Syntax/ParserException.html#var$position">ParserException::$position</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Character position of parse error.</dd>
+				<dd>in file ParserException.php, variable <a href="Exceptions/ParserException.html#var$position">ParserException::$position</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Character position of parse error.</dd>
 							<dt><b>$premises</b></dt>
 				<dd>in file Argument.php, variable <a href="Logic/Argument.html#var$premises">Argument::$premises</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The set of premises. An array of <a href="Syntax/Sentence.html">Sentence</a> objects.</dd>
 							<dt><b>$proofClass</b></dt>
-				<dd>in file ProofSystem.php, variable <a href="Proof/ProofSystem.html#var$proofClass">ProofSystem::$proofClass</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Defines the proof class name for the system.</dd>
-							<dt><b>$proofClass</b></dt>
-				<dd>in file ModalTableauxSystem.php, variable <a href="Tableaux/ModalTableauxSystem.html#var$proofClass">ModalTableauxSystem::$proofClass</a></dd>
-							<dt><b>$proofClass</b></dt>
-				<dd>in file PropositionalTableauxSystem.php, variable <a href="Tableaux/PropositionalTableauxSystem.html#var$proofClass">PropositionalTableauxSystem::$proofClass</a></dd>
-							<dt><b>$proofClass</b></dt>
 				<dd>in file TableauxSystem.php, variable <a href="Tableaux/TableauxSystem.html#var$proofClass">TableauxSystem::$proofClass</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Defines the tableau proof class.</dd>
 							<dt><b>$proofClass</b></dt>
-				<dd>in file ManyValuedTableauxSystem.php, variable <a href="Tableaux/ManyValuedTableauxSystem.html#var$proofClass">ManyValuedTableauxSystem::$proofClass</a></dd>
-							<dt><b>$proofClass</b></dt>
-				<dd>in file ManyValuedModalTableauxSystem.php, variable <a href="Tableaux/ManyValuedModalTableauxSystem.html#var$proofClass">ManyValuedModalTableauxSystem::$proofClass</a></dd>
+				<dd>in file ProofSystem.php, variable <a href="Proof/ProofSystem.html#var$proofClass">ProofSystem::$proofClass</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Defines the proof class name for the system.</dd>
 							<dt><b>$proofSystem</b></dt>
 				<dd>in file Proof.php, variable <a href="Proof/Proof.html#var$proofSystem">Proof::$proofSystem</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the proof system.</dd>
 							<dt><b>$proofSystem</b></dt>
 				<dd>in file Logic.php, variable <a href="Logic/Logic.html#var$proofSystem">Logic::$proofSystem</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the proof system.</dd>
 							<dt><b>$proofSystemClass</b></dt>
 				<dd>in file Logic.php, variable <a href="Logic/Logic.html#var$proofSystemClass">Logic::$proofSystemClass</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Defines the proof system class.</dd>
+							<dt><b>ParserException.php</b></dt>
+				<dd>procedural page <a href="Exceptions/_Exceptions---ParserException.php.html">ParserException.php</a></dd>
+							<dt><b>ProofException.php</b></dt>
+				<dd>procedural page <a href="Exceptions/_Exceptions---ProofException.php.html">ProofException.php</a></dd>
 							<dt><b>parseArgument</b></dt>
-				<dd>in file SentenceParser.php, method <a href="Syntax/SentenceParser.html#methodparseArgument">SentenceParser::parseArgument()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Parses and creates an argument.</dd>
+				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodparseArgument">Logic::parseArgument()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Parses an argument.</dd>
 							<dt><b>ParserException</b></dt>
-				<dd>in file ParserException.php, class <a href="Syntax/ParserException.html">ParserException</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a parsing exception.</dd>
+				<dd>in file ParserException.php, class <a href="Exceptions/ParserException.html">ParserException</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a parsing exception.</dd>
+							<dt><b>ParserUtilities</b></dt>
+				<dd>in file ParserUtilities.php, class <a href="Syntax/ParserUtilities.html">ParserUtilities</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Collects utilities for sentence parsers.</dd>
+							<dt><b>parseSentence</b></dt>
+				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodparseSentence">Logic::parseSentence()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Parses a sentence string.</dd>
 							<dt><b>Proof</b></dt>
 				<dd>in file Proof.php, class <a href="Proof/Proof.html">Proof</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a proof.</dd>
 							<dt><b>ProofException</b></dt>
-				<dd>in file ProofException.php, class <a href="Proof/ProofException.html">ProofException</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a proof exception.</dd>
+				<dd>in file ProofException.php, class <a href="Exceptions/ProofException.html">ProofException</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a proof exception.</dd>
 							<dt><b>ProofSystem</b></dt>
 				<dd>in file ProofSystem.php, class <a href="Proof/ProofSystem.html">ProofSystem</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a proof system.</dd>
 							<dt><b>Proof.php</b></dt>
 				<dd>procedural page <a href="Proof/_ProofSystem---Proof.php.html">Proof.php</a></dd>
-							<dt><b>ProofException.php</b></dt>
-				<dd>procedural page <a href="Proof/_ProofSystem---ProofException.php.html">ProofException.php</a></dd>
 							<dt><b>PropositionalBranch.php</b></dt>
 				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---Branch---PropositionalBranch.php.html">PropositionalBranch.php</a></dd>
 							<dt><b>PropositionalTableauxSystem.php</b></dt>
 				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---PropositionalTableauxSystem.php.html">PropositionalTableauxSystem.php</a></dd>
-							<dt><b>PropositionalTableau.php</b></dt>
-				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---Tableau---PropositionalTableau.php.html">PropositionalTableau.php</a></dd>
 							<dt><b>ProofSystem.php</b></dt>
 				<dd>procedural page <a href="Proof/_ProofSystem.php.html">ProofSystem.php</a></dd>
 							<dt><b>PropositionalBranch</b></dt>
 				<dd>in file PropositionalBranch.php, class <a href="Tableaux/PropositionalBranch.html">PropositionalBranch</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a propositional logic tableau branch.</dd>
-							<dt><b>PropositionalTableau</b></dt>
-				<dd>in file PropositionalTableau.php, class <a href="Tableaux/PropositionalTableau.html">PropositionalTableau</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableau for a propositional logic.</dd>
 							<dt><b>PropositionalTableauxSystem</b></dt>
 				<dd>in file PropositionalTableauxSystem.php, class <a href="Tableaux/PropositionalTableauxSystem.html">PropositionalTableauxSystem</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a bivalent propositional tableaux system.</dd>
 							<dt><b>PUNCT_CLOSE</b></dt>
@@ -771,8 +760,8 @@
 				<dd>in file Vocabulary.php, class constant <a href="Syntax/Vocabulary.html#constPUNCT_OPEN">Vocabulary::PUNCT_OPEN</a></dd>
 							<dt><b>PUNCT_SEPARATOR</b></dt>
 				<dd>in file Vocabulary.php, class constant <a href="Syntax/Vocabulary.html#constPUNCT_SEPARATOR">Vocabulary::PUNCT_SEPARATOR</a></dd>
-							<dt><b>ParserException.php</b></dt>
-				<dd>procedural page <a href="Syntax/_Syntax---ParserException.php.html">ParserException.php</a></dd>
+							<dt><b>ParserUtilities.php</b></dt>
+				<dd>procedural page <a href="Syntax/_Syntax---ParserUtilities.php.html">ParserUtilities.php</a></dd>
 					</dl>
 	</div>
 	<a name="q"></a>
@@ -798,23 +787,13 @@
 		<h2>r</h2>
 		<dl>
 							<dt><b>RuleException.php</b></dt>
-				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---RuleException.php.html">RuleException.php</a></dd>
-							<dt><b>registerSentence</b></dt>
-				<dd>in file SentenceParser.php, method <a href="Syntax/SentenceParser.html#methodregisterSentence">SentenceParser::registerSentence()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Registers a sentence with the vocabulary.</dd>
-							<dt><b>registerSentence</b></dt>
-				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodregisterSentence">Branch::registerSentence()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Registers a sentence in the logic's vocabulary</dd>
-							<dt><b>registerSentence</b></dt>
-				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodregisterSentence">ProofSystem::registerSentence()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Registers a sentence in the logic's vocabulary.</dd>
+				<dd>procedural page <a href="Exceptions/_Exceptions---RuleException.php.html">RuleException.php</a></dd>
 							<dt><b>registerSentence</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodregisterSentence">Vocabulary::registerSentence()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a sentence to the vocabulary, maintaining uniqueness.</dd>
-							<dt><b>removeNode</b></dt>
-				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodremoveNode">Branch::removeNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Removes all reference of a node from the branch.</dd>
-							<dt><b>removeNode</b></dt>
-				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodremoveNode">ModalBranch::removeNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Removes a node from the branch.</dd>
 							<dt><b>removeSeparators</b></dt>
-				<dd>in file SentenceParser.php, method <a href="Syntax/SentenceParser.html#methodremoveSeparators">SentenceParser::removeSeparators()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Removes separator (whitespace) characters from a string.</dd>
+				<dd>in file ParserUtilities.php, method <a href="Syntax/ParserUtilities.html#methodremoveSeparators">ParserUtilities::removeSeparators()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Removes separator (whitespace) characters from a string.</dd>
 							<dt><b>RuleException</b></dt>
-				<dd>in file RuleException.php, class <a href="Tableaux/RuleException.html">RuleException</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableau rule exception.</dd>
+				<dd>in file RuleException.php, class <a href="Exceptions/RuleException.html">RuleException</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableau rule exception.</dd>
 					</dl>
 	</div>
 	<a name="s"></a>
@@ -829,7 +808,7 @@
 							<dt><b>$sentence</b></dt>
 				<dd>in file SentenceNode.php, variable <a href="Tableaux/SentenceNode.html#var$sentence">SentenceNode::$sentence</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the sentence on the node</dd>
 							<dt><b>$sentenceNodes</b></dt>
-				<dd>in file ModalBranch.php, variable <a href="Tableaux/ModalBranch.html#var$sentenceNodes">ModalBranch::$sentenceNodes</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the sentence nodes.</dd>
+				<dd>in file Branch.php, variable <a href="Tableaux/Branch.html#var$sentenceNodes">Branch::$sentenceNodes</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the <a href="Tableaux/SentenceNode.html">SentenceNode</a>s of the branch.</dd>
 							<dt><b>$sentences</b></dt>
 				<dd>in file Vocabulary.php, variable <a href="Syntax/Vocabulary.html#var$sentences">Vocabulary::$sentences</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the set of sentences.</dd>
 							<dt><b>$structure</b></dt>
@@ -853,25 +832,25 @@
 							<dt><b>SentenceParser</b></dt>
 				<dd>in file SentenceParser.php, class <a href="Syntax/SentenceParser.html">SentenceParser</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a sentence parser.</dd>
 							<dt><b>sentenceToString</b></dt>
-				<dd>in file StandardSentenceParser.php, method <a href="Syntax/StandardSentenceParser.html#methodsentenceToString">StandardSentenceParser::sentenceToString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets a string representation of a <a href="Syntax/Sentence.html">sentence</a>.</dd>
-							<dt><b>sentenceToString</b></dt>
 				<dd>in file SentenceParser.php, method <a href="Syntax/SentenceParser.html#methodsentenceToString">SentenceParser::sentenceToString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the string representation of a <a href="Syntax/Sentence.html">sentence</a>.</dd>
+							<dt><b>sentenceToString</b></dt>
+				<dd>in file StandardSentenceParser.php, method <a href="Syntax/StandardSentenceParser.html#methodsentenceToString">StandardSentenceParser::sentenceToString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets a string representation of a <a href="Syntax/Sentence.html">sentence</a>.</dd>
 							<dt><b>setCloseMarker</b></dt>
 				<dd>in file Writer.php, method <a href="Tableaux/Writer.html#methodsetCloseMarker">Writer::setCloseMarker()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the symbol with which to mark a closed branch.</dd>
 							<dt><b>setConclusion</b></dt>
 				<dd>in file Argument.php, method <a href="Logic/Argument.html#methodsetConclusion">Argument::setConclusion()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the conclusion of the argument.</dd>
 							<dt><b>setDesignation</b></dt>
-				<dd>in file ManyValuedSentenceNode.php, method <a href="Tableaux/ManyValuedSentenceNode.html#methodsetDesignation">ManyValuedSentenceNode::setDesignation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the designation flag.</dd>
-							<dt><b>setDesignation</b></dt>
 				<dd>in file ManyValuedModalSentenceNode.php, method <a href="Tableaux/ManyValuedModalSentenceNode.html#methodsetDesignation">ManyValuedModalSentenceNode::setDesignation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the designation flag.</dd>
+							<dt><b>setDesignation</b></dt>
+				<dd>in file ManyValuedSentenceNode.php, method <a href="Tableaux/ManyValuedSentenceNode.html#methodsetDesignation">ManyValuedSentenceNode::setDesignation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the designation flag.</dd>
 							<dt><b>setI</b></dt>
 				<dd>in file AccessNode.php, method <a href="Tableaux/AccessNode.html#methodsetI">AccessNode::setI()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the first index.</dd>
 							<dt><b>setI</b></dt>
 				<dd>in file ModalSentenceNode.php, method <a href="Tableaux/ModalSentenceNode.html#methodsetI">ModalSentenceNode::setI()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the index.</dd>
 							<dt><b>setJ</b></dt>
 				<dd>in file AccessNode.php, method <a href="Tableaux/AccessNode.html#methodsetJ">AccessNode::setJ()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the second index.</dd>
-							<dt><b>setLabel</b></dt>
-				<dd>in file AtomicSentence.php, method <a href="Syntax/AtomicSentence.html#methodsetLabel">AtomicSentence::setLabel()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Alias for <a href="Syntax/AtomicSentence.html#methodsetSymbol">AtomicSentence::setSymbol()</a>.</dd>
+							<dt><b>setLogic</b></dt>
+				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodsetLogic">ProofSystem::setLogic()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the logic instance.</dd>
 							<dt><b>setOperands</b></dt>
 				<dd>in file MolecularSentence.php, method <a href="Syntax/MolecularSentence.html#methodsetOperands">MolecularSentence::setOperands()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the operands.</dd>
 							<dt><b>setOperator</b></dt>
@@ -888,10 +867,6 @@
 				<dd>in file Writer.php, method <a href="Tableaux/Writer.html#methodsetTableau">Writer::setTableau()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the tableau to write.</dd>
 							<dt><b>setTranslation</b></dt>
 				<dd>in file Writer.php, method <a href="Tableaux/Writer.html#methodsetTranslation">Writer::setTranslation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets a string translation to perform.</dd>
-							<dt><b>setVocabulary</b></dt>
-				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodsetVocabulary">ProofSystem::setVocabulary()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the vocabulary.</dd>
-							<dt><b>setVocabulary</b></dt>
-				<dd>in file SentenceParser.php, method <a href="Syntax/SentenceParser.html#methodsetVocabulary">SentenceParser::setVocabulary()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the <a href="Syntax/Vocabulary.html">vocabulary</a> of the parser.</dd>
 							<dt><b>sortByStrLen</b></dt>
 				<dd>in file Writer.php, method <a href="Tableaux/Writer.html#methodsortByStrLen">Writer::sortByStrLen()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sorts two strings by their length.</dd>
 							<dt><b>StandardSentenceParser</b></dt>
@@ -903,7 +878,7 @@
 							<dt><b>strip</b></dt>
 				<dd>in file Qtree.php, method <a href="Tableaux/Writer_LaTeX_Qtree.html#methodstrip">Writer_LaTeX_Qtree::strip()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Strips parentheses.</dd>
 							<dt><b>strPosArr</b></dt>
-				<dd>in file SentenceParser.php, method <a href="Syntax/SentenceParser.html#methodstrPosArr">SentenceParser::strPosArr()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Searches a string for the first occurrence of any string in a given array.</dd>
+				<dd>in file Utilities.php, method <a href="Logic/Utilities.html#methodstrPosArr">Utilities::strPosArr()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Searches a string for the first occurrence of any string in a given array.</dd>
 							<dt><b>Structure</b></dt>
 				<dd>in file Structure.php, class <a href="Tableaux/Structure.html">Structure</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents the proper 'tree' structure of a tableau.</dd>
 							<dt><b>structurize</b></dt>
@@ -928,41 +903,52 @@
 		<h2>t</h2>
 		<dl>
 							<dt><b>$tableau</b></dt>
+				<dd>in file Structure.php, variable <a href="Tableaux/Structure.html#var$tableau">Structure::$tableau</a></dd>
+							<dt><b>$tableau</b></dt>
 				<dd>in file Branch.php, variable <a href="Tableaux/Branch.html#var$tableau">Branch::$tableau</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the tableau.</dd>
 							<dt><b>$tableau</b></dt>
 				<dd>in file Writer.php, variable <a href="Tableaux/Writer.html#var$tableau">Writer::$tableau</a></dd>
-							<dt><b>$tableau</b></dt>
-				<dd>in file Structure.php, variable <a href="Tableaux/Structure.html#var$tableau">Structure::$tableau</a></dd>
-							<dt><b>$tickedBranches</b></dt>
-				<dd>in file Node.php, variable <a href="Tableaux/Node.html#var$tickedBranches">Node::$tickedBranches</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the branches relative to which the node is ticked.</dd>
 							<dt><b>$tickedNodes</b></dt>
 				<dd>in file Structure.php, variable <a href="Tableaux/Structure.html#var$tickedNodes">Structure::$tickedNodes</a></dd>
+							<dt><b>$tickedNodes</b></dt>
+				<dd>in file Branch.php, variable <a href="Tableaux/Branch.html#var$tickedNodes">Branch::$tickedNodes</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the ticked <a href="Tableaux/Node.html">Node</a>s.</dd>
 							<dt><b>$translations</b></dt>
 				<dd>in file Writer.php, variable <a href="Tableaux/Writer.html#var$translations">Writer::$translations</a></dd>
+							<dt><b>TableauException.php</b></dt>
+				<dd>procedural page <a href="Exceptions/_Exceptions---TableauException.php.html">TableauException.php</a></dd>
 							<dt><b>Tableau.php</b></dt>
 				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---Tableau.php.html">Tableau.php</a></dd>
-							<dt><b>TableauException.php</b></dt>
-				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---TableauException.php.html">TableauException.php</a></dd>
 							<dt><b>TableauxSystem.php</b></dt>
 				<dd>procedural page <a href="Tableaux/_ProofSystem---TableauxSystem.php.html">TableauxSystem.php</a></dd>
 							<dt><b>Tableau</b></dt>
 				<dd>in file Tableau.php, class <a href="Tableaux/Tableau.html">Tableau</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableau for an argument.</dd>
 							<dt><b>TableauException</b></dt>
-				<dd>in file TableauException.php, class <a href="Tableaux/TableauException.html">TableauException</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableau proof exception.</dd>
+				<dd>in file TableauException.php, class <a href="Exceptions/TableauException.html">TableauException</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableau proof exception.</dd>
 							<dt><b>TableauxSystem</b></dt>
 				<dd>in file TableauxSystem.php, class <a href="Tableaux/TableauxSystem.html">TableauxSystem</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableaux proof system.</dd>
-							<dt><b>tick</b></dt>
-				<dd>in file Node.php, method <a href="Tableaux/Node.html#methodtick">Node::tick()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Alias of Node::tickAtBranch()</dd>
 							<dt><b>tickAtBranch</b></dt>
 				<dd>in file Node.php, method <a href="Tableaux/Node.html#methodtickAtBranch">Node::tickAtBranch()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Ticks the node relative to a branch.</dd>
-							<dt><b>ticked</b></dt>
-				<dd>in file Node.php, method <a href="Tableaux/Node.html#methodticked">Node::ticked()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Alias of Node::isTickedAtBranch()</dd>
 							<dt><b>tickNode</b></dt>
 				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodtickNode">Branch::tickNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Ticks a node relative to the branch.</dd>
 							<dt><b>translate</b></dt>
 				<dd>in file Writer.php, method <a href="Tableaux/Writer.html#methodtranslate">Writer::translate()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Performs translations.</dd>
 							<dt><b>trimSeparators</b></dt>
-				<dd>in file SentenceParser.php, method <a href="Syntax/SentenceParser.html#methodtrimSeparators">SentenceParser::trimSeparators()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Trims separator (whitespace) characters from beginning and end of a string.</dd>
+				<dd>in file ParserUtilities.php, method <a href="Syntax/ParserUtilities.html#methodtrimSeparators">ParserUtilities::trimSeparators()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Trims separator (whitespace) characters from beginning and end of a string.</dd>
+					</dl>
+	</div>
+	<a name="u"></a>
+	<div class="index-letter-section">
+		<div style="float: left" class="index-letter-title">u</div>
+		<div style="float: right"><a href="#top">[Top]</a></div>
+		<div style="clear: both"></div>
+	</div>
+	<div>
+		<h2>u</h2>
+		<dl>
+							<dt><b>Utilities</b></dt>
+				<dd>in file Utilities.php, class <a href="Logic/Utilities.html">Utilities</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Collects general PHP utilities.</dd>
+							<dt><b>Utilities.php</b></dt>
+				<dd>procedural page <a href="Logic/_Utilities.php.html">Utilities.php</a></dd>
 					</dl>
 	</div>
 	<a name="v"></a>
@@ -975,19 +961,17 @@
 		<h2>v</h2>
 		<dl>
 							<dt><b>$vocabulary</b></dt>
-				<dd>in file SentenceParser.php, variable <a href="Syntax/SentenceParser.html#var$vocabulary">SentenceParser::$vocabulary</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Stores a reference to the <a href="Syntax/Vocabulary.html">vocabulary</a> relative to  which to parse.</dd>
+				<dd>in file Logic.php, variable <a href="Logic/Logic.html#var$vocabulary">Logic::$vocabulary</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the vocabulary.</dd>
 							<dt><b>$vocabulary</b></dt>
 				<dd>in file ProofSystem.php, variable <a href="Proof/ProofSystem.html#var$vocabulary">ProofSystem::$vocabulary</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the Logic's vocabulary.</dd>
-							<dt><b>$vocabulary</b></dt>
-				<dd>in file Logic.php, variable <a href="Logic/Logic.html#var$vocabulary">Logic::$vocabulary</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the vocabulary.</dd>
+							<dt><b>VocabularyException.php</b></dt>
+				<dd>procedural page <a href="Exceptions/_Exceptions---VocabularyException.php.html">VocabularyException.php</a></dd>
 							<dt><b>Vocabulary.php</b></dt>
 				<dd>procedural page <a href="Syntax/_Syntax---Vocabulary.php.html">Vocabulary.php</a></dd>
-							<dt><b>VocabularyException.php</b></dt>
-				<dd>procedural page <a href="Syntax/_Syntax---VocabularyException.php.html">VocabularyException.php</a></dd>
 							<dt><b>Vocabulary</b></dt>
 				<dd>in file Vocabulary.php, class <a href="Syntax/Vocabulary.html">Vocabulary</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a vocabulary.</dd>
 							<dt><b>VocabularyException</b></dt>
-				<dd>in file VocabularyException.php, class <a href="Syntax/VocabularyException.html">VocabularyException</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a vocabulary exception.</dd>
+				<dd>in file VocabularyException.php, class <a href="Exceptions/VocabularyException.html">VocabularyException</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a vocabulary exception.</dd>
 					</dl>
 	</div>
 	<a name="w"></a>
@@ -999,14 +983,14 @@
 	<div>
 		<h2>w</h2>
 		<dl>
+							<dt><b>WriterException.php</b></dt>
+				<dd>procedural page <a href="Exceptions/_Exceptions---WriterException.php.html">WriterException.php</a></dd>
 							<dt><b>Writer.php</b></dt>
 				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---Writer.php.html">Writer.php</a></dd>
-							<dt><b>WriterException.php</b></dt>
-				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---WriterException.php.html">WriterException.php</a></dd>
-							<dt><b>write</b></dt>
-				<dd>in file Qtree.php, method <a href="Tableaux/Writer_LaTeX_Qtree.html#methodwrite">Writer_LaTeX_Qtree::write()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Implements Writer::write()</dd>
 							<dt><b>write</b></dt>
 				<dd>in file Writer.php, method <a href="Tableaux/Writer.html#methodwrite">Writer::write()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Writes the tree structure.</dd>
+							<dt><b>write</b></dt>
+				<dd>in file Qtree.php, method <a href="Tableaux/Writer_LaTeX_Qtree.html#methodwrite">Writer_LaTeX_Qtree::write()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Implements Writer::write()</dd>
 							<dt><b>writeArgument</b></dt>
 				<dd>in file Qtree.php, method <a href="Tableaux/Writer_LaTeX_Qtree.html#methodwriteArgument">Writer_LaTeX_Qtree::writeArgument()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Implements Writer::writeArgument()</dd>
 							<dt><b>writeArgument</b></dt>
@@ -1014,7 +998,7 @@
 							<dt><b>Writer</b></dt>
 				<dd>in file Writer.php, class <a href="Tableaux/Writer.html">Writer</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableaux writer.</dd>
 							<dt><b>WriterException</b></dt>
-				<dd>in file WriterException.php, class <a href="Tableaux/WriterException.html">WriterException</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableau writer exception.</dd>
+				<dd>in file WriterException.php, class <a href="Exceptions/WriterException.html">WriterException</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableau writer exception.</dd>
 							<dt><b>Writer_LaTeX_Qtree</b></dt>
 				<dd>in file Qtree.php, class <a href="Tableaux/Writer_LaTeX_Qtree.html">Writer_LaTeX_Qtree</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Writes trees in LaTeX using the qtree package.</dd>
 							<dt><b>writeStructure</b></dt>
@@ -1030,53 +1014,59 @@
 	<div>
 		<h2>_</h2>
 		<dl>
+							<dt><b>_addAccessRelationship</b></dt>
+				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#method_addAccessRelationship">ModalBranch::_addAccessRelationship()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Stores an access relationship.</dd>
+							<dt><b>_addIndex</b></dt>
+				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#method_addIndex">ModalBranch::_addIndex()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Stores an index on the branch.</dd>
 							<dt><b>_addNode</b></dt>
 				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#method_addNode">Branch::_addNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a node to the branch.</dd>
+							<dt><b>_addNode</b></dt>
+				<dd>in file ManyValuedModalBranch.php, method <a href="Tableaux/ManyValuedModalBranch.html#method_addNode">ManyValuedModalBranch::_addNode()</a></dd>
+							<dt><b>_addNode</b></dt>
+				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#method_addNode">ModalBranch::_addNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a node to the branch.</dd>
+							<dt><b>_addNode</b></dt>
+				<dd>in file ManyValuedBranch.php, method <a href="Tableaux/ManyValuedBranch.html#method_addNode">ManyValuedBranch::_addNode()</a></dd>
 							<dt><b>_addOperand</b></dt>
 				<dd>in file MolecularSentence.php, method <a href="Syntax/MolecularSentence.html#method_addOperand">MolecularSentence::_addOperand()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds an operand, with type forcing.</dd>
-							<dt><b>_atomicToString</b></dt>
-				<dd>in file StandardSentenceParser.php, method <a href="Syntax/StandardSentenceParser.html#method_atomicToString">StandardSentenceParser::_atomicToString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Makes a string representation of an atomic sentence.</dd>
 							<dt><b>_buildStructure</b></dt>
 				<dd>in file Tableau.php, method <a href="Tableaux/Tableau.html#method_buildStructure">Tableau::_buildStructure()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Builds the tree structure.</dd>
-							<dt><b>_molecularToString</b></dt>
-				<dd>in file StandardSentenceParser.php, method <a href="Syntax/StandardSentenceParser.html#method_molecularToString">StandardSentenceParser::_molecularToString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Makes a string representation of a molecular sentence.</dd>
-							<dt><b>_parseAtomic</b></dt>
-				<dd>in file StandardSentenceParser.php, method <a href="Syntax/StandardSentenceParser.html#method_parseAtomic">StandardSentenceParser::_parseAtomic()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Parses an atomic sentence string.</dd>
-							<dt><b>_readSentence</b></dt>
-				<dd>in file StandardSentenceParser.php, method <a href="Syntax/StandardSentenceParser.html#method_readSentence">StandardSentenceParser::_readSentence()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Reads a string for the first occurrence of a sentence expression.</dd>
-							<dt><b>_sentenceToString</b></dt>
-				<dd>in file StandardSentenceParser.php, method <a href="Syntax/StandardSentenceParser.html#method_sentenceToString">StandardSentenceParser::_sentenceToString()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Makes a string representation of a sentence with outer parentheses.</dd>
+							<dt><b>_removeNode</b></dt>
+				<dd>in file ManyValuedBranch.php, method <a href="Tableaux/ManyValuedBranch.html#method_removeNode">ManyValuedBranch::_removeNode()</a></dd>
+							<dt><b>_removeNode</b></dt>
+				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#method_removeNode">ModalBranch::_removeNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Removes a node from the branch.</dd>
+							<dt><b>_removeNode</b></dt>
+				<dd>in file ManyValuedModalBranch.php, method <a href="Tableaux/ManyValuedModalBranch.html#method_removeNode">ManyValuedModalBranch::_removeNode()</a></dd>
+							<dt><b>_removeNode</b></dt>
+				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#method_removeNode">Branch::_removeNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Removes all references to a node from the branch.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file SentenceNode.php, method <a href="Tableaux/SentenceNode.html#method__construct">SentenceNode::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file TableauxSystem.php, method <a href="Tableaux/TableauxSystem.html#method__construct">TableauxSystem::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file Writer.php, method <a href="Tableaux/Writer.html#method__construct">Writer::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#method__construct">Vocabulary::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor. Initializes lexicon.</dd>
 							<dt><b>__construct</b></dt>
-				<dd>in file TableauxSystem.php, method <a href="Tableaux/TableauxSystem.html#method__construct">TableauxSystem::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
-							<dt><b>__construct</b></dt>
 				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#method__construct">ProofSystem::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file ManyValuedModalSentenceNode.php, method <a href="Tableaux/ManyValuedModalSentenceNode.html#method__construct">ManyValuedModalSentenceNode::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file Logic.php, method <a href="Logic/Logic.html#method__construct">Logic::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#method__construct">Branch::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
-							<dt><b>__construct</b></dt>
-				<dd>in file ManyValuedSentenceNode.php, method <a href="Tableaux/ManyValuedSentenceNode.html#method__construct">ManyValuedSentenceNode::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file ModalSentenceNode.php, method <a href="Tableaux/ModalSentenceNode.html#method__construct">ModalSentenceNode::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
 							<dt><b>__construct</b></dt>
-				<dd>in file AccessNode.php, method <a href="Tableaux/AccessNode.html#method__construct">AccessNode::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
+				<dd>in file ManyValuedSentenceNode.php, method <a href="Tableaux/ManyValuedSentenceNode.html#method__construct">ManyValuedSentenceNode::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
 							<dt><b>__construct</b></dt>
-				<dd>in file Proof.php, method <a href="Proof/Proof.html#method__construct">Proof::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor. Initializes argument.</dd>
+				<dd>in file ManyValuedModalSentenceNode.php, method <a href="Tableaux/ManyValuedModalSentenceNode.html#method__construct">ManyValuedModalSentenceNode::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#method__construct">Branch::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
+							<dt><b>__construct</b></dt>
+				<dd>in file AccessNode.php, method <a href="Tableaux/AccessNode.html#method__construct">AccessNode::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
 							<dt><b>__construct</b></dt>
 				<dd>in file Operator.php, method <a href="Syntax/Operator.html#method__construct">Operator::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
 							<dt><b>__construct</b></dt>
-				<dd>in file SentenceNode.php, method <a href="Tableaux/SentenceNode.html#method__construct">SentenceNode::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
+				<dd>in file Proof.php, method <a href="Proof/Proof.html#method__construct">Proof::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor. Initializes argument.</dd>
 					</dl>
 	</div>
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Tue, 27 Dec 2011 03:18:55 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Fri, 06 Jan 2012 11:10:21 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

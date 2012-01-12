@@ -18,86 +18,73 @@ require_once 'GoTableaux/Logic/Syntax/Sentence.php';
 class StandardSentenceParser extends SentenceParser
 {
 	/**
-	 * Gets a string representation of a {@link Sentence sentence}.
-	 *
-	 * @param Sentence $sentence The sentence to represent.
-	 * @return string The string representation of the sentence.
-	 **/
-	public function sentenceToString( Sentence $sentence )
-	{
-		$sentenceStr = $this->_sentenceToString( $sentence );
-		return $this->dropOuterParens( $sentenceStr );
-	}
-	
-	/**
 	 * Creates a {@link Sentence sentence} from a string.
 	 * 
 	 * @param string $sentenceStr The string to interpret.
+	 * @param Vocabulary $vocabulary The vocabulary relative to which to parse.
 	 * @return Sentence The resulting instance.
 	 * @throws {@link ParserException} on any errors in parsing the input string.
 	 */
-	public function stringToSentence( $sentenceStr )
+	public function stringToSentence( $sentenceStr, Vocabulary $vocabulary )
 	{
-		$vocabulary  = $this->getVocabulary();
-		$sentenceStr = $this->removeSeparators( $sentenceStr );
-		$sentenceStr = $this->dropOuterParens( $sentenceStr );
+		$sentenceStr = ParserUtilities::removeSeparators( $sentenceStr, $vocabulary );
+		$sentenceStr = ParserUtilities::dropOuterParens( $sentenceStr, $vocabulary );
 		
 		if ( empty( $sentenceStr )) 
 			throw new ParserException( 'Sentence string cannot be empty.' );
 		
-		$firstSentenceStr = $this->_readSentence( $sentenceStr );
+		$firstSentenceStr = $this->_readSentence( $sentenceStr, $vocabulary );
 		
 		if ( $firstSentenceStr === $sentenceStr ) {
 			$firstSymbolType = $vocabulary->getSymbolType( $sentenceStr{0} );
-			if ( $firstSymbolType === Vocabulary::ATOMIC ) {
-				$newSentence = $this->_parseAtomic( $sentenceStr );
-				return $this->registerSentence( $newSentence );
+			switch ( $firstSymbolType ) {
+				case Vocabulary::ATOMIC :
+					return $this->_parseAtomic( $sentenceStr, $vocabulary );
+				case Vocabulary::OPER_UNARY :
+					$operator 	= $vocabulary->getOperatorBySymbol( $sentenceStr{0} );
+					$operandStr = substr( $sentenceStr, 1 );
+					$operand 	= $this->stringToSentence( $operandStr, $vocabulary );
+					return Sentence::createMolecular( $operator, array( $operand ));
+				default :
+					throw ParserException::createWithMsgInputPos( 'Unexpected symbol type.', $sentenceStr, 0 );
 			}
-			if ( $firstSymbolType === 1 ) {
-				$operator 		= $vocabulary->getOperatorBySymbol( $sentenceStr{0} );
-				$operandStr 	= substr( $sentenceStr, 1 );
-				$operand 		= $this->stringToSentence( $operandStr );
-				$newSentence 	= Sentence::createMolecular( $operator, array( $operand ));
-				return $this->registerSentence( $newSentence );
-			}
-			throw ParserException::createWithMsgInputPos( 'Unexpected symbol type.', $sentenceStr, 0 );
 		}
 		
 		$pos 			= strlen( $firstSentenceStr );
 		$nextSymbol 	= $sentenceStr{$pos};
 		$nextSymbolType = $vocabulary->getSymbolType( $nextSymbol );
 		
-		if ( $nextSymbolType !== 2 )
+		if ( $nextSymbolType !== Vocabulary::OPER_BINARY )
 			throw ParserException::createWithMsgInputPos( 'Unexpected symbol. Expecting binary operator.', $sentenceStr, $pos );
 		
-		$rightStr			= substr( $sentenceStr, $pos + 1 );
-		$secondSentenceStr 	= $this->_readSentence( $rightStr );
+		$rightStr			= substr( $sentenceStr, ++$pos );
+		$secondSentenceStr 	= $this->_readSentence( $rightStr, $vocabulary );
 		
 		if ( $rightStr !== $secondSentenceStr )
-			throw ParserException::createWithMsgInputPos( 'Invalid right operand string.', $sentenceStr, $pos + 1 );
+			throw ParserException::createWithMsgInputPos( 'Invalid right operand string.', $sentenceStr, $pos );
 		
 		$operator = $vocabulary->getOperatorBySymbol( $nextSymbol );
 		$operands = array(
-			$this->stringToSentence( $firstSentenceStr ),
-			$this->stringToSentence( $secondSentenceStr )
+			$this->stringToSentence( $firstSentenceStr, $vocabulary ),
+			$this->stringToSentence( $secondSentenceStr, $vocabulary )
 		);
-		$newSentence = Sentence::createMolecular( $operator, $operands );
-		return $this->registerSentence( $newSentence );
+		return Sentence::createMolecular( $operator, $operands );
 	}
 	
 	/**
 	 * Parses an atomic sentence string.
 	 *
-	 * @param string $sentenceStr
-	 * @return Sentence
+	 * @param string $sentenceStr The string to parse.
+	 * @param Vocabulary $vocabulary The vocabulary to use.
+	 * @return Sentence The resulting sentence instance.
 	 * @throws {@link ParserException}.
 	 * @access private
 	 */
-	protected function _parseAtomic( $sentenceStr )
+	private function _parseAtomic( $sentenceStr, Vocabulary $vocabulary )
 	{
-		$subscripts 	= $this->vocabulary->getSubscriptSymbols();
-		$atomicSymbols 	= $this->vocabulary->getAtomicSymbols();
-		$hasSubscript 	= false !== self::strPosArr( $sentenceStr, $subscripts, 1, $match );
+		$subscripts 	= $vocabulary->getSubscriptSymbols();
+		$atomicSymbols 	= $vocabulary->getAtomicSymbols();
+		$hasSubscript 	= false !== Utilities::strPosArr( $sentenceStr, $subscripts, 1, $match );
 		
 		list( $symbol, $subscript ) = $hasSubscript ? explode( $match, $sentenceStr ) 
 													: array( $sentenceStr, 0 );
@@ -115,13 +102,13 @@ class StandardSentenceParser extends SentenceParser
 	 * Reads a string for the first occurrence of a sentence expression.
 	 *
 	 * @param string $string The string to read.
+	 * @param Vocabulary $vocabulary The vocabulary to use.
 	 * @return string The first sentence string.
 	 * @throws {@link ParserException} on parse error.
 	 * @access private
 	 */
-	protected function _readSentence( $string )
+	private function _readSentence( $string, Vocabulary $vocabulary )
 	{	
-		$vocabulary = $this->getVocabulary();
 		$firstSymbolType = $vocabulary->getSymbolType( $string{0} );
 		switch ( $firstSymbolType ) {
 			case Vocabulary::ATOMIC :
@@ -131,80 +118,17 @@ class StandardSentenceParser extends SentenceParser
 												  : $string{0};
 				break;
 			case Vocabulary::PUNCT_OPEN;
-				$closePos = $this->closePosFromOpenPos( $string, 0 );
+				$closePos = ParserUtilities::closePosFromOpenPos( $string, 0, $vocabulary );
 				$firstSentenceStr = substr( $string, 0, $closePos + 1 );
 				break;
-			case 1 :
-				$firstSentenceStr = $string{0} . $this->_readSentence( substr( $string, 1 ));
+			case Vocabulary::OPER_UNARY :
+				$firstSentenceStr = $string{0} . $this->_readSentence( substr( $string, 1 ), $vocabulary );
 				break;
 			default :
 				throw ParserException::createWithMsgInputPos( 'Unexpected symbol type.', $string, 0 );
-				break;
 		}
 		return $firstSentenceStr;
 	}
 	
-	/**
-	 * Makes a string representation of a sentence with outer parentheses.
-	 *
-	 * @param Sentence $sentence The sentence to represent.
-	 * @return string The string representation with outer parentheses.
-	 * @access private
-	 */
-	protected function _sentenceToString( Sentence $sentence )
-	{
-		if ( $sentence instanceof AtomicSentence ) 
-			return $this->_atomicToString( $sentence );
-		
-		$sentenceStr = $this->_molecularToString( $sentence );
-		return $sentenceStr;
-	}
-	
-	/**
-	 * Makes a string representation of an atomic sentence.
-	 *
-	 * @param AtomicSentence $sentence The atomic sentence to represent.
-	 * @return string The string representation of the sentence.
-	 * @access private
-	 */
-	protected function _atomicToString( AtomicSentence $sentence )
-	{
-		$subscript = $this->vocabulary->getSubscriptSymbols( true );
-		return $sentence->getSymbol() . $subscript . $sentence->getSubscript();
-	}
-	
-	/**
-	 * Makes a string representation of a molecular sentence.
-	 *
-	 * @param MolecularSentence $sentence
-	 * @return string
-	 * @throws {@link ParserException} when trying to represent operators of arity > 2.
-	 * @access private
-	 */
-	protected function _molecularToString( MolecularSentence $sentence )
-	{
-		$vocabulary		= $this->getVocabulary();
-		$operator		= $sentence->getOperator();
-		$operands		= $sentence->getOperands();
-		$operatorSymbol = $operator->getSymbol();
-		$arity			= $operator->getArity();
-		$openMark 		= $vocabulary->getOpenMarks( true );
-		$closeMark 		= $vocabulary->getCloseMarks( true );
-		$separator		= $vocabulary->getSeparators( true );
 
-		switch ( $arity ) {
-			case 1:
-				$sentenceStr = $operatorSymbol . $this->_sentenceToString( $operands[0] );
-				break;
-			case 2:
-				$sentenceStr = $openMark . $this->_sentenceToString( $operands[0] ) .
-							   $separator . $operatorSymbol . $separator .
-							   $this->_sentenceToString( $operands[1] ) . $closeMark;
-				break;
-			default:
-				throw new ParserException( 'Cannot represent sentences with operators of arity > 2.' );
-				break;
-		}
-		return $sentenceStr;
-	}
 }

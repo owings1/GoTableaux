@@ -39,16 +39,6 @@ class AtomicSentence extends Sentence
 	}
 	
 	/**
-	 * Alias for {@link AtomicSentence::setSymbol()}.
-	 * @param string $symbol The symbol, e.g. 'A' or 'B'.
-	 * @return AtomicSentence Current instance.
-	 */
-	public function setLabel( $symbol )
-	{
-		return $this->setSymbol( $symbol );
-	}
-	
-	/**
 	 * Gets the atomic symbol.
 	 *
 	 * @return string The atomic symbol, e.g. 'A' or 'B'.
@@ -56,15 +46,6 @@ class AtomicSentence extends Sentence
 	public function getSymbol()
 	{
 		return $this->symbol;
-	}
-	
-	/**
-	 * Alias for {@link AtomicSentence::getSymbol()}.
-	 * @return string The atomic symbol, e.g. 'A' or 'B'.
-	 */
-	public function getLabel()
-	{
-		return $this->getSymbol();
 	}
 	
 	/**

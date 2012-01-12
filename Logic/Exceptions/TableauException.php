@@ -1,18 +1,18 @@
 <?php
 /**
  * Defines the TableauException class.
- * @package Tableaux
+ * @package Exceptions
  * @author Douglas Owings
  */
 
 /**
- * Loads the parent {@link ProofException} class.
+ * Loads the parent {@link ProofException} parent class.
  */
-require_once 'GoTableaux/Logic/ProofSystem/ProofException.php';
+require_once 'ProofException.php';
 
 /**
  * Represents a tableau proof exception.
- * @package Tableaux
+ * @package Exceptions
  * @author Douglas Owings
  */
 class TableauException extends ProofException

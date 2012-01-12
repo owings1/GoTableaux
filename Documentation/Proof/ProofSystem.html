@@ -17,7 +17,7 @@
   <tr>
     <td colspan="2" class="header-menu">
       
-                                                    
+                                                                  
                                                   		[ <a href="../classtrees_Proof.html" class="menu">class tree: Proof</a> ]
 		[ <a href="../elementindex_Proof.html" class="menu">index: Proof</a> ]
             [ <a href="../elementindex.html" class="menu">all elements</a> ]
@@ -32,6 +32,7 @@
 		<div class="package-title">Proof</div>
       <b>Packages:</b><br />
   <div class="package">
+              <a href="../li_Exceptions.html">Exceptions</a><br />
               <a href="../li_Logic.html">Logic</a><br />
               <a href="../li_ModelTheory.html">ModelTheory</a><br />
               <a href="../li_Proof.html">Proof</a><br />
@@ -43,7 +44,6 @@
         <div class="package">
 				<span style="padding-left: 1em;"><a href="../Proof/_ProofSystem---Counterexample.php.html">Counterexample.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Proof/_ProofSystem---Proof.php.html">Proof.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="../Proof/_ProofSystem---ProofException.php.html">ProofException.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Proof/_ProofSystem.php.html">ProofSystem.php</a></span><br />
 	  </div>
             <br />
@@ -54,7 +54,6 @@
                   <b>Classes:</b><br />
         <div class="package">
 		    		<a href="../Proof/Proof.html">Proof</a>    	 <br />
-	    		<a href="../Proof/ProofException.html">ProofException</a>    	 <br />
 	    		<a href="../Proof/ProofSystem.html">ProofSystem</a>    	 <br />
 	  </div>
                 </td>
@@ -112,6 +111,7 @@ Source Location: /ProofSystem.php<br /><br />
 				<td valign="top" width="20%" class="class-overview">
 		<p align="center" class="short-description"><strong><a href="#sec_vars">Properties</a></strong></p>
 		<ul>
+		  		  <li><a href="../Proof/ProofSystem.html#var$logic">$logic</a></li>
 		  		  <li><a href="../Proof/ProofSystem.html#var$proofClass">$proofClass</a></li>
 		  		  <li><a href="../Proof/ProofSystem.html#var$vocabulary">$vocabulary</a></li>
 		  		</ul>
@@ -125,11 +125,9 @@ Source Location: /ProofSystem.php<br /><br />
 		  		  <li><a href="../Proof/ProofSystem.html#methodconstructProofForArgument">constructProofForArgument</a></li>
 		  		  <li><a href="../Proof/ProofSystem.html#methodevaluateArgument">evaluateArgument</a></li>
 		  		  <li><a href="../Proof/ProofSystem.html#methodgetCounterexample">getCounterexample</a></li>
-		  		  <li><a href="../Proof/ProofSystem.html#methodgetOperator">getOperator</a></li>
-		  		  <li><a href="../Proof/ProofSystem.html#methodgetVocabulary">getVocabulary</a></li>
+		  		  <li><a href="../Proof/ProofSystem.html#methodgetLogic">getLogic</a></li>
 		  		  <li><a href="../Proof/ProofSystem.html#methodisValidProof">isValidProof</a></li>
-		  		  <li><a href="../Proof/ProofSystem.html#methodregisterSentence">registerSentence</a></li>
-		  		  <li><a href="../Proof/ProofSystem.html#methodsetVocabulary">setVocabulary</a></li>
+		  		  <li><a href="../Proof/ProofSystem.html#methodsetLogic">setLogic</a></li>
 		  		</ul>
 		</td>
 		
@@ -178,7 +176,12 @@ Source Location: /ProofSystem.php<br /><br />
 		<div class="info-box-body">
 			<div class="var-summary">
 			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
-																									<div class="var-title">
+																															<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary"><a href="../Logic/Logic.html">Logic</a></span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$logic" title="details" class="var-name-summary">$logic</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Holds a reference to the logic instance.</td></tr>
+				</div>
+													<div class="var-title">
 					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
 					<td class="var-title"><a href="#$proofClass" title="details" class="var-name-summary">$proofClass</a>&nbsp;&nbsp;</td>
 					<td class="var-summary-description">Defines the proof class name for the system.</td></tr>
@@ -206,7 +209,7 @@ Source Location: /ProofSystem.php<br /><br />
 		<div class="info-box-body">
 			<div class="method-summary">
 				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
-																																																																																																<div class="method-definition">
+																																																																																<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result">ProofSystem</span>&nbsp;&nbsp;</td>
 										<td class="method-definition"><a href="#__construct" title="details" class="method-name">__construct</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Constructor.</td></tr>
@@ -232,14 +235,9 @@ Source Location: /ProofSystem.php<br /><br />
 					<td class="method-definition">Gets a counterexample from a proof.</td></tr>
 				</div>
 																<div class="method-definition">
-											<tr><td class="method-definition"><span class="method-result"><a href="../Syntax/Operator.html">Operator</a></span>&nbsp;&nbsp;</td>
-										<td class="method-definition"><a href="#getOperator" title="details" class="method-name">getOperator</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Gets an operator from the logic's vocabulary.</td></tr>
-				</div>
-																<div class="method-definition">
-											<tr><td class="method-definition"><span class="method-result"><a href="../Syntax/Vocabulary.html">Vocabulary</a></span>&nbsp;&nbsp;</td>
-										<td class="method-definition"><a href="#getVocabulary" title="details" class="method-name">getVocabulary</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Gets the vocabulary.</td></tr>
+											<tr><td class="method-definition"><span class="method-result"><a href="../Logic/Logic.html">Logic</a></span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#getLogic" title="details" class="method-name">getLogic</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Gets the logic instance.</td></tr>
 				</div>
 																<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result">boolean</span>&nbsp;&nbsp;</td>
@@ -247,14 +245,9 @@ Source Location: /ProofSystem.php<br /><br />
 					<td class="method-definition">Checks whether a putative proof is valid.</td></tr>
 				</div>
 																<div class="method-definition">
-											<tr><td class="method-definition"><span class="method-result"><a href="../Syntax/Sentence.html">Sentence</a></span>&nbsp;&nbsp;</td>
-										<td class="method-definition"><a href="#registerSentence" title="details" class="method-name">registerSentence</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Registers a sentence in the logic's vocabulary.</td></tr>
-				</div>
-																<div class="method-definition">
-											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
-										<td class="method-definition"><a href="#setVocabulary" title="details" class="method-name">setVocabulary</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Sets the vocabulary.</td></tr>
+											<tr><td class="method-definition"><span class="method-result"><a href="../Proof/ProofSystem.html">ProofSystem</a></span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#setLogic" title="details" class="method-name">setLogic</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Sets the logic instance.</td></tr>
 				</div>
 												</table>
 			</div>
@@ -272,8 +265,34 @@ Source Location: /ProofSystem.php<br /><br />
 															| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
 												</div>
 		<div class="info-box-body">
-			<a name="var$proofClass" id="$proofClass"><!-- --></A>
+			<a name="var$logic" id="$logic"><!-- --></A>
 <div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../Logic/Logic.html">Logic</a></span>&nbsp;&nbsp;
+			<span class="var-name">$logic</span>
+						<span class="smalllinenumber">[line 37]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Holds a reference to the logic instance.
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$proofClass" id="$proofClass"><!-- --></A>
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -305,30 +324,18 @@ Source Location: /ProofSystem.php<br /><br />
 				<a href="../Tableaux/TableauxSystem.html#var$proofClass">TableauxSystem::$proofClass</a>
 								: Defines the tableau proof class.
 							</li>
-					<li>
-				<a href="../Tableaux/ManyValuedTableauxSystem.html#var$proofClass">ManyValuedTableauxSystem::$proofClass</a>
-							</li>
-					<li>
-				<a href="../Tableaux/ModalTableauxSystem.html#var$proofClass">ModalTableauxSystem::$proofClass</a>
-							</li>
-					<li>
-				<a href="../Tableaux/ManyValuedModalTableauxSystem.html#var$proofClass">ManyValuedModalTableauxSystem::$proofClass</a>
-							</li>
-					<li>
-				<a href="../Tableaux/PropositionalTableauxSystem.html#var$proofClass">PropositionalTableauxSystem::$proofClass</a>
-							</li>
 				</ul>
 		<br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="var$vocabulary" id="$vocabulary"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type"><a href="../Syntax/Vocabulary.html">Vocabulary</a></span>&nbsp;&nbsp;
 			<span class="var-name">$vocabulary</span>
-						<span class="smalllinenumber">[line 37]</span>
+						<span class="smalllinenumber">[line 44]</span>
 		</span>
 	</div>
 
@@ -363,10 +370,10 @@ Source Location: /ProofSystem.php<br /><br />
 			<a name='method_detail'></a>
 
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">Constructor __construct</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 124]</span>
+	<span class="method-title">Constructor __construct</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 109]</span>
 </div>
 <br />
 
@@ -410,10 +417,10 @@ Source Location: /ProofSystem.php<br /><br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodbuildProof" id="buildProof"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">buildProof</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 141]</span>
+	<span class="method-title">buildProof</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 126]</span>
 </div>
 <br />
 
@@ -466,10 +473,10 @@ $proof&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodconstructProofForArgument" id="constructProofForArgument"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">constructProofForArgument</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 60]</span>
+	<span class="method-title">constructProofForArgument</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 67]</span>
 </div>
 <br />
 
@@ -514,10 +521,10 @@ $argument&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodevaluateArgument" id="evaluateArgument"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">evaluateArgument</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 47]</span>
+	<span class="method-title">evaluateArgument</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 54]</span>
 </div>
 <br />
 
@@ -559,7 +566,7 @@ $argument&nbsp;
 <strong>Information Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td class="indent"><strong>Throws:</strong>&nbsp;&nbsp;</td><td><a href="../Proof/ProofException.html">ProofException</a> on errors.</td>
+    <td class="indent"><strong>Throws:</strong>&nbsp;&nbsp;</td><td><a href="../Exceptions/ProofException.html">ProofException</a> on errors.</td>
   </tr>
 </table>
 
@@ -568,10 +575,10 @@ $argument&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodgetCounterexample" id="getCounterexample"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">getCounterexample</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 150]</span>
+	<span class="method-title">getCounterexample</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 135]</span>
 </div>
 <br />
 
@@ -616,7 +623,7 @@ $proof&nbsp;
 <strong>Information Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td class="indent"><strong>Throws:</strong>&nbsp;&nbsp;</td><td><a href="../Proof/ProofException.html">ProofException</a> on type errors.</td>
+    <td class="indent"><strong>Throws:</strong>&nbsp;&nbsp;</td><td><a href="../Exceptions/ProofException.html">ProofException</a> on type errors.</td>
   </tr>
 </table>
 
@@ -632,84 +639,33 @@ $proof&nbsp;
 		<br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
-<a name="methodgetOperator" id="getOperator"><!-- --></a>
-<div class="evenrow">
-
-<div class="method-header">
-	<span class="method-title">getOperator</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 99]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code><a href="../Syntax/Operator.html">Operator</a> getOperator(
-string
-$name&nbsp;
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Gets an operator from the logic's vocabulary.
-</strong></p>
-
-			<strong>Parameters:</strong><br />
-			<table border="0" cellspacing="0" cellpadding="0">
-					<tr><td class="indent">
-				<span class="var-type">string</span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$name:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> The name of the operator.</span>			</td></tr>
-				</table>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The operator object.</td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>See:</strong>&nbsp;&nbsp;</td><td><a href="../Syntax/Vocabulary.html#methodgetOperatorByName">Vocabulary::getOperatorByName()</a></td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-<br />
-
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
-<a name="methodgetVocabulary" id="getVocabulary"><!-- --></a>
+<a name="methodgetLogic" id="getLogic"><!-- --></a>
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">getVocabulary</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 75]</span>
+	<span class="method-title">getLogic</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 95]</span>
 </div>
 <br />
 
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code><a href="../Syntax/Vocabulary.html">Vocabulary</a> getVocabulary(
+		<code><a href="../Logic/Logic.html">Logic</a> getLogic(
 )</code>
     </td></tr></table>
     </td></tr></table><br /></div>
 
-	<p align="center" class="short-description"><strong>Gets the vocabulary.
+	<p align="center" class="short-description"><strong>Gets the logic instance.
 </strong></p>
 
 	<br />
 	<strong>API Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The logic's vocabulary.</td>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The logic instance.</td>
   </tr>
   <tr>
-    <td class="indent"><strong>See:</strong>&nbsp;&nbsp;</td><td><a href="../Logic/Logic.html#methodgetProofSystem">Logic::getProofSystem()</a></td>
+    <td class="indent"><strong>See:</strong>&nbsp;&nbsp;</td><td>Logic::__construct()</td>
   </tr>
   <tr>
     <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
@@ -720,7 +676,7 @@ $name&nbsp;
 <strong>Information Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td class="indent"><strong>Throws:</strong>&nbsp;&nbsp;</td><td><a href="../Proof/ProofException.html">ProofException</a> on empty vocabulary.</td>
+    <td class="indent"><strong>Throws:</strong>&nbsp;&nbsp;</td><td><a href="../Exceptions/ProofException.html">ProofException</a> on empty logic.</td>
   </tr>
 </table>
 
@@ -732,7 +688,7 @@ $name&nbsp;
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">isValidProof</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 133]</span>
+	<span class="method-title">isValidProof</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 118]</span>
 </div>
 <br />
 
@@ -777,7 +733,7 @@ $proof&nbsp;
 <strong>Information Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td class="indent"><strong>Throws:</strong>&nbsp;&nbsp;</td><td><a href="../Proof/ProofException.html">ProofException</a> on type errors.</td>
+    <td class="indent"><strong>Throws:</strong>&nbsp;&nbsp;</td><td><a href="../Exceptions/ProofException.html">ProofException</a> on type errors.</td>
   </tr>
 </table>
 
@@ -793,91 +749,46 @@ $proof&nbsp;
 		<br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
-<a name="methodregisterSentence" id="registerSentence"><!-- --></a>
+<a name="methodsetLogic" id="setLogic"><!-- --></a>
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">registerSentence</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 111]</span>
+	<span class="method-title">setLogic</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 82]</span>
 </div>
 <br />
 
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code><a href="../Syntax/Sentence.html">Sentence</a> registerSentence(
-Sentence
-$sentence&nbsp;
+		<code><a href="../Proof/ProofSystem.html">ProofSystem</a> setLogic(
+Logic
+$logic&nbsp;
 )</code>
     </td></tr></table>
     </td></tr></table><br /></div>
 
-	<p align="center" class="short-description"><strong>Registers a sentence in the logic's vocabulary.
+	<p align="center" class="short-description"><strong>Sets the logic instance.
 </strong></p>
 
 			<strong>Parameters:</strong><br />
 			<table border="0" cellspacing="0" cellpadding="0">
 					<tr><td class="indent">
-				<span class="var-type"><a href="../Syntax/Sentence.html">Sentence</a></span>&nbsp;&nbsp;</td>
+				<span class="var-type"><a href="../Logic/Logic.html">Logic</a></span>&nbsp;&nbsp;</td>
 				<td>
-				<span class="var-name">$sentence:&nbsp;</span></td>
+				<span class="var-name">$logic:&nbsp;</span></td>
 				<td>
-				<span class="var-description"> The sentence to register</span>			</td></tr>
+				<span class="var-description"> The logic.</span>			</td></tr>
 				</table>
 
 	<br />
 	<strong>API Tags:</strong><br />
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The sentence or the one from the registry, if found.</td>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Current instance.</td>
   </tr>
   <tr>
-    <td class="indent"><strong>See:</strong>&nbsp;&nbsp;</td><td><a href="../Syntax/Vocabulary.html#methodregisterSentence">Vocabulary::registerSentence()</a></td>
+    <td class="indent"><strong>See:</strong>&nbsp;&nbsp;</td><td>Logic::__construct()</td>
   </tr>
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-<br />
-
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
-<a name="methodsetVocabulary" id="setVocabulary"><!-- --></a>
-<div class="evenrow">
-
-<div class="method-header">
-	<span class="method-title">setVocabulary</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 87]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code>void setVocabulary(
-Vocabulary
-$vocabulary&nbsp;
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Sets the vocabulary.
-</strong></p>
-
-			<strong>Parameters:</strong><br />
-			<table border="0" cellspacing="0" cellpadding="0">
-					<tr><td class="indent">
-				<span class="var-type"><a href="../Syntax/Vocabulary.html">Vocabulary</a></span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$vocabulary:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> The vocabulary of the logic.</span>			</td></tr>
-				</table>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
   </tr>
@@ -895,7 +806,7 @@ $vocabulary&nbsp;
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Tue, 27 Dec 2011 03:18:59 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Fri, 06 Jan 2012 11:10:24 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

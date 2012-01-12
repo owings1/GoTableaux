@@ -26,6 +26,11 @@ require_once 'Tableaux/BranchRule.php';
 require_once 'Tableaux/Tableau.php';
 
 /**
+ * Loads the {@link Branch} base class.
+ */
+require_once 'Tableaux/Branch.php';
+
+/**
  * Loads the {@link Model} class for counterexamples.
  */
 require_once 'GoTableaux/Logic/ModelTheory/Model.php';
@@ -38,18 +43,24 @@ require_once 'GoTableaux/Logic/ModelTheory/Model.php';
 abstract class TableauxSystem extends ProofSystem
 {
 	/**
-	 * Defines the closure rule class for the logic.
+	 * Defines the closure rule class name for the logic.
 	 * @var string Class name of closure rule.
 	 */
 	public $closureRuleClass = 'ClosureRule';
 	
 	/**
-	 * Defines the branch rule classes for the logic.
-	 * @var array Array of class names of branch rules.
+	 * Defines the branch rule classes names for the logic.
+	 * @var array
 	 * @see TableauxSystem::__construct()
 	 * @see TableauxSystem::addBranchRules()
 	 */
 	public $branchRuleClasses = array();
+	
+	/**
+	 * Defines the branch class name for the tableaux.
+	 * @var string
+	 */
+	public $branchClass = 'Branch';
 	
 	/**
 	 * Defines the tableau proof class.
@@ -109,7 +120,7 @@ abstract class TableauxSystem extends ProofSystem
 	{
 		$closureRule = $this->getClosureRule();
 		foreach ( $tableau->getOpenBranches() as $branch )
-			if ( $closureRule->doesApply( $branch, $this )) $branch->close();
+			if ( $closureRule->doesApply( $branch, $this->getLogic() )) $branch->close();
 	}
 	
 	/**
@@ -132,13 +143,23 @@ abstract class TableauxSystem extends ProofSystem
 	}
 	
 	/**
-	 * Gets tableau rules.
+	 * Gets the tableau branch rules.
 	 *
 	 * @return array Array of {@link BranchRule}s.
 	 */
 	public function getBranchRules()
 	{
 		return $this->branchRules;
+	}
+	
+	/**
+	 * Gets the branch class name.
+	 *
+	 * @return string Branch class name.
+	 */
+	public function getBranchClass()
+	{
+		return $this->branchClass;
 	}
 	
 	/**
@@ -149,20 +170,20 @@ abstract class TableauxSystem extends ProofSystem
 	 */
 	public function buildProof( Proof $tableau )
 	{
-		$this->buildTrunk( $tableau, $tableau->getArgument() );
+		$this->buildTrunk( $tableau, $tableau->getArgument(), $this->getLogic() );
 		$branchRules = $this->getBranchRules();
 		$i = 0;
 		do {
 			$this->applyClosureRule( $tableau );
 			$rule 			= $branchRules[$i];
-			echo "Applying rule " . get_class($rule) . "\n";
+			//echo "Applying rule " . get_class($rule) . "\n";
 			$ruleDidApply 	= false;
 			foreach ( $tableau->getOpenBranches() as $branch ) 
-				if ( $rule->apply( $branch, $this ) !== false ) {
-					echo "Rule applied\n";
+				if ( $rule->apply( $branch, $this->getLogic() ) !== false ) {
+					//echo "Rule applied\n";
 					$ruleDidApply = true;
 					$i = 0;
-				} else echo "Rule did not apply\n";
+				} //else echo "Rule did not apply\n";
 		} while ( $ruleDidApply || isset( $branchRules[++$i] ));
 		$this->applyClosureRule( $tableau );
 	}
@@ -208,7 +229,8 @@ abstract class TableauxSystem extends ProofSystem
 	 *
 	 * @param Tableau $tableau The tableau to attach the 
 	 * @param Argument $argument The argument for which to build the trunk.
+	 * @param Logic $logic The logic of the proof system.
 	 * @return void
 	 */
-	abstract public function buildTrunk( Tableau $tableau, Argument $argument );
+	abstract public function buildTrunk( Tableau $tableau, Argument $argument, Logic $logic );
 }

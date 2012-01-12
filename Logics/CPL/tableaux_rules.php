@@ -12,11 +12,11 @@
  */
 class CPLClosureRule implements ClosureRule
 {
-	public function doesApply( Branch $branch, TableauxSystem $tableauxSystem )
+	public function doesApply( Branch $branch, Logic $logic )
 	{
 		foreach ( $branch->getNodes() as $node ) {
-			$negatedSentence = $tableauxSystem->negateSentence( $node->getSentence() );
-			if ( $branch->hasSentence( $negatedSentence )) return true;
+			$negated = $logic->negate( $node->getSentence() );
+			if ( $branch->hasSentence( $negated )) return true;
 		}
 		return false;
 	}
@@ -29,13 +29,16 @@ class CPLClosureRule implements ClosureRule
  */
 class CPLBranchRule_Conjunction implements BranchRule
 {
-	public function apply( Branch $branch, TableauxSystem $tableauxSystem )
+	public function apply( Branch $branch, Logic $logic )
 	{
 		$nodes = $branch->getNodesByOperatorName( 'Conjunction', true );
 		if ( empty( $nodes )) return false;
 		$node = $nodes[0];
-		list( $lhs, $rhs ) = $sentence->getOperands();
-		$branch->createNode( $lhs )->createNode( $rhs )->tickNode( $node );
+		
+		list( $leftConjunct, $rightConjunct ) = $node->getSentence()->getOperands();
+		$branch->createNode( $leftConjunct )
+			   ->createNode( $rightConjunct )
+			   ->tickNode( $node );
 		return true;
 	}
 }
@@ -47,15 +50,19 @@ class CPLBranchRule_Conjunction implements BranchRule
  */
 class CPLBranchRule_NegatedConjunction implements BranchRule
 {
-	public function apply( Branch $branch, TableauxSystem $tableauxSystem )
+	public function apply( Branch $branch, Logic $logic )
 	{
 		$nodes = $branch->getNodesByTwoOperatorNames( 'Negation', 'Conjunction', true );
 		if ( empty( $nodes )) return false;
 		$node = $nodes[0];
-		list( $operand ) = $node->getSentence()->getOperands();
-		list( $lhs, $rhs ) = array_map( array( $tableauxSystem, 'negateSentence' ), $operand->getOperands() );
-		$branch->branch()->createNode( $rhs )->tickNode( $node );
-		$branch->createNode( $lhs )->tickNode( $node );
+		
+		list( $negatum ) = $node->getSentence()->getOperands();
+		list( $leftConjunct, $rightConjunct ) = $negatum->getOperands();
+		$branch->branch()
+			   ->createNode( $logic->negate( $leftConjunct ))
+			   ->tickNode( $node );
+		$branch->createNode( $logic->negate( $rightConjunct ))
+			   ->tickNode( $node );
 		return true;
 	}
 }
@@ -67,14 +74,18 @@ class CPLBranchRule_NegatedConjunction implements BranchRule
  */
 class CPLBranchRule_Disjunction implements BranchRule
 {
-	public function apply( Branch $branch, TableauxSystem $tableauxSystem )
+	public function apply( Branch $branch, Logic $logic )
 	{
 		$nodes = $branch->getNodesByOperatorName( 'Disjunction', true );
 		if ( empty( $nodes )) return false;
 		$node = $nodes[0];
-		list( $lhs, $rhs ) = $node->getSentence()->getOperands();
-		$branch->branch()->createNode( $rhs )->tickNode( $node );
-		$branch->createNode( $lhs )->tickNode( $node );
+		
+		list( $leftDisjunct, $rightDisjunct ) = $node->getSentence()->getOperands();
+		$branch->branch()
+			   ->createNode( $leftDisjunct )
+			   ->tickNode( $node );
+		$branch->createNode( $rightDisjunct )
+		       ->tickNode( $node );
 		return true;
 	}
 }
@@ -86,14 +97,17 @@ class CPLBranchRule_Disjunction implements BranchRule
  */
 class CPLBranchRule_NegatedDisjunction implements BranchRule
 {
-	public function apply( Branch $branch, TableauxSystem $tableauxSystem )
+	public function apply( Branch $branch, Logic $logic )
 	{
-		$nodes = $branch->getNodesByTwoOperatorNames( 'Negation', 'Disjunction', true );
-		if ( empty( $nodes )) return false;
+		if ( !$nodes = $branch->getNodesByTwoOperatorNames( 'Negation', 'Disjunction', true )) 
+			return false;
 		$node = $nodes[0];
-		list( $operand ) = $node->getSentence()->getOperands();
-		list( $lhs, $rhs ) = array_map( array( $tableauxSystem, 'negateSentence' ), $operand->getOperands() );
-		$branch->createNode( $lhs )->createNode( $rhs )->tickNode( $node );
+		
+		list( $negatum ) = $node->getSentence()->getOperands();
+		list( $leftDisjunct, $rightDisjunct ) = $negatum->getOperands();
+		$branch->createNode( $logic->negate( $leftDisjunct ))
+			   ->createNode( $logic->negate( $rightDisjunct ))
+			   ->tickNode( $node );
 		return true;
 	}
 }
@@ -105,15 +119,21 @@ class CPLBranchRule_NegatedDisjunction implements BranchRule
  */
 class CPLBranchRule_MaterialConditional implements BranchRule
 {
-	public function apply( Branch $branch, TableauxSystem $tableauxSystem )
+	public function apply( Branch $branch, Logic $logic )
 	{
-		$nodes = $branch->getNodesByOperatorName( 'Material Conditional', true );
-		if ( empty( $nodes )) return false;
+		if ( !$nodes = $branch->getNodesByOperatorName( 'Material Conditional', true ))
+			return false;
 		$node = $nodes[0];
-		list( $antecedent, $rhs ) = $node->getSentence()->getOperands();
-		$lhs = $tableauxSystem->negateSentence( $antecedent );
-		$branch->branch()->createNode( $rhs )->tickNode( $node );
-		$branch->createNode( $lhs )->tickNode( $node );
+		
+		list( $antecedent, $consequent ) = $node->getSentence()->getOperands();
+		
+		$branch->branch()
+			   ->createNode( $logic->negate( $antecedent ))
+			   ->tickNode( $node );
+		
+		$branch->createNode( $consequent )
+			   ->tickNode( $node );
+		
 		return true;
 	}
 }
@@ -125,15 +145,19 @@ class CPLBranchRule_MaterialConditional implements BranchRule
  */
 class CPLBranchRule_NegatedMaterialConditional implements BranchRule
 {
-	public function apply( Branch $branch, TableauxSystem $tableauxSystem )
+	public function apply( Branch $branch, Logic $logic )
 	{
-		$nodes = $branch->getNodesByTwoOperatorNames( 'Negation', 'Material Conditional', true );
-		if ( empty( $nodes )) return false;
+		if ( !$nodes = $branch->getNodesByTwoOperatorNames( 'Negation', 'Material Conditional', true ))
+			return false;
 		$node = $nodes[0];
-		list( $operand ) = $node->getSentence()->getOperands();
-		list( $lhs, $consequent ) = $operand->getOperands();
-		$rhs = $tableauxSystem->negateSentence( $consequent );
-		$branch->createNode( $lhs )->createNode( $rhs )->tickNode( $node );
+		
+		list( $negatum ) = $node->getSentence()->getOperands();
+		list( $antecedent, $consequent ) = $negatum->getOperands();
+		
+		$branch->createNode( $antecedent )
+			   ->createNode( $logic->negate( $consequent ))
+			   ->tickNode( $node );
+		
 		return true;
 	}
 }
@@ -145,16 +169,23 @@ class CPLBranchRule_NegatedMaterialConditional implements BranchRule
  */
 class CPLBranchRule_MaterialBiconditional implements BranchRule
 {
-	public function apply( Branch $branch, TableauxSystem $tableauxSystem )
+	public function apply( Branch $branch, Logic $logic )
 	{
-		$nodes = $branch->getNodesByOperatorName( 'Material Biconditional', true );
-		if ( empty( $nodes )) return false;
+		if ( !$nodes = $branch->getNodesByOperatorName( 'Material Biconditional', true ))
+			return false;
 		$node = $nodes[0];
+		
 		list( $lhs, $rhs ) = $node->getSentence()->getOperands();
-		$negatedLhs = $tableauxSystem->negateSentence( $lhs );
-		$negatedRhs = $tableauxSystem->negateSentence( $rhs );
-		$branch->branch()->createNode( $negatedLhs )->createNode( $negatedRhs )->tickNode( $node );
-		$branch->createNode( $lhs )->createNode( $rhs )->tickNode( $node );
+		
+		$branch->branch()
+			   ->createNode( $logic->negate( $lhs ))
+			   ->createNode( $logic->negate( $rhs ))
+			   ->tickNode( $node );
+		
+		$branch->createNode( $lhs )
+			   ->createNode( $rhs )
+			   ->tickNode( $node );
+			
 		return true;
 	}
 }
@@ -166,17 +197,24 @@ class CPLBranchRule_MaterialBiconditional implements BranchRule
  */
 class CPLBranchRule_NegatedMaterialBiconditional implements BranchRule
 {
-	public function apply( Branch $branch, TableauxSystem $tableauxSystem )
+	public function apply( Branch $branch, Logic $logic )
 	{
-		$nodes = $branch->getNodesByTwoOperatorNames( 'Negation', 'Material Biconditional', true );
-		if ( empty( $nodes )) return false;
+		if ( !$nodes = $branch->getNodesByTwoOperatorNames( 'Negation', 'Material Biconditional', true ))
+			return false;
 		$node = $nodes[0];
-		list( $operand ) = $node->getSentence()->getOperands();
-		list( $lhs, $rhs ) = $operand->getOperands();
-		$negatedLhs = $tableauxSystem->negateSentence( $lhs );
-		$negatedRhs = $tableauxSystem->negateSentence( $rhs );
-		$branch->branch()->createNode( $negatedLhs )->createNode( $rhs )->tickNode( $node );
-		$branch->createNode( $lhs )->createNode( $negatedRhs )->tickNode( $node );
+		
+		list( $negatum ) = $node->getSentence()->getOperands();
+		list( $lhs, $rhs ) = $negatum->getOperands();
+		
+		$branch->branch()
+			   ->createNode( $logic->negate( $lhs ))
+			   ->createNode( $rhs )
+			   ->tickNode( $node );
+		
+		$branch->createNode( $lhs )
+			   ->createNode( $logic->negate( $rhs ))
+			   ->tickNode( $node );
+			
 		return true;
 	}
 }
@@ -188,14 +226,18 @@ class CPLBranchRule_NegatedMaterialBiconditional implements BranchRule
  */
 class CPLBranchRule_DoubleNegation implements BranchRule
 {
-	public function apply( Branch $branch, TableauxSystem $tableauxSystem )
+	public function apply( Branch $branch, Logic $logic )
 	{
-		$nodes = $branch->getNodesByTwoOperatorNames( 'Negation', 'Negation', true );
-		if ( empty( $nodes )) return false;
+		if ( !$nodes = $branch->getNodesByTwoOperatorNames( 'Negation', 'Negation', true ))
+			return false;
 		$node = $nodes[0];
-		list( $operand ) = $node->getSentence()->getOperands();
-		list( $reduction ) = $operand->getOperands();
-		$branch->createNode( $reduction )->tickNode( $node );
+		
+		list( $singleNegatum ) = $node->getSentence()->getOperands();
+		list( $doubleNegatum ) = $singleNegatum->getOperands();
+		
+		$branch->createNode( $doubleNegatum )
+			   ->tickNode( $node );
+		
 		return true;
 	}
 }

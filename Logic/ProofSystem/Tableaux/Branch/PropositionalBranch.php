@@ -31,9 +31,7 @@ class PropositionalBranch extends Branch
 	 */
 	public function createNode( Sentence $sentence )
 	{
-		$sentence = $this->registerSentence( $sentence );
-		$this->addNode( new SentenceNode( $sentence ));
-		return $this;
+		return $this->_addNode( new SentenceNode( $sentence ));
 	}
 	
 	/**
@@ -44,8 +42,6 @@ class PropositionalBranch extends Branch
 	 */
 	public function hasSentence( Sentence $sentence )
 	{
-		foreach ( $this->getNodes() as $node )
-			if ( $node->getSentence() === $sentence ) return true;
-		return false;
+		return $this->hasNodeWithSentence( $sentence );
 	}
 }

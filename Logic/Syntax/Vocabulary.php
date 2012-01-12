@@ -13,7 +13,7 @@ require_once 'Operator.php';
 /**
  * Loads {@link VocabularyException} class.
  */
-require_once 'VocabularyException.php';
+require_once 'GoTableaux/Logic/Exceptions/VocabularyException.php';
 
 /**
  * Represents a vocabulary.
@@ -34,7 +34,8 @@ class Vocabulary
 	/**
 	 * Holds the operator symbols.
 	 *
-	 * @var array Key is symbol, value is operator name.
+	 * Key is symbol, value is operator name.
+	 * @var array 
 	 * @access private
 	 */
 	protected $operatorSymbols = array();
@@ -43,7 +44,7 @@ class Vocabulary
 	 * Holds the operators. 
 	 *
 	 * Key is operator name; value is {@link Operator operator} object.
-	 * @var array Array of {@link Operator}s.
+	 * @var array 
 	 * @access private
 	 */
 	protected $operators = array();
@@ -54,19 +55,22 @@ class Vocabulary
 	 * This is used for tracking {@link Sentence} instances, to ensure object
 	 * identity with sentence form identity. Key is sentence string relative to
 	 * a {@link SentenceParser parser}, value is {@link Sentence sentence} object.
-	 * @var array Array of {@link Sentence}s.
+	 * @var array
 	 * @see Vocabulary::registerSentence()
 	 * @access private
 	 */
 	protected $sentences = array();
 	
 	/**
-	 * Holds the set of atomic sentencents.
-	 * @var array Array of {@link AtomicSentence}s.
+	 * Holds the set of {@link AtomicSentence atomic sentences}.
+	 * @var array
 	 */
 	protected $atomicSentences = array();
 	
 	// Operator Symbols are Flagged by Positive n = arity
+	const OPER_TERNARY		= 3;
+	const OPER_BINARY		= 2;
+	const OPER_UNARY		= 1;
 	const ATOMIC 			= 0;
 	const PUNCT_OPEN 		= -1;
 	const PUNCT_CLOSE 		= -2;
@@ -310,7 +314,23 @@ class Vocabulary
 	{
 		if ( !isset( $this->operatorSymbols[$symbol] ))
 			throw new VocabularyException( "$symbol is not an operator symbol in the vocabulary." );
-		return $this->getOperatorByName( $this->operatorSymbols[$symbol] );
+		$operatorName = $this->operatorSymbols[$symbol];
+		return $this->getOperatorByName( $operatorName );
+	}
+	
+	/**
+	 * Gets the symbol used for a particular operator.
+	 *
+	 * @param Operator|string Operator object or name of operator.
+	 * @return string Operator symbol.
+	 * @throws {@link VocabularyException} when operator is not in the vocabulary.
+	 */
+	public function getSymbolForOperator( $operator )
+	{
+		if ( !$operator instanceof Operator ) $operator = $this->getOperatoryByName( $operator ); 
+		foreach ( array_keys( $this->getOperatorSymbols( $operator->getArity() )) as $symbol )
+			if ( $this->getOperatorBySymbol( $symbol ) === $operator ) return $symbol;
+		throw new VocabularyException( "Operator not found in vocabulary." );		
 	}
 	
 	/**
@@ -318,7 +338,7 @@ class Vocabulary
 	 *
 	 * @param string $symbol The symbol in the vocabulary.
 	 * @return integer Type flag of the symbol.
-	 * @throws {@link VocabularyException} when $symbol is not a vocabulary item.
+	 * @throws {@link VocabularyException} when symbol is not a vocabulary item.
 	 */
 	public function getSymbolType( $symbol )
 	{
@@ -326,19 +346,16 @@ class Vocabulary
 			throw new VocabularyException( "$symbol is not a symbol in the vocabulary." );
 		return $this->items[$symbol];
 	}
-	
+		
 	/**
 	 * Adds a sentence to the vocabulary, maintaining uniqueness.
 	 *
 	 * If the sentence, or one of the same form is already in the vocabulary,
 	 * then that sentence is returned. Otherwise the passed sentence is
-	 * returned. When extending the {@link SentenceParser}, the
-	 * {@link SentenceParser::stringToSentence() parsing function} should
-	 * return the value of this function.
+	 * returned. 
 	 *
 	 * @param Sentence $sentence The sentence to add.
 	 * @return Sentence Old or new sentence.
-	 * @see SentenceParser::stringToSentence()
 	 */
 	public function registerSentence( Sentence $sentence )
 	{
@@ -356,14 +373,18 @@ class Vocabulary
 			return $sentence;
 		}
 		$operator = $sentence->getOperator();
-		if ( !in_array( $operator, $this->operators, true ))
-			throw new VocabularyExcepetion( 'Operator ' . $operator->getName() . ' is not in the vocabulary.' );
+		//if ( !in_array( $operator, $this->operators, true )) {
+		//	$operator = $this->getOperatorByName( $operator->getName() );
+		//	$sentence0
+			
+		//}
+			
 		$oldOperands = $sentence->getOperands();
 		$newOperands = array();
 		foreach ( $oldOperands as $operand ) $newOperands[] = $this->registerSentence( $operand );
 		$sentence->setOperands( $newOperands );
 		foreach ( $this->sentences as $s )
-			if ( $s instanceof MolecularSentence && $s->getOperator() === $operator ) {
+			if ( $s->getOperatorName() === $operator->getName() ) {
 				$operands = $s->getOperands();
 				$isSame = false;
 				foreach ($operands as $key => $operand) 
@@ -389,7 +410,7 @@ class Vocabulary
 	 *
 	 * @param array $lexicon Array of lexical items. For format, see the
 	 *						 {@link Vocabulary::__construct() constructor}.
-	 * @return void
+	 * @return Vocabulary Current instance.
 	 */
 	protected function insertLexicon( array $lexicon )
 	{
@@ -414,8 +435,9 @@ class Vocabulary
 				$arity = $operator[$operatorName];
 				$this->createOperator( $symbol, $arity, $operatorName );
 			}
-				
+		return $this;
 	}
+	
 	/**
 	 * Adds a symbol to the vocabulary.
 	 *

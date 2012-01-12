@@ -13,11 +13,25 @@
 class Branch
 {
 	/**
-	 * Holds the nodes of the branch.
-	 * @var array Array of {@link Node} objects.
+	 * Holds the {@link Node nodes} of the branch.
+	 * @var array
 	 * @access private
 	 */
 	protected $nodes = array();
+	
+	/**
+	 * Holds the ticked {@link Node}s.
+	 * @var array
+	 * @access private
+	 */
+	protected $tickedNodes = array();
+	
+	/**
+	 * Holds the {@link SentenceNode}s of the branch.
+	 * @var array
+	 * @access private
+	 */
+	protected $sentenceNodes = array();
 	
 	/**
 	 * Tracks whether the branch is closed.
@@ -54,103 +68,62 @@ class Branch
 	{
 		return $this->tableau;
 	}
-	
-	/**
-	 * Gets the tableaux system of the tableau.
-	 *
-	 * @return TableauxSystem The tableaux system.
-	 */
-	public function getTableauxSystem()
-	{
-		return $this->getTableau()->getTableauxSystem();
-	}
-	
-	/**
-	 * Registers a sentence in the logic's vocabulary
-	 *
-	 * @param Sentence $sentence The sentence to register.
-	 * @return Sentence The sentence, or the one in the registry.
-	 */
-	public function registerSentence( Sentence $sentence )
-	{
-		return $this->getTableauxSystem()->registerSentence( $sentence );
-	}
-	
-	/**
-	 * Gets an operator from the logic's vocabulary by its name.
-	 *
-	 * @param string $name The name of the operator.
-	 * @return Operator The operator.
-	 */
-	public function getOperator( $name )
-	{
-		return $this->getTableauxSystem()->getOperator( $name );
-	}
-	
-	/**
-	 * Adds a node to the branch.
-	 *
-	 * @param Node|array $node The node or array of nodes to add.
-	 * @return void
-	 */
-	protected function addNode( $nodes )
-	{
-		if ( is_array( $nodes )) foreach ( $nodes as $node ) $this->addNode( $node );
-		elseif ( !$nodes instanceof Node ) throw new TableauException( 'Node is not instance of Node.' ); 
-		else $this->nodes[] = $nodes;
-		return $this;
-	}
-	
-	/**
-	 * Removes all reference of a node from the branch.
-	 *
-	 * @param Node $node The node to remove. If the node is on the branch in
-	 *					 multiple places, each reference is removed.
-	 * @return void
-	 */
-	protected function removeNode( Node $node )
-	{
-		$nodes = array();
-		foreach ( $this->nodes as $oldNode )
-			if ( $node !== $oldNode ) $nodes[] = $oldNode;
-		$this->nodes = $nodes;
-		return $this;
-	}
-	
+		
 	/**
 	 * Gets the nodes on the branch.
 	 *
-	 * @return array Array of {@link Node nodes}.
+	 * @param boolean $untickedOnly Whether to limit search to nodes that are unticked.
+	 * @return array Array of {@link Node}s.
 	 */
-	public function getNodes()
+	public function getNodes( $untickedOnly = false )
 	{
+		if ( $untickedOnly ) return $this->getUntickedNodes();
 		return $this->nodes;
+	}
+	
+	/**
+	 * Gets all sentence nodes on the branch.
+	 *
+	 * @param boolean $untickedOnly Whether to limit search to nodes that are unticked.
+	 * @return array Array of {@link SentenceNode}s.
+	 */
+	public function getSentenceNodes( $untickedOnly = false )
+	{
+		if ( !$untickedOnly ) return $this->sentenceNodes;
+		return Utilities::arrayDiff( $this->sentenceNodes, $this->getTickedNodes() );
+	}
+	
+	/**
+	 * Checks whether a sentence is on the branch.
+	 *
+	 * @param Sentence $sentence The sentence to search for.
+	 * @return boolean Whether the branch has a node with that sentence.
+	 */
+	public function hasNodeWithSentence( Sentence $sentence )
+	{
+		foreach ( $this->getSentenceNodes() as $node )
+			if ( $node->getSentence() === $sentence ) return true;
+		return false;
 	}
 	
 	/**
 	 * Gets all nodes on the branch that are unticked relative to the branch.
 	 *
-	 * @return array Array of {@link Node nodes}.
+	 * @return array Array of {@link Node}s.
 	 */
 	public function getUntickedNodes()
 	{
-		$nodes = array();
-		foreach ( $this->getNodes() as $node )
-			if ( ! $node->isTickedAtBranch( $this )) $nodes[] = $node;
-		return $nodes;
+		return Utilities::arrayDiff( $this->getNodes(), $this->getTickedNodes() );
 	}
 	
 	/**
 	 * Gets all nodes on the branch that are ticked relative to the branch.
 	 *
-	 * @return array Array of Node objects.
+	 * @return array Array of {@link Node}s.
 	 */
 	public function getTickedNodes()
 	{
-		$nodes = array();
-		foreach ( $this->getNodes() as $node )
-			if ( $node->isTickedAtBranch( $this )) $nodes[] = $node;
-		return $nodes;
+		return $this->tickedNodes;
 	}
 	
 	/**
@@ -193,8 +166,6 @@ class Branch
 	public function copy()
 	{
 		$newBranch = clone $this;
-		foreach ( $this->getTickedNodes() as $node )
-			$node->tickAtBranch( $newBranch );
 		return $newBranch;
 	}
 	
@@ -225,8 +196,7 @@ class Branch
 	public function getNodesByOperatorName( $operatorName, $untickedOnly = false )
 	{
 		$nodes = array();
-		$searchNodes = $untickedOnly ? $this->getUntickedNodes() : $this->getNodes();
-		foreach ( $searchNodes as $node ) 
+		foreach ( $this->getSentenceNodes( $untickedOnly ) as $node ) 
 			if ( $node->getSentence()->getOperatorName() === $operatorName ) $nodes[] = $node;
 		return $nodes;
 	}
@@ -242,6 +212,7 @@ class Branch
 	 * @param string $secondOperatorName The name of the second operator.
 	 * @param boolean $untickedOnly Whether to include unticked nodes only.
 	 *								Default is false.
+	 * @return array The resulting array of {@link SentenceNode}s.
 	 */
 	public function getNodesByTwoOperatorNames( $firstOperatorName, $secondOperatorName, $untickedOnly = false )
 	{
@@ -262,18 +233,48 @@ class Branch
 	 */
 	public function tickNode( Node $node )
 	{
-		$node->tickAtBranch( $this );
+		if ( !in_array( $node, $this->tickedNodes, true ))
+			$this->tickedNodes[] = $node;
 		return $this;
 	}
-	
+
 	/**
 	 * Adds a node to the branch.
 	 *
 	 * @param Node $node The node to add.
-	 * @return void
+	 * @return Branch Current instance.
 	 */
 	protected function _addNode( Node $node )
 	{
+		if ( $node instanceof SentenceNode ) {
+			$sentence = $this->getTableau()
+							 ->getProofSystem()
+							 ->getLogic()
+							 ->getVocabulary()
+							 ->registerSentence( $node->getSentence() );
+			$node->setSentence( $sentence );
+			$this->sentenceNodes[] = $node;
+		}
 		$this->nodes[] = $node;
+		return $this;
 	}
+	
+	/**
+	 * Removes all references to a node from the branch.
+	 *
+	 * @param Node $node The node to remove. If the node is on the branch in
+	 *					 multiple places, each reference is removed.
+	 * @return Branch Current instance.
+	 */
+	protected function _removeNode( Node $node )
+	{
+		$key = array_search( $node, $this->sentenceNodes, true );
+		if ( $key !== false ) array_splice( $this->sentenceNodes, $key, 1 );
+		$key = array_search( $node, $this->nodes, true );
+		if ( $key !== false ) array_splice( $this->nodes, $key, 1 );
+		$key = array_search( $node, $this->tickedNodes, true );
+		if ( $key !== false ) array_splice( $this->tickedNodes, $key, 1 );
+		return $this;
+	}
+	
 }

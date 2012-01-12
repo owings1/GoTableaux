@@ -13,7 +13,7 @@ require_once 'ProofSystem/Proof.php';
 /**
  * Loads the {@link ProofException} class.
  */
-require_once 'ProofSystem/ProofException.php';
+require_once 'Exceptions/ProofException.php';
 
 /**
  * Represents a proof system.
@@ -28,6 +28,13 @@ abstract class ProofSystem
 	 * @see ProofSystem::constructProofForArgument()
 	 */
 	protected $proofClass = 'Proof';
+	
+	/**
+	 * Holds a reference to the logic instance.
+	 * @var Logic
+	 * @access private
+	 */
+	protected $logic;
 	
 	/**
 	 * Holds a reference to the Logic's vocabulary.
@@ -66,51 +73,29 @@ abstract class ProofSystem
 	}
 	
 	/**
-	 * Gets the vocabulary.
+	 * Sets the logic instance.
 	 *
-	 * @return Vocabulary $vocabulary The logic's vocabulary.
-	 * @throws {@link ProofException} on empty vocabulary.
-	 * @see Logic::getProofSystem()
+	 * @param Logic $logic The logic.
+	 * @return ProofSystem Current instance.
+	 * @see Logic::__construct()
 	 */
-	public function getVocabulary()
+	public function setLogic( Logic $logic )
 	{
-		if ( empty( $this->vocabulary )) throw new ProofException( 'No vocabulary is set for the proof system.' );
-		return $this->vocabulary;
+		$this->logic = $logic;
+		return $this;
 	}
 	
 	/**
-	 * Sets the vocabulary.
+	 * Gets the logic instance.
 	 *
-	 * @param Vocabulary $vocabulary The vocabulary of the logic.
-	 * @return void
+	 * @return Logic The logic instance.
+	 * @throws {@link ProofException} on empty logic.
+	 * @see Logic::__construct()
 	 */
-	public function setVocabulary( Vocabulary $vocabulary )
+	public function getLogic()
 	{
-		$this->vocabulary = $vocabulary;
-	}
-	
-	/**
-	 * Gets an operator from the logic's vocabulary.
-	 *
-	 * @param string $name The name of the operator.
-	 * @return Operator The operator object.
-	 * @see Vocabulary::getOperatorByName()
-	 */
-	public function getOperator( $name )
-	{
-		return $this->getVocabulary()->getOperatorByName( $name );
-	}
-	
-	/**
-	 * Registers a sentence in the logic's vocabulary.
-	 *
-	 * @param Sentence $sentence The sentence to register
-	 * @return Sentence The sentence or the one from the registry, if found.
-	 * @see Vocabulary::registerSentence()
-	 */
-	public function registerSentence( Sentence $sentence )
-	{
-		return $this->getVocabulary()->registerSentence( $sentence );
+		if ( empty( $this->logic )) throw new ProofException( 'Logic is empty.' );
+		return $this->logic;
 	}
 	
 	/**

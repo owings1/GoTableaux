@@ -27,15 +27,15 @@ class ModalReflexiveRule implements BranchRule
 	 * a node for least index.
 	 *
 	 * @param ModalBranch $branch The modal branch to search and apply the rule to.
-	 * @param TableauxSystem $tableauxSystem The Tableaux system.
+	 * @param Logic $logic The Tableaux system.
 	 * @return boolean Whether the rule was applied.
 	 */
-	public function apply( Branch $branch, TableauxSystem $tableauxSystem )
+	public function apply( Branch $branch, Logic $logic )
 	{
 		if ( !$indexes = array_diff( $branch->getAllIndexes(), $branch->getReflexiveNodes() ))
 			return false;
 		$index = min( $indexes );
-		$branch->addAccessNode( $index, $index );
+		$branch->createAccessNode( $index, $index );
 		return true;
 	}
 }

@@ -11,21 +11,9 @@
 require_once 'GoTableaux/Logic/ProofSystem/TableauxSystem.php';
 
 /**
- * Loads the {@link ModalTableau} proof class.
+ * Loads the {@link ModalBranch} class.
  */
-require_once 'Tableau/ModalTableau.php';
-
-/**
- * Loads the {@link ModalSentenceNode} class.
- * @see $sentenceNodeClass
- */
-require_once 'Node/ModalSentenceNode.php';
-
-/**
- * Loads the {@link AccessNode} class.
- * @see $accessNodeClass
- */
-require_once 'Node/AccessNode.php';
+require_once 'Branch/ModalBranch.php';
 
 /**
  * Represents a bivalent modal tableaux system.
@@ -35,26 +23,25 @@ require_once 'Node/AccessNode.php';
 abstract class ModalTableauxSystem extends TableauxSystem
 {
 	
-	protected $proofClass = 'ModalTableau';
+	public $branchClass = 'ModalBranch';
 	
 	/**
 	 * Builds a modal tableau trunk.
 	 *
 	 * @param ModalTableau $tableau The modal tableau.
 	 * @param Argument $argument The argument.
+	 * @param Logic $logic The logic of the proof system.
 	 * @return void
 	 */
-	public function buildTrunk( Tableau $tableau, Argument $argument )
+	public function buildTrunk( Tableau $tableau, Argument $argument, Logic $logic )
 	{
 		$trunk = $tableau->createBranch();
-		foreach ( $argument->getPremises() as $premise ) $trunk->createSentenceNode( $premise, 0 );
-		$negatedConclusion = Sentence::createMolecular( $this->getOperator( 'Negation' ), array( $argument->getConclusion() ));
-		$trunk->createSentenceNode( $negatedConclusion, 0 );
+		foreach ( $argument->getPremises() as $premise ) $trunk->createSentenceNodeAtIndex( $premise, 0 );
+		$trunk->createSentenceNodeAtIndex( $logic->negate( $argument->getConclusion() ), 0 );
 	}
 	
 	public function induceModel( Branch $branch )
 	{
 		
 	}
-	
 }

@@ -11,14 +11,9 @@
 require_once 'GoTableaux/Logic/ProofSystem/TableauxSystem.php';
 
 /**
- * Loads the {@link ManyValuedTableau} proof class.
+ * Loads the {@link ManyValuedBranch} class.
  */
-require_once 'Tableau/ManyValuedTableau.php';
-
-/**
- * Loads the {@link ManyValuedSentenceNode} class.
- */
-require_once 'Node/ManyValuedSentenceNode.php';
+require_once 'Branch/ManyValuedBranch.php';
 
 /**
  * Represents a many-valued propositional tableaux system.
@@ -28,20 +23,21 @@ require_once 'Node/ManyValuedSentenceNode.php';
 abstract class ManyValuedTableauxSystem extends TableauxSystem
 {
 	
-	protected $proofClass = 'ManyValuedTableau';
+	public $branchClass = 'ManyValuedBranch';
 	
 	/**
 	 * Builds a modal tableau trunk.
 	 *
 	 * @param ModalTableau $tableau The modal tableau.
 	 * @param Argument $argument The argument.
+	 * @param Logic $logic The logic of the proof system.
 	 * @return void
 	 */
-	public function buildTrunk( Tableau $tableau, Argument $argument )
+	public function buildTrunk( Tableau $tableau, Argument $argument, Logic $logic )
 	{
 		$trunk = $tableau->createBranch();
-		foreach ( $argument->getPremises() as $premise ) $trunk->createNode( $premise, true );
-		$trunk->createNode( $argument->getConclusion(), false );
+		foreach ( $argument->getPremises() as $premise ) $trunk->createNodeWithDesignation( $premise, true );
+		$trunk->createNodeWithDesignation( $argument->getConclusion(), false );
 	}
 	
 	public function induceModel( Branch $branch )

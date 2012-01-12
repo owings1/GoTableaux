@@ -24,26 +24,6 @@ class SentenceNode extends Node
 	protected $sentence;
 	
 	/**
-	 * Gets all modal sentence nodes in an array of nodes, whose sentence's
-	 * operator has a particular name.
-	 *
-	 * @param array $searchNodes An array of {@link SentenceNode}s to search.
-	 * @param string $operatorName The name of the {@link Operator} to search for.
-	 * @return array Array of {@link SentenceNode}s.
-	 */
-	public static function findNodesByOperatorName( array $searchNodes, $operatorName )
-	{
-		$nodes = array();
-		foreach ( $searchNodes as $node )
-			if ($node instanceof SentenceNode &&
-				$node->getSentence() instanceof MolecularSentence &&
-				$node->getSentence()->getOperator()->getName() === $operatorName	
-			)
-				$nodes[] = $node;
-		return $nodes;
-	}
-	
-	/**
 	 * Constructor.
 	 *
 	 * Sets the sentence.

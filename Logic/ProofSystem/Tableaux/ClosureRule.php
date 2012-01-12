@@ -8,7 +8,7 @@
 /**
  * Loads the {@link TableauException} class.
  */
-require_once 'TableauException.php';
+require_once 'GoTableaux/Logic/Exceptions/TableauException.php';
 
 /**
  * Represents a tableau closure rule.
@@ -22,12 +22,12 @@ interface ClosureRule
 	 * implementation of the rule.
 	 *
 	 * @param Branch $branch The branch to check for applicability.
-	 * @param TableauxSystem $tableauxSystem The Tableaux system.
+	 * @param Logic $logic The logic.
 	 * @return boolean Whether the closure rule applies, and thus whether the
 	 *				   branch should be closed. In the default implementation
 	 *				   of Tableau::build(), the closing of the branch
 	 *				   occurs when true is returned.
 	 * @throws {@link TableauException}
 	 */
-	public function doesApply( Branch $branch, TableauxSystem $tableauxSystem );
+	public function doesApply( Branch $branch, Logic $logic );
 }

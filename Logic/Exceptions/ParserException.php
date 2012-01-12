@@ -1,13 +1,13 @@
 <?php
 /**
  * Defines the ParserException class.
- * @package Syntax
+ * @package Exceptions
  * @author Douglas Owings
  */
 
 /**
  * Represents a parsing exception.
- * @package Syntax
+ * @package Exceptions
  * @author Douglas Owings
  */
 class ParserException extends Exception

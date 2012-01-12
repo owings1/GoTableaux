@@ -19,7 +19,7 @@ class GoModalClosureRule implements ClosureRule
 	 * @return boolean
 	 * @throws {@link TableauException}
 	 */
-	public function doesApply( Branch $branch, TableauxSystem $tableauxSystem )
+	public function doesApply( Branch $branch, Logic $logic )
 	{
 		
 		$desNodes   = $branch->getDesignatedNodes();

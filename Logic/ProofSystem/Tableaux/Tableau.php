@@ -18,11 +18,10 @@ require_once 'Branch.php';
 /**
  * Loads the {@link TableauException} class.
  */
-require_once 'TableauException.php';
+require_once 'GoTableaux/Logic/Exceptions/TableauException.php';
 
 /**
- * Loads the {@link Structure} class.
- * @see Tableau::buildStructure()
+ * Loads the {@link Structure} tree structure class.
  */
 require_once 'Structure.php';
 
@@ -65,9 +64,9 @@ class Tableau extends Proof
 	 */
 	public function createBranch( $nodes = null )
 	{
-		$branchClass = $this->branchClass;
+		$branchClass = $this->getProofSystem()->getBranchClass();
 		$branch = new $branchClass( $this );
-		if ( !empty( $nodes )) $branch->addNode( $nodes );
+		if ( !empty( $nodes )) $branch->_addNode( $nodes );
 		$this->attach( $branch );
 		return $branch;
 	}
@@ -153,16 +152,7 @@ class Tableau extends Proof
 	{
 		$this->branches = array();
 	}
-	
-	/**
-	 * Alias for Proof::getProofSystem()
-	 */
-	public function getTableauxSystem()
-	{
-		return $this->getProofSystem();
-	}
-	
-	
+		
 	/**
 	 * Gets the tableau's tree structure representation.
 	 *
@@ -170,7 +160,11 @@ class Tableau extends Proof
 	 */
 	public function getStructure()
 	{
-		if ( empty( $this->structure )) $this->_buildStructure();
+		if ( empty( $this->structure )) {
+			$copy = $this->copy();
+			$this->structure = Structure::getInstance( $copy );
+			$this->structure->build();
+		}
 		return $this->structure;
 	}
 		
@@ -185,18 +179,5 @@ class Tableau extends Proof
 		$copy->clearBranches();
 		foreach ( $this->branches as $branch ) $copy->attach( $branch->copy() );
 		return $copy;
-	}
-
-	/**
-	 * Builds the tree structure.
-	 *
-	 * @return void
-	 * @uses Structure
-	 */	
-	protected function _buildStructure()
-	{
-		$copy = $this->copy();
-		$this->structure = Structure::getInstance( $copy );
-		$this->structure->build();
 	}
 }

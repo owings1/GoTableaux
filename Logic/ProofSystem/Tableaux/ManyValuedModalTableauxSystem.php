@@ -11,9 +11,9 @@
 require_once 'ModalTableauxSystem.php';
 
 /**
- * Loads the {@link ManyValuedModalTableau} class.
+ * Loads the {@link ManyValuedModalBranch} class.
  */
-require_once 'Tableau/ManyValuedModalTableau.php';
+require_once 'Branch/ManyValuedModalBranch.php';
 
 /**
  * Represents a tableaux system for a many-valued modal logic.
@@ -22,13 +22,13 @@ require_once 'Tableau/ManyValuedModalTableau.php';
  */
 class ManyValuedModalTableauxSystem extends ModalTableauxSystem
 {
-	protected $proofClass = 'ManyValuedModalTableau';
+	public $branchClass = 'ManyValuedModalBranch';
 	
-	public function buildTrunk( Tableau $tableau, Argument $argument )
+	public function buildTrunk( Tableau $tableau, Argument $argument, Logic $logic )
 	{
-		$branch = $tableau->createBranch();
-		foreach ( $argument->getPremises() as $premise ) $branch->addSentenceNode( $premise, 0, true );
-		$branch->addSentenceNode( $argument->getConclusion(), 0, false );
+		$trunk = $tableau->createBranch();
+		foreach ( $argument->getPremises() as $premise ) $trunk->createSentenceNode( $premise, 0, true );
+		$trunk->createSentenceNode( $argument->getConclusion(), 0, false );
 	}
 	
 	public function induceModel( Branch $branch )

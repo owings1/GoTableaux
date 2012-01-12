@@ -120,19 +120,6 @@ class GoModalTableauxSystem extends ManyValuedModalTableauxSystem
 		return array( 'W' => $W, 'R' => $R, 'v' => $v );
 		*/
 	}
-	
-	/**
-	 * Negates a sentence.
-	 *
-	 * @param Sentence $sentence The sentence to negate.
-	 * @return Sentence The negated sentence.
-	 */
-	public function negateSentence( Sentence $sentence )
-	{
-		$negation = $this->getOperator( 'Negation' );
-		$negatedSentence = Sentence::createMolecular( $negation, array( $sentence ));
-		return $this->registerSentence( $negatedSentence );
-	}
 }
 
 /*

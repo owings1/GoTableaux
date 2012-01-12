@@ -1,13 +1,13 @@
 <?php
 /**
  * Defines the WriterException class.
- * @package Tableaux
+ * @package Exceptions
  * @author Douglas Owings
  */
 
 /**
  * Represents a tableau writer exception.
- * @package Tableaux
+ * @package Exceptions
  * @author Douglas Owings
  */
 class WriterException extends Exception

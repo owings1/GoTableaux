@@ -18,7 +18,7 @@
     <td colspan="2" class="header-menu">
       
                         
-                                                                              		[ <a href="classtrees_Logic.html" class="menu">class tree: Logic</a> ]
+                                                                                            		[ <a href="classtrees_Logic.html" class="menu">class tree: Logic</a> ]
 		[ <a href="elementindex_Logic.html" class="menu">index: Logic</a> ]
             [ <a href="elementindex.html" class="menu">all elements</a> ]
     </td>
@@ -33,6 +33,7 @@
       <b>Packages:</b><br />
   <div class="package">
               <a href="li_Logic.html">Logic</a><br />
+              <a href="li_Exceptions.html">Exceptions</a><br />
               <a href="li_ModelTheory.html">ModelTheory</a><br />
               <a href="li_Proof.html">Proof</a><br />
               <a href="li_Tableaux.html">Tableaux</a><br />
@@ -43,12 +44,14 @@
         <div class="package">
 				<span style="padding-left: 1em;"><a href="Logic/_Argument.php.html">Argument.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="Logic/_Logic.php.html">Logic.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="Logic/_Utilities.php.html">Utilities.php</a></span><br />
 	  </div>
             <br />
                   <b>Classes:</b><br />
         <div class="package">
 		    		<a href="Logic/Argument.html">Argument</a>    	 <br />
 	    		<a href="Logic/Logic.html">Logic</a>    	 <br />
+	    		<a href="Logic/Utilities.html">Utilities</a>    	 <br />
 	  </div>
                 </td>
     <td>
@@ -58,7 +61,8 @@
 <h1>Element index for package Logic</h1>
 	<h3>Package indexes</h3>
 	<ul>
-						<li><a href="elementindex_ModelTheory.html">ModelTheory</a></li>
+						<li><a href="elementindex_Exceptions.html">Exceptions</a></li>
+					<li><a href="elementindex_ModelTheory.html">ModelTheory</a></li>
 					<li><a href="elementindex_Proof.html">Proof</a></li>
 					<li><a href="elementindex_Tableaux.html">Tableaux</a></li>
 					<li><a href="elementindex_Syntax.html">Syntax</a></li>
@@ -67,24 +71,12 @@
 	[ <a href="elementindex_Logic.html#c">c</a> ]
 	[ <a href="elementindex_Logic.html#g">g</a> ]
 	[ <a href="elementindex_Logic.html#l">l</a> ]
+	[ <a href="elementindex_Logic.html#n">n</a> ]
 	[ <a href="elementindex_Logic.html#p">p</a> ]
 	[ <a href="elementindex_Logic.html#s">s</a> ]
+	[ <a href="elementindex_Logic.html#u">u</a> ]
 	[ <a href="elementindex_Logic.html#v">v</a> ]
-	[ <a href="elementindex_Logic.html#_">_</a> ]
 <br /><br />
-	<a name="_"></a>
-	<div class="index-letter-section">
-		<div style="float: left" class="index-letter-title">_</div>
-		<div style="float: right"><a href="#top">[Top]</a></div>
-		<div style="clear: both"></div>
-	</div>
-	<div>
-		<h2>_</h2>
-		<dl>
-							<dt><b>__construct</b></dt>
-				<dd>in file Logic.php, method <a href="Logic/Logic.html#method__construct">Logic::__construct()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructor.</dd>
-					</dl>
-	</div>
 	<a name="a"></a>
 	<div class="index-letter-section">
 		<div style="float: left" class="index-letter-title">a</div>
@@ -98,10 +90,14 @@
 				<dd>in file Argument.php, method <a href="Logic/Argument.html#methodaddPremise">Argument::addPremise()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a premise to the argument.</dd>
 							<dt><b>addPremises</b></dt>
 				<dd>in file Argument.php, method <a href="Logic/Argument.html#methodaddPremises">Argument::addPremises()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds multiple premises to the argument.</dd>
+							<dt><b>applyOperatorToOperands</b></dt>
+				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodapplyOperatorToOperands">Logic::applyOperatorToOperands()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Applies an operator to some operands to generate a new sentence.</dd>
 							<dt><b>Argument</b></dt>
 				<dd>in file Argument.php, class <a href="Logic/Argument.html">Argument</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents an argument as a set of premises and one conclusion.</dd>
 							<dt><b>Argument.php</b></dt>
 				<dd>procedural page <a href="Logic/_Argument.php.html">Argument.php</a></dd>
+							<dt><b>arrayDiff</b></dt>
+				<dd>in file Utilities.php, method <a href="Logic/Utilities.html#methodarrayDiff">Utilities::arrayDiff()</a></dd>
 					</dl>
 	</div>
 	<a name="c"></a>
@@ -115,8 +111,6 @@
 		<dl>
 							<dt><b>$conclusion</b></dt>
 				<dd>in file Argument.php, variable <a href="Logic/Argument.html#var$conclusion">Argument::$conclusion</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The conclusion.</dd>
-							<dt><b>$consequences</b></dt>
-				<dd>in file Logic.php, variable <a href="Logic/Logic.html#var$consequences">Logic::$consequences</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds evaluated logical consequences.</dd>
 							<dt><b>createWithPremisesAndConclusion</b></dt>
 				<dd>in file Argument.php, method <a href="Logic/Argument.html#methodcreateWithPremisesAndConclusion">Argument::createWithPremisesAndConclusion()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates an argument with given premises and conclusion.</dd>
 					</dl>
@@ -132,6 +126,8 @@
 		<dl>
 							<dt><b>getConclusion</b></dt>
 				<dd>in file Argument.php, method <a href="Logic/Argument.html#methodgetConclusion">Argument::getConclusion()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the conclusion of the argument.</dd>
+							<dt><b>getOperator</b></dt>
+				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodgetOperator">Logic::getOperator()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets an operator from the logic's vocabulary.</dd>
 							<dt><b>getPremises</b></dt>
 				<dd>in file Argument.php, method <a href="Logic/Argument.html#methodgetPremises">Argument::getPremises()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all the premises of the argument.</dd>
 							<dt><b>getProofSystem</b></dt>
@@ -157,6 +153,19 @@
 				<dd>procedural page <a href="Logic/_Logic.php.html">Logic.php</a></dd>
 					</dl>
 	</div>
+	<a name="n"></a>
+	<div class="index-letter-section">
+		<div style="float: left" class="index-letter-title">n</div>
+		<div style="float: right"><a href="#top">[Top]</a></div>
+		<div style="clear: both"></div>
+	</div>
+	<div>
+		<h2>n</h2>
+		<dl>
+							<dt><b>negate</b></dt>
+				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodnegate">Logic::negate()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Negates a sentence.</dd>
+					</dl>
+	</div>
 	<a name="p"></a>
 	<div class="index-letter-section">
 		<div style="float: left" class="index-letter-title">p</div>
@@ -166,14 +175,16 @@
 	<div>
 		<h2>p</h2>
 		<dl>
-							<dt><b>$parser</b></dt>
-				<dd>in file Logic.php, variable <a href="Logic/Logic.html#var$parser">Logic::$parser</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the parser.</dd>
 							<dt><b>$premises</b></dt>
 				<dd>in file Argument.php, variable <a href="Logic/Argument.html#var$premises">Argument::$premises</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The set of premises. An array of <a href="Syntax/Sentence.html">Sentence</a> objects.</dd>
 							<dt><b>$proofSystem</b></dt>
 				<dd>in file Logic.php, variable <a href="Logic/Logic.html#var$proofSystem">Logic::$proofSystem</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the proof system.</dd>
 							<dt><b>$proofSystemClass</b></dt>
 				<dd>in file Logic.php, variable <a href="Logic/Logic.html#var$proofSystemClass">Logic::$proofSystemClass</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Defines the proof system class.</dd>
+							<dt><b>parseArgument</b></dt>
+				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodparseArgument">Logic::parseArgument()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Parses an argument.</dd>
+							<dt><b>parseSentence</b></dt>
+				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodparseSentence">Logic::parseSentence()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Parses a sentence string.</dd>
 					</dl>
 	</div>
 	<a name="s"></a>
@@ -187,6 +198,23 @@
 		<dl>
 							<dt><b>setConclusion</b></dt>
 				<dd>in file Argument.php, method <a href="Logic/Argument.html#methodsetConclusion">Argument::setConclusion()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the conclusion of the argument.</dd>
+							<dt><b>strPosArr</b></dt>
+				<dd>in file Utilities.php, method <a href="Logic/Utilities.html#methodstrPosArr">Utilities::strPosArr()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Searches a string for the first occurrence of any string in a given array.</dd>
+					</dl>
+	</div>
+	<a name="u"></a>
+	<div class="index-letter-section">
+		<div style="float: left" class="index-letter-title">u</div>
+		<div style="float: right"><a href="#top">[Top]</a></div>
+		<div style="clear: both"></div>
+	</div>
+	<div>
+		<h2>u</h2>
+		<dl>
+							<dt><b>Utilities</b></dt>
+				<dd>in file Utilities.php, class <a href="Logic/Utilities.html">Utilities</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Collects general PHP utilities.</dd>
+							<dt><b>Utilities.php</b></dt>
+				<dd>procedural page <a href="Logic/_Utilities.php.html">Utilities.php</a></dd>
 					</dl>
 	</div>
 	<a name="v"></a>
@@ -204,7 +232,7 @@
 	</div>
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Tue, 27 Dec 2011 03:18:55 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Fri, 06 Jan 2012 11:10:21 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

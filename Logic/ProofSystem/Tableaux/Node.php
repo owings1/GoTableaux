@@ -13,13 +13,6 @@
 abstract class Node
 {
 	/**
-	 * Holds the branches relative to which the node is ticked.
-	 * @var array Array of Branch objects.
-	 * @access private
-	 */
-	protected $tickedBranches = array();
-	
-	/**
 	 * Ticks the node relative to a branch.
 	 *
 	 * @param Branch $branch The branch relative to which to tick the
@@ -28,8 +21,7 @@ abstract class Node
 	 */
 	public function tickAtBranch( Branch $branch )
 	{
-		if ( !in_array( $branch, $this->tickedBranches, true ))
-			$this->tickedBranches[] = $branch;
+		$branch->tickNode( $this );
 		return $this;
 	}
 	
@@ -41,27 +33,6 @@ abstract class Node
 	 */
 	public function isTickedAtBranch( Branch $branch )
 	{
-		return in_array( $branch, $this->tickedBranches, true );
-	}
-	
-	/**
-	 * Alias of Node::tickAtBranch()
-	 *
-	 * @param Branch $branch
-	 * @return Node
-	 */
-	public function tick( Branch $branch )
-	{
-		return $this->tickAtBranch( $branch );
-	}
-	
-	/**
-	 * Alias of Node::isTickedAtBranch()
-	 * @param Branch $branch
-	 * @return boolean 
-	 */
-	public function ticked( Branch $branch )
-	{
-		return $this->isTickedAtBranch( $branch );
+		return in_array( $this, $branch->getTickedNodes(), true );
 	}
 }

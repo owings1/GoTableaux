@@ -8,7 +8,7 @@
 /**
  * Loads the {@link TableauException} class.
  */
-require_once 'GoTableaux/Logic/ProofSystem/Tableaux/TableauException.php';
+require_once 'GoTableaux/Logic/Exceptions/TableauException.php';
 
 /**
  * Loads the {@link Branch} parent class.
@@ -35,48 +35,36 @@ require_once 'GoTableaux/Logic/ProofSystem/Tableaux/Node/AccessNode.php';
 class ModalBranch extends Branch
 {
 	/**
-	 * Holds the access nodes.
-	 * @var array Array of {@link AccessNode}s.
+	 * Holds the {@link AccessNode}s.
+	 * @var array 
+	 * @access private
 	 */
 	protected $accessNodes = array();
 	
 	/**
-	 * Holds the sentence nodes.
-	 * @var array Array of {@link SentenceNode}s.
+	 * Hashes the access relation.
+	 * @var array
+	 * @access private
 	 */
-	protected $sentenceNodes = array();
+	protected $accessRelation = array();
 	
 	/**
-	 * Gets all world indexes that appear in an array of modal access nodes.
-	 *
-	 * @param array $nodes An array of {@link Node}s to search.
-	 * @return array Array of unique integer indexes that occur on the nodes.
+	 * Hashes the indexes on the branch.
+	 * @var array
+	 * @access private
 	 */
-	public static function getIndexesFromNodes( array $nodes )
-	{
-		$indexes = array();
-		foreach ( $nodes as $node ) {
-			if ( $node instanceof ModalNode ) $indexes[] = $node->getI();
-			if ( $node instanceof AccessNode ) $indexes[] = $node->getJ();
-		}
-		return array_unique( $indexes );
-	}
+	protected $indexes = array();
 	
 	/**
 	 * Adds a new access node for the given two integer indexes.
 	 *
 	 * @param integer $i The first index.
 	 * @param integer $j The second index.
-	 * @param boolean $allowDuplicate Whether to add a node even if an exactly
-	 *								  similar node is already on the branch.
-	 *								  Default is false.
 	 * @return ModalBranch Current instance.
 	 */
-	public function addAccessNode( $i, $j, $allowDuplicate = false )
+	public function createAccessNode( $i, $j )
 	{
-		if ( $allowDuplicate || !$this->hasAccessNode( $i, $j ))
-			$this->addNode( new AccessNode( $i, $j ) );
-		return $this;
+		return $this->_addNode( new AccessNode( $i, $j ) );
 	}
 	
 	/**
@@ -90,68 +78,13 @@ class ModalBranch extends Branch
 	}
 	
 	/**
-	 * Gets all modal access nodes that have a given first index.
-	 *
-	 * @param integer $i The value of the first index of the access nodes to get.
-	 * @return array Array of {@link AccessNode}s.
-	 */
-	protected function getAccessNodesByI( $i )
-	{
-		$nodes = array();
-		foreach ( $this->getAccessNodes() as $node )
-			if ( $node->getI() === $i ) $nodes[] = $node;
-		return $nodes;
-	}
-	
-	/**
-	 * Gets all modal access nodes that have a given second index.
-	 *
-	 * @param integer $j The value of the second index of the access nodes to get.
-	 * @return array Array of {@link AccessNode}s.
-	 */
-	protected function getAccessNodesByJ( $j )
-	{
-		$nodes = array();
-		foreach ( $this->getAccessNodes() as $node )
-			if ( $node->getJ() === $j ) $nodes[] = $node;
-		return $nodes;
-	}
-	
-	/**
-	 * Get all modal access nodes whose first and second indexes are equal.
-	 *
-	 * @return array Array of {@link AccessNodes}s.
-	 */
-	public function getReflexiveNodes()
-	{
-		$nodes = array();
-		foreach ( $this->getAccessNodes() as $node )
-			if ( $node->getI() === $node->getJ() ) $nodes[] = $node;
-		return $nodes;
-	}
-	
-	/**
-	 * Checks for existence of access node with given indexes.
-	 *
-	 * @param integer $i The first index.
-	 * @param integer $j The second index.
-	 * @return boolean Whether such an access node is on the branch.
-	 */
-	public function hasAccessNode( $i, $j )
-	{
-		foreach ( $this->getAccessNodes() as $node )
-			if ( $node->getI() === $i && $node->getJ() === $j ) return true;
-		return false;
-	}
-	
-	/**
 	 * Gets all world indexes that appear on the branch.
 	 *
 	 * @return array Array of unique integer indexes that appear on the branch.
 	 */
-	public function getAllIndexes()
+	public function getIndexes()
 	{
-		return self::getIndexesFromNodes( $this->getNodes() );
+		return $this->indexes;
 	}
 	
 	/**
@@ -162,23 +95,9 @@ class ModalBranch extends Branch
 	public function getReflexiveIndexes()
 	{
 		$indexes = array();
-		foreach ( $this->getAllIndexes() as $index )
-			if ( $this->hasAccessNode( $index, $index )) $indexes[] = $index;
-		return array_unique( $indexes );
-	}
-	
-	/**
-	 * Gets all the second indexes of access nodes by a particular first index.
-	 *
-	 * @param integer $i The first index to search for.
-	 * @return array Array of unique second index integers.
-	 */
-	public function getAccessedIndexes( $i )
-	{
-		$indexes = array();
-		foreach ( $this->getAccessNodesByI( $i ) as $node )
-			$js[] = $node->getJ();
-		return array_unique( $js );
+		foreach ( $this->getIndexes() as $index )
+			if ( $this->accesses( $index, $index )) $indexes[] = $index;
+		return $indexes;
 	}
 	
 	/**
@@ -190,9 +109,22 @@ class ModalBranch extends Branch
 	 */
 	public function accesses( $i, $j )
 	{
-		foreach ( $this->getAccessNodes() as $node )
-			if ( $node->getI() === $i && $node->getJ() === $j ) return true;
-		return false;
+		return in_array( $j, $this->getAccessRelation( $i ));
+	}
+	
+	/**
+	 * Gets the access relation.
+	 *
+	 * @param integer $i The index whose access relation to get.
+	 * @return array If $i is set, then the array of indexes that $i access is
+	 *				 returned. Otherwise, a two-dimensional array of the access
+	 *				 relation is returned.
+	 */
+	public function getAccessRelation( $i = null )
+	{
+		if ( is_null( $i )) return $this->accessRelation;
+		if ( !isset( $this->accessRelation[$i] )) $this->accessRelation[$i] = array();
+		return $this->accessRelation[$i];
 	}
 	
 	/**
@@ -204,8 +136,8 @@ class ModalBranch extends Branch
 	 */
 	public function indexIsTransitive( $i, &$firstMissing = null )
 	{
-		foreach ( $this->getAccessedIndexes( $i ) as $indexA )
-			foreach ( $this->getAccessedIndexes( $indexA ) as $indexB )
+		foreach ( $this->getAccessRelation( $i ) as $indexA )
+			foreach ( $this->getAccessRelation( $indexA ) as $indexB )
 				if ( !$this->accesses( $i, $indexB )) {
 					$firstMissing = $indexB;
 					return false;
@@ -220,24 +152,9 @@ class ModalBranch extends Branch
 	 * @param integer $index The world index of the node.
 	 * @return ModalBranch Current instance.
 	 */
-	public function createSentenceNode( Sentence $sentence, $i )
+	public function createSentenceNodeAtIndex( Sentence $sentence, $i )
 	{
-		if ( !$this->hasSentenceNode( $sentence, $i )) {
-			$sentence = $this->registerSentence( $sentence );
-			$this->addNode( new ModalSentenceNode( $sentence, $i ));
-		}
-		return $this;
-	}
-	
-	/**
-	 * Gets all modal sentence nodes on the branch.
-	 *
-	 * @param boolean $untickedOnly Whether to limit search to nodes that are unticked.
-	 * @return array Array of {@link ModalSentenceNode}s.
-	 */
-	public function getSentenceNodes( $untickedOnly = false )
-	{
-		return $this->sentenceNodes;
+		return $this->_addNode( new ModalSentenceNode( $sentence, $i ));
 	}
 	
 	/**
@@ -247,45 +164,83 @@ class ModalBranch extends Branch
 	 * @param integer $i The index to search for.
 	 * @return boolean Whether such a sentence node is on the branch.
 	 */
-	public function hasSentenceNode( Sentence $sentence, $i )
+	public function hasSentenceAtIndex( Sentence $sentence, $i )
 	{
 		foreach ( $this->getSentenceNodes() as $node )
-			if ( $node->getSentence === $sentence && $node->getI() === $i ) return true;
+			if ( $node->getSentence() === $sentence && $node->getI() === $i ) return true;
 		return false;
+	}
+	
+	/**
+	 * Stores an access relationship.
+	 *
+	 * @param integer $i The first index.
+	 * @param integer $j The second index.
+	 * @return ModalBranch Current instance.
+	 * @access private
+	 */
+	protected function _addAccessRelationship( $i, $j )
+	{
+		if ( !in_array( $j, $this->accessRelation[$i] )) $this->accessRelation[$i][] = $j;
+		return $this;
+	}
+	
+	/**
+	 * Stores an index on the branch.
+	 * 
+	 * @param integer $i The index to store.
+	 * @return ModalBranch Current instance.
+	 * @access private
+	 */
+	protected function _addIndex( $i )
+	{
+		if ( !in_array( $i, $this->indexes )) {
+			$this->indexes[] = $i;
+			$this->accessRelation[$i] = array();
+		}
+		return $this;
 	}
 	
 	/**
 	 * Adds a node to the branch.
 	 *
 	 * @param Node $node The node to add.
-	 * @return void
+	 * @return ModalBranch Current instance.
+	 * @access private
 	 */
-	protected function addNode( Node $node )
+	protected function _addNode( Node $node )
 	{
-		if ( $node instanceof SentenceNode ) $this->sentenceNodes[] = $node;
-		elseif ( $node instanceof AccessNode ) $this->accessNodes[] = $node;
-		parent::addNode( $node );
+		$this->_addIndex( $node->getI() );
+		if ( $node instanceof AccessNode ) {
+			$this->accessNodes[] = $node;
+			$this->_addAccessRelationship( $node->getI(), $node->getJ() )
+				 ->_addIndex( $node->getJ() );
+		}
+		return parent::_addNode( $node );
 	}
 	
 	/**
 	 * Removes a node from the branch.
 	 * 
 	 * @param Node $node The node to remove.
-	 * @return void
+	 * @return ModalBranch Current instance.
+	 * @access private
 	 */
-	protected function removeNode( Node $node )
+	protected function _removeNode( Node $node )
 	{
-		if ( $node instanceof SentenceNode ) {
-			$sentenceNodes = array();
-			foreach ( $this->sentenceNodes as $sentenceNode )
-				if ( $node !== $sentenceNode ) $sentenceNodes[] = $node;
-			$this->sentenceNodes = $sentenceNodes;
-		} elseif ( $node instanceof AccessNode ) {
-			$accessNodes = array();
-			foreach ( $this->accessNodes as $accessNode )
-				if ( $node !== $accessNode ) $accessNodes[] = $node;
-			$this->accessNodes = $accessNodes;
+		if ( $node instanceof AccessNode ) {
+			$key = array_search( $node, $this->accessNodes, true );
+			if ( $key !== false ) array_splice( $this->accessNodes, $key, 1 );
 		}
-		parent::removeNode( $node );
+		parent::_removeNode( $node );
+		$this->accessNodes = $this->indexes = $this->accessRelation = array();
+		foreach ( $this->getNodes() as $node ) {
+			$this->_addIndex( $node->getI() );
+			if ( $node instanceof AccessNode ) {
+				$this->accessNodes[] = $node;
+				$this->_addAccessRelationship( $node->getI(), $node->getJ() )
+					 ->_addIndex( $node->getJ() );
+			}
+		}
 	}
 }

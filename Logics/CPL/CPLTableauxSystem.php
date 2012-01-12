@@ -36,29 +36,4 @@ class CPLTableauxSystem extends PropositionalTableauxSystem
 		'CPLBranchRule_NegatedMaterialBiconditional',
 		'CPLBranchRule_DoubleNegation'
 	);
-	
-	
-	/**
-	 * Induces a model from an open branch.
-	 *
-	 * @param Branch $branch The open branch.
-	 * @return Model The induced model.
-	 */
-	public function induceModel( Branch $branch )
-	{
-		
-	}
-	
-	/**
-	 * Negates a sentence.
-	 *
-	 * @param Sentence $sentence The sentence to negate.
-	 * @return Sentence The negated sentence.
-	 */
-	public function negateSentence( Sentence $sentence )
-	{
-		$negation = $this->getOperator( 'Negation' );
-		$negatedSentence = Sentence::createMolecular( $negation, array( $sentence ));
-		return $this->registerSentence( $negatedSentence );
-	}
 }

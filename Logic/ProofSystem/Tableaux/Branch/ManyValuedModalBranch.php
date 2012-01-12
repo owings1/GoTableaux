@@ -24,6 +24,13 @@ require_once 'GoTableaux/Logic/ProofSystem/Tableaux/Node/ManyValuedModalSentence
 class ManyValuedModalBranch extends ModalBranch
 {
 	/**
+	 * Holds the designated nodes.
+	 * @var array
+	 * @access private
+	 */
+	protected $designatedNodes = array();
+	
+	/**
 	 * Adds a sentence node to the branch.
 	 *
 	 * @param Sentence $sentence The sentence to place on the node.
@@ -31,12 +38,9 @@ class ManyValuedModalBranch extends ModalBranch
 	 * @param boolean $isDesignated The designation flag of the node.
 	 * @return ManyValuedModalBranch Current instance.
 	 */
-	public function addSentenceNode( Sentence $sentence, $i, $isDesignated )
+	public function createSentenceNodeAtIndexWithDesignation( Sentence $sentence, $i, $isDesignated )
 	{
-		if ( !$this->hasSentenceNode( $sentence, $i, $isDesignated )) {
-			$sentence = $this->registerSentence( $sentence );
-			$this->addNode( new ManyValuedModalSentenceNode( $sentence, $i, $isDesignated ));
-		}		
+		$this->_addNode( new ManyValuedModalSentenceNode( $sentence, $i, $isDesignated ));		
 		return $this;
 	}
 	
@@ -48,13 +52,14 @@ class ManyValuedModalBranch extends ModalBranch
 	 * @param boolean $isDesignated The designation flag of the node.
 	 * @return boolean Whether such a node is on the branch.
 	 */
-	public function hasSentenceNode( Sentence $sentence, $i, $isDesignated )
+	public function hasSentenceAtIndexWithDesignation( Sentence $sentence, $i, $isDesignated )
 	{
 		foreach ( $this->getSentenceNodes() as $node )
-			if ( $node->getSentence === $sentence && 
-				 $node->getI() === $i && 
-				 $node->isDesignated() === $isDesignated
-				) return true;
+			if ( 
+				$node->getSentence() 	=== $sentence 	&& 
+				$node->getI() 			=== $i 			&& 
+				$node->isDesignated() 	=== $isDesignated
+			) return true;
 		return false;
 	}
 	
@@ -67,12 +72,8 @@ class ManyValuedModalBranch extends ModalBranch
 	 */
 	public function getDesignatedNodes( $untickedOnly = false )
 	{
-		$nodes = array();
-		foreach ( $this->getSentenceNodes() as $node )
-			if ( $node->isDesignated() && 
-				 !( $untickedOnly && $node->isTickedAtBranch( $this ))
-				) $nodes[] = $node;
-		return $nodes;
+		if ( !$untickedOnly ) return $this->designatedNodes;
+		return Utilities::arrayDiff( $this->designatedNodes, $this->getTickedNodes() );
 	}
 	
 	/**
@@ -84,11 +85,26 @@ class ManyValuedModalBranch extends ModalBranch
 	 */
 	public function getUndesignatedNodes( $untickedOnly = false )
 	{
-		$nodes = array();
-		foreach ( $this->getSentenceNodes() as $node )
-			if ( ! $node->isDesignated() && 
-				 !( $untickedOnly && $node->isTickedAtBranch( $this )) 
-				) $nodes[] = $node;
-		return $nodes;
+		return Utilities::arrayDiff( $this->getSentenceNodes( $untickedOnly ), $this->designatedNodes );
+	}
+	
+	/**
+	 * @access private
+	 */
+	protected function _addNode( Node $node )
+	{
+		if ( $node instanceof SentenceNode && $node->isDesignated() )
+			$this->designatedNodes[] = $node;
+		return parent::_addNode( $node );
+	}
+	
+	/**
+	 * @access private
+	 */
+	protected function _removeNode( Node $node )
+	{
+		$key = array_search( $node, $this->designatedNodes, true );
+		if ( $key !== false ) array_splice( $this->designatedNodes, $key, 1 );
+		return parent::_removeNode( $node );
 	}
 }

@@ -6,6 +6,11 @@
  */
 
 /**
+ * Loads the {@link Utilities} class.
+ */
+require_once 'GoTableaux/Logic/Utilities.php';
+
+/**
  * Represents the proper 'tree' structure of a tableau. 
  *
  * This is a simple composition structure class which takes a {@link Tableau} 
@@ -82,7 +87,7 @@ class Structure
 	 * Gets all nodes that are on each of an array of branches.
 	 *
 	 * @param array $branches Array of {@link Branch}es.
-	 * @return array Array of common {@link Node nodes}. 
+	 * @return array Array of common {@link Node}s. 
 	 */
 	protected static function findNodesCommonToBranches( array $branches )
 	{
@@ -99,21 +104,6 @@ class Structure
 			if ( $isCommon ) $commonNodes[] = $node;
 		}
 		return array_unique( $commonNodes );
-	}
-	
-	/**
-	 * Subtracts one array from another, reference strict.
-	 *
-	 * @param array $a The first array.
-	 * @param array $b The second array.
-	 * @return array An array of everything in $a that is not also in $b.
-	 */
-	protected static function subtract( array $a, array $b )
-	{
-		$retArr = array();
-		foreach ( $a as $v )
-			if ( ! in_array( $v, $b, true )) $retArr[] = $v;
-		return $retArr;
 	}
 	
 	/**
@@ -185,6 +175,7 @@ class Structure
 	 *
 	 * @param array $branches Array of {@link Branch}es to structurize.
 	 * @return void
+	 * @access private
 	 */
 	protected function structurize( array $branches )
 	{
@@ -193,7 +184,7 @@ class Structure
 		// get nodes that are common to branches
 		$nodes = self::findNodesCommonToBranches( $branches );
 		
-		foreach ( $nodes as $node ){
+		foreach ( $nodes as $node ) {
 			$ticked = false;
 			foreach ( $branches as $branch ) $ticked |= $node->isTickedAtBranch( $branch );
 			if ( $ticked ) $this->tickedNodes[] = $node;
@@ -206,7 +197,7 @@ class Structure
 		$this->nodes = $nodes;
 		
 		if ( count( $branches ) > 1 ) 
-			while ( ! empty( $branches )) {
+			while ( !empty( $branches )) {
 				// grab first node from a branch
 				$branch = $branches[0];
 				$n 		= $branch->getNodes();
@@ -216,7 +207,7 @@ class Structure
 				$group = self::findBranchesWithNode( $branches, $node );
 				
 				// remove them from $branches
-				$branches = self::subtract( $branches, $group );
+				$branches = Utilities::arrayDiff( $branches, $group );
 				
 				// add group to sub structures
 				$structure = new self();

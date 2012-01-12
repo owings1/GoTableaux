@@ -1,13 +1,13 @@
 <?php
 /**
  * Defines the VocabularyException class.
- * @package Syntax
+ * @package Exceptions
  * @author Douglas Owings
  */
 
 /**
  * Represents a vocabulary exception.
- * @package Syntax
+ * @package Exceptions
  * @author Douglas Owings
  */
 class VocabularyException extends Exception

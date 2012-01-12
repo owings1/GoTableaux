@@ -17,7 +17,7 @@
   <tr>
     <td colspan="2" class="header-menu">
       
-                                                    
+                                                                  
                                                   		[ <a href="classtrees_Proof.html" class="menu">class tree: Proof</a> ]
 		[ <a href="elementindex_Proof.html" class="menu">index: Proof</a> ]
             [ <a href="elementindex.html" class="menu">all elements</a> ]
@@ -33,6 +33,7 @@
       <b>Packages:</b><br />
   <div class="package">
               <a href="li_Logic.html">Logic</a><br />
+              <a href="li_Exceptions.html">Exceptions</a><br />
               <a href="li_ModelTheory.html">ModelTheory</a><br />
               <a href="li_Proof.html">Proof</a><br />
               <a href="li_Tableaux.html">Tableaux</a><br />
@@ -43,7 +44,6 @@
         <div class="package">
 				<span style="padding-left: 1em;"><a href="Proof/_ProofSystem---Counterexample.php.html">Counterexample.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="Proof/_ProofSystem---Proof.php.html">Proof.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="Proof/_ProofSystem---ProofException.php.html">ProofException.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="Proof/_ProofSystem.php.html">ProofSystem.php</a></span><br />
 	  </div>
             <br />
@@ -54,7 +54,6 @@
                   <b>Classes:</b><br />
         <div class="package">
 		    		<a href="Proof/Proof.html">Proof</a>    	 <br />
-	    		<a href="Proof/ProofException.html">ProofException</a>    	 <br />
 	    		<a href="Proof/ProofSystem.html">ProofSystem</a>    	 <br />
 	  </div>
                 </td>
@@ -66,6 +65,7 @@
 	<h3>Package indexes</h3>
 	<ul>
 				<li><a href="elementindex_Logic.html">Logic</a></li>
+					<li><a href="elementindex_Exceptions.html">Exceptions</a></li>
 					<li><a href="elementindex_ModelTheory.html">ModelTheory</a></li>
 							<li><a href="elementindex_Tableaux.html">Tableaux</a></li>
 					<li><a href="elementindex_Syntax.html">Syntax</a></li>
@@ -76,8 +76,8 @@
 	[ <a href="elementindex_Proof.html#e">e</a> ]
 	[ <a href="elementindex_Proof.html#g">g</a> ]
 	[ <a href="elementindex_Proof.html#i">i</a> ]
+	[ <a href="elementindex_Proof.html#l">l</a> ]
 	[ <a href="elementindex_Proof.html#p">p</a> ]
-	[ <a href="elementindex_Proof.html#r">r</a> ]
 	[ <a href="elementindex_Proof.html#s">s</a> ]
 	[ <a href="elementindex_Proof.html#v">v</a> ]
 	[ <a href="elementindex_Proof.html#_">_</a> ]
@@ -166,12 +166,10 @@
 				<dd>in file Proof.php, method <a href="Proof/Proof.html#methodgetArgument">Proof::getArgument()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the Argument object.</dd>
 							<dt><b>getCounterexample</b></dt>
 				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodgetCounterexample">ProofSystem::getCounterexample()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets a counterexample from a proof.</dd>
-							<dt><b>getOperator</b></dt>
-				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodgetOperator">ProofSystem::getOperator()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets an operator from the logic's vocabulary.</dd>
+							<dt><b>getLogic</b></dt>
+				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodgetLogic">ProofSystem::getLogic()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the logic instance.</dd>
 							<dt><b>getProofSystem</b></dt>
 				<dd>in file Proof.php, method <a href="Proof/Proof.html#methodgetProofSystem">Proof::getProofSystem()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the ProofSystem object.</dd>
-							<dt><b>getVocabulary</b></dt>
-				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodgetVocabulary">ProofSystem::getVocabulary()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the vocabulary.</dd>
 					</dl>
 	</div>
 	<a name="i"></a>
@@ -189,6 +187,19 @@
 				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodisValidProof">ProofSystem::isValidProof()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether a putative proof is valid.</dd>
 					</dl>
 	</div>
+	<a name="l"></a>
+	<div class="index-letter-section">
+		<div style="float: left" class="index-letter-title">l</div>
+		<div style="float: right"><a href="#top">[Top]</a></div>
+		<div style="clear: both"></div>
+	</div>
+	<div>
+		<h2>l</h2>
+		<dl>
+							<dt><b>$logic</b></dt>
+				<dd>in file ProofSystem.php, variable <a href="Proof/ProofSystem.html#var$logic">ProofSystem::$logic</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the logic instance.</dd>
+					</dl>
+	</div>
 	<a name="p"></a>
 	<div class="index-letter-section">
 		<div style="float: left" class="index-letter-title">p</div>
@@ -204,29 +215,12 @@
 				<dd>in file Proof.php, variable <a href="Proof/Proof.html#var$proofSystem">Proof::$proofSystem</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the proof system.</dd>
 							<dt><b>Proof</b></dt>
 				<dd>in file Proof.php, class <a href="Proof/Proof.html">Proof</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a proof.</dd>
-							<dt><b>ProofException</b></dt>
-				<dd>in file ProofException.php, class <a href="Proof/ProofException.html">ProofException</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a proof exception.</dd>
 							<dt><b>ProofSystem</b></dt>
 				<dd>in file ProofSystem.php, class <a href="Proof/ProofSystem.html">ProofSystem</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a proof system.</dd>
 							<dt><b>Proof.php</b></dt>
 				<dd>procedural page <a href="Proof/_ProofSystem---Proof.php.html">Proof.php</a></dd>
-							<dt><b>ProofException.php</b></dt>
-				<dd>procedural page <a href="Proof/_ProofSystem---ProofException.php.html">ProofException.php</a></dd>
 							<dt><b>ProofSystem.php</b></dt>
 				<dd>procedural page <a href="Proof/_ProofSystem.php.html">ProofSystem.php</a></dd>
-					</dl>
-	</div>
-	<a name="r"></a>
-	<div class="index-letter-section">
-		<div style="float: left" class="index-letter-title">r</div>
-		<div style="float: right"><a href="#top">[Top]</a></div>
-		<div style="clear: both"></div>
-	</div>
-	<div>
-		<h2>r</h2>
-		<dl>
-							<dt><b>registerSentence</b></dt>
-				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodregisterSentence">ProofSystem::registerSentence()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Registers a sentence in the logic's vocabulary.</dd>
 					</dl>
 	</div>
 	<a name="s"></a>
@@ -238,8 +232,8 @@
 	<div>
 		<h2>s</h2>
 		<dl>
-							<dt><b>setVocabulary</b></dt>
-				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodsetVocabulary">ProofSystem::setVocabulary()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the vocabulary.</dd>
+							<dt><b>setLogic</b></dt>
+				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodsetLogic">ProofSystem::setLogic()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the logic instance.</dd>
 					</dl>
 	</div>
 	<a name="v"></a>
@@ -257,7 +251,7 @@
 	</div>
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Tue, 27 Dec 2011 03:18:55 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Fri, 06 Jan 2012 11:10:21 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

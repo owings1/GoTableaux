@@ -11,14 +11,9 @@
 require_once 'GoTableaux/Logic/ProofSystem/TableauxSystem.php';
 
 /**
- * Loads the {@link PropositionalTableau} proof class.
+ * Loads the {@link PropositionalBranch} class.
  */
-require_once 'Tableau/PropositionalTableau.php';
-
-/**
- * Loads the {@link SentenceNode} class.
- */
-require_once 'Node/SentenceNode.php';
+require_once 'Branch/PropositionalBranch.php';
 
 /**
  * Represents a bivalent propositional tableaux system.
@@ -28,26 +23,25 @@ require_once 'Node/SentenceNode.php';
 abstract class PropositionalTableauxSystem extends TableauxSystem
 {
 	
-	protected $proofClass = 'PropositionalTableau';
+	public $branchClass = 'PropositionalBranch';
 	
 	/**
 	 * Builds a modal tableau trunk.
 	 *
 	 * @param ModalTableau $tableau The modal tableau.
 	 * @param Argument $argument The argument.
+	 * @param Logic $logic The logic of the proof system.
 	 * @return void
 	 */
-	public function buildTrunk( Tableau $tableau, Argument $argument )
+	public function buildTrunk( Tableau $tableau, Argument $argument, Logic $logic )
 	{
 		$trunk = $tableau->createBranch();
 		foreach ( $argument->getPremises() as $premise ) $trunk->createNode( $premise );
-		$negatedConclusion = $this->negateSentence( $argument->getConclusion() );
-		$trunk->createNode( $negatedConclusion );
+		$trunk->createNode( $logic->negate( $argument->getConclusion() ));
 	}
 	
 	public function induceModel( Branch $branch )
 	{
 		
 	}
-	
 }

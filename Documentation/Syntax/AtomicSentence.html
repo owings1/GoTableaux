@@ -17,7 +17,7 @@
   <tr>
     <td colspan="2" class="header-menu">
       
-                                                                  
+                                                                                
                                     		[ <a href="../classtrees_Syntax.html" class="menu">class tree: Syntax</a> ]
 		[ <a href="../elementindex_Syntax.html" class="menu">index: Syntax</a> ]
             [ <a href="../elementindex.html" class="menu">all elements</a> ]
@@ -32,6 +32,7 @@
 		<div class="package-title">Syntax</div>
       <b>Packages:</b><br />
   <div class="package">
+              <a href="../li_Exceptions.html">Exceptions</a><br />
               <a href="../li_Logic.html">Logic</a><br />
               <a href="../li_ModelTheory.html">ModelTheory</a><br />
               <a href="../li_Proof.html">Proof</a><br />
@@ -44,12 +45,11 @@
 				<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---AtomicSentence.php.html">AtomicSentence.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---MolecularSentence.php.html">MolecularSentence.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---Operator.php.html">Operator.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---ParserException.php.html">ParserException.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---ParserUtilities.php.html">ParserUtilities.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---Sentence.php.html">Sentence.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---SentenceParser.php.html">SentenceParser.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---SentenceParser---StandardSentenceParser.php.html">StandardSentenceParser.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---Vocabulary.php.html">Vocabulary.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---VocabularyException.php.html">VocabularyException.php</a></span><br />
 	  </div>
             <br />
                   <b>Classes:</b><br />
@@ -57,12 +57,11 @@
 		    		<a href="../Syntax/AtomicSentence.html">AtomicSentence</a>    	 <br />
 	    		<a href="../Syntax/MolecularSentence.html">MolecularSentence</a>    	 <br />
 	    		<a href="../Syntax/Operator.html">Operator</a>    	 <br />
-	    		<a href="../Syntax/ParserException.html">ParserException</a>    	 <br />
+	    		<a href="../Syntax/ParserUtilities.html">ParserUtilities</a>    	 <br />
 	    		<a href="../Syntax/Sentence.html">Sentence</a>    	 <br />
 	    		<a href="../Syntax/SentenceParser.html">SentenceParser</a>    	 <br />
 	    		<a href="../Syntax/StandardSentenceParser.html">StandardSentenceParser</a>    	 <br />
 	    		<a href="../Syntax/Vocabulary.html">Vocabulary</a>    	 <br />
-	    		<a href="../Syntax/VocabularyException.html">VocabularyException</a>    	 <br />
 	  </div>
                 </td>
     <td>
@@ -122,10 +121,8 @@ Source Location: /Syntax/AtomicSentence.php<br /><br />
 				<td valign="top" width="20%" class="class-overview">
 		<p align="center" class="short-description"><strong><a href="#sec_methods">Methods</a></strong></p>
 		<ul>
-		  		  <li><a href="../Syntax/AtomicSentence.html#methodgetLabel">getLabel</a></li>
 		  		  <li><a href="../Syntax/AtomicSentence.html#methodgetSubscript">getSubscript</a></li>
 		  		  <li><a href="../Syntax/AtomicSentence.html#methodgetSymbol">getSymbol</a></li>
-		  		  <li><a href="../Syntax/AtomicSentence.html#methodsetLabel">setLabel</a></li>
 		  		  <li><a href="../Syntax/AtomicSentence.html#methodsetSubscript">setSubscript</a></li>
 		  		  <li><a href="../Syntax/AtomicSentence.html#methodsetSymbol">setSymbol</a></li>
 		  		</ul>
@@ -230,12 +227,7 @@ Source Location: /Syntax/AtomicSentence.php<br /><br />
 		<div class="info-box-body">
 			<div class="method-summary">
 				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
-																																																																<div class="method-definition">
-											<tr><td class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
-										<td class="method-definition"><a href="#getLabel" title="details" class="method-name">getLabel</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Alias for <a href="../Syntax/AtomicSentence.html#methodgetSymbol">AtomicSentence::getSymbol()</a>.</td></tr>
-				</div>
-																<div class="method-definition">
+																																																<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result">integer</span>&nbsp;&nbsp;</td>
 										<td class="method-definition"><a href="#getSubscript" title="details" class="method-name">getSubscript</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Gets the subscript of the atomic symbol.</td></tr>
@@ -244,11 +236,6 @@ Source Location: /Syntax/AtomicSentence.php<br /><br />
 											<tr><td class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
 										<td class="method-definition"><a href="#getSymbol" title="details" class="method-name">getSymbol</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Gets the atomic symbol.</td></tr>
-				</div>
-																<div class="method-definition">
-											<tr><td class="method-definition"><span class="method-result"><a href="../Syntax/AtomicSentence.html">AtomicSentence</a></span>&nbsp;&nbsp;</td>
-										<td class="method-definition"><a href="#setLabel" title="details" class="method-name">setLabel</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Alias for <a href="../Syntax/AtomicSentence.html#methodsetSymbol">AtomicSentence::setSymbol()</a>.</td></tr>
 				</div>
 																<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result"><a href="../Syntax/AtomicSentence.html">AtomicSentence</a></span>&nbsp;&nbsp;</td>
@@ -343,47 +330,11 @@ Source Location: /Syntax/AtomicSentence.php<br /><br />
 		<div class="info-box-body">
 			<a name='method_detail'></a>
 
-<a name="methodgetLabel" id="getLabel"><!-- --></a>
+<a name="methodgetSubscript" id="getSubscript"><!-- --></a>
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">getLabel</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 65]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code>string getLabel(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Alias for <a href="../Syntax/AtomicSentence.html#methodgetSymbol">AtomicSentence::getSymbol()</a>.
-</strong></p>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The atomic symbol, e.g. 'A' or 'B'.</td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-<br />
-
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
-<a name="methodgetSubscript" id="getSubscript"><!-- --></a>
-<div class="evenrow">
-
-<div class="method-header">
-	<span class="method-title">getSubscript</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 87]</span>
+	<span class="method-title">getSubscript</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 68]</span>
 </div>
 <br />
 
@@ -416,10 +367,10 @@ Source Location: /Syntax/AtomicSentence.php<br /><br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodgetSymbol" id="getSymbol"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">getSymbol</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 56]</span>
+	<span class="method-title">getSymbol</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 46]</span>
 </div>
 <br />
 
@@ -451,59 +402,11 @@ Source Location: /Syntax/AtomicSentence.php<br /><br />
 		<br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
-<a name="methodsetLabel" id="setLabel"><!-- --></a>
-<div class="evenrow">
-
-<div class="method-header">
-	<span class="method-title">setLabel</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 46]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code><a href="../Syntax/AtomicSentence.html">AtomicSentence</a> setLabel(
-string
-$symbol&nbsp;
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Alias for <a href="../Syntax/AtomicSentence.html#methodsetSymbol">AtomicSentence::setSymbol()</a>.
-</strong></p>
-
-			<strong>Parameters:</strong><br />
-			<table border="0" cellspacing="0" cellpadding="0">
-					<tr><td class="indent">
-				<span class="var-type">string</span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$symbol:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> The symbol, e.g. 'A' or 'B'.</span>			</td></tr>
-				</table>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Current instance.</td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-<br />
-
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
 <a name="methodsetSubscript" id="setSubscript"><!-- --></a>
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">setSubscript</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 76]</span>
+	<span class="method-title">setSubscript</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 57]</span>
 </div>
 <br />
 
@@ -601,7 +504,7 @@ $symbol&nbsp;
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Tue, 27 Dec 2011 03:18:56 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Fri, 06 Jan 2012 11:10:22 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>
