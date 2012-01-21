@@ -226,7 +226,7 @@ class ModalBranch extends Branch
 	 * @return ModalBranch Current instance.
 	 * @access private
 	 */
-	protected function _removeNode( Node $node )
+	public function _removeNode( Node $node )
 	{
 		if ( $node instanceof AccessNode ) {
 			$key = array_search( $node, $this->accessNodes, true );

@@ -126,7 +126,7 @@ class ManyValuedBranch extends Branch
 	/**
 	 * @access private
 	 */
-	protected function _removeNode( Node $node )
+	public function _removeNode( Node $node )
 	{
 		$key = array_search( $node, $this->designatedNodes, true );
 		if ( $key !== false ) array_splice( $this->designatedNodes, $key, 1 );
