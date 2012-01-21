@@ -103,7 +103,7 @@ class Structure
 				}
 			if ( $isCommon ) $commonNodes[] = $node;
 		}
-		return array_unique( $commonNodes );
+		return array_unique( $commonNodes, SORT_REGULAR );
 	}
 	
 	/**
@@ -125,7 +125,8 @@ class Structure
 	 */
 	public function build()
 	{
-		$this->structurize( $this->tableau->getBranches() );
+		$branches = $this->tableau->getBranches();
+		$this->structurize( $branches );
 		return $this;
 	}
 	
@@ -179,7 +180,7 @@ class Structure
 	 */
 	protected function structurize( array $branches )
 	{
-		if ( empty( $banches )) return;
+		if ( empty( $branches )) return;
 		
 		// get nodes that are common to branches
 		$nodes = self::findNodesCommonToBranches( $branches );
@@ -191,7 +192,7 @@ class Structure
 		}
 		// remove nodes from branches
 		foreach ( $nodes as $node )
-			foreach ( $branches as $branch ) $branch->removeNode( $node );
+			foreach ( $branches as $branch ) $branch->_removeNode( $node );
 
 		// assign nodes to structure
 		$this->nodes = $nodes;

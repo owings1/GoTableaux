@@ -266,7 +266,7 @@ class Branch
 	 *					 multiple places, each reference is removed.
 	 * @return Branch Current instance.
 	 */
-	protected function _removeNode( Node $node )
+	public function _removeNode( Node $node )
 	{
 		$key = array_search( $node, $this->sentenceNodes, true );
 		if ( $key !== false ) array_splice( $this->sentenceNodes, $key, 1 );
