@@ -21,10 +21,24 @@ class Utilities
 	 */
 	public static function arrayDiff( array $a, array $b )
 	{
-		$ret = array();
+		$diff = array();
 		foreach ( $a as $item )
-			if ( !in_array( $item, $b, true )) $ret[] = $item;
-		return $ret;
+			if ( !in_array( $item, $b, true )) $diff[] = $item;
+		return $diff;
+	}
+	
+	/**
+	 * Produces a strictly unique array.
+	 *
+	 * @param array $arr The array to make unique.
+	 * @return array The unique array.
+	 */
+	public static function arrayUnique( array $arr )
+	{
+		$unique = array();
+		foreach ( $arr as $item )
+			if ( !in_array( $item, $unique, true )) $unique[] = $item;
+		return $unique;
 	}
 	
 	/**
