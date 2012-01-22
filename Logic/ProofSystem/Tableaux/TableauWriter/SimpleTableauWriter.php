@@ -17,6 +17,8 @@ require_once 'GoTableaux/Logic/ProofSystem/Tableaux/TableauWriter.php';
  */
 class SimpleTableauWriter extends TableauWriter
 {
+	protected $counter = 0;
+	
 	public function writeArgument( Argument $argument, Logic $logic )
 	{
 		$string = '';
@@ -32,6 +34,7 @@ class SimpleTableauWriter extends TableauWriter
 	{
 		$string = '';
 		$structure = $tableau->getStructure();
+		$this->counter = 0;
 		$string .= $this->_writeStructure( $structure, $this->getSentenceWriter(), $logic );
 		return $string;
 	}
@@ -41,12 +44,15 @@ class SimpleTableauWriter extends TableauWriter
 	 */
 	private function _writeStructure( Structure $structure, SentenceWriter $sentenceWriter, Logic $logic )
 	{
-		$string = '';
+		if ( $this->counter === 0 ) $string = 'Trunk:' . PHP_EOL;
+		else $string = 'Branch ' . $this->counter . ':' . PHP_EOL;
+		$this->counter++;
 		foreach ( $structure->getNodes() as $node ) {
-			echo "Node\n";
 			$string .= $sentenceWriter->writeSentence( $node->getSentence(), $logic );
 			$string .= PHP_EOL;
 		}
+		foreach ( $structure->getStructures() as $subStructure )
+			$string .= $this->_writeStructure( $subStructure, $sentenceWriter, $logic );
 		return $string;
 	}
 }

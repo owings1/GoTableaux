@@ -48,8 +48,14 @@ class StandardSentenceWriter extends SentenceWriter
 	 */
 	private function _atomicToString( AtomicSentence $sentence, Vocabulary $vocabulary )
 	{
-		$subscript = $vocabulary->getSubscriptSymbols( true );
-		return $sentence->getSymbol() . $subscript . $sentence->getSubscript();
+		$string 		 = $sentence->getSymbol();
+		$subscriptSymbol = $vocabulary->getSubscriptSymbols( true );
+		$subscript 		 = $sentence->getSubscript();
+		
+		if ( $subscript > 0 && $this->getOption( 'printZeroSubscripts' ))
+			$string .= $subscriptSymbol . $subscript;
+			
+		return  $string;
 	}
 	
 	/**
@@ -64,7 +70,7 @@ class StandardSentenceWriter extends SentenceWriter
 	private function _molecularToString( MolecularSentence $sentence, Vocabulary $vocabulary )
 	{
 		$operands	 	= $sentence->getOperands();
-		$operatorSymbol = $vocabulary->getSymbolForOperator( $sentence->getOperatorName() );
+		$operatorSymbol = $vocabulary->getSymbolForOperator( $sentence->getOperator() );
 		
 		switch ( $vocabulary->getSymbolType( $operatorSymbol )) {
 			case Vocabulary::OPER_UNARY :

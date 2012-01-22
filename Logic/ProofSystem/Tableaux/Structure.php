@@ -96,14 +96,13 @@ class Structure
 		foreach ( $nodes as $node ) {
 			$isCommon = true;			
 			foreach ( $branches as $branch )
-				if ( $branch->hasNode( $node )) continue;
-				else {
+				if ( !$branch->hasNode( $node )) {
 					$isCommon = false;
 					break;
 				}
 			if ( $isCommon ) $commonNodes[] = $node;
 		}
-		return array_unique( $commonNodes, SORT_REGULAR );
+		return Utilities::arrayUnique( $commonNodes );
 	}
 	
 	/**
@@ -185,6 +184,8 @@ class Structure
 		// get nodes that are common to branches
 		$nodes = self::findNodesCommonToBranches( $branches );
 		
+		//print_r( $nodes );
+		//die();
 		foreach ( $nodes as $node ) {
 			$ticked = false;
 			foreach ( $branches as $branch ) $ticked |= $node->isTickedAtBranch( $branch );

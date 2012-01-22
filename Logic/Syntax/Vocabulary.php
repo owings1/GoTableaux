@@ -327,8 +327,9 @@ class Vocabulary
 	 */
 	public function getSymbolForOperator( $operator )
 	{
-		if ( !$operator instanceof Operator ) $operator = $this->getOperatoryByName( $operator ); 
-		foreach ( array_keys( $this->getOperatorSymbols( $operator->getArity() )) as $symbol )
+		if ( !$operator instanceof Operator ) $operator = $this->getOperatorByName( $operator ); 
+		$symbols = $this->getOperatorSymbols( $operator->getArity() );
+		foreach ( $symbols as $symbol )
 			if ( $this->getOperatorBySymbol( $symbol ) === $operator ) return $symbol;
 		throw new VocabularyException( "Operator not found in vocabulary." );		
 	}
