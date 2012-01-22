@@ -49,9 +49,11 @@ class SimpleTableauWriter extends TableauWriter
 		$this->counter++;
 		foreach ( $structure->getNodes() as $node ) {
 			$string .= $sentenceWriter->writeSentence( $node->getSentence(), $logic );
+			if ( $structure->nodeIsTicked( $node )) $string .= ' ticked';
 			$string .= PHP_EOL;
 		}
-		foreach ( $structure->getStructures() as $subStructure )
+		if ( $structure->isClosed() ) $string .= 'closed' . PHP_EOL;
+		else foreach ( $structure->getStructures() as $subStructure )
 			$string .= $this->_writeStructure( $subStructure, $sentenceWriter, $logic );
 		return $string;
 	}
