@@ -29,7 +29,7 @@ class FDEBranchRule_ConjunctionDesignated implements BranchRule
 {
 	public function apply( Branch $branch, Logic $logic )
 	{
-		if ( !$nodes = $branch->getNodesByOperatorNameAndDesignation( 'Conjunction', true ))
+		if ( !$nodes = $branch->getNodesByOperatorNameAndDesignation( 'Conjunction', true, true ))
 			return false;
 		$node = $nodes[0];
 		
@@ -47,7 +47,7 @@ class FDEBranchRule_NegatedConjunctionDesignated implements BranchRule
 {
 	public function apply( Branch $branch, Logic $logic )
 	{
-		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Conjunction', true ))
+		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Conjunction', true, true ))
 			return false;
 		$node = $nodes[0];
 		
@@ -69,7 +69,7 @@ class FDEBranchRule_ConjunctionUndesignated implements BranchRule
 {
 	public function apply( Branch $branch, Logic $logic )
 	{
-		if ( !$nodes = $branch->getNodesByOperatorNameAndDesignation( 'Conjunction', false ))
+		if ( !$nodes = $branch->getNodesByOperatorNameAndDesignation( 'Conjunction', false, true ))
 			return false;
 		$node = $nodes[0];
 		
@@ -90,7 +90,7 @@ class FDEBranchRule_NegatedConjunctionUndesignated implements BranchRule
 {
 	public function apply( Branch $branch, Logic $logic )
 	{
-		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Conjunction', false ))
+		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Conjunction', false, true ))
 			return false;
 		$node = $nodes[0];
 		
@@ -109,7 +109,7 @@ class FDEBranchRule_DisjunctionDesignated implements BranchRule
 {
 	public function apply( Branch $branch, Logic $logic )
 	{
-		if ( !$nodes = $branch->getNodesByOperatorNameAndDesignation( 'Disjunction', true ))
+		if ( !$nodes = $branch->getNodesByOperatorNameAndDesignation( 'Disjunction', true, true ))
 			return false;
 		$node = $nodes[0];
 		
@@ -130,7 +130,7 @@ class FDEBranchRule_DisjunctionUndesignated implements BranchRule
 {
 	public function apply( Branch $branch, Logic $logic )
 	{
-		if ( !$nodes = $branch->getNodesByOperatorNameAndDesignation( 'Disjunction', false ))
+		if ( !$nodes = $branch->getNodesByOperatorNameAndDesignation( 'Disjunction', false, true ))
 			return false;
 		$node = $nodes[0];
 		
@@ -148,7 +148,7 @@ class FDEBranchRule_NegatedDisjunctionDesignated implements BranchRule
 {
 	public function apply( Branch $branch, Logic $logic )
 	{
-		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Disjunction', true ))
+		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Disjunction', true, true ))
 			return false;
 		$node = $nodes[0];
 		
@@ -167,7 +167,7 @@ class FDEBranchRule_NegatedDisjunctionUndesignated implements BranchRule
 {
 	public function apply( Branch $branch, Logic $logic )
 	{
-		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Disjunction', false ))
+		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Disjunction', false, true ))
 			return false;
 		$node = $nodes[0];
 		
@@ -189,14 +189,14 @@ class FDEBranchRule_MaterialConditionalDesignated implements BranchRule
 {
 	public function apply( Branch $branch, Logic $logic )
 	{
-		if ( !$nodes = $branch->getNodesByOperatorNameAndDesignation( 'Material Conditional', true ))
+		if ( !$nodes = $branch->getNodesByOperatorNameAndDesignation( 'Material Conditional', true, true ))
 			return false;
 		$node = $nodes[0];
 
-		list( $antecdent, $consequent ) = $node->getSentence()->getOperands();
+		list( $antecedent, $consequent ) = $node->getSentence()->getOperands();
 		
 		$branch->branch()
-			   ->createNodeWithDesigation( $logic->negate( $antecedent ), true )
+			   ->createNodeWithDesignation( $logic->negate( $antecedent ), true )
 			   ->tickNode( $node );
 			
 		$branch->createNodeWithDesignation( $consequent, true )
@@ -210,7 +210,7 @@ class FDEBranchRule_MaterialConditionalUndesignated implements BranchRule
 {
 	public function apply( Branch $branch, Logic $logic )
 	{
-		if ( !$nodes = $branch->getNodesByOperatorNameAndDesignation( 'Material Conditional', false ))
+		if ( !$nodes = $branch->getNodesByOperatorNameAndDesignation( 'Material Conditional', false, true ))
 			return false;
 		$node = $nodes[0];
 
@@ -228,7 +228,7 @@ class FDEBranchRule_NegatedMaterialConditionalDesignated implements BranchRule
 {
 	public function apply( Branch $branch, Logic $logic )
 	{
-		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Material Conditional', true ))
+		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Material Conditional', true, true ))
 			return false;
 		$node = $nodes[0];
 
@@ -247,7 +247,7 @@ class FDEBranchRule_NegatedMaterialConditionalUndesignated implements BranchRule
 {
 	public function apply( Branch $branch, Logic $logic )
 	{
-		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Material Conditional', false ))
+		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Material Conditional', false, true ))
 			return false;
 		$node = $nodes[0];
 
@@ -269,7 +269,7 @@ class FDEBranchRule_MaterialBiconditionalDesignated implements BranchRule
 {
 	public function apply( Branch $branch, Logic $logic )
 	{
-		if ( !$nodes = $branch->getNodesByOperatorNameAndDesignation( 'Material Biconditional', true ))
+		if ( !$nodes = $branch->getNodesByOperatorNameAndDesignation( 'Material Biconditional', true, true ))
 			return false;
 		$node = $nodes[0];
 
@@ -292,7 +292,7 @@ class FDEBranchRule_MaterialBiconditionalUndesignated implements BranchRule
 {
 	public function apply( Branch $branch, Logic $logic )
 	{
-		if ( !$nodes = $branch->getNodesByOperatorNameAndDesignation( 'Material Biconditional', false ))
+		if ( !$nodes = $branch->getNodesByOperatorNameAndDesignation( 'Material Biconditional', false, true ))
 			return false;
 		$node = $nodes[0];
 
@@ -315,7 +315,7 @@ class FDEBranchRule_NegatedMaterialBiconditionalDesignated implements BranchRule
 {
 	public function apply( Branch $branch, Logic $logic )
 	{
-		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Material Biconditional', true ))
+		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Material Biconditional', true, true ))
 			return false;
 		$node = $nodes[0];
 
@@ -339,7 +339,7 @@ class FDEBranchRule_NegatedMaterialBiconditionalUndesignated implements BranchRu
 {
 	public function apply( Branch $branch, Logic $logic )
 	{
-		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Material Biconditional', false ))
+		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Material Biconditional', false, true ))
 			return false;
 		$node = $nodes[0];
 
@@ -363,7 +363,7 @@ class FDEBranchRule_DoubleNegationDesignated implements BranchRule
 {
 	public function apply( Branch $branch, Logic $logic )
 	{
-		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Negation', true ))
+		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Negation', true, true ))
 			return false;
 		$node = $nodes[0];
 
@@ -381,7 +381,7 @@ class FDEBranchRule_DoubleNegationUndesignated implements BranchRule
 {
 	public function apply( Branch $branch, Logic $logic )
 	{
-		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Negation', false ))
+		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Negation', false, true ))
 			return false;
 		$node = $nodes[0];
 
