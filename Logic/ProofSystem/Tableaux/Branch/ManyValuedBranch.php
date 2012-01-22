@@ -86,12 +86,13 @@ class ManyValuedBranch extends Branch
 	 *
 	 * @param string $operatorName The name of the operator.
 	 * @param boolean $isDesignated Whether the nodes should be designated.
+	 * @param boolean $untickedOnly Whether to restrict to unticked nodes.
 	 * @return array Array of {@link ManyValuedSentenceNode}s.
 	 */
-	public function getNodesByOperatorNameAndDesignation( $operatorName, $isDesignated )
+	public function getNodesByOperatorNameAndDesignation( $operatorName, $isDesignated, $untickedOnly = false )
 	{
 		$nodes = array();
-		$searchNodes = $this->getNodesByOperatorName( $operatorName );
+		$searchNodes = $this->getNodesByOperatorName( $operatorName, $untickedOnly );
 		foreach ( $searchNodes as $node )
 			if ( $node->isDesignated() === $isDesignated ) $nodes[] = $node;
 		return $nodes;
@@ -102,13 +103,14 @@ class ManyValuedBranch extends Branch
 	 *
 	 * @param string $operatorName The name of the operator.
 	 * @param boolean $isDesignated Whether the nodes should be designated.
+	 * @param boolean $untickedOnly Whether to restrict to unticked nodes.
 	 * @return array Array of {@link ManyValuedSentenceNode}s.
 	 * @see Branch::getNodesByTwoOperatorNames()
 	 */
-	public function getNodesByTwoOperatorNamesAndDesignation( $firstOperatorName, $secondOperatorName, $isDesignated )
+	public function getNodesByTwoOperatorNamesAndDesignation( $firstOperatorName, $secondOperatorName, $isDesignated, $untickedOnly = false )
 	{
 		$nodes = array();
-		$searchNodes = $this->getNodesByTwoOperatorNames( $firstOperatorName, $secondOperatorName );
+		$searchNodes = $this->getNodesByTwoOperatorNames( $firstOperatorName, $secondOperatorName, $untickedOnly );
 		foreach ( $searchNodes as $node )
 			if ( $node->isDesignated() === $isDesignated ) $nodes[] = $node;
 		return $nodes;
