@@ -101,6 +101,7 @@ Source Location: /Utilities.php<br /><br />
 		<p align="center" class="short-description"><strong><a href="#sec_methods">Methods</a></strong></p>
 		<ul>
 		  		  <li><a href="../Logic/Utilities.html#methodarrayDiff">arrayDiff</a></li>
+		  		  <li><a href="../Logic/Utilities.html#methodarrayUnique">arrayUnique</a></li>
 		  		  <li><a href="../Logic/Utilities.html#methodsortByStrLen">sortByStrLen</a></li>
 		  		  <li><a href="../Logic/Utilities.html#methodstrPosArr">strPosArr</a></li>
 		  		</ul>
@@ -134,6 +135,13 @@ Source Location: /Utilities.php<br /><br />
 				</div>
 																<div class="method-definition">
 					<tr><td class="method-definition">static
+											<span class="method-result">array</span>&nbsp;&nbsp;
+					</td>
+					<td class="method-definition"><a href="#arrayUnique" title="details" class="method-name">arrayUnique</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Produces a strictly unique array.</td></tr>
+				</div>
+																<div class="method-definition">
+					<tr><td class="method-definition">static
 											<span class="method-result">integer</span>&nbsp;&nbsp;
 					</td>
 					<td class="method-definition"><a href="#sortByStrLen" title="details" class="method-name">sortByStrLen</a>()&nbsp;&nbsp;</td>
@@ -146,7 +154,7 @@ Source Location: /Utilities.php<br /><br />
 					<td class="method-definition"><a href="#strPosArr" title="details" class="method-name">strPosArr</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Searches a string for the first occurrence of any string in a given array.</td></tr>
 				</div>
-																																								</table>
+																																																</table>
 			</div>
 			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
 		</div>
@@ -217,11 +225,59 @@ $b&nbsp;
 		<br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
-<a name="methodsortByStrLen" id="sortByStrLen"><!-- --></a>
+<a name="methodarrayUnique" id="arrayUnique"><!-- --></a>
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">static method sortByStrLen</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 37]</span>
+	<span class="method-title">static method arrayUnique</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 36]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>static array arrayUnique(
+array
+$arr&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Produces a strictly unique array.
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$arr:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> The array to make unique.</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The unique array.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodsortByStrLen" id="sortByStrLen"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">static method sortByStrLen</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 51]</span>
 </div>
 <br />
 
@@ -270,10 +326,10 @@ $b&nbsp;
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
 <a name="methodstrPosArr" id="strPosArr"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">static method strPosArr</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 52]</span>
+	<span class="method-title">static method strPosArr</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 66]</span>
 </div>
 <br />
 
@@ -345,7 +401,7 @@ $offset = 0], [string
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Thu, 12 Jan 2012 18:06:59 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Sun, 22 Jan 2012 01:02:28 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

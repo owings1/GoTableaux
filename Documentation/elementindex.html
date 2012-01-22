@@ -137,6 +137,8 @@
 				<dd>procedural page <a href="Logic/_Argument.php.html">Argument.php</a></dd>
 							<dt><b>arrayDiff</b></dt>
 				<dd>in file Utilities.php, method <a href="Logic/Utilities.html#methodarrayDiff">Utilities::arrayDiff()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Strictly subtracts one array from the other.</dd>
+							<dt><b>arrayUnique</b></dt>
+				<dd>in file Utilities.php, method <a href="Logic/Utilities.html#methodarrayUnique">Utilities::arrayUnique()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Produces a strictly unique array.</dd>
 							<dt><b>ATOMIC</b></dt>
 				<dd>in file Vocabulary.php, class constant <a href="Syntax/Vocabulary.html#constATOMIC">Vocabulary::ATOMIC</a></dd>
 							<dt><b>AtomicSentence</b></dt>
@@ -218,9 +220,9 @@
 							<dt><b>$closed</b></dt>
 				<dd>in file Structure.php, variable <a href="Tableaux/Structure.html#var$closed">Structure::$closed</a></dd>
 							<dt><b>$closeMarker</b></dt>
-				<dd>in file TableauWriter.php, variable <a href="Tableaux/TableauWriter.html#var$closeMarker">TableauWriter::$closeMarker</a></dd>
-							<dt><b>$closeMarker</b></dt>
 				<dd>in file TableauWriter_LaTeX_Qtree.php, variable <a href="Tableaux/TableauWriter_LaTeX_Qtree.html#var$closeMarker">TableauWriter_LaTeX_Qtree::$closeMarker</a></dd>
+							<dt><b>$closeMarker</b></dt>
+				<dd>in file TableauWriter.php, variable <a href="Tableaux/TableauWriter.html#var$closeMarker">TableauWriter::$closeMarker</a></dd>
 							<dt><b>$closureRule</b></dt>
 				<dd>in file TableauxSystem.php, variable <a href="Tableaux/TableauxSystem.html#var$closureRule">TableauxSystem::$closureRule</a></dd>
 							<dt><b>$closureRuleClass</b></dt>
@@ -229,6 +231,8 @@
 				<dd>in file Argument.php, variable <a href="Logic/Argument.html#var$conclusion">Argument::$conclusion</a><br>&nbsp;&nbsp;&nbsp;&nbsp;The conclusion.</dd>
 							<dt><b>$conMarker</b></dt>
 				<dd>in file TableauWriter_LaTeX_Qtree.php, variable <a href="Tableaux/TableauWriter_LaTeX_Qtree.html#var$conMarker">TableauWriter_LaTeX_Qtree::$conMarker</a></dd>
+							<dt><b>$counter</b></dt>
+				<dd>in file SimpleTableauWriter.php, variable <a href="Tableaux/SimpleTableauWriter.html#var$counter">SimpleTableauWriter::$counter</a></dd>
 							<dt><b>clearBranches</b></dt>
 				<dd>in file Tableau.php, method <a href="Tableaux/Tableau.html#methodclearBranches">Tableau::clearBranches()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Clears all branches from the tree.</dd>
 							<dt><b>close</b></dt>
@@ -240,9 +244,9 @@
 							<dt><b>constructProofForArgument</b></dt>
 				<dd>in file ProofSystem.php, method <a href="Proof/ProofSystem.html#methodconstructProofForArgument">ProofSystem::constructProofForArgument()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Constructs a proof for an argument.</dd>
 							<dt><b>copy</b></dt>
-				<dd>in file Tableau.php, method <a href="Tableaux/Tableau.html#methodcopy">Tableau::copy()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Copies the tree and all its branches.</dd>
-							<dt><b>copy</b></dt>
 				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodcopy">Branch::copy()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Clones the branch. Maintains references to the nodes.</dd>
+							<dt><b>copy</b></dt>
+				<dd>in file Tableau.php, method <a href="Tableaux/Tableau.html#methodcopy">Tableau::copy()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Copies the tree and all its branches.</dd>
 							<dt><b>Counterexample</b></dt>
 				<dd>in file Counterexample.php, class <a href="Proof/Counterexample.html">Counterexample</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a counter example to an argument.</dd>
 							<dt><b>createAccessNode</b></dt>
@@ -370,11 +374,11 @@
 							<dt><b>getDesignatedNodes</b></dt>
 				<dd>in file ManyValuedBranch.php, method <a href="Tableaux/ManyValuedBranch.html#methodgetDesignatedNodes">ManyValuedBranch::getDesignatedNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all designated sentence nodes on the branch.</dd>
 							<dt><b>getI</b></dt>
-				<dd>in file ModalSentenceNode.php, method <a href="Tableaux/ModalSentenceNode.html#methodgetI">ModalSentenceNode::getI()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the index.</dd>
-							<dt><b>getI</b></dt>
 				<dd>in file AccessNode.php, method <a href="Tableaux/AccessNode.html#methodgetI">AccessNode::getI()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the first index</dd>
 							<dt><b>getI</b></dt>
 				<dd>in file ModalNode.php, method <a href="Tableaux/ModalNode.html#methodgetI">ModalNode::getI()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the index, or the first index, of a modal node.</dd>
+							<dt><b>getI</b></dt>
+				<dd>in file ModalSentenceNode.php, method <a href="Tableaux/ModalSentenceNode.html#methodgetI">ModalSentenceNode::getI()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the index.</dd>
 							<dt><b>getIndexes</b></dt>
 				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodgetIndexes">ModalBranch::getIndexes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all world indexes that appear on the branch.</dd>
 							<dt><b>getInstance</b></dt>
@@ -388,9 +392,9 @@
 							<dt><b>getName</b></dt>
 				<dd>in file Operator.php, method <a href="Syntax/Operator.html#methodgetName">Operator::getName()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the name of the operator.</dd>
 							<dt><b>getNodes</b></dt>
-				<dd>in file Structure.php, method <a href="Tableaux/Structure.html#methodgetNodes">Structure::getNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the nodes of the current structure.</dd>
-							<dt><b>getNodes</b></dt>
 				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodgetNodes">Branch::getNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the nodes on the branch.</dd>
+							<dt><b>getNodes</b></dt>
+				<dd>in file Structure.php, method <a href="Tableaux/Structure.html#methodgetNodes">Structure::getNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the nodes of the current structure.</dd>
 							<dt><b>getNodesByOperatorName</b></dt>
 				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodgetNodesByOperatorName">Branch::getNodesByOperatorName()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets any <a href="Tableaux/SentenceNode.html">SentenceNode</a>s on the branch that have a given operator  as its sentence's main connective.</dd>
 							<dt><b>getNodesByOperatorNameAndDesignation</b></dt>
@@ -406,9 +410,9 @@
 							<dt><b>getOperands</b></dt>
 				<dd>in file MolecularSentence.php, method <a href="Syntax/MolecularSentence.html#methodgetOperands">MolecularSentence::getOperands()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the operands.</dd>
 							<dt><b>getOperator</b></dt>
-				<dd>in file MolecularSentence.php, method <a href="Syntax/MolecularSentence.html#methodgetOperator">MolecularSentence::getOperator()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the Operator object.</dd>
-							<dt><b>getOperator</b></dt>
 				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodgetOperator">Logic::getOperator()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets an operator from the logic's vocabulary.</dd>
+							<dt><b>getOperator</b></dt>
+				<dd>in file MolecularSentence.php, method <a href="Syntax/MolecularSentence.html#methodgetOperator">MolecularSentence::getOperator()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the Operator object.</dd>
 							<dt><b>getOperatorByName</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodgetOperatorByName">Vocabulary::getOperatorByName()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets Operator object by its name.</dd>
 							<dt><b>getOperatorBySymbol</b></dt>
@@ -417,6 +421,10 @@
 				<dd>in file Sentence.php, method <a href="Syntax/Sentence.html#methodgetOperatorName">Sentence::getOperatorName()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the operator name.</dd>
 							<dt><b>getOperatorSymbols</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodgetOperatorSymbols">Vocabulary::getOperatorSymbols()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all operator symbols.</dd>
+							<dt><b>getOption</b></dt>
+				<dd>in file SentenceWriter.php, method <a href="Syntax/SentenceWriter.html#methodgetOption">SentenceWriter::getOption()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the value of a single option.</dd>
+							<dt><b>getOptions</b></dt>
+				<dd>in file SentenceWriter.php, method <a href="Syntax/SentenceWriter.html#methodgetOptions">SentenceWriter::getOptions()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all the options.</dd>
 							<dt><b>getPremises</b></dt>
 				<dd>in file Argument.php, method <a href="Logic/Argument.html#methodgetPremises">Argument::getPremises()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all the premises of the argument.</dd>
 							<dt><b>getProofSystem</b></dt>
@@ -694,6 +702,8 @@
 				<dd>in file Vocabulary.php, variable <a href="Syntax/Vocabulary.html#var$operators">Vocabulary::$operators</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the operators.</dd>
 							<dt><b>$operatorSymbols</b></dt>
 				<dd>in file Vocabulary.php, variable <a href="Syntax/Vocabulary.html#var$operatorSymbols">Vocabulary::$operatorSymbols</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the operator symbols.</dd>
+							<dt><b>$options</b></dt>
+				<dd>in file SentenceWriter.php, variable <a href="Syntax/SentenceWriter.html#var$options">SentenceWriter::$options</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the options.</dd>
 							<dt><b>Operator</b></dt>
 				<dd>in file Operator.php, class <a href="Syntax/Operator.html">Operator</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents an operator.</dd>
 							<dt><b>OPER_BINARY</b></dt>
@@ -847,6 +857,10 @@
 				<dd>in file MolecularSentence.php, method <a href="Syntax/MolecularSentence.html#methodsetOperands">MolecularSentence::setOperands()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the operands.</dd>
 							<dt><b>setOperator</b></dt>
 				<dd>in file MolecularSentence.php, method <a href="Syntax/MolecularSentence.html#methodsetOperator">MolecularSentence::setOperator()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the operator</dd>
+							<dt><b>setOption</b></dt>
+				<dd>in file SentenceWriter.php, method <a href="Syntax/SentenceWriter.html#methodsetOption">SentenceWriter::setOption()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets an option.</dd>
+							<dt><b>setOptions</b></dt>
+				<dd>in file SentenceWriter.php, method <a href="Syntax/SentenceWriter.html#methodsetOptions">SentenceWriter::setOptions()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets many options.</dd>
 							<dt><b>setSentence</b></dt>
 				<dd>in file SentenceNode.php, method <a href="Tableaux/SentenceNode.html#methodsetSentence">SentenceNode::setSentence()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the sentence.</dd>
 							<dt><b>setSentenceWriter</b></dt>
@@ -870,9 +884,9 @@
 							<dt><b>StandardSentenceWriter</b></dt>
 				<dd>in file StandardSentenceWriter.php, class <a href="Syntax/StandardSentenceWriter.html">StandardSentenceWriter</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents the standard sentence writer.</dd>
 							<dt><b>stringToSentence</b></dt>
-				<dd>in file SentenceParser.php, method <a href="Syntax/SentenceParser.html#methodstringToSentence">SentenceParser::stringToSentence()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates a <a href="Syntax/Sentence.html">sentence</a> instance from a string.</dd>
-							<dt><b>stringToSentence</b></dt>
 				<dd>in file StandardSentenceParser.php, method <a href="Syntax/StandardSentenceParser.html#methodstringToSentence">StandardSentenceParser::stringToSentence()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates a <a href="Syntax/Sentence.html">sentence</a> from a string.</dd>
+							<dt><b>stringToSentence</b></dt>
+				<dd>in file SentenceParser.php, method <a href="Syntax/SentenceParser.html#methodstringToSentence">SentenceParser::stringToSentence()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates a <a href="Syntax/Sentence.html">sentence</a> instance from a string.</dd>
 							<dt><b>strip</b></dt>
 				<dd>in file TableauWriter_LaTeX_Qtree.php, method <a href="Tableaux/TableauWriter_LaTeX_Qtree.html#methodstrip">TableauWriter_LaTeX_Qtree::strip()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Strips parentheses.</dd>
 							<dt><b>strPosArr</b></dt>
@@ -1072,7 +1086,7 @@
 	</div>
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Thu, 12 Jan 2012 18:06:53 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Sun, 22 Jan 2012 01:02:22 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>
