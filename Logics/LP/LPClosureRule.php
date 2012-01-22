@@ -15,7 +15,7 @@ class LPClosureRule extends FDEClosureRule
 	public function doesApply( Branch $branch, Logic $logic )
 	{
 		foreach ( $branch->getUndesignatedNodes() as $node ) {
-			$negated = $logic->negate( $sentence );
+			$negated = $logic->negate( $node->getSentence() );
 			if ( $branch->hasSentenceWithDesignation( $negated, false )) return true;
 		}
 		return parent::doesApply( $branch, $logic );
