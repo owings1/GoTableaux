@@ -11,11 +11,16 @@
 require_once 'SentenceNode.php';
 
 /**
+ * Loads the ManyValuedNode interface.
+ */
+require_once 'ManyValuedNode.php';
+
+/**
  * Represents a sentence node on a branch of a many-valued logic tableau.
  * @package Tableaux
  * @author Douglas Owings
  */
-class ManyValuedSentenceNode extends SentenceNode
+class ManyValuedSentenceNode extends SentenceNode implements ManyValuedNode
 {
 	/**
 	 * Holds the designation flag.

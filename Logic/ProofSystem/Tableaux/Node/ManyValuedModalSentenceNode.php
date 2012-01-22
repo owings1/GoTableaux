@@ -11,11 +11,16 @@
 require_once 'ModalSentenceNode.php';
 
 /**
+ * Loads the ManyValuedNode interface.
+ */
+require_once 'ManyValuedNode.php';
+
+/**
  * Represents a sentence node on a branch of a many-valued modal logic tableau.
  * @package Tableaux
  * @author Douglas Owings
  */
-class ManyValuedModalSentenceNode extends ModalSentenceNode
+class ManyValuedModalSentenceNode extends ModalSentenceNode implements ManyValuedNode
 {
 	/**
 	 * Holds the designation flag.
