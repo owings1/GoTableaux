@@ -14,11 +14,6 @@ class DefaultParserTest extends GoTableauxUnitTestCase
 		$this->writer	= new StandardSentenceWriter;
 	}
 	
-	public function tearDown()
-	{
-		//$this->logic->initVocabulary();
-	}
-	
 	public function testDebug()
 	{
 		$this->logic->initVocabulary();

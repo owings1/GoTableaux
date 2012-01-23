@@ -44,6 +44,7 @@
         <div class="package">
 				<span style="padding-left: 1em;"><a href="Logic/_Argument.php.html">Argument.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="Logic/_Logic.php.html">Logic.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="Logic/_Settings.php.html">Settings.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="Logic/_Utilities.php.html">Utilities.php</a></span><br />
 	  </div>
             <br />
@@ -51,6 +52,7 @@
         <div class="package">
 		    		<a href="Logic/Argument.html">Argument</a>    	 <br />
 	    		<a href="Logic/Logic.html">Logic</a>    	 <br />
+	    		<a href="Logic/Settings.html">Settings</a>    	 <br />
 	    		<a href="Logic/Utilities.html">Utilities</a>    	 <br />
 	  </div>
                 </td>
@@ -69,13 +71,17 @@
 			</ul>
 	[ <a href="elementindex_Logic.html#a">a</a> ]
 	[ <a href="elementindex_Logic.html#c">c</a> ]
+	[ <a href="elementindex_Logic.html#d">d</a> ]
 	[ <a href="elementindex_Logic.html#g">g</a> ]
+	[ <a href="elementindex_Logic.html#i">i</a> ]
 	[ <a href="elementindex_Logic.html#l">l</a> ]
 	[ <a href="elementindex_Logic.html#n">n</a> ]
 	[ <a href="elementindex_Logic.html#p">p</a> ]
+	[ <a href="elementindex_Logic.html#r">r</a> ]
 	[ <a href="elementindex_Logic.html#s">s</a> ]
 	[ <a href="elementindex_Logic.html#u">u</a> ]
 	[ <a href="elementindex_Logic.html#v">v</a> ]
+	[ <a href="elementindex_Logic.html#w">w</a> ]
 <br /><br />
 	<a name="a"></a>
 	<div class="index-letter-section">
@@ -117,6 +123,23 @@
 				<dd>in file Argument.php, method <a href="Logic/Argument.html#methodcreateWithPremisesAndConclusion">Argument::createWithPremisesAndConclusion()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Creates an argument with given premises and conclusion.</dd>
 					</dl>
 	</div>
+	<a name="d"></a>
+	<div class="index-letter-section">
+		<div style="float: left" class="index-letter-title">d</div>
+		<div style="float: right"><a href="#top">[Top]</a></div>
+		<div style="clear: both"></div>
+	</div>
+	<div>
+		<h2>d</h2>
+		<dl>
+							<dt><b>$defaultParser</b></dt>
+				<dd>in file Logic.php, variable <a href="Logic/Logic.html#var$defaultParser">Logic::$defaultParser</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Defines the default <a href="Syntax/SentenceParser.html">SentenceParser</a>.</dd>
+							<dt><b>debug</b></dt>
+				<dd>in file Utilities.php, method <a href="Logic/Utilities.html#methoddebug">Utilities::debug()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Prints debugging information, if the debug setting is set to true.</dd>
+							<dt><b>debug</b></dt>
+				<dd>in file Utilities.php, function <a href="Logic/_Utilities.php.html#functiondebug">debug()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Alias for <a href="Logic/Utilities.html#methoddebug">Utilities::debug()</a>.</dd>
+					</dl>
+	</div>
 	<a name="g"></a>
 	<div class="index-letter-section">
 		<div style="float: left" class="index-letter-title">g</div>
@@ -128,6 +151,10 @@
 		<dl>
 							<dt><b>getConclusion</b></dt>
 				<dd>in file Argument.php, method <a href="Logic/Argument.html#methodgetConclusion">Argument::getConclusion()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the conclusion of the argument.</dd>
+							<dt><b>getDefaultParser</b></dt>
+				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodgetDefaultParser">Logic::getDefaultParser()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the default sentence parser.</dd>
+							<dt><b>getInstance</b></dt>
+				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodgetInstance">Logic::getInstance()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the singleton instance of a particular logic.</dd>
 							<dt><b>getOperator</b></dt>
 				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodgetOperator">Logic::getOperator()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets an operator from the logic's vocabulary.</dd>
 							<dt><b>getPremises</b></dt>
@@ -136,6 +163,21 @@
 				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodgetProofSystem">Logic::getProofSystem()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the proof system.</dd>
 							<dt><b>getVocabulary</b></dt>
 				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodgetVocabulary">Logic::getVocabulary()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the vocabulary.</dd>
+					</dl>
+	</div>
+	<a name="i"></a>
+	<div class="index-letter-section">
+		<div style="float: left" class="index-letter-title">i</div>
+		<div style="float: right"><a href="#top">[Top]</a></div>
+		<div style="clear: both"></div>
+	</div>
+	<div>
+		<h2>i</h2>
+		<dl>
+							<dt><b>$instances</b></dt>
+				<dd>in file Logic.php, variable <a href="Logic/Logic.html#var$instances">Logic::$instances</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the singleton instances of the logics.</dd>
+							<dt><b>initVocabulary</b></dt>
+				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodinitVocabulary">Logic::initVocabulary()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Initializes the vocabulary.</dd>
 					</dl>
 	</div>
 	<a name="l"></a>
@@ -187,6 +229,21 @@
 				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodparseArgument">Logic::parseArgument()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Parses an argument.</dd>
 							<dt><b>parseSentence</b></dt>
 				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodparseSentence">Logic::parseSentence()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Parses a sentence string.</dd>
+							<dt><b>parseSentences</b></dt>
+				<dd>in file Logic.php, method <a href="Logic/Logic.html#methodparseSentences">Logic::parseSentences()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Parses an array of sentence strings.</dd>
+					</dl>
+	</div>
+	<a name="r"></a>
+	<div class="index-letter-section">
+		<div style="float: left" class="index-letter-title">r</div>
+		<div style="float: right"><a href="#top">[Top]</a></div>
+		<div style="clear: both"></div>
+	</div>
+	<div>
+		<h2>r</h2>
+		<dl>
+							<dt><b>read</b></dt>
+				<dd>in file Settings.php, method <a href="Logic/Settings.html#methodread">Settings::read()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Reads a setting.</dd>
 					</dl>
 	</div>
 	<a name="s"></a>
@@ -198,8 +255,14 @@
 	<div>
 		<h2>s</h2>
 		<dl>
+							<dt><b>$settings</b></dt>
+				<dd>in file Settings.php, variable <a href="Logic/Settings.html#var$settings">Settings::$settings</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the settings.</dd>
 							<dt><b>setConclusion</b></dt>
 				<dd>in file Argument.php, method <a href="Logic/Argument.html#methodsetConclusion">Argument::setConclusion()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the conclusion of the argument.</dd>
+							<dt><b>Settings</b></dt>
+				<dd>in file Settings.php, class <a href="Logic/Settings.html">Settings</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Stores the settings.</dd>
+							<dt><b>Settings.php</b></dt>
+				<dd>procedural page <a href="Logic/_Settings.php.html">Settings.php</a></dd>
 							<dt><b>sortByStrLen</b></dt>
 				<dd>in file Utilities.php, method <a href="Logic/Utilities.html#methodsortByStrLen">Utilities::sortByStrLen()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sorts two strings by their length.</dd>
 							<dt><b>strPosArr</b></dt>
@@ -234,9 +297,22 @@
 				<dd>in file Logic.php, variable <a href="Logic/Logic.html#var$vocabulary">Logic::$vocabulary</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the vocabulary.</dd>
 					</dl>
 	</div>
+	<a name="w"></a>
+	<div class="index-letter-section">
+		<div style="float: left" class="index-letter-title">w</div>
+		<div style="float: right"><a href="#top">[Top]</a></div>
+		<div style="clear: both"></div>
+	</div>
+	<div>
+		<h2>w</h2>
+		<dl>
+							<dt><b>write</b></dt>
+				<dd>in file Settings.php, method <a href="Logic/Settings.html#methodwrite">Settings::write()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Writes a setting.</dd>
+					</dl>
+	</div>
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Sun, 22 Jan 2012 01:02:22 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Mon, 23 Jan 2012 10:20:15 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

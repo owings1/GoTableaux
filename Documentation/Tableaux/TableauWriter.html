@@ -50,6 +50,7 @@
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Branch---ManyValuedModalBranch.php.html">ManyValuedModalBranch.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node---ManyValuedModalSentenceNode.php.html">ManyValuedModalSentenceNode.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---ManyValuedModalTableauxSystem.php.html">ManyValuedModalTableauxSystem.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node---ManyValuedNode.php.html">ManyValuedNode.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node---ManyValuedSentenceNode.php.html">ManyValuedSentenceNode.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---ManyValuedTableauxSystem.php.html">ManyValuedTableauxSystem.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Branch---ModalBranch.php.html">ModalBranch.php</a></span><br />
@@ -74,6 +75,7 @@
         <div class="package">
 		    		<a href="../Tableaux/BranchRule.html">BranchRule</a>    	 <br />
 	    		<a href="../Tableaux/ClosureRule.html">ClosureRule</a>    	 <br />
+	    		<a href="../Tableaux/ManyValuedNode.html">ManyValuedNode</a>    	 <br />
 	    		<a href="../Tableaux/ModalNode.html">ModalNode</a>    	 <br />
 	  </div>
                   <b>Classes:</b><br />
@@ -157,25 +159,15 @@ Source Location: /ProofSystem/Tableaux/TableauWriter.php<br /><br />
 				<td valign="top" width="20%" class="class-overview">
 		<p align="center" class="short-description"><strong><a href="#sec_vars">Properties</a></strong></p>
 		<ul>
-		  		  <li><a href="../Tableaux/TableauWriter.html#var$closeMarker">$closeMarker</a></li>
 		  		  <li><a href="../Tableaux/TableauWriter.html#var$sentenceWriter">$sentenceWriter</a></li>
-		  		  <li><a href="../Tableaux/TableauWriter.html#var$tickMarker">$tickMarker</a></li>
-		  		  <li><a href="../Tableaux/TableauWriter.html#var$translations">$translations</a></li>
 		  		</ul>
 		</td>
 		
 				<td valign="top" width="20%" class="class-overview">
 		<p align="center" class="short-description"><strong><a href="#sec_methods">Methods</a></strong></p>
 		<ul>
-		  		  <li><a href="../Tableaux/TableauWriter.html#methodgetCloseMarker">getCloseMarker</a></li>
 		  		  <li><a href="../Tableaux/TableauWriter.html#methodgetSentenceWriter">getSentenceWriter</a></li>
-		  		  <li><a href="../Tableaux/TableauWriter.html#methodgetTickMarker">getTickMarker</a></li>
-		  		  <li><a href="../Tableaux/TableauWriter.html#methodgetTranslations">getTranslations</a></li>
-		  		  <li><a href="../Tableaux/TableauWriter.html#methodsetCloseMarker">setCloseMarker</a></li>
 		  		  <li><a href="../Tableaux/TableauWriter.html#methodsetSentenceWriter">setSentenceWriter</a></li>
-		  		  <li><a href="../Tableaux/TableauWriter.html#methodsetTickMarker">setTickMarker</a></li>
-		  		  <li><a href="../Tableaux/TableauWriter.html#methodsetTranslation">setTranslation</a></li>
-		  		  <li><a href="../Tableaux/TableauWriter.html#methodtranslate">translate</a></li>
 		  		  <li><a href="../Tableaux/TableauWriter.html#methodwriteArgument">writeArgument</a></li>
 		  		  <li><a href="../Tableaux/TableauWriter.html#methodwriteTableau">writeTableau</a></li>
 		  		</ul>
@@ -232,24 +224,9 @@ Source Location: /ProofSystem/Tableaux/TableauWriter.php<br /><br />
 		<div class="info-box-body">
 			<div class="var-summary">
 			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
-																																					<div class="var-title">
-					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
-					<td class="var-title"><a href="#$closeMarker" title="details" class="var-name-summary">$closeMarker</a>&nbsp;&nbsp;</td>
-					<td class="var-summary-description"></td></tr>
-				</div>
-													<div class="var-title">
+																			<div class="var-title">
 					<tr><td class="var-title"><span class="var-type-summary"><a href="../Syntax/SentenceWriter.html">SentenceWriter</a></span>&nbsp;&nbsp;</td>
 					<td class="var-title"><a href="#$sentenceWriter" title="details" class="var-name-summary">$sentenceWriter</a>&nbsp;&nbsp;</td>
-					<td class="var-summary-description"></td></tr>
-				</div>
-													<div class="var-title">
-					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
-					<td class="var-title"><a href="#$tickMarker" title="details" class="var-name-summary">$tickMarker</a>&nbsp;&nbsp;</td>
-					<td class="var-summary-description"></td></tr>
-				</div>
-													<div class="var-title">
-					<tr><td class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
-					<td class="var-title"><a href="#$translations" title="details" class="var-name-summary">$translations</a>&nbsp;&nbsp;</td>
 					<td class="var-summary-description"></td></tr>
 				</div>
 										</table>
@@ -270,50 +247,15 @@ Source Location: /ProofSystem/Tableaux/TableauWriter.php<br /><br />
 		<div class="info-box-body">
 			<div class="method-summary">
 				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
-																																																																																																								<div class="method-definition">
-											<tr><td class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
-										<td class="method-definition"><a href="#getCloseMarker" title="details" class="method-name">getCloseMarker</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Gets the close marker.</td></tr>
-				</div>
-																<div class="method-definition">
+																																																<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result"><a href="../Syntax/SentenceWriter.html">SentenceWriter</a></span>&nbsp;&nbsp;</td>
 										<td class="method-definition"><a href="#getSentenceWriter" title="details" class="method-name">getSentenceWriter</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Gets the sentence writer object.</td></tr>
 				</div>
 																<div class="method-definition">
-											<tr><td class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
-										<td class="method-definition"><a href="#getTickMarker" title="details" class="method-name">getTickMarker</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Gets the tick marker.</td></tr>
-				</div>
-																<div class="method-definition">
-											<tr><td class="method-definition"><span class="method-result">array</span>&nbsp;&nbsp;</td>
-										<td class="method-definition"><a href="#getTranslations" title="details" class="method-name">getTranslations</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Gets the translations.</td></tr>
-				</div>
-																<div class="method-definition">
-											<tr><td class="method-definition"><span class="method-result"><a href="../Tableaux/TableauWriter.html">TableauWriter</a></span>&nbsp;&nbsp;</td>
-										<td class="method-definition"><a href="#setCloseMarker" title="details" class="method-name">setCloseMarker</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Sets the symbol with which to mark a closed branch.</td></tr>
-				</div>
-																<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result"><a href="../Tableaux/TableauWriter.html">TableauWriter</a></span>&nbsp;&nbsp;</td>
 										<td class="method-definition"><a href="#setSentenceWriter" title="details" class="method-name">setSentenceWriter</a>()&nbsp;&nbsp;</td>
 					<td class="method-definition">Sets the sentence writer object.</td></tr>
-				</div>
-																<div class="method-definition">
-											<tr><td class="method-definition"><span class="method-result"><a href="../Tableaux/TableauWriter.html">TableauWriter</a></span>&nbsp;&nbsp;</td>
-										<td class="method-definition"><a href="#setTickMarker" title="details" class="method-name">setTickMarker</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Sets the symbol with which to mark a ticked node.</td></tr>
-				</div>
-																<div class="method-definition">
-											<tr><td class="method-definition"><span class="method-result">Writer</span>&nbsp;&nbsp;</td>
-										<td class="method-definition"><a href="#setTranslation" title="details" class="method-name">setTranslation</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Sets a string translation to perform.</td></tr>
-				</div>
-																<div class="method-definition">
-											<tr><td class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
-										<td class="method-definition"><a href="#translate" title="details" class="method-name">translate</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Performs translations.</td></tr>
 				</div>
 																<div class="method-definition">
 											<tr><td class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
@@ -341,93 +283,14 @@ Source Location: /ProofSystem/Tableaux/TableauWriter.php<br /><br />
 															| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
 												</div>
 		<div class="info-box-body">
-			<a name="var$closeMarker" id="$closeMarker"><!-- --></A>
+			<a name="var$sentenceWriter" id="$sentenceWriter"><!-- --></A>
 <div class="oddrow">
-
-	<div class="var-header">
-		<span class="var-title">
-			<span class="var-type">string</span>&nbsp;&nbsp;
-			<span class="var-name">$closeMarker</span>
-			 = <span class="var-default"> '*'</span>			<span class="smalllinenumber">[line 43]</span>
-		</span>
-	</div>
-
-		<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
-  </tr>
-</table>
-<br />
-
-
-	
-			<hr class="separator" />
-		<div class="notes">Redefined in descendants as:</div>
-		<ul class="redefinitions">
-					<li>
-				<a href="../Tableaux/TableauWriter_LaTeX_Qtree.html#var$closeMarker">TableauWriter_LaTeX_Qtree::$closeMarker</a>
-							</li>
-				</ul>
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
-<a name="var$sentenceWriter" id="$sentenceWriter"><!-- --></A>
-<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type"><a href="../Syntax/SentenceWriter.html">SentenceWriter</a></span>&nbsp;&nbsp;
 			<span class="var-name">$sentenceWriter</span>
 						<span class="smalllinenumber">[line 38]</span>
-		</span>
-	</div>
-
-		<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
-  </tr>
-</table>
-<br />
-
-
-	
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
-<a name="var$tickMarker" id="$tickMarker"><!-- --></A>
-<div class="oddrow">
-
-	<div class="var-header">
-		<span class="var-title">
-			<span class="var-type">string</span>&nbsp;&nbsp;
-			<span class="var-name">$tickMarker</span>
-			 = <span class="var-default"> '/'</span>			<span class="smalllinenumber">[line 48]</span>
-		</span>
-	</div>
-
-		<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
-  </tr>
-</table>
-<br />
-
-
-	
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
-<a name="var$translations" id="$translations"><!-- --></A>
-<div class="evenrow">
-
-	<div class="var-header">
-		<span class="var-title">
-			<span class="var-type">array</span>&nbsp;&nbsp;
-			<span class="var-name">$translations</span>
-			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 53]</span>
 		</span>
 	</div>
 
@@ -459,47 +322,11 @@ Source Location: /ProofSystem/Tableaux/TableauWriter.php<br /><br />
 		<div class="info-box-body">
 			<a name='method_detail'></a>
 
-<a name="methodgetCloseMarker" id="getCloseMarker"><!-- --></a>
-<div class="oddrow">
-
-<div class="method-header">
-	<span class="method-title">getCloseMarker</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 97]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code>string getCloseMarker(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Gets the close marker.
-</strong></p>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The close marker.</td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-<br />
-
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
 <a name="methodgetSentenceWriter" id="getSentenceWriter"><!-- --></a>
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">getSentenceWriter</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 73]</span>
+	<span class="method-title">getSentenceWriter</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 45]</span>
 </div>
 <br />
 
@@ -531,131 +358,11 @@ Source Location: /ProofSystem/Tableaux/TableauWriter.php<br /><br />
 		<br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
-<a name="methodgetTickMarker" id="getTickMarker"><!-- --></a>
-<div class="oddrow">
-
-<div class="method-header">
-	<span class="method-title">getTickMarker</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 119]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code>string getTickMarker(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Gets the tick marker.
-</strong></p>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The tick marker.</td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-<br />
-
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
-<a name="methodgetTranslations" id="getTranslations"><!-- --></a>
-<div class="evenrow">
-
-<div class="method-header">
-	<span class="method-title">getTranslations</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 141]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code>array getTranslations(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Gets the translations.
-</strong></p>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The translations.</td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-<br />
-
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
-<a name="methodsetCloseMarker" id="setCloseMarker"><!-- --></a>
-<div class="oddrow">
-
-<div class="method-header">
-	<span class="method-title">setCloseMarker</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 108]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code><a href="../Tableaux/TableauWriter.html">TableauWriter</a> setCloseMarker(
-string
-$symbol&nbsp;
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Sets the symbol with which to mark a closed branch.
-</strong></p>
-
-			<strong>Parameters:</strong><br />
-			<table border="0" cellspacing="0" cellpadding="0">
-					<tr><td class="indent">
-				<span class="var-type">string</span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$symbol:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> The close marker.</span>			</td></tr>
-				</table>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Current instance.</td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-<br />
-
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
 <a name="methodsetSentenceWriter" id="setSentenceWriter"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">setSentenceWriter</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 86]</span>
+	<span class="method-title">setSentenceWriter</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 58]</span>
 </div>
 <br />
 
@@ -699,168 +406,11 @@ $sentenceWriter&nbsp;
 		<br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
 </div>
-<a name="methodsetTickMarker" id="setTickMarker"><!-- --></a>
-<div class="oddrow">
-
-<div class="method-header">
-	<span class="method-title">setTickMarker</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 130]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code><a href="../Tableaux/TableauWriter.html">TableauWriter</a> setTickMarker(
-string
-$symbol&nbsp;
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Sets the symbol with which to mark a ticked node.
-</strong></p>
-
-			<strong>Parameters:</strong><br />
-			<table border="0" cellspacing="0" cellpadding="0">
-					<tr><td class="indent">
-				<span class="var-type">string</span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$symbol:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> The tick marker.</span>			</td></tr>
-				</table>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Current instance.</td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-<br />
-
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
-<a name="methodsetTranslation" id="setTranslation"><!-- --></a>
-<div class="evenrow">
-
-<div class="method-header">
-	<span class="method-title">setTranslation</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 155]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code>Writer setTranslation(
-string|array
-$from, [string
-$to = null]&nbsp;
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Sets a string translation to perform.
-</strong></p>
-
-			<strong>Parameters:</strong><br />
-			<table border="0" cellspacing="0" cellpadding="0">
-					<tr><td class="indent">
-				<span class="var-type">string|array</span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$from:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> The string to translate from, or array of from                              =&gt; to pairs.</span>			</td></tr>
-					<tr><td class="indent">
-				<span class="var-type">string</span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$to:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> The string to translate to, or empty if $from is array.</span>			</td></tr>
-				</table>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Current instance.</td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-<br />
-
-<strong>Information Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Throws:</strong>&nbsp;&nbsp;</td><td><a href="../Exceptions/WriterException.html">WriterException</a> on translation error.</td>
-  </tr>
-</table>
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
-<a name="methodtranslate" id="translate"><!-- --></a>
-<div class="oddrow">
-
-<div class="method-header">
-	<span class="method-title">translate</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 61]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code>string translate(
-string
-$string&nbsp;
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Performs translations.
-</strong></p>
-
-			<strong>Parameters:</strong><br />
-			<table border="0" cellspacing="0" cellpadding="0">
-					<tr><td class="indent">
-				<span class="var-type">string</span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$string:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> The string to translate.</span>			</td></tr>
-				</table>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The translated string.</td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-<br />
-
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
 <a name="methodwriteArgument" id="writeArgument"><!-- --></a>
 <div class="evenrow">
 
 <div class="method-header">
-	<span class="method-title">writeArgument</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 178]</span>
+	<span class="method-title">writeArgument</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 71]</span>
 </div>
 <br />
 
@@ -929,7 +479,7 @@ $logic&nbsp;
 <div class="oddrow">
 
 <div class="method-header">
-	<span class="method-title">writeTableau</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 187]</span>
+	<span class="method-title">writeTableau</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 80]</span>
 </div>
 <br />
 
@@ -1000,7 +550,7 @@ $logic&nbsp;
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Sun, 22 Jan 2012 01:02:27 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Mon, 23 Jan 2012 10:20:19 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

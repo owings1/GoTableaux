@@ -6,13 +6,16 @@
  */
 
 /**
- * Alias for {@link Utilities::debug()}
+ * Alias for {@link Utilities::debug()}.
+ * @param mixed $var
+ * @return void
  */
 function debug()
 {
 	$args = func_get_args();
 	return call_user_func_array( array( 'Utilities', 'debug' ), $args );
 }
+
 /**
  * Collects general PHP utilities.
  * @package Logic
@@ -91,19 +94,19 @@ class Utilities
 	 * @return void
 	 * @see config.php
 	 */
-	public static function debug( $var = null )
+	public static function debug()
 	{
 		if ( !Settings::read( 'debug' )) return;
-		
+		$args = func_get_args();
 		switch ( func_num_args() ) {
 			case 0: break;
 			case 1:
-				print_r( $var );
+				print_r( array_pop( $args ));
 				break;
 			default:
-				$args = func_get_args();
 				print_r( $args );
 				break;
 		}
+		echo PHP_EOL;
 	}
 }

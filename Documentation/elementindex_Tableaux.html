@@ -50,6 +50,7 @@
 			<span style="padding-left: 1em;"><a href="Tableaux/_ProofSystem---Tableaux---Branch---ManyValuedModalBranch.php.html">ManyValuedModalBranch.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="Tableaux/_ProofSystem---Tableaux---Node---ManyValuedModalSentenceNode.php.html">ManyValuedModalSentenceNode.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="Tableaux/_ProofSystem---Tableaux---ManyValuedModalTableauxSystem.php.html">ManyValuedModalTableauxSystem.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="Tableaux/_ProofSystem---Tableaux---Node---ManyValuedNode.php.html">ManyValuedNode.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="Tableaux/_ProofSystem---Tableaux---Node---ManyValuedSentenceNode.php.html">ManyValuedSentenceNode.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="Tableaux/_ProofSystem---Tableaux---ManyValuedTableauxSystem.php.html">ManyValuedTableauxSystem.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="Tableaux/_ProofSystem---Tableaux---Branch---ModalBranch.php.html">ModalBranch.php</a></span><br />
@@ -74,6 +75,7 @@
         <div class="package">
 		    		<a href="Tableaux/BranchRule.html">BranchRule</a>    	 <br />
 	    		<a href="Tableaux/ClosureRule.html">ClosureRule</a>    	 <br />
+	    		<a href="Tableaux/ManyValuedNode.html">ManyValuedNode</a>    	 <br />
 	    		<a href="Tableaux/ModalNode.html">ModalNode</a>    	 <br />
 	  </div>
                   <b>Classes:</b><br />
@@ -279,8 +281,6 @@
 				<dd>in file Branch.php, variable <a href="Tableaux/Branch.html#var$closed">Branch::$closed</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Tracks whether the branch is closed.</dd>
 							<dt><b>$closeMarker</b></dt>
 				<dd>in file TableauWriter_LaTeX_Qtree.php, variable <a href="Tableaux/TableauWriter_LaTeX_Qtree.html#var$closeMarker">TableauWriter_LaTeX_Qtree::$closeMarker</a></dd>
-							<dt><b>$closeMarker</b></dt>
-				<dd>in file TableauWriter.php, variable <a href="Tableaux/TableauWriter.html#var$closeMarker">TableauWriter::$closeMarker</a></dd>
 							<dt><b>$closureRule</b></dt>
 				<dd>in file TableauxSystem.php, variable <a href="Tableaux/TableauxSystem.html#var$closureRule">TableauxSystem::$closureRule</a></dd>
 							<dt><b>$closureRuleClass</b></dt>
@@ -296,9 +296,9 @@
 							<dt><b>ClosureRule</b></dt>
 				<dd>in file ClosureRule.php, class <a href="Tableaux/ClosureRule.html">ClosureRule</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableau closure rule.</dd>
 							<dt><b>copy</b></dt>
-				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodcopy">Branch::copy()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Clones the branch. Maintains references to the nodes.</dd>
-							<dt><b>copy</b></dt>
 				<dd>in file Tableau.php, method <a href="Tableaux/Tableau.html#methodcopy">Tableau::copy()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Copies the tree and all its branches.</dd>
+							<dt><b>copy</b></dt>
+				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodcopy">Branch::copy()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Clones the branch. Maintains references to the nodes.</dd>
 							<dt><b>createAccessNode</b></dt>
 				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodcreateAccessNode">ModalBranch::createAccessNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a new access node for the given two integer indexes.</dd>
 							<dt><b>createBranch</b></dt>
@@ -368,8 +368,6 @@
 				<dd>in file Tableau.php, method <a href="Tableaux/Tableau.html#methodgetBranches">Tableau::getBranches()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all branches on the tree.</dd>
 							<dt><b>getBranchRules</b></dt>
 				<dd>in file TableauxSystem.php, method <a href="Tableaux/TableauxSystem.html#methodgetBranchRules">TableauxSystem::getBranchRules()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the tableau branch rules.</dd>
-							<dt><b>getCloseMarker</b></dt>
-				<dd>in file TableauWriter.php, method <a href="Tableaux/TableauWriter.html#methodgetCloseMarker">TableauWriter::getCloseMarker()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the close marker.</dd>
 							<dt><b>getClosureRule</b></dt>
 				<dd>in file TableauxSystem.php, method <a href="Tableaux/TableauxSystem.html#methodgetClosureRule">TableauxSystem::getClosureRule()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the closure rule.</dd>
 							<dt><b>getCounterexample</b></dt>
@@ -379,11 +377,11 @@
 							<dt><b>getDesignatedNodes</b></dt>
 				<dd>in file ManyValuedBranch.php, method <a href="Tableaux/ManyValuedBranch.html#methodgetDesignatedNodes">ManyValuedBranch::getDesignatedNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all designated sentence nodes on the branch.</dd>
 							<dt><b>getI</b></dt>
-				<dd>in file ModalSentenceNode.php, method <a href="Tableaux/ModalSentenceNode.html#methodgetI">ModalSentenceNode::getI()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the index.</dd>
-							<dt><b>getI</b></dt>
 				<dd>in file AccessNode.php, method <a href="Tableaux/AccessNode.html#methodgetI">AccessNode::getI()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the first index</dd>
 							<dt><b>getI</b></dt>
 				<dd>in file ModalNode.php, method <a href="Tableaux/ModalNode.html#methodgetI">ModalNode::getI()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns the index, or the first index, of a modal node.</dd>
+							<dt><b>getI</b></dt>
+				<dd>in file ModalSentenceNode.php, method <a href="Tableaux/ModalSentenceNode.html#methodgetI">ModalSentenceNode::getI()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the index.</dd>
 							<dt><b>getIndexes</b></dt>
 				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodgetIndexes">ModalBranch::getIndexes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all world indexes that appear on the branch.</dd>
 							<dt><b>getInstance</b></dt>
@@ -422,14 +420,10 @@
 				<dd>in file TableauWriter_LaTeX_Qtree.php, method <a href="Tableaux/TableauWriter_LaTeX_Qtree.html#methodgetTeXUsePackageStr">TableauWriter_LaTeX_Qtree::getTeXUsePackageStr()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the \usepackage LaTeX string to place at the head of a LaTeX file.</dd>
 							<dt><b>getTickedNodes</b></dt>
 				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodgetTickedNodes">Branch::getTickedNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all nodes on the branch that are ticked relative to the branch.</dd>
-							<dt><b>getTickMarker</b></dt>
-				<dd>in file TableauWriter.php, method <a href="Tableaux/TableauWriter.html#methodgetTickMarker">TableauWriter::getTickMarker()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the tick marker.</dd>
-							<dt><b>getTranslations</b></dt>
-				<dd>in file TableauWriter.php, method <a href="Tableaux/TableauWriter.html#methodgetTranslations">TableauWriter::getTranslations()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets the translations.</dd>
-							<dt><b>getUndesignatedNodes</b></dt>
-				<dd>in file ManyValuedModalBranch.php, method <a href="Tableaux/ManyValuedModalBranch.html#methodgetUndesignatedNodes">ManyValuedModalBranch::getUndesignatedNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all undesignated sentence nodes on the branch.</dd>
 							<dt><b>getUndesignatedNodes</b></dt>
 				<dd>in file ManyValuedBranch.php, method <a href="Tableaux/ManyValuedBranch.html#methodgetUndesignatedNodes">ManyValuedBranch::getUndesignatedNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all undesignated sentence nodes on the branch.</dd>
+							<dt><b>getUndesignatedNodes</b></dt>
+				<dd>in file ManyValuedModalBranch.php, method <a href="Tableaux/ManyValuedModalBranch.html#methodgetUndesignatedNodes">ManyValuedModalBranch::getUndesignatedNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all undesignated sentence nodes on the branch.</dd>
 							<dt><b>getUntickedNodes</b></dt>
 				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodgetUntickedNodes">Branch::getUntickedNodes()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets all nodes on the branch that are unticked relative to the branch.</dd>
 					</dl>
@@ -481,11 +475,11 @@
 							<dt><b>indexIsTransitive</b></dt>
 				<dd>in file ModalBranch.php, method <a href="Tableaux/ModalBranch.html#methodindexIsTransitive">ModalBranch::indexIsTransitive()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether a given world index represents a transitive world.</dd>
 							<dt><b>induceModel</b></dt>
+				<dd>in file ModalTableauxSystem.php, method <a href="Tableaux/ModalTableauxSystem.html#methodinduceModel">ModalTableauxSystem::induceModel()</a></dd>
+							<dt><b>induceModel</b></dt>
 				<dd>in file TableauxSystem.php, method <a href="Tableaux/TableauxSystem.html#methodinduceModel">TableauxSystem::induceModel()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Induces a model from an open branch.</dd>
 							<dt><b>induceModel</b></dt>
 				<dd>in file PropositionalTableauxSystem.php, method <a href="Tableaux/PropositionalTableauxSystem.html#methodinduceModel">PropositionalTableauxSystem::induceModel()</a></dd>
-							<dt><b>induceModel</b></dt>
-				<dd>in file ModalTableauxSystem.php, method <a href="Tableaux/ModalTableauxSystem.html#methodinduceModel">ModalTableauxSystem::induceModel()</a></dd>
 							<dt><b>induceModel</b></dt>
 				<dd>in file ManyValuedTableauxSystem.php, method <a href="Tableaux/ManyValuedTableauxSystem.html#methodinduceModel">ManyValuedTableauxSystem::induceModel()</a></dd>
 							<dt><b>induceModel</b></dt>
@@ -495,9 +489,11 @@
 							<dt><b>isClosed</b></dt>
 				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodisClosed">Branch::isClosed()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether the branch is closed.</dd>
 							<dt><b>isDesignated</b></dt>
+				<dd>in file ManyValuedModalSentenceNode.php, method <a href="Tableaux/ManyValuedModalSentenceNode.html#methodisDesignated">ManyValuedModalSentenceNode::isDesignated()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets whether the sentence is designated at the world index.</dd>
+							<dt><b>isDesignated</b></dt>
 				<dd>in file ManyValuedSentenceNode.php, method <a href="Tableaux/ManyValuedSentenceNode.html#methodisDesignated">ManyValuedSentenceNode::isDesignated()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets whether the sentence is designated at the world index.</dd>
 							<dt><b>isDesignated</b></dt>
-				<dd>in file ManyValuedModalSentenceNode.php, method <a href="Tableaux/ManyValuedModalSentenceNode.html#methodisDesignated">ManyValuedModalSentenceNode::isDesignated()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Gets whether the sentence is designated at the world index.</dd>
+				<dd>in file ManyValuedNode.php, method <a href="Tableaux/ManyValuedNode.html#methodisDesignated">ManyValuedNode::isDesignated()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Returns whether the node is designated.</dd>
 							<dt><b>isTickedAtBranch</b></dt>
 				<dd>in file Node.php, method <a href="Tableaux/Node.html#methodisTickedAtBranch">Node::isTickedAtBranch()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether the node is ticked relative to a particular branch.</dd>
 							<dt><b>isValidProof</b></dt>
@@ -534,6 +530,8 @@
 				<dd>in file ManyValuedModalSentenceNode.php, class <a href="Tableaux/ManyValuedModalSentenceNode.html">ManyValuedModalSentenceNode</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a sentence node on a branch of a many-valued modal logic tableau.</dd>
 							<dt><b>ManyValuedModalTableauxSystem</b></dt>
 				<dd>in file ManyValuedModalTableauxSystem.php, class <a href="Tableaux/ManyValuedModalTableauxSystem.html">ManyValuedModalTableauxSystem</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a tableaux system for a many-valued modal logic.</dd>
+							<dt><b>ManyValuedNode</b></dt>
+				<dd>in file ManyValuedNode.php, class <a href="Tableaux/ManyValuedNode.html">ManyValuedNode</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Signifies a many-valued tableau node that has a designation marker.</dd>
 							<dt><b>ManyValuedSentenceNode</b></dt>
 				<dd>in file ManyValuedSentenceNode.php, class <a href="Tableaux/ManyValuedSentenceNode.html">ManyValuedSentenceNode</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a sentence node on a branch of a many-valued logic tableau.</dd>
 							<dt><b>ManyValuedTableauxSystem</b></dt>
@@ -568,6 +566,8 @@
 				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---ModalTableauxSystem.php.html">ModalTableauxSystem.php</a></dd>
 							<dt><b>ManyValuedModalSentenceNode.php</b></dt>
 				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---Node---ManyValuedModalSentenceNode.php.html">ManyValuedModalSentenceNode.php</a></dd>
+							<dt><b>ManyValuedNode.php</b></dt>
+				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---Node---ManyValuedNode.php.html">ManyValuedNode.php</a></dd>
 							<dt><b>ManyValuedSentenceNode.php</b></dt>
 				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---Node---ManyValuedSentenceNode.php.html">ManyValuedSentenceNode.php</a></dd>
 							<dt><b>ModalNode.php</b></dt>
@@ -647,8 +647,6 @@
 				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---TableauWriter---SimpleTableauWriter.php.html">SimpleTableauWriter.php</a></dd>
 							<dt><b>SentenceNode</b></dt>
 				<dd>in file SentenceNode.php, class <a href="Tableaux/SentenceNode.html">SentenceNode</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a sentence tableau node.</dd>
-							<dt><b>setCloseMarker</b></dt>
-				<dd>in file TableauWriter.php, method <a href="Tableaux/TableauWriter.html#methodsetCloseMarker">TableauWriter::setCloseMarker()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the symbol with which to mark a closed branch.</dd>
 							<dt><b>setDesignation</b></dt>
 				<dd>in file ManyValuedModalSentenceNode.php, method <a href="Tableaux/ManyValuedModalSentenceNode.html#methodsetDesignation">ManyValuedModalSentenceNode::setDesignation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the designation flag.</dd>
 							<dt><b>setDesignation</b></dt>
@@ -665,10 +663,6 @@
 				<dd>in file TableauWriter.php, method <a href="Tableaux/TableauWriter.html#methodsetSentenceWriter">TableauWriter::setSentenceWriter()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the sentence writer object.</dd>
 							<dt><b>setTableau</b></dt>
 				<dd>in file Structure.php, method <a href="Tableaux/Structure.html#methodsetTableau">Structure::setTableau()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the tableau to represent.</dd>
-							<dt><b>setTickMarker</b></dt>
-				<dd>in file TableauWriter.php, method <a href="Tableaux/TableauWriter.html#methodsetTickMarker">TableauWriter::setTickMarker()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets the symbol with which to mark a ticked node.</dd>
-							<dt><b>setTranslation</b></dt>
-				<dd>in file TableauWriter.php, method <a href="Tableaux/TableauWriter.html#methodsetTranslation">TableauWriter::setTranslation()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Sets a string translation to perform.</dd>
 							<dt><b>SimpleTableauWriter</b></dt>
 				<dd>in file SimpleTableauWriter.php, class <a href="Tableaux/SimpleTableauWriter.html">SimpleTableauWriter</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a simple tableau proof writer.</dd>
 							<dt><b>strip</b></dt>
@@ -689,17 +683,13 @@
 		<h2>t</h2>
 		<dl>
 							<dt><b>$tableau</b></dt>
-				<dd>in file Structure.php, variable <a href="Tableaux/Structure.html#var$tableau">Structure::$tableau</a></dd>
-							<dt><b>$tableau</b></dt>
 				<dd>in file Branch.php, variable <a href="Tableaux/Branch.html#var$tableau">Branch::$tableau</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the tableau.</dd>
-							<dt><b>$tickedNodes</b></dt>
-				<dd>in file Branch.php, variable <a href="Tableaux/Branch.html#var$tickedNodes">Branch::$tickedNodes</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the ticked <a href="Tableaux/Node.html">Node</a>s.</dd>
+							<dt><b>$tableau</b></dt>
+				<dd>in file Structure.php, variable <a href="Tableaux/Structure.html#var$tableau">Structure::$tableau</a></dd>
 							<dt><b>$tickedNodes</b></dt>
 				<dd>in file Structure.php, variable <a href="Tableaux/Structure.html#var$tickedNodes">Structure::$tickedNodes</a></dd>
-							<dt><b>$tickMarker</b></dt>
-				<dd>in file TableauWriter.php, variable <a href="Tableaux/TableauWriter.html#var$tickMarker">TableauWriter::$tickMarker</a></dd>
-							<dt><b>$translations</b></dt>
-				<dd>in file TableauWriter.php, variable <a href="Tableaux/TableauWriter.html#var$translations">TableauWriter::$translations</a></dd>
+							<dt><b>$tickedNodes</b></dt>
+				<dd>in file Branch.php, variable <a href="Tableaux/Branch.html#var$tickedNodes">Branch::$tickedNodes</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds the ticked <a href="Tableaux/Node.html">Node</a>s.</dd>
 							<dt><b>Tableau.php</b></dt>
 				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---Tableau.php.html">Tableau.php</a></dd>
 							<dt><b>TableauWriter_LaTeX_Qtree.php</b></dt>
@@ -720,8 +710,6 @@
 				<dd>in file Node.php, method <a href="Tableaux/Node.html#methodtickAtBranch">Node::tickAtBranch()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Ticks the node relative to a branch.</dd>
 							<dt><b>tickNode</b></dt>
 				<dd>in file Branch.php, method <a href="Tableaux/Branch.html#methodtickNode">Branch::tickNode()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Ticks a node relative to the branch.</dd>
-							<dt><b>translate</b></dt>
-				<dd>in file TableauWriter.php, method <a href="Tableaux/TableauWriter.html#methodtranslate">TableauWriter::translate()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Performs translations.</dd>
 					</dl>
 	</div>
 	<a name="w"></a>
@@ -751,7 +739,7 @@
 	</div>
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Sun, 22 Jan 2012 01:02:22 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Mon, 23 Jan 2012 10:20:15 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

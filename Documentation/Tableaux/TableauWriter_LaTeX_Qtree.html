@@ -50,6 +50,7 @@
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Branch---ManyValuedModalBranch.php.html">ManyValuedModalBranch.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node---ManyValuedModalSentenceNode.php.html">ManyValuedModalSentenceNode.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---ManyValuedModalTableauxSystem.php.html">ManyValuedModalTableauxSystem.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node---ManyValuedNode.php.html">ManyValuedNode.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Node---ManyValuedSentenceNode.php.html">ManyValuedSentenceNode.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---ManyValuedTableauxSystem.php.html">ManyValuedTableauxSystem.php</a></span><br />
 			<span style="padding-left: 1em;"><a href="../Tableaux/_ProofSystem---Tableaux---Branch---ModalBranch.php.html">ModalBranch.php</a></span><br />
@@ -74,6 +75,7 @@
         <div class="package">
 		    		<a href="../Tableaux/BranchRule.html">BranchRule</a>    	 <br />
 	    		<a href="../Tableaux/ClosureRule.html">ClosureRule</a>    	 <br />
+	    		<a href="../Tableaux/ManyValuedNode.html">ManyValuedNode</a>    	 <br />
 	    		<a href="../Tableaux/ModalNode.html">ModalNode</a>    	 <br />
 	  </div>
                   <b>Classes:</b><br />
@@ -202,18 +204,6 @@ Source Location: /ProofSystem/Tableaux/TableauWriter/TableauWriter_LaTeX_Qtree.p
 										<dd>
 											<span class="method-definition"></span>
 										</dd>
-																			<dt>
-											<span class="method-definition"><a href="../Tableaux/TableauWriter.html#var$tickMarker">TableauWriter::$tickMarker</a></span>
-										</dt>
-										<dd>
-											<span class="method-definition"></span>
-										</dd>
-																			<dt>
-											<span class="method-definition"><a href="../Tableaux/TableauWriter.html#var$translations">TableauWriter::$translations</a></span>
-										</dt>
-										<dd>
-											<span class="method-definition"></span>
-										</dd>
 																	</dl>
 							</blockquote>
 											</td>
@@ -222,58 +212,16 @@ Source Location: /ProofSystem/Tableaux/TableauWriter/TableauWriter_LaTeX_Qtree.p
 							<blockquote>
 								<dl>
 																			<dt>
-											<span class="method-definition"><a href="../Tableaux/TableauWriter.html#methodgetCloseMarker">TableauWriter::getCloseMarker()</a></span>
-										</dt>
-										<dd>
-											<span class="method-definition">Gets the close marker.</span>
-										</dd>
-																			<dt>
 											<span class="method-definition"><a href="../Tableaux/TableauWriter.html#methodgetSentenceWriter">TableauWriter::getSentenceWriter()</a></span>
 										</dt>
 										<dd>
 											<span class="method-definition">Gets the sentence writer object.</span>
 										</dd>
 																			<dt>
-											<span class="method-definition"><a href="../Tableaux/TableauWriter.html#methodgetTickMarker">TableauWriter::getTickMarker()</a></span>
-										</dt>
-										<dd>
-											<span class="method-definition">Gets the tick marker.</span>
-										</dd>
-																			<dt>
-											<span class="method-definition"><a href="../Tableaux/TableauWriter.html#methodgetTranslations">TableauWriter::getTranslations()</a></span>
-										</dt>
-										<dd>
-											<span class="method-definition">Gets the translations.</span>
-										</dd>
-																			<dt>
-											<span class="method-definition"><a href="../Tableaux/TableauWriter.html#methodsetCloseMarker">TableauWriter::setCloseMarker()</a></span>
-										</dt>
-										<dd>
-											<span class="method-definition">Sets the symbol with which to mark a closed branch.</span>
-										</dd>
-																			<dt>
 											<span class="method-definition"><a href="../Tableaux/TableauWriter.html#methodsetSentenceWriter">TableauWriter::setSentenceWriter()</a></span>
 										</dt>
 										<dd>
 											<span class="method-definition">Sets the sentence writer object.</span>
-										</dd>
-																			<dt>
-											<span class="method-definition"><a href="../Tableaux/TableauWriter.html#methodsetTickMarker">TableauWriter::setTickMarker()</a></span>
-										</dt>
-										<dd>
-											<span class="method-definition">Sets the symbol with which to mark a ticked node.</span>
-										</dd>
-																			<dt>
-											<span class="method-definition"><a href="../Tableaux/TableauWriter.html#methodsetTranslation">TableauWriter::setTranslation()</a></span>
-										</dt>
-										<dd>
-											<span class="method-definition">Sets a string translation to perform.</span>
-										</dd>
-																			<dt>
-											<span class="method-definition"><a href="../Tableaux/TableauWriter.html#methodtranslate">TableauWriter::translate()</a></span>
-										</dt>
-										<dd>
-											<span class="method-definition">Performs translations.</span>
 										</dd>
 																			<dt>
 											<span class="method-definition"><a href="../Tableaux/TableauWriter.html#methodwriteArgument">TableauWriter::writeArgument()</a></span>
@@ -409,11 +357,6 @@ Source Location: /ProofSystem/Tableaux/TableauWriter/TableauWriter_LaTeX_Qtree.p
 <br />
 
 
-			<hr class="separator" />
-		<div class="notes">Redefinition of:</div>
-		<dl>
-			<dt><a href="../Tableaux/TableauWriter.html#var$closeMarker">TableauWriter::$closeMarker</a></dt>
-					</dl>
 	
 		<br />
 	<div class="top">[ <a href="#top">Top</a> ]</div>
@@ -727,7 +670,7 @@ $tableau&nbsp;
 
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Sun, 22 Jan 2012 01:02:28 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Mon, 23 Jan 2012 10:20:20 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>
