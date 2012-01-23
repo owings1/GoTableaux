@@ -360,12 +360,25 @@ class Vocabulary
 	 */
 	public function registerSentence( Sentence $sentence )
 	{
-		if ( in_array( $sentence, $this->sentences, true )) return $sentence;
+		//if ( in_array( $sentence, $this->sentences, true )) return $sentence;
+		foreach ( $this->sentences as $existingSentence ) {
+			debug( $existingSentence === $sentence );
+			debug( $existingSentence, $sentence );
+			if ( $sentence === $existingSentence ) {
+				debug( "Existing Sentence found" );
+				return $existingSentence;
+			}
+		}
+			
+		
+		
 		if ( $sentence instanceof AtomicSentence ) {
+			
 			foreach ( $this->atomicSentences as $atomicSentence )
 				if ( $atomicSentence->getSymbol() === $sentence->getSymbol() &&
 					 $atomicSentence->getSubscript() === $sentence->getSubscript()
 				) return $atomicSentence;
+			
 			$atomicSymbol = $sentence->getSymbol();
 			if ( $this->getSymbolType( $atomicSymbol ) !== self::ATOMIC )
 				throw new VocabularyException( "$atomicSymbol is not in the atomic symbols." );
@@ -374,11 +387,8 @@ class Vocabulary
 			return $sentence;
 		}
 		$operator = $sentence->getOperator();
-		//if ( !in_array( $operator, $this->operators, true )) {
-		//	$operator = $this->getOperatorByName( $operator->getName() );
-		//	$sentence0
-			
-		//}
+		
+		
 			
 		$oldOperands = $sentence->getOperands();
 		$newOperands = array();
@@ -393,6 +403,8 @@ class Vocabulary
 				if ( $isSame ) return $s;
 			}
 		$this->sentences[] = $sentence;
+		debug( $this->sentences );
+		
 		return $sentence;
 	}
 	

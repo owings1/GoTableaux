@@ -16,6 +16,11 @@ require_once 'GoTableaux/Logic/Exceptions/ParserException.php';
 require_once 'SentenceParser/StandardSentenceParser.php';
 
 /**
+ * Loads {@link Sentence} class.
+ */
+require_once 'Sentence.php';
+
+/**
  * Loads the {@link Argument} class.
  */
 require_once 'GoTableaux/Logic/Argument.php';

@@ -76,6 +76,21 @@ abstract class SentenceWriter
 	}
 	
 	/**
+	 * Makes an array of string representations of {@link Sentence}s.
+	 *
+	 * @param array $sentences The sentences to write.
+	 * @param Logic $logic The logic relative to which to write the sentences.
+	 * @return array An array of string representations of the sentences.
+	 */
+	public function writeSentences( array $sentences, Logic $logic )
+	{
+		$strings = array();
+		foreach ( $sentences as $key => $sentence )
+			$strings[$key] = $this->writeSentence( $sentence, $logic );
+		return $strings;
+	}
+	
+	/**
 	 * Makes a string representation of a {@link Sentence}.
 	 * 
 	 * @param Sentence $sentence The sentence to write.

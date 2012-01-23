@@ -6,11 +6,6 @@
  */
 
 /**
- * Loads {@link Sentence} class.
- */
-require_once 'GoTableaux/Logic/Syntax/Sentence.php';
-
-/**
  * Represents the standard sentence parser.
  * @package Syntax
  * @author Douglas Owings
