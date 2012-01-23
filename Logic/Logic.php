@@ -21,6 +21,11 @@ require_once 'Syntax/Vocabulary.php';
 require_once 'Syntax/Sentence.php';
 
 /**
+ * Loads the {@link SentenceParser} classes.
+ */
+require_once 'Syntax/SentenceParser.php';
+
+/**
  * Loads the {@link Argument} class.
  */
 require_once 'Argument.php';
@@ -49,6 +54,12 @@ abstract class Logic {
 	 * @var string Class name.
 	 */
 	public $proofSystemClass = 'ProofSystem';
+	
+	/**
+	 * Defines the default sentence parser.
+	 * @var string Class name prefix.
+	 */
+	public $defaultParser = 'Standard';
 	
 	/**
 	 * Holds a reference to the vocabulary.
@@ -82,7 +93,6 @@ abstract class Logic {
 	public static function getInstance( $name )
 	{
 		if ( !array_key_exists( $name, self::$instances )) {
-			
 			if ( !class_exists( $name )) {
 				try {
 					require_once "GoTableaux/Logics/$name/$name.php";
@@ -90,12 +100,9 @@ abstract class Logic {
 					throw new Exception( "Unable to auto-load class $name." );
 				}
 			}
-			
 			$instance = new $name;
-			
 			if ( !$instance instanceof Logic ) 
 				throw new Exception( "$name does not inherit from the Logic class." );
-
 			self::$instances[$name] = $instance;
 		}
 		return self::$instances[$name];
@@ -110,19 +117,57 @@ abstract class Logic {
 	}
 	
 	/**
+	 * Initializes the vocabulary.
+	 *
+	 * This should be run to reload any changes to the lexicon. This creates a
+	 * new {@link Vocabulary} object, and so also clears the set of sentences.
+	 *
+	 * @return Logic Current instance.
+	 */
+	public function initVocabulary()
+	{
+		$this->vocabulary = Vocabulary::createWithLexicon( $this->lexicon );
+		return $this;
+	}
+	
+	/**
 	 * Gets the vocabulary.
 	 *
-	 * Lazily instantiates vocabulary.
+	 * Lazily initializes the vocabulary.
 	 *
 	 * @return Vocabulary The logic's vocabulary.
 	 */
 	public function getVocabulary()
 	{
-		if ( empty( $this->vocabulary ))
-			$this->vocabulary = Vocabulary::createWithLexicon( $this->lexicon );
+		if ( empty( $this->vocabulary )) $this->initVocabulary();
 		return $this->vocabulary;
 	}
 	
+	/**
+	 * Gets the default sentence parser.
+	 *
+	 * Lazily instantiates {@link StandardSentenceParser}.
+	 *
+	 * @return SentenceParser The default sentence parser.
+	 */
+	public function getDefaultParser()
+	{
+		if ( !$this->defaultParser instanceof SentenceParser ) {
+			$className = $this->defaultParser . "SentenceParser";
+			if ( !class_exists( $className )) {
+				try {
+					require_once "Syntax/SentenceParser/$className.php";
+				} catch( Exception $e ) {
+					throw new Exception( "Unable to auto-load class $className." );
+				}
+			}
+			$parser = new $className;
+			if ( !$parser instanceof SentenceParser )
+				throw new Exception( "$className does not inherit from SentenceParser." );
+			$this->defaultParser = $parser;
+		}
+		return $this->defaultParser;
+	}
 	/**
 	 * Gets the proof system.
 	 *
@@ -158,11 +203,29 @@ abstract class Logic {
 	 * @param SentenceParser $parser The parser to do the parsing.
 	 * @return Sentence The sentence instance, registered in the logic's vocabulary.
 	 */
-	public function parseSentence( $string, SentenceParser $parser )
+	public function parseSentence( $string, $parser = null )
 	{
+		if ( $parser === null ) $parser = $this->getDefaultParser();
+		if ( !$parser instanceof SentenceParser )
+			throw new Exception( "Parser must be instance of SentenceParser" );
 		$vocabulary = $this->getVocabulary();
 		$sentence = $parser->stringToSentence( $string, $vocabulary );
 		return $vocabulary->registerSentence( $sentence );
+	}
+	
+	/**
+	 * Parses an array of sentence strings.
+	 *
+	 * @param array $array Array of sentence strings to parse.
+	 * @param SentenceParser $parser The parser to do the parsing.
+	 * @return array Array of {@link Sentence}s.
+	 */
+	public function parseSentences( array $array, $parser = null )
+	{
+		if ( $parser === null ) $parser = $this->getDefaultParser();
+		if ( !$parser instanceof SentenceParser )
+			throw new Exception( "Parser must be instance of SentenceParser" );
+		return array_map( array( $this, 'parseSentence' ), $array, array( $parser ));
 	}
 	
 	/**
@@ -173,11 +236,12 @@ abstract class Logic {
 	 * @param SentenceParser $parser The parser to do the parsing.
 	 * @return Argument The argument instance.
 	 */
-	public function parseArgument( $premiseStrings, $conclusionString, SentenceParser $parser )
+	public function parseArgument( $premiseStrings, $conclusionString, $parser = null )
 	{
-		$premises = array();
-		foreach ( (array) $premiseStrings as $string ) 
-			$premises[] = $this->parseSentence( $string, $parser );
+		if ( $parser === null ) $parser = $this->getDefaultParser();
+		if ( !$parser instanceof SentenceParser )
+			throw new Exception( "Parser must be instance of SentenceParser" );
+		$premises 	= $this->parseSentences( (array) $premiseStrings, $parser );
 		$conclusion = $this->parseSentence( $conclusionString, $parser );
 		return Argument::createWithPremisesAndConclusion( $premises, $conclusion );
 	}
