@@ -65,6 +65,51 @@ abstract class Logic {
 	protected $proofSystem;
 	
 	/**
+	 * Holds the singleton instances of the logics.
+	 * @var array
+	 * @access private
+	 */
+	protected static $instances = array();
+	
+	/**
+	 * Gets the singleton instance of a particular logic.
+	 *
+	 * If the logic class is not loaded, it will attempt to load automatically.
+	 *
+	 * @param string $name The name of the logic.
+	 * @return Logic The instance of the logic.
+	 */
+	public static function getInstance( $name )
+	{
+		if ( !array_key_exists( $name, self::$instances )) {
+			
+			if ( !class_exists( $name )) {
+				try {
+					require_once "GoTableaux/Logics/$name/$name.php";
+				} catch( Exception $e ) {
+					throw new Exception( "Unable to auto-load class $name." );
+				}
+			}
+			
+			$instance = new $name;
+			
+			if ( !$instance instanceof Logic ) 
+				throw new Exception( "$name does not inherit from the Logic class." );
+
+			self::$instances[$name] = $instance;
+		}
+		return self::$instances[$name];
+	}
+	
+	/**
+	 * Constructor. Final & private, for forcing single instances for each logic.
+	 */
+	final private function __construct()
+	{
+		
+	}
+	
+	/**
 	 * Gets the vocabulary.
 	 *
 	 * Lazily instantiates vocabulary.
