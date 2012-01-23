@@ -8,9 +8,6 @@
 // Load the Logic base class
 require 'GoTableaux/Logic/Logic.php';
 
-// Load the Sentence parser classes
-require 'GoTableaux/Logic/Syntax/SentenceParser.php';
-
 // Load the Tableau writer classes
 require 'GoTableaux/Logic/ProofSystem/Tableaux/TableauWriter.php';
 
