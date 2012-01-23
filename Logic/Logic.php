@@ -36,6 +36,11 @@ require_once 'Argument.php';
 require_once 'Utilities.php';
 
 /**
+ * Loads the {@link Settings} class.
+ */
+require_once 'Settings.php';
+
+/**
  * Represents a Logic.
  * @package Logic
  * @author Douglas Owings
@@ -56,7 +61,7 @@ abstract class Logic {
 	public $proofSystemClass = 'ProofSystem';
 	
 	/**
-	 * Defines the default sentence parser.
+	 * Defines the default {@link SentenceParser}.
 	 * @var string Class name prefix.
 	 */
 	public $defaultParser = 'Standard';
@@ -168,6 +173,7 @@ abstract class Logic {
 		}
 		return $this->defaultParser;
 	}
+	
 	/**
 	 * Gets the proof system.
 	 *
@@ -216,16 +222,16 @@ abstract class Logic {
 	/**
 	 * Parses an array of sentence strings.
 	 *
-	 * @param array $array Array of sentence strings to parse.
+	 * @param array $strings Array of sentence strings to parse.
 	 * @param SentenceParser $parser The parser to do the parsing.
 	 * @return array Array of {@link Sentence}s.
 	 */
-	public function parseSentences( array $array, $parser = null )
+	public function parseSentences( array $strings, $parser = null )
 	{
 		if ( $parser === null ) $parser = $this->getDefaultParser();
 		if ( !$parser instanceof SentenceParser )
 			throw new Exception( "Parser must be instance of SentenceParser" );
-		return array_map( array( $this, 'parseSentence' ), $array, array( $parser ));
+		return array_map( array( $this, 'parseSentence' ), $strings );
 	}
 	
 	/**
