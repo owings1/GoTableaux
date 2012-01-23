@@ -48,13 +48,21 @@ class SimpleTableauWriter extends TableauWriter
 		else $string = 'Branch ' . $this->counter . ':' . PHP_EOL;
 		$this->counter++;
 		foreach ( $structure->getNodes() as $node ) {
-			$string .= $sentenceWriter->writeSentence( $node->getSentence(), $logic );
+			if ( $node instanceof SentenceNode ) {
+				$string .= $sentenceWriter->writeSentence( $node->getSentence(), $logic );
+				if ( $node instanceof ModalNode )
+					$string .= ', w' . $node->getI();
+			} elseif ( $node instanceof AccessNode )
+				$string .= $node->getI() . 'R' . $node->getJ();
+			if ( $node instanceof ManyValuedNode )
+				$string .= $node->isDesignated() ? ' designated' : ' undesignated';
 			if ( $structure->nodeIsTicked( $node )) $string .= ' ticked';
 			$string .= PHP_EOL;
 		}
-		if ( $structure->isClosed() ) $string .= 'closed' . PHP_EOL;
-		else foreach ( $structure->getStructures() as $subStructure )
-			$string .= $this->_writeStructure( $subStructure, $sentenceWriter, $logic );
+		if ( $subStructures = $structure->getStructures() ) 
+			foreach ( $subStructures as $subStructure )
+				$string .= $this->_writeStructure( $subStructure, $sentenceWriter, $logic );
+		else $string .= ( $structure->isClosed() ? 'closed' : 'open' ) . PHP_EOL;
 		return $string;
 	}
 }
