@@ -52,7 +52,7 @@ class StandardSentenceWriter extends SentenceWriter
 		$subscriptSymbol = $vocabulary->getSubscriptSymbols( true );
 		$subscript 		 = $sentence->getSubscript();
 		
-		if ( $subscript > 0 && $this->getOption( 'printZeroSubscripts' ))
+		if ( $subscript > 0 || $this->getOption( 'printZeroSubscripts' ))
 			$string .= $subscriptSymbol . $subscript;
 			
 		return  $string;
