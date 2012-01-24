@@ -360,51 +360,19 @@ class Vocabulary
 	 */
 	public function registerSentence( Sentence $sentence )
 	{
-		//if ( in_array( $sentence, $this->sentences, true )) return $sentence;
-		foreach ( $this->sentences as $existingSentence ) {
-			debug( $existingSentence === $sentence );
-			debug( $existingSentence, $sentence );
-			if ( $sentence === $existingSentence ) {
-				debug( "Existing Sentence found" );
-				return $existingSentence;
-			}
-		}
-			
+		foreach ( $this->sentences as $existingSentence )
+			if ( Sentence::sameForm( $existingSentence, $sentence )) return $existingSentence;
 		
-		
-		if ( $sentence instanceof AtomicSentence ) {
-			
-			foreach ( $this->atomicSentences as $atomicSentence )
-				if ( $atomicSentence->getSymbol() === $sentence->getSymbol() &&
-					 $atomicSentence->getSubscript() === $sentence->getSubscript()
-				) return $atomicSentence;
-			
-			$atomicSymbol = $sentence->getSymbol();
-			if ( $this->getSymbolType( $atomicSymbol ) !== self::ATOMIC )
-				throw new VocabularyException( "$atomicSymbol is not in the atomic symbols." );
+		if ( $sentence instanceof AtomicSentence ) {	
+			$symbol = $sentence->getSymbol();
+			if ( $this->getSymbolType( $symbol ) !== self::ATOMIC )
+				throw new VocabularyException( "$symbol is not in the atomic symbols." );
 			$this->atomicSentences[] = $sentence;
 			$this->sentences[] = $sentence;
 			return $sentence;
 		}
-		$operator = $sentence->getOperator();
-		
-		
-			
-		$oldOperands = $sentence->getOperands();
-		$newOperands = array();
-		foreach ( $oldOperands as $operand ) $newOperands[] = $this->registerSentence( $operand );
-		$sentence->setOperands( $newOperands );
-		foreach ( $this->sentences as $s )
-			if ( $s->getOperatorName() === $operator->getName() ) {
-				$operands = $s->getOperands();
-				$isSame = false;
-				foreach ($operands as $key => $operand) 
-					if ( $operand === $newOperands[$key] ) $isSame = true;
-				if ( $isSame ) return $s;
-			}
-		$this->sentences[] = $sentence;
-		debug( $this->sentences );
-		
+		$sentence->setOperands( array_map( array( $this, 'registerSentence' ), $sentence->getOperands() ));
+		$this->sentences[] = $sentence;		
 		return $sentence;
 	}
 	

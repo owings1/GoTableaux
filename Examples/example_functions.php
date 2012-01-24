@@ -11,8 +11,7 @@ require 'GoTableaux/Logic/Logic.php';
 // Load the Tableau writer classes
 require 'GoTableaux/Logic/ProofSystem/Tableaux/TableauWriter.php';
 
-// Instantiate the sentence parser and tableau writer
-$parser 		= new StandardSentenceParser;
+// Instantiate the tableau writer
 $tableauWriter 	= new SimpleTableauWriter;
 
 /**
@@ -26,7 +25,6 @@ $tableauWriter 	= new SimpleTableauWriter;
  */
 function evaluate_argument( $premises, $conclusion, $logicName )
 {
-	global $parser;
 	global $tableauWriter;
 	
 	$summary = "Evaluating argument with $logicName...\n\n";
@@ -35,7 +33,7 @@ function evaluate_argument( $premises, $conclusion, $logicName )
 	$logic = Logic::getInstance( $logicName );
 	
 	// Create an argument
-	$argument = $logic->parseArgument( $premises, $conclusion, $parser );
+	$argument = $logic->parseArgument( $premises, $conclusion );
 	
 	// Build a proof for the argument from the logic's proof system
 	$tableau = $logic->getProofSystem()
@@ -70,7 +68,6 @@ function evaluate_argument( $premises, $conclusion, $logicName )
  */
 function evaluate_many_arguments( array $arguments, $logicName )
 {
-	global $parser;
 	global $tableauWriter;
 	
 	$summary = "Evaluating " . count( $arguments ) . " Arguments with $logicName...\n\n";
@@ -80,7 +77,7 @@ function evaluate_many_arguments( array $arguments, $logicName )
 	
 	foreach ( $arguments as $name => $argumentStrings ) {
 		// Create an argument
-		$argument = $logic->parseArgument( $argumentStrings[0], $argumentStrings[1], $parser );
+		$argument = $logic->parseArgument( $argumentStrings[0], $argumentStrings[1] );
 		
 		// Build a proof for the argument from the logic's proof system
 		$tableau = $logic->getProofSystem()

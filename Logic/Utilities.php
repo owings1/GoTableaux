@@ -53,6 +53,25 @@ class Utilities
 	}
 	
 	/**
+	 * Compares arrays of objects against identity.
+	 *
+	 * @param array $arr,... Variable list of arrays to compare.
+	 * @return boolean True if each array has the same keys referencing
+	 *				   identical objects.
+	 */
+	public static function arraysAreIdentical()
+	{
+		$arrays = func_get_args();
+		foreach ( $arrays as $arr_a )
+			foreach ( $arrays as $arr_b ) {
+				if ( count( $arr_a ) !== count( $arr_b ) || $arr_a !== $arr_b ) return false;
+				foreach ( $arr_a as $key => $value )
+					if ( $value !== $arr_b[$key] ) return false;
+			}
+		return true;
+	}
+	
+	/**
 	 * Sorts two strings by their length.
 	 *
 	 * @param string $a The first string.

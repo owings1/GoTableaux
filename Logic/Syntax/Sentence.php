@@ -58,4 +58,26 @@ class Sentence
 		if ( $this instanceof AtomicSentence ) return false;
 		return $this->getOperator()->getName();
 	}
+	
+	/**
+	 * Compares two sentences for form and atomic symbol identity.
+	 *
+	 * @param sentence $sentence_a The first sentence.
+	 * @param sentence $sentence_b The second sentence.
+	 * @return boolean Whether the sentences have the same form and atomic symbols.
+	 */
+	public static function sameForm( Sentence $sentence_a, Sentence $sentence_b )
+	{
+		if ( $sentence_a === $sentence_b ) return true;
+		if ( $sentence_a->getOperatorName() !== $sentence_b->getOperatorName() ) return false;
+		if ( $sentence_a instanceof AtomicSentence )
+			return $sentence_a->getSymbol() === $sentence_b->getSymbol() &&
+				   $sentence_a->getSubscript() === $sentence_b->getSubscript();
+		if ( count( $sentence_a->getOperands() ) !== count( $sentence_b->getOperands() ) ) return false;
+		$operands_a = $sentence_a->getOperands();
+		$operands_b = $sentence_b->getOperands();
+		foreach ( $operands_a as $key => $operand )
+			if ( !self::sameForm( $operand, $operands_b[$key] )) return false;
+		return true;
+	}
 }

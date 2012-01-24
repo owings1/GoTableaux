@@ -17,9 +17,6 @@ class FDEClosureRule implements ClosureRule
 		foreach ( $branch->getDesignatedNodes() as $node ) {
 			$sentence = $node->getSentence();
 			if ( $branch->hasSentenceWithDesignation( $sentence, false )) return true;
-			
-			$negated = $logic->negate( $sentence );
-			if ( $branch->hasSentenceWithDesignation( $negated, true )) return true;
 		}
 		return false;
 	}
@@ -214,7 +211,7 @@ class FDEBranchRule_MaterialConditionalUndesignated implements BranchRule
 			return false;
 		$node = $nodes[0];
 
-		list( $antecdent, $consequent ) = $node->getSentence()->getOperands();
+		list( $antecedent, $consequent ) = $node->getSentence()->getOperands();
 		
 		$branch->createNodeWithDesignation( $logic->negate( $antecedent ), false )
   			   ->createNodeWithDesignation( $consequent, false )
