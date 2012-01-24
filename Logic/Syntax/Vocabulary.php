@@ -367,13 +367,16 @@ class Vocabulary
 			$symbol = $sentence->getSymbol();
 			if ( $this->getSymbolType( $symbol ) !== self::ATOMIC )
 				throw new VocabularyException( "$symbol is not in the atomic symbols." );
-			$this->atomicSentences[] = $sentence;
-			$this->sentences[] = $sentence;
-			return $sentence;
-		}
-		$sentence->setOperands( array_map( array( $this, 'registerSentence' ), $sentence->getOperands() ));
-		$this->sentences[] = $sentence;		
-		return $sentence;
+			$subscript = $sentence->getSubscript();
+			$newSentence = Sentence::createAtomic( $symbol, $subscript );
+			$this->atomicSentences[] = $newSentence;
+		} elseif ( $sentence instanceof MolecularSentence ) {
+			$operands = array_map( array( $this, 'registerSentence' ), $sentence->getOperands() );
+			$operator = $this->getOperatorByName( $sentence->getOperatorName() );
+			$newSentence = Sentence::createMolecular( $operator, $operands );
+		} else throw new VocabularyException( 'Unknown Sentence type: ' . get_class( $sentence ));
+		$this->sentences[] = $newSentence;		
+		return $newSentence;
 	}
 	
 	/**

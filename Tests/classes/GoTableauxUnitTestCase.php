@@ -2,6 +2,16 @@
 
 class GoTableauxUnitTestCase extends UnitTestCase
 {
+	public function assertSameForm( Sentence $a, Sentence $b, $message = '' )
+	{
+		$this->assertTrue( Sentence::sameForm( $a, $b ), $message );
+	}
+	
+	public function assertNoReference( $a, $b, $message = '' )
+	{
+		$this->assertFalse( $a === $b, $message );
+	}
+	
 	public function assertReferenceOfArray( array $arr, $message = null )
 	{
 		$one = array_rand( $arr );

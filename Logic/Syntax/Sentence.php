@@ -62,8 +62,8 @@ class Sentence
 	/**
 	 * Compares two sentences for form and atomic symbol identity.
 	 *
-	 * @param sentence $sentence_a The first sentence.
-	 * @param sentence $sentence_b The second sentence.
+	 * @param Sentence $sentence_a The first sentence.
+	 * @param Sentence $sentence_b The second sentence.
 	 * @return boolean Whether the sentences have the same form and atomic symbols.
 	 */
 	public static function sameForm( Sentence $sentence_a, Sentence $sentence_b )
@@ -79,5 +79,19 @@ class Sentence
 		foreach ( $operands_a as $key => $operand )
 			if ( !self::sameForm( $operand, $operands_b[$key] )) return false;
 		return true;
+	}
+	
+	/**
+	 * Checks whether $haystack has a sentence with the same form as $needle.
+	 *
+	 * @param Sentence $needle The sentence to check.
+	 * @param array $haystack Array of {@link Sentence}s to search.
+	 * @return boolean Whether a sentence with the same form is found.
+	 */
+	public static function sameFormInArray( Sentence $needle, array $haystack )
+	{
+		foreach ( $haystack as $sentence )
+			if ( self::sameForm( $needle, $sentence )) return true;
+		return false;
 	}
 }

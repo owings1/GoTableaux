@@ -1,9 +1,8 @@
 <?php
-require_once 'simpletest/autorun.php';
-require_once 'classes/GoTableauxUnitTestCase.php';
-
-require_once 'GoTableaux/Logic/Logic.php';
-require_once 'GoTableaux/Logic/Syntax/SentenceWriter.php';
+require_once dirname(__FILE__) . '/../simpletest/autorun.php';
+require_once dirname(__FILE__) . '/../classes/GoTableauxUnitTestCase.php';
+require_once dirname(__FILE__) . '/../../Logic/Logic.php';
+require_once dirname(__FILE__) . '/../../Logic/Syntax/SentenceWriter.php';
 
 
 class DefaultParserTest extends GoTableauxUnitTestCase
@@ -53,12 +52,12 @@ class DefaultParserTest extends GoTableauxUnitTestCase
 		
 		/* Test parsing */
 		$this->assertEachIsA( $molecularSentences, 'MolecularSentence' );
+		$this->assertReference( $sentences['~~A'], $sentences['~~A*'] );
 		
 		
 		/* Test writing */
 		$this->assertIdentical( $outputs['~A'], '~A' );
 		$this->assertIdentical( $outputs['~~A'], '~~A');
-		$this->assertReference( $sentences['~~A'], $sentences['~~A*'] );
 		
 	}
 	
@@ -80,10 +79,10 @@ class DefaultParserTest extends GoTableauxUnitTestCase
 		
 		/* Test parsing */
 		$this->assertEachIsA( $molecularSentences, 'MolecularSentence' );
+		$this->assertReference( $sentences['A & B'], $sentences['(A & B)']);
 		
 		/* Test writing */
 		$this->assertIdentical( $outputs['A & B'], 'A & B' );
-		$this->assertReference( $sentences['A & B'], $sentences['(A & B)']);
 		$this->assertIdentical( $outputs['A & (B & C)'], 'A & (B & C)' );
 		$this->assertIdentical( $outputs['(A & B) & (C & D)'], '(A & B) & (C & D)' );
 		

@@ -16,8 +16,7 @@ abstract class GoTableauxLogicTestCase extends GoTableauxUnitTestCase
 	{
 		$this->logic = Logic::getInstance( $this->logicName );
 	}
-	
-	
+
 	public function assertValid( Proof $proof, $message = '' )
 	{
 		$this->assertTrue( $proof->isValid(), $message );

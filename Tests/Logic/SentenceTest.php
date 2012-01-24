@@ -1,7 +1,7 @@
 <?php
-require_once 'simpletest/autorun.php';
-require_once 'classes/GoTableauxUnitTestCase.php';
-require_once 'GoTableaux/Logic/Logic.php';
+require_once dirname(__FILE__) . '/../simpletest/autorun.php';
+require_once dirname(__FILE__) . '/../classes/GoTableauxUnitTestCase.php';
+require_once dirname(__FILE__) . '/../../Logic/Logic.php';
 
 class SentenceTest extends GoTableauxUnitTestCase
 {

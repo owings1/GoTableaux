@@ -1,15 +1,15 @@
 <?php
-require_once 'simpletest/autorun.php';
-require_once 'classes/GoTableauxLogicTestCase.php';
-require_once 'GoTableaux/Logic/Logic.php';
+require_once dirname(__FILE__) . '/../simpletest/autorun.php';
+require_once dirname(__FILE__) . '/../classes/GoTableauxLogicTestCase.php';
+require_once dirname(__FILE__) . '/../../Logic/Logic.php';
 
-class CPLProofSystemTest extends GoTableauxLogicTestCase
+class CPLTest extends GoTableauxLogicTestCase
 {
 	public $logicName = 'CPL';
 	
 	public $validities = array(
 		'Disjunctive Syllogism' 	=> array( array( 'A V B', '~B' ), 'A' ),
-		'Law of Excluded Middle' 	=> array( 'B', 'A V ~A' ),
+		'Law of Excluded Middle' 	=> array( null, 'A V ~A' ),
 		'Law of Non-contradiction' 	=> array( 'A & ~A', 'B' ),
 		'Identity'					=> array( null, 'A > A' ),
 		'Modus Ponens' 				=> array( array( 'A > B', 'A' ), 'B' ),
