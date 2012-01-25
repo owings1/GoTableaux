@@ -122,9 +122,9 @@
 							<dt><b>addSymbol</b></dt>
 				<dd>in file Vocabulary.php, method <a href="Syntax/Vocabulary.html#methodaddSymbol">Vocabulary::addSymbol()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Adds a symbol to the vocabulary.</dd>
 							<dt><b>apply</b></dt>
-				<dd>in file BranchRule.php, method <a href="Tableaux/BranchRule.html#methodapply">BranchRule::apply()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Applies the rule to a branch.</dd>
-							<dt><b>apply</b></dt>
 				<dd>in file ModalReflexiveRule.php, method <a href="Tableaux/ModalReflexiveRule.html#methodapply">ModalReflexiveRule::apply()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Implements the Reflexive Rule.</dd>
+							<dt><b>apply</b></dt>
+				<dd>in file BranchRule.php, method <a href="Tableaux/BranchRule.html#methodapply">BranchRule::apply()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Applies the rule to a branch.</dd>
 							<dt><b>apply</b></dt>
 				<dd>in file ModalTransitiveRule.php, method <a href="Tableaux/ModalTransitiveRule.html#methodapply">ModalTransitiveRule::apply()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Implements the Transitive Rule.</dd>
 							<dt><b>applyClosureRule</b></dt>
@@ -137,6 +137,8 @@
 				<dd>procedural page <a href="Logic/_Argument.php.html">Argument.php</a></dd>
 							<dt><b>arrayDiff</b></dt>
 				<dd>in file Utilities.php, method <a href="Logic/Utilities.html#methodarrayDiff">Utilities::arrayDiff()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Strictly subtracts one array from the other.</dd>
+							<dt><b>arraysAreIdentical</b></dt>
+				<dd>in file Utilities.php, method <a href="Logic/Utilities.html#methodarraysAreIdentical">Utilities::arraysAreIdentical()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Compares arrays of objects against identity.</dd>
 							<dt><b>arrayUnique</b></dt>
 				<dd>in file Utilities.php, method <a href="Logic/Utilities.html#methodarrayUnique">Utilities::arrayUnique()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Produces a strictly unique array.</dd>
 							<dt><b>ATOMIC</b></dt>
@@ -593,6 +595,8 @@
 				<dd>in file Logic.php, variable <a href="Logic/Logic.html#var$lexicon">Logic::$lexicon</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Defines the default lexicon for initializing the vocabulary.</dd>
 							<dt><b>$logic</b></dt>
 				<dd>in file ProofSystem.php, variable <a href="Proof/ProofSystem.html#var$logic">ProofSystem::$logic</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Holds a reference to the logic instance.</dd>
+							<dt><b>loadLogic</b></dt>
+				<dd>in file Utilities.php, method <a href="Logic/Utilities.html#methodloadLogic">Utilities::loadLogic()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Loads a logic's class files.</dd>
 							<dt><b>Logic</b></dt>
 				<dd>in file Logic.php, class <a href="Logic/Logic.html">Logic</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a Logic.</dd>
 							<dt><b>Logic.php</b></dt>
@@ -847,6 +851,10 @@
 				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---Structure.php.html">Structure.php</a></dd>
 							<dt><b>SimpleTableauWriter.php</b></dt>
 				<dd>procedural page <a href="Tableaux/_ProofSystem---Tableaux---TableauWriter---SimpleTableauWriter.php.html">SimpleTableauWriter.php</a></dd>
+							<dt><b>sameForm</b></dt>
+				<dd>in file Sentence.php, method <a href="Syntax/Sentence.html#methodsameForm">Sentence::sameForm()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Compares two sentences for form and atomic symbol identity.</dd>
+							<dt><b>sameFormInArray</b></dt>
+				<dd>in file Sentence.php, method <a href="Syntax/Sentence.html#methodsameFormInArray">Sentence::sameFormInArray()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Checks whether $haystack has a sentence with the same form as $needle.</dd>
 							<dt><b>Sentence</b></dt>
 				<dd>in file Sentence.php, class <a href="Syntax/Sentence.html">Sentence</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Represents a sentence.</dd>
 							<dt><b>SentenceNode</b></dt>
@@ -1100,7 +1108,7 @@
 	</div>
         <div class="credit">
 		    <hr class="separator" />
-		    Documentation generated on Mon, 23 Jan 2012 10:20:16 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Wed, 25 Jan 2012 02:09:09 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>
