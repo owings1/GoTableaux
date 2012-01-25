@@ -5,6 +5,8 @@
  * @author Douglas Owings
  */
 
+namespace GoTableaux;
+
 /**
  * Represents a simple tableau proof writer.
  * @package Tableaux

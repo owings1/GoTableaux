@@ -5,6 +5,8 @@
  * @author Douglas Owings
  */
 
+namespace GoTableaux;
+
 /**
  * Represents the FDE closure rule.
  * @package FDE

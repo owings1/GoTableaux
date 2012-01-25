@@ -8,6 +8,7 @@
 // Load the example functions.
 require 'example_functions.php';
 
+\GoTableaux\Settings::write( 'debug', true );
 $premises = array( 'A > B', 'B' );
 $conclusion = 'A';
 
@@ -41,3 +42,5 @@ echo evaluate_many_arguments( $arguments, 'CPL' );
 echo evaluate_many_arguments( $arguments, 'FDE' );
 
 echo evaluate_many_arguments( $arguments, 'LP' );
+
+echo evaluate_many_arguments( $arguments, 'StrongKleene' );

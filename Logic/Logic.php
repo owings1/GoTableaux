@@ -5,6 +5,8 @@
  * @author Douglas Owings
  */
 
+namespace GoTableaux;
+
 /**
  * Loads the {@link ProofSystem} interface.
  */
@@ -101,13 +103,14 @@ abstract class Logic {
 			if ( !class_exists( $name )) {
 				try {
 					require_once dirname( __FILE__ ) . "/../Logics/$name/$name.php";
-				} catch( Exception $e ) {
-					throw new Exception( "Unable to auto-load class $name." );
+				} catch( \Exception $e ) {
+					throw new \Exception( "Unable to auto-load class $name." );
 				}
 			}
-			$instance = new $name;
+			$namespacedName = __NAMESPACE__ . '\\' . $name;
+			$instance = new $namespacedName;
 			if ( !$instance instanceof Logic ) 
-				throw new Exception( "$name does not inherit from the Logic class." );
+				throw new \Exception( "$name does not inherit from the Logic class." );
 			self::$instances[$name] = $instance;
 		}
 		return self::$instances[$name];
@@ -158,17 +161,17 @@ abstract class Logic {
 	public function getDefaultParser()
 	{
 		if ( !$this->defaultParser instanceof SentenceParser ) {
-			$className = $this->defaultParser . "SentenceParser";
-			if ( !class_exists( $className )) {
-				try {
-					require_once dirname( __FILE__ ) . "/Syntax/SentenceParser/$className.php";
-				} catch( Exception $e ) {
-					throw new Exception( "Unable to auto-load class $className." );
-				}
+			$class = $this->defaultParser . "SentenceParser";
+			$namespacedClassName = __NAMESPACE__ . '\\' . $class;
+			if ( !class_exists( $namespacedClassName )) {
+				$classFileName = dirname( __FILE__ ) . "/Syntax/SentenceParser/$class.php";
+				if ( !file_exists( $classFileName ))
+					throw new \Exception( "Unable to auto-load class $namespacedClassName, looking for $classFileName." );
+				require_once $classFileName;
 			}
-			$parser = new $className;
+			$parser = new $namespacedClassName;
 			if ( !$parser instanceof SentenceParser )
-				throw new Exception( "$className does not inherit from SentenceParser." );
+				throw new \Exception( "$namespacedClassName does not inherit from SentenceParser." );
 			$this->defaultParser = $parser;
 		}
 		return $this->defaultParser;
@@ -184,20 +187,22 @@ abstract class Logic {
 	public function getProofSystem()
 	{
 		if ( empty( $this->proofSystem )) {
-			$name = get_class( $this );
+			$classArr = explode( '\\', get_class( $this ));
+			$name = end( $classArr );
 			// Set default ProofSystem class
 			if ( empty( $this->proofSystemClass )) 
 				$this->proofSystemClass =  $name . 'ProofSystem';
 			
 			// Autoload ProofSystem class
-			if ( !class_exists( $this->proofSystemClass )) {
+			if ( !class_exists( __NAMESPACE__ . '\\' . $this->proofSystemClass )) {
 				$logicsPath = Settings::read( 'logicsPath' );
 				$proofSystemClassFileName = $logicsPath . $name . DIRECTORY_SEPARATOR . $this->proofSystemClass . '.php';
 				if ( !file_exists( $proofSystemClassFileName ))
-					throw new Exception( "Proof system class {$this->proofSystemClass} not found at $proofSystemClassFileName." );
+					throw new \Exception( "Proof system class {$this->proofSystemClass} not found at $proofSystemClassFileName." );
 				require_once $proofSystemClassFileName;
 			}
-			$this->proofSystem = new $this->proofSystemClass;
+			$namespacedClassName = __NAMESPACE__ . '\\' . $this->proofSystemClass;
+			$this->proofSystem = new $namespacedClassName;
 			$this->proofSystem->setLogic( $this );
 		}
 		return $this->proofSystem;
@@ -226,7 +231,7 @@ abstract class Logic {
 	{
 		if ( $parser === null ) $parser = $this->getDefaultParser();
 		if ( !$parser instanceof SentenceParser )
-			throw new Exception( "Parser must be instance of SentenceParser" );
+			throw new \Exception( "Parser must be instance of SentenceParser" );
 		$vocabulary = $this->getVocabulary();
 		$sentence = $parser->stringToSentence( $string, $vocabulary );
 		return $vocabulary->registerSentence( $sentence );
@@ -243,7 +248,7 @@ abstract class Logic {
 	{
 		if ( $parser === null ) $parser = $this->getDefaultParser();
 		if ( !$parser instanceof SentenceParser )
-			throw new Exception( "Parser must be instance of SentenceParser" );
+			throw new \Exception( "Parser must be instance of SentenceParser" );
 		return array_map( array( $this, 'parseSentence' ), $strings );
 	}
 	
@@ -259,7 +264,7 @@ abstract class Logic {
 	{
 		if ( $parser === null ) $parser = $this->getDefaultParser();
 		if ( !$parser instanceof SentenceParser )
-			throw new Exception( "Parser must be instance of SentenceParser" );
+			throw new \Exception( "Parser must be instance of SentenceParser" );
 		$premises 	= $this->parseSentences( (array) $premiseStrings, $parser );
 		$conclusion = $this->parseSentence( $conclusionString, $parser );
 		return Argument::createWithPremisesAndConclusion( $premises, $conclusion );

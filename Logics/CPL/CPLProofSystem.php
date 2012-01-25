@@ -5,6 +5,8 @@
  * @author Douglas Owings
  */
 
+namespace GoTableaux;
+
 /**
  * Represents the Tableaux system for CPL.
  *

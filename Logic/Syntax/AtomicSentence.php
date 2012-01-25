@@ -5,6 +5,8 @@
  * @author Douglas Owings
  */
 
+namespace GoTableaux;
+
 /**
  * Represents an atomic sentence.
  * @package Syntax

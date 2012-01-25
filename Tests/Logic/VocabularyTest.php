@@ -1,13 +1,16 @@
 <?php
+
+namespace GoTableaux\Test;
+
 require_once dirname(__FILE__) . '/../simpletest/autorun.php';
-require_once dirname(__FILE__) . '/../classes/GoTableauxUnitTestCase.php';
+require_once dirname(__FILE__) . '/../classes/UnitTestCase.php';
 require_once dirname(__FILE__) . '/../../Logic/Logic.php';
 
-class VocabularyTest extends GoTableauxUnitTestCase
+class VocabularyTest extends UnitTestCase
 {
 	public function setUp()
 	{
-		$this->logic = Logic::getInstance( 'CPL' );
+		$this->logic = \GoTableaux\Logic::getInstance( 'CPL' );
 		$this->vocabulary = $this->logic->getVocabulary();
 		$this->parser = $this->logic->getDefaultParser();
 	}
@@ -17,7 +20,7 @@ class VocabularyTest extends GoTableauxUnitTestCase
 		return $this->parser->stringToSentence( $str, $this->vocabulary );
 	}
 	
-	private function register( Sentence $sentence )
+	private function register( \GoTableaux\Sentence $sentence )
 	{
 		return $this->vocabulary->registerSentence( $sentence );
 	}
@@ -28,7 +31,7 @@ class VocabularyTest extends GoTableauxUnitTestCase
 		$this->setUp();
 		$this->register( $this->parse( 'A & (B & C)' ));
 		$b_and_c = $this->parse( 'B & C' );
-		$this->assertTrue( Sentence::sameFormInArray( $b_and_c, $this->vocabulary->getSentences() ));
+		$this->assertTrue( \GoTableaux\Sentence::sameFormInArray( $b_and_c, $this->vocabulary->getSentences() ));
 	}
 	
 	public function testRegisterSentence()
@@ -62,12 +65,12 @@ class VocabularyTest extends GoTableauxUnitTestCase
 		
 		$a_and_bc_ops = $a_and_bc->getOperands();
 		$this->assertIdentical( count( $a_and_bc_ops ), 2 );
-		$this->assertIsA( $a_and_bc_ops[1], 'MolecularSentence' );
+		$this->assertIsA( $a_and_bc_ops[1], '\GoTableaux\MolecularSentence' );
 		
 		$sentences['b_and_c'] = $this->parse( 'B & C' );
 		$b_and_c = $this->register( $sentences['b_and_c'] );
 		$b_and_c_ops = $b_and_c->getOperands();
-		$this->assertEachIsA( $b_and_c_ops, 'AtomicSentence' );
+		$this->assertEachIsA( $b_and_c_ops, '\GoTableaux\AtomicSentence' );
 		$this->assertIdentical( $b_and_c_ops[0]->getSymbol(), 'B' );
 		$this->assertIdentical( $b_and_c_ops[1]->getSymbol(), 'C' );
 	}

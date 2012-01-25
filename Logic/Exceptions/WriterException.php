@@ -5,12 +5,14 @@
  * @author Douglas Owings
  */
 
+namespace GoTableaux;
+
 /**
  * Represents a tableau writer exception.
  * @package Exceptions
  * @author Douglas Owings
  */
-class WriterException extends Exception
+class WriterException extends \Exception
 {
 	
 }

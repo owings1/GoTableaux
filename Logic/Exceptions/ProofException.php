@@ -5,12 +5,14 @@
  * @author Douglas Owings
  */
 
+namespace GoTableaux;
+
 /**
  * Represents a proof exception.
  * @package Exceptions
  * @author Douglas Owings
  */
-class ProofException extends Exception
+class ProofException extends \Exception
 {
 	
 }

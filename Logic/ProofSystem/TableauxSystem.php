@@ -5,6 +5,8 @@
  * @author Douglas Owings
  */
 
+namespace GoTableaux;
+
 /**
  * Loads the {@link ProofSystem} parent class.
  */
@@ -109,22 +111,24 @@ abstract class TableauxSystem extends ProofSystem
 	 */
 	public function __construct()
 	{
-		$tableauxSystemName = get_class( $this );
+		$nameArr 			= explode( '\\', get_class( $this ));
+		$tableauxSystemName = end( $nameArr );
 		$logicName 			= str_replace( array( 'TableauxSystem', 'ProofSystem' ), '', $tableauxSystemName );
 		$logicsPath 		= Settings::read( 'logicsPath' );
-		$systemClass 		= new ReflectionClass( $this );
-		
-		Settings::write( 'debug', true );
+		$systemClass 		= new \ReflectionClass( $this );
 		
 		// Autoload Tableaux Rule classes
 		$logicNames = array( $logicName );
-		$class = new ReflectionClass( $this );
+		$class = new \ReflectionClass( $this );
 		while ( $class = $class->getParentClass() ) 
-			if ( !$class->isAbstract() ) $logicNames[] = str_replace( 'TableauxSystem', '', $class->getName() );
+			if ( !$class->isAbstract() ) {
+				$nameArr = explode( '\\', $class->getName() );
+				$logicNames[] = str_replace( array( 'TableauxSystem', 'ProofSystem' ), '',  end( $nameArr ));
+			}
 		
 		foreach ( $logicNames as $name ) {
 			$tableauxRulesFileName = $logicsPath . $name . DIRECTORY_SEPARATOR . 'tableaux_rules.php';
-			if ( file_exists( $tableauxRulesFileName ))
+			if ( file_exists( $tableauxRulesFileName )) 
 				require_once $tableauxRulesFileName;
 		}
 		
@@ -132,21 +136,23 @@ abstract class TableauxSystem extends ProofSystem
 		if ( empty( $this->closureRuleClass )) 
 			$this->closureRuleClass = $logicName . 'ClosureRule';
 		
+		$namespacedClassName = __NAMESPACE__ . '\\' . $this->closureRuleClass;
 		// Autoload ClosureRule classes
-		if ( !class_exists( $this->closureRuleClass )) {
+		if ( !class_exists( $namespacedClassName )) {
 			$closureRuleFileName =  $logicsPath . $logicName . DIRECTORY_SEPARATOR . $this->closureRuleClass . '.php';
 			if ( file_exists( $closureRuleFileName )) require_once $closureRuleFileName;
-			else throw new TableauException( "Closure rule class {$this->closureRuleClass} not found." );
+			else throw new TableauException( "Closure rule class {$this->closureRuleClass} not found, looking for $closureRuleFileName." );
 		}
-		$this->closureRule = new $this->closureRuleClass;
+		$this->closureRule = new $namespacedClassName;
 		
 		if ( empty( $this->branchRuleClasses ))
 			throw new TableauException( 'Branch rules cannot be empty. Set TableauxSystem::$branchRuleClasses' );
 		
 		// Instantiate BranchRules
 		foreach ( $this->branchRuleClasses as $class ) {
-			if ( !class_exists( $class )) throw new TableauException( "Branch rule class $class not found." );
-			$this->addBranchRules( new $class );
+			$namespacedClassName = __NAMESPACE__ . '\\' . $class;
+			if ( !class_exists( $namespacedClassName )) throw new TableauException( "Branch rule class $namespacedClassName not found." );
+			$this->addBranchRules( new $namespacedClassName );
 		}
 	}
 	

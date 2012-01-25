@@ -1,9 +1,12 @@
 <?php
+
+namespace GoTableaux\Test;
+
 require_once dirname(__FILE__) . '/../simpletest/autorun.php';
-require_once dirname(__FILE__) . '/../classes/GoTableauxLogicTestCase.php';
+require_once dirname(__FILE__) . '/../classes/LogicTestCase.php';
 require_once dirname(__FILE__) . '/../../Logic/Logic.php';
 
-class FDETest extends GoTableauxLogicTestCase
+class FDETest extends LogicTestCase
 {
 	public $logicName = 'FDE';
 	

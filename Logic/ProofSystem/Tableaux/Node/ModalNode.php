@@ -5,6 +5,8 @@
  * @author Douglas Owings
  */
 
+namespace GoTableaux;
+
 /**
  * Signifies a modal tableau node that has at least one index.
  * @package Tableaux

@@ -1,16 +1,19 @@
 <?php
+
+namespace GoTableaux\Test;
+
 require_once dirname(__FILE__) . '/../simpletest/autorun.php';
-require_once dirname(__FILE__) . '/../classes/GoTableauxUnitTestCase.php';
+require_once dirname(__FILE__) . '/../classes/UnitTestCase.php';
 require_once dirname(__FILE__) . '/../../Logic/Logic.php';
 require_once dirname(__FILE__) . '/../../Logic/Syntax/SentenceWriter.php';
 
 
-class DefaultParserTest extends GoTableauxUnitTestCase
+class DefaultParserTest extends UnitTestCase
 {
 	public function setUp()
 	{
-		$this->logic 	= Logic::getInstance( 'CPL' );
-		$this->writer	= new StandardSentenceWriter;
+		$this->logic 	= \GoTableaux\Logic::getInstance( 'CPL' );
+		$this->writer	= new \GoTableaux\StandardSentenceWriter;
 	}
 	
 	public function testWithAtomic()
@@ -25,7 +28,7 @@ class DefaultParserTest extends GoTableauxUnitTestCase
 		$outputs = $this->writer->writeSentences( $sentences, $this->logic );
 		
 		/* Test parsing */
-		$this->assertEachIsA( $sentences, 'AtomicSentence' );
+		$this->assertEachIsA( $sentences, 'GoTableaux\AtomicSentence' );
 		$this->assertIdentical( $sentences['A']->getSubscript(), 0 );
 		$this->assertIdentical( $sentences['A']->getSymbol(), 'A' );
 		$this->assertReference( $sentences['A'], $sentences['A0'] );
@@ -51,7 +54,7 @@ class DefaultParserTest extends GoTableauxUnitTestCase
 		$outputs = $this->writer->writeSentences( $sentences, $this->logic );
 		
 		/* Test parsing */
-		$this->assertEachIsA( $molecularSentences, 'MolecularSentence' );
+		$this->assertEachIsA( $molecularSentences, 'GoTableaux\MolecularSentence' );
 		$this->assertReference( $sentences['~~A'], $sentences['~~A*'] );
 		
 		
@@ -78,7 +81,7 @@ class DefaultParserTest extends GoTableauxUnitTestCase
 		$outputs = $this->writer->writeSentences( $sentences, $this->logic );
 		
 		/* Test parsing */
-		$this->assertEachIsA( $molecularSentences, 'MolecularSentence' );
+		$this->assertEachIsA( $molecularSentences, 'GoTableaux\MolecularSentence' );
 		$this->assertReference( $sentences['A & B'], $sentences['(A & B)']);
 		
 		/* Test writing */

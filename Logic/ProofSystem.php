@@ -5,6 +5,8 @@
  * @author Douglas Owings
  */
 
+namespace GoTableaux;
+
 /**
  * Loads the {@link Proof} base class.
  */
@@ -71,8 +73,8 @@ abstract class ProofSystem
 	 */
 	public function constructProofForArgument( Argument $argument )
 	{
-		$proofClass = $this->proofClass;
-		$proof = new $proofClass( $argument, $this );
+		$class = __NAMESPACE__ . '\\' . $this->proofClass;
+		$proof = new $class( $argument, $this );
 		$this->buildProof( $proof );
 		return $proof;
 	}

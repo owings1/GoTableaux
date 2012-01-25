@@ -1,10 +1,12 @@
 <?php
 
-class GoTableauxUnitTestCase extends UnitTestCase
+namespace GoTableaux\Test;
+
+class UnitTestCase extends \UnitTestCase
 {
-	public function assertSameForm( Sentence $a, Sentence $b, $message = '' )
+	public function assertSameForm( \GoTableaux\Sentence $a, \GoTableaux\Sentence $b, $message = '' )
 	{
-		$this->assertTrue( Sentence::sameForm( $a, $b ), $message );
+		$this->assertTrue( \GoTableaux\Sentence::sameForm( $a, $b ), $message );
 	}
 	
 	public function assertNoReference( $a, $b, $message = '' )

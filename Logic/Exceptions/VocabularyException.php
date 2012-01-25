@@ -5,12 +5,14 @@
  * @author Douglas Owings
  */
 
+namespace GoTableaux;
+
 /**
  * Represents a vocabulary exception.
  * @package Exceptions
  * @author Douglas Owings
  */
-class VocabularyException extends Exception
+class VocabularyException extends \Exception
 {
 	
 }

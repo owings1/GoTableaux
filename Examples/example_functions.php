@@ -6,13 +6,13 @@
  */
 
 // Load the Logic base class
-require 'GoTableaux/Logic/Logic.php';
+require dirname( __FILE__ ) . '/../Logic/Logic.php';
 
 // Load the Tableau writer classes
 require 'GoTableaux/Logic/ProofSystem/Tableaux/TableauWriter.php';
 
 // Instantiate the tableau writer
-$tableauWriter 	= new SimpleTableauWriter;
+$tableauWriter 	= new \GoTableaux\SimpleTableauWriter;
 
 /**
  * Evaluates a single argument, and returns a summary of the results.
@@ -30,7 +30,7 @@ function evaluate_argument( $premises, $conclusion, $logicName )
 	$summary = "Evaluating argument with $logicName...\n\n";
 	
 	// Get instance of logic
-	$logic = Logic::getInstance( $logicName );
+	$logic = \GoTableaux\Logic::getInstance( $logicName );
 	
 	// Create an argument
 	$argument = $logic->parseArgument( $premises, $conclusion );
@@ -73,7 +73,7 @@ function evaluate_many_arguments( array $arguments, $logicName )
 	$summary = "Evaluating " . count( $arguments ) . " Arguments with $logicName...\n\n";
 	
 	// Get the logic instance
-	$logic = Logic::getInstance( $logicName );
+	$logic = \GoTableaux\Logic::getInstance( $logicName );
 	
 	foreach ( $arguments as $name => $argumentStrings ) {
 		// Create an argument

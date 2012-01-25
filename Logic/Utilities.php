@@ -5,6 +5,8 @@
  * @author Douglas Owings
  */
 
+namespace GoTableaux;
+
 /**
  * Alias for {@link Utilities::debug()}.
  * @param mixed $var
@@ -13,7 +15,7 @@
 function debug()
 {
 	$args = func_get_args();
-	return call_user_func_array( array( 'Utilities', 'debug' ), $args );
+	return call_user_func_array( array( __NAMESPACE__ . '\Utilities', 'debug' ), $args );
 }
 
 /**

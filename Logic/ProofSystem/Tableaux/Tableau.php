@@ -5,26 +5,27 @@
  * @author Douglas Owings
  */
 
-$dir = dirname( __FILE__);
+namespace GoTableaux;
+
 /**
  * Loads the {@link Proof} parent class.
  */
-require_once  "$dir/../Proof.php";
+require_once  dirname( __FILE__ ) . "/../Proof.php";
 
 /**
  * Loads the {@link Branch} class.
  */
-require_once "$dir/Branch.php";
+require_once dirname( __FILE__ ) . "/Branch.php";
 
 /**
  * Loads the {@link TableauException} class.
  */
-require_once "$dir/../../Exceptions/TableauException.php";
+require_once dirname( __FILE__ ) . "/../../Exceptions/TableauException.php";
 
 /**
  * Loads the {@link Structure} tree structure class.
  */
-require_once "$dir/Structure.php";
+require_once dirname( __FILE__ ) . "/Structure.php";
 
 /**
  * Represents a tableau for an argument.
@@ -65,7 +66,7 @@ class Tableau extends Proof
 	 */
 	public function createBranch( $nodes = null )
 	{
-		$branchClass = $this->getProofSystem()->getBranchClass();
+		$branchClass = __NAMESPACE__ . '\\' . $this->getProofSystem()->getBranchClass();
 		$branch = new $branchClass( $this );
 		if ( !empty( $nodes )) $branch->_addNode( $nodes );
 		$this->attach( $branch );

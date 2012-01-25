@@ -5,12 +5,14 @@
  * @author Douglas Owings
  */
 
+namespace GoTableaux;
+
 /**
  * Represents a parsing exception.
  * @package Exceptions
  * @author Douglas Owings
  */
-class ParserException extends Exception
+class ParserException extends \Exception
 {
 	/**
 	 * Character position of parse error.

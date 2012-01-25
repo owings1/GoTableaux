@@ -1,7 +1,10 @@
 <?php
-require_once 'GoTableauxUnitTestCase.php';
 
-abstract class GoTableauxLogicTestCase extends GoTableauxUnitTestCase
+namespace GoTableaux\Test;
+
+require_once dirname( __FILE__ ) . '/UnitTestCase.php';
+
+abstract class LogicTestCase extends UnitTestCase
 {
 	
 	public $validities = array();
@@ -14,15 +17,15 @@ abstract class GoTableauxLogicTestCase extends GoTableauxUnitTestCase
 	
 	public function setUp()
 	{
-		$this->logic = Logic::getInstance( $this->logicName );
+		$this->logic = \GoTableaux\Logic::getInstance( $this->logicName );
 	}
 
-	public function assertValid( Proof $proof, $message = '' )
+	public function assertValid( \GoTableaux\Proof $proof, $message = '' )
 	{
 		$this->assertTrue( $proof->isValid(), $message );
 	}
 	
-	public function assertInvalid( Proof $proof, $message = '' )
+	public function assertInvalid( \GoTableaux\Proof $proof, $message = '' )
 	{
 		$this->assertFalse( $proof->isValid(), $message );
 	}

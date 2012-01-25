@@ -5,6 +5,8 @@
  * @author Douglas Owings
  */
 
+namespace GoTableaux;
+
 /**
  * Represents an argument as a set of premises and one conclusion.
  * @package Logic

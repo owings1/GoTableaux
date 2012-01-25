@@ -5,6 +5,8 @@
  * @author Douglas Owings
  */
 
+namespace GoTableaux;
+
 /**
  * Signifies a many-valued tableau node that has a designation marker.
  * @package Tableaux
