@@ -8,37 +8,37 @@
 /**
  * Loads the {@link ProofSystem} interface.
  */
-require_once 'ProofSystem.php';
+require_once  dirname( __FILE__ ) . "/ProofSystem.php";
 
 /**
  * Loads the {@link Vocabulary} class.
  */
-require_once 'Syntax/Vocabulary.php';
+require_once dirname( __FILE__ ) . "/Syntax/Vocabulary.php";
 
 /**
  * Loads the {@link Sentence} classes.
  */
-require_once 'Syntax/Sentence.php';
+require_once dirname( __FILE__ ) . "/Syntax/Sentence.php";
 
 /**
  * Loads the {@link SentenceParser} classes.
  */
-require_once 'Syntax/SentenceParser.php';
+require_once dirname( __FILE__ ) . "/Syntax/SentenceParser.php";
 
 /**
  * Loads the {@link Argument} class.
  */
-require_once 'Argument.php';
+require_once dirname( __FILE__ ) . "/Argument.php";
 
 /**
  * Loads the {@link Utilities} class.
  */
-require_once 'Utilities.php';
+require_once dirname( __FILE__ ) . "/Utilities.php";
 
 /**
  * Loads the {@link Settings} class.
  */
-require_once 'Settings.php';
+require_once dirname( __FILE__ ) . "/Settings.php";
 
 /**
  * Represents a Logic.
@@ -58,7 +58,7 @@ abstract class Logic {
 	 * Defines the proof system class.
 	 * @var string Class name.
 	 */
-	public $proofSystemClass = 'ProofSystem';
+	public $proofSystemClass;
 	
 	/**
 	 * Defines the default {@link SentenceParser}.
@@ -100,7 +100,7 @@ abstract class Logic {
 		if ( !array_key_exists( $name, self::$instances )) {
 			if ( !class_exists( $name )) {
 				try {
-					require_once "GoTableaux/Logics/$name/$name.php";
+					require_once dirname( __FILE__ ) . "/../Logics/$name/$name.php";
 				} catch( Exception $e ) {
 					throw new Exception( "Unable to auto-load class $name." );
 				}
@@ -118,7 +118,7 @@ abstract class Logic {
 	 */
 	final private function __construct()
 	{
-		
+		$this->getProofSystem();
 	}
 	
 	/**
@@ -161,7 +161,7 @@ abstract class Logic {
 			$className = $this->defaultParser . "SentenceParser";
 			if ( !class_exists( $className )) {
 				try {
-					require_once "Syntax/SentenceParser/$className.php";
+					require_once dirname( __FILE__ ) . "/Syntax/SentenceParser/$className.php";
 				} catch( Exception $e ) {
 					throw new Exception( "Unable to auto-load class $className." );
 				}
@@ -184,6 +184,19 @@ abstract class Logic {
 	public function getProofSystem()
 	{
 		if ( empty( $this->proofSystem )) {
+			$name = get_class( $this );
+			// Set default ProofSystem class
+			if ( empty( $this->proofSystemClass )) 
+				$this->proofSystemClass =  $name . 'ProofSystem';
+			
+			// Autoload ProofSystem class
+			if ( !class_exists( $this->proofSystemClass )) {
+				$logicsPath = Settings::read( 'logicsPath' );
+				$proofSystemClassFileName = $logicsPath . $name . DIRECTORY_SEPARATOR . $this->proofSystemClass . '.php';
+				if ( !file_exists( $proofSystemClassFileName ))
+					throw new Exception( "Proof system class {$this->proofSystemClass} not found at $proofSystemClassFileName." );
+				require_once $proofSystemClassFileName;
+			}
 			$this->proofSystem = new $this->proofSystemClass;
 			$this->proofSystem->setLogic( $this );
 		}

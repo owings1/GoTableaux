@@ -6,24 +6,12 @@
  */
 
 /**
- * Loads the {@link Logic} parent class.
- */
-require_once 'GoTableaux/Logic/Logic.php';
-
-/**
- * Loads the {@link FDETableaux} proof system class.
- */
-require_once 'FDETableaux.php';
-
-/**
  * Represents First Degree Entailment Logic.
  * @package FDE
  * @author Douglas Owings
  */
 class FDE extends Logic
-{
-	public $proofSystemClass = 'FDETableaux';
-	
+{	
 	public $lexicon = array(
 		'openMarks' 		=> array('('),
 		'closeMarks' 		=> array(')'),

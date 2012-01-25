@@ -3,11 +3,15 @@ require_once dirname(__FILE__) . '/../simpletest/autorun.php';
 require_once dirname(__FILE__) . '/../classes/GoTableauxLogicTestCase.php';
 require_once dirname(__FILE__) . '/../../Logic/Logic.php';
 
-class FDETest extends GoTableauxLogicTestCase
+class StrongKleeneTest extends GoTableauxLogicTestCase
 {
-	public $logicName = 'FDE';
+	public $logicName = 'StrongKleene';
 	
 	public $validities = array(
+		'Law of Non-contradiction' 	=> array( 'A & ~A', 'B' ),
+		'Modus Ponens' 				=> array( array( 'A > B', 'A' ), 'B' ),
+		'Modus Tollens' 			=> array( array( 'A > B', '~B' ), '~A' ),
+		'Disjunctive Syllogism' 	=> array( array( 'A V B', '~B' ), 'A' ),
 		'Simplification'			=> array( 'A & B', 'A' ),
 		'DeMorgan 1' 				=> array( '~(A V B)', '~A & ~B' ),
 		'DeMorgan 2' 				=> array( '~(A & B)', '~A V ~B' ),
@@ -21,11 +25,7 @@ class FDETest extends GoTableauxLogicTestCase
 		'Affirming a Disjunct'		=> array( array( 'A V B', 'A' ), 'B' ),
 		'Denying the Antecedent' 	=> array( array( 'A > B', '~A' ), 'B' ),
 		'Law of Excluded Middle' 	=> array( null, 'A V ~A' ),
-		'Law of Non-contradiction' 	=> array( 'A & ~A', 'B' ),
 		'Pseudo Contraction'		=> array( null, '(A > (A > B)) > (A > B)' ),
 		'Identity'					=> array( null, 'A > A' ),
-		'Disjunctive Syllogism' 	=> array( array( 'A V B', '~B' ), 'A' ),
-		'Modus Ponens' 				=> array( array( 'A > B', 'A' ), 'B' ),
-		'Modus Tollens' 			=> array( array( 'A > B', '~B' ), '~A' ),
 	);
 }

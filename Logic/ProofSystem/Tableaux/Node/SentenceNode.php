@@ -8,7 +8,7 @@
 /**
  * Loads the {@link Node} base class.
  */
-require_once 'GoTableaux/Logic/ProofSystem/Tableaux/Node.php';
+require_once dirname( __FILE__) . '/../Node.php';
 
 /**
  * Represents a sentence tableau node.

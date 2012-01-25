@@ -6,14 +6,9 @@
  */
 
 /**
- * Loads the {@link ModalTableauxSystem} parent class.
- */
-require_once 'ModalTableauxSystem.php';
-
-/**
  * Loads the {@link ManyValuedModalBranch} class.
  */
-require_once 'Branch/ManyValuedModalBranch.php';
+require_once dirname( __FILE__) . '/Branch/ManyValuedModalBranch.php';
 
 /**
  * Represents a tableaux system for a many-valued modal logic.

@@ -8,12 +8,12 @@
 /**
  * Loads the ModalSentenceNode parent class.
  */
-require_once 'ModalSentenceNode.php';
+require_once dirname( __FILE__) . '/ModalSentenceNode.php';
 
 /**
  * Loads the ManyValuedNode interface.
  */
-require_once 'ManyValuedNode.php';
+require_once dirname( __FILE__) . '/ManyValuedNode.php';
 
 /**
  * Represents a sentence node on a branch of a many-valued modal logic tableau.

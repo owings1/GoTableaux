@@ -5,25 +5,26 @@
  * @author Douglas Owings
  */
 
+$dir = dirname( __FILE__);
 /**
  * Loads the {@link Proof} parent class.
  */
-require_once 'GoTableaux/Logic/ProofSystem/Proof.php';
+require_once  "$dir/../Proof.php";
 
 /**
  * Loads the {@link Branch} class.
  */
-require_once 'Branch.php';
+require_once "$dir/Branch.php";
 
 /**
  * Loads the {@link TableauException} class.
  */
-require_once 'GoTableaux/Logic/Exceptions/TableauException.php';
+require_once "$dir/../../Exceptions/TableauException.php";
 
 /**
  * Loads the {@link Structure} tree structure class.
  */
-require_once 'Structure.php';
+require_once "$dir/Structure.php";
 
 /**
  * Represents a tableau for an argument.

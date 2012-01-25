@@ -128,4 +128,20 @@ class Utilities
 		}
 		echo PHP_EOL;
 	}
+	
+	/**
+	 * Loads a logic's class files.
+	 *
+	 * @param string $className The class name of the logic to load.
+	 * @return void
+	 */
+	public static function loadLogic( $className )
+	{
+		if ( class_exists( $className )) return;
+		$fileName = Settings::read( 'logicsPath' ) . $className . DIRECTORY_SEPARATOR . $className . '.php';
+		if ( !file_exists( $fileName ))
+			throw new Exception( "Unable to load logic class $className, looking for $fileName" );
+		require_once $fileName;
+		Logic::getInstance( $className );
+	}
 }

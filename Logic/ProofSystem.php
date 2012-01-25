@@ -8,12 +8,17 @@
 /**
  * Loads the {@link Proof} base class.
  */
-require_once 'ProofSystem/Proof.php';
+require_once dirname( __FILE__ ) . "/ProofSystem/Proof.php";
 
 /**
  * Loads the {@link ProofException} class.
  */
-require_once 'Exceptions/ProofException.php';
+require_once dirname( __FILE__ ) . "/Exceptions/ProofException.php";
+
+/**
+ * Loads the {@link TableauxSystem} child class.
+ */
+require_once dirname( __FILE__ ) . "/ProofSystem/TableauxSystem.php";
 
 /**
  * Represents a proof system.

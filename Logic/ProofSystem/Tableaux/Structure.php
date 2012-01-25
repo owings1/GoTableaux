@@ -8,7 +8,7 @@
 /**
  * Loads the {@link Utilities} class.
  */
-require_once 'GoTableaux/Logic/Utilities.php';
+require_once dirname( __FILE__) . '/../../Utilities.php';
 
 /**
  * Represents the proper 'tree' structure of a tableau. 
@@ -184,8 +184,6 @@ class Structure
 		// get nodes that are common to branches
 		$nodes = self::findNodesCommonToBranches( $branches );
 		
-		//print_r( $nodes );
-		//die();
 		foreach ( $nodes as $node ) {
 			$ticked = false;
 			foreach ( $branches as $branch ) $ticked |= $node->isTickedAtBranch( $branch );

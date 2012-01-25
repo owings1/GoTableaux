@@ -10,12 +10,12 @@
  * @package StrongKleene
  * @author Douglas Owings
  */
-class K3ClosureRule extends FDEClosureRule
+class StrongKleeneClosureRule extends FDEClosureRule
 {
 	public function doesApply( Branch $branch, Logic $logic )
 	{
 		foreach ( $branch->getDesignatedNodes() as $node ) {
-			$negated = $logic->negate( $sentence );
+			$negated = $logic->negate( $node->getSentence() );
 			if ( $branch->hasSentenceWithDesignation( $negated, true )) return true;
 		}
 		return parent::doesApply( $branch, $logic );

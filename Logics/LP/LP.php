@@ -8,12 +8,7 @@
 /**
  * Loads the {@link FDE} parent logic class.
  */
-require_once 'GoTableaux/Logics/FDE/FDE.php';
-
-/**
- * Loads the {@link LPTableaux} proof system class.
- */
-require_once 'LPTableaux.php';
+Utilities::loadLogic( 'FDE' );
 
 /**
  * Represents Logic of Paradox.
@@ -22,5 +17,5 @@ require_once 'LPTableaux.php';
  */
 class LP extends FDE
 {
-	public $proofSystemClass = 'LPTableaux';
+	
 }

@@ -6,14 +6,9 @@
  */
 
 /**
- * Loads the {@link TableauxSystem} parent class.
- */
-require_once 'GoTableaux/Logic/ProofSystem/TableauxSystem.php';
-
-/**
  * Loads the {@link ModalBranch} class.
  */
-require_once 'Branch/ModalBranch.php';
+require_once dirname( __FILE__) . '/Branch/ModalBranch.php';
 
 /**
  * Represents a bivalent modal tableaux system.

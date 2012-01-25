@@ -6,11 +6,6 @@
  */
 
 /**
- * Loads the {@link TableauWriter} parent class.
- */
-require_once 'GoTableaux/Logic/ProofSystem/Tableaux/TableauWriter.php';
-
-/**
  * Represents a simple tableau proof writer.
  * @package Tableaux
  * @author Douglas Owings

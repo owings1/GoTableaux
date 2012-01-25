@@ -8,7 +8,7 @@
 /**
  * Loads the {@link BranchRule} interface.
  */
-require_once 'GoTableaux/Logic/ProofSystem/Tableaux/BranchRule.php';
+require_once dirname( __FILE__) . '/../BranchRule.php';
 
 /**
  * Implements the reflexivity rule for a standard modal tableaux system.

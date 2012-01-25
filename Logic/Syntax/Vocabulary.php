@@ -8,12 +8,12 @@
 /**
  * Loads {@link Operator} class.
  */
-require_once 'Operator.php';
+require_once dirname( __FILE__) . '/Operator.php';
 
 /**
  * Loads {@link VocabularyException} class.
  */
-require_once 'GoTableaux/Logic/Exceptions/VocabularyException.php';
+require_once dirname( __FILE__) . '/../Exceptions/VocabularyException.php';
 
 /**
  * Represents a vocabulary.

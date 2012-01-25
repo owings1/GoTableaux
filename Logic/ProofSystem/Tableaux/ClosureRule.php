@@ -8,7 +8,7 @@
 /**
  * Loads the {@link TableauException} class.
  */
-require_once 'GoTableaux/Logic/Exceptions/TableauException.php';
+require_once dirname( __FILE__) . '/../../Exceptions/TableauException.php';
 
 /**
  * Represents a tableau closure rule.

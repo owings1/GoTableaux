@@ -8,12 +8,12 @@
 /**
  * Loads the {@link ModalBranch} parent class.
  */
-require_once 'ModalBranch.php';
+require_once dirname( __FILE__) . '/ModalBranch.php';
 
 /**
  * Loads the {@link ManyValuedModalSentenceNode} node class.
  */
-require_once 'GoTableaux/Logic/ProofSystem/Tableaux/Node/ManyValuedModalSentenceNode.php';
+require_once dirname( __FILE__) . '/../Node/ManyValuedModalSentenceNode.php';
 
 /**
  * Represents a tableau branch with designation markers for a many-valued 

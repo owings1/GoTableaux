@@ -5,27 +5,28 @@
  * @author Douglas Owings
  */
 
+$dir = dirname( __FILE__);
 /**
  * Loads the {@link TableauException} class.
  */
-require_once 'GoTableaux/Logic/Exceptions/TableauException.php';
+require_once  "$dir/../../../Exceptions/TableauException.php";
 
 /**
  * Loads the {@link Branch} parent class.
  */
-require_once 'GoTableaux/Logic/ProofSystem/Tableaux/Branch.php';
+require_once "$dir/../Branch.php";
 
 /**
  * Loads the {@link ModalSentenceNode} node class.
  * @see ModalBranch::createSentenceNode()
  */
-require_once 'GoTableaux/Logic/ProofSystem/Tableaux/Node/ModalSentenceNode.php';
+require_once "$dir/../Node/ModalSentenceNode.php";
 
 /**
  * Loads the {@link AccessNode} node class.
  * @see ModalBranch::createAccessNode()
  */
-require_once 'GoTableaux/Logic/ProofSystem/Tableaux/Node/AccessNode.php';
+require_once "$dir/../Node/AccessNode.php";
 
 /**
  * Represents a modal logic tableau branch.

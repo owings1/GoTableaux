@@ -15,6 +15,10 @@ echo evaluate_argument( $premises, $conclusion, 'CPL' );
 
 echo evaluate_argument( $premises, $conclusion, 'FDE' );
 
+echo evaluate_argument( $premises, $conclusion, 'LP' );
+
+echo evaluate_argument( $premises, $conclusion, 'StrongKleene' );
+
 $arguments = array(
 	'Disjunctive Syllogism' 	=> array( array( 'A V B', '~B' ), 'A' ),
 	'Affirming a Disjunct'		=> array( array( 'A V B', 'A' ), 'B' ),
@@ -35,3 +39,5 @@ $arguments = array(
 echo evaluate_many_arguments( $arguments, 'CPL' );
 
 echo evaluate_many_arguments( $arguments, 'FDE' );
+
+echo evaluate_many_arguments( $arguments, 'LP' );

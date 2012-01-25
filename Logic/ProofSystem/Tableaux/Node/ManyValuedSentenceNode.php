@@ -8,12 +8,12 @@
 /**
  * Loads the SentenceNode parent class.
  */
-require_once 'SentenceNode.php';
+require_once dirname( __FILE__) . '/SentenceNode.php';
 
 /**
  * Loads the ManyValuedNode interface.
  */
-require_once 'ManyValuedNode.php';
+require_once dirname( __FILE__) . '/ManyValuedNode.php';
 
 /**
  * Represents a sentence node on a branch of a many-valued logic tableau.

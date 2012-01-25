@@ -8,7 +8,7 @@
 /**
  * Loads the {@link TableauException} parent class.
  */
-require_once 'TableauException.php';
+require_once dirname( __FILE__ ) . '/TableauException.php';
 
 /**
  * Represents a tableau rule exception.

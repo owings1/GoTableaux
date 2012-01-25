@@ -8,12 +8,12 @@
 /**
  * Loads the {@link AtomicSentence} class.
  */
-require_once 'AtomicSentence.php';
+require_once dirname( __FILE__) . '/AtomicSentence.php';
 
 /**
  * Loads the {@link MolecularSentence} class.
  */
-require_once 'MolecularSentence.php';
+require_once dirname( __FILE__) . '/MolecularSentence.php';
 
 /**
  * Represents a sentence.

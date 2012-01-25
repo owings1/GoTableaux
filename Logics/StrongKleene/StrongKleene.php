@@ -8,12 +8,7 @@
 /**
  * Loads the {@link FDE} parent logic class.
  */
-require_once 'GoTableaux/Logics/FDE/FDE.php';
-
-/**
- * Loads the {@link K3} proof system class.
- */
-require_once 'K3.php';
+Utilities::loadLogic( 'FDE' );
 
 /**
  * Represents Strong Kleene Logic.
@@ -22,5 +17,5 @@ require_once 'K3.php';
  */
 class StrongKleene extends FDE
 {
-	public $proofSystemClass = 'K3';
+	
 }

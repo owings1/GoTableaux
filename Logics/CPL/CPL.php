@@ -6,24 +6,12 @@
  */
 
 /**
- * Loads the {@link Logic} parent class.
- */
-require_once 'GoTableaux/Logic/Logic.php';
-
-/**
- * Loads the {@link CPLTableauxSystem} proof system class.
- */
-require_once 'CPLTableauxSystem.php';
-
-/**
  * Represents Classical Propositional Logic.
  * @package CPL
  * @author Douglas Owings
  */
 class CPL extends Logic
-{
-	public $proofSystemClass = 'CPLTableauxSystem';
-	
+{	
 	public $lexicon = array(
 		'openMarks' 		=> array('('),
 		'closeMarks' 		=> array(')'),

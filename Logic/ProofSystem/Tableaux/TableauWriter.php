@@ -8,22 +8,22 @@
 /**
  * Loads the {@link WriterException} class.
  */
-require_once 'GoTableaux/Logic/Exceptions/WriterException.php';
+require_once dirname( __FILE__ ) . "/../../Exceptions/WriterException.php";
 
 /**
  * Loads the {@link Utilities} class.
  */
-require_once 'GoTableaux/Logic/Utilities.php';
+require_once dirname( __FILE__ ) . "/../../Utilities.php";
 
 /**
  * Loads the {@link SentenceWriter} class.
  */
-require_once 'GoTableaux/Logic/Syntax/SentenceWriter.php';
+require_once dirname( __FILE__ ) . "/../../Syntax/SentenceWriter.php";
 
 /**
  * Loads the {@link SimpleTableauWriter} child class.
  */
-require_once 'TableauWriter/SimpleTableauWriter.php';
+require_once dirname( __FILE__ ) . "/TableauWriter/SimpleTableauWriter.php";
 
 /**
  * Represents a tableaux writer.

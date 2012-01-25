@@ -6,24 +6,12 @@
  */
 
 /**
- * Loads the {@link ManyValuedTableauxSystem} parent class.
- */
-require_once 'GoTableaux/Logic/ProofSystem/Tableaux/ManyValuedTableauxSystem.php';
-
-/**
- * Loads the {@link BranchRule branch rule} and {@link ClosureRule closure rule} classes.
- */
-require_once 'tableaux_rules.php';
-
-/**
  * Represents the FDE tableaux system.
  * @package FDE
  * @author Douglas Owings
  */
-class FDETableaux extends ManyValuedTableauxSystem
+class FDEProofSystem extends ManyValuedTableauxSystem
 {
-	public $closureRuleClass = 'FDEClosureRule';
-	
 	public $branchRuleClasses = array(
 		'FDEBranchRule_ConjunctionDesignated',
 		'FDEBranchRule_ConjunctionUndesignated',

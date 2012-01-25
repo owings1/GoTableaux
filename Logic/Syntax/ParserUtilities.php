@@ -8,7 +8,7 @@
 /**
  * Loads the {@link Utilities} class.
  */
-require_once 'GoTableaux/Logic/Utilities.php';
+require_once dirname( __FILE__) . '/../Utilities.php';
 
 /**
  * Collects utilities for sentence parsers.

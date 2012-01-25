@@ -8,27 +8,27 @@
 /**
  * Loads the {@link ParserException} class.
  */
-require_once 'GoTableaux/Logic/Exceptions/ParserException.php';
+require_once dirname( __FILE__ ) . "/../Exceptions/ParserException.php";
 
 /**
  * Loads the {@link StandardSentenceParser} class, which is the default parser class.
  */
-require_once 'SentenceParser/StandardSentenceParser.php';
+require_once dirname( __FILE__ ) . "/SentenceParser/StandardSentenceParser.php";
 
 /**
  * Loads {@link Sentence} class.
  */
-require_once 'Sentence.php';
+require_once dirname( __FILE__ ) . "/Sentence.php";
 
 /**
  * Loads the {@link Argument} class.
  */
-require_once 'GoTableaux/Logic/Argument.php';
+require_once dirname( __FILE__ ) . "/../Argument.php";
 
 /**
  * Loads the {@link ParserUtilites} class.
  */
-require_once 'ParserUtilities.php';
+require_once dirname( __FILE__ ) . "/ParserUtilities.php";
 
 /**
  * Represents a sentence parser.

@@ -6,14 +6,9 @@
  */
 
 /**
- * Loads the {@link TableauxSystem} parent class.
- */
-require_once 'GoTableaux/Logic/ProofSystem/TableauxSystem.php';
-
-/**
  * Loads the {@link ManyValuedBranch} class.
  */
-require_once 'Branch/ManyValuedBranch.php';
+require_once dirname( __FILE__) . '/Branch/ManyValuedBranch.php';
 
 /**
  * Represents a many-valued propositional tableaux system.

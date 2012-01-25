@@ -8,13 +8,13 @@
 /**
  * Loads the {@link Branch} parent class.
  */
-require_once 'GoTableaux/Logic/ProofSystem/Tableaux/Branch.php';
+require_once dirname( __FILE__) . '/../Branch.php';
 
 /**
  * Loads the {@link SentenceNode} node class.
  * @see PropositionalBranch::createNode()
  */
-require_once 'GoTableaux/Logic/ProofSystem/Tableaux/Node/SentenceNode.php';
+require_once dirname( __FILE__) . '/../Node/SentenceNode.php';
 
 /**
  * Represents a propositional logic tableau branch.

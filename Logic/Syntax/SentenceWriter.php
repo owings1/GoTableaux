@@ -8,12 +8,12 @@
 /**
  * Loads the {@link ParserUtilites} class.
  */
-require_once 'ParserUtilities.php';
+require_once dirname( __FILE__) . '/ParserUtilities.php';
 
 /**
  * Loads the {@link StandardSentenceWriter} child class.
  */
-require_once 'SentenceWriter/StandardSentenceWriter.php';
+require_once dirname( __FILE__) . '/SentenceWriter/StandardSentenceWriter.php';
 
 /**
  * Represents a {@link Sentence} writer.

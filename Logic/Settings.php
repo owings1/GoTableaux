@@ -8,7 +8,7 @@
 /**
  * Loads the config file.
  */
-require_once 'GoTableaux/config.php';
+require_once dirname( __FILE__) . '/../config.php';
 
 /**
  * Stores the settings.

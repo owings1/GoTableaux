@@ -8,7 +8,7 @@
 /**
  * Loads the {@link RuleException} class.
  */
-require_once 'GoTableaux/Logic/Exceptions/RuleException.php';
+require_once dirname( __FILE__) . '/../../Exceptions/RuleException.php';
 
 /**
  * Represents a tableau rule that applies to a branch.

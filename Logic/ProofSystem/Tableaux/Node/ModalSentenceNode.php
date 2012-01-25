@@ -8,12 +8,12 @@
 /**
  * Loads the {@link SentenceNode} parent class.
  */
-require_once 'SentenceNode.php';
+require_once dirname( __FILE__) . '/SentenceNode.php';
 
 /**
  * Loads the {@link ModalNode} interface.
  */
-require_once 'ModalNode.php';
+require_once dirname( __FILE__) . '/ModalNode.php';
 
 /**
  * Represents a modal sentence tableau node.

@@ -8,7 +8,7 @@
 /**
  * Loads the parent {@link ProofException} parent class.
  */
-require_once 'ProofException.php';
+require_once dirname( __FILE__ ) . '/ProofException.php';
 
 /**
  * Represents a tableau proof exception.

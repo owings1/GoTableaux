@@ -8,13 +8,13 @@
 /**
  * Loads the {@link Branch} parent class.
  */
-require_once 'GoTableaux/Logic/ProofSystem/Tableaux/Branch.php';
+require_once dirname( __FILE__) . '/../Branch.php';
 
 /**
  * Loads the {@link ManyValuedSentenceNode} node class.
  * @see ManyValuedBranch::createNode()
  */
-require_once 'GoTableaux/Logic/ProofSystem/Tableaux/Node/ManyValuedSentenceNode.php';
+require_once dirname( __FILE__) . '/../Node/ManyValuedSentenceNode.php';
 
 /**
  * Represents a many-valued logic tableau branch.

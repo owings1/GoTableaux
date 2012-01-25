@@ -6,14 +6,9 @@
  */
 
 /**
- * Loads the {@link TableauxSystem} parent class.
- */
-require_once 'GoTableaux/Logic/ProofSystem/TableauxSystem.php';
-
-/**
  * Loads the {@link PropositionalBranch} class.
  */
-require_once 'Branch/PropositionalBranch.php';
+require_once dirname( __FILE__) . '/Branch/PropositionalBranch.php';
 
 /**
  * Represents a bivalent propositional tableaux system.
