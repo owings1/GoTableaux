@@ -1,6 +1,7 @@
 <?php
 /**
- * Basic examples.
+ * Basic examples for evaluating arguments in several logics, and printing the results.
+ *
  * @package Examples
  * @author Douglas Owings
  */
@@ -8,39 +9,21 @@
 // Load the example functions.
 require 'example_functions.php';
 
-\GoTableaux\Settings::write( 'debug', true );
+// Create an example argument.
 $premises = array( 'A > B', 'B' );
 $conclusion = 'A';
 
-echo evaluate_argument( $premises, $conclusion, 'CPL' );
+// Evaluate the argument in several logics.
+echo GoTableaux\evaluate_argument( $premises, $conclusion, 'CPL' );
+echo GoTableaux\evaluate_argument( $premises, $conclusion, 'FDE' );
+echo GoTableaux\evaluate_argument( $premises, $conclusion, 'LP' );
+echo GoTableaux\evaluate_argument( $premises, $conclusion, 'StrongKleene' );
 
-echo evaluate_argument( $premises, $conclusion, 'FDE' );
+// Load sample arguments
+$arguments = include( 'example_arguments.php' );
 
-echo evaluate_argument( $premises, $conclusion, 'LP' );
-
-echo evaluate_argument( $premises, $conclusion, 'StrongKleene' );
-
-$arguments = array(
-	'Disjunctive Syllogism' 	=> array( array( 'A V B', '~B' ), 'A' ),
-	'Affirming a Disjunct'		=> array( array( 'A V B', 'A' ), 'B' ),
-	'Law of Excluded Middle' 	=> array( 'B', 'A V ~A' ),
-	'Denying the Antecedent' 	=> array( array( 'A > B', '~A' ), 'B' ),
-	'Law of Non-contradiction' 	=> array( 'A & ~A', 'B' ),
-	'Identity'					=> array( null, 'A > A' ),
-	'Modus Ponens' 				=> array( array( 'A > B', 'A' ), 'B' ),
-	'Modus Tollens' 			=> array( array( 'A > B', '~B' ), '~A' ),
-	'DeMorgan 1' 				=> array( '~(A V B)', '~A & ~B' ),
-	'DeMorgan 2' 				=> array( '~(A & B)', '~A V ~B' ),
-	'DeMorgan 3' 				=> array( '~A & ~B', '~(A V B)' ),
-	'DeMorgan 4' 				=> array( '~A V ~B', '~(A & B)' ),
-	'Contraction'				=> array( 'A > (A > B)', 'A > B' ),
-	'Pseudo Contraction'		=> array( null, '(A > (A > B)) > (A > B)' ),
-);
-
-echo evaluate_many_arguments( $arguments, 'CPL' );
-
-echo evaluate_many_arguments( $arguments, 'FDE' );
-
-echo evaluate_many_arguments( $arguments, 'LP' );
-
-echo evaluate_many_arguments( $arguments, 'StrongKleene' );
+// Evaluate the arugments in several logics
+echo GoTableaux\evaluate_many_arguments( $arguments, 'CPL' );
+echo GoTableaux\evaluate_many_arguments( $arguments, 'FDE' );
+echo GoTableaux\evaluate_many_arguments( $arguments, 'LP' );
+echo GoTableaux\evaluate_many_arguments( $arguments, 'StrongKleene' );

@@ -2,18 +2,20 @@
 
 namespace GoTableaux\Test;
 
+use \GoTableaux\Logic as Logic;
+use \GoTableaux\SentenceWriter as Writer;
+
 require_once dirname(__FILE__) . '/../simpletest/autorun.php';
 require_once dirname(__FILE__) . '/../classes/UnitTestCase.php';
-require_once dirname(__FILE__) . '/../../Logic/Logic.php';
-require_once dirname(__FILE__) . '/../../Logic/Syntax/SentenceWriter.php';
+require_once dirname(__FILE__) . '/../../GoTableaux.php';
 
 
 class DefaultParserTest extends UnitTestCase
 {
 	public function setUp()
 	{
-		$this->logic 	= \GoTableaux\Logic::getInstance( 'CPL' );
-		$this->writer	= new \GoTableaux\StandardSentenceWriter;
+		$this->logic 	= Logic::getInstance( 'CPL' );
+		$this->writer	= Writer::getInstance( $this->logic->getVocabulary() );
 	}
 	
 	public function testWithAtomic()
@@ -28,7 +30,7 @@ class DefaultParserTest extends UnitTestCase
 		$outputs = $this->writer->writeSentences( $sentences, $this->logic );
 		
 		/* Test parsing */
-		$this->assertEachIsA( $sentences, 'GoTableaux\AtomicSentence' );
+		$this->assertEachIsA( $sentences, 'GoTableaux\Sentence\Atomic' );
 		$this->assertIdentical( $sentences['A']->getSubscript(), 0 );
 		$this->assertIdentical( $sentences['A']->getSymbol(), 'A' );
 		$this->assertReference( $sentences['A'], $sentences['A0'] );
@@ -54,7 +56,7 @@ class DefaultParserTest extends UnitTestCase
 		$outputs = $this->writer->writeSentences( $sentences, $this->logic );
 		
 		/* Test parsing */
-		$this->assertEachIsA( $molecularSentences, 'GoTableaux\MolecularSentence' );
+		$this->assertEachIsA( $molecularSentences, '\GoTableaux\Sentence\Molecular' );
 		$this->assertReference( $sentences['~~A'], $sentences['~~A*'] );
 		
 		
@@ -81,7 +83,7 @@ class DefaultParserTest extends UnitTestCase
 		$outputs = $this->writer->writeSentences( $sentences, $this->logic );
 		
 		/* Test parsing */
-		$this->assertEachIsA( $molecularSentences, 'GoTableaux\MolecularSentence' );
+		$this->assertEachIsA( $molecularSentences, '\GoTableaux\Sentence\Molecular' );
 		$this->assertReference( $sentences['A & B'], $sentences['(A & B)']);
 		
 		/* Test writing */

@@ -4,7 +4,7 @@ namespace GoTableaux\Test;
 
 require_once dirname(__FILE__) . '/../simpletest/autorun.php';
 require_once dirname(__FILE__) . '/../classes/LogicTestCase.php';
-require_once dirname(__FILE__) . '/../../Logic/Logic.php';
+require_once dirname(__FILE__) . '/../../GoTableaux.php';
 
 class CPLTest extends LogicTestCase
 {

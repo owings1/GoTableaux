@@ -1,7 +1,14 @@
 <?php
+
+namespace GoTableaux\Test;
+
+use \GoTableaux\Logic as Logic;
+use \GoTableaux\Sentence as Sentence;
+use \GoTableaux\SentenceParser as Parser;
+
 require_once dirname(__FILE__) . '/../simpletest/autorun.php';
 require_once dirname(__FILE__) . '/../classes/UnitTestCase.php';
-require_once dirname(__FILE__) . '/../../Logic/Logic.php';
+require_once dirname(__FILE__) . '/../../GoTableaux.php';
 
 class SentenceTest extends UnitTestCase
 {
@@ -9,24 +16,25 @@ class SentenceTest extends UnitTestCase
 	
 	public function setUp()
 	{
-		$this->logic = \GoTableaux\Logic::getInstance( 'CPL' );
-		$this->vocabulary = $this->logic->getVocabulary();
-		$this->parser = $this->logic->getDefaultParser();
+		$this->logic = Logic::getInstance( 'CPL' );
+		$vocabulary = $this->logic->getVocabulary();
+		$this->parser = Parser::getInstance( $vocabulary );
 	}
 	
 	private function parse( $str )
 	{
-		return $this->parser->stringToSentence( $str, $this->vocabulary );
+		return $this->parser->stringToSentence( $str );
 	}
+	
 	public function testSameForm()
 	{
 		$a = $this->parse( 'A' );
 		$b = $this->parse( 'A' );
 		$c = $this->parse( 'C' );
 		$this->assertTrue( $a !== $b );
-		$this->assertTrue( \GoTableaux\Sentence::sameForm( $a, $a ));
-		$this->assertTrue( \GoTableaux\Sentence::sameForm( $a, $b ));
-		$this->assertFalse( \GoTableaux\Sentence::sameForm( $a, $c ));
+		$this->assertTrue( Sentence::sameForm( $a, $a ));
+		$this->assertTrue( Sentence::sameForm( $a, $b ));
+		$this->assertFalse( Sentence::sameForm( $a, $c ));
 		
 		$a = $this->parse( 'A & B' );
 		$b = $this->parse( 'A & B' );
@@ -38,13 +46,13 @@ class SentenceTest extends UnitTestCase
 		list( $a_op1, $a_op2 ) = $a->getOperands();
 		list( $e_op1, $e_op2 ) = $e->getOperands();
 		$this->assertTrue( $a !== $b );
-		$this->assertTrue( \GoTableaux\Sentence::sameForm( $a, $b ));
-		$this->assertFalse( \GoTableaux\Sentence::sameForm( $a, $c ));
-		$this->assertFalse( \GoTableaux\Sentence::sameForm( $b, $c ));
-		$this->assertFalse( \GoTableaux\Sentence::sameForm( $c, $d ));
-		$this->assertTrue( \GoTableaux\Sentence::sameForm( $a_op1, $e_op1 ));
-		$this->assertTrue( \GoTableaux\Sentence::sameForm( $e, $f ));
-		$this->assertFalse( \GoTableaux\Sentence::sameForm( $e_op2, $g ));
+		$this->assertTrue( Sentence::sameForm( $a, $b ));
+		$this->assertFalse( Sentence::sameForm( $a, $c ));
+		$this->assertFalse( Sentence::sameForm( $b, $c ));
+		$this->assertFalse( Sentence::sameForm( $c, $d ));
+		$this->assertTrue( Sentence::sameForm( $a_op1, $e_op1 ));
+		$this->assertTrue( Sentence::sameForm( $e, $f ));
+		$this->assertFalse( Sentence::sameForm( $e_op2, $g ));
 		
 	}
 }

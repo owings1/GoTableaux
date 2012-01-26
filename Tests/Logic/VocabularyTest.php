@@ -2,27 +2,33 @@
 
 namespace GoTableaux\Test;
 
+use \GoTableaux\Logic as Logic;
+use \GoTableaux\Sentence as Sentence;
+use \GoTableaux\SentenceParser as Parser;
+
 require_once dirname(__FILE__) . '/../simpletest/autorun.php';
 require_once dirname(__FILE__) . '/../classes/UnitTestCase.php';
-require_once dirname(__FILE__) . '/../../Logic/Logic.php';
+require_once dirname(__FILE__) . '/../../GoTableaux.php';
 
 class VocabularyTest extends UnitTestCase
 {
+	public $logic, $parser;
+	
 	public function setUp()
 	{
-		$this->logic = \GoTableaux\Logic::getInstance( 'CPL' );
-		$this->vocabulary = $this->logic->getVocabulary();
-		$this->parser = $this->logic->getDefaultParser();
+		$this->logic = Logic::getInstance( 'CPL' );
+		$vocabulary = $this->logic->getVocabulary();
+		$this->parser = Parser::getInstance( $vocabulary );
 	}
 	
 	private function parse( $str )
 	{
-		return $this->parser->stringToSentence( $str, $this->vocabulary );
+		return $this->parser->stringToSentence( $str );
 	}
 	
-	private function register( \GoTableaux\Sentence $sentence )
+	private function register( Sentence $sentence )
 	{
-		return $this->vocabulary->registerSentence( $sentence );
+		return $this->logic->getVocabulary()->registerSentence( $sentence );
 	}
 	
 	public function testRegisteringCreatesMissingMoleculars()
@@ -31,7 +37,7 @@ class VocabularyTest extends UnitTestCase
 		$this->setUp();
 		$this->register( $this->parse( 'A & (B & C)' ));
 		$b_and_c = $this->parse( 'B & C' );
-		$this->assertTrue( \GoTableaux\Sentence::sameFormInArray( $b_and_c, $this->vocabulary->getSentences() ));
+		$this->assertTrue( Sentence::sameFormInArray( $b_and_c, $this->logic->getVocabulary()->getSentences() ));
 	}
 	
 	public function testRegisterSentence()
@@ -65,12 +71,12 @@ class VocabularyTest extends UnitTestCase
 		
 		$a_and_bc_ops = $a_and_bc->getOperands();
 		$this->assertIdentical( count( $a_and_bc_ops ), 2 );
-		$this->assertIsA( $a_and_bc_ops[1], '\GoTableaux\MolecularSentence' );
+		$this->assertIsA( $a_and_bc_ops[1], '\GoTableaux\Sentence\Molecular' );
 		
 		$sentences['b_and_c'] = $this->parse( 'B & C' );
 		$b_and_c = $this->register( $sentences['b_and_c'] );
 		$b_and_c_ops = $b_and_c->getOperands();
-		$this->assertEachIsA( $b_and_c_ops, '\GoTableaux\AtomicSentence' );
+		$this->assertEachIsA( $b_and_c_ops, '\GoTableaux\Sentence\Atomic' );
 		$this->assertIdentical( $b_and_c_ops[0]->getSymbol(), 'B' );
 		$this->assertIdentical( $b_and_c_ops[1]->getSymbol(), 'C' );
 	}
