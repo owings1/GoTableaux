@@ -30,7 +30,7 @@ function evaluate_argument( $premises, $conclusion, $logicName, $writer = 'Simpl
 	$summary = "Evaluating argument with $logicName...\n\n";
 	
 	// Create an argument
-	$argument = $logic->parseArgument( $premises, $conclusion );
+	$argument = $logic->parseArgument( $premises, $conclusion, $notation );
 	
 	// Build a proof for the argument from the logic's proof system
 	$proof = $logic->constructProofForArgument( $argument );

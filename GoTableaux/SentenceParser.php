@@ -7,6 +7,8 @@
 
 namespace GoTableaux;
 
+use \GoTableaux\Exception\Parser as ParserException;
+
 /**
  * Represents a sentence parser.
  * @package Syntax
@@ -53,6 +55,33 @@ abstract class SentenceParser
 	public function getVocabulary()
 	{
 		return $this->vocabulary;
+	}
+	
+	/**
+	 * Parses an atomic sentence string.
+	 *
+	 * @param string $sentenceStr The string to parse.
+	 * @return Sentence The resulting sentence instance.
+	 * @throws {@link ParserException}.
+	 * @access private
+	 */
+	public function parseAtomic( $sentenceStr )
+	{
+		$vocabulary		= $this->getVocabulary();
+		$atomicSymbols 	= $vocabulary->getAtomicSymbols();
+		$subscripts 	= $vocabulary->getSubscriptSymbols();
+		$hasSubscript 	= false !== Utilities::strPosArr( $sentenceStr, $subscripts, 1, $match );
+		
+		list( $symbol, $subscript ) = $hasSubscript ? explode( $match, $sentenceStr ) 
+													: array( $sentenceStr, 0 );
+		
+		if ( !in_array( $symbol, $atomicSymbols ))
+			throw new ParserException( "$symbol is not an atomic symbol." );
+		
+		if ( !is_numeric( $subscript ))
+			throw new ParserException( "Subscript must be numeric." );
+		
+		return Sentence::createAtomic( $symbol, $subscript );
 	}
 	
 	/**

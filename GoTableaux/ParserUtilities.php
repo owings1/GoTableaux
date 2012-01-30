@@ -60,6 +60,19 @@ class ParserUtilities
 	}
 	
 	/**
+	 * Removes all parentheses from a string.
+	 * 
+	 * @param string $string The string from which to remove parentheses.
+	 * @param Vocabulary $vocabulary The vocabulary to use.
+	 * @return string The string with parentheses removed.
+	 */
+	public static function removeAllParens( $string, Vocabulary $vocabulary )
+	{
+		$parens = array_merge( $vocabulary->getOpenMarks(), $vocabulary->getCloseMarks() );
+		return str_replace( $parens, '', $string );
+	}
+	
+	/**
 	 * Adds outer parentheses to a string.
 	 *
 	 * @param string $string The string to be added to.

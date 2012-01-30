@@ -8,7 +8,7 @@
 namespace GoTableaux\SentenceParser;
 use \GoTableaux\Utilities as Utilities;
 use \GoTableaux\ParserUtilities as ParserUtilities;
-use \GoTableaux\Exception\Parser as Exception;
+use \GoTableaux\Exception\Parser as ParserException;
 use \GoTableaux\Vocabulary as Vocabulary;
 use \GoTableaux\Sentence as Sentence;
 
@@ -32,7 +32,7 @@ class Standard extends \GoTableaux\SentenceParser
 		$sentenceStr = ParserUtilities::dropOuterParens( $sentenceStr, $vocabulary );
 		
 		if ( empty( $sentenceStr )) 
-			throw new Exception( 'Sentence string cannot be empty.' );
+			throw new ParserException( 'Sentence string cannot be empty.' );
 		
 		$firstSentenceStr = $this->_readSentence( $sentenceStr, $vocabulary );
 		
@@ -40,14 +40,14 @@ class Standard extends \GoTableaux\SentenceParser
 			$firstSymbolType = $vocabulary->getSymbolType( $sentenceStr{0} );
 			switch ( $firstSymbolType ) {
 				case Vocabulary::ATOMIC :
-					return $this->_parseAtomic( $sentenceStr, $vocabulary );
+					return $this->parseAtomic( $sentenceStr, $vocabulary );
 				case Vocabulary::OPER_UNARY :
 					$operator 	= $vocabulary->getOperatorBySymbol( $sentenceStr{0} );
 					$operandStr = substr( $sentenceStr, 1 );
 					$operand 	= $this->stringToSentence( $operandStr, $vocabulary );
 					return Sentence::createMolecular( $operator, array( $operand ));
 				default :
-					throw Exception::createWithMsgInputPos( 'Unexpected symbol type.', $sentenceStr, 0 );
+					throw ParserException::createWithMsgInputPos( 'Unexpected symbol type.', $sentenceStr, 0 );
 			}
 		}
 		
@@ -56,13 +56,13 @@ class Standard extends \GoTableaux\SentenceParser
 		$nextSymbolType = $vocabulary->getSymbolType( $nextSymbol );
 		
 		if ( $nextSymbolType !== Vocabulary::OPER_BINARY )
-			throw Exception::createWithMsgInputPos( 'Unexpected symbol. Expecting binary operator.', $sentenceStr, $pos );
+			throw ParserException::createWithMsgInputPos( 'Unexpected symbol. Expecting binary operator.', $sentenceStr, $pos );
 		
 		$rightStr			= substr( $sentenceStr, ++$pos );
 		$secondSentenceStr 	= $this->_readSentence( $rightStr, $vocabulary );
 		
 		if ( $rightStr !== $secondSentenceStr )
-			throw Exception::createWithMsgInputPos( 'Invalid right operand string.', $sentenceStr, $pos );
+			throw ParserException::createWithMsgInputPos( 'Invalid right operand string.', $sentenceStr, $pos );
 		
 		$operator = $vocabulary->getOperatorBySymbol( $nextSymbol );
 		$operands = array(
@@ -70,33 +70,6 @@ class Standard extends \GoTableaux\SentenceParser
 			$this->stringToSentence( $secondSentenceStr, $vocabulary )
 		);
 		return Sentence::createMolecular( $operator, $operands );
-	}
-	
-	/**
-	 * Parses an atomic sentence string.
-	 *
-	 * @param string $sentenceStr The string to parse.
-	 * @return Sentence The resulting sentence instance.
-	 * @throws {@link ParserException}.
-	 * @access private
-	 */
-	private function _parseAtomic( $sentenceStr )
-	{
-		$vocabulary		= $this->getVocabulary();
-		$subscripts 	= $vocabulary->getSubscriptSymbols();
-		$atomicSymbols 	= $vocabulary->getAtomicSymbols();
-		$hasSubscript 	= false !== Utilities::strPosArr( $sentenceStr, $subscripts, 1, $match );
-		
-		list( $symbol, $subscript ) = $hasSubscript ? explode( $match, $sentenceStr ) 
-													: array( $sentenceStr, 0 );
-		
-		if ( !in_array( $symbol, $atomicSymbols ))
-			throw new Exception( "$symbol is not an atomic symbol." );
-		
-		if ( !is_numeric( $subscript ))
-			throw new Exception( "Subscript must be numeric." );
-		
-		return Sentence::createAtomic( $symbol, $subscript );
 	}
 	
 	/**
@@ -126,7 +99,7 @@ class Standard extends \GoTableaux\SentenceParser
 				$firstSentenceStr = $string{0} . $this->_readSentence( substr( $string, 1 ), $vocabulary );
 				break;
 			default :
-				throw Exception::createWithMsgInputPos( 'Unexpected symbol type.', $string, 0 );
+				throw ParserException::createWithMsgInputPos( 'Unexpected symbol type.', $string, 0 );
 		}
 		return $firstSentenceStr;
 	}

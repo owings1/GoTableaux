@@ -72,6 +72,7 @@ class Vocabulary
 	const PUNCT_CLOSE 		= -2;
 	const PUNCT_SEPARATOR 	= -3;
 	const CTRL_SUBSCRIPT	= -4;
+	const NUMERIC_CHAR		= -5;
 	
 	/**
 	 * Creates an instance with a lexicon.
@@ -359,6 +360,8 @@ class Vocabulary
 	 */
 	public function getSymbolType( $symbol )
 	{
+		if ( is_numeric( $symbol ))
+			return self::NUMERIC_CHAR;
 		if ( !isset( $this->items[$symbol] ))
 			throw new VocabularyException( "$symbol is not a symbol in the vocabulary." );
 		return $this->items[$symbol];
