@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 28 Jan 2012 04:30:47 +0000">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../overview-summary.html">
+
+<title>Argument.php (GoTableaux - Documentation)</title>
+
+</head>
+<body id="file" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>GoTableaux</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li>Package</li><li>Class</li><li>Tree</li><li><a href="../overview-files.html">Files</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../todo-list.html">Todo</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../source/argument.php.html" target="_top">No frames</a>
+</div>
+<hr>
+
+<h1>Argument.php</h1>
+<div class="comment" id="overview_description"><p>Defines the Argument class.</p></div>
+
+<hr>
+
+<a name="line1"></a><pre><?php
+<a name="line2"></a>/**
+<a name="line3"></a> * Defines the Argument class.
+<a name="line4"></a> * @package Logic
+<a name="line5"></a> * @author Douglas Owings
+<a name="line6"></a> */
+<a name="line7"></a>
+<a name="line8"></a>namespace GoTableaux;
+<a name="line9"></a>
+<a name="line10"></a>/**
+<a name="line11"></a> * Represents an argument as a set of premises and one conclusion.
+<a name="line12"></a> * @package Logic
+<a name="line13"></a> * @author Douglas Owings
+<a name="line14"></a> */
+<a name="line15"></a>class Argument
+<a name="line16"></a>{
+<a name="line17"></a>	/**
+<a name="line18"></a>	 * The set of premises. An array of {@link Sentence} objects.
+<a name="line19"></a>	 * @var array
+<a name="line20"></a>	 * @access private
+<a name="line21"></a>	 */
+<a name="line22"></a>	protected $premises = array(); 
+<a name="line23"></a>	
+<a name="line24"></a>	/**
+<a name="line25"></a>	 * The conclusion.
+<a name="line26"></a>	 * @var Sentence
+<a name="line27"></a>	 * @access private
+<a name="line28"></a>	 */
+<a name="line29"></a>	protected $conclusion;
+<a name="line30"></a>	
+<a name="line31"></a>	/**
+<a name="line32"></a>	 * Creates an argument with given premises and conclusion.
+<a name="line33"></a>	 *
+<a name="line34"></a>	 * @param array $premises The premises of the argument.
+<a name="line35"></a>	 * @param Sentence $conclusion The conclusion of the argument.
+<a name="line36"></a>	 * @return Argument The created instance.
+<a name="line37"></a>	 */
+<a name="line38"></a>	public static function createWithPremisesAndConclusion( $premises, Sentence $conclusion )
+<a name="line39"></a>	{
+<a name="line40"></a>		$argument = new self;
+<a name="line41"></a>		if ( !is_array( $premises )) $premises = array( $premises );
+<a name="line42"></a>		return $argument->addPremises( $premises )->setConclusion( $conclusion );
+<a name="line43"></a>	}
+<a name="line44"></a>	/**
+<a name="line45"></a>	 * Adds a premise to the argument.
+<a name="line46"></a>	 *
+<a name="line47"></a>	 * @param Sentence $sentence The premise to add.
+<a name="line48"></a>	 * @return Argument Current instance.
+<a name="line49"></a>	 */
+<a name="line50"></a>	public function addPremise( Sentence $sentence )
+<a name="line51"></a>	{
+<a name="line52"></a>		$this->premises[] = $sentence;
+<a name="line53"></a>		return $this;
+<a name="line54"></a>	}
+<a name="line55"></a>	
+<a name="line56"></a>	/**
+<a name="line57"></a>	 * Adds multiple premises to the argument.
+<a name="line58"></a>	 *
+<a name="line59"></a>	 * @param array The premises as an array of {@link Sentence} objects.
+<a name="line60"></a>	 * @return Argument Current instance.
+<a name="line61"></a>	 */
+<a name="line62"></a>	public function addPremises( array $premises )
+<a name="line63"></a>	{
+<a name="line64"></a>		foreach ( $premises as $premise )
+<a name="line65"></a>			$this->addPremise( $premise );
+<a name="line66"></a>		return $this;
+<a name="line67"></a>	}
+<a name="line68"></a>	
+<a name="line69"></a>	/**
+<a name="line70"></a>	 * Gets all the premises of the argument.
+<a name="line71"></a>	 *
+<a name="line72"></a>	 * @return array Array of {@link Sentence}s.
+<a name="line73"></a>	 */
+<a name="line74"></a>	public function getPremises()
+<a name="line75"></a>	{
+<a name="line76"></a>		return $this->premises;
+<a name="line77"></a>	}
+<a name="line78"></a>	
+<a name="line79"></a>	/**
+<a name="line80"></a>	 * Sets the conclusion of the argument.
+<a name="line81"></a>	 *
+<a name="line82"></a>	 * @param Sentence $sentence The conclusion.
+<a name="line83"></a>	 * @return Argument Current instance.
+<a name="line84"></a>	 */
+<a name="line85"></a>	public function setConclusion( Sentence $sentence )
+<a name="line86"></a>	{
+<a name="line87"></a>		$this->conclusion = $sentence;
+<a name="line88"></a>		return $this;
+<a name="line89"></a>	}
+<a name="line90"></a>	
+<a name="line91"></a>	/**
+<a name="line92"></a>	 * Gets the conclusion of the argument.
+<a name="line93"></a>	 *
+<a name="line94"></a>	 * @return Sentence The conclusion.
+<a name="line95"></a>	 */
+<a name="line96"></a>	public function getConclusion()
+<a name="line97"></a>	{
+<a name="line98"></a>		return $this->conclusion;
+<a name="line99"></a>	}
+<a name="line100"></a>}</pre>
+<div class="header">
+<h1>GoTableaux</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li>Package</li><li>Class</li><li>Tree</li><li><a href="../overview-files.html">Files</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../todo-list.html">Todo</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../source/argument.php.html" target="_top">No frames</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

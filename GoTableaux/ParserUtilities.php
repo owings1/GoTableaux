@@ -6,6 +6,7 @@
  */
 
 namespace GoTableaux;
+
 use \GoTableaux\Exception\Parser as Exception;
 
 /**

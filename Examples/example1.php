@@ -7,23 +7,32 @@
  */
 
 // Load the example functions.
-require 'example_functions.php';
+require_once __DIR__ . '/example_functions.php';
 
 // Create an example argument.
-$premises = array( 'A > B', 'B' );
-$conclusion = 'A';
+$premises = array( 'A_2 > B', 'B' );
+$conclusion = 'A_2';
 
-// Evaluate the argument in several logics.
-echo GoTableaux\evaluate_argument( $premises, $conclusion, 'CPL' );
-echo GoTableaux\evaluate_argument( $premises, $conclusion, 'FDE' );
-echo GoTableaux\evaluate_argument( $premises, $conclusion, 'LP' );
-echo GoTableaux\evaluate_argument( $premises, $conclusion, 'StrongKleene' );
+// Choose which logics to use.
+$logicNames = array( 
+	'CPL', 
+	'FDE', 
+	'LP', 
+	'StrongKleene',
+);
 
-// Load sample arguments
-$arguments = include( 'example_arguments.php' );
+// Select output.
+$output = 'Simple';
+//$output = 'JSON';
+//$output = 'LaTeX_Qtree';
 
-// Evaluate the arugments in several logics
-echo GoTableaux\evaluate_many_arguments( $arguments, 'CPL' );
-echo GoTableaux\evaluate_many_arguments( $arguments, 'FDE' );
-echo GoTableaux\evaluate_many_arguments( $arguments, 'LP' );
-echo GoTableaux\evaluate_many_arguments( $arguments, 'StrongKleene' );
+// Evaluate the argument in several logics and print the result.
+foreach ( $logicNames as $logicName )
+	echo GoTableaux\evaluate_argument( $premises, $conclusion, $logicName, $output );
+
+// Load pre-fab example arguments.
+$exampleArguments = include( __DIR__ . '/example_arguments.php' );
+
+// Evaluate the example arugments in several logics and print the results.
+foreach ( $logicNames as $logicName )
+	echo GoTableaux\evaluate_many_arguments( $exampleArguments, $logicName, $output );

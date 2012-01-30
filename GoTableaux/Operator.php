@@ -7,6 +7,8 @@
 
 namespace GoTableaux;
 
+use \GoTableaux\Exception\Vocabulary as VocabularyException;
+
 /**
  * Represents an operator.
  * @package Syntax
@@ -39,7 +41,7 @@ class Operator
 	 */
 	function __construct( $name, $arity )
 	{
-	if ( empty( $name ))
+		if ( empty( $name ))
 			throw new VobabularyException( 'Operator name cannot be empty' );
 		if ( $arity < 1 )
 			throw new VobabularyException( 'Arity must be greater than zero.' );

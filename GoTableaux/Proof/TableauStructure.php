@@ -6,6 +6,7 @@
  */
 
 namespace GoTableaux\Proof;
+
 use \GoTableaux\Utilities as Utilities;
 
 /**
@@ -185,7 +186,10 @@ class TableauStructure
 		foreach ( $nodes as $node ) {
 			$ticked = false;
 			foreach ( $branches as $branch ) $ticked |= $node->isTickedAtBranch( $branch );
-			if ( $ticked ) $this->tickedNodes[] = $node;
+			if ( $ticked ) {
+				$this->tickedNodes[] = $node;
+				$node->writeAsTicked = true;
+			} else $node->writeAsTicked = false;
 		}
 		// remove nodes from branches
 		foreach ( $nodes as $node )

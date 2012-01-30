@@ -1,0 +1,987 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Docs For Class Logic</title>
+	<link rel="stylesheet" type="text/css" href="../media/style.css">
+	<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+	<td class="header-top-left"><img src="../media/logo.png" border="0" alt="phpDocumentor " /></td>
+    <td class="header-top-right">Logic<br /><div class="header-top-right-subpackage"></div></td>
+  </tr>
+  <tr><td colspan="2" class="header-line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td colspan="2" class="header-menu">
+      
+                                      
+                                                                              		[ <a href="../classtrees_Logic.html" class="menu">class tree: Logic</a> ]
+		[ <a href="../elementindex_Logic.html" class="menu">index: Logic</a> ]
+            [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td colspan="2" class="header-line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="195" class="menu">
+		<div class="package-title">Logic</div>
+      <b>Packages:</b><br />
+  <div class="package">
+              <a href="../li_Exceptions.html">Exceptions</a><br />
+              <a href="../li_Logic.html">Logic</a><br />
+              <a href="../li_ModelTheory.html">ModelTheory</a><br />
+              <a href="../li_Proof.html">Proof</a><br />
+              <a href="../li_Syntax.html">Syntax</a><br />
+              <a href="../li_Tableaux.html">Tableaux</a><br />
+      	</div>
+      <br />
+                        <b>Files:</b><br />
+        <div class="package">
+				<span style="padding-left: 1em;"><a href="../Logic/_Argument.php.html">Argument.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Logic/_Logic.php.html">Logic.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Logic/_Settings.php.html">Settings.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../Logic/_Utilities.php.html">Utilities.php</a></span><br />
+	  </div>
+            <br />
+                  <b>Classes:</b><br />
+        <div class="package">
+		    		<a href="../Logic/Argument.html">Argument</a>    	 <br />
+	    		<a href="../Logic/Logic.html">Logic</a>    	 <br />
+	    		<a href="../Logic/Settings.html">Settings</a>    	 <br />
+	    		<a href="../Logic/Utilities.html">Utilities</a>    	 <br />
+	  </div>
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1>Class: Logic</h1>
+Source Location: /Logic.php<br /><br />
+
+<h2 class="class-name">Class Logic</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Class Overview</div>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span>
+						
+											| <a href="#sec-var-summary">Property Summary</a> | <a href="#sec-vars">Properties Detail</a>
+														| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+								</div>
+	<div class="info-box-body">
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+        		<p align="center" class="short-description"><strong>Represents a Logic.
+</strong></p>
+
+		<p class="notes">
+			Located in <a class="field" href="_Logic.php.html">/Logic.php</a> [<span class="field">line 48</span>]
+		</p>
+
+		
+		<pre></pre>
+
+		
+				<strong>Author(s):</strong>
+		<ul>
+		  			 			 <li>Douglas Owings</li>
+			 		  			 		  		</ul>
+		
+		<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Abstract:</strong>&nbsp;&nbsp;</td><td></td>
+  </tr>
+</table>
+<br />
+
+<strong>Information Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+	</table>
+		</td>
+
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec_vars">Properties</a></strong></p>
+		<ul>
+		  		  <li><a href="../Logic/Logic.html#var$defaultParser">$defaultParser</a></li>
+		  		  <li><a href="../Logic/Logic.html#var$instances">$instances</a></li>
+		  		  <li><a href="../Logic/Logic.html#var$lexicon">$lexicon</a></li>
+		  		  <li><a href="../Logic/Logic.html#var$proofSystem">$proofSystem</a></li>
+		  		  <li><a href="../Logic/Logic.html#var$proofSystemClass">$proofSystemClass</a></li>
+		  		  <li><a href="../Logic/Logic.html#var$vocabulary">$vocabulary</a></li>
+		  		</ul>
+		</td>
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec_methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../Logic/Logic.html#methodapplyOperatorToOperands">applyOperatorToOperands</a></li>
+		  		  <li><a href="../Logic/Logic.html#methodgetDefaultParser">getDefaultParser</a></li>
+		  		  <li><a href="../Logic/Logic.html#methodgetInstance">getInstance</a></li>
+		  		  <li><a href="../Logic/Logic.html#methodgetOperator">getOperator</a></li>
+		  		  <li><a href="../Logic/Logic.html#methodgetProofSystem">getProofSystem</a></li>
+		  		  <li><a href="../Logic/Logic.html#methodgetVocabulary">getVocabulary</a></li>
+		  		  <li><a href="../Logic/Logic.html#methodinitVocabulary">initVocabulary</a></li>
+		  		  <li><a href="../Logic/Logic.html#methodnegate">negate</a></li>
+		  		  <li><a href="../Logic/Logic.html#methodparseArgument">parseArgument</a></li>
+		  		  <li><a href="../Logic/Logic.html#methodparseSentence">parseSentence</a></li>
+		  		  <li><a href="../Logic/Logic.html#methodparseSentences">parseSentences</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+	</div>
+</div>
+
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Property Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Class Overview</a>
+									| <span class="disabled">Property Summary</span> | <a href="#sec-vars">Properties Detail</a>
+												| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+							    				</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
+																<div class="var-title">
+					<tr><td class="var-title">static <span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$instances" title="details" class="var-name-summary">$instances</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Holds the singleton instances of the logics.</td></tr>
+				</div>
+																																								<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$defaultParser" title="details" class="var-name-summary">$defaultParser</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Defines the default <a href="../Syntax/SentenceParser.html">SentenceParser</a>.</td></tr>
+				</div>
+																			<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$lexicon" title="details" class="var-name-summary">$lexicon</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Defines the default lexicon for initializing the vocabulary.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary"><a href="../Proof/ProofSystem.html">ProofSystem</a></span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$proofSystem" title="details" class="var-name-summary">$proofSystem</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Holds a reference to the proof system.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$proofSystemClass" title="details" class="var-name-summary">$proofSystemClass</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Defines the proof system class.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary"><a href="../Syntax/Vocabulary.html">Vocabulary</a></span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$vocabulary" title="details" class="var-name-summary">$vocabulary</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Holds a reference to the vocabulary.</td></tr>
+				</div>
+										</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Class Overview</a>
+																		| <a href="#sec-var-summary">Property Summary</a> | <a href="#sec-vars">Properties Detail</a>
+							    					| <span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+		</div>
+		<div class="info-box-body">
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+																												<div class="method-definition">
+					<tr><td class="method-definition">static
+											<span class="method-result"><a href="../Logic/Logic.html">Logic</a></span>&nbsp;&nbsp;
+					</td>
+					<td class="method-definition"><a href="#getInstance" title="details" class="method-name">getInstance</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Gets the singleton instance of a particular logic.</td></tr>
+				</div>
+																																																																																				<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result"><a href="../Syntax/MolecularSentence.html">MolecularSentence</a></span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#applyOperatorToOperands" title="details" class="method-name">applyOperatorToOperands</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Applies an operator to some operands to generate a new sentence.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result"><a href="../Syntax/SentenceParser.html">SentenceParser</a></span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#getDefaultParser" title="details" class="method-name">getDefaultParser</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Gets the default sentence parser.</td></tr>
+				</div>
+																								<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result"><a href="../Syntax/Operator.html">Operator</a></span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#getOperator" title="details" class="method-name">getOperator</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Gets an operator from the logic's vocabulary.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result"><a href="../Proof/ProofSystem.html">ProofSystem</a></span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#getProofSystem" title="details" class="method-name">getProofSystem</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Gets the proof system.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result"><a href="../Syntax/Vocabulary.html">Vocabulary</a></span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#getVocabulary" title="details" class="method-name">getVocabulary</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Gets the vocabulary.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result"><a href="../Logic/Logic.html">Logic</a></span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#initVocabulary" title="details" class="method-name">initVocabulary</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Initializes the vocabulary.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result"><a href="../Syntax/Sentence.html">Sentence</a></span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#negate" title="details" class="method-name">negate</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Negates a sentence.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result"><a href="../Logic/Argument.html">Argument</a></span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#parseArgument" title="details" class="method-name">parseArgument</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Parses an argument.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result"><a href="../Syntax/Sentence.html">Sentence</a></span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#parseSentence" title="details" class="method-name">parseSentence</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Parses a sentence string.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">array</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#parseSentences" title="details" class="method-name">parseSentences</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Parses an array of sentence strings.</td></tr>
+				</div>
+												</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+		</div>
+	</div>
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Properties</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Class Overview</a>
+													| <a href="#sec-var-summary">Property Summary</a> | <span class="disabled">Properties Detail</span>
+															| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+												</div>
+		<div class="info-box-body">
+			<a name="var$instances" id="$instances"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">array</span>&nbsp;&nbsp;
+			<span class="var-name">$instances</span>
+			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 88]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Holds the singleton instances of the logics.
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$defaultParser" id="$defaultParser"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$defaultParser</span>
+			 = <span class="var-default"> 'Standard'</span>			<span class="smalllinenumber">[line 67]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Defines the default <a href="../Syntax/SentenceParser.html">SentenceParser</a>.
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$lexicon" id="$lexicon"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>&nbsp;&nbsp;
+			<span class="var-name">$lexicon</span>
+			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 55]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Defines the default lexicon for initializing the vocabulary.
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>See:</strong>&nbsp;&nbsp;</td><td><a href="../Syntax/Vocabulary.html#method__construct">Vocabulary::__construct()</a></td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$proofSystem" id="$proofSystem"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../Proof/ProofSystem.html">ProofSystem</a></span>&nbsp;&nbsp;
+			<span class="var-name">$proofSystem</span>
+						<span class="smalllinenumber">[line 81]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Holds a reference to the proof system.
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$proofSystemClass" id="$proofSystemClass"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$proofSystemClass</span>
+						<span class="smalllinenumber">[line 61]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Defines the proof system class.
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$vocabulary" id="$vocabulary"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../Syntax/Vocabulary.html">Vocabulary</a></span>&nbsp;&nbsp;
+			<span class="var-name">$vocabulary</span>
+						<span class="smalllinenumber">[line 74]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Holds a reference to the vocabulary.
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+		</div>
+	</div>
+
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Class Overview</a>
+																		| <a href="#sec-var-summary">Property Summary</a> | <a href="#sec-vars">Properties Detail</a>
+																	| <a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+					</div>
+		<div class="info-box-body">
+			<a name='method_detail'></a>
+<a name="methodgetInstance" id="getInstance"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">static method getInstance</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 98]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>static <a href="../Logic/Logic.html">Logic</a> getInstance(
+string
+$name&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Gets the singleton instance of a particular logic.
+</strong></p>
+<span class="description"><p>If the logic class is not loaded, it will attempt to load automatically.</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$name:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> The name of the logic.</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The instance of the logic.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+
+<a name="methodapplyOperatorToOperands" id="applyOperatorToOperands"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">applyOperatorToOperands</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 277]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code><a href="../Syntax/MolecularSentence.html">MolecularSentence</a> applyOperatorToOperands(
+string|<a href="../Syntax/Operator.html">Operator</a>
+$operatorOrName, array|<a href="../Syntax/Sentence.html">Sentence</a>
+$operands&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Applies an operator to some operands to generate a new sentence.
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string|<a href="../Syntax/Operator.html">Operator</a></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$operatorOrName:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> The name of the operator, or the                                           operator object.</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array|<a href="../Syntax/Sentence.html">Sentence</a></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$operands:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> The sentence(s) to which to apply the operator.</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The resulting sentence.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+<strong>Information Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Throws:</strong>&nbsp;&nbsp;</td><td>Exception on type error.</td>
+  </tr>
+</table>
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodgetDefaultParser" id="getDefaultParser"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">getDefaultParser</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 158]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code><a href="../Syntax/SentenceParser.html">SentenceParser</a> getDefaultParser(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Gets the default sentence parser.
+</strong></p>
+<span class="description"><p>Lazily instantiates <a href="../Syntax/StandardSentenceParser.html">StandardSentenceParser</a>.</p></span>
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The default sentence parser.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodgetOperator" id="getOperator"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">getOperator</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 213]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code><a href="../Syntax/Operator.html">Operator</a> getOperator(
+string
+$name&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Gets an operator from the logic's vocabulary.
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$name:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> The name of the operator.</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The operator object.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>See:</strong>&nbsp;&nbsp;</td><td><a href="../Syntax/Vocabulary.html#methodgetOperatorByName">Vocabulary::getOperatorByName()</a></td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodgetProofSystem" id="getProofSystem"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">getProofSystem</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 184]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code><a href="../Proof/ProofSystem.html">ProofSystem</a> getProofSystem(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Gets the proof system.
+</strong></p>
+<span class="description"><p>Lazily instantiates proof system.</p></span>
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The logic's proof system.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodgetVocabulary" id="getVocabulary"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">getVocabulary</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 145]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code><a href="../Syntax/Vocabulary.html">Vocabulary</a> getVocabulary(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Gets the vocabulary.
+</strong></p>
+<span class="description"><p>Lazily initializes the vocabulary.</p></span>
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The logic's vocabulary.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodinitVocabulary" id="initVocabulary"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">initVocabulary</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 132]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code><a href="../Logic/Logic.html">Logic</a> initVocabulary(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Initializes the vocabulary.
+</strong></p>
+<span class="description"><p>This should be run to reload any changes to the lexicon. This creates a  new <a href="../Syntax/Vocabulary.html">Vocabulary</a> object, and so also clears the set of sentences.</p></span>
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Current instance.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodnegate" id="negate"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">negate</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 297]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code><a href="../Syntax/Sentence.html">Sentence</a> negate(
+Sentence
+$sentence&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Negates a sentence.
+</strong></p>
+<span class="description"><p>Requires an operator named 'Negation' in the language.</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type"><a href="../Syntax/Sentence.html">Sentence</a></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$sentence:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> The sentence to negate.</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The negated sentence.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodparseArgument" id="parseArgument"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">parseArgument</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 258]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code><a href="../Logic/Argument.html">Argument</a> parseArgument(
+string|array
+$premiseStrings, string
+$conclusionString, [<a href="../Syntax/SentenceParser.html">SentenceParser</a>
+$parser = null]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Parses an argument.
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string|array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$premiseStrings:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> The premise strings.</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$conclusionString:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> Non-empty conclusion string.</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type"><a href="../Syntax/SentenceParser.html">SentenceParser</a></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$parser:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> The parser to do the parsing.</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The argument instance.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodparseSentence" id="parseSentence"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">parseSentence</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 225]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code><a href="../Syntax/Sentence.html">Sentence</a> parseSentence(
+string
+$string, [<a href="../Syntax/SentenceParser.html">SentenceParser</a>
+$parser = null]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Parses a sentence string.
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$string:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> The sentence string to parse.</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type"><a href="../Syntax/SentenceParser.html">SentenceParser</a></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$parser:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> The parser to do the parsing.</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The sentence instance, registered in the logic's vocabulary.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodparseSentences" id="parseSentences"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">parseSentences</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 242]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>array parseSentences(
+array
+$strings, [<a href="../Syntax/SentenceParser.html">SentenceParser</a>
+$parser = null]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Parses an array of sentence strings.
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$strings:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> Array of sentence strings to parse.</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type"><a href="../Syntax/SentenceParser.html">SentenceParser</a></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$parser:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> The parser to do the parsing.</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Array of <a href="../Syntax/Sentence.html">Sentence</a>s.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+		</div>
+	</div>
+
+
+        <div class="credit">
+		    <hr class="separator" />
+		    Documentation generated on Wed, 25 Jan 2012 02:09:10 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

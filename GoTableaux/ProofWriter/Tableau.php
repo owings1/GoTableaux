@@ -7,10 +7,15 @@
 
 namespace GoTableaux\ProofWriter;
 
-use \GoTableaux\SentenceWriter as SentenceWriter;
 use \GoTableaux\Logic as Logic;
 use \GoTableaux\Proof as Proof;
+use \GoTableaux\SentenceWriter as SentenceWriter;
 use \GoTableaux\Proof\TableauStructure as TableauStructure;
+use \GoTableaux\Proof\TableauNode as Node;
+use \GoTableaux\Proof\TableauNode\Sentence as SentenceNode;
+use \GoTableaux\Proof\TableauNode\Access as AccessNode;
+use \GoTableaux\Proof\TableauNode\Modal as ModalNode;
+use \GoTableaux\Proof\TableauNode\ManyValued as ManyValuedNode;
 
 /**
  * Represents a tableaux writer.
@@ -19,6 +24,73 @@ use \GoTableaux\Proof\TableauStructure as TableauStructure;
  */
 abstract class Tableau extends \GoTableaux\ProofWriter
 {
+	/**
+	 * Constructor.
+	 *
+	 * Adds translation options. Calls parent constructor.
+	 *
+	 * @param Proof $proof The proof to write.
+	 * @param string $sentenceWriterType The type of sentence writer to use.
+	 */
+	public function __construct( Proof $proof, $sentenceWriterType = 'Standard' )
+	{
+		parent::__construct( $proof, $sentenceWriterType );
+		$this->addTranslations( array(
+			'tickMarker'			=> '^',
+			'closeMarker' 			=> '[><]',
+			'designatedMarker' 		=> '+',
+			'undesignatedMarker' 	=> '-',
+			'worldSymbol' 			=> 'w',
+			'accessRelationSymbol' 	=> 'R'
+		));
+	}
+		
+	public function writeCloseMarker()
+	{
+		return $this->getTranslation( 'closeMarker' );
+	}	
+	
+	public function writeDesignationMarker( $isDesignated )
+	{
+		return $this->getTranslation( $isDesignated ? 'designatedMarker' : 'undesignatedMarker' );
+	}
+	
+	public function writeTickMarker()
+	{
+		return $this->getTranslation( 'tickMarker');
+	}
+	
+	public function writeWorldIndex( $index )
+	{
+		return $this->getTranslation( 'worldSymbol' ) . $index;
+	}
+	
+	/**
+	 * Writes a node based on its type.
+	 *
+	 * Calls the appropriate functions based on the type of node.
+	 *
+	 * @param Node $node The node to write.
+	 * @return string The string representation of the node.
+	 */
+	public function writeNode( Node $node )
+	{
+		$str = '';
+		if ( $node instanceof SentenceNode ) {
+			$str .= $this->writeSentence( $node->getSentence() );
+			if ( $node instanceof ModalNode )
+				$str .= ', ' . $this->writeWorldIndex( $node->getI() );
+		} elseif ( $node instanceof AccessNode )
+			$str .= $this->writeWorldIndex( $node->getI() ) . 
+					$this->getTranslation( 'accessRelationSymbol' ) . 
+					$this->writeWorldIndex( $node->getJ() );
+		if ( $node instanceof ManyValuedNode )
+			$str .= ' ' . $this->writeDesignationMarker( $node->isDesignated() );
+		if ( $node->writeAsTicked ) 
+			$str .= $this->writeTickMarker();
+		return $str;
+	}
+	
 	/**
 	 * Gets a formatted data array of a tableau.
 	 *
@@ -29,53 +101,62 @@ abstract class Tableau extends \GoTableaux\ProofWriter
 	 */
 	public function getArray( Proof $tableau )
 	{
-		return $this->_getArray( $tableau->getStructure(), $tableau->getProofSystem()->getLogic() );
+		return $this->getArrayForStructure( $tableau->getStructure() );
 	}
 	
-	/**
-	 * @access private
-	 */
-	protected function _getArray( TableauStructure $structure, Logic $logic )
+	public function writeProof( Proof $tableau )
 	{
-		$sentenceWriter = $this->getSentenceWriter();
+		return $this->writeStructure( $tableau->getStructure() );
+	}
+	
+	public function getClassesForNode( Node $node )
+	{
+		$classes = array();
+		if ( $node instanceof SentenceNode ) 
+			$classes[] = 'sentence';
+		if ( $node instanceof ModalNode )
+			$classes[] = 'modal';
+		if ( $node instanceof AccessNode )
+			$classes[] = 'access';
+		if ( $node instanceof ManyValuedNode )
+			$classes[] = 'manyValued';
+		return $classes;
+	}
+	
+	public function getArrayForStructure( TableauStructure $structure, $n = 0 )
+	{
 		$subStructures 	= $structure->getStructures();
 		$arr = array(
+			'n'				=> $n,
 			'nodes' 		=> array(),
 			'structures' 	=> array(),
 			'isTerminal' 	=> empty( $subStructures ),
+			'isClosed'		=> $structure->isClosed(),
 		);
 		foreach ( $structure->getNodes() as $i => $node ) {
 			$arr['nodes'][$i] = array( 
-				'text'		=> '',
-				'classes' 	=> array( 'node' ),
+				'text'		=> $this->writeNode( $node ),
+				'classes' 	=> $this->getClassesForNode( $node ),
 				'isTicked' 	=> $structure->nodeIsTicked( $node )
 			);
-			if ( $node instanceof \GoTableaux\Proof\TableauNode\Sentence ) {
-				$arr['nodes'][$i]['classes'][] 		= 'sentence';
-				$arr['nodes'][$i]['sentenceText'] 	= $sentenceWriter->writeSentence( $node->getSentence(), $logic );
-				$arr['nodes'][$i]['text'] 	   	   .= $arr['nodes'][$i]['sentenceText'];
-				if ( $node instanceof \GoTableaux\Proof\TableauNode\Modal ) {
-					$arr['nodes'][$i]['classes'][] 	= 'modal';
-					$arr['nodes'][$i]['world'] 		= $node->getI();
-					$arr['nodes'][$i]['text']	   .= ', w' . $node->getI();
-				}
-			} elseif ( $node instanceof \GoTableaux\Proof\TableauNode\Access ) {
-				$arr['nodes'][$i]['classes'][] 	 = 'modal';
-				$arr['nodes'][$i]['classes'][] 	 = 'access';
-				$arr['nodes'][$i]['firstIndex']  = $node->getI();
+			if ( $node instanceof SentenceNode ) {
+				$arr['nodes'][$i]['sentenceText'] = $this->writeSentence( $node->getSentence() );
+				if ( $node instanceof ModalSentenceNode )
+					$arr['nodes'][$i]['index'] = $node->getI();
+			} elseif ( $node instanceof AccessNode ) {
+				$arr['nodes'][$i]['firstIndex'] = $node->getI();
 				$arr['nodes'][$i]['secondIndex'] = $node->getJ();
-				$arr['nodes'][$i]['text']		.= 'w' . $node->getI() . 'R' . 'w' . $node->getJ();
 			}
-			if ( $node instanceof \GoTableaux\Proof\TableauNode\ManyValued ) {
-				$arr['nodes'][$i]['classes'][] 		= 'manyValued';
-				$arr['nodes'][$i]['isDesignated'] 	= $node->isDesignated();
-				$arr['nodes'][$i]['text']		   .= $node->isDesignated() ? ' +' : ' -';
-			}
+			if ( $node instanceof ManyValuedNode ) 
+				$arr['nodes'][$i]['isDesignated'] = $node->isDesignated();
 		}
 		if ( !empty( $subStructures )) 
-			foreach ( $subStructures as $subStructure )
-				$arr['structures'][] = $this->_getArray( $subStructure, $logic );
-		else $arr['nodes'][$i]['text'] .= ' [X]';
+			foreach ( $subStructures as $i => $subStructure )
+				$arr['structures'][] = $this->getArrayForStructure( $subStructure, $i );
+		if ( $structure->isClosed() ) 
+			$arr['nodes'][$i]['text'] .= ' ' . $this->writeCloseMarker();
 		return $arr;
 	}
+	
+	abstract public function writeStructure( TableauStructure $structure );
 }

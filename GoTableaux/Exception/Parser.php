@@ -17,16 +17,14 @@ class Parser extends \GoTableaux\Exception
 	/**
 	 * Character position of parse error.
 	 * @var integer
-	 * @access private
 	 */
-	protected $position;
+	protected $position = 0;
 	
 	/**
 	 * Input string for which error was raised.
 	 * @var string
-	 * @access private
 	 */
-	protected $input;
+	protected $input = '';
 	
 	/**
 	 * Creates an instance with options array.

@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 28 Jan 2012 04:30:47 +0000">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../overview-summary.html">
+
+<title>Sentence.php (GoTableaux - Documentation)</title>
+
+</head>
+<body id="file" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>GoTableaux</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li>Package</li><li>Class</li><li>Tree</li><li><a href="../overview-files.html">Files</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../todo-list.html">Todo</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../source/sentence.php.html" target="_top">No frames</a>
+</div>
+<hr>
+
+<h1>Sentence.php</h1>
+<div class="comment" id="overview_description"><p>Defines the Sentence class.</p></div>
+
+<hr>
+
+<a name="line1"></a><pre><?php
+<a name="line2"></a>/**
+<a name="line3"></a> * Defines the Sentence class.
+<a name="line4"></a> * @package Syntax
+<a name="line5"></a> * @author Douglas Owings
+<a name="line6"></a> */
+<a name="line7"></a>
+<a name="line8"></a>namespace GoTableaux;
+<a name="line9"></a>
+<a name="line10"></a>/**
+<a name="line11"></a> * Represents a sentence.
+<a name="line12"></a> * @package Syntax
+<a name="line13"></a> * @author Douglas Owings
+<a name="line14"></a> */
+<a name="line15"></a>class Sentence
+<a name="line16"></a>{
+<a name="line17"></a>	/**
+<a name="line18"></a>	 * Creates an atomic sentence.
+<a name="line19"></a>	 *
+<a name="line20"></a>	 * @param string $symbol The atomic symbol, e.g. 'A' or 'B'.
+<a name="line21"></a>	 * @param integer $subscript The subscript. Default is 0.
+<a name="line22"></a>	 * @return Sentence\Atomic The created instance.
+<a name="line23"></a>	 */
+<a name="line24"></a>	public static function createAtomic( $symbol, $subscript = 0 )
+<a name="line25"></a>	{
+<a name="line26"></a>		$sentence = new Sentence\Atomic;
+<a name="line27"></a>		return $sentence->setSymbol( $symbol )->setSubscript( $subscript );
+<a name="line28"></a>	}
+<a name="line29"></a>	
+<a name="line30"></a>	/**
+<a name="line31"></a>	 * Creates a molecular sentence.
+<a name="line32"></a>	 *
+<a name="line33"></a>	 * @param Operator $operator Operator instance.
+<a name="line34"></a>	 * @param array $operands Array of Sentence objects.
+<a name="line35"></a>	 * @return Sentence\Molecular The created instance.
+<a name="line36"></a>	 */
+<a name="line37"></a>	public static function createMolecular( Operator $operator, array $operands )
+<a name="line38"></a>	{
+<a name="line39"></a>		$sentence = new Sentence\Molecular;
+<a name="line40"></a>		return $sentence->setOperator( $operator )->addOperand( $operands );
+<a name="line41"></a>	}
+<a name="line42"></a>	
+<a name="line43"></a>	/**
+<a name="line44"></a>	 * Gets the operator name.
+<a name="line45"></a>	 *
+<a name="line46"></a>	 * @return string|false The name of the operator, or false if atomic.
+<a name="line47"></a>	 */
+<a name="line48"></a>	public function getOperatorName()
+<a name="line49"></a>	{
+<a name="line50"></a>		if ( $this instanceof Sentence\Atomic ) return false;
+<a name="line51"></a>		return $this->getOperator()->getName();
+<a name="line52"></a>	}
+<a name="line53"></a>	
+<a name="line54"></a>	/**
+<a name="line55"></a>	 * Compares two sentences for form and atomic symbol identity.
+<a name="line56"></a>	 *
+<a name="line57"></a>	 * @param Sentence $sentence_a The first sentence.
+<a name="line58"></a>	 * @param Sentence $sentence_b The second sentence.
+<a name="line59"></a>	 * @return boolean Whether the sentences have the same form and atomic symbols.
+<a name="line60"></a>	 */
+<a name="line61"></a>	public static function sameForm( Sentence $sentence_a, Sentence $sentence_b )
+<a name="line62"></a>	{
+<a name="line63"></a>		if ( $sentence_a === $sentence_b ) return true;
+<a name="line64"></a>		if ( $sentence_a->getOperatorName() !== $sentence_b->getOperatorName() ) return false;
+<a name="line65"></a>		if ( $sentence_a instanceof Sentence\Atomic )
+<a name="line66"></a>			return $sentence_a->getSymbol() === $sentence_b->getSymbol() &&
+<a name="line67"></a>				   $sentence_a->getSubscript() === $sentence_b->getSubscript();
+<a name="line68"></a>		if ( count( $sentence_a->getOperands() ) !== count( $sentence_b->getOperands() ) ) return false;
+<a name="line69"></a>		$operands_a = $sentence_a->getOperands();
+<a name="line70"></a>		$operands_b = $sentence_b->getOperands();
+<a name="line71"></a>		foreach ( $operands_a as $key => $operand )
+<a name="line72"></a>			if ( !self::sameForm( $operand, $operands_b[$key] )) return false;
+<a name="line73"></a>		return true;
+<a name="line74"></a>	}
+<a name="line75"></a>	
+<a name="line76"></a>	/**
+<a name="line77"></a>	 * Checks whether $haystack has a sentence with the same form as $needle.
+<a name="line78"></a>	 *
+<a name="line79"></a>	 * @param Sentence $needle The sentence to check.
+<a name="line80"></a>	 * @param array $haystack Array of {@link Sentence}s to search.
+<a name="line81"></a>	 * @return boolean Whether a sentence with the same form is found.
+<a name="line82"></a>	 */
+<a name="line83"></a>	public static function sameFormInArray( Sentence $needle, array $haystack )
+<a name="line84"></a>	{
+<a name="line85"></a>		foreach ( $haystack as $sentence )
+<a name="line86"></a>			if ( self::sameForm( $needle, $sentence )) return true;
+<a name="line87"></a>		return false;
+<a name="line88"></a>	}
+<a name="line89"></a>}</pre>
+<div class="header">
+<h1>GoTableaux</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li>Package</li><li>Class</li><li>Tree</li><li><a href="../overview-files.html">Files</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../todo-list.html">Todo</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../source/sentence.php.html" target="_top">No frames</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

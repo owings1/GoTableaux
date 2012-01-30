@@ -1,0 +1,520 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 28 Jan 2012 04:30:47 +0000">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../overview-summary.html">
+
+<title>Vocabulary.php (GoTableaux - Documentation)</title>
+
+</head>
+<body id="file" onload="parent.document.title=document.title;">
+
+<div class="header">
+<h1>GoTableaux</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li>Package</li><li>Class</li><li>Tree</li><li><a href="../overview-files.html">Files</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../todo-list.html">Todo</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../source/vocabulary.php.html" target="_top">No frames</a>
+</div>
+<hr>
+
+<h1>Vocabulary.php</h1>
+<div class="comment" id="overview_description"><p>Contains base Vocabulary class.</p></div>
+
+<hr>
+
+<a name="line1"></a><pre><?php
+<a name="line2"></a>/**
+<a name="line3"></a> * Contains base Vocabulary class.
+<a name="line4"></a> * @package Syntax
+<a name="line5"></a> * @author Douglas Owings
+<a name="line6"></a> */
+<a name="line7"></a>
+<a name="line8"></a>namespace GoTableaux;
+<a name="line9"></a>
+<a name="line10"></a>/**
+<a name="line11"></a> * Represents a vocabulary.
+<a name="line12"></a> * @package Syntax
+<a name="line13"></a> * @author Douglas Owings
+<a name="line14"></a> */
+<a name="line15"></a>class Vocabulary
+<a name="line16"></a>{
+<a name="line17"></a>	/**
+<a name="line18"></a>	 * Holds a hash of all vocabulary items, including operators. 
+<a name="line19"></a>	 *
+<a name="line20"></a>	 * Key is item symbol; value is type flag.
+<a name="line21"></a>	 * @var array
+<a name="line22"></a>	 * @access private
+<a name="line23"></a>	 */
+<a name="line24"></a>	protected $items = array();
+<a name="line25"></a>	
+<a name="line26"></a>	/**
+<a name="line27"></a>	 * Holds the operator symbols.
+<a name="line28"></a>	 *
+<a name="line29"></a>	 * Key is symbol, value is operator name.
+<a name="line30"></a>	 * @var array 
+<a name="line31"></a>	 * @access private
+<a name="line32"></a>	 */
+<a name="line33"></a>	protected $operatorSymbols = array();
+<a name="line34"></a>	
+<a name="line35"></a>	/**
+<a name="line36"></a>	 * Holds the operators. 
+<a name="line37"></a>	 *
+<a name="line38"></a>	 * Key is operator name; value is {@link Operator operator} object.
+<a name="line39"></a>	 * @var array 
+<a name="line40"></a>	 * @access private
+<a name="line41"></a>	 */
+<a name="line42"></a>	protected $operators = array();
+<a name="line43"></a>	
+<a name="line44"></a>	/**
+<a name="line45"></a>	 * Holds the set of sentences.
+<a name="line46"></a>	 *
+<a name="line47"></a>	 * This is used for tracking {@link Sentence} instances, to ensure object
+<a name="line48"></a>	 * identity with sentence form identity. Key is sentence string relative to
+<a name="line49"></a>	 * a {@link SentenceParser parser}, value is {@link Sentence sentence} object.
+<a name="line50"></a>	 * @var array
+<a name="line51"></a>	 * @see Vocabulary::registerSentence()
+<a name="line52"></a>	 * @access private
+<a name="line53"></a>	 */
+<a name="line54"></a>	protected $sentences = array();
+<a name="line55"></a>	
+<a name="line56"></a>	/**
+<a name="line57"></a>	 * Holds the set of {@link Sentence\Atomic atomic sentences}.
+<a name="line58"></a>	 * @var array
+<a name="line59"></a>	 */
+<a name="line60"></a>	protected $atomicSentences = array();
+<a name="line61"></a>	
+<a name="line62"></a>	// Operator Symbols are Flagged by Positive n = arity
+<a name="line63"></a>	const OPER_TERNARY		= 3;
+<a name="line64"></a>	const OPER_BINARY		= 2;
+<a name="line65"></a>	const OPER_UNARY		= 1;
+<a name="line66"></a>	const ATOMIC 			= 0;
+<a name="line67"></a>	const PUNCT_OPEN 		= -1;
+<a name="line68"></a>	const PUNCT_CLOSE 		= -2;
+<a name="line69"></a>	const PUNCT_SEPARATOR 	= -3;
+<a name="line70"></a>	const CTRL_SUBSCRIPT	= -4;
+<a name="line71"></a>	
+<a name="line72"></a>	/**
+<a name="line73"></a>	 * Creates an instance with a lexicon.
+<a name="line74"></a>	 *
+<a name="line75"></a>	 * @param array $lexicon Array of lexical items. For format, see the
+<a name="line76"></a>	 *						 {@link Vocabulary::__consruct() constructor}.
+<a name="line77"></a>	 * @return Vocabulary The created instance.
+<a name="line78"></a>	 */
+<a name="line79"></a>	public static function createWithLexicon( array $lexicon )
+<a name="line80"></a>	{
+<a name="line81"></a>		return new self( $lexicon );
+<a name="line82"></a>	}
+<a name="line83"></a>	
+<a name="line84"></a>	/**
+<a name="line85"></a>	 * Checks whether a type flag is of an operator.
+<a name="line86"></a>	 *
+<a name="line87"></a>	 * @param integer $flag The type flag.
+<a name="line88"></a>	 * @return boolean True if flag is of an operator, false otherwise.
+<a name="line89"></a>	 */
+<a name="line90"></a>	public static function isOperatorType( $flag )
+<a name="line91"></a>	{
+<a name="line92"></a>		return $flag > 0;
+<a name="line93"></a>	}
+<a name="line94"></a>	
+<a name="line95"></a>	/**
+<a name="line96"></a>	 * Constructor. Initializes lexicon.
+<a name="line97"></a>	 *
+<a name="line98"></a>	 * Example:
+<a name="line99"></a>	 * <code>
+<a name="line100"></a>	 * <?php
+<a name="line101"></a>	 * $vocabulary = new Vocabulary( array(
+<a name="line102"></a>	 *		'openMarks' => array('(', '['),
+<a name="line103"></a>	 *		'closeMarks' => array(')', ']'),
+<a name="line104"></a>	 *		'atomicSymbols' => array('A', 'B', 'C'),
+<a name="line105"></a>	 *		'subscripts' => array('_'),
+<a name="line106"></a>	 *		'separators' => array(' '),
+<a name="line107"></a>	 *		'operatorSymbols' => array(
+<a name="line108"></a>	 *			'&' => array('Conjunction' => 2),
+<a name="line109"></a>	 *			'~' => array('Negation'  => 1)
+<a name="line110"></a>	 *		)
+<a name="line111"></a>	 * ));
+<a name="line112"></a>	 * ?>
+<a name="line113"></a>	 * </code>
+<a name="line114"></a>	 * @param array $lexicon Structured array of lexical items.
+<a name="line115"></a>	 */
+<a name="line116"></a>	public function __construct( array $lexicon )
+<a name="line117"></a>	{
+<a name="line118"></a>		$this->insertLexicon( $lexicon );
+<a name="line119"></a>	}
+<a name="line120"></a>	
+<a name="line121"></a>	/**
+<a name="line122"></a>	 * Adds an atomic symbol.
+<a name="line123"></a>	 *
+<a name="line124"></a>	 * @param string $symbol Symbol to be added (single character).
+<a name="line125"></a>	 * @return Vocabulary The current instance.
+<a name="line126"></a>	 */
+<a name="line127"></a>	public function addAtomicSymbol( $symbol )
+<a name="line128"></a>	{
+<a name="line129"></a>		return $this->addSymbol( $symbol, self::ATOMIC );
+<a name="line130"></a>	}
+<a name="line131"></a>	
+<a name="line132"></a>	/**
+<a name="line133"></a>	 * Gets the atomic symbols.
+<a name="line134"></a>	 *
+<a name="line135"></a>	 * @param integer $single When true, returns a single character. Default
+<a name="line136"></a>	 *						  is false.
+<a name="line137"></a>	 * @return array|string Array of characters, or single character.
+<a name="line138"></a>	 */
+<a name="line139"></a>	public function getAtomicSymbols( $single = false )
+<a name="line140"></a>	{
+<a name="line141"></a>		return $this->getItems( self::ATOMIC, $single );
+<a name="line142"></a>	}
+<a name="line143"></a>	
+<a name="line144"></a>	/**
+<a name="line145"></a>	 * Sets the symbol used for subscripting atomic symbols
+<a name="line146"></a>	 *
+<a name="line147"></a>	 * @param string $symbol Symbol to use.
+<a name="line148"></a>	 * @return Vocabulary The current instance.
+<a name="line149"></a>	 */
+<a name="line150"></a>	public function addSubscriptSymbol( $symbol )
+<a name="line151"></a>	{
+<a name="line152"></a>		return $this->addSymbol( $symbol, self::CTRL_SUBSCRIPT );
+<a name="line153"></a>	}
+<a name="line154"></a>	
+<a name="line155"></a>	/**
+<a name="line156"></a>	 * Gets the subscript symbol.
+<a name="line157"></a>	 *
+<a name="line158"></a>	 * @param integer $single When true, returns a single character. Default
+<a name="line159"></a>	 *						  is false.
+<a name="line160"></a>	 * @return array|string Array of characters, or single character.
+<a name="line161"></a>	 */
+<a name="line162"></a>	public function getSubscriptSymbols( $single = false )
+<a name="line163"></a>	{
+<a name="line164"></a>		return $this->getItems( self::CTRL_SUBSCRIPT, $single );
+<a name="line165"></a>	}
+<a name="line166"></a>	
+<a name="line167"></a>	/**
+<a name="line168"></a>	 * Adds an opening punctuation symbol, e.g. '('.
+<a name="line169"></a>	 *
+<a name="line170"></a>	 * @param string $symbol Symbol to be added (single character).
+<a name="line171"></a>	 * @return Vocabulary The current instance.
+<a name="line172"></a>	 */
+<a name="line173"></a>	public function addOpenMark( $symbol )
+<a name="line174"></a>	{
+<a name="line175"></a>		return $this->addSymbol( $symbol, self::PUNCT_OPEN );
+<a name="line176"></a>	}
+<a name="line177"></a>	
+<a name="line178"></a>	/**
+<a name="line179"></a>	 * Gets the open marks.
+<a name="line180"></a>	 *
+<a name="line181"></a>	 * @param integer $single When true, returns a single character. Default
+<a name="line182"></a>	 *						  is false.
+<a name="line183"></a>	 * @return array|string Array of characters, or single character.
+<a name="line184"></a>	 */
+<a name="line185"></a>	public function getOpenMarks( $single = false )
+<a name="line186"></a>	{
+<a name="line187"></a>		return $this->getItems( self::PUNCT_OPEN, $single );
+<a name="line188"></a>	}
+<a name="line189"></a>	
+<a name="line190"></a>	/**
+<a name="line191"></a>	 * Adds a closing punctuation symbol, e.g. ')'.
+<a name="line192"></a>	 *
+<a name="line193"></a>	 * @param string $symbol Symbol to be added (single character).
+<a name="line194"></a>	 * @return Vocabulary The current instance.
+<a name="line195"></a>	 */
+<a name="line196"></a>	public function addCloseMark( $symbol )
+<a name="line197"></a>	{
+<a name="line198"></a>		return $this->addSymbol( $symbol, self::PUNCT_CLOSE );
+<a name="line199"></a>	}
+<a name="line200"></a>	
+<a name="line201"></a>	/**
+<a name="line202"></a>	 * Gets the close marks.
+<a name="line203"></a>	 *
+<a name="line204"></a>	 * @param integer $single When true, returns a single character. Default
+<a name="line205"></a>	 *						  is false.
+<a name="line206"></a>	 * @return array|string Array of characters, or single character.
+<a name="line207"></a>	 */
+<a name="line208"></a>	public function getCloseMarks( $single = false )
+<a name="line209"></a>	{
+<a name="line210"></a>		return $this->getItems( self::PUNCT_CLOSE, $single );
+<a name="line211"></a>	}
+<a name="line212"></a>	
+<a name="line213"></a>	/**
+<a name="line214"></a>	 * Adds a separator symbol, e.g. a space character.
+<a name="line215"></a>	 *
+<a name="line216"></a>	 * @param string $symbol Symbol to be added (single character).
+<a name="line217"></a>	 * @return Vocabulary The current instance.
+<a name="line218"></a>	 */
+<a name="line219"></a>	public function addSeparator( $symbol )
+<a name="line220"></a>	{
+<a name="line221"></a>		return $this->addSymbol( $symbol, self::PUNCT_SEPARATOR );
+<a name="line222"></a>	}
+<a name="line223"></a>	
+<a name="line224"></a>	/**
+<a name="line225"></a>	 * Gets the separators.
+<a name="line226"></a>	 *
+<a name="line227"></a>	 * @param integer $single When true, returns a single character. Default
+<a name="line228"></a>	 *						  is false.
+<a name="line229"></a>	 * @return array|string Array of characters, or single character.
+<a name="line230"></a>	 */
+<a name="line231"></a>	public function getSeparators( $single = false )
+<a name="line232"></a>	{
+<a name="line233"></a>		return $this->getItems( self::PUNCT_SEPARATOR, $single );
+<a name="line234"></a>	}
+<a name="line235"></a>	
+<a name="line236"></a>	/**
+<a name="line237"></a>	 * Creates an operator and adds it to the vocabulary items.
+<a name="line238"></a>	 *
+<a name="line239"></a>	 * @param string $symbol Operator symbol.
+<a name="line240"></a>	 * @param integer $arity Arity of operator, either 1 or 2.
+<a name="line241"></a>	 * @param string $name Human name of the operator, e.g. 'Conjunction'.
+<a name="line242"></a>	 * @return Operator Operator instance.
+<a name="line243"></a>	 * @throws {@link VocabularyException} on errors.
+<a name="line244"></a>	 */
+<a name="line245"></a>	public function createOperator( $symbol, $arity, $name )
+<a name="line246"></a>	{	
+<a name="line247"></a>		if ( $arity < 1 )
+<a name="line248"></a>			throw new VocabularyException( 'Arity of operator cannot be less than 1.' );
+<a name="line249"></a>		
+<a name="line250"></a>		if ( $arity > 2 )
+<a name="line251"></a>			throw new VocabularyException( 'Arity of operator cannot be greater than 2.' );
+<a name="line252"></a>			
+<a name="line253"></a>		if ( empty( $name ))
+<a name="line254"></a>			throw new VocabularyException( 'Operator name cannot be empty.' );
+<a name="line255"></a>		
+<a name="line256"></a>		if ( isset( $this->operators[$name] ))
+<a name="line257"></a>			throw new VocabularyException ( "Operator $name is already in vocabulary." );
+<a name="line258"></a>		
+<a name="line259"></a>		$newOperator = new Operator( $name, $arity );
+<a name="line260"></a>		$this->addSymbol( $symbol, $arity );
+<a name="line261"></a>		$this->operators[$name] = $newOperator;
+<a name="line262"></a>		$this->operatorSymbols[$symbol] = $name;
+<a name="line263"></a>		return $newOperator;
+<a name="line264"></a>	}
+<a name="line265"></a>	
+<a name="line266"></a>	/**
+<a name="line267"></a>	 * Gets all operator symbols.
+<a name="line268"></a>	 *
+<a name="line269"></a>	 * @param integer $arity Arity of operators to get. Default is 0, which 
+<a name="line270"></a>	 *						 returns all operator symbols.
+<a name="line271"></a>	 * @return array Array of operator symbols. Key is operator symbol, value 
+<a name="line272"></a>	 * 				 is operator's arity.
+<a name="line273"></a>	 */
+<a name="line274"></a>	public function getOperatorSymbols( $arity = 0 )
+<a name="line275"></a>	{
+<a name="line276"></a>		if ( $arity > 0 ) return $this->getItems( $arity );
+<a name="line277"></a>		$items = array();
+<a name="line278"></a>		foreach ( array_keys( $this->operatorSymbols ) as $symbol )
+<a name="line279"></a>			$items[$symbol] = $this->items[$symbol];
+<a name="line280"></a>		return $items;
+<a name="line281"></a>	}
+<a name="line282"></a>	
+<a name="line283"></a>	/**
+<a name="line284"></a>	 * Gets Operator object by its name.
+<a name="line285"></a>	 *
+<a name="line286"></a>	 * @param string $name Operator name.
+<a name="line287"></a>	 * @return Operator Operator object.
+<a name="line288"></a>	 * @throws {@link VocabularyException} when no operator is found.
+<a name="line289"></a>	 */
+<a name="line290"></a>	public function getOperatorByName( $name )
+<a name="line291"></a>	{
+<a name="line292"></a>		if ( !isset( $this->operators[$name] ))
+<a name="line293"></a>			throw new VocabularyException( "No operator with name $name in vocabulary." );
+<a name="line294"></a>		return $this->operators[$name];
+<a name="line295"></a>	}
+<a name="line296"></a>	
+<a name="line297"></a>	/**
+<a name="line298"></a>	 * Gets Operator object by its symbol.
+<a name="line299"></a>	 *
+<a name="line300"></a>	 * @param string $symbol Operator symbol.
+<a name="line301"></a>	 * @return Operator Operator instance.
+<a name="line302"></a>	 * @throws {@link VocabularyException} when $symbol is not an operator 
+<a name="line303"></a>	 * 		   symbol in the vocabulary.
+<a name="line304"></a>	 */
+<a name="line305"></a>	public function getOperatorBySymbol( $symbol )
+<a name="line306"></a>	{
+<a name="line307"></a>		if ( !isset( $this->operatorSymbols[$symbol] ))
+<a name="line308"></a>			throw new VocabularyException( "$symbol is not an operator symbol in the vocabulary." );
+<a name="line309"></a>		$operatorName = $this->operatorSymbols[$symbol];
+<a name="line310"></a>		return $this->getOperatorByName( $operatorName );
+<a name="line311"></a>	}
+<a name="line312"></a>	
+<a name="line313"></a>	/**
+<a name="line314"></a>	 * Gets the symbol used for a particular operator.
+<a name="line315"></a>	 *
+<a name="line316"></a>	 * @param Operator|string Operator object or name of operator.
+<a name="line317"></a>	 * @return string Operator symbol.
+<a name="line318"></a>	 * @throws {@link VocabularyException} when operator is not in the vocabulary.
+<a name="line319"></a>	 */
+<a name="line320"></a>	public function getSymbolForOperator( $operator )
+<a name="line321"></a>	{
+<a name="line322"></a>		if ( !$operator instanceof Operator ) $operator = $this->getOperatorByName( $operator ); 
+<a name="line323"></a>		$symbols = $this->getOperatorSymbols( $operator->getArity() );
+<a name="line324"></a>		foreach ( $symbols as $symbol )
+<a name="line325"></a>			if ( $this->getOperatorBySymbol( $symbol ) === $operator ) return $symbol;
+<a name="line326"></a>		throw new VocabularyException( "Operator not found in vocabulary." );		
+<a name="line327"></a>	}
+<a name="line328"></a>	
+<a name="line329"></a>	/**
+<a name="line330"></a>	 * Gets item type by symbol.
+<a name="line331"></a>	 *
+<a name="line332"></a>	 * @param string $symbol The symbol in the vocabulary.
+<a name="line333"></a>	 * @return integer Type flag of the symbol.
+<a name="line334"></a>	 * @throws {@link VocabularyException} when symbol is not a vocabulary item.
+<a name="line335"></a>	 */
+<a name="line336"></a>	public function getSymbolType( $symbol )
+<a name="line337"></a>	{
+<a name="line338"></a>		if ( !isset( $this->items[$symbol] ))
+<a name="line339"></a>			throw new VocabularyException( "$symbol is not a symbol in the vocabulary." );
+<a name="line340"></a>		return $this->items[$symbol];
+<a name="line341"></a>	}
+<a name="line342"></a>		
+<a name="line343"></a>	/**
+<a name="line344"></a>	 * Adds a sentence to the vocabulary, maintaining uniqueness.
+<a name="line345"></a>	 *
+<a name="line346"></a>	 * If the sentence, or one of the same form is already in the vocabulary,
+<a name="line347"></a>	 * then that sentence is returned. Otherwise the passed sentence is
+<a name="line348"></a>	 * returned. 
+<a name="line349"></a>	 *
+<a name="line350"></a>	 * @param Sentence $sentence The sentence to add.
+<a name="line351"></a>	 * @return Sentence Old or new sentence.
+<a name="line352"></a>	 */
+<a name="line353"></a>	public function registerSentence( Sentence $sentence )
+<a name="line354"></a>	{
+<a name="line355"></a>		foreach ( $this->sentences as $existingSentence )
+<a name="line356"></a>			if ( Sentence::sameForm( $existingSentence, $sentence )) return $existingSentence;
+<a name="line357"></a>		
+<a name="line358"></a>		if ( $sentence instanceof Sentence\Atomic ) {	
+<a name="line359"></a>			$symbol = $sentence->getSymbol();
+<a name="line360"></a>			if ( $this->getSymbolType( $symbol ) !== self::ATOMIC )
+<a name="line361"></a>				throw new VocabularyException( "$symbol is not in the atomic symbols." );
+<a name="line362"></a>			$subscript = $sentence->getSubscript();
+<a name="line363"></a>			$newSentence = Sentence::createAtomic( $symbol, $subscript );
+<a name="line364"></a>			$this->atomicSentences[] = $newSentence;
+<a name="line365"></a>		} elseif ( $sentence instanceof Sentence\Molecular ) {
+<a name="line366"></a>			$operands = array_map( array( $this, 'registerSentence' ), $sentence->getOperands() );
+<a name="line367"></a>			$operator = $this->getOperatorByName( $sentence->getOperatorName() );
+<a name="line368"></a>			$newSentence = Sentence::createMolecular( $operator, $operands );
+<a name="line369"></a>		} else throw new VocabularyException( 'Unknown Sentence type: ' . get_class( $sentence ));
+<a name="line370"></a>		$this->sentences[] = $newSentence;		
+<a name="line371"></a>		return $newSentence;
+<a name="line372"></a>	}
+<a name="line373"></a>	
+<a name="line374"></a>	/**
+<a name="line375"></a>	 * Gets the set of sentences.
+<a name="line376"></a>	 *
+<a name="line377"></a>	 * @return array Array of {@link Sentence}s.
+<a name="line378"></a>	 */
+<a name="line379"></a>	public function getSentences()
+<a name="line380"></a>	{
+<a name="line381"></a>		return $this->sentences;
+<a name="line382"></a>	}
+<a name="line383"></a>	
+<a name="line384"></a>	/**
+<a name="line385"></a>	 * Adds an array of lexical items to the vocabulary.
+<a name="line386"></a>	 *
+<a name="line387"></a>	 * @param array $lexicon Array of lexical items. For format, see the
+<a name="line388"></a>	 *						 {@link Vocabulary::__construct() constructor}.
+<a name="line389"></a>	 * @return Vocabulary Current instance.
+<a name="line390"></a>	 */
+<a name="line391"></a>	protected function insertLexicon( array $lexicon )
+<a name="line392"></a>	{
+<a name="line393"></a>		if ( !empty( $lexicon['openMarks'] ))
+<a name="line394"></a>			foreach ( $lexicon['openMarks'] as $mark ) $this->addOpenMark( $mark );
+<a name="line395"></a>		
+<a name="line396"></a>		if ( !empty( $lexicon['closeMarks'] ))
+<a name="line397"></a>			foreach ( $lexicon['closeMarks'] as $mark ) $this->addCloseMark( $mark );
+<a name="line398"></a>		
+<a name="line399"></a>		if ( !empty( $lexicon['atomicSymbols'] ))
+<a name="line400"></a>			foreach ( $lexicon['atomicSymbols'] as $symbol ) $this->addAtomicSymbol( $symbol );
+<a name="line401"></a>		
+<a name="line402"></a>		if ( !empty( $lexicon['subscripts'] ))
+<a name="line403"></a>			foreach ( $lexicon['subscripts'] as $subscript ) $this->addSubscriptSymbol( $subscript );
+<a name="line404"></a>		
+<a name="line405"></a>		if ( !empty( $lexicon['separators'] ))
+<a name="line406"></a>			foreach ( $lexicon['separators'] as $separator ) $this->addSeparator( $separator );
+<a name="line407"></a>		
+<a name="line408"></a>		if ( !empty( $lexicon['operatorSymbols'] ))
+<a name="line409"></a>			foreach ( $lexicon['operatorSymbols'] as $symbol => $operator ) {
+<a name="line410"></a>				list( $operatorName ) = array_keys( $operator );
+<a name="line411"></a>				$arity = $operator[$operatorName];
+<a name="line412"></a>				$this->createOperator( $symbol, $arity, $operatorName );
+<a name="line413"></a>			}
+<a name="line414"></a>		return $this;
+<a name="line415"></a>	}
+<a name="line416"></a>	
+<a name="line417"></a>	/**
+<a name="line418"></a>	 * Adds a symbol to the vocabulary.
+<a name="line419"></a>	 *
+<a name="line420"></a>	 * @param string $symbol Single character symbol, novel to vocabulary instance.
+<a name="line421"></a>	 * @param integer $typeFlag The symbol's type flag.
+<a name="line422"></a>	 * @return Vocabulary Current instance.
+<a name="line423"></a>	 * @throws {@link VocabularyException}.
+<a name="line424"></a>	 */
+<a name="line425"></a>	protected function addSymbol( $symbol, $typeFlag )
+<a name="line426"></a>	{
+<a name="line427"></a>		if ( strlen( $symbol ) !== 1 )
+<a name="line428"></a>			throw new VocabularyException( 'Symbol must be exactly one character long.' );
+<a name="line429"></a>			
+<a name="line430"></a>		if ( isset( $this->items[$symbol] ))
+<a name="line431"></a>			throw new VocabularyException( "Symbol $symbol already exists in vocabulary." );
+<a name="line432"></a>		
+<a name="line433"></a>		if ( is_numeric( $symbol ))
+<a name="line434"></a>			throw new VocabularyException( 'Symbol cannot be numeric.' );
+<a name="line435"></a>		
+<a name="line436"></a>		$this->items[$symbol] = (int) $typeFlag;
+<a name="line437"></a>		
+<a name="line438"></a>		return $this;
+<a name="line439"></a>	}
+<a name="line440"></a>	
+<a name="line441"></a>	/**
+<a name="line442"></a>	 * Gets all items in vocabulary of a type flag.
+<a name="line443"></a>	 *
+<a name="line444"></a>	 * @param integer|array $typeFlag Type flag or array of type flags.
+<a name="line445"></a>	 * @param boolean $single Whether to return a single character
+<a name="line446"></a>	 * @return array|string Array of vocabulary items, or, if $single is true,
+<a name="line447"></a>	 *						a single character string.
+<a name="line448"></a>	 */
+<a name="line449"></a>	protected function getItems( $typeFlag, $single = false )
+<a name="line450"></a>	{
+<a name="line451"></a>		$items = array();
+<a name="line452"></a>		if ( is_array( $typeFlag )) foreach ( $typeFlag as $flag )
+<a name="line453"></a>			$items = array_merge( $items, $this->getItems( $flag ));
+<a name="line454"></a>		else foreach ( $this->items as $item => $flag )
+<a name="line455"></a>			if ( $flag == $typeFlag ) $items[] = $item;
+<a name="line456"></a>		return $single ? $items[0] : $items;
+<a name="line457"></a>	}
+<a name="line458"></a>}</pre>
+<div class="header">
+<h1>GoTableaux</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li>Package</li><li>Class</li><li>Tree</li><li><a href="../overview-files.html">Files</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../todo-list.html">Todo</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../source/vocabulary.php.html" target="_top">No frames</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

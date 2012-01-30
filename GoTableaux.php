@@ -9,6 +9,4 @@ namespace GoTableaux;
 /**
  * Loads the {@link Loader} class.
  */
-require_once dirname( __FILE__ ) . '/GoTableaux/Loader.php';
-
-$cpl = Logic::getInstance( 'CPL' );
+require_once __DIR__ . '/GoTableaux/Loader.php';

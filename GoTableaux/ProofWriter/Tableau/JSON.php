@@ -7,9 +7,7 @@
 
 namespace GoTableaux\ProofWriter\Tableau;
 
-use \GoTableaux\Logic as Logic;
-use \GoTableaux\Proof as Proof;
-use \GoTableaux\Argument as Argument;
+use \GoTableaux\Proof\TableauStructure as Structure;
 
 /**
  * Represents a JSON tableau proof writer.
@@ -18,8 +16,14 @@ use \GoTableaux\Argument as Argument;
  */
 class JSON extends \GoTableaux\ProofWriter\Tableau
 {
-	public function writeProof( Proof $tableau )
+	/**
+	 * Makes a string representation of a tableau structure.
+	 * 
+	 * @param Structure $structure The tableau structure to represent.
+	 * @return string The string representation of the structure.
+	 */
+	public function writeStructure( Structure $structure )
 	{
-		return json_encode( $this->getArray( $tableau ));
+		return json_encode( $this->getArrayForStructure( $structure ));
 	}	
 }

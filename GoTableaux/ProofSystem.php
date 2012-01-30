@@ -21,7 +21,6 @@ abstract class ProofSystem
 	 */
 	protected $logic;
 
-	
 	/**
 	 * Constructor.
 	 *

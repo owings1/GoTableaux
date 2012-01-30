@@ -7,6 +7,9 @@
 
 namespace GoTableaux;
 
+use \GoTableaux\Exception\Writer as WriterException;
+use \GoTableaux\SentenceWriter\Decorator as SentenceWriterDecorator;
+
 /**
  * Writes proofs.
  * @package Proof
@@ -15,10 +18,21 @@ namespace GoTableaux;
 abstract class ProofWriter
 {
 	/**
+	 * 
+	 * @var array
+	 */
+	private $translations = array();
+	
+	/**
 	 * @var SentenceWriter
 	 * @access private
 	 */
-	protected $sentenceWriter;
+	private $sentenceWriter;
+	
+	/**
+	 * @var Vocabulary
+	 */
+	private $vocabulary;
 	
 	/**
 	 * Gets a child instance.
@@ -43,8 +57,49 @@ abstract class ProofWriter
 	 */
 	public function __construct( Proof $proof, $sentenceWriterType = 'Standard' )
 	{
-		$vocabulary = $proof->getProofSystem()->getLogic()->getVocabulary();
-		$this->setSentenceWriter( SentenceWriter::getInstance( $vocabulary, $sentenceWriterType ));
+		$this->vocabulary = $proof->getProofSystem()->getLogic()->getVocabulary();
+		$this->setSentenceWriter( SentenceWriter::getInstance( $this->vocabulary, $sentenceWriterType ));
+		$operatorNames = $this->vocabulary->getOperatorNames();
+		$operatorSymbols = array_flip( $operatorNames );
+		$this->getSentenceWriter()->setOperatorStrings( $operatorSymbols );
+	}
+	
+	/**
+	 * Adds translations.
+	 *
+	 * @param array $translations The translations to add, where key is to be
+	 *							  translated into value.
+	 * @return ProofWriter Current instance.
+	 */
+	public function addTranslations( array $translations )
+	{
+		foreach ( $translations as $name => $value )
+			$this->translations[$name] = $value;
+		return $this;
+	}
+	
+	/**
+	 * Removes a translation.
+	 *
+	 * @param string $name Name of the translation to remove.
+	 * @return ProofWriter Current instance.
+	 */
+	public function removeTranslation( $name )
+	{
+		unset( $this->translations[$name] );
+	}
+	
+	/**
+	 * Gets a translation.
+	 *
+	 * @param string $name Name of the translation.
+	 * @return string The translation.
+	 */
+	public function getTranslation( $name )
+	{
+		if ( empty( $this->translations[$name] ))
+			throw new WriterException( "Unknown translation name: $name" );
+		return $this->translations[$name];
 	}
 	
 	/**
@@ -61,12 +116,36 @@ abstract class ProofWriter
 	 * Sets the sentence writer object.
 	 *
 	 * @param SentenceWriter $sentenceWriter The sentence writer to set.
-	 * @return TableauWriter Current instance.
+	 * @return ProofWriter Current instance.
 	 */
 	public function setSentenceWriter( SentenceWriter $sentenceWriter )
 	{
 		$this->sentenceWriter = $sentenceWriter;
 		return $this;
+	}
+	
+	/**
+	 * Decorates the sentence writer.
+	 *
+	 * @param string $type Type of decorator.
+	 * @return ProofWriter Current instance.
+	 */
+	public function decorateSentenceWriter( $type )
+	{
+		return $this->setSentenceWriter( SentenceWriter::getDecoratorInstance( $this->getSentenceWriter(), $type ));
+	}
+	
+	/**
+	 * Writes a sentence.
+	 *
+	 * Delegates to sentence writer.
+	 * 
+	 * @param Sentence $sentence The sentence to write.
+	 * @return string The string representation of the sentence.
+	 */
+	public function writeSentence( Sentence $sentence )
+	{
+		return $this->getSentenceWriter()->writeSentence( $sentence );
 	}
 	
 	/**

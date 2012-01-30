@@ -8,7 +8,7 @@
 namespace GoTableaux;
 
 // Load the GoTableaux program
-require dirname( __FILE__ ) . '/../GoTableaux.php';
+require __DIR__ . '/../GoTableaux.php';
 
 /**
  * Evaluates a single argument, and returns a summary of the results.

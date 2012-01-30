@@ -7,6 +7,10 @@
 
 namespace GoTableaux;
 
+use \GoTableaux\Exception\Vocabulary as VocabularyException;
+use \GoTableaux\Sentence\Atomic as AtomicSentence;
+use \GoTableaux\Sentence\Molecular as MolecularSentence;
+
 /**
  * Represents a vocabulary.
  * @package Syntax
@@ -256,28 +260,48 @@ class Vocabulary
 		if ( isset( $this->operators[$name] ))
 			throw new VocabularyException ( "Operator $name is already in vocabulary." );
 		
-		$newOperator = new Operator( $name, $arity );
+		if ( strpos( '_', $name ) === 0 )
+			throw new VocabularyException ( 'Operator cannot start with an underscore.' );
+			
+		$operator = new Operator( $name, $arity );
 		$this->addSymbol( $symbol, $arity );
-		$this->operators[$name] = $newOperator;
+		$this->operators[$name] = $operator;
 		$this->operatorSymbols[$symbol] = $name;
-		return $newOperator;
+		return $operator;
 	}
 	
 	/**
 	 * Gets all operator symbols.
 	 *
-	 * @param integer $arity Arity of operators to get. Default is 0, which 
+	 * @param integer $arity Arity of operators to get. Default is null, which 
 	 *						 returns all operator symbols.
 	 * @return array Array of operator symbols. Key is operator symbol, value 
 	 * 				 is operator's arity.
 	 */
-	public function getOperatorSymbols( $arity = 0 )
+	public function getOperatorSymbols( $arity = null )
 	{
 		if ( $arity > 0 ) return $this->getItems( $arity );
 		$items = array();
 		foreach ( array_keys( $this->operatorSymbols ) as $symbol )
 			$items[$symbol] = $this->items[$symbol];
 		return $items;
+	}
+	
+	/**
+	 * Gets operator names with symbols for keys.
+	 *
+	 * @param integer $arity Arity of operators to get. Default is  null, which
+	 *						 returns all operator names.
+	 * @return array Array of operator names with symbols for keys.
+	 */
+	public function getOperatorNames( $arity = null )
+	{
+		$names = array();
+		foreach ( $this->getOperatorSymbols( $arity ) as $symbol => $arity ) {
+			$operator = $this->getOperatorBySymbol( $symbol );
+			$names[$symbol] = $operator->getName();
+		}
+		return $names;
 	}
 	
 	/**
@@ -355,14 +379,14 @@ class Vocabulary
 		foreach ( $this->sentences as $existingSentence )
 			if ( Sentence::sameForm( $existingSentence, $sentence )) return $existingSentence;
 		
-		if ( $sentence instanceof Sentence\Atomic ) {	
+		if ( $sentence instanceof AtomicSentence ) {	
 			$symbol = $sentence->getSymbol();
 			if ( $this->getSymbolType( $symbol ) !== self::ATOMIC )
 				throw new VocabularyException( "$symbol is not in the atomic symbols." );
 			$subscript = $sentence->getSubscript();
 			$newSentence = Sentence::createAtomic( $symbol, $subscript );
 			$this->atomicSentences[] = $newSentence;
-		} elseif ( $sentence instanceof Sentence\Molecular ) {
+		} elseif ( $sentence instanceof MolecularSentence ) {
 			$operands = array_map( array( $this, 'registerSentence' ), $sentence->getOperands() );
 			$operator = $this->getOperatorByName( $sentence->getOperatorName() );
 			$newSentence = Sentence::createMolecular( $operator, $operands );
@@ -406,9 +430,9 @@ class Vocabulary
 			foreach ( $lexicon['separators'] as $separator ) $this->addSeparator( $separator );
 		
 		if ( !empty( $lexicon['operatorSymbols'] ))
-			foreach ( $lexicon['operatorSymbols'] as $symbol => $operator ) {
-				list( $operatorName ) = array_keys( $operator );
-				$arity = $operator[$operatorName];
+			foreach ( $lexicon['operatorSymbols'] as $symbol => $operatorInfo ) {
+				list( $operatorName ) = array_keys( $operatorInfo );
+				$arity = $operatorInfo[$operatorName];
 				$this->createOperator( $symbol, $arity, $operatorName );
 			}
 		return $this;
