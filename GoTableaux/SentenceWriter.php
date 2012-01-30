@@ -171,7 +171,6 @@ abstract class SentenceWriter
 				$this->operatorStrings[$operatorName] = $this->standardOperatorTranslations[$operatorName];
 			else $this->operatorStrings[$operatorName] = $this->getVocabulary()->getSymbolForOperator( $operatorName );
 		}
-			
 		return $this->operatorStrings[$operatorName];
 	}
 	
@@ -208,9 +207,18 @@ abstract class SentenceWriter
 	public function writeSubscript( $subscript )
 	{
 		$subscriptSymbol = $this->getVocabulary()->getSubscriptSymbols( true );
-		if ( $this->getOption( 'printZeroSubscripts' ) || $subscript > 0 )
-			return $subscriptSymbol . $subscript;
-		return '';
+		return $subscriptSymbol . $subscript;
+	}
+	
+	/**
+	 * Writes an atomic symbol.
+	 *
+	 * @param string $symbol The atomic symbol to write.
+	 * @return string The representation of the atomic symbol.
+	 */
+	public function writeAtomicSymbol( $symbol )
+	{
+		return $symbol;
 	}
 	
 	/**
@@ -221,7 +229,11 @@ abstract class SentenceWriter
 	 */
 	public function writeAtomic( AtomicSentence $sentence )
 	{
-		return $sentence->getSymbol() . $this->writeSubscript( $sentence->getSubscript() );
+		$subscript = $sentence->getSubscript();
+		$str = $this->writeAtomicSymbol( $sentence->getSymbol() );
+		if ( $subscript > 0 || $this->getOption( 'printZeroSubscripts' ))
+			$str .= $this->writeSubscript( $subscript );
+		return $str;
 	}
 	
 	/**

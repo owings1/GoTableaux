@@ -17,9 +17,12 @@ require __DIR__ . '/../GoTableaux.php';
  *								 the {@link StandardSentenceParser standard sentence parser}.
  * @param string $conclusion The conclusion string.
  * @param string $logicName The name of the logic against which to evaluate the argument.
+ * @param string $writer The type of proof writer to use. Default is Simple.
+ * @param string $notation The sentence notation for the proof writer to use.
+ *						   Default is Standard notation.
  * @return string The summary of the results.
  */
-function evaluate_argument( $premises, $conclusion, $logicName, $writer = 'Simple' )
+function evaluate_argument( $premises, $conclusion, $logicName, $writer = 'Simple', $notation = 'Standard' )
 {
 	// Get instance of logic
 	$logic = Logic::getInstance( $logicName );
@@ -33,7 +36,7 @@ function evaluate_argument( $premises, $conclusion, $logicName, $writer = 'Simpl
 	$proof = $logic->constructProofForArgument( $argument );
 	
 	// Get instance of proof writer
-	$proofWriter = ProofWriter::getInstance( $proof, $writer );
+	$proofWriter = ProofWriter::getInstance( $proof, $writer, $notation );
 	
 	// Print argument representation
 	$summary .= "Argument: " . $proofWriter->writeArgumentOfProof( $proof ) . "\n\n";
@@ -60,14 +63,17 @@ function evaluate_argument( $premises, $conclusion, $logicName, $writer = 'Simpl
  * </code>
  * @param array $arguments An array of argument strings.
  * @param string $logicName The name of the logic.
+ * @param string $writer The type of proof writer to use. Default is Simple.
+ * @param string $notation The sentence notation for the proof writer to use.
+ *						   Default is Standard notation.
  * @return string The summary of the results.
  */
-function evaluate_many_arguments( array $arguments, $logicName, $writer = 'Simple' )
+function evaluate_many_arguments( array $arguments, $logicName, $writer = 'Simple', $notation = 'Standard' )
 {
 	$summary = "Evaluating " . count( $arguments ) . " Arguments with $logicName...\n\n";
 	foreach ( $arguments as $name => $strings ) {	
 		list( $premises, $conclusion ) = $strings;
-		$summary .= evaluate_argument( $premises, $conclusion, $logicName, $writer );
+		$summary .= evaluate_argument( $premises, $conclusion, $logicName, $writer, $notation );
 	}
 	return $summary;
 }

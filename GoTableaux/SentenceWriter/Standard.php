@@ -1,23 +1,18 @@
 <?php
 /**
- * Defines the Standard Sentence Writer class.
- * @package Syntax
+ * Defines the Standard notation sentence writer class.
+ * @package GoTableaux
  * @author Douglas Owings
  */
 
 namespace GoTableaux\SentenceWriter;
 
 use \GoTableaux\Exception\Writer as WriterException;
-use \GoTableaux\Vocabulary as Vocabulary;
-use \GoTableaux\Sentence as Sentence;
-use \GoTableaux\Argument as Argument;
-use \GoTableaux\Sentence\Atomic as AtomicSentence;
 use \GoTableaux\Sentence\Molecular as MolecularSentence;
-use \GoTableaux\ParserUtilities as ParserUtilities;
 
 /**
- * Represents the standard sentence writer.
- * @package Syntax
+ * Writes sentences in standard notation.
+ * @package GoTableaux
  * @author Douglas Owings
  */
 class Standard extends \GoTableaux\SentenceWriter

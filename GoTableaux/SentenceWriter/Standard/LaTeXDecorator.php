@@ -26,30 +26,23 @@ class LaTeXDecorator extends \GoTableaux\SentenceWriter\Standard
 		'Conjunction' => '\wedge',
 		'Disjunction' => '\vee',
 		'Negation'	  => '\neg',
-		'Material Conditional' => '\supset',
-		'Material Biconditional' => '\equiv',	
+		'Material Conditional' 		=> '\supset',
+		'Material Biconditional' 	=> '\equiv',	
 	);
 	
-	private $specialCharacters = array( '\\', '#', '$', '%', '&', '~', '_', '^', '{', '}' );
-	
+	//protected $specialCharacters = array( '\\', '#', '$', '%', '&', '~', '_', '^', '{', '}' );
 	
 	public function writeSubscript( $subscript )
 	{
-		if ( $this->sentenceWriter->writeSubscript( $subscript ))
-			return '_{' . $subscript .'}';
-		return '';
+		return '_{' . $subscript .'}';
 	}
 	
-//	public function writeOperator( $operatorOrName )
-//	{
-//		return $this->escape( $this->sentenceWriter->writeOperator( $operatorOrName ));
-//	}
-	
-	private function escape( $str )
+	/*
+	public function escape( $str )
 	{
 		foreach ( $this->specialCharacters as $char )
 			$str = str_replace( $char, '\\' . $char, $str );
 		return $str;
 	}
-
+	*/
 }

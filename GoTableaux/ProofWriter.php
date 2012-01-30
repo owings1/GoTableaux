@@ -59,9 +59,6 @@ abstract class ProofWriter
 	{
 		$this->vocabulary = $proof->getProofSystem()->getLogic()->getVocabulary();
 		$this->setSentenceWriter( SentenceWriter::getInstance( $this->vocabulary, $sentenceWriterType ));
-		$operatorNames = $this->vocabulary->getOperatorNames();
-		$operatorSymbols = array_flip( $operatorNames );
-		$this->getSentenceWriter()->setOperatorStrings( $operatorSymbols );
 	}
 	
 	/**
