@@ -1,497 +1,192 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-  <html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
 <head>
-	<title>Docs For Class Sentence</title>
-	<link rel="stylesheet" type="text/css" href="../media/style.css">
-	<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2RC4 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 28 Jan 2012 04:30:47 +0000">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../overview-summary.html">
+
+<title>Sentence (GoTableaux - Documentation)</title>
+
 </head>
-<body>
+<body id="definition" onload="parent.document.title=document.title;">
 
-<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
-  <tr>
-	<td class="header-top-left"><img src="../media/logo.png" border="0" alt="phpDocumentor " /></td>
-    <td class="header-top-right">Syntax<br /><div class="header-top-right-subpackage"></div></td>
-  </tr>
-  <tr><td colspan="2" class="header-line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
-  <tr>
-    <td colspan="2" class="header-menu">
-      
-                                                                                
-                                    		[ <a href="../classtrees_Syntax.html" class="menu">class tree: Syntax</a> ]
-		[ <a href="../elementindex_Syntax.html" class="menu">index: Syntax</a> ]
-            [ <a href="../elementindex.html" class="menu">all elements</a> ]
-    </td>
-  </tr>
-  <tr><td colspan="2" class="header-line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+<div class="header">
+<h1>GoTableaux</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../syntax/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../syntax/package-tree.html">Tree</a></li>
+<li><a href="../overview-files.html">Files</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../todo-list.html">Todo</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../syntax/sentence.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<div class="qualifiedName">Syntax\Sentence</div>
+<a href="../source/sentence.php.html#line15" class="location">Sentence.php at line 15</a>
+
+<h1>Class Sentence</h1>
+
+<pre class="tree"><strong>Sentence</strong><br /></pre>
+
+<hr>
+
+<p class="signature">public  class <strong>Sentence</strong></p>
+
+<div class="comment" id="overview_description"><p>Represents a sentence.</p></div>
+
+<dl>
+<dt>Author:</dt>
+<dd>Douglas Owings</dd>
+</dl>
+<hr>
+
+<table id="summary_method">
+<tr><th colspan="2">Method Summary</th></tr>
+<tr>
+<td class="type">static  Sentence\Atomic</td>
+<td class="description"><p class="name"><a href="#createAtomic()">createAtomic</a>(string symbol, integer subscript)</p><p class="description">Creates an atomic sentence.</p></td>
+</tr>
+<tr>
+<td class="type">static  Sentence\Molecular</td>
+<td class="description"><p class="name"><a href="#createMolecular()">createMolecular</a>(<a href="../syntax/operator.html">Operator</a> operator, array operands)</p><p class="description">Creates a molecular sentence.</p></td>
+</tr>
+<tr>
+<td class="type"> string|false</td>
+<td class="description"><p class="name"><a href="#getOperatorName()">getOperatorName</a>()</p><p class="description">Gets the operator name.</p></td>
+</tr>
+<tr>
+<td class="type">static  boolean</td>
+<td class="description"><p class="name"><a href="#sameForm()">sameForm</a>(<a href="../syntax/sentence.html">Sentence</a> sentence_a, <a href="../syntax/sentence.html">Sentence</a> sentence_b)</p><p class="description">Compares two sentences for form and atomic symbol identity.</p></td>
+</tr>
+<tr>
+<td class="type">static  boolean</td>
+<td class="description"><p class="name"><a href="#sameFormInArray()">sameFormInArray</a>(<a href="../syntax/sentence.html">Sentence</a> needle, array haystack)</p><p class="description">Checks whether $haystack has a sentence with the same form as $needle.</p></td>
+</tr>
 </table>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-  <tr valign="top">
-    <td width="195" class="menu">
-		<div class="package-title">Syntax</div>
-      <b>Packages:</b><br />
-  <div class="package">
-              <a href="../li_Exceptions.html">Exceptions</a><br />
-              <a href="../li_Logic.html">Logic</a><br />
-              <a href="../li_ModelTheory.html">ModelTheory</a><br />
-              <a href="../li_Proof.html">Proof</a><br />
-              <a href="../li_Syntax.html">Syntax</a><br />
-              <a href="../li_Tableaux.html">Tableaux</a><br />
-      	</div>
-      <br />
-                        <b>Files:</b><br />
-        <div class="package">
-				<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---AtomicSentence.php.html">AtomicSentence.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---MolecularSentence.php.html">MolecularSentence.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---Operator.php.html">Operator.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---ParserUtilities.php.html">ParserUtilities.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---Sentence.php.html">Sentence.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---SentenceParser.php.html">SentenceParser.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---SentenceWriter.php.html">SentenceWriter.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---SentenceParser---StandardSentenceParser.php.html">StandardSentenceParser.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---SentenceWriter---StandardSentenceWriter.php.html">StandardSentenceWriter.php</a></span><br />
-			<span style="padding-left: 1em;"><a href="../Syntax/_Syntax---Vocabulary.php.html">Vocabulary.php</a></span><br />
-	  </div>
-            <br />
-                  <b>Classes:</b><br />
-        <div class="package">
-		    		<a href="../Syntax/AtomicSentence.html">AtomicSentence</a>    	 <br />
-	    		<a href="../Syntax/MolecularSentence.html">MolecularSentence</a>    	 <br />
-	    		<a href="../Syntax/Operator.html">Operator</a>    	 <br />
-	    		<a href="../Syntax/ParserUtilities.html">ParserUtilities</a>    	 <br />
-	    		<a href="../Syntax/Sentence.html">Sentence</a>    	 <br />
-	    		<a href="../Syntax/SentenceParser.html">SentenceParser</a>    	 <br />
-	    		<a href="../Syntax/SentenceWriter.html">SentenceWriter</a>    	 <br />
-	    		<a href="../Syntax/StandardSentenceParser.html">StandardSentenceParser</a>    	 <br />
-	    		<a href="../Syntax/StandardSentenceWriter.html">StandardSentenceWriter</a>    	 <br />
-	    		<a href="../Syntax/Vocabulary.html">Vocabulary</a>    	 <br />
-	  </div>
-                </td>
-    <td>
-      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+<h2 id="detail_method">Method Detail</h2>
+<a href="../source/sentence.php.html#line24" class="location">Sentence.php at line 24</a>
 
-<h1>Class: Sentence</h1>
-Source Location: /Syntax/Sentence.php<br /><br />
-
-<h2 class="class-name">Class Sentence</h2>
-
-<a name="sec-description"></a>
-<div class="info-box">
-	<div class="info-box-title">Class Overview</div>
-	<div class="nav-bar">
-					<span class="disabled">Class Overview</span>
-							| <a href="#sec-descendants">Descendants</a>
-				
-													| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
-								</div>
-	<div class="info-box-body">
-		<table width="100%" border="0">
-		<tr><td valign="top" width="60%" class="class-overview">
-
-        		<p align="center" class="short-description"><strong>Represents a sentence.
-</strong></p>
-
-		<p class="notes">
-			Located in <a class="field" href="_Syntax---Sentence.php.html">/Syntax/Sentence.php</a> [<span class="field">line 23</span>]
-		</p>
-
-		
-		<pre></pre>
-
-		
-				<strong>Author(s):</strong>
-		<ul>
-		  			 			 <li>Douglas Owings</li>
-			 		  		</ul>
-		
-		
-<strong>Information Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-	</table>
-		</td>
-
-		
-				<td valign="top" width="20%" class="class-overview">
-		<p align="center" class="short-description"><strong><a href="#sec_methods">Methods</a></strong></p>
-		<ul>
-		  		  <li><a href="../Syntax/Sentence.html#methodcreateAtomic">createAtomic</a></li>
-		  		  <li><a href="../Syntax/Sentence.html#methodcreateMolecular">createMolecular</a></li>
-		  		  <li><a href="../Syntax/Sentence.html#methodgetOperatorName">getOperatorName</a></li>
-		  		  <li><a href="../Syntax/Sentence.html#methodsameForm">sameForm</a></li>
-		  		  <li><a href="../Syntax/Sentence.html#methodsameFormInArray">sameFormInArray</a></li>
-		  		</ul>
-		</td>
-		
-		</tr></table>
-		<div class="top">[ <a href="#top">Top</a> ]</div>
-	</div>
+<h3 id="createAtomic()">createAtomic</h3>
+<code class="signature">public static  Sentence\Atomic <strong>createAtomic</strong>(string symbol, integer subscript)</code>
+<div class="details">
+<p>Creates an atomic sentence.</p><dl>
+<dt>Parameters:</dt>
+<dd>symbol - The atomic symbol, e.g. 'A' or 'B'.</dd>
+<dd>subscript - The subscript. Default is 0.</dd>
+<dt>Returns:</dt>
+<dd>The created instance.</dd>
+</dl>
 </div>
 
-	<a name="sec-descendants"></a>
-	<div class="info-box">
-		<div class="info-box-title">Descendants</div>
-		<div class="nav-bar">
-			<a href="#sec-description">Class Overview</a>
-							| <span class="disabled">Descendants</span>
-																	| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
-									</div>
-		<div class="info-box-body">
-			<table cellpadding="2" cellspacing="0" class="class-table">
-				<tr>
-					<th class="class-table-header">Child Class</th>
-					<th class="class-table-header">Description</th>
-				</tr>
-								<tr>
-					<td style="padding-right: 2em"><a href="../Syntax/AtomicSentence.html">AtomicSentence</a></td>
-					<td>
-											Represents an atomic sentence.
-										</td>
-				</tr>
-								<tr>
-					<td style="padding-right: 2em"><a href="../Syntax/MolecularSentence.html">MolecularSentence</a></td>
-					<td>
-											Represents a molecular sentence.
-										</td>
-				</tr>
-							</table>
-			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
-		</div>
-	</div>
+<hr>
 
+<a href="../source/sentence.php.html#line37" class="location">Sentence.php at line 37</a>
 
-
-
-	<a name="sec-method-summary"></a>
-	<div class="info-box">
-		<div class="info-box-title">Method Summary</span></div>
-		<div class="nav-bar">
-			<a href="#sec-description">Class Overview</a>
-							| <a href="#sec-descendants">Descendants</a>
-									    					| <span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
-		</div>
-		<div class="info-box-body">
-			<div class="method-summary">
-				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
-												<div class="method-definition">
-					<tr><td class="method-definition">static
-											<span class="method-result"><a href="../Syntax/AtomicSentence.html">AtomicSentence</a></span>&nbsp;&nbsp;
-					</td>
-					<td class="method-definition"><a href="#createAtomic" title="details" class="method-name">createAtomic</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Creates an atomic sentence.</td></tr>
-				</div>
-																<div class="method-definition">
-					<tr><td class="method-definition">static
-											<span class="method-result"><a href="../Syntax/MolecularSentence.html">MolecularSentence</a></span>&nbsp;&nbsp;
-					</td>
-					<td class="method-definition"><a href="#createMolecular" title="details" class="method-name">createMolecular</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Creates a molecular sentence.</td></tr>
-				</div>
-																								<div class="method-definition">
-					<tr><td class="method-definition">static
-											<span class="method-result">boolean</span>&nbsp;&nbsp;
-					</td>
-					<td class="method-definition"><a href="#sameForm" title="details" class="method-name">sameForm</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Compares two sentences for form and atomic symbol identity.</td></tr>
-				</div>
-																<div class="method-definition">
-					<tr><td class="method-definition">static
-											<span class="method-result">boolean</span>&nbsp;&nbsp;
-					</td>
-					<td class="method-definition"><a href="#sameFormInArray" title="details" class="method-name">sameFormInArray</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Checks whether $haystack has a sentence with the same form as $needle.</td></tr>
-				</div>
-																																				<div class="method-definition">
-											<tr><td class="method-definition"><span class="method-result">string|false</span>&nbsp;&nbsp;</td>
-										<td class="method-definition"><a href="#getOperatorName" title="details" class="method-name">getOperatorName</a>()&nbsp;&nbsp;</td>
-					<td class="method-definition">Gets the operator name.</td></tr>
-				</div>
-																												</table>
-			</div>
-			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
-		</div>
-	</div>
-
-
-	<a name="sec-methods"></a>
-	<div class="info-box">
-		<div class="info-box-title">Methods</div>
-		<div class="nav-bar">
-			<a href="#sec-description">Class Overview</a>
-							| <a href="#sec-descendants">Descendants</a>
-																			| <a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
-					</div>
-		<div class="info-box-body">
-			<a name='method_detail'></a>
-<a name="methodcreateAtomic" id="createAtomic"><!-- --></a>
-<div class="evenrow">
-
-<div class="method-header">
-	<span class="method-title">static method createAtomic</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 32]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code>static <a href="../Syntax/AtomicSentence.html">AtomicSentence</a> createAtomic(
-string
-$symbol, [integer
-$subscript = 0]&nbsp;
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Creates an atomic sentence.
-</strong></p>
-
-			<strong>Parameters:</strong><br />
-			<table border="0" cellspacing="0" cellpadding="0">
-					<tr><td class="indent">
-				<span class="var-type">string</span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$symbol:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> The atomic symbol, e.g. 'A' or 'B'.</span>			</td></tr>
-					<tr><td class="indent">
-				<span class="var-type">integer</span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$subscript:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> The subscript. Default is 0.</span>			</td></tr>
-				</table>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The created instance.</td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-<br />
-
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
-<a name="methodcreateMolecular" id="createMolecular"><!-- --></a>
-<div class="oddrow">
-
-<div class="method-header">
-	<span class="method-title">static method createMolecular</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 45]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code>static <a href="../Syntax/MolecularSentence.html">MolecularSentence</a> createMolecular(
-<a href="../Syntax/Operator.html">Operator</a>
-$operator, array
-$operands&nbsp;
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Creates a molecular sentence.
-</strong></p>
-
-			<strong>Parameters:</strong><br />
-			<table border="0" cellspacing="0" cellpadding="0">
-					<tr><td class="indent">
-				<span class="var-type"><a href="../Syntax/Operator.html">Operator</a></span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$operator:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> Operator instance.</span>			</td></tr>
-					<tr><td class="indent">
-				<span class="var-type">array</span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$operands:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> Array of Sentence objects.</span>			</td></tr>
-				</table>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The created instance.</td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-<br />
-
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
-<a name="methodsameForm" id="sameForm"><!-- --></a>
-<div class="evenrow">
-
-<div class="method-header">
-	<span class="method-title">static method sameForm</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 69]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code>static boolean sameForm(
-<a href="../Syntax/Sentence.html">Sentence</a>
-$sentence_a, <a href="../Syntax/Sentence.html">Sentence</a>
-$sentence_b&nbsp;
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Compares two sentences for form and atomic symbol identity.
-</strong></p>
-
-			<strong>Parameters:</strong><br />
-			<table border="0" cellspacing="0" cellpadding="0">
-					<tr><td class="indent">
-				<span class="var-type"><a href="../Syntax/Sentence.html">Sentence</a></span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$sentence_a:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> The first sentence.</span>			</td></tr>
-					<tr><td class="indent">
-				<span class="var-type"><a href="../Syntax/Sentence.html">Sentence</a></span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$sentence_b:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> The second sentence.</span>			</td></tr>
-				</table>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Whether the sentences have the same form and atomic symbols.</td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-<br />
-
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
-</div>
-<a name="methodsameFormInArray" id="sameFormInArray"><!-- --></a>
-<div class="oddrow">
-
-<div class="method-header">
-	<span class="method-title">static method sameFormInArray</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 91]</span>
-</div>
-<br />
-
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code>static boolean sameFormInArray(
-<a href="../Syntax/Sentence.html">Sentence</a>
-$needle, array
-$haystack&nbsp;
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
-
-	<p align="center" class="short-description"><strong>Checks whether $haystack has a sentence with the same form as $needle.
-</strong></p>
-
-			<strong>Parameters:</strong><br />
-			<table border="0" cellspacing="0" cellpadding="0">
-					<tr><td class="indent">
-				<span class="var-type"><a href="../Syntax/Sentence.html">Sentence</a></span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$needle:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> The sentence to check.</span>			</td></tr>
-					<tr><td class="indent">
-				<span class="var-type">array</span>&nbsp;&nbsp;</td>
-				<td>
-				<span class="var-name">$haystack:&nbsp;</span></td>
-				<td>
-				<span class="var-description"> Array of <a href="../Syntax/Sentence.html">Sentence</a>s to search.</span>			</td></tr>
-				</table>
-
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>Whether a sentence with the same form is found.</td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-<br />
-
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
+<h3 id="createMolecular()">createMolecular</h3>
+<code class="signature">public static  Sentence\Molecular <strong>createMolecular</strong>(<a href="../syntax/operator.html">Operator</a> operator, array operands)</code>
+<div class="details">
+<p>Creates a molecular sentence.</p><dl>
+<dt>Parameters:</dt>
+<dd>operator - Operator instance.</dd>
+<dd>operands - Array of Sentence objects.</dd>
+<dt>Returns:</dt>
+<dd>The created instance.</dd>
+</dl>
 </div>
 
-<a name="methodgetOperatorName" id="getOperatorName"><!-- --></a>
-<div class="evenrow">
+<hr>
 
-<div class="method-header">
-	<span class="method-title">getOperatorName</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 56]</span>
+<a href="../source/sentence.php.html#line48" class="location">Sentence.php at line 48</a>
+
+<h3 id="getOperatorName()">getOperatorName</h3>
+<code class="signature">public  string|false <strong>getOperatorName</strong>()</code>
+<div class="details">
+<p>Gets the operator name.</p><dl>
+<dt>Returns:</dt>
+<dd>The name of the operator, or false if atomic.</dd>
+</dl>
 </div>
-<br />
 
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
-		<code>string|false getOperatorName(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br /></div>
+<hr>
 
-	<p align="center" class="short-description"><strong>Gets the operator name.
-</strong></p>
+<a href="../source/sentence.php.html#line61" class="location">Sentence.php at line 61</a>
 
-	<br />
-	<strong>API Tags:</strong><br />
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>The name of the operator, or false if atomic.</td>
-  </tr>
-  <tr>
-    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-<br />
-
-
-		
-		<br />
-	<div class="top">[ <a href="#top">Top</a> ]</div>
+<h3 id="sameForm()">sameForm</h3>
+<code class="signature">public static  boolean <strong>sameForm</strong>(<a href="../syntax/sentence.html">Sentence</a> sentence_a, <a href="../syntax/sentence.html">Sentence</a> sentence_b)</code>
+<div class="details">
+<p>Compares two sentences for form and atomic symbol identity.</p><dl>
+<dt>Parameters:</dt>
+<dd>sentence_a - The first sentence.</dd>
+<dd>sentence_b - The second sentence.</dd>
+<dt>Returns:</dt>
+<dd>Whether the sentences have the same form and atomic symbols.</dd>
+</dl>
 </div>
-		</div>
-	</div>
 
+<hr>
 
-        <div class="credit">
-		    <hr class="separator" />
-		    Documentation generated on Wed, 25 Jan 2012 02:09:13 +0000 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
-	      </div>
-      </td></tr></table>
-    </td>
-  </tr>
-</table>
+<a href="../source/sentence.php.html#line83" class="location">Sentence.php at line 83</a>
+
+<h3 id="sameFormInArray()">sameFormInArray</h3>
+<code class="signature">public static  boolean <strong>sameFormInArray</strong>(<a href="../syntax/sentence.html">Sentence</a> needle, array haystack)</code>
+<div class="details">
+<p>Checks whether $haystack has a sentence with the same form as $needle.</p><dl>
+<dt>Parameters:</dt>
+<dd>needle - The sentence to check.</dd>
+<dd>haystack - Array of {@link Sentence}s to search.</dd>
+<dt>Returns:</dt>
+<dd>Whether a sentence with the same form is found.</dd>
+</dl>
+</div>
+
+<hr>
+
+<div class="header">
+<h1>GoTableaux</h1>
+<ul>
+<li><a href="../overview-summary.html">Overview</a></li>
+<li><a href="../syntax/package-summary.html">Namespace</a></li>
+<li class="active">Class</li>
+<li><a href="../syntax/package-tree.html">Tree</a></li>
+<li><a href="../overview-files.html">Files</a></li>
+<li><a href="../deprecated-list.html">Deprecated</a></li>
+<li><a href="../todo-list.html">Todo</a></li>
+<li><a href="../index-all.html">Index</a></li>
+</ul>
+</div>
+
+<div class="small_links">
+<a href="../index.html" target="_top">Frames</a>
+<a href="../syntax/sentence.html" target="_top">No frames</a>
+</div>
+<div class="small_links">
+Summary: <a href="#summary_field">Field</a> | <a href="#summary_method">Method</a> | <a href="#summary_constr">Constr</a>
+Detail: <a href="#detail_field">Field</a> | <a href="#detail_method">Method</a> | <a href="#summary_constr">Constr</a>
+</div>
+<hr>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor/">PHPDoctor: The PHP Documentation Creator</a></p>
 
 </body>
+
 </html>
