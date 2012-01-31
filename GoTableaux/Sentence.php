@@ -1,15 +1,18 @@
 <?php
 /**
  * Defines the Sentence class.
- * @package Syntax
+ * @package GoTableaux
  * @author Douglas Owings
  */
 
 namespace GoTableaux;
 
+use \GoTableaux\Sentence\Atomic as AtomicSentence;
+use \GoTableaux\Sentence\Molecular as MolecularSentence;
+
 /**
  * Represents a sentence.
- * @package Syntax
+ * @package GoTableaux
  * @author Douglas Owings
  */
 class Sentence
@@ -19,11 +22,11 @@ class Sentence
 	 *
 	 * @param string $symbol The atomic symbol, e.g. 'A' or 'B'.
 	 * @param integer $subscript The subscript. Default is 0.
-	 * @return Sentence\Atomic The created instance.
+	 * @return AtomicSentence The created instance.
 	 */
 	public static function createAtomic( $symbol, $subscript = 0 )
 	{
-		$sentence = new Sentence\Atomic;
+		$sentence = new AtomicSentence;
 		return $sentence->setSymbol( $symbol )->setSubscript( $subscript );
 	}
 	
@@ -32,11 +35,11 @@ class Sentence
 	 *
 	 * @param Operator $operator Operator instance.
 	 * @param array $operands Array of Sentence objects.
-	 * @return Sentence\Molecular The created instance.
+	 * @return MolecularSentence The created instance.
 	 */
 	public static function createMolecular( Operator $operator, array $operands )
 	{
-		$sentence = new Sentence\Molecular;
+		$sentence = new MolecularSentence;
 		return $sentence->setOperator( $operator )->addOperand( $operands );
 	}
 	
@@ -47,7 +50,7 @@ class Sentence
 	 */
 	public function getOperatorName()
 	{
-		if ( $this instanceof Sentence\Atomic ) return false;
+		if ( $this instanceof AtomicSentence ) return false;
 		return $this->getOperator()->getName();
 	}
 	
@@ -62,7 +65,7 @@ class Sentence
 	{
 		if ( $sentence_a === $sentence_b ) return true;
 		if ( $sentence_a->getOperatorName() !== $sentence_b->getOperatorName() ) return false;
-		if ( $sentence_a instanceof Sentence\Atomic )
+		if ( $sentence_a instanceof AtomicSentence )
 			return $sentence_a->getSymbol() === $sentence_b->getSymbol() &&
 				   $sentence_a->getSubscript() === $sentence_b->getSubscript();
 		if ( count( $sentence_a->getOperands() ) !== count( $sentence_b->getOperands() ) ) return false;
