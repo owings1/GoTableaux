@@ -2,7 +2,7 @@
 /**
  * Basic examples for evaluating arguments in several logics, and printing the results.
  *
- * @package Examples
+ * @package GoTableaux
  * @author Douglas Owings
  */
 

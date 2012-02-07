@@ -1,7 +1,7 @@
 <?php
 /**
  * Defines the StandardSentenceParser class.
- * @package Syntax
+ * @package GoTableaux
  * @author Douglas Owings
  */
 
@@ -14,7 +14,7 @@ use \GoTableaux\Sentence as Sentence;
 
 /**
  * Represents the standard sentence parser.
- * @package Syntax
+ * @package GoTableaux
  * @author Douglas Owings
  **/
 class Polish extends \GoTableaux\SentenceParser
