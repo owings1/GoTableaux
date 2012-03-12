@@ -8,4 +8,3 @@ GoTableaux
 
 <p>I am currently in the process of expanding it into a more general framework to allow easy extensions for other logics.</p>
 
-<p><a href="http://dougowings.net/GoTableaux/Documentation">See the generated API Documentation</a></p>
