@@ -310,6 +310,9 @@ input, textarea {
 	clear: both;
 	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
 	padding: 0.5%;
+	font-size: 15px;
+	width: 100%;
+	padding: 5px;
 }
 select {
 	clear: both;
@@ -745,4 +748,14 @@ ul, ul li {
 	margin: 0 2px;
 	padding: 3px 4px;
 	background-color: #ddd;
+}
+
+.result {
+	float: right;
+}
+.valid {
+	color: #5BA150;
+}
+.invalid{
+	color: #C43C35;
 }

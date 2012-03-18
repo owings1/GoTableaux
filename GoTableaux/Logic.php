@@ -68,6 +68,17 @@ abstract class Logic {
 	}
 	
 	/**
+	 * Gets the name of the Logic.
+	 *
+	 * @return string The name of the logic.
+	 */
+	public function getName()
+	{
+		$nameParts = explode( '\\', get_class( $this ));
+		return array_pop( $nameParts );
+	}
+	
+	/**
 	 * Initializes the vocabulary.
 	 *
 	 * This should be run to reload any changes to the lexicon. This creates a

@@ -1,5 +1,6 @@
 <?php $this->start( 'script' ) ?>
 	<?= $this->Html->script( 'main' ) ?>
+	<?= $this->Html->script( 'http://cloud.github.com/downloads/processing-js/processing-js/processing-1.3.6.min.js' )?>
 <?php $this->end() ?>
 
 <?= $this->Form->create( null ) ?>
@@ -16,14 +17,28 @@
 		<h3>Argument</h3>
 		
 			<?= $this->Form->label( 'Premises' ) ?>
-			<div class="input">
-				<input type="text" name="data[premises][0]" id="premises0">
-			</div>
-			<div class="input">
-				<input type="text" name="data[premises][1]" id="premises1">
-			</div>
+			<?php foreach( $this->data['premises'] as $key => $premise ): ?>
+				<div class="input">
+					<input type="text" name="data[premises][<?= $key ?>]" id="premises<?= $key ?>" value="<?= $premise ?>">
+				</div>
+			<?php endforeach ?>
+			<a id="AddPremise" href="javascript:">Add Premise</a>
+			<br><br>
 			<?= $this->Form->input( 'conclusion' ) ?>
 		<?= $this->Form->submit( 'Evaluate' ) ?>
+	</div>
+	<div class="clear"></div>
+	<div class="grid_12">
+		<?php if ( !empty( $proof ) && !empty( $proofWriter )) : ?>
+			<?= $proofWriter->writeArgumentOfProof( $proof ) ?>
+			<div class="result">
+				<span class="<?= $result ?>"><?= ucfirst( $result ) ?></span> in <?= $logicName ?>
+			</div>
+			<script type="text/javascript">
+				var tableau = <?= $proofJSON ?>
+			</script>
+			<canvas data-processing-sources="<?= JS_URL ?>tableauWriter.pde"></canvas>
+		<?php endif ?>
 	</div>
 </div>
 
