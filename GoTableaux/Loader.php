@@ -32,8 +32,8 @@ class Loader
 		$ds = DIRECTORY_SEPARATOR;
 		$arr = explode( '\\', $class );
 		$path = __DIR__ . $ds . str_replace( __NAMESPACE__ . $ds, '', implode( $ds, $arr )) . '.php';
-		if ( !file_exists( $path ))
-			throw new LoaderException( "Cannot load class $class looking for $path" );
+		if ( !file_exists( $path )) return false;
+			//throw new LoaderException( "Cannot load class $class looking for $path" );
 		require $path;
 	}
 	
