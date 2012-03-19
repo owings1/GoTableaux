@@ -27,13 +27,12 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	</title>
 	
 	<?php
-		echo $this->Html->meta('icon');
-
-		echo $this->Html->css( array( '960', 'style' ));
+		echo $this->Html->css( array( '960', 'style', 'jquery-ui' ));
 		echo $this->element( 'define_webroot' );
 		echo $this->fetch( 'meta' );
 		echo $this->fetch( 'css' );
 		echo $this->Html->script( 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' );
+		echo $this->Html->script( 'jquery-ui.min' );
 		echo $this->fetch( 'script' );
 	?>
 </head>

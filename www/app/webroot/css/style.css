@@ -770,3 +770,6 @@ ul, ul li {
 .invalid{
 	color: #C43C35;
 }
+textarea.output {
+	font-size: 12px;
+}

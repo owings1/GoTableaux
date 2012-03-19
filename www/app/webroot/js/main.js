@@ -22,6 +22,15 @@
 			$( 'input[name="data[logic]"]:visible:eq(0)' ).prop( 'checked', true )
 		
 		$( 'input[name="data[logic]"]:checked' ).trigger( 'click' )
+		
+		
+		// Draw proof canvas
+		if ( $.isPlainObject( window.tableau )) {
+			var canvas = document.getElementById( 'ProofCanvas' )
+			var p = new Processing( canvas, tableauProc )
+		}
+		
+		$( '.tabs' ).tabs()
 	})
 	
 	
@@ -29,5 +38,5 @@
 
 function nodeHasClass( node, className )
 {
-	return jQuery.inArray( className, node.classes );
+	return jQuery.inArray( className, node.classes ) !== -1
 }

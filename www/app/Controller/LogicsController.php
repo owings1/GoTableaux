@@ -30,10 +30,13 @@ class LogicsController extends AppController
 				$proof = $Logic->constructProofForArgument( $argument );
 				$result = $proof->isValid() ? 'valid' : 'invalid';
 				$proofWriter = ProofWriter::getInstance( $proof );
+				$argumentText = $proofWriter->writeArgumentOfProof( $proof );
+				$latexProofWriter = ProofWriter::getInstance( $proof, 'LaTeX_Qtree' );
+				$proofLatex = $latexProofWriter->writeProof( $proof );
 				$jsonProofWriter = ProofWriter::getInstance( $proof, 'JSON' );
 				$proofJSON = $jsonProofWriter->writeProof( $proof );
 				$logicName = Inflector::humanize( $Logic->getName() );
-				$this->set( compact( 'proof', 'result', 'proofWriter', 'logicName', 'proofJSON' ));
+				$this->set( compact( 'result', 'logicName', 'argumentText', 'proofJSON', 'proofLatex' ));
 			} catch( Exception $e ) {
 				return $this->Session->setFlash( $e->getMessage() );
 			}

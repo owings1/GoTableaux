@@ -25,7 +25,7 @@ class LaTeXDecorator extends \GoTableaux\SentenceWriter\Standard
 	protected $standardOperatorTranslations = array(
 		'Conjunction' => '\wedge',
 		'Disjunction' => '\vee',
-		'Negation'	  => '\neg',
+		'Negation'	  => '\neg ',
 		'Material Conditional' 		=> '\supset',
 		'Material Biconditional' 	=> '\equiv',	
 	);

@@ -27,7 +27,7 @@ $logicNames = array(
 // Select proof writer output.
 $output = 'Simple';
 //$output = 'JSON';
-//$output = 'LaTeX_Qtree';
+$output = 'LaTeX_Qtree';
 
 // Evaluate the argument in several logics and print the result.
 foreach ( $logicNames as $logicName )

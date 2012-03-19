@@ -1,6 +1,7 @@
 <?php $this->start( 'script' ) ?>
 	<?= $this->Html->script( 'main' ) ?>
-	<?= $this->Html->script( 'http://cloud.github.com/downloads/processing-js/processing-js/processing-1.3.6.min.js' )?>
+	<?= $this->Html->script( 'http://cloud.github.com/downloads/processing-js/processing-js/processing-1.3.6.min.js' ) ?>
+	<?= $this->Html->script( 'processingTableauWriter' ) ?>
 <?php $this->end() ?>
 
 <?= $this->Form->create( null ) ?>
@@ -29,15 +30,31 @@
 	</div>
 	<div class="clear"></div>
 	<div class="grid_12">
-		<?php if ( !empty( $proof ) && !empty( $proofWriter )) : ?>
-			<?= $proofWriter->writeArgumentOfProof( $proof ) ?>
+		<?php if ( !empty( $argumentText )) : ?>
+			<?= $argumentText ?>
 			<div class="result">
 				<span class="<?= $result ?>"><?= ucfirst( $result ) ?></span> in <?= $logicName ?>
 			</div>
-			<script type="text/javascript">
-				var tableau = <?= $proofJSON ?>
-			</script>
-			<canvas data-processing-sources="<?= JS_URL ?>tableauWriter.pde"></canvas>
+			<?php if ( !empty( $proofJSON )) : ?>
+				<script type="text/javascript">
+					var tableau = <?= $proofJSON ?>
+				</script>
+				<div class="clear"></div>
+				<div class="tabs">
+					<ul>
+						<li><a id="DrawProofCanvas" href="#CanvasDiv">View</a></li>
+						<li><a href="#LaTeXDiv">LaTeX Output</a></li>
+					</ul>
+					<div id="CanvasDiv">
+						<canvas id="ProofCanvas"></canvas>
+					</div>
+					<div id="LaTeXDiv">
+						<br>
+						<br>
+						<textarea class="output"><?= $proofLatex ?></textarea>
+					</div>
+				</div>
+			<?php endif ?>
 		<?php endif ?>
 	</div>
 </div>
