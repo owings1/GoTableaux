@@ -17,7 +17,7 @@ Status
 
 >http://logic.dougowings.net/
 
-<p>I am currently in the process of expanding it into a more general framework to allow easy extensions for other logics.</p>
+<p>In addition to working on improvements to the web interface, I am in the process of expanding it into a more general framework to allow easy extensions for other logics.</p>
 
 
 Links
