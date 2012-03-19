@@ -1,7 +1,7 @@
 <?php
 /**
  * Defines the Loader class.
- * @package Logic
+ * @package GoTableaux
  * @author Douglas Owings
  */
 
@@ -14,7 +14,7 @@ spl_autoload_register( array( __NAMESPACE__ . '\Loader', 'loadClass' ));
 
 /**
  * Loads class files.
- * @package Logic
+ * @package GoTableaux
  * @author Douglas Owings
  */
 class Loader

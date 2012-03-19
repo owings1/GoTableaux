@@ -1,7 +1,7 @@
 <?php
 /**
  * Defines the Utilities class.
- * @package Logic
+ * @package GoTableaux
  * @author Douglas Owings
  */
 
@@ -20,7 +20,7 @@ function debug()
 
 /**
  * Collects general PHP utilities.
- * @package Logic
+ * @package GoTableaux
  * @author Douglas Owings
  */
 class Utilities

@@ -1,7 +1,7 @@
 <?php
 /**
  * Defines the Logic base class.
- * @package Logic
+ * @package GoTableaux
  * @author Douglas Owings
  */
 
@@ -9,7 +9,7 @@ namespace GoTableaux;
 
 /**
  * Represents a Logic.
- * @package Logic
+ * @package GoTableaux
  * @author Douglas Owings
  */
 abstract class Logic {

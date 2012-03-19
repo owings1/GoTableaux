@@ -1,7 +1,7 @@
 <?php
 /**
  * Defines the Argument class.
- * @package Logic
+ * @package GoTableaux
  * @author Douglas Owings
  */
 
@@ -9,7 +9,7 @@ namespace GoTableaux;
 
 /**
  * Represents an argument as a set of premises and one conclusion.
- * @package Logic
+ * @package GoTableaux
  * @author Douglas Owings
  */
 class Argument

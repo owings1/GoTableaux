@@ -26,3 +26,8 @@
 	
 	
 })( jQuery, window.WWW )
+
+function nodeHasClass( node, className )
+{
+	return jQuery.inArray( className, node.classes );
+}

@@ -1,7 +1,7 @@
 <?php
 /**
  * Sets the configuration.
- * @package Logic
+ * @package GoTableaux
  * @author Douglas Owings
  */
 

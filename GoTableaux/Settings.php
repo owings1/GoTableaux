@@ -1,7 +1,7 @@
 <?php
 /**
  * Defines the Settings class.
- * @package Logic
+ * @package GoTableaux
  * @author Douglas Owings
  */
 
@@ -14,7 +14,7 @@ Loader::loadConfig();
 
 /**
  * Stores the settings.
- * @package Logic
+ * @package GoTableaux
  * @author Douglas Owings
  */
 class Settings

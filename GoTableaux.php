@@ -1,7 +1,7 @@
 <?php
 /**
  * Loads the GoTableaux program.
- * @package Logic
+ * @package GoTableaux
  * @author Douglas Owings
  */
 namespace GoTableaux;

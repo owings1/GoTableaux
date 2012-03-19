@@ -9,9 +9,6 @@ class LogicsController extends AppController
 	{	
 		$logics = $this->logics;
 		$this->set( compact( 'logics' ));
-		if ( empty( $this->data['premises'] ))
-			$this->data['premises'] = array( '', '' );
-			
 		if ( !empty( $this->data )) {
 			
 			if ( !strlen( $this->data['logic'] ))
@@ -35,6 +32,8 @@ class LogicsController extends AppController
 			} catch( Exception $e ) {
 				return $this->Session->setFlash( $e->getMessage() );
 			}
+		} else {
+			$this->data = array( 'premises' => array( '', '' ));
 		}
 	}
 	
