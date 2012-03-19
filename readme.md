@@ -9,7 +9,7 @@ About
 
 ### History
 <p>This project originated from an auxiliary project for my dissertation, in which I develop a novel many-valued propositional logic, and explore its applications. 
-	This software began as a proof generator (using tableaux) for my logic (called GO), in order to prove philosophically interesting inferences.</p>
+	This software began as a proof generator (using tableaux) for my logic (called GO), in order to quickly generate well-formatted proofs for many philosophically interesting inferences.</p>
 
 Links
 -----
