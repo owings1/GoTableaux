@@ -14,7 +14,9 @@ About
 Status
 ------
 <p>The beginnings of a web interface are up. It can be viewed at:</p>
+
 >http://logic.dougowings.net/
+
 <p>I am currently in the process of expanding it into a more general framework to allow easy extensions for other logics.</p>
 
 

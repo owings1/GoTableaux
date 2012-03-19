@@ -49,6 +49,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			<?= $this->fetch( 'content' ) ?>
 		</div>
 		<div id="footer">
+			Copyright &copy; 2011-<?= date( 'Y' ) ?> Douglas Owings. Released under the <?= $this->Html->link( 'BSD license.', 'http://www.opensource.org/licenses/bsd-license.php' ) ?>
 		</div>
 	</div>
 </body>
