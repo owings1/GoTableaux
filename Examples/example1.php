@@ -22,6 +22,7 @@ $logicNames = array(
 	'FDE', 
 	'LP', 
 	'StrongKleene',
+	'GO',
 );
 
 // Select proof writer output.

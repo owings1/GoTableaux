@@ -7,7 +7,7 @@ class LogicsController extends AppController
 {
 	public $uses = null;
 	
-	public $logics = array( 'CPL', 'FDE', 'LP', 'StrongKleene' );
+	public $logics = array( 'CPL', 'FDE', 'LP', 'StrongKleene', 'GO' );
 	
 	public function index()
 	{	
