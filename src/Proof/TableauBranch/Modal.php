@@ -6,6 +6,7 @@
  */
 
 namespace GoTableaux\Proof\TableauBranch;
+
 use \GoTableaux\Proof\TableauNode as Node;
 use \GoTableaux\Proof\TableauNode\Access as AccessNode;
 use \GoTableaux\Sentence as Sentence;

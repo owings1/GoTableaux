@@ -9,10 +9,29 @@ class LogicsController extends AppController
 	
 	public $logics = array( 'CPL', 'FDE', 'LP', 'StrongKleene', 'GO' );
 	
+	private $exampleArguments = array(
+		'Disjunctive Syllogism' 	=> array( array( 'A V B', '~B' ), 'A' ),
+		'Affirming a Disjunct'		=> array( array( 'A V B', 'A' ), 'B' ),
+		'Law of Excluded Middle' 	=> array( 'B', 'A V ~A' ),
+		'Denying the Antecedent' 	=> array( array( 'A > B', '~A' ), 'B' ),
+		'Law of Non-contradiction' 	=> array( 'A & ~A', 'B' ),
+		'Identity'					=> array( null, 'A > A' ),
+		'Modus Ponens' 				=> array( array( 'A > B', 'A' ), 'B' ),
+		'Modus Tollens' 			=> array( array( 'A > B', '~B' ), '~A' ),
+		'Syllogism'					=> array( array( 'A > B', 'B > C'), 'A > C' ),
+		'DeMorgan 1' 				=> array( '~(A V B)', '~A & ~B' ),
+		'DeMorgan 2' 				=> array( '~(A & B)', '~A V ~B' ),
+		'DeMorgan 3' 				=> array( '~A & ~B', '~(A V B)' ),
+		'DeMorgan 4' 				=> array( '~A V ~B', '~(A & B)' ),
+		'Contraction'				=> array( 'A > (A > B)', 'A > B' ),
+		'Pseudo Contraction'		=> array( null, '(A > (A > B)) > (A > B)' ),
+	);
+	
 	public function index()
 	{	
 		$logics = $this->logics;
 		$title_for_layout = 'GoTableaux Proof Generator';
+		$exampleArguments = 
 		$this->set( compact( 'logics', 'title_for_layout' ));
 		if ( !empty( $this->data )) {
 			
