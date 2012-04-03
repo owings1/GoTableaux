@@ -17,9 +17,7 @@
  * along with this program in file LICENSE.  If not, see <http://www.gnu.org/licenses/>.
  */
 /**
- * Sets the configuration.
- * @package GoTableaux
- * @author Douglas Owings
+ * Example configuration.
  */
 
 namespace GoTableaux;

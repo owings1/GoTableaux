@@ -1,4 +1,21 @@
 <?php
+/**
+ * GoTableaux. A multi-logic tableaux generator.
+ * Copyright (C) 2012  Douglas Owings
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program in file LICENSE.  If not, see <http://www.gnu.org/licenses/>.
+ */
 use GoTableaux\Logic as Logic;
 use GoTableaux\ProofWriter as ProofWriter;
 use GoTableaux\Argument as Argument;
@@ -46,15 +63,22 @@ class LogicsController extends AppController
 					if ( !empty( $premiseStr )) $premises[] = $Logic->parseSentence( $premiseStr );
 				$conclusion = $Logic->parseSentence( $this->data['conclusion'] );
 				$argument = Argument::createWithPremisesAndConclusion( $premises, $conclusion );
+				
 				$proof = $Logic->constructProofForArgument( $argument );
+				
 				$result = $proof->isValid() ? 'valid' : 'invalid';
+				
 				$proofWriter = ProofWriter::getInstance( $proof );
 				$argumentText = $proofWriter->writeArgumentOfProof( $proof );
+				
 				$latexProofWriter = ProofWriter::getInstance( $proof, 'LaTeX_Qtree' );
 				$proofLatex = $latexProofWriter->writeProof( $proof );
+				
 				$jsonProofWriter = ProofWriter::getInstance( $proof, 'JSON' );
 				$proofJSON = $jsonProofWriter->writeProof( $proof );
+				
 				$logicName = Inflector::humanize( $Logic->getName() );
+				
 				$this->set( compact( 'result', 'logicName', 'argumentText', 'proofJSON', 'proofLatex' ));
 			} catch( Exception $e ) {
 				return $this->Session->setFlash( $e->getMessage() );
