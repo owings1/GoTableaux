@@ -19,7 +19,6 @@
 /**
  * Defines the AccessNode class.
  * @package Tableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\Proof\TableauNode;
@@ -27,7 +26,6 @@ namespace GoTableaux\Proof\TableauNode;
 /**
  * Represents a modal logic access relation node.
  * @package Tableaux
- * @author Douglas Owings
  */
 class Access extends \GoTableaux\Proof\TableauNode implements Modal
 {

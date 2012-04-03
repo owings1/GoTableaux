@@ -19,7 +19,6 @@
 /**
  * Defines the Logic base class.
  * @package GoTableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux;
@@ -27,9 +26,21 @@ namespace GoTableaux;
 /**
  * Represents a Logic.
  * @package GoTableaux
- * @author Douglas Owings
  */
 abstract class Logic {
+	
+	/**
+	 * Defines the default operator symbols for the lexicon.
+	 * @var array Key is operator name, value is operator symbol.
+	 * @see Logic::initVocabulary()
+	 */
+	public static $defaultOperatorSymbols = array(
+		'Negation' => '~',
+		'Conjunction' => '&',
+		'Disjunction' => 'V',
+		'Material Conditional' => '>',
+		'Material Biconditional' => '<'
+	);
 	
 	/**
 	 * Defines the default lexicon for initializing the vocabulary.
@@ -105,7 +116,13 @@ abstract class Logic {
 	 */
 	public function initVocabulary()
 	{
-		$this->vocabulary = Vocabulary::createWithLexicon( $this->lexicon );
+		$lexicon = $this->lexicon;
+		$lexicon['operatorSymbols'] = array();
+		if ( !empty( $lexicon['operators'] ))
+			foreach ( $lexicon['operators'] as $name => $arity )
+				$lexicon['operatorSymbols'][self::$defaultOperatorSymbols[$name]] = array( $name => $arity );
+		unset( $lexicon['operators'] );
+		$this->vocabulary = Vocabulary::createWithLexicon( $lexicon );
 		return $this;
 	}
 	

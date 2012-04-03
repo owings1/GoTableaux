@@ -19,7 +19,6 @@
 /**
  * Defines the Utilities class.
  * @package GoTableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux;
@@ -38,7 +37,6 @@ function debug()
 /**
  * Collects general PHP utilities.
  * @package GoTableaux
- * @author Douglas Owings
  */
 class Utilities
 {

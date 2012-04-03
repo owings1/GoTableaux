@@ -19,7 +19,6 @@
 /**
  * Defines the ManyValuedModalSentenceNode class.
  * @package GoTableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\Proof\TableauNode\Sentence\Modal;
@@ -27,7 +26,6 @@ namespace GoTableaux\Proof\TableauNode\Sentence\Modal;
 /**
  * Represents a sentence node on a branch of a many-valued modal logic tableau.
  * @package GoTableaux
- * @author Douglas Owings
  */
 class ManyValued extends \GoTableaux\Proof\TableauNode\Sentence\Modal implements GoTableaux\Proof\TableauNode\ManyValued
 {

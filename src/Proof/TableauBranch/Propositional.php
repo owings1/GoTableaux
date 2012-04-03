@@ -19,7 +19,6 @@
 /**
  * Defines the PropositionalBranch class.
  * @package Tableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\Proof\TableauBranch;
@@ -30,7 +29,6 @@ use \GoTableaux\Proof\TableauNode\Sentence as SentenceNode;
 /**
  * Represents a propositional logic tableau branch.
  * @package Tableaux
- * @author Douglas Owings
  */
 class Propositional extends \GoTableaux\Proof\TableauBranch
 {

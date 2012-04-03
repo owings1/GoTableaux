@@ -19,18 +19,15 @@
 /**
  * Defines the CPLTableauxSystem class.
  * @package CPL
- * @author Douglas Owings
  */
 
 namespace GoTableaux\Logic\CPL;
 
 /**
  * Represents the Tableaux system for CPL.
- *
  * @package CPL
- * @author Douglas Owings
  */
-class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem\Propositional
+class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem\Bivalent
 {
 	public $branchRuleClasses = array(
 		'Conjunction',

@@ -19,7 +19,6 @@
 /**
  * Defines the Closure rule class for GO.
  * @package GO
- * @author Douglas Owings
  */
 
 namespace GoTableaux\Logic\GO\ProofSystem;
@@ -30,7 +29,6 @@ use \GoTableaux\Logic as Logic;
 /**
  * Represents the tableaux closure rule for GO.
  * @package GO
- * @author Douglas Owings
  */
 class ClosureRule implements \GoTableaux\ProofSystem\TableauxSystem\ClosureRule
 {

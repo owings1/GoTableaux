@@ -2,13 +2,11 @@
 /**
  * Defines the tableaux rules for the CPL Tableaux system.
  * @package CPL
- * @author Douglas Owings
  */
 
 /**
  * GoModal implementation of {@link ClosureRule}.
  * @package GoModal
- * @author Douglas Owings
  */
 class GoModalClosureRule implements ClosureRule
 {

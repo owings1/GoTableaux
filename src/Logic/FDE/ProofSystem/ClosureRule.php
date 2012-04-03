@@ -19,7 +19,6 @@
 /**
  * Defines the Closure rule class for FDE.
  * @package FDE
- * @author Douglas Owings
  */
 
 namespace GoTableaux\Logic\FDE\ProofSystem;
@@ -30,7 +29,6 @@ use \GoTableaux\Logic as Logic;
 /**
  * Represents the tableaux closure rule for FDE.
  * @package FDE
- * @author Douglas Owings
  */
 class ClosureRule implements \GoTableaux\ProofSystem\TableauxSystem\ClosureRule
 {

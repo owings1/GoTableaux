@@ -19,7 +19,6 @@
 /**
  * Defines the Parser class.
  * @package Exceptions
- * @author Douglas Owings
  */
 
 namespace GoTableaux\Exception;
@@ -27,7 +26,6 @@ namespace GoTableaux\Exception;
 /**
  * Represents a parsing exception.
  * @package Exceptions
- * @author Douglas Owings
  */
 class Parser extends \GoTableaux\Exception
 {

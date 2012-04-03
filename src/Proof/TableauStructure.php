@@ -19,7 +19,6 @@
 /**
  * Defines the Structure class.
  * @package Tableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\Proof;
@@ -37,7 +36,6 @@ use \GoTableaux\Utilities as Utilities;
  * array of self-similar Structure objects.
  *
  * @package Tableaux
- * @author Douglas Owings
  */
 class TableauStructure
 {

@@ -17,9 +17,8 @@
  * along with this program in file LICENSE.  If not, see <http://www.gnu.org/licenses/>.
  */
 /**
- * Defines the PropositionalTableauxSystem class.
+ * Defines the Bivalent Tableaux System class.
  * @package Tableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\ProofSystem\TableauxSystem;
@@ -32,9 +31,8 @@ use \GoTableaux\Proof\TableauBranch as Branch;
 /**
  * Represents a bivalent propositional tableaux system.
  * @package Tableaux
- * @author Douglas Owings
  */
-abstract class Propositional extends \GoTableaux\ProofSystem\TableauxSystem
+abstract class Bivalent extends \GoTableaux\ProofSystem\TableauxSystem
 {
 	
 	public $branchClass = 'Propositional';

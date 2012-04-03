@@ -19,7 +19,6 @@
 /**
  * Defines the ManyValuedModalTableauxSystem class.
  * @package Tableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\ProofSystem\TableauxSystem\Modal;
@@ -32,7 +31,6 @@ use \GoTableaux\Proof\TableauBranch as Branch;
 /**
  * Represents a tableaux system for a many-valued modal logic.
  * @package Tableaux
- * @author Douglas Owings
  */
 class ManyValued extends \GoTableaux\ProofSystem\TableauxSystem\Modal
 {

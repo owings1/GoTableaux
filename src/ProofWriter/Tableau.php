@@ -19,7 +19,6 @@
 /**
  * Defines the TableauWriter base class.
  * @package Tableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\ProofWriter;
@@ -37,7 +36,6 @@ use \GoTableaux\Proof\TableauNode\ManyValued as ManyValuedNode;
 /**
  * Represents a tableaux writer.
  * @package Tableaux
- * @author Douglas Owings
  */
 abstract class Tableau extends \GoTableaux\ProofWriter
 {

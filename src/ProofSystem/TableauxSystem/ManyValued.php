@@ -19,7 +19,6 @@
 /**
  * Defines the ManyValuedTableauxSystem class.
  * @package Tableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\ProofSystem\TableauxSystem;
@@ -32,7 +31,6 @@ use \GoTableaux\Proof\TableauBranch as Branch;
 /**
  * Represents a many-valued propositional tableaux system.
  * @package Tableaux
- * @author Douglas Owings
  */
 abstract class ManyValued extends \GoTableaux\ProofSystem\TableauxSystem
 {

@@ -19,7 +19,6 @@
 /**
  * Defines the ManyValuedBranch class.
  * @package Tableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\Proof\TableauBranch;
@@ -32,7 +31,6 @@ use \GoTableaux\Proof\TableauNode\Sentence\ManyValued as ManyValuedSentenceNode;
 /**
  * Represents a many-valued logic tableau branch.
  * @package Tableaux
- * @author Douglas Owings
  */
 class ManyValued extends \GoTableaux\Proof\TableauBranch
 {

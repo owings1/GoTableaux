@@ -19,7 +19,6 @@
 /**
  * Defines the JSON Tableau Writer class.
  * @package Tableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\ProofWriter\Tableau;
@@ -29,7 +28,6 @@ use \GoTableaux\Proof\TableauStructure as Structure;
 /**
  * Represents a JSON tableau proof writer.
  * @package Tableaux
- * @author Douglas Owings
  */
 class JSON extends \GoTableaux\ProofWriter\Tableau
 {

@@ -19,7 +19,6 @@
 /**
  * Defines the Branch class.
  * @package Tableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\Proof;
@@ -28,7 +27,6 @@ use \GoTableaux\Utilities as Utilities;
 /**
  * Represents a tableau branch.
  * @package Tableaux
- * @author Douglas Owings
  */
 class TableauBranch
 {

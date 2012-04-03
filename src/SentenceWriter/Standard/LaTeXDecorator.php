@@ -19,7 +19,6 @@
 /**
  * Defines the LaTeX sentence writer decorator class.
  * @package GoTableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\SentenceWriter\Standard;
@@ -33,7 +32,6 @@ use \GoTableaux\Sentence\Molecular as MolecularSentence;
 /**
  * Decorates a sentence writer for LaTeX.
  * @package GoTableaux
- * @author Douglas Owings
  */
 class LaTeXDecorator extends \GoTableaux\SentenceWriter\Standard
 {

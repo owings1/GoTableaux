@@ -19,7 +19,6 @@
 /**
  * Defines the FDE tableaux system class.
  * @package FDE
- * @author Douglas Owings
  */
 
 namespace GoTableaux\Logic\FDE;
@@ -27,7 +26,6 @@ namespace GoTableaux\Logic\FDE;
 /**
  * Represents the FDE tableaux system.
  * @package FDE
- * @author Douglas Owings
  */
 class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem\ManyValued
 {

@@ -19,7 +19,6 @@
 /**
  * Contains base Vocabulary class.
  * @package Syntax
- * @author Douglas Owings
  */
 
 namespace GoTableaux;
@@ -31,7 +30,6 @@ use \GoTableaux\Sentence\Molecular as MolecularSentence;
 /**
  * Represents a vocabulary.
  * @package Syntax
- * @author Douglas Owings
  */
 class Vocabulary
 {

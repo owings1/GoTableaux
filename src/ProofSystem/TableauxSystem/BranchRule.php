@@ -19,7 +19,6 @@
 /**
  * Defines the BranchRule interface.
  * @package Tableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\ProofSystem\TableauxSystem;
@@ -27,7 +26,6 @@ namespace GoTableaux\ProofSystem\TableauxSystem;
 /**
  * Represents a tableau rule that applies to a branch.
  * @package Tableaux
- * @author Douglas Owings
  */
 interface BranchRule
 {

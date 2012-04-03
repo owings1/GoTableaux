@@ -19,7 +19,6 @@
 /**
  * Defines the Simple Tableau Writer class.
  * @package Tableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\ProofWriter\Tableau;
@@ -30,7 +29,6 @@ use \GoTableaux\Proof\TableauStructure as Structure;
 /**
  * Writes tableaux using the LaTeX Qtree package.
  * @package Tableaux
- * @author Douglas Owings
  */
 class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 {

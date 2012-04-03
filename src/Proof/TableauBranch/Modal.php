@@ -19,7 +19,6 @@
 /**
  * Defines the ModalBranch class.
  * @package Tableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\Proof\TableauBranch;
@@ -32,7 +31,6 @@ use \GoTableaux\Proof\TableauNode\Sentence\Modal as ModalSentenceNode;
 /**
  * Represents a modal logic tableau branch.
  * @package Tableaux
- * @author Douglas Owings
  */
 class Modal extends \GoTableaux\Proof\TableauBranch
 {

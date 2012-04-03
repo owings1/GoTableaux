@@ -19,7 +19,6 @@
 /**
  * Defines the ProofSystem base class.
  * @package Proof
- * @author Douglas Owings
  */
 
 namespace GoTableaux;
@@ -27,7 +26,6 @@ namespace GoTableaux;
 /**
  * Represents a proof system.
  * @package Proof
- * @author Douglas Owings
  */
 abstract class ProofSystem
 {	

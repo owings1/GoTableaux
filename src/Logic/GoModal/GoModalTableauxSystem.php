@@ -2,7 +2,6 @@
 /**
  * Defines the GoModalTableauxSystem class.
  * @package GoModal
- * @author Douglas Owings
  */
 
 /**
@@ -29,7 +28,6 @@ require_once 'GoTableaux/Logic/ProofSystem/Tableaux/BranchRule/ModalTransitiveRu
  * Represents the GoModal tableaux system.
  *
  * @package GoModal
- * @author Douglas Owings
  */
 class GoModalTableauxSystem extends ManyValuedModalTableauxSystem
 {

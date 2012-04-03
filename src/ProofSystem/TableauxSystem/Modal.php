@@ -19,7 +19,6 @@
 /**
  * Defines the Modal Tableaux System class.
  * @package Tableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\ProofSystem\TableauxSystem;
@@ -32,7 +31,6 @@ use \GoTableaux\Proof\TableauBranch as Branch;
 /**
  * Represents a bivalent modal tableaux system.
  * @package Tableaux
- * @author Douglas Owings
  */
 abstract class Modal extends \GoTableaux\ProofSystem\TableauxSystem
 {

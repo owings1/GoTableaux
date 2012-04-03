@@ -19,7 +19,6 @@
 /**
  * Defines the Settings class.
  * @package GoTableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux;
@@ -32,7 +31,6 @@ Loader::loadConfig();
 /**
  * Stores the settings.
  * @package GoTableaux
- * @author Douglas Owings
  */
 class Settings
 {

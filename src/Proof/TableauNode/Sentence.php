@@ -19,7 +19,6 @@
 /**
  * Defines the SentenceNode class.
  * @package Tableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\Proof\TableauNode;
@@ -27,7 +26,6 @@ namespace GoTableaux\Proof\TableauNode;
 /**
  * Represents a sentence tableau node.
  * @package Tableaux
- * @author Douglas Owings
  */
 class Sentence extends \GoTableaux\Proof\TableauNode
 {

@@ -19,7 +19,6 @@
 /**
  * Defines the StandardSentenceParser class.
  * @package Syntax
- * @author Douglas Owings
  */
 
 namespace GoTableaux\SentenceParser;
@@ -32,7 +31,6 @@ use \GoTableaux\Sentence as Sentence;
 /**
  * Represents the standard sentence parser.
  * @package Syntax
- * @author Douglas Owings
  **/
 class Standard extends \GoTableaux\SentenceParser
 {

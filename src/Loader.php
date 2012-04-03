@@ -19,7 +19,6 @@
 /**
  * Defines the Loader class.
  * @package GoTableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux;
@@ -32,7 +31,6 @@ spl_autoload_register( array( __NAMESPACE__ . '\Loader', 'loadClass' ));
 /**
  * Loads class files.
  * @package GoTableaux
- * @author Douglas Owings
  */
 class Loader
 {

@@ -19,7 +19,6 @@
 /**
  * Defines the Simple Tableau Writer class.
  * @package GoTableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\ProofWriter\Tableau;
@@ -29,7 +28,6 @@ use \GoTableaux\Proof\TableauStructure as Structure;
 /**
  * Represents a simple tableau proof writer.
  * @package GoTableaux
- * @author Douglas Owings
  */
 class Simple extends \GoTableaux\ProofWriter\Tableau
 {

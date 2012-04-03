@@ -19,7 +19,6 @@
 /**
  * Defines the ReflexiveModalRule class.
  * @package Tableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\ProofSystem\TableauxSystem\BranchRule;
@@ -27,7 +26,6 @@ namespace GoTableaux\ProofSystem\TableauxSystem\BranchRule;
 /**
  * Implements the reflexivity rule for a standard modal tableaux system.
  * @package Tableaux
- * @author Douglas Owings
  */
 class ModalReflexive implements \GoTableaux\ProofSystem\TableauxSystem\BranchRule
 {

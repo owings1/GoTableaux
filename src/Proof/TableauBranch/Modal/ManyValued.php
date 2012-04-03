@@ -19,7 +19,6 @@
 /**
  * Defines the ManyValuedModalBranch class.
  * @package Tableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\Proof\TableauBranch\Modal;
@@ -33,7 +32,6 @@ use \GoTableaux\Proof\TableauNode\Sentence\Modal\ManyValued as MVMSentenceNode;
  * Represents a tableau branch with designation markers for a many-valued 
  * modal logic.
  * @package Tableaux
- * @author Douglas Owings
  */
 class ManyValued extends \GoTableaux\Proof\TableauBranch\Modal
 {

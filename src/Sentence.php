@@ -19,7 +19,6 @@
 /**
  * Defines the Sentence class.
  * @package GoTableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux;
@@ -30,7 +29,6 @@ use \GoTableaux\Sentence\Molecular as MolecularSentence;
 /**
  * Represents a sentence.
  * @package GoTableaux
- * @author Douglas Owings
  */
 class Sentence
 {

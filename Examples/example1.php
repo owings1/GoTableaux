@@ -20,7 +20,6 @@
  * Basic examples for evaluating arguments in several logics, and printing the results.
  *
  * @package GoTableaux
- * @author Douglas Owings
  */
 
 // Load the example functions.

@@ -63,7 +63,7 @@
 			<?= $this->fetch( 'content' ) ?>
 		</div>
 		<div id="footer">
-			Copyright &copy; 2011-<?= date( 'Y' ) ?> Douglas Owings. Released under the <?= $this->Html->link( 'BSD license.', 'http://www.opensource.org/licenses/bsd-license.php' ) ?>
+			Copyright &copy; <?= date( 'Y' ) ?> Douglas Owings. Released under the <?= $this->Html->link( 'GNU AGPL.', 'http://www.gnu.org/licenses/agpl-3.0.html' ) ?>
 		</div>
 	</div>
 </body>

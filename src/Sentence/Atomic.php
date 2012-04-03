@@ -19,7 +19,6 @@
 /**
  * Defines the Atomic Sentence class.
  * @package Syntax
- * @author Douglas Owings
  */
 
 namespace GoTableaux\Sentence;
@@ -27,7 +26,6 @@ namespace GoTableaux\Sentence;
 /**
  * Represents an atomic sentence.
  * @package Syntax
- * @author Douglas Owings
  */
 class Atomic extends \GoTableaux\Sentence
 {

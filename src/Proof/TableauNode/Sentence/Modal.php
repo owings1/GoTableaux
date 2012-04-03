@@ -19,7 +19,6 @@
 /**
  * Defines the ModalSentenceNode class.
  * @package Tableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\Proof\TableauNode\Sentence;
@@ -30,7 +29,6 @@ namespace GoTableaux\Proof\TableauNode\Sentence;
  * A modal sentence node has a sentence and a "world" integer index.
  * 
  * @package Tableaux
- * @author Douglas Owings
  */
 class Modal extends \GoTableaux\Proof\TableauNode\Sentence implements \GoTableaux\Proof\TableauNode\Modal
 {

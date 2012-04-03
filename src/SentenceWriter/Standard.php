@@ -19,7 +19,6 @@
 /**
  * Defines the Standard notation sentence writer class.
  * @package GoTableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\SentenceWriter;
@@ -30,7 +29,6 @@ use \GoTableaux\Sentence\Molecular as MolecularSentence;
 /**
  * Writes sentences in standard notation.
  * @package GoTableaux
- * @author Douglas Owings
  */
 class Standard extends \GoTableaux\SentenceWriter
 {

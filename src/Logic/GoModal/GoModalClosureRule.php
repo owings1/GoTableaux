@@ -2,13 +2,11 @@
 /**
  * Defines the GoModal_ClosureRule class.
  * @package GoModal
- * @author Douglas Owings
  */
 
 /**
  * GoModal implementation of {@link ClosureRule}.
  * @package GoModal
- * @author Douglas Owings
  */
 class GoModalClosureRule implements ClosureRule
 {

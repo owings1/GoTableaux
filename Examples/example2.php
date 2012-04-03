@@ -21,7 +21,6 @@
  * and printing the results.
  *
  * @package GoTableaux
- * @author Douglas Owings
  */
 
 // Load the example functions.

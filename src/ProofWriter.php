@@ -19,7 +19,6 @@
 /**
  * Defines the ProofWriter class.
  * @package Proof
- * @author Douglas Owings
  */
 
 namespace GoTableaux;
@@ -30,7 +29,6 @@ use \GoTableaux\SentenceWriter\Decorator as SentenceWriterDecorator;
 /**
  * Writes proofs.
  * @package Proof
- * @author Douglas Owings
  */
 abstract class ProofWriter
 {

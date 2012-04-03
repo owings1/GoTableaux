@@ -19,7 +19,6 @@
 /**
  * Defines the ClosureRule interface.
  * @package Tableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\ProofSystem\TableauxSystem;
@@ -27,7 +26,6 @@ namespace GoTableaux\ProofSystem\TableauxSystem;
 /**
  * Represents a tableau closure rule.
  * @package Tableaux
- * @author Douglas Owings
  */
 interface ClosureRule
 {

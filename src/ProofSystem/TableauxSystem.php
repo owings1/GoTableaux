@@ -19,7 +19,6 @@
 /**
  * Defines the TableauxSystem base class.
  * @package Tableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\ProofSystem;
@@ -36,7 +35,6 @@ use \GoTableaux\Exception\Loader as LoaderException;
 /**
  * Represents a tableaux proof system.
  * @package Tableaux
- * @author Douglas Owings
  */
 abstract class TableauxSystem extends \GoTableaux\ProofSystem
 {	
@@ -116,10 +114,19 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 	 * Gets the tableau branch rules.
 	 *
 	 * @return array Array of {@link BranchRule}s.
+	 * @throws 
 	 */
 	public function getBranchRules()
 	{
 		if ( empty( $this->branchRules )) {
+			if ( !empty( $this->inheritBranchRulesFrom ))
+				foreach ( (array) $this->inheritBranchRulesFrom as $logicName ) {
+					$proofSystem = Logic::getInstance( $logicName )->getProofSystem();
+					if ( !$proofSystem instanceof TableauxSystem )
+						throw new TableauException( 'Trying to inherit branch rules from a proof system that is not a tableaux system.' );
+					$this->addBranchRules( $proofSystem->getBranchRules() );
+				}
+					
 			foreach ( $this->branchRuleClasses as $relClass ) {
 				if ( strpos( $relClass, '/' )) {
 					list( $otherLogicName, $relClass ) = explode( '/', $relClass );

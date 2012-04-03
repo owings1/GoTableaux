@@ -19,7 +19,6 @@
 /**
  * Defines the Node base class.
  * @package Tableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\Proof;
@@ -27,7 +26,6 @@ namespace GoTableaux\Proof;
 /**
  * Represents a node on a branch.
  * @package Tableaux
- * @author Douglas Owings
  */
 abstract class TableauNode
 {

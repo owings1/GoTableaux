@@ -19,7 +19,6 @@
 /**
  * Defines the K3 Closure Rule class.
  * @package StrongKleene
- * @author Douglas Owings
  */
 
 namespace GoTableaux\Logic\StrongKleene\ProofSystem;
@@ -30,7 +29,6 @@ use \GoTableaux\Proof\TableauBranch as Branch;
 /**
  * Represents the K3 closure rule.
  * @package StrongKleene
- * @author Douglas Owings
  */
 class ClosureRule extends \GoTableaux\Logic\FDE\ProofSystem\ClosureRule
 {

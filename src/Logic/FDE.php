@@ -19,7 +19,6 @@
 /**
  * Defines the FDE logic class.
  * @package FDE
- * @author Douglas Owings
  */
 
 namespace GoTableaux\Logic;
@@ -27,7 +26,6 @@ namespace GoTableaux\Logic;
 /**
  * Represents First Degree Entailment Logic.
  * @package FDE
- * @author Douglas Owings
  */
 class FDE extends \GoTableaux\Logic
 {	
@@ -37,12 +35,12 @@ class FDE extends \GoTableaux\Logic
 		'separators' 		=> array(' '),
 		'subscripts' 		=> array('_'),
 		'atomicSymbols' 	=> array('A', 'B', 'C', 'D', 'E', 'F'),
-		'operatorSymbols' 	=> array(
-			'~' => array( 'Negation' => 1 ),
-			'&' => array( 'Conjunction' => 2 ),
-			'V' => array( 'Disjunction' => 2 ),
-			'>' => array( 'Material Conditional' => 2 ),
-			'<' => array( 'Material Biconditional' => 2 ),
+		'operators' 	=> array(
+			'Negation' => 1,
+			'Conjunction' => 2,
+			'Disjunction' => 2,
+			'Material Conditional' => 2,
+			'Material Biconditional' => 2,
 		)
 	);
 }

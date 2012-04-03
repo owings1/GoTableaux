@@ -19,7 +19,6 @@
 /**
  * Defines the GOTableauxSystem class.
  * @package GO
- * @author Douglas Owings
  */
 
 namespace GoTableaux\Logic\GO;
@@ -28,7 +27,6 @@ namespace GoTableaux\Logic\GO;
  * Represents the Tableaux system for GO.
  *
  * @package GO
- * @author Douglas Owings
  */
 class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem\ManyValued
 {

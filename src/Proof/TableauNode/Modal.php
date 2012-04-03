@@ -19,7 +19,6 @@
 /**
  * Defines the Modal Node interface.
  * @package Tableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\Proof\TableauNode;
@@ -27,7 +26,6 @@ namespace GoTableaux\Proof\TableauNode;
 /**
  * Signifies a modal tableau node that has at least one index.
  * @package Tableaux
- * @author Douglas Owings
  */
 interface Modal
 {

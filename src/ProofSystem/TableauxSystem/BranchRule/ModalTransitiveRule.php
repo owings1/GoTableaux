@@ -19,7 +19,6 @@
 /**
  * Defines the ModalTransitive Rule class.
  * @package Tableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\ProofSystem\TableauxSystem\BranchRule;
@@ -27,7 +26,6 @@ namespace GoTableaux\ProofSystem\TableauxSystem\BranchRule;
 /**
  * Implements the transitivity rule for a modal tableaux system.
  * @package Tableaux
- * @author Douglas Owings
  */
 class ModalTransitive implements \GoTableaux\ProofSystem\TableauxSystem\BranchRule
 {

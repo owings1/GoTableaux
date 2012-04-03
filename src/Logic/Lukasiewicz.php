@@ -17,17 +17,17 @@
  * along with this program in file LICENSE.  If not, see <http://www.gnu.org/licenses/>.
  */
 /**
- * Defines the ProofException class.
- * @package GoTableaux
+ * Defines the Lukasiewicz logic.
+ * @package LP
  */
 
-namespace GoTableaux\Exception;
+namespace GoTableaux\Logic;
 
 /**
- * Represents a proof exception.
- * @package GoTableaux
+ * Represents Lukasiewicz 3-valued logic.
+ * @package LP
  */
-class Proof extends \GoTableaux\Exception
+class Lukasiewicz extends FDE
 {
 	
 }

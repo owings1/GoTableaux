@@ -19,7 +19,6 @@
 /**
  * Defines the Tableau proof class.
  * @package Tableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\Proof;
@@ -30,7 +29,6 @@ use \GoTableaux\Exception\Tableau as TableauException;
  * Represents a tableau for an argument.
  *
  * @package Tableaux
- * @author Douglas Owings
  */
 class Tableau extends \GoTableaux\Proof
 {	

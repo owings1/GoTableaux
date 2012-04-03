@@ -19,7 +19,6 @@
 /**
  * Defines the Standard Sentence Writer class.
  * @package GoTableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux\SentenceWriter;
@@ -29,7 +28,6 @@ use \GoTableaux\Sentence\Molecular as MolecularSentence;
 /**
  * Writes sentences in Polish notation.
  * @package GoTableaux
- * @author Douglas Owings
  */
 class Polish extends \GoTableaux\SentenceWriter
 {

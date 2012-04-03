@@ -19,7 +19,6 @@
 /**
  * Defines the base proof class.
  * @package Proof
- * @author Douglas Owings
  */
 
 namespace GoTableaux;
@@ -28,7 +27,6 @@ namespace GoTableaux;
  * Represents a proof.
  *
  * @package Proof
- * @author Douglas Owings
  **/
 abstract class Proof
 {

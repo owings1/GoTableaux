@@ -19,7 +19,6 @@
 /**
  * Functions for examples.
  * @package Examples
- * @author Douglas Owings
  */
 
 namespace GoTableaux;

@@ -19,10 +19,7 @@
 /**
  * Loads the GoTableaux program.
  * @package GoTableaux
- * @author Douglas Owings
  */
-namespace GoTableaux;
-
 /**
  * Loads the {@link Loader} class.
  */

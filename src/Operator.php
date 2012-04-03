@@ -19,7 +19,6 @@
 /**
  * Defines the Operator class.
  * @package Syntax
- * @author Douglas Owings
  */
 
 namespace GoTableaux;
@@ -29,7 +28,6 @@ use \GoTableaux\Exception\Vocabulary as VocabularyException;
 /**
  * Represents an operator.
  * @package Syntax
- * @author Douglas Owings
  * @see Vocabulary::createOperator()
  */
 class Operator

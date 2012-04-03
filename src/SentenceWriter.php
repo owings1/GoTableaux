@@ -19,7 +19,6 @@
 /**
  * Defines the SentenceWriter base class.
  * @package GoTableaux
- * @author Douglas Owings
  */
 
 namespace GoTableaux;
@@ -30,7 +29,6 @@ use \GoTableaux\Sentence\Molecular as MolecularSentence;
 /**
  * Writes sentences.
  * @package GoTableaux
- * @author Douglas Owings
  */
 abstract class SentenceWriter
 {
