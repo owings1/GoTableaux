@@ -18,16 +18,22 @@
  */
 /**
  * Defines the Lukasiewicz logic.
- * @package LP
+ * @package Lukasiewicz
  */
 
 namespace GoTableaux\Logic;
 
 /**
  * Represents Lukasiewicz 3-valued logic.
- * @package LP
+ * @package Lukasiewicz
  */
-class Lukasiewicz extends FDE
+class Lukasiewicz extends \GoTableaux\Logic
 {
+	public $inheritLexiconFrom = 'FDE';
 	
+	public $lexicon = array(
+		'operators' => array(
+			'Conditional' => 2
+		)
+	);
 }

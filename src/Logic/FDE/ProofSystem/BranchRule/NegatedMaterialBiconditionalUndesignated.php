@@ -33,7 +33,7 @@ class NegatedMaterialBiconditionalUndesignated implements \GoTableaux\ProofSyste
 		list( $lhs, $rhs ) = $negatum->getOperands();
 
 		$branch->branch()
-			   ->createNodeWithDesigation( $logic->negate( $lhs ), false )
+			   ->createNodeWithDesignation( $logic->negate( $lhs ), false )
 			   ->createNodeWithDesigation( $logic->negate( $rhs ), false )
 			   ->tickNode( $node );
 			

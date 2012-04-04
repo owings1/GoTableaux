@@ -22,17 +22,23 @@ if ( !defined( 'DS' )) define( 'DS', DIRECTORY_SEPARATOR );
 require_once __DIR__ . DS . '..' . DS . 'simpletest' . DS . 'autorun.php';
 require_once __DIR__ . DS . '..' . DS . 'classes' . DS . 'LogicTestCase.php';
 
-class FDETest extends LogicTestCase
+class LukasiewiczTest extends LogicTestCase
 {
-	public $logicName = 'FDE';
+	public $logicName = 'Lukasiewicz';
 	
 	public $validities = array(
+		'Law of Non-contradiction' 	=> array( 'A & ~A', 'B' ),
+		'Material Modus Ponens'		=> array( array( 'A > B', 'A' ), 'B' ),
+		'Material Modus Tollens' 	=> array( array( 'A > B', '~B' ), '~A' ),
+		'Disjunctive Syllogism' 	=> array( array( 'A V B', '~B' ), 'A' ),
 		'Simplification'			=> array( 'A & B', 'A' ),
 		'DeMorgan 1' 				=> array( '~(A V B)', '~A & ~B' ),
 		'DeMorgan 2' 				=> array( '~(A & B)', '~A V ~B' ),
 		'DeMorgan 3' 				=> array( '~A & ~B', '~(A V B)' ),
 		'DeMorgan 4' 				=> array( '~A V ~B', '~(A & B)' ),
-		'Contraction'				=> array( 'A > (A > B)', 'A > B' ),
+		'Material Contraction'		=> array( 'A > (A > B)', 'A > B' ),
+		'Identity'					=> array( null, 'A $ A' ),
+		'Material to Conditional'	=> array( 'A > B', 'A $ B' ),
 	);
 	
 	public $invalidities = array(
@@ -40,11 +46,8 @@ class FDETest extends LogicTestCase
 		'Affirming a Disjunct'		=> array( array( 'A V B', 'A' ), 'B' ),
 		'Denying the Antecedent' 	=> array( array( 'A > B', '~A' ), 'B' ),
 		'Law of Excluded Middle' 	=> array( null, 'A V ~A' ),
-		'Law of Non-contradiction' 	=> array( 'A & ~A', 'B' ),
 		'Pseudo Contraction'		=> array( null, '(A > (A > B)) > (A > B)' ),
-		'Identity'					=> array( null, 'A > A' ),
-		'Disjunctive Syllogism' 	=> array( array( 'A V B', '~B' ), 'A' ),
-		'Modus Ponens' 				=> array( array( 'A > B', 'A' ), 'B' ),
-		'Modus Tollens' 			=> array( array( 'A > B', '~B' ), '~A' ),
+		'Material Identity'			=> array( null, 'A > A' ),
+		'Conditional to Material'	=> array( 'A $ B', 'A > B' ),
 	);
 }

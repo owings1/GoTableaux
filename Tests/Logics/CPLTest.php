@@ -18,9 +18,9 @@
  */
 namespace GoTableaux\Test;
 
-require_once dirname(__FILE__) . '/../simpletest/autorun.php';
-require_once dirname(__FILE__) . '/../classes/LogicTestCase.php';
-require_once dirname(__FILE__) . '/../../GoTableaux.php';
+if ( !defined( 'DS' )) define( 'DS', DIRECTORY_SEPARATOR );
+require_once __DIR__ . DS . '..' . DS . 'simpletest' . DS . 'autorun.php';
+require_once __DIR__ . DS . '..' . DS . 'classes' . DS . 'LogicTestCase.php';
 
 class CPLTest extends LogicTestCase
 {
@@ -39,6 +39,8 @@ class CPLTest extends LogicTestCase
 		'DeMorgan 4' 				=> array( '~A V ~B', '~(A & B)' ),
 		'Contraction'				=> array( 'A > (A > B)', 'A > B' ),
 		'Pseudo Contraction'		=> array( null, '(A > (A > B)) > (A > B)' ),
+		'Biconditional Elimination' => array( array( 'A < B', 'A'), 'B' ),
+		'Biconditional Elimination 2' => array( array( 'A < B', '~A' ), '~B' ),
 	);
 	
 	public $invalidities = array(

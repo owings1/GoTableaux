@@ -39,7 +39,8 @@ abstract class Logic {
 		'Conjunction' => '&',
 		'Disjunction' => 'V',
 		'Material Conditional' => '>',
-		'Material Biconditional' => '<'
+		'Material Biconditional' => '<',
+		'Conditional' => '$',
 	);
 	
 	/**
@@ -117,6 +118,11 @@ abstract class Logic {
 	public function initVocabulary()
 	{
 		$lexicon = $this->lexicon;
+		if ( !empty( $this->inheritLexiconFrom ))
+			foreach ( (array) $this->inheritLexiconFrom as $logicName ) {
+				$otherLogic = self::getInstance( $logicName );
+				$lexicon = array_merge_recursive( $otherLogic->lexicon, $lexicon );
+			}
 		$lexicon['operatorSymbols'] = array();
 		if ( !empty( $lexicon['operators'] ))
 			foreach ( $lexicon['operators'] as $name => $arity )

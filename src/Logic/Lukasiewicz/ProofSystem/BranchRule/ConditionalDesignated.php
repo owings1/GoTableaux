@@ -16,30 +16,32 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program in file LICENSE.  If not, see <http://www.gnu.org/licenses/>.
  */
-namespace GoTableaux\Logic\FDE\ProofSystem\BranchRule;
+namespace GoTableaux\Logic\Lukasiewicz\ProofSystem\BranchRule;
 
 use \GoTableaux\Proof\TableauBranch as Branch;
 use \GoTableaux\Logic as Logic;
 
-class MaterialBiconditionalUndesignated implements \GoTableaux\ProofSystem\TableauxSystem\BranchRule
+class ConditionalDesignated implements \GoTableaux\ProofSystem\TableauxSystem\BranchRule
 {
 	public function apply( Branch $branch, Logic $logic )
 	{
-		if ( !$nodes = $branch->getNodesByOperatorNameAndDesignation( 'Material Biconditional', false, true ))
+		if ( !$nodes = $branch->getNodesByOperatorNameAndDesignation( 'Conditional', true, true ))
 			return false;
 		$node = $nodes[0];
 
-		list( $lhs, $rhs ) = $node->getSentence()->getOperands();
-
+		list( $antecedent, $consequent ) = $node->getSentence()->getOperands();
+		
 		$branch->branch()
-			   ->createNodeWithDesignation( $logic->negate( $lhs ), false )
-			   ->createNodeWithDesignation( $rhs, false )
+			   ->createNodeWithDesignation( $logic->negate( $antecedent ), true )
+			   ->createNodeWithDesignation( $consequent, true )
 			   ->tickNode( $node );
 			
-		$branch->createNodeWithDesignation( $lhs, false )
-			   ->createNodeWithDesignation( $logic->negate( $rhs ), false )
+		$branch->createNodeWithDesignation( $antecedent, false )
+			   ->createNodeWithDesignation( $consequent, false )
+			   ->createNodeWithDesignation( $logic->negate( $antecedent ), false )
+			   ->createNodeWithDesignation( $logic->negate( $consequent ), false )
 			   ->tickNode( $node );
-			
+		
 		return true;
 	}
 }

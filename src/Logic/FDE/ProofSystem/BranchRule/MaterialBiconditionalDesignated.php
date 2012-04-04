@@ -32,8 +32,8 @@ class MaterialBiconditionalDesignated implements \GoTableaux\ProofSystem\Tableau
 		list( $lhs, $rhs ) = $node->getSentence()->getOperands();
 
 		$branch->branch()
-			   ->createNodeWithDesigation( $logic->negate( $lhs ), true )
-			   ->createNodeWithDesigation( $logic->negate( $rhs ), true )
+			   ->createNodeWithDesignation( $logic->negate( $lhs ), true )
+			   ->createNodeWithDesignation( $logic->negate( $rhs ), true )
 			   ->tickNode( $node );
 			
 		$branch->createNodeWithDesignation( $lhs, true )

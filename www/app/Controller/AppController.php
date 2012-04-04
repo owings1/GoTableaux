@@ -23,9 +23,9 @@
 App::uses( 'Controller', 'Controller' );
 
 if ( !$logicPath =  Configure::read( 'logicPath' ))
-	$logicPath = APP . '..' . DS . '..' . DS;
+	$logicPath = APP . '..' . DS . '..' . DS . 'src' . DS;
 
-require_once( $logicPath . 'GoTableaux.php' ); 
+require_once( $logicPath . 'Loader.php' ); 
 /**
  * Application Controller
  *

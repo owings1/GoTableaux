@@ -27,7 +27,7 @@ namespace GoTableaux\Logic;
  * Represents Classical Propositional Logic.
  * @package CPL
  */
-class CPL extends FDE
+class CPL extends \GoTableaux\Logic
 {	
-
+	public $inheritLexiconFrom = 'FDE';
 }

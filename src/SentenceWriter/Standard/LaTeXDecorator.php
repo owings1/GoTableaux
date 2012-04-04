@@ -42,7 +42,8 @@ class LaTeXDecorator extends \GoTableaux\SentenceWriter\Standard
 		'Disjunction' => '\vee',
 		'Negation'	  => '\neg ',
 		'Material Conditional' 		=> '\supset',
-		'Material Biconditional' 	=> '\equiv',	
+		'Material Biconditional' 	=> '\equiv',
+		'Conditional' => '\rightarrow',
 	);
 	
 	//protected $specialCharacters = array( '\\', '#', '$', '%', '&', '~', '_', '^', '{', '}' );

@@ -16,6 +16,9 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program in file LICENSE.  If not, see <http://www.gnu.org/licenses/>.
  */
-require_once dirname( __FILE__ ) . '/simpletest/autorun.php';
-require_once dirname( __FILE__ ) . '/test_base.php';
-require_once dirname( __FILE__ ) . '/test_logics.php';
+
+if ( !defined( 'DS' )) define( 'DS', DIRECTORY_SEPARATOR );
+
+require_once __DIR__ . DS . 'simpletest' . DS . 'autorun.php';
+require_once __DIR__ . DS . 'test_base.php';
+require_once __DIR__ . DS . 'test_logics.php';

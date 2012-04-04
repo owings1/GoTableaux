@@ -16,30 +16,21 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program in file LICENSE.  If not, see <http://www.gnu.org/licenses/>.
  */
-namespace GoTableaux\Logic\FDE\ProofSystem\BranchRule;
+/**
+ * Defines the Lukasiewicz Closure Rule class.
+ * @package Lukasiewicz
+ */
 
-use \GoTableaux\Proof\TableauBranch as Branch;
+namespace GoTableaux\Logic\Lukasiewicz\ProofSystem;
+
 use \GoTableaux\Logic as Logic;
+use \GoTableaux\Proof\TableauBranch as Branch;
 
-class MaterialBiconditionalUndesignated implements \GoTableaux\ProofSystem\TableauxSystem\BranchRule
+/**
+ * Represents the Lukasiewicz closure rule.
+ * @package Lukasiewicz
+ */
+class ClosureRule extends \GoTableaux\Logic\StrongKleene\ProofSystem\ClosureRule
 {
-	public function apply( Branch $branch, Logic $logic )
-	{
-		if ( !$nodes = $branch->getNodesByOperatorNameAndDesignation( 'Material Biconditional', false, true ))
-			return false;
-		$node = $nodes[0];
 
-		list( $lhs, $rhs ) = $node->getSentence()->getOperands();
-
-		$branch->branch()
-			   ->createNodeWithDesignation( $logic->negate( $lhs ), false )
-			   ->createNodeWithDesignation( $rhs, false )
-			   ->tickNode( $node );
-			
-		$branch->createNodeWithDesignation( $lhs, false )
-			   ->createNodeWithDesignation( $logic->negate( $rhs ), false )
-			   ->tickNode( $node );
-			
-		return true;
-	}
 }

@@ -37,5 +37,6 @@ class LaTeXDecorator extends \GoTableaux\SentenceWriter\Standard\LaTeXDecorator
 		'Negation'	  => '\mathsf{N}',
 		'Material Conditional' 		=> '\mathsf{C}',
 		'Material Biconditional' 	=> '\mathsf{E}',
+		'Conditional' => '\mathsf{V}',
 	);
 }

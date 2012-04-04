@@ -39,6 +39,7 @@ $logicNames = array(
 	'FDE', 
 	'LP', 
 	'StrongKleene',
+	'Lukasiewicz',
 	'GO',
 );
 

@@ -54,7 +54,7 @@ class Operator
 	 * @throws {@link VobabularyException} on parameter errors.
 	 * @see Vocabulary::createOperator()
 	 */
-	function __construct( $name, $arity )
+	public function __construct( $name, $arity )
 	{
 		if ( empty( $name ))
 			throw new VobabularyException( 'Operator name cannot be empty' );

@@ -18,6 +18,9 @@
  */
 namespace GoTableaux\Test;
 
+if ( !defined( 'DS' )) define( 'DS', DIRECTORY_SEPARATOR );
+require_once __DIR__ . DS . '..' . DS . '..' . DS . 'src' . DS . 'Loader.php';
+
 class UnitTestCase extends \UnitTestCase
 {
 	public function assertSameForm( \GoTableaux\Sentence $a, \GoTableaux\Sentence $b, $message = '' )

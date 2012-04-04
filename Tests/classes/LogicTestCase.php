@@ -18,7 +18,7 @@
  */
 namespace GoTableaux\Test;
 
-require_once dirname( __FILE__ ) . '/UnitTestCase.php';
+require_once __DIR__ . '/UnitTestCase.php';
 
 abstract class LogicTestCase extends UnitTestCase
 {

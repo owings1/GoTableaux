@@ -17,7 +17,7 @@
  * along with this program in file LICENSE.  If not, see <http://www.gnu.org/licenses/>.
  */
 /**
- * Defines the LPClosure Rule class.
+ * Defines the LP Closure Rule class.
  * @package LP
  */
 

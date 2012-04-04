@@ -29,18 +29,5 @@ namespace GoTableaux\Logic;
  */
 class GO extends \GoTableaux\Logic
 {	
-	public $lexicon = array(
-		'openMarks' 		=> array('('),
-		'closeMarks' 		=> array(')'),
-		'separators' 		=> array(' '),
-		'subscripts' 		=> array('_'),
-		'atomicSymbols' 	=> array('A', 'B', 'C', 'D', 'E', 'F'),
-		'operators' 	=> array(
-			'Negation' => 1,
-			'Conjunction' => 2,
-			'Disjunction' => 2,
-			'Material Conditional' => 2,
-			'Material Biconditional' => 2,
-		)
-	);
+	public $inheritLexiconFrom = 'FDE';
 }

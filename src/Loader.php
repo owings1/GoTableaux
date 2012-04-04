@@ -28,6 +28,9 @@ use \GoTableaux\Exception\Loader as LoaderException;
 // Register autload function
 spl_autoload_register( array( __NAMESPACE__ . '\Loader', 'loadClass' ));
 
+// Define DS constant
+if ( !defined( 'DS' )) define( 'DS', DIRECTORY_SEPARATOR );
+
 /**
  * Loads class files.
  * @package GoTableaux
@@ -44,11 +47,9 @@ class Loader
 	 */
 	public static function loadClass( $class )
 	{
-		$ds = DIRECTORY_SEPARATOR;
 		$arr = explode( '\\', $class );
-		$path = __DIR__ . $ds . str_replace( __NAMESPACE__ . $ds, '', implode( $ds, $arr )) . '.php';
+		$path = __DIR__ . DS . str_replace( __NAMESPACE__ . DS, '', implode( DS, $arr )) . '.php';
 		if ( !file_exists( $path )) return false;
-			//throw new LoaderException( "Cannot load class $class looking for $path" );
 		require $path;
 	}
 	
@@ -59,6 +60,6 @@ class Loader
 	 */
 	public static function loadConfig()
 	{
-		require __DIR__ . '/../config.php';
+		require __DIR__ . DS . 'config.php';
 	}
 }

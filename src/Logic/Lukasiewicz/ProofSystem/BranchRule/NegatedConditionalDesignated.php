@@ -16,11 +16,26 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program in file LICENSE.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- * Loads the GoTableaux program.
- * @package GoTableaux
- */
-/**
- * Loads the {@link Loader} class.
- */
-require_once __DIR__ . '/src/Loader.php';
+namespace GoTableaux\Logic\Lukasiewicz\ProofSystem\BranchRule;
+
+use \GoTableaux\Proof\TableauBranch as Branch;
+use \GoTableaux\Logic as Logic;
+
+class NegatedConditionalDesignated implements \GoTableaux\ProofSystem\TableauxSystem\BranchRule
+{
+	public function apply( Branch $branch, Logic $logic )
+	{
+		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Conditional', true, true ))
+			return false;
+		$node = $nodes[0];
+
+		list( $negatum ) = $node->getSentence()->getOperands();
+		list( $antecedent, $consequent ) = $negatum->getOperands();
+		
+		$branch->createNodeWithDesignation( $antecedent, true )
+  			   ->createNodeWithDesignation( $logic->negate( $consequent ), true )
+			   ->tickNode( $node );
+
+		return true;
+	}
+}

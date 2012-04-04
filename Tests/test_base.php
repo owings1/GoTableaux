@@ -18,10 +18,11 @@
  */
 namespace GoTableaux\Test;
 
-require_once dirname( __FILE__ ) . '/simpletest/autorun.php';
-require_once dirname( __FILE__ ) . '/classes/TestSuite.php';
+if ( !defined( 'DS' )) define( 'DS', DIRECTORY_SEPARATOR );
+require_once __DIR__ . DS . 'simpletest' . DS . 'autorun.php';
+require_once __DIR__ . DS . 'classes' . DS . 'TestSuite.php';
 
 class BaseTest extends TestSuite 
 {
-	public $subDirectory = 'Logic';
+	public $subDirectory = 'Base';
 }

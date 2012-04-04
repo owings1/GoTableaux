@@ -18,6 +18,8 @@
  */
 namespace GoTableaux\Test;
 
+if ( !defined( 'DS' )) define( 'DS', DIRECTORY_SEPARATOR );
+require_once __DIR__ . DS . '..' . DS . '..' . DS . 'src' . DS . 'Loader.php';
 abstract class TestSuite extends \TestSuite 
 {
 	public $subDirectory;
@@ -25,6 +27,6 @@ abstract class TestSuite extends \TestSuite
 	public function __construct()
 	{
 		parent::__construct();
-		$this->collect( dirname( __FILE__ ) . '/../' . $this->subDirectory, new \SimplePatternCollector( '/Test.php/' ));
+		$this->collect( __DIR__ . DS . '..' . DS . $this->subDirectory, new \SimplePatternCollector( '/Test.php/' ));
 	}
 }

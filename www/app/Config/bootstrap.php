@@ -23,6 +23,9 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
+
+//Configure::write( 'logicPath', '/path/to/GoTableaux/src/' );
+
 /**
  * Cache Engine Configuration
  * Default settings provided below

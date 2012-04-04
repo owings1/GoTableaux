@@ -17,17 +17,24 @@
  * along with this program in file LICENSE.  If not, see <http://www.gnu.org/licenses/>.
  */
 /**
- * Defines the LP logic.
- * @package LP
+ * Defines the L3 tableaux system class.
+ * @package Lukasiewicz
  */
 
-namespace GoTableaux\Logic;
+namespace GoTableaux\Logic\Lukasiewicz;
 
 /**
- * Represents the Logic of Paradox.
- * @package LP
+ * Represents the Lukasiewicz 3 tableaux system.
+ * @package Lukasiewicz
  */
-class LP extends \GoTableaux\Logic
+class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem\ManyValued
 {
-	public $inheritLexiconFrom = 'FDE';
+	public $inheritBranchRulesFrom = 'StrongKleene';
+	
+	public $branchRuleClasses = array(
+		'ConditionalDesignated',
+		'ConditionalUndesignated',
+		'NegatedConditionalDesignated',
+		'NegatedConditionalUndesignated'
+	);
 }
