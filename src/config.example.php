@@ -24,3 +24,7 @@ namespace GoTableaux;
 
 // Whether to print debug messages.
 Settings::write( 'debug', false );
+
+// Path to PDFLaTeX executable
+// If this setting is not set, the system path will be used.
+Settings::write( 'pdfLaTeXPath', '/usr/bin/pdflatex' );

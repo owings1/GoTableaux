@@ -772,4 +772,5 @@ ul, ul li {
 }
 textarea.output {
 	font-size: 12px;
+	height: 200px;
 }

@@ -24,7 +24,7 @@ class LogicsController extends AppController
 {
 	public $uses = null;
 	
-	public $logics = array( 'CPL', 'FDE', 'LP', 'StrongKleene', 'GO' );
+	public $logics = array( 'CPL', 'FDE', 'LP', 'StrongKleene', 'Lukasiewicz', 'GO' );
 	
 	private $exampleArguments = array(
 		'Disjunctive Syllogism' 	=> array( array( 'A V B', '~B' ), 'A' ),
@@ -48,7 +48,7 @@ class LogicsController extends AppController
 	{	
 		$logics = $this->logics;
 		$title_for_layout = 'GoTableaux Proof Generator';
-		$exampleArguments = 
+		//$exampleArguments = 
 		$this->set( compact( 'logics', 'title_for_layout' ));
 		if ( !empty( $this->data )) {
 			

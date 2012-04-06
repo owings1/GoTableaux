@@ -62,7 +62,6 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 	{
 		parent::__construct( $proof, $sentenceWriterType );
 		$this->decorateSentenceWriter( 'LaTeX' );
-		//die( get_class( $this->getSentenceWriter() ));
 		$this->addTranslations( array(
 			'closeMarker' 			=> '\varotimes',
 			'designatedMarker' 		=> '\varoplus',
@@ -82,7 +81,13 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 	 */
 	public function writeProof( Proof $tableau )
 	{
-		return '\Tree[.' . parent::writeProof( $tableau ) . ' ]';
+		$str = '';
+		$str .= "\documentclass[11pt]{article}\n";
+		$str .= "\usepackage{amsmath, amssymb, qtree}\n";  
+		$str .= "\begin{document}\n\n\n";
+		$str .= $this->writeProofBody( $tableau ) . "\n\n\n";
+		$str .= "\end{document}";
+		return $str;
 	}	
 	
 	/**
@@ -109,5 +114,16 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 		
 		$string = trim( $string, "\n" ) ;
 		return $string;
+	}
+	
+	/**
+	 * Writes the body of the proof.
+	 *
+	 * @param Proof $tableau The proof whose body to write.
+	 * @return string The string representation.
+	 */
+	public function writeProofBody( Proof $tableau )
+	{
+		return '\Tree[.' . parent::writeProof( $tableau ) . ' ]';
 	}
 }

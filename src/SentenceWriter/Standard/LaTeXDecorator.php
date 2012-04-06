@@ -37,6 +37,7 @@ class LaTeXDecorator extends \GoTableaux\SentenceWriter\Standard
 {
 	protected $sentenceWriter;
 	
+	/*
 	protected $standardOperatorTranslations = array(
 		'Conjunction' => '\wedge',
 		'Disjunction' => '\vee',
@@ -45,12 +46,31 @@ class LaTeXDecorator extends \GoTableaux\SentenceWriter\Standard
 		'Material Biconditional' 	=> '\equiv',
 		'Conditional' => '\rightarrow',
 	);
+	*/
+	protected $standardOperatorTranslations = array();
 	
 	//protected $specialCharacters = array( '\\', '#', '$', '%', '&', '~', '_', '^', '{', '}' );
+	/**
+	 * Adds the translations for LaTeX \GT$operatorName.
+	 *
+	 * @param Vocabulary $vocabulary The vocabulary.
+	 */
+	protected function __construct( Vocabulary $vocabulary )
+	{
+		foreach ( $vocabulary->getOperatorNames() as $operatorName )
+			$this->standardOperatorTranslations[$operatorName] = "\GT{$operatorName}";
+		parent::__construct( $vocabulary );
+	}
 	
 	public function writeSubscript( $subscript )
 	{
 		return '_{' . $subscript .'}';
+	}
+	
+	public function writeOperator( $operatorOrName )
+	{
+		// Add extra space in case it's a unary operator.
+		return $this->sentenceWriter->writeOperator( $operatorOrName ) . ' ';
 	}
 	
 	/*
