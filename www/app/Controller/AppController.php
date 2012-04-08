@@ -23,7 +23,7 @@
 App::uses( 'Controller', 'Controller' );
 
 if ( !$logicPath =  Configure::read( 'logicPath' ))
-	$logicPath = APP . '..' . DS . '..' . DS . 'src' . DS;
+	$logicPath = APP . '..' . DS . '..' . DS . 'Source' . DS;
 
 require_once( $logicPath . 'Loader.php' ); 
 /**
@@ -39,7 +39,7 @@ class AppController extends Controller
 {
 	public $uses = null;
 	
-	public $components = array( 'RequestHandler', 'Session' );
+	public $components = array( 'RequestHandler', 'Session', 'Latex' );
 	
 	public function beforeFilter()
 	{

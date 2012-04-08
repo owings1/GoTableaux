@@ -1,5 +1,20 @@
 <?php
 /**
+ * GoTableaux. A multi-logic tableaux generator.
+ * Copyright (C) 2012  Douglas Owings
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed WITHOUT ANY WARRANTY. 
+ * See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/agpl-3.0.html>.
+ */
+/**
  * This file is loaded automatically by the app/webroot/index.php file after core.php
  *
  * This file should load/create any application wide configuration settings, such as 
@@ -23,8 +38,20 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
+/**
+ *	Path to GoTableaux source.
+ *		
+ *	If this setting is not set, the default relative path of the
+ *	distribution will be used.
+ */
+//Configure::write( 'logicPath', '/path/to/GoTableaux/Source/' );
 
-//Configure::write( 'logicPath', '/path/to/GoTableaux/src/' );
+/**
+ *	Path to PDFLaTeX executable.
+ *
+ *	If this setting is not set, the system path will be used.
+ */
+//Configure::write( 'pdfLaTeXPath', '/usr/bin/pdflatex' );
 
 /**
  * Cache Engine Configuration

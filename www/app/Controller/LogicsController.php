@@ -8,13 +8,11 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
+ * This program is distributed WITHOUT ANY WARRANTY. 
+ * See the GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
- * along with this program in file LICENSE.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <http://www.gnu.org/licenses/agpl-3.0.html>.
  */
 use GoTableaux\Logic as Logic;
 use GoTableaux\ProofWriter as ProofWriter;
@@ -101,5 +99,22 @@ class LogicsController extends AppController
 			'subscriptSymbols' => $Vocabulary->getSubscriptSymbols()
 		);
 		$this->set( compact( 'lexicon' ));
+	}
+	
+	public function view_pdf()
+	{
+		if ( empty( $this->data['latex'] )) {
+			$this->Session->setFlash( 'No data.' );
+			return $this->redirect( 'index' );
+		}
+		try {
+			$this->Latex->addLibraryFile( APPLIBS . 'qtree.sty' );
+			$pdfContent = $this->Latex->getPdfContent( $this->data['latex'] );
+		} catch ( Exception $e ) {
+			$this->Session->setFlash( "Error making pdf" );
+			return $this->redirect( 'index' );
+		}
+		$this->layout = 'pdf';
+		$this->set( compact( 'pdfContent' ));
 	}
 }

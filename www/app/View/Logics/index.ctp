@@ -8,13 +8,11 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
+ * This program is distributed WITHOUT ANY WARRANTY. 
+ * See the GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
- * along with this program in file LICENSE.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <http://www.gnu.org/licenses/agpl-3.0.html>.
  */
 ?>
 <?php $this->start( 'script' ) ?>
@@ -45,7 +43,7 @@
 			<a id="AddPremise" href="javascript:">Add Premise</a>
 			<br><br>
 			<?= $this->Form->input( 'conclusion' ) ?>
-		<?= $this->Form->submit( 'Evaluate' ) ?>
+		<?= $this->Form->end( 'Evaluate' ) ?>
 	</div>
 	<div class="clear"></div>
 	<div class="grid_12">
@@ -70,7 +68,10 @@
 					<div id="LaTeXDiv">
 						<br>
 						<br>
-						<textarea class="output"><?= $proofLatex ?></textarea>
+						<?= $this->Form->create( null, array( 'action' => 'view_pdf' )) ?>
+							<textarea name="data[latex]" class="output"><?= $proofLatex ?></textarea>
+						<?= $this->Form->end( 'View PDF' ) ?>
+						
 					</div>
 				</div>
 			<?php endif ?>

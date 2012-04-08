@@ -1,0 +1,100 @@
+% You need the tree-dvips package to process this file.
+% Alexis Dimitriadis (alexis@ling.upenn.edu) 10/10/99
+
+\documentclass{article}
+
+\advance\textheight by 1in
+\advance\textwidth by 0.5in
+\topmargin=-0.3in
+
+\usepackage{tree-dvips}
+\usepackage{qtree}
+
+% PostScript to PDF conversion using ghostscript (alias ps2pdf) 
+% looks better on-screen if one of the built-in PDF fonts is used:
+\usepackage{times} 
+
+\begin{document}
+\centerline{\large\bf Examples: Drawing arrows on \emph{qtree} trees}
+\medskip
+The arrow-drawing capabilities of the package \emph{tree-dvips} (written by
+Emma Pease) can be used with trees drawn with \emph{qtree}.  The two packages
+are fully compatible.  
+
+Note, however, that tree-dvips relies on PostScript specials, and thus does not work with pdf\LaTeX. This file was generated as DVI and then converted to pdf. 
+
+\emph{Tree-dvips} is not included in the distribution of \emph{qtree;} it is
+available on CTAN.
+
+Thanks to Seth Kulick for telling me about the combination, and to Amanda
+Seidl for contributing the verb-movement example. 
+\bigskip
+
+\hskip 1.5cm\Tree [ [ \node{subj1}subj_i ].NP [  [
+ T+v_n+\node{V}V_j+Apl_k
+ ].T [ \node{io}{ }IO_l
+ [ \node{subj2}t_i [ \node{v1}t_n  [ \node{do}DO_m  [  \node{io1}t_l
+  [ \node{apl1}t_k [   [  \node{V1}t_j  ].V
+ \node{do1}t_m  ].VP ].Apl\1
+ ].Apl\1 ].AplP ].{\it v}\1 ].{\it v}\1  ].{\it v}P ].T\1  ].TP
+
+ \anodecurve[bl]{subj2}[bl]{subj1}{0.4in}%
+ \anodecurve[bl]{do1}[bl]{do}{0.4in}%
+ {\makedash{4pt}\anodecurve[t]{io1}[r]{io}{.5in}}%
+ \anodecurve[bl]{V1}[bl]{apl1}{0.6in}%
+ \anodecurve[bl]{apl1}[bl]{v1}{1in}%
+ \anodecurve[bl]{v1}[bl]{V}{0.9in}%
+
+% These would give square movement arrows instead:
+%
+%  \abarnodeconnect[-6pt]{subj2}{subj1}{0.4in}
+%  \abarnodeconnect[-6pt]{do1}{do}{0.4in}
+%  {\makedash{4pt}{\anodecurve[t]{io1}[r]{io}{.5in}}}
+%  \abarnodeconnect[-6pt]{V1}{apl1}{0.6in}
+%  \abarnodeconnect[-6pt]{apl1}{v1}{1in}
+%  \abarnodeconnect[-6pt]{v1}{V}{0.9in}
+
+\vspace*{-0.95in}
+\noindent
+{\small\begin{verbatim}
+\Tree 
+[ [ \node{subj1}subj_i ].NP 
+  [  [ T+v_n+\node{V}V_j+Apl_k ].T 
+       [ \node{io}{ }IO_l
+         [ \node{subj2}t_i [ \node{v1}t_n  
+             [ \node{do}DO_m  [  \node{io1}t_l
+                 [ \node{apl1}t_k [ [ \node{V1}t_j ].V
+                   \node{do1}t_m  ].VP ].Apl\1	
+           ].Apl\1 ].AplP ].{\it v}\1 ].{\it v}\1  
+  ].{\it v}P ].T\1  ].TP
+
+\anodecurve[bl]{subj2}[bl]{subj1}{0.4in}
+\anodecurve[bl]{do1}[bl]{do}{0.4in}
+{\makedash{4pt}\anodecurve[t]{io1}[r]{io}{.5in}}
+\anodecurve[bl]{V1}[bl]{apl1}{0.6in}
+\anodecurve[bl]{apl1}[bl]{v1}{1in}
+\anodecurve[bl]{v1}[bl]{V}{0.9in}
+\end{verbatim}}
+
+% A little bug: Because of how TeX assigns type categories to its input, the
+% automatic math-mode switching of label subscripts does not work inside
+% footnotes or boxes.  To work around this, invoke \verb|\automath|
+% \emph{before} entering in the box or footnote.  (This will enable
+% auto-switching to math mode anywhere in the text).
+\automath
+
+\noindent\hskip-0.3cm
+\parbox{1.2in}{%
+\Tree [.S [.NP \node{subj}{subj_i} ] 
+          [.VP [.V verb ] [.NP \node{t}{t_i} ]]] \bigskip}
+\abarnodeconnect[-6pt]{t}{subj}
+% Another problem: \verbatim cannot be used inside anything boxes or 
+% footnotes (for the same reason).  Use this substitute.
+{\obeyspaces\obeylines%
+\parbox{3.9in}{\tt\chardef\\=`\\%         % Let \\ be \backslash
+\\Tree [.S [.NP \\node\{subj\}\{subj\_i\} ]  
+\          [.VP [.V verb ] [.NP \\node\{t\}\{t\_i\} ]]]
+~
+\\abarnodeconnect[-6pt]\{t\}\{subj\}}}
+
+\end{document}
