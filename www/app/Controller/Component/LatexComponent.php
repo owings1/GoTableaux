@@ -75,7 +75,7 @@ class LatexComponent extends Component
 	public function getPathPrefix()
 	{
 		if ( empty( $this->extraBinPaths )) return '';
-		return 'PATH="$PATH;' . implode( ':', $this->extraBinPaths ) . '"; ';
+		return 'PATH="$PATH:' . implode( ':', $this->extraBinPaths ) . '"; ';
 		
 	}
 	public function __destruct()
