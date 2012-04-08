@@ -23,7 +23,7 @@ class LatexComponent extends Component
 		file_put_contents( $latexFileName, $input );
 		
 		// run pdf latex
-		$cmd = $cdPrefix . $this->getPdfLatexPath() . "pdflatex $latexFileName -halt-on-error";
+		$cmd = $cdPrefix . $this->getPdfLatexPath() . " $latexFileName -halt-on-error";
 		$this->log .= "Executing command $cmd\n";
 		$shellOutput = exec( $cmd );
 		
@@ -64,8 +64,7 @@ class LatexComponent extends Component
 	
 	public function getPdfLatexPath()
 	{
-		if ( empty( $this->pdfLatexPath )) return '';
-		return rtrim( $this->pdfLatexPath, DS ) . DS;
+		return empty( $this->pdfLatexPath ) ? 'pdflatex' : $this->pdfLatexPath;
 	}
 	
 	public function __destruct()
