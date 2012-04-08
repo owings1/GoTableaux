@@ -3,6 +3,8 @@ class LatexComponent extends Component
 {
 	public $pdfLatexPath = '';
 	
+	public $extraBinPaths = array();
+	
 	public $input = '';
 	
 	public $log = '';
@@ -13,6 +15,9 @@ class LatexComponent extends Component
 	{
 		if ( empty( $input )) $input = $this->input;
 		$this->validate( $input );
+		
+		// add paths, if any
+		$pathPrefix = $this->getPathPrefix();
 		
 		// get temp dir
 		$tempDir = sys_get_temp_dir();
@@ -67,6 +72,12 @@ class LatexComponent extends Component
 		return empty( $this->pdfLatexPath ) ? 'pdflatex' : $this->pdfLatexPath;
 	}
 	
+	public function getPathPrefix()
+	{
+		if ( empty( $this->extraBinPaths )) return '';
+		return 'PATH="$PATH;' . implode( ';', $this->extraBinPaths ) . '"; ';
+		
+	}
 	public function __destruct()
 	{
 		foreach ( $this->tempFiles as $fileName ) {

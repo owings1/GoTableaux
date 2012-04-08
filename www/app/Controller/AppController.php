@@ -45,5 +45,6 @@ class AppController extends Controller
 	{
 		parent::beforeFilter();
 		$this->Latex->pdfLatexPath = Configure::read( 'pdfLaTeXPath' );
+		$this->Latex->extraBinPaths = Confugure::read( 'extraBinPaths' );
 	}
 }
