@@ -24,11 +24,15 @@ class LatexComponent extends Component
 		
 		// run pdf latex
 		$cmd = $cdPrefix . $this->getPdfLatexPath() . "pdflatex $latexFileName -halt-on-error";
+		$this->log .= "Executing command $cmd\n";
 		$shellOutput = exec( $cmd );
 		
 		// check for pdf file
-		if ( !file_exists( "$latexFileName.pdf" ))
+		if ( !file_exists( "$latexFileName.pdf" )) {
+			$this->log .= "Error: file $latexFileName.pdf was not created. Aborting.\n";
+			$this->log .= "Shell output was $shellOutput\n";
 			throw new Exception( $shellOutput );
+		}
 		
 		// add to log
 		$this->log .= file_get_contents( "$latexFileName.log" );
@@ -66,7 +70,10 @@ class LatexComponent extends Component
 	
 	public function __destruct()
 	{
-		foreach ( $this->tempFiles as $fileName ) unlink( $fileName );
+		foreach ( $this->tempFiles as $fileName ) {
+			$this->log .= "Deleting temp file $fileName\n";
+			unlink( $fileName );	
+		} 
 	}
 	
 	public function addLibraryFile( $fileName )
