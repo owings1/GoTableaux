@@ -28,7 +28,7 @@ class LatexComponent extends Component
 		file_put_contents( $latexFileName, $input );
 		
 		// run pdf latex
-		$cmd = $cdPrefix . $this->getPdfLatexPath() . " $latexFileName -halt-on-error";
+		$cmd = $pathPrefix . $cdPrefix . $this->getPdfLatexPath() . " $latexFileName -halt-on-error";
 		$this->log .= "Executing command $cmd\n";
 		$shellOutput = exec( $cmd );
 		
