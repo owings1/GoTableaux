@@ -51,8 +51,7 @@ class Argument
 	public static function createWithPremisesAndConclusion( $premises, Sentence $conclusion )
 	{
 		$argument = new self;
-		if ( !is_array( $premises )) $premises = array( $premises );
-		return $argument->addPremises( $premises )->setConclusion( $conclusion );
+		return $argument->addPremises( (array) $premises )->setConclusion( $conclusion );
 	}
 	
 	/**

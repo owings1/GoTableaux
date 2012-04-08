@@ -112,9 +112,11 @@ class LogicsController extends AppController
 			$pdfContent = $this->Latex->getPdfContent( $this->data['latex'] );
 		} catch ( Exception $e ) {
 			$this->Session->setFlash( "Error making pdf" );
+			CakeLog::write( 'latex', $this->Latex->log );
 			return $this->redirect( 'index' );
 		}
 		$this->layout = 'pdf';
+		CakeLog::write( 'latex', $this->Latex->log );
 		$this->set( compact( 'pdfContent' ));
 	}
 }
