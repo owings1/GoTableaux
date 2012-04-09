@@ -54,11 +54,6 @@
 //Configure::write( 'pdfLaTeXPath', '/usr/bin/pdflatex' );
 
 /**
- * Extra bin paths.
- */
-//Configure::write( 'extraBinPaths', array( '/path1', '/path2' ));
-
-/**
  * Cache Engine Configuration
  * Default settings provided below
  *

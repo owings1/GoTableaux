@@ -16,9 +16,6 @@ class LatexComponent extends Component
 		if ( empty( $input )) $input = $this->input;
 		$this->validate( $input );
 		
-		// add paths, if any
-		$pathPrefix = $this->getPathPrefix();
-		
 		// get temp dir
 		$tempDir = sys_get_temp_dir();
 		$cdPrefix = "cd $tempDir; ";
@@ -28,7 +25,7 @@ class LatexComponent extends Component
 		file_put_contents( $latexFileName, $input );
 		
 		// run pdf latex
-		$cmd = $pathPrefix . $cdPrefix . $this->getPdfLatexPath() . " $latexFileName -halt-on-error";
+		$cmd = $cdPrefix . $this->getPdfLatexPath() . " $latexFileName -halt-on-error";
 		$this->log .= "Executing command $cmd\n";
 		$shellOutput = exec( $cmd );
 		
