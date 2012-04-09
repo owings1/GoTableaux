@@ -101,17 +101,35 @@ class LogicsController extends AppController
 		$this->set( compact( 'lexicon' ));
 	}
 	
+	/**
+	 * Streams a LaTeX'd PDF using Qtree.
+	 *
+	 * @param string logic
+	 * @param array premises
+	 * @param string conclusion
+	 * @sets string pdfContent
+	 */
 	public function view_pdf()
 	{
-		if ( empty( $this->data['latex'] )) {
+		if ( empty( $this->data )) {
 			$this->Session->setFlash( 'No data.' );
 			return $this->redirect( 'index' );
 		}
 		try {
+			$Logic = Logic::getInstance( $this->logics[$this->data['logic']] );
+			$premises = array();
+			foreach ( $this->data['premises'] as $premiseStr )
+				if ( !empty( $premiseStr )) $premises[] = $Logic->parseSentence( $premiseStr );
+			$conclusion = $Logic->parseSentence( $this->data['conclusion'] );
+			$argument = Argument::createWithPremisesAndConclusion( $premises, $conclusion );
+			$proof = $Logic->constructProofForArgument( $argument );	
+			$proofWriter = ProofWriter::getInstance( $proof, 'LaTeX_Qtree' );
 			$this->Latex->addLibraryFile( APPLIBS . 'qtree.sty' );
-			$pdfContent = $this->Latex->getPdfContent( $this->data['latex'] );
-		} catch ( Exception $e ) {
+			$this->Latex->input = $proofWriter->writeProof( $proof );
+			$pdfContent = $this->Latex->getPdfContent();
+		} catch( Exception $e ) {
 			$this->Session->setFlash( "Error making pdf" );
+			debug( array( 'message' => $e->getMessage(), 'latexLog' => $this->Latex->log ));
 			CakeLog::write( 'latex', $this->Latex->log );
 			return $this->redirect( 'index' );
 		}

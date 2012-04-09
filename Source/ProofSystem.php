@@ -35,6 +35,11 @@ abstract class ProofSystem
 	protected $logic;
 
 	/**
+	 * @var array Array of meta symbol names.
+	 */
+	protected $metaSymbolNames = array();
+	
+	/**
 	 * Constructor.
 	 *
 	 * @param Logic $logic The logic for the proof system to use.
@@ -54,6 +59,16 @@ abstract class ProofSystem
 	public function getLogic()
 	{
 		return $this->logic;
+	}
+	
+	/**
+	 * Gets the meta symbols names.
+	 * 
+	 * @return array The meta symbol names.
+	 */
+	public function getMetaSymbolNames()
+	{
+		return $this->metaSymbolNames;
 	}
 	
 	/**

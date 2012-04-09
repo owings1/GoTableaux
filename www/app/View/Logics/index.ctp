@@ -69,6 +69,11 @@
 						<br>
 						<br>
 						<?= $this->Form->create( null, array( 'action' => 'view_pdf' )) ?>
+							<?php foreach( $this->data['premises'] as $key => $premise ): ?>
+								<input type="hidden" name="data[premises][<?= $key ?>]" id="premises<?= $key ?>" value="<?= $premise ?>">
+							<?php endforeach ?>
+							<?= $this->Form->hidden( 'logic' ) ?>
+							<?= $this->Form->hidden( 'conclusion' ) ?>
 							<textarea name="data[latex]" class="output"><?= $proofLatex ?></textarea>
 						<?= $this->Form->end( 'View PDF' ) ?>
 						

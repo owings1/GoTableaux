@@ -62,6 +62,20 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 	protected $branchRules = array();
 	
 	/**
+	 * Constructor.
+	 *
+	 * Adds tickMarker and closeMarker meta symbols.
+	 *
+	 * @param Logic logic The logic of the proof system.
+	 */
+	public function __construct( Logic $logic )
+	{
+		$this->metaSymbolNames[] = 'tickMarker';
+		$this->metaSymbolNames[] = 'closeMarker';
+		parent::__construct( $logic );
+	}
+	
+	/**
 	 * Gets the closure rule.
 	 *
 	 * @return ClosureRule The closure rule.

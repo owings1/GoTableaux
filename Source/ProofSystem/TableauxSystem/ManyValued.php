@@ -36,6 +36,20 @@ abstract class ManyValued extends \GoTableaux\ProofSystem\TableauxSystem
 	public $branchClass = 'ManyValued';
 	
 	/**
+	 * Constructor.
+	 *
+	 * Adds designation marker meta symbols.
+	 *
+	 * @param Logic logic The logic of the proof system.
+	 */
+	public function __construct( Logic $logic )
+	{
+		$this->metaSymbolNames[] = 'designatedMarker';
+		$this->metaSymbolNames[] = 'undesignatedMarker';
+		parent::__construct( $logic );
+	}
+	
+	/**
 	 * Builds a modal tableau trunk.
 	 *
 	 * @param ModalTableau $tableau The modal tableau.

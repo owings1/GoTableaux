@@ -36,6 +36,20 @@ abstract class Modal extends \GoTableaux\ProofSystem\TableauxSystem
 	public $branchClass = 'Modal';
 	
 	/**
+	 * Constructor.
+	 *
+	 * Adds world and access relation meta symbols.
+	 *
+	 * @param Logic logic The logic of the proof system.
+	 */
+	public function __construct( Logic $logic )
+	{
+		$this->metaSymbolNames[] = 'worldSymbol';
+		$this->metaSymbolNames[] = 'accessRelationSymbol';
+		parent::__construct( $logic );
+	}
+	
+	/**
 	 * Builds a modal tableau trunk.
 	 *
 	 * @param ModalTableau $tableau The modal tableau.

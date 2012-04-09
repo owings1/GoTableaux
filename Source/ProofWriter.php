@@ -83,8 +83,7 @@ abstract class ProofWriter
 	 */
 	public function addTranslations( array $translations )
 	{
-		foreach ( $translations as $name => $value )
-			$this->translations[$name] = $value;
+		$this->translations = array_merge( $this->translations, $translations );
 		return $this;
 	}
 	
@@ -97,6 +96,7 @@ abstract class ProofWriter
 	public function removeTranslation( $name )
 	{
 		unset( $this->translations[$name] );
+		return $this;
 	}
 	
 	/**

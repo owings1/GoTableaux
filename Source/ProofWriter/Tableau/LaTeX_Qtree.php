@@ -36,7 +36,7 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 		'undesignatedMarker' 	=> '\GTundesignatedMarker',
 		'worldSymbol' 			=> '\GTworldSymbol',
 		'accessRelationSymbol' 	=> '\GTaccessRelationSymbol',
-		'tickWrapper'			=> '\framebox',
+		'tickMarker'			=> '\GTtickMarker',
 	);
 	
 	protected $tableauxCommands = array(
@@ -45,13 +45,8 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 		'undesignatedMarker' 	=> '-',
 		'worldSymbol' 			=> 'w',
 		'accessRelationSymbol' 	=> '\mathcal{R}',
+		'tickMarker'			=> '\bullet',
 	);
-	
-	// Do not use tick marker, use tick wrapper instead.
-	public function writeTickMarker()
-	{
-		return '';
-	}
 	
 	public function writeWorldIndex( $index )
 	{
@@ -71,7 +66,8 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 	{
 		parent::__construct( $proof, $sentenceWriterType );
 		$this->decorateSentenceWriter( 'LaTeX' );
-		$this->removeTranslation( 'tickMarker' );
+		foreach ( $this->tableauxCommands as $name => $command )
+			$this->addTranslations( array( $name => "\GT$name" ));
 	}
 	
 	/**
@@ -86,8 +82,10 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 		$str .= "\documentclass[11pt]{article}\n";
 		$str .= "\usepackage{latexsym, qtree}\n\n";
 		$operatorCommands = $this->getSentenceWriter()->getOperatorSymbolCommands();
+		$metaSymbolNames = $tableau->getProofSystem()->getMetaSymbolNames();
 		foreach ( array_merge( $operatorCommands, $this->tableauxCommands ) as $name => $command) 
-			$str .= '\newcommand{\GT' . $this->formatCommand( $name ) . '} {\ensuremath{' . $command . "}}\n";
+			if ( in_array( $name, array_merge( array_keys( $operatorCommands ), $metaSymbolNames )))
+				$str .= '\newcommand{\GT' . $this->formatCommand( $name ) . '} {\ensuremath{' . $command . "}}\n";
 		$str .= "\n\n\begin{document}\n\n";
 		$str .= $this->writeProofBody( $tableau ) . "\n\n";
 		$str .= "\end{document}";
@@ -103,13 +101,9 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 	public function writeStructure( Structure $structure )
 	{
 		$string = '{';
-		foreach ( $structure->getNodes() as $node ){
-			$nodeStr = '$' . $this->writeNode( $node ) . '$';
-			$string .= $structure->nodeIsTicked( $node ) 
-					 ? $this->getTranslation( 'tickWrapper' ) . '{'. $nodeStr . '}' 
-					 : $nodeStr;
-			$string .= " \\\\ ";
-		}
+		foreach ( $structure->getNodes() as $node )
+			$string .= '$' . $this->writeNode( $node ) . '$ \\\\ ';
+		
 		if ( $structure->isClosed() )
 			$string .= '$ ' . $this->writeCloseMarker() . ' $';
 		
@@ -117,7 +111,7 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 		foreach ( $structure->getStructures() as $s )
 			$string .=  '[.' . $this->writeStructure( $s ) . " ] \n";
 		
-		$string = trim( $string, "\n" ) ;
+		$string = trim( $string, "\n" );
 		return $string;
 	}
 	
