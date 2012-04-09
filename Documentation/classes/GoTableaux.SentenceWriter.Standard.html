@@ -1,0 +1,586 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>GoTableaux » \GoTableaux\SentenceWriter\Standard</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">GoTableaux</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/Exceptions.html"><i class="icon-folder-open"></i> Exceptions</a></li>
+<li><a href="../packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
+<li><a href="../packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
+<li><a href="../packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
+<li><a href="../packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
+<li><a href="../packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
+<li><a href="../packages/ModelTheory.html"><i class="icon-folder-open"></i> ModelTheory</a></li>
+<li><a href="../packages/Proof.html"><i class="icon-folder-open"></i> Proof</a></li>
+<li><a href="../packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
+<li><a href="../packages/Syntax.html"><i class="icon-folder-open"></i> Syntax</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">233</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public inherited"><a href="#getArgumentArray" title="getArgumentArray :: Makes a formatted Argument array."><span class="description">Makes a formatted Argument array.</span><pre>getArgumentArray()</pre></a></li>
+<li class="method public inherited"><a href="#getDecoratorInstance" title="getDecoratorInstance :: Gets a decorator instance of a given type for a sentence writer."><span class="description">Gets a decorator instance of a given type for a sentence writer.</span><pre>getDecoratorInstance()</pre></a></li>
+<li class="method public inherited"><a href="#getInstance" title="getInstance :: Creates a child instance."><span class="description">Creates a child instance.</span><pre>getInstance()</pre></a></li>
+<li class="method public inherited"><a href="#getOperatorString" title="getOperatorString :: Gets the string for an operator by its name."><span class="description">Gets the string for an operator by its name.</span><pre>getOperatorString()</pre></a></li>
+<li class="method public inherited"><a href="#getOption" title="getOption :: Gets the value of a single option."><span class="description">Gets the value of a single option.</span><pre>getOption()</pre></a></li>
+<li class="method public inherited"><a href="#getOptions" title="getOptions :: Gets all the options."><span class="description">Gets all the options.</span><pre>getOptions()</pre></a></li>
+<li class="method public inherited"><a href="#getVocabulary" title="getVocabulary :: Gets the vocabulary."><span class="description">Gets the vocabulary.</span><pre>getVocabulary()</pre></a></li>
+<li class="method public inherited"><a href="#setOperatorStrings" title="setOperatorStrings :: Sets the strings to use for some operators."><span class="description">Sets the strings to use for some operators.</span><pre>setOperatorStrings()</pre></a></li>
+<li class="method public inherited"><a href="#setOption" title="setOption :: Sets an option."><span class="description">Sets an option.</span><pre>setOption()</pre></a></li>
+<li class="method public inherited"><a href="#setOptions" title="setOptions :: Sets many options."><span class="description">Sets many options.</span><pre>setOptions()</pre></a></li>
+<li class="method public inherited"><a href="#setVocabulary" title="setVocabulary :: Sets the vocabulary."><span class="description">Sets the vocabulary.</span><pre>setVocabulary()</pre></a></li>
+<li class="method public inherited"><a href="#writeArgument" title="writeArgument :: Makes a string representation of an argument."><span class="description">Makes a string representation of an argument.</span><pre>writeArgument()</pre></a></li>
+<li class="method public inherited"><a href="#writeAtomic" title="writeAtomic :: Writes an atomic sentence."><span class="description">Writes an atomic sentence.</span><pre>writeAtomic()</pre></a></li>
+<li class="method public inherited"><a href="#writeAtomicSymbol" title="writeAtomicSymbol :: Writes an atomic symbol."><span class="description">Writes an atomic symbol.</span><pre>writeAtomicSymbol()</pre></a></li>
+<li class="method public "><a href="#writeMolecular" title="writeMolecular :: Makes a string representation of a molecular sentence."><span class="description">Makes a string representation of a molecular sentence.</span><pre>writeMolecular()</pre></a></li>
+<li class="method public inherited"><a href="#writeOperator" title="writeOperator :: Writes an operator."><span class="description">Writes an operator.</span><pre>writeOperator()</pre></a></li>
+<li class="method public inherited"><a href="#writeSentence" title="writeSentence :: Makes a string representation of a sentence."><span class="description">Makes a string representation of a sentence.</span><pre>writeSentence()</pre></a></li>
+<li class="method public inherited"><a href="#writeSentences" title="writeSentences :: Makes an array of string representations of {@link Sentence}s."><span class="description">Makes an array of string representations of {@link Sentence}s.</span><pre>writeSentences()</pre></a></li>
+<li class="method public inherited"><a href="#writeSubscript" title="writeSubscript :: Writes a subscript index."><span class="description">Writes a subscript index.</span><pre>writeSubscript()</pre></a></li>
+<li class="nav-header protected">» Protected</li>
+<li class="method protected inherited"><a href="#__construct" title="__construct :: Constructor."><span class="description">Constructor.</span><pre>__construct()</pre></a></li>
+<li class="method protected inherited"><a href="#_writeSentence" title="_writeSentence :: Recursive function for writing sentences."><span class="description">Recursive function for writing sentences.</span><pre>_writeSentence()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="nav-header protected">» Protected</li>
+<li class="property protected inherited"><a href="#%24operatorTranslations" title="$operatorTranslations :: Defines the standard operator translations, if any."><span class="description">Defines the standard operator translations, if any.</span><pre>$operatorTranslations</pre></a></li>
+<li class="property protected inherited"><a href="#%24options" title="$options :: Holds the options."><span class="description">Holds the options.</span><pre>$options</pre></a></li>
+<li class="property protected inherited"><a href="#%24vocabulary" title="$vocabulary :: Holds the vocabulary"><span class="description">Holds the vocabulary</span><pre>$vocabulary</pre></a></li>
+<li class="nav-header private">» Private</li>
+<li class="property private inherited"><a href="#%24operatorStrings" title="$operatorStrings :: Holds the operator strings."><span class="description">Holds the operator strings.</span><pre>$operatorStrings</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CGoTableaux%5CSentenceWriter%5CStandard" id="\GoTableaux\SentenceWriter\Standard"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.SentenceWriter.html">SentenceWriter</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/GoTableaux.SentenceWriter.Standard.html">Standard</a>
+</li>
+</ul>
+<div href="../classes/GoTableaux.SentenceWriter.Standard.html" class="element class">
+<p class="short_description">Writes sentences in standard notation.</p>
+<div class="details">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>package</th>
+<td><a href="..//packages/GoTableaux.html">GoTableaux</a></td>
+</tr></table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="getArgumentArray" id="getArgumentArray"></a><div class="element clickable method public getArgumentArray" data-toggle="collapse" data-target=".getArgumentArray .collapse">
+<h2>Makes a formatted Argument array.</h2>
+<pre>getArgumentArray(Argument $argument) : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceWriter::getArgumentArray()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$argument</h4>
+<code><a href="../classes/GoTableaux.Argument.html">\GoTableaux\Argument</a></code><p>The argument to format.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Formatted argument array.</div>
+</div></div>
+</div>
+<a name="getDecoratorInstance" id="getDecoratorInstance"></a><div class="element clickable method public getDecoratorInstance" data-toggle="collapse" data-target=".getDecoratorInstance .collapse">
+<h2>Gets a decorator instance of a given type for a sentence writer.</h2>
+<pre>getDecoratorInstance(SentenceWriter $sentenceWriter, string $decoratorType) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceWriter::getDecoratorInstance()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$sentenceWriter</h4>
+<code><a href="../classes/GoTableaux.SentenceWriter.html">\GoTableaux\SentenceWriter</a></code><p>The sentence writer for the instance to decorate.</p></div>
+<div class="subelement argument">
+<h4>$decoratorType</h4>
+<code>string</code><p>The decorator type to instantiate.</p></div>
+</div></div>
+</div>
+<a name="getInstance" id="getInstance"></a><div class="element clickable method public getInstance" data-toggle="collapse" data-target=".getInstance .collapse">
+<h2>Creates a child instance.</h2>
+<pre>getInstance(Vocabulary $vocabulary, string $type) : <a href="../classes/GoTableaux.SentenceWriter.html">\GoTableaux\SentenceWriter</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceWriter::getInstance()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$vocabulary</h4>
+<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code><p>The vocabulary for the writer to use.</p></div>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><p>Type of writer to instantiate, default is 'Standard'.</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.SentenceWriter.html">\GoTableaux\SentenceWriter</a></code>New instance.</div>
+</div></div>
+</div>
+<a name="getOperatorString" id="getOperatorString"></a><div class="element clickable method public getOperatorString" data-toggle="collapse" data-target=".getOperatorString .collapse">
+<h2>Gets the string for an operator by its name.</h2>
+<pre>getOperatorString(string $operatorName) : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceWriter::getOperatorString()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$operatorName</h4>
+<code>string</code><p>The name of the operator.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The string for the operator.</div>
+</div></div>
+</div>
+<a name="getOption" id="getOption"></a><div class="element clickable method public getOption" data-toggle="collapse" data-target=".getOption .collapse">
+<h2>Gets the value of a single option.</h2>
+<pre>getOption(string $option) : mixed</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceWriter::getOption()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$option</h4>
+<code>string</code><p>The name of the option to get.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>mixed</code>The value of the option.</div>
+</div></div>
+</div>
+<a name="getOptions" id="getOptions"></a><div class="element clickable method public getOptions" data-toggle="collapse" data-target=".getOptions .collapse">
+<h2>Gets all the options.</h2>
+<pre>getOptions() : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceWriter::getOptions()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>The options. Key is option name, value is option value.</div>
+</div></div>
+</div>
+<a name="getVocabulary" id="getVocabulary"></a><div class="element clickable method public getVocabulary" data-toggle="collapse" data-target=".getVocabulary .collapse">
+<h2>Gets the vocabulary.</h2>
+<pre>getVocabulary() : <a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceWriter::getVocabulary()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code>The writer's vocabulary.</div>
+</div></div>
+</div>
+<a name="setOperatorStrings" id="setOperatorStrings"></a><div class="element clickable method public setOperatorStrings" data-toggle="collapse" data-target=".setOperatorStrings .collapse">
+<h2>Sets the strings to use for some operators.</h2>
+<pre>setOperatorStrings(array $strings) : <a href="../classes/GoTableaux.SentenceWriter.html">\GoTableaux\SentenceWriter</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceWriter::setOperatorStrings()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$strings</h4>
+<code>array</code><p>Key is operator name, value is string.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.SentenceWriter.html">\GoTableaux\SentenceWriter</a></code>Current instance.</div>
+</div></div>
+</div>
+<a name="setOption" id="setOption"></a><div class="element clickable method public setOption" data-toggle="collapse" data-target=".setOption .collapse">
+<h2>Sets an option.</h2>
+<pre>setOption(string $option, mixed $value) : <a href="../classes/GoTableaux.SentenceWriter.html">\GoTableaux\SentenceWriter</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceWriter::setOption()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$option</h4>
+<code>string</code><p>The option to set.</p></div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code><p>The value of the option to set.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.SentenceWriter.html">\GoTableaux\SentenceWriter</a></code>Current instance.</div>
+</div></div>
+</div>
+<a name="setOptions" id="setOptions"></a><div class="element clickable method public setOptions" data-toggle="collapse" data-target=".setOptions .collapse">
+<h2>Sets many options.</h2>
+<pre>setOptions(array $options) : <a href="../classes/GoTableaux.SentenceWriter.html">\GoTableaux\SentenceWriter</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceWriter::setOptions()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$options</h4>
+<code>array</code><p>Array of options to set. Key is option name, value is option value.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.SentenceWriter.html">\GoTableaux\SentenceWriter</a></code>Current instance.</div>
+</div></div>
+</div>
+<a name="setVocabulary" id="setVocabulary"></a><div class="element clickable method public setVocabulary" data-toggle="collapse" data-target=".setVocabulary .collapse">
+<h2>Sets the vocabulary.</h2>
+<pre>setVocabulary(Vocabulary $vocabulary) : <a href="../classes/GoTableaux.SentenceWriter.html">\GoTableaux\SentenceWriter</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceWriter::setVocabulary()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$vocabulary</h4>
+<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.SentenceWriter.html">\GoTableaux\SentenceWriter</a></code>Current instance.</div>
+</div></div>
+</div>
+<a name="writeArgument" id="writeArgument"></a><div class="element clickable method public writeArgument" data-toggle="collapse" data-target=".writeArgument .collapse">
+<h2>Makes a string representation of an argument.</h2>
+<pre>writeArgument(Argument $argument) : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceWriter::writeArgument()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$argument</h4>
+<code><a href="../classes/GoTableaux.Argument.html">\GoTableaux\Argument</a></code><p>The argument to write.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The string representation of the argument.</div>
+</div></div>
+</div>
+<a name="writeAtomic" id="writeAtomic"></a><div class="element clickable method public writeAtomic" data-toggle="collapse" data-target=".writeAtomic .collapse">
+<h2>Writes an atomic sentence.</h2>
+<pre>writeAtomic(AtomicSentence $sentence) : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceWriter::writeAtomic()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$sentence</h4>
+<code><a href="../classes/GoTableaux.Sentence.Atomic.html">\GoTableaux\Sentence\Atomic</a></code><p>The atomic sentence to represent.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The string representation of the atomic sentence.</div>
+</div></div>
+</div>
+<a name="writeAtomicSymbol" id="writeAtomicSymbol"></a><div class="element clickable method public writeAtomicSymbol" data-toggle="collapse" data-target=".writeAtomicSymbol .collapse">
+<h2>Writes an atomic symbol.</h2>
+<pre>writeAtomicSymbol(string $symbol) : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceWriter::writeAtomicSymbol()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$symbol</h4>
+<code>string</code><p>The atomic symbol to write.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The representation of the atomic symbol.</div>
+</div></div>
+</div>
+<a name="writeMolecular" id="writeMolecular"></a><div class="element clickable method public writeMolecular" data-toggle="collapse" data-target=".writeMolecular .collapse">
+<h2>Makes a string representation of a molecular sentence.</h2>
+<pre>writeMolecular(MolecularSentence $sentence) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$sentence</h4>
+<code><a href="../classes/GoTableaux.Sentence.Molecular.html">\GoTableaux\Sentence\Molecular</a></code><p>The molecular sentence to represent.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The string representation of the sentence.</div>
+</div></div>
+</div>
+<a name="writeOperator" id="writeOperator"></a><div class="element clickable method public writeOperator" data-toggle="collapse" data-target=".writeOperator .collapse">
+<h2>Writes an operator.</h2>
+<pre>writeOperator(<a href="../classes/GoTableaux.Operator.html">\GoTableaux\Operator</a> | string $operatorOrName) : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceWriter::writeOperator()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$operatorOrName</h4>
+<code><a href="../classes/GoTableaux.Operator.html">\GoTableaux\Operator</a>string</code><p>Operator object or name of operator.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>String representation of the operator.</div>
+</div></div>
+</div>
+<a name="writeSentence" id="writeSentence"></a><div class="element clickable method public writeSentence" data-toggle="collapse" data-target=".writeSentence .collapse">
+<h2>Makes a string representation of a sentence.</h2>
+<pre>writeSentence(Sentence $sentence) : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceWriter::writeSentence()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$sentence</h4>
+<code><a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></code><p>The sentence to write.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The string representation of the sentence.</div>
+</div></div>
+</div>
+<a name="writeSentences" id="writeSentences"></a><div class="element clickable method public writeSentences" data-toggle="collapse" data-target=".writeSentences .collapse">
+<h2>Makes an array of string representations of {@link Sentence}s.</h2>
+<pre>writeSentences(array $sentences) : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceWriter::writeSentences()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$sentences</h4>
+<code>array</code><p>The sentences to write.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>An array of string representations of the sentences.</div>
+</div></div>
+</div>
+<a name="writeSubscript" id="writeSubscript"></a><div class="element clickable method public writeSubscript" data-toggle="collapse" data-target=".writeSubscript .collapse">
+<h2>Writes a subscript index.</h2>
+<pre>writeSubscript(integer $subscript) : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceWriter::writeSubscript()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$subscript</h4>
+<code>integer</code><p>The subscript index to write.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The string representation of the subscript index.</div>
+</div></div>
+</div>
+<a name="__construct" id="__construct"></a><div class="element clickable method protected __construct" data-toggle="collapse" data-target=".__construct .collapse">
+<h2>Constructor.</h2>
+<pre>__construct(Vocabulary $vocabulary) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>Sets the vocabulary.</p></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceWriter::__construct()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$vocabulary</h4>
+<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code><p>The vocabulary for the writer to use.</p></div>
+</div></div>
+</div>
+<a name="_writeSentence" id="_writeSentence"></a><div class="element clickable method protected _writeSentence" data-toggle="collapse" data-target="._writeSentence .collapse">
+<h2>Recursive function for writing sentences.</h2>
+<pre>_writeSentence(Sentence $sentence) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceWriter::_writeSentence()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$sentence</h4>
+<code></code>
+</div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24operatorTranslations" id="$operatorTranslations"> </a><div class="element clickable property protected $operatorTranslations" data-toggle="collapse" data-target=".$operatorTranslations .collapse">
+<h2>Defines the standard operator translations, if any.</h2>
+<pre>$operatorTranslations : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceWriter::$$operatorTranslations</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24options" id="$options"> </a><div class="element clickable property protected $options" data-toggle="collapse" data-target=".$options .collapse">
+<h2>Holds the options.</h2>
+<pre>$options : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>access</th>
+<td>private</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceWriter::$$options</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="%24vocabulary" id="$vocabulary"> </a><div class="element clickable property protected $vocabulary" data-toggle="collapse" data-target=".$vocabulary .collapse">
+<h2>Holds the vocabulary</h2>
+<pre>$vocabulary : <a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>access</th>
+<td>private</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceWriter::$$vocabulary</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="%24operatorStrings" id="$operatorStrings"> </a><div class="element clickable property private $operatorStrings" data-toggle="collapse" data-target=".$operatorStrings .collapse">
+<h2>Holds the operator strings.</h2>
+<pre>$operatorStrings : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceWriter::$$operatorStrings</td>
+</tr></table>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
+            generated on 2012-04-09T00:16:29-07:00.<br></footer></div>
+</div>
+</body>
+</html>

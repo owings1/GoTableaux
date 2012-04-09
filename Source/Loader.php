@@ -26,7 +26,9 @@ use \GoTableaux\Exception\Loader as LoaderException;
 // Register autload function
 spl_autoload_register( array( __NAMESPACE__ . '\Loader', 'loadClass' ));
 
-// Define DS constant
+/**
+ * @package GoTableaux
+ */
 if ( !defined( 'DS' )) define( 'DS', DIRECTORY_SEPARATOR );
 
 /**

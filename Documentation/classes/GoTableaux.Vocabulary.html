@@ -1,0 +1,703 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>GoTableaux » \GoTableaux\Vocabulary</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">GoTableaux</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/Exceptions.html"><i class="icon-folder-open"></i> Exceptions</a></li>
+<li><a href="../packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
+<li><a href="../packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
+<li><a href="../packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
+<li><a href="../packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
+<li><a href="../packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
+<li><a href="../packages/ModelTheory.html"><i class="icon-folder-open"></i> ModelTheory</a></li>
+<li><a href="../packages/Proof.html"><i class="icon-folder-open"></i> Proof</a></li>
+<li><a href="../packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
+<li><a href="../packages/Syntax.html"><i class="icon-folder-open"></i> Syntax</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">233</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public "><a href="#__construct" title="__construct :: Constructor. Initializes lexicon."><span class="description">Constructor. Initializes lexicon.</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#addAtomicSymbol" title="addAtomicSymbol :: Adds an atomic symbol."><span class="description">Adds an atomic symbol.</span><pre>addAtomicSymbol()</pre></a></li>
+<li class="method public "><a href="#addCloseMark" title="addCloseMark :: Adds a closing punctuation symbol, e.g. ')'."><span class="description">Adds a closing punctuation symbol, e.g. ')'.</span><pre>addCloseMark()</pre></a></li>
+<li class="method public "><a href="#addOpenMark" title="addOpenMark :: Adds an opening punctuation symbol, e.g. '('."><span class="description">Adds an opening punctuation symbol, e.g. '('.</span><pre>addOpenMark()</pre></a></li>
+<li class="method public "><a href="#addSeparator" title="addSeparator :: Adds a separator symbol, e.g. a space character."><span class="description">Adds a separator symbol, e.g. a space character.</span><pre>addSeparator()</pre></a></li>
+<li class="method public "><a href="#addSubscriptSymbol" title="addSubscriptSymbol :: Sets the symbol used for subscripting atomic symbols"><span class="description">Sets the symbol used for subscripting atomic symbols</span><pre>addSubscriptSymbol()</pre></a></li>
+<li class="method public "><a href="#createOperator" title="createOperator :: Creates an operator and adds it to the vocabulary items."><span class="description">Creates an operator and adds it to the vocabulary items.</span><pre>createOperator()</pre></a></li>
+<li class="method public "><a href="#createWithLexicon" title="createWithLexicon :: Creates an instance with a lexicon."><span class="description">Creates an instance with a lexicon.</span><pre>createWithLexicon()</pre></a></li>
+<li class="method public "><a href="#getAtomicSymbols" title="getAtomicSymbols :: Gets the atomic symbols."><span class="description">Gets the atomic symbols.</span><pre>getAtomicSymbols()</pre></a></li>
+<li class="method public "><a href="#getCloseMarks" title="getCloseMarks :: Gets the close marks."><span class="description">Gets the close marks.</span><pre>getCloseMarks()</pre></a></li>
+<li class="method public "><a href="#getOpenMarks" title="getOpenMarks :: Gets the open marks."><span class="description">Gets the open marks.</span><pre>getOpenMarks()</pre></a></li>
+<li class="method public "><a href="#getOperatorByName" title="getOperatorByName :: Gets Operator object by its name."><span class="description">Gets Operator object by its name.</span><pre>getOperatorByName()</pre></a></li>
+<li class="method public "><a href="#getOperatorBySymbol" title="getOperatorBySymbol :: Gets Operator object by its symbol."><span class="description">Gets Operator object by its symbol.</span><pre>getOperatorBySymbol()</pre></a></li>
+<li class="method public "><a href="#getOperatorNames" title="getOperatorNames :: Gets operator names with symbols for keys."><span class="description">Gets operator names with symbols for keys.</span><pre>getOperatorNames()</pre></a></li>
+<li class="method public "><a href="#getOperatorSymbols" title="getOperatorSymbols :: Gets all operator symbols."><span class="description">Gets all operator symbols.</span><pre>getOperatorSymbols()</pre></a></li>
+<li class="method public "><a href="#getSentences" title="getSentences :: Gets the set of sentences."><span class="description">Gets the set of sentences.</span><pre>getSentences()</pre></a></li>
+<li class="method public "><a href="#getSeparators" title="getSeparators :: Gets the separators."><span class="description">Gets the separators.</span><pre>getSeparators()</pre></a></li>
+<li class="method public "><a href="#getSubscriptSymbols" title="getSubscriptSymbols :: Gets the subscript symbol."><span class="description">Gets the subscript symbol.</span><pre>getSubscriptSymbols()</pre></a></li>
+<li class="method public "><a href="#getSymbolForOperator" title="getSymbolForOperator :: Gets the symbol used for a particular operator."><span class="description">Gets the symbol used for a particular operator.</span><pre>getSymbolForOperator()</pre></a></li>
+<li class="method public "><a href="#getSymbolType" title="getSymbolType :: Gets item type by symbol."><span class="description">Gets item type by symbol.</span><pre>getSymbolType()</pre></a></li>
+<li class="method public "><a href="#isOperatorType" title="isOperatorType :: Checks whether a type flag is of an operator."><span class="description">Checks whether a type flag is of an operator.</span><pre>isOperatorType()</pre></a></li>
+<li class="method public "><a href="#registerSentence" title="registerSentence :: Adds a sentence to the vocabulary, maintaining uniqueness."><span class="description">Adds a sentence to the vocabulary, maintaining uniqueness.</span><pre>registerSentence()</pre></a></li>
+<li class="nav-header protected">» Protected</li>
+<li class="method protected "><a href="#addSymbol" title="addSymbol :: Adds a symbol to the vocabulary."><span class="description">Adds a symbol to the vocabulary.</span><pre>addSymbol()</pre></a></li>
+<li class="method protected "><a href="#getItems" title="getItems :: Gets all items in vocabulary of a type flag."><span class="description">Gets all items in vocabulary of a type flag.</span><pre>getItems()</pre></a></li>
+<li class="method protected "><a href="#insertLexicon" title="insertLexicon :: Adds an array of lexical items to the vocabulary."><span class="description">Adds an array of lexical items to the vocabulary.</span><pre>insertLexicon()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="nav-header protected">» Protected</li>
+<li class="property protected "><a href="#%24atomicSentences" title="$atomicSentences :: Holds the set of {@link Sentence\Atomic atomic sentences}."><span class="description">Holds the set of {@link Sentence\Atomic atomic sentences}.</span><pre>$atomicSentences</pre></a></li>
+<li class="property protected "><a href="#%24items" title="$items :: Holds a hash of all vocabulary items, including operators."><span class="description">Holds a hash of all vocabulary items, including operators.</span><pre>$items</pre></a></li>
+<li class="property protected "><a href="#%24operatorSymbols" title="$operatorSymbols :: Holds the operator symbols."><span class="description">Holds the operator symbols.</span><pre>$operatorSymbols</pre></a></li>
+<li class="property protected "><a href="#%24operators" title="$operators :: Holds the operators."><span class="description">Holds the operators.</span><pre>$operators</pre></a></li>
+<li class="property protected "><a href="#%24sentences" title="$sentences :: Holds the set of sentences."><span class="description">Holds the set of sentences.</span><pre>$sentences</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-constant"></i> Constants</li>
+<li class="constant  "><a href="#ATOMIC" title="ATOMIC :: "><span class="description">ATOMIC</span><pre>ATOMIC</pre></a></li>
+<li class="constant  "><a href="#CTRL_SUBSCRIPT" title="CTRL_SUBSCRIPT :: "><span class="description">CTRL_SUBSCRIPT</span><pre>CTRL_SUBSCRIPT</pre></a></li>
+<li class="constant  "><a href="#NUMERIC_CHAR" title="NUMERIC_CHAR :: "><span class="description">NUMERIC_CHAR</span><pre>NUMERIC_CHAR</pre></a></li>
+<li class="constant  "><a href="#OPER_BINARY" title="OPER_BINARY :: "><span class="description">OPER_BINARY</span><pre>OPER_BINARY</pre></a></li>
+<li class="constant  "><a href="#OPER_TERNARY" title="OPER_TERNARY :: "><span class="description">OPER_TERNARY</span><pre>OPER_TERNARY</pre></a></li>
+<li class="constant  "><a href="#OPER_UNARY" title="OPER_UNARY :: "><span class="description">OPER_UNARY</span><pre>OPER_UNARY</pre></a></li>
+<li class="constant  "><a href="#PUNCT_CLOSE" title="PUNCT_CLOSE :: "><span class="description">PUNCT_CLOSE</span><pre>PUNCT_CLOSE</pre></a></li>
+<li class="constant  "><a href="#PUNCT_OPEN" title="PUNCT_OPEN :: "><span class="description">PUNCT_OPEN</span><pre>PUNCT_OPEN</pre></a></li>
+<li class="constant  "><a href="#PUNCT_SEPARATOR" title="PUNCT_SEPARATOR :: "><span class="description">PUNCT_SEPARATOR</span><pre>PUNCT_SEPARATOR</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CGoTableaux%5CVocabulary" id="\GoTableaux\Vocabulary"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/GoTableaux.Vocabulary.html">Vocabulary</a>
+</li>
+</ul>
+<div href="../classes/GoTableaux.Vocabulary.html" class="element class">
+<p class="short_description">Represents a vocabulary.</p>
+<div class="details">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>package</th>
+<td><a href="..//packages/Syntax.html">Syntax</a></td>
+</tr></table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="__construct" id="__construct"></a><div class="element clickable method public __construct" data-toggle="collapse" data-target=".__construct .collapse">
+<h2>Constructor. Initializes lexicon.</h2>
+<pre>__construct(array $lexicon) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>Example:</p>
+
+<pre><code><?php
+$vocabulary = new Vocabulary( array(
+    'openMarks' => array('(', '['),
+    'closeMarks' => array(')', ']'),
+    'atomicSymbols' => array('A', 'B', 'C'),
+    'subscripts' => array('_'),
+    'separators' => array(' '),
+    'operatorSymbols' => array(
+        '&' => array('Conjunction' => 2),
+        '~' => array('Negation'  => 1)
+    )
+));
+?>
+</code></pre></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$lexicon</h4>
+<code>array</code><p>Structured array of lexical items.</p></div>
+</div></div>
+</div>
+<a name="addAtomicSymbol" id="addAtomicSymbol"></a><div class="element clickable method public addAtomicSymbol" data-toggle="collapse" data-target=".addAtomicSymbol .collapse">
+<h2>Adds an atomic symbol.</h2>
+<pre>addAtomicSymbol(string $symbol) : <a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$symbol</h4>
+<code>string</code><p>Symbol to be added (single character).</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code>The current instance.</div>
+</div></div>
+</div>
+<a name="addCloseMark" id="addCloseMark"></a><div class="element clickable method public addCloseMark" data-toggle="collapse" data-target=".addCloseMark .collapse">
+<h2>Adds a closing punctuation symbol, e.g. ')'.</h2>
+<pre>addCloseMark(string $symbol) : <a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$symbol</h4>
+<code>string</code><p>Symbol to be added (single character).</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code>The current instance.</div>
+</div></div>
+</div>
+<a name="addOpenMark" id="addOpenMark"></a><div class="element clickable method public addOpenMark" data-toggle="collapse" data-target=".addOpenMark .collapse">
+<h2>Adds an opening punctuation symbol, e.g. '('.</h2>
+<pre>addOpenMark(string $symbol) : <a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$symbol</h4>
+<code>string</code><p>Symbol to be added (single character).</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code>The current instance.</div>
+</div></div>
+</div>
+<a name="addSeparator" id="addSeparator"></a><div class="element clickable method public addSeparator" data-toggle="collapse" data-target=".addSeparator .collapse">
+<h2>Adds a separator symbol, e.g. a space character.</h2>
+<pre>addSeparator(string $symbol) : <a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$symbol</h4>
+<code>string</code><p>Symbol to be added (single character).</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code>The current instance.</div>
+</div></div>
+</div>
+<a name="addSubscriptSymbol" id="addSubscriptSymbol"></a><div class="element clickable method public addSubscriptSymbol" data-toggle="collapse" data-target=".addSubscriptSymbol .collapse">
+<h2>Sets the symbol used for subscripting atomic symbols</h2>
+<pre>addSubscriptSymbol(string $symbol) : <a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$symbol</h4>
+<code>string</code><p>Symbol to use.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code>The current instance.</div>
+</div></div>
+</div>
+<a name="createOperator" id="createOperator"></a><div class="element clickable method public createOperator" data-toggle="collapse" data-target=".createOperator .collapse">
+<h2>Creates an operator and adds it to the vocabulary items.</h2>
+<pre>createOperator(string $symbol, integer $arity, string $name) : <a href="../classes/GoTableaux.Operator.html">\GoTableaux\Operator</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$symbol</h4>
+<code>string</code><p>Operator symbol.</p></div>
+<div class="subelement argument">
+<h4>$arity</h4>
+<code>integer</code><p>Arity of operator, either 1 or 2.</p></div>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><p>Human name of the operator, e.g. 'Conjunction'.</p>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\GoTableaux\{@link</code></th>
+<td>VocabularyException} on errors.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Operator.html">\GoTableaux\Operator</a></code>Operator instance.</div>
+</div></div>
+</div>
+<a name="createWithLexicon" id="createWithLexicon"></a><div class="element clickable method public createWithLexicon" data-toggle="collapse" data-target=".createWithLexicon .collapse">
+<h2>Creates an instance with a lexicon.</h2>
+<pre>createWithLexicon(array $lexicon) : <a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$lexicon</h4>
+<code>array</code><p>Array of lexical items. For format, see the {@link Vocabulary::__consruct() constructor}.</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code>The created instance.</div>
+</div></div>
+</div>
+<a name="getAtomicSymbols" id="getAtomicSymbols"></a><div class="element clickable method public getAtomicSymbols" data-toggle="collapse" data-target=".getAtomicSymbols .collapse">
+<h2>Gets the atomic symbols.</h2>
+<pre>getAtomicSymbols(integer $single) : array | string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$single</h4>
+<code>integer</code><p>When true, returns a single character. Default is false.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code><code>string</code>Array of characters, or single character.</div>
+</div></div>
+</div>
+<a name="getCloseMarks" id="getCloseMarks"></a><div class="element clickable method public getCloseMarks" data-toggle="collapse" data-target=".getCloseMarks .collapse">
+<h2>Gets the close marks.</h2>
+<pre>getCloseMarks(integer $single) : array | string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$single</h4>
+<code>integer</code><p>When true, returns a single character. Default is false.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code><code>string</code>Array of characters, or single character.</div>
+</div></div>
+</div>
+<a name="getOpenMarks" id="getOpenMarks"></a><div class="element clickable method public getOpenMarks" data-toggle="collapse" data-target=".getOpenMarks .collapse">
+<h2>Gets the open marks.</h2>
+<pre>getOpenMarks(integer $single) : array | string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$single</h4>
+<code>integer</code><p>When true, returns a single character. Default is false.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code><code>string</code>Array of characters, or single character.</div>
+</div></div>
+</div>
+<a name="getOperatorByName" id="getOperatorByName"></a><div class="element clickable method public getOperatorByName" data-toggle="collapse" data-target=".getOperatorByName .collapse">
+<h2>Gets Operator object by its name.</h2>
+<pre>getOperatorByName(string $name) : <a href="../classes/GoTableaux.Operator.html">\GoTableaux\Operator</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><p>Operator name.</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\GoTableaux\{@link</code></th>
+<td>VocabularyException} when no operator is found.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Operator.html">\GoTableaux\Operator</a></code>Operator object.</div>
+</div></div>
+</div>
+<a name="getOperatorBySymbol" id="getOperatorBySymbol"></a><div class="element clickable method public getOperatorBySymbol" data-toggle="collapse" data-target=".getOperatorBySymbol .collapse">
+<h2>Gets Operator object by its symbol.</h2>
+<pre>getOperatorBySymbol(string $symbol) : <a href="../classes/GoTableaux.Operator.html">\GoTableaux\Operator</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$symbol</h4>
+<code>string</code><p>Operator symbol.</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\GoTableaux\{@link</code></th>
+<td>VocabularyException} when $symbol is not an operator symbol in the vocabulary.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Operator.html">\GoTableaux\Operator</a></code>Operator instance.</div>
+</div></div>
+</div>
+<a name="getOperatorNames" id="getOperatorNames"></a><div class="element clickable method public getOperatorNames" data-toggle="collapse" data-target=".getOperatorNames .collapse">
+<h2>Gets operator names with symbols for keys.</h2>
+<pre>getOperatorNames(integer $arity) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$arity</h4>
+<code>integer</code><p>Arity of operators to get. Default is null, which returns all operator names.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Array of operator names with symbols for keys.</div>
+</div></div>
+</div>
+<a name="getOperatorSymbols" id="getOperatorSymbols"></a><div class="element clickable method public getOperatorSymbols" data-toggle="collapse" data-target=".getOperatorSymbols .collapse">
+<h2>Gets all operator symbols.</h2>
+<pre>getOperatorSymbols(integer $arity) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$arity</h4>
+<code>integer</code><p>Arity of operators to get. Default is null, which returns all operator symbols.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Array of operator symbols. Key is operator symbol, value is operator's arity.</div>
+</div></div>
+</div>
+<a name="getSentences" id="getSentences"></a><div class="element clickable method public getSentences" data-toggle="collapse" data-target=".getSentences .collapse">
+<h2>Gets the set of sentences.</h2>
+<pre>getSentences() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Array of {@link Sentence}s.</div>
+</div></div>
+</div>
+<a name="getSeparators" id="getSeparators"></a><div class="element clickable method public getSeparators" data-toggle="collapse" data-target=".getSeparators .collapse">
+<h2>Gets the separators.</h2>
+<pre>getSeparators(integer $single) : array | string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$single</h4>
+<code>integer</code><p>When true, returns a single character. Default is false.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code><code>string</code>Array of characters, or single character.</div>
+</div></div>
+</div>
+<a name="getSubscriptSymbols" id="getSubscriptSymbols"></a><div class="element clickable method public getSubscriptSymbols" data-toggle="collapse" data-target=".getSubscriptSymbols .collapse">
+<h2>Gets the subscript symbol.</h2>
+<pre>getSubscriptSymbols(integer $single) : array | string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$single</h4>
+<code>integer</code><p>When true, returns a single character. Default is false.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code><code>string</code>Array of characters, or single character.</div>
+</div></div>
+</div>
+<a name="getSymbolForOperator" id="getSymbolForOperator"></a><div class="element clickable method public getSymbolForOperator" data-toggle="collapse" data-target=".getSymbolForOperator .collapse">
+<h2>Gets the symbol used for a particular operator.</h2>
+<pre>getSymbolForOperator(<a href="../classes/GoTableaux.Operator.html">\GoTableaux\Operator</a> | string $operator) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$operator</h4>
+<code><a href="../classes/GoTableaux.Operator.html">\GoTableaux\Operator</a>string</code><p>Operator object or name of operator.</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\GoTableaux\{@link</code></th>
+<td>VocabularyException} when operator is not in the vocabulary.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>Operator symbol.</div>
+</div></div>
+</div>
+<a name="getSymbolType" id="getSymbolType"></a><div class="element clickable method public getSymbolType" data-toggle="collapse" data-target=".getSymbolType .collapse">
+<h2>Gets item type by symbol.</h2>
+<pre>getSymbolType(string $symbol) : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$symbol</h4>
+<code>string</code><p>The symbol in the vocabulary.</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\GoTableaux\{@link</code></th>
+<td>VocabularyException} when symbol is not a vocabulary item.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>integer</code>Type flag of the symbol.</div>
+</div></div>
+</div>
+<a name="isOperatorType" id="isOperatorType"></a><div class="element clickable method public isOperatorType" data-toggle="collapse" data-target=".isOperatorType .collapse">
+<h2>Checks whether a type flag is of an operator.</h2>
+<pre>isOperatorType(integer $flag) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$flag</h4>
+<code>integer</code><p>The type flag.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>True if flag is of an operator, false otherwise.</div>
+</div></div>
+</div>
+<a name="registerSentence" id="registerSentence"></a><div class="element clickable method public registerSentence" data-toggle="collapse" data-target=".registerSentence .collapse">
+<h2>Adds a sentence to the vocabulary, maintaining uniqueness.</h2>
+<pre>registerSentence(Sentence $sentence) : <a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>If the sentence, or one of the same form is already in the vocabulary,
+then that sentence is returned. Otherwise the passed sentence is
+returned.</p></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$sentence</h4>
+<code><a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></code><p>The sentence to add.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></code>Old or new sentence.</div>
+</div></div>
+</div>
+<a name="addSymbol" id="addSymbol"></a><div class="element clickable method protected addSymbol" data-toggle="collapse" data-target=".addSymbol .collapse">
+<h2>Adds a symbol to the vocabulary.</h2>
+<pre>addSymbol(string $symbol, integer $typeFlag) : <a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$symbol</h4>
+<code>string</code><p>Single character symbol, novel to vocabulary instance.</p></div>
+<div class="subelement argument">
+<h4>$typeFlag</h4>
+<code>integer</code><p>The symbol's type flag.</p>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\GoTableaux\{@link</code></th>
+<td>VocabularyException}.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code>Current instance.</div>
+</div></div>
+</div>
+<a name="getItems" id="getItems"></a><div class="element clickable method protected getItems" data-toggle="collapse" data-target=".getItems .collapse">
+<h2>Gets all items in vocabulary of a type flag.</h2>
+<pre>getItems(integer | array $typeFlag, boolean $single) : array | string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$typeFlag</h4>
+<code>integerarray</code><p>Type flag or array of type flags.</p></div>
+<div class="subelement argument">
+<h4>$single</h4>
+<code>boolean</code><p>Whether to return a single character</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code><code>string</code>Array of vocabulary items, or, if $single is true, a single character string.</div>
+</div></div>
+</div>
+<a name="insertLexicon" id="insertLexicon"></a><div class="element clickable method protected insertLexicon" data-toggle="collapse" data-target=".insertLexicon .collapse">
+<h2>Adds an array of lexical items to the vocabulary.</h2>
+<pre>insertLexicon(array $lexicon) : <a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$lexicon</h4>
+<code>array</code><p>Array of lexical items. For format, see the {@link Vocabulary::__construct() constructor}.</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code>Current instance.</div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24atomicSentences" id="$atomicSentences"> </a><div class="element clickable property protected $atomicSentences" data-toggle="collapse" data-target=".$atomicSentences .collapse">
+<h2>Holds the set of {@link Sentence\Atomic atomic sentences}.</h2>
+<pre>$atomicSentences : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24items" id="$items"> </a><div class="element clickable property protected $items" data-toggle="collapse" data-target=".$items .collapse">
+<h2>Holds a hash of all vocabulary items, including operators.</h2>
+<pre>$items : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>Key is item symbol; value is type flag.</p></p>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>private</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24operatorSymbols" id="$operatorSymbols"> </a><div class="element clickable property protected $operatorSymbols" data-toggle="collapse" data-target=".$operatorSymbols .collapse">
+<h2>Holds the operator symbols.</h2>
+<pre>$operatorSymbols : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>Key is symbol, value is operator name.</p></p>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>private</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24operators" id="$operators"> </a><div class="element clickable property protected $operators" data-toggle="collapse" data-target=".$operators .collapse">
+<h2>Holds the operators.</h2>
+<pre>$operators : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>Key is operator name; value is <a href="Operator">operator</a> object.</p></p>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>private</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24sentences" id="$sentences"> </a><div class="element clickable property protected $sentences" data-toggle="collapse" data-target=".$sentences .collapse">
+<h2>Holds the set of sentences.</h2>
+<pre>$sentences : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>This is used for tracking <a href="Sentence">Sentence</a> instances, to ensure object
+identity with sentence form identity. Key is sentence string relative to
+a <a href="SentenceParser">parser</a>, value is <a href="Sentence">sentence</a> object.</p></p>
+<table class="table table-bordered">
+<tr>
+<th>see</th>
+<td>\GoTableaux\Vocabulary::registerSentence()</td>
+</tr>
+<tr>
+<th>access</th>
+<td>private</td>
+</tr>
+</table>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-constant"></i> Constants</h3>
+<a name="ATOMIC" id="ATOMIC"> </a><div class="element clickable constant  ATOMIC" data-toggle="collapse" data-target=".ATOMIC .collapse">
+<h2>ATOMIC</h2>
+<pre>ATOMIC </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="CTRL_SUBSCRIPT" id="CTRL_SUBSCRIPT"> </a><div class="element clickable constant  CTRL_SUBSCRIPT" data-toggle="collapse" data-target=".CTRL_SUBSCRIPT .collapse">
+<h2>CTRL_SUBSCRIPT</h2>
+<pre>CTRL_SUBSCRIPT </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="NUMERIC_CHAR" id="NUMERIC_CHAR"> </a><div class="element clickable constant  NUMERIC_CHAR" data-toggle="collapse" data-target=".NUMERIC_CHAR .collapse">
+<h2>NUMERIC_CHAR</h2>
+<pre>NUMERIC_CHAR </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="OPER_BINARY" id="OPER_BINARY"> </a><div class="element clickable constant  OPER_BINARY" data-toggle="collapse" data-target=".OPER_BINARY .collapse">
+<h2>OPER_BINARY</h2>
+<pre>OPER_BINARY </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="OPER_TERNARY" id="OPER_TERNARY"> </a><div class="element clickable constant  OPER_TERNARY" data-toggle="collapse" data-target=".OPER_TERNARY .collapse">
+<h2>OPER_TERNARY</h2>
+<pre>OPER_TERNARY </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="OPER_UNARY" id="OPER_UNARY"> </a><div class="element clickable constant  OPER_UNARY" data-toggle="collapse" data-target=".OPER_UNARY .collapse">
+<h2>OPER_UNARY</h2>
+<pre>OPER_UNARY </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="PUNCT_CLOSE" id="PUNCT_CLOSE"> </a><div class="element clickable constant  PUNCT_CLOSE" data-toggle="collapse" data-target=".PUNCT_CLOSE .collapse">
+<h2>PUNCT_CLOSE</h2>
+<pre>PUNCT_CLOSE </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="PUNCT_OPEN" id="PUNCT_OPEN"> </a><div class="element clickable constant  PUNCT_OPEN" data-toggle="collapse" data-target=".PUNCT_OPEN .collapse">
+<h2>PUNCT_OPEN</h2>
+<pre>PUNCT_OPEN </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="PUNCT_SEPARATOR" id="PUNCT_SEPARATOR"> </a><div class="element clickable constant  PUNCT_SEPARATOR" data-toggle="collapse" data-target=".PUNCT_SEPARATOR .collapse">
+<h2>PUNCT_SEPARATOR</h2>
+<pre>PUNCT_SEPARATOR </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
+            generated on 2012-04-09T00:16:29-07:00.<br></footer></div>
+</div>
+</body>
+</html>

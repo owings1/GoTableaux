@@ -1,0 +1,2521 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>GoTableaux</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="css/template.css" rel="stylesheet" media="all">
+<script src="js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="js/bootstrap.js" type="text/javascript"></script><script src="js/template.js" type="text/javascript"></script><script src="js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="img/favicon.ico">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="index.html">GoTableaux</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
+<li><a>Packages</a></li>
+<li><a href="packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
+<li><a href="packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="packages/Exceptions.html"><i class="icon-folder-open"></i> Exceptions</a></li>
+<li><a href="packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
+<li><a href="packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
+<li><a href="packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
+<li><a href="packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
+<li><a href="packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
+<li><a href="packages/ModelTheory.html"><i class="icon-folder-open"></i> ModelTheory</a></li>
+<li><a href="packages/Proof.html"><i class="icon-folder-open"></i> Proof</a></li>
+<li><a href="packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
+<li><a href="packages/Syntax.html"><i class="icon-folder-open"></i> Syntax</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">233</span></a></li>
+<li><a href="markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4"><ul class="side-nav nav nav-list">
+<li class="nav-header">Filter type</li>
+<li><div class="btn-group type-filter" data-toggle="buttons-checkbox">
+<button class="btn critical">Critical</button><button class="btn error">Error</button><button class="btn notice">Notice</button>
+</div></li>
+<li class="nav-header">Navigation</li>
+<li><a href="#Logic/CPL/ProofSystem/BranchRule/Conjunction.php"><i class="icon-file"></i>Logic/CPL/ProofSystem/BranchRule/Conjunction.php</a></li>
+<li><a href="#Logic/CPL/ProofSystem/BranchRule/Disjunction.php"><i class="icon-file"></i>Logic/CPL/ProofSystem/BranchRule/Disjunction.php</a></li>
+<li><a href="#Logic/CPL/ProofSystem/BranchRule/DoubleNegation.php"><i class="icon-file"></i>Logic/CPL/ProofSystem/BranchRule/DoubleNegation.php</a></li>
+<li><a href="#Logic/CPL/ProofSystem/BranchRule/MaterialBiconditional.php"><i class="icon-file"></i>Logic/CPL/ProofSystem/BranchRule/MaterialBiconditional.php</a></li>
+<li><a href="#Logic/CPL/ProofSystem/BranchRule/MaterialConditional.php"><i class="icon-file"></i>Logic/CPL/ProofSystem/BranchRule/MaterialConditional.php</a></li>
+<li><a href="#Logic/CPL/ProofSystem/BranchRule/NegatedConjunction.php"><i class="icon-file"></i>Logic/CPL/ProofSystem/BranchRule/NegatedConjunction.php</a></li>
+<li><a href="#Logic/CPL/ProofSystem/BranchRule/NegatedDisjunction.php"><i class="icon-file"></i>Logic/CPL/ProofSystem/BranchRule/NegatedDisjunction.php</a></li>
+<li><a href="#Logic/CPL/ProofSystem/BranchRule/NegatedMaterialBiconditional.php"><i class="icon-file"></i>Logic/CPL/ProofSystem/BranchRule/NegatedMaterialBiconditional.php</a></li>
+<li><a href="#Logic/CPL/ProofSystem/BranchRule/NegatedMaterialConditional.php"><i class="icon-file"></i>Logic/CPL/ProofSystem/BranchRule/NegatedMaterialConditional.php</a></li>
+<li><a href="#Logic/CPL/ProofSystem/ClosureRule.php"><i class="icon-file"></i>Logic/CPL/ProofSystem/ClosureRule.php</a></li>
+<li><a href="#Logic/CPL/ProofSystem.php"><i class="icon-file"></i>Logic/CPL/ProofSystem.php</a></li>
+<li><a href="#Logic/CPL.php"><i class="icon-file"></i>Logic/CPL.php</a></li>
+<li><a href="#Logic/FDE/ProofSystem/BranchRule/ConjunctionDesignated.php"><i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/ConjunctionDesignated.php</a></li>
+<li><a href="#Logic/FDE/ProofSystem/BranchRule/ConjunctionUndesignated.php"><i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/ConjunctionUndesignated.php</a></li>
+<li><a href="#Logic/FDE/ProofSystem/BranchRule/DisjunctionDesignated.php"><i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/DisjunctionDesignated.php</a></li>
+<li><a href="#Logic/FDE/ProofSystem/BranchRule/DisjunctionUndesignated.php"><i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/DisjunctionUndesignated.php</a></li>
+<li><a href="#Logic/FDE/ProofSystem/BranchRule/DoubleNegationDesignated.php"><i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/DoubleNegationDesignated.php</a></li>
+<li><a href="#Logic/FDE/ProofSystem/BranchRule/DoubleNegationUndesignated.php"><i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/DoubleNegationUndesignated.php</a></li>
+<li><a href="#Logic/FDE/ProofSystem/BranchRule/MaterialBiconditionalDesignated.php"><i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/MaterialBiconditionalDesignated.php</a></li>
+<li><a href="#Logic/FDE/ProofSystem/BranchRule/MaterialBiconditionalUndesignated.php"><i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/MaterialBiconditionalUndesignated.php</a></li>
+<li><a href="#Logic/FDE/ProofSystem/BranchRule/MaterialConditionalDesignated.php"><i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/MaterialConditionalDesignated.php</a></li>
+<li><a href="#Logic/FDE/ProofSystem/BranchRule/MaterialConditionalUndesignated.php"><i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/MaterialConditionalUndesignated.php</a></li>
+<li><a href="#Logic/FDE/ProofSystem/BranchRule/NegatedConjunctionDesignated.php"><i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/NegatedConjunctionDesignated.php</a></li>
+<li><a href="#Logic/FDE/ProofSystem/BranchRule/NegatedConjunctionUndesignated.php"><i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/NegatedConjunctionUndesignated.php</a></li>
+<li><a href="#Logic/FDE/ProofSystem/BranchRule/NegatedDisjunctionDesignated.php"><i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/NegatedDisjunctionDesignated.php</a></li>
+<li><a href="#Logic/FDE/ProofSystem/BranchRule/NegatedDisjunctionUndesignated.php"><i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/NegatedDisjunctionUndesignated.php</a></li>
+<li><a href="#Logic/FDE/ProofSystem/BranchRule/NegatedMaterialBiconditionalDesignated.php"><i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/NegatedMaterialBiconditionalDesignated.php</a></li>
+<li><a href="#Logic/FDE/ProofSystem/BranchRule/NegatedMaterialBiconditionalUndesignated.php"><i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/NegatedMaterialBiconditionalUndesignated.php</a></li>
+<li><a href="#Logic/FDE/ProofSystem/BranchRule/NegatedMaterialConditionalDesignated.php"><i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/NegatedMaterialConditionalDesignated.php</a></li>
+<li><a href="#Logic/FDE/ProofSystem/BranchRule/NegatedMaterialConditionalUndesignated.php"><i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/NegatedMaterialConditionalUndesignated.php</a></li>
+<li><a href="#Logic/FDE/ProofSystem/ClosureRule.php"><i class="icon-file"></i>Logic/FDE/ProofSystem/ClosureRule.php</a></li>
+<li><a href="#Logic/FDE/ProofSystem.php"><i class="icon-file"></i>Logic/FDE/ProofSystem.php</a></li>
+<li><a href="#Logic/FDE.php"><i class="icon-file"></i>Logic/FDE.php</a></li>
+<li><a href="#Logic/GO/ProofSystem/BranchRule/ConjunctionUndesignated.php"><i class="icon-file"></i>Logic/GO/ProofSystem/BranchRule/ConjunctionUndesignated.php</a></li>
+<li><a href="#Logic/GO/ProofSystem/BranchRule/DisjunctionUndesignated.php"><i class="icon-file"></i>Logic/GO/ProofSystem/BranchRule/DisjunctionUndesignated.php</a></li>
+<li><a href="#Logic/GO/ProofSystem/BranchRule/MaterialBiconditionalUndesignated.php"><i class="icon-file"></i>Logic/GO/ProofSystem/BranchRule/MaterialBiconditionalUndesignated.php</a></li>
+<li><a href="#Logic/GO/ProofSystem/BranchRule/MaterialConditionalUndesignated.php"><i class="icon-file"></i>Logic/GO/ProofSystem/BranchRule/MaterialConditionalUndesignated.php</a></li>
+<li><a href="#Logic/GO/ProofSystem/BranchRule/NegatedConjunctionDesignated.php"><i class="icon-file"></i>Logic/GO/ProofSystem/BranchRule/NegatedConjunctionDesignated.php</a></li>
+<li><a href="#Logic/GO/ProofSystem/BranchRule/NegatedConjunctionUndesignated.php"><i class="icon-file"></i>Logic/GO/ProofSystem/BranchRule/NegatedConjunctionUndesignated.php</a></li>
+<li><a href="#Logic/GO/ProofSystem/BranchRule/NegatedDisjunctionDesignated.php"><i class="icon-file"></i>Logic/GO/ProofSystem/BranchRule/NegatedDisjunctionDesignated.php</a></li>
+<li><a href="#Logic/GO/ProofSystem/BranchRule/NegatedDisjunctionUndesignated.php"><i class="icon-file"></i>Logic/GO/ProofSystem/BranchRule/NegatedDisjunctionUndesignated.php</a></li>
+<li><a href="#Logic/GO/ProofSystem/BranchRule/NegatedMaterialBiconditionalDesignated.php"><i class="icon-file"></i>Logic/GO/ProofSystem/BranchRule/NegatedMaterialBiconditionalDesignated.php</a></li>
+<li><a href="#Logic/GO/ProofSystem/BranchRule/NegatedMaterialBiconditionalUndesignated.php"><i class="icon-file"></i>Logic/GO/ProofSystem/BranchRule/NegatedMaterialBiconditionalUndesignated.php</a></li>
+<li><a href="#Logic/GO/ProofSystem/BranchRule/NegatedMaterialConditionalDesignated.php"><i class="icon-file"></i>Logic/GO/ProofSystem/BranchRule/NegatedMaterialConditionalDesignated.php</a></li>
+<li><a href="#Logic/GO/ProofSystem/BranchRule/NegatedMaterialConditionalUndesignated.php"><i class="icon-file"></i>Logic/GO/ProofSystem/BranchRule/NegatedMaterialConditionalUndesignated.php</a></li>
+<li><a href="#Logic/GO/ProofSystem/ClosureRule.php"><i class="icon-file"></i>Logic/GO/ProofSystem/ClosureRule.php</a></li>
+<li><a href="#Logic/GO/ProofSystem.php"><i class="icon-file"></i>Logic/GO/ProofSystem.php</a></li>
+<li><a href="#Logic/GO.php"><i class="icon-file"></i>Logic/GO.php</a></li>
+<li><a href="#Logic/LP/ProofSystem/ClosureRule.php"><i class="icon-file"></i>Logic/LP/ProofSystem/ClosureRule.php</a></li>
+<li><a href="#Logic/LP/ProofSystem.php"><i class="icon-file"></i>Logic/LP/ProofSystem.php</a></li>
+<li><a href="#Logic/LP.php"><i class="icon-file"></i>Logic/LP.php</a></li>
+<li><a href="#Logic/Lukasiewicz/ProofSystem/BranchRule/ConditionalDesignated.php"><i class="icon-file"></i>Logic/Lukasiewicz/ProofSystem/BranchRule/ConditionalDesignated.php</a></li>
+<li><a href="#Logic/Lukasiewicz/ProofSystem/BranchRule/ConditionalUndesignated.php"><i class="icon-file"></i>Logic/Lukasiewicz/ProofSystem/BranchRule/ConditionalUndesignated.php</a></li>
+<li><a href="#Logic/Lukasiewicz/ProofSystem/BranchRule/NegatedConditionalDesignated.php"><i class="icon-file"></i>Logic/Lukasiewicz/ProofSystem/BranchRule/NegatedConditionalDesignated.php</a></li>
+<li><a href="#Logic/Lukasiewicz/ProofSystem/BranchRule/NegatedConditionalUndesignated.php"><i class="icon-file"></i>Logic/Lukasiewicz/ProofSystem/BranchRule/NegatedConditionalUndesignated.php</a></li>
+<li><a href="#Logic/Lukasiewicz/ProofSystem.php"><i class="icon-file"></i>Logic/Lukasiewicz/ProofSystem.php</a></li>
+<li><a href="#Logic/Lukasiewicz.php"><i class="icon-file"></i>Logic/Lukasiewicz.php</a></li>
+<li><a href="#Logic/StrongKleene/ProofSystem/ClosureRule.php"><i class="icon-file"></i>Logic/StrongKleene/ProofSystem/ClosureRule.php</a></li>
+<li><a href="#Logic/StrongKleene/ProofSystem.php"><i class="icon-file"></i>Logic/StrongKleene/ProofSystem.php</a></li>
+<li><a href="#Proof/Tableau.php"><i class="icon-file"></i>Proof/Tableau.php</a></li>
+<li><a href="#Proof/TableauBranch/ManyValued.php"><i class="icon-file"></i>Proof/TableauBranch/ManyValued.php</a></li>
+<li><a href="#Proof/TableauBranch/Modal/ManyValued.php"><i class="icon-file"></i>Proof/TableauBranch/Modal/ManyValued.php</a></li>
+<li><a href="#Proof/TableauBranch/Modal.php"><i class="icon-file"></i>Proof/TableauBranch/Modal.php</a></li>
+<li><a href="#Proof/TableauBranch.php"><i class="icon-file"></i>Proof/TableauBranch.php</a></li>
+<li><a href="#Proof/TableauNode.php"><i class="icon-file"></i>Proof/TableauNode.php</a></li>
+<li><a href="#Proof/TableauStructure.php"><i class="icon-file"></i>Proof/TableauStructure.php</a></li>
+<li><a href="#ProofSystem/TableauxSystem/Bivalent.php"><i class="icon-file"></i>ProofSystem/TableauxSystem/Bivalent.php</a></li>
+<li><a href="#ProofSystem/TableauxSystem/BranchRule/ModalReflexiveRule.php"><i class="icon-file"></i>ProofSystem/TableauxSystem/BranchRule/ModalReflexiveRule.php</a></li>
+<li><a href="#ProofSystem/TableauxSystem/BranchRule/ModalTransitiveRule.php"><i class="icon-file"></i>ProofSystem/TableauxSystem/BranchRule/ModalTransitiveRule.php</a></li>
+<li><a href="#ProofSystem/TableauxSystem/BranchRule.php"><i class="icon-file"></i>ProofSystem/TableauxSystem/BranchRule.php</a></li>
+<li><a href="#ProofSystem/TableauxSystem/ClosureRule.php"><i class="icon-file"></i>ProofSystem/TableauxSystem/ClosureRule.php</a></li>
+<li><a href="#ProofSystem/TableauxSystem/ManyValued.php"><i class="icon-file"></i>ProofSystem/TableauxSystem/ManyValued.php</a></li>
+<li><a href="#ProofSystem/TableauxSystem/Modal/ManyValued.php"><i class="icon-file"></i>ProofSystem/TableauxSystem/Modal/ManyValued.php</a></li>
+<li><a href="#ProofSystem/TableauxSystem/Modal.php"><i class="icon-file"></i>ProofSystem/TableauxSystem/Modal.php</a></li>
+<li><a href="#ProofSystem/TableauxSystem.php"><i class="icon-file"></i>ProofSystem/TableauxSystem.php</a></li>
+<li><a href="#ProofSystem.php"><i class="icon-file"></i>ProofSystem.php</a></li>
+<li><a href="#ProofWriter/Tableau/LaTeX_Qtree.php"><i class="icon-file"></i>ProofWriter/Tableau/LaTeX_Qtree.php</a></li>
+<li><a href="#ProofWriter/Tableau.php"><i class="icon-file"></i>ProofWriter/Tableau.php</a></li>
+<li><a href="#ProofWriter.php"><i class="icon-file"></i>ProofWriter.php</a></li>
+<li><a href="#SentenceParser/Polish.php"><i class="icon-file"></i>SentenceParser/Polish.php</a></li>
+<li><a href="#SentenceWriter/Polish/LaTeXDecorator.php"><i class="icon-file"></i>SentenceWriter/Polish/LaTeXDecorator.php</a></li>
+<li><a href="#SentenceWriter/Polish.php"><i class="icon-file"></i>SentenceWriter/Polish.php</a></li>
+<li><a href="#SentenceWriter/Standard/LaTeXDecorator.php"><i class="icon-file"></i>SentenceWriter/Standard/LaTeXDecorator.php</a></li>
+<li><a href="#SentenceWriter.php"><i class="icon-file"></i>SentenceWriter.php</a></li>
+<li><a href="#Utilities.php"><i class="icon-file"></i>Utilities.php</a></li>
+</ul></div>
+<div class="span8">
+<ul class="breadcrumb">
+<li>
+<a href=""><i class="icon-remove-sign"></i></a><span class="divider">\</span>
+</li>
+<li>Compilation Errors</li>
+</ul>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents">
+<a name="Logic/CPL/ProofSystem/BranchRule/Conjunction.php" id="Logic/CPL/ProofSystem/BranchRule/Conjunction.php"></a><h3>
+<i class="icon-file"></i>Logic/CPL/ProofSystem/BranchRule/Conjunction.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/CPL/ProofSystem/BranchRule/Conjunction.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class Conjunction</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/CPL/ProofSystem/BranchRule/Disjunction.php" id="Logic/CPL/ProofSystem/BranchRule/Disjunction.php"></a><h3>
+<i class="icon-file"></i>Logic/CPL/ProofSystem/BranchRule/Disjunction.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/CPL/ProofSystem/BranchRule/Disjunction.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class Disjunction</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/CPL/ProofSystem/BranchRule/DoubleNegation.php" id="Logic/CPL/ProofSystem/BranchRule/DoubleNegation.php"></a><h3>
+<i class="icon-file"></i>Logic/CPL/ProofSystem/BranchRule/DoubleNegation.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/CPL/ProofSystem/BranchRule/DoubleNegation.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class DoubleNegation</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/CPL/ProofSystem/BranchRule/MaterialBiconditional.php" id="Logic/CPL/ProofSystem/BranchRule/MaterialBiconditional.php"></a><h3>
+<i class="icon-file"></i>Logic/CPL/ProofSystem/BranchRule/MaterialBiconditional.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/CPL/ProofSystem/BranchRule/MaterialBiconditional.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class MaterialBiconditional</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/CPL/ProofSystem/BranchRule/MaterialConditional.php" id="Logic/CPL/ProofSystem/BranchRule/MaterialConditional.php"></a><h3>
+<i class="icon-file"></i>Logic/CPL/ProofSystem/BranchRule/MaterialConditional.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/CPL/ProofSystem/BranchRule/MaterialConditional.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class MaterialConditional</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/CPL/ProofSystem/BranchRule/NegatedConjunction.php" id="Logic/CPL/ProofSystem/BranchRule/NegatedConjunction.php"></a><h3>
+<i class="icon-file"></i>Logic/CPL/ProofSystem/BranchRule/NegatedConjunction.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/CPL/ProofSystem/BranchRule/NegatedConjunction.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class NegatedConjunction</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/CPL/ProofSystem/BranchRule/NegatedDisjunction.php" id="Logic/CPL/ProofSystem/BranchRule/NegatedDisjunction.php"></a><h3>
+<i class="icon-file"></i>Logic/CPL/ProofSystem/BranchRule/NegatedDisjunction.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/CPL/ProofSystem/BranchRule/NegatedDisjunction.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class NegatedDisjunction</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/CPL/ProofSystem/BranchRule/NegatedMaterialBiconditional.php" id="Logic/CPL/ProofSystem/BranchRule/NegatedMaterialBiconditional.php"></a><h3>
+<i class="icon-file"></i>Logic/CPL/ProofSystem/BranchRule/NegatedMaterialBiconditional.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/CPL/ProofSystem/BranchRule/NegatedMaterialBiconditional.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class NegatedMaterialBiconditional</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/CPL/ProofSystem/BranchRule/NegatedMaterialConditional.php" id="Logic/CPL/ProofSystem/BranchRule/NegatedMaterialConditional.php"></a><h3>
+<i class="icon-file"></i>Logic/CPL/ProofSystem/BranchRule/NegatedMaterialConditional.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/CPL/ProofSystem/BranchRule/NegatedMaterialConditional.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class NegatedMaterialConditional</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/CPL/ProofSystem/ClosureRule.php" id="Logic/CPL/ProofSystem/ClosureRule.php"></a><h3>
+<i class="icon-file"></i>Logic/CPL/ProofSystem/ClosureRule.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>33</td>
+<td>No DocBlock was found for method doesApply()</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/CPL/ProofSystem.php" id="Logic/CPL/ProofSystem.php"></a><h3>
+<i class="icon-file"></i>Logic/CPL/ProofSystem.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>30</td>
+<td>No DocBlock was found for property $branchRuleClasses</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/CPL.php" id="Logic/CPL.php"></a><h3>
+<i class="icon-file"></i>Logic/CPL.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>30</td>
+<td>No DocBlock was found for property $inheritLexiconFrom</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/FDE/ProofSystem/BranchRule/ConjunctionDesignated.php" id="Logic/FDE/ProofSystem/BranchRule/ConjunctionDesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/ConjunctionDesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/FDE/ProofSystem/BranchRule/ConjunctionDesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class ConjunctionDesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/FDE/ProofSystem/BranchRule/ConjunctionUndesignated.php" id="Logic/FDE/ProofSystem/BranchRule/ConjunctionUndesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/ConjunctionUndesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/FDE/ProofSystem/BranchRule/ConjunctionUndesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class ConjunctionUndesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/FDE/ProofSystem/BranchRule/DisjunctionDesignated.php" id="Logic/FDE/ProofSystem/BranchRule/DisjunctionDesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/DisjunctionDesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/FDE/ProofSystem/BranchRule/DisjunctionDesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class DisjunctionDesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/FDE/ProofSystem/BranchRule/DisjunctionUndesignated.php" id="Logic/FDE/ProofSystem/BranchRule/DisjunctionUndesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/DisjunctionUndesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/FDE/ProofSystem/BranchRule/DisjunctionUndesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class DisjunctionUndesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/FDE/ProofSystem/BranchRule/DoubleNegationDesignated.php" id="Logic/FDE/ProofSystem/BranchRule/DoubleNegationDesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/DoubleNegationDesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/FDE/ProofSystem/BranchRule/DoubleNegationDesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class DoubleNegationDesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/FDE/ProofSystem/BranchRule/DoubleNegationUndesignated.php" id="Logic/FDE/ProofSystem/BranchRule/DoubleNegationUndesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/DoubleNegationUndesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/FDE/ProofSystem/BranchRule/DoubleNegationUndesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class DoubleNegationUndesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/FDE/ProofSystem/BranchRule/MaterialBiconditionalDesignated.php" id="Logic/FDE/ProofSystem/BranchRule/MaterialBiconditionalDesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/MaterialBiconditionalDesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/FDE/ProofSystem/BranchRule/MaterialBiconditionalDesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class MaterialBiconditionalDesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/FDE/ProofSystem/BranchRule/MaterialBiconditionalUndesignated.php" id="Logic/FDE/ProofSystem/BranchRule/MaterialBiconditionalUndesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/MaterialBiconditionalUndesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/FDE/ProofSystem/BranchRule/MaterialBiconditionalUndesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class MaterialBiconditionalUndesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/FDE/ProofSystem/BranchRule/MaterialConditionalDesignated.php" id="Logic/FDE/ProofSystem/BranchRule/MaterialConditionalDesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/MaterialConditionalDesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/FDE/ProofSystem/BranchRule/MaterialConditionalDesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class MaterialConditionalDesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/FDE/ProofSystem/BranchRule/MaterialConditionalUndesignated.php" id="Logic/FDE/ProofSystem/BranchRule/MaterialConditionalUndesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/MaterialConditionalUndesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/FDE/ProofSystem/BranchRule/MaterialConditionalUndesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class MaterialConditionalUndesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/FDE/ProofSystem/BranchRule/NegatedConjunctionDesignated.php" id="Logic/FDE/ProofSystem/BranchRule/NegatedConjunctionDesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/NegatedConjunctionDesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/FDE/ProofSystem/BranchRule/NegatedConjunctionDesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class NegatedConjunctionDesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/FDE/ProofSystem/BranchRule/NegatedConjunctionUndesignated.php" id="Logic/FDE/ProofSystem/BranchRule/NegatedConjunctionUndesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/NegatedConjunctionUndesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/FDE/ProofSystem/BranchRule/NegatedConjunctionUndesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class NegatedConjunctionUndesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/FDE/ProofSystem/BranchRule/NegatedDisjunctionDesignated.php" id="Logic/FDE/ProofSystem/BranchRule/NegatedDisjunctionDesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/NegatedDisjunctionDesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/FDE/ProofSystem/BranchRule/NegatedDisjunctionDesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class NegatedDisjunctionDesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/FDE/ProofSystem/BranchRule/NegatedDisjunctionUndesignated.php" id="Logic/FDE/ProofSystem/BranchRule/NegatedDisjunctionUndesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/NegatedDisjunctionUndesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/FDE/ProofSystem/BranchRule/NegatedDisjunctionUndesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class NegatedDisjunctionUndesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/FDE/ProofSystem/BranchRule/NegatedMaterialBiconditionalDesignated.php" id="Logic/FDE/ProofSystem/BranchRule/NegatedMaterialBiconditionalDesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/NegatedMaterialBiconditionalDesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/FDE/ProofSystem/BranchRule/NegatedMaterialBiconditionalDesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class NegatedMaterialBiconditionalDesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/FDE/ProofSystem/BranchRule/NegatedMaterialBiconditionalUndesignated.php" id="Logic/FDE/ProofSystem/BranchRule/NegatedMaterialBiconditionalUndesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/NegatedMaterialBiconditionalUndesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/FDE/ProofSystem/BranchRule/NegatedMaterialBiconditionalUndesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class NegatedMaterialBiconditionalUndesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/FDE/ProofSystem/BranchRule/NegatedMaterialConditionalDesignated.php" id="Logic/FDE/ProofSystem/BranchRule/NegatedMaterialConditionalDesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/NegatedMaterialConditionalDesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/FDE/ProofSystem/BranchRule/NegatedMaterialConditionalDesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class NegatedMaterialConditionalDesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/FDE/ProofSystem/BranchRule/NegatedMaterialConditionalUndesignated.php" id="Logic/FDE/ProofSystem/BranchRule/NegatedMaterialConditionalUndesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/FDE/ProofSystem/BranchRule/NegatedMaterialConditionalUndesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/FDE/ProofSystem/BranchRule/NegatedMaterialConditionalUndesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class NegatedMaterialConditionalUndesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/FDE/ProofSystem/ClosureRule.php" id="Logic/FDE/ProofSystem/ClosureRule.php"></a><h3>
+<i class="icon-file"></i>Logic/FDE/ProofSystem/ClosureRule.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>33</td>
+<td>No DocBlock was found for method doesApply()</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/FDE/ProofSystem.php" id="Logic/FDE/ProofSystem.php"></a><h3>
+<i class="icon-file"></i>Logic/FDE/ProofSystem.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>30</td>
+<td>No DocBlock was found for property $branchRuleClasses</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/FDE.php" id="Logic/FDE.php"></a><h3>
+<i class="icon-file"></i>Logic/FDE.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>30</td>
+<td>No DocBlock was found for property $lexicon</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/GO/ProofSystem/BranchRule/ConjunctionUndesignated.php" id="Logic/GO/ProofSystem/BranchRule/ConjunctionUndesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/GO/ProofSystem/BranchRule/ConjunctionUndesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/GO/ProofSystem/BranchRule/ConjunctionUndesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class ConjunctionUndesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/GO/ProofSystem/BranchRule/DisjunctionUndesignated.php" id="Logic/GO/ProofSystem/BranchRule/DisjunctionUndesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/GO/ProofSystem/BranchRule/DisjunctionUndesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/GO/ProofSystem/BranchRule/DisjunctionUndesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class DisjunctionUndesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/GO/ProofSystem/BranchRule/MaterialBiconditionalUndesignated.php" id="Logic/GO/ProofSystem/BranchRule/MaterialBiconditionalUndesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/GO/ProofSystem/BranchRule/MaterialBiconditionalUndesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/GO/ProofSystem/BranchRule/MaterialBiconditionalUndesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class MaterialBiconditionalUndesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/GO/ProofSystem/BranchRule/MaterialConditionalUndesignated.php" id="Logic/GO/ProofSystem/BranchRule/MaterialConditionalUndesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/GO/ProofSystem/BranchRule/MaterialConditionalUndesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/GO/ProofSystem/BranchRule/MaterialConditionalUndesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class MaterialConditionalUndesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/GO/ProofSystem/BranchRule/NegatedConjunctionDesignated.php" id="Logic/GO/ProofSystem/BranchRule/NegatedConjunctionDesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/GO/ProofSystem/BranchRule/NegatedConjunctionDesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/GO/ProofSystem/BranchRule/NegatedConjunctionDesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class NegatedConjunctionDesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/GO/ProofSystem/BranchRule/NegatedConjunctionUndesignated.php" id="Logic/GO/ProofSystem/BranchRule/NegatedConjunctionUndesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/GO/ProofSystem/BranchRule/NegatedConjunctionUndesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/GO/ProofSystem/BranchRule/NegatedConjunctionUndesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class NegatedConjunctionUndesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/GO/ProofSystem/BranchRule/NegatedDisjunctionDesignated.php" id="Logic/GO/ProofSystem/BranchRule/NegatedDisjunctionDesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/GO/ProofSystem/BranchRule/NegatedDisjunctionDesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/GO/ProofSystem/BranchRule/NegatedDisjunctionDesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class NegatedDisjunctionDesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/GO/ProofSystem/BranchRule/NegatedDisjunctionUndesignated.php" id="Logic/GO/ProofSystem/BranchRule/NegatedDisjunctionUndesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/GO/ProofSystem/BranchRule/NegatedDisjunctionUndesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/GO/ProofSystem/BranchRule/NegatedDisjunctionUndesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class NegatedDisjunctionUndesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/GO/ProofSystem/BranchRule/NegatedMaterialBiconditionalDesignated.php" id="Logic/GO/ProofSystem/BranchRule/NegatedMaterialBiconditionalDesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/GO/ProofSystem/BranchRule/NegatedMaterialBiconditionalDesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/GO/ProofSystem/BranchRule/NegatedMaterialBiconditionalDesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class NegatedMaterialBiconditionalDesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/GO/ProofSystem/BranchRule/NegatedMaterialBiconditionalUndesignated.php" id="Logic/GO/ProofSystem/BranchRule/NegatedMaterialBiconditionalUndesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/GO/ProofSystem/BranchRule/NegatedMaterialBiconditionalUndesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/GO/ProofSystem/BranchRule/NegatedMaterialBiconditionalUndesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class NegatedMaterialBiconditionalUndesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/GO/ProofSystem/BranchRule/NegatedMaterialConditionalDesignated.php" id="Logic/GO/ProofSystem/BranchRule/NegatedMaterialConditionalDesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/GO/ProofSystem/BranchRule/NegatedMaterialConditionalDesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/GO/ProofSystem/BranchRule/NegatedMaterialConditionalDesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class NegatedMaterialConditionalDesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/GO/ProofSystem/BranchRule/NegatedMaterialConditionalUndesignated.php" id="Logic/GO/ProofSystem/BranchRule/NegatedMaterialConditionalUndesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/GO/ProofSystem/BranchRule/NegatedMaterialConditionalUndesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/GO/ProofSystem/BranchRule/NegatedMaterialConditionalUndesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class NegatedMaterialConditionalUndesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/GO/ProofSystem/ClosureRule.php" id="Logic/GO/ProofSystem/ClosureRule.php"></a><h3>
+<i class="icon-file"></i>Logic/GO/ProofSystem/ClosureRule.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>33</td>
+<td>No DocBlock was found for method doesApply()</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/GO/ProofSystem.php" id="Logic/GO/ProofSystem.php"></a><h3>
+<i class="icon-file"></i>Logic/GO/ProofSystem.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>31</td>
+<td>No DocBlock was found for property $branchRuleClasses</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/GO.php" id="Logic/GO.php"></a><h3>
+<i class="icon-file"></i>Logic/GO.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>30</td>
+<td>No DocBlock was found for property $inheritLexiconFrom</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/LP/ProofSystem/ClosureRule.php" id="Logic/LP/ProofSystem/ClosureRule.php"></a><h3>
+<i class="icon-file"></i>Logic/LP/ProofSystem/ClosureRule.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>33</td>
+<td>No DocBlock was found for method doesApply()</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/LP/ProofSystem.php" id="Logic/LP/ProofSystem.php"></a><h3>
+<i class="icon-file"></i>Logic/LP/ProofSystem.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>30</td>
+<td>No DocBlock was found for property $inheritBranchRulesFrom</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/LP.php" id="Logic/LP.php"></a><h3>
+<i class="icon-file"></i>Logic/LP.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>30</td>
+<td>No DocBlock was found for property $inheritLexiconFrom</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/Lukasiewicz/ProofSystem/BranchRule/ConditionalDesignated.php" id="Logic/Lukasiewicz/ProofSystem/BranchRule/ConditionalDesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/Lukasiewicz/ProofSystem/BranchRule/ConditionalDesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/Lukasiewicz/ProofSystem/BranchRule/ConditionalDesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class ConditionalDesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/Lukasiewicz/ProofSystem/BranchRule/ConditionalUndesignated.php" id="Logic/Lukasiewicz/ProofSystem/BranchRule/ConditionalUndesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/Lukasiewicz/ProofSystem/BranchRule/ConditionalUndesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/Lukasiewicz/ProofSystem/BranchRule/ConditionalUndesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class ConditionalUndesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/Lukasiewicz/ProofSystem/BranchRule/NegatedConditionalDesignated.php" id="Logic/Lukasiewicz/ProofSystem/BranchRule/NegatedConditionalDesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/Lukasiewicz/ProofSystem/BranchRule/NegatedConditionalDesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/Lukasiewicz/ProofSystem/BranchRule/NegatedConditionalDesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class NegatedConditionalDesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/Lukasiewicz/ProofSystem/BranchRule/NegatedConditionalUndesignated.php" id="Logic/Lukasiewicz/ProofSystem/BranchRule/NegatedConditionalUndesignated.php"></a><h3>
+<i class="icon-file"></i>Logic/Lukasiewicz/ProofSystem/BranchRule/NegatedConditionalUndesignated.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/Lukasiewicz/ProofSystem/BranchRule/NegatedConditionalUndesignated.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>22</td>
+<td>No short description for class NegatedConditionalUndesignated</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>27</td>
+<td>No DocBlock was found for method apply()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents"></div>
+<div class="package-contents">
+<a name="Logic/Lukasiewicz/ProofSystem.php" id="Logic/Lukasiewicz/ProofSystem.php"></a><h3>
+<i class="icon-file"></i>Logic/Lukasiewicz/ProofSystem.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>30</td>
+<td>No DocBlock was found for property $inheritBranchRulesFrom</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>32</td>
+<td>No DocBlock was found for property $branchRuleClasses</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/Lukasiewicz.php" id="Logic/Lukasiewicz.php"></a><h3>
+<i class="icon-file"></i>Logic/Lukasiewicz.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>30</td>
+<td>No DocBlock was found for property $inheritLexiconFrom</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>32</td>
+<td>No DocBlock was found for property $lexicon</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/StrongKleene/ProofSystem/ClosureRule.php" id="Logic/StrongKleene/ProofSystem/ClosureRule.php"></a><h3>
+<i class="icon-file"></i>Logic/StrongKleene/ProofSystem/ClosureRule.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>33</td>
+<td>No DocBlock was found for method doesApply()</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/StrongKleene/ProofSystem.php" id="Logic/StrongKleene/ProofSystem.php"></a><h3>
+<i class="icon-file"></i>Logic/StrongKleene/ProofSystem.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>30</td>
+<td>No DocBlock was found for property $inheritBranchRulesFrom</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents">
+<a name="Proof/Tableau.php" id="Proof/Tableau.php"></a><h3>
+<i class="icon-file"></i>Proof/Tableau.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="notice">
+<td>notice</td>
+<td>47</td>
+<td>Parameter $attachToTableau could not be found in createBranch()</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Proof/TableauBranch/ManyValued.php" id="Proof/TableauBranch/ManyValued.php"></a><h3>
+<i class="icon-file"></i>Proof/TableauBranch/ManyValued.php<small style="float: right;padding-right: 10px;">9</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>110</td>
+<td>Name of argument $firstOperatorName does not match with the DocBlock's name $operatorName in getNodesByTwoOperatorNamesAndDesignation()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>110</td>
+<td>Name of argument $secondOperatorName does not match with the DocBlock's name $isDesignated in getNodesByTwoOperatorNamesAndDesignation()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>110</td>
+<td>Name of argument $isDesignated does not match with the DocBlock's name $untickedOnly in getNodesByTwoOperatorNamesAndDesignation()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>110</td>
+<td>Argument $untickedOnly is missing from the Docblock of getNodesByTwoOperatorNamesAndDesignation()</td>
+</tr>
+<tr class="notice">
+<td>notice</td>
+<td>110</td>
+<td>Parameter $operatorName could not be found in getNodesByTwoOperatorNamesAndDesignation()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>128</td>
+<td>No short description for method _addNode()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>128</td>
+<td>Argument $node is missing from the Docblock of _addNode()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>137</td>
+<td>No short description for method _removeNode()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>137</td>
+<td>Argument $node is missing from the Docblock of _removeNode()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Proof/TableauBranch/Modal/ManyValued.php" id="Proof/TableauBranch/Modal/ManyValued.php"></a><h3>
+<i class="icon-file"></i>Proof/TableauBranch/Modal/ManyValued.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>101</td>
+<td>No short description for method _addNode()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>101</td>
+<td>Argument $node is missing from the Docblock of _addNode()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>111</td>
+<td>No short description for method _removeNode()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>111</td>
+<td>Argument $node is missing from the Docblock of _removeNode()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Proof/TableauBranch/Modal.php" id="Proof/TableauBranch/Modal.php"></a><h3>
+<i class="icon-file"></i>Proof/TableauBranch/Modal.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>35</td>
+<td>No short description for property $accessNodes</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>145</td>
+<td>Name of argument $i does not match with the DocBlock's name $index in createSentenceNodeAtIndex()</td>
+</tr>
+<tr class="notice">
+<td>notice</td>
+<td>145</td>
+<td>Parameter $index could not be found in createSentenceNodeAtIndex()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents"></div>
+<div class="package-contents">
+<a name="Proof/TableauBranch.php" id="Proof/TableauBranch.php"></a><h3>
+<i class="icon-file"></i>Proof/TableauBranch.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>166</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $node in hasNode()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>244</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $node in tickNode()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>257</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $node in _addNode()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>278</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $node in _removeNode()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents">
+<a name="Proof/TableauNode.php" id="Proof/TableauNode.php"></a><h3>
+<i class="icon-file"></i>Proof/TableauNode.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>30</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $branch in tickAtBranch()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>43</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $branch in isTickedAtBranch()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Proof/TableauStructure.php" id="Proof/TableauStructure.php"></a><h3>
+<i class="icon-file"></i>Proof/TableauStructure.php<small style="float: right;padding-right: 10px;">7</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>40</td>
+<td>No short description for property $tableau</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>46</td>
+<td>No short description for property $nodes</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>52</td>
+<td>No short description for property $tickedNodes</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>58</td>
+<td>No short description for property $structures</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>64</td>
+<td>No short description for property $closed</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>83</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $node in findBranchesWithNode()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>164</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $node in nodeIsTicked()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents"></div>
+<div class="package-contents">
+<a name="ProofSystem/TableauxSystem/Bivalent.php" id="ProofSystem/TableauxSystem/Bivalent.php"></a><h3>
+<i class="icon-file"></i>ProofSystem/TableauxSystem/Bivalent.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>36</td>
+<td>No DocBlock was found for property $branchClass</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>38</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $tableau in buildTrunk()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>53</td>
+<td>No DocBlock was found for method induceModel()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="ProofSystem/TableauxSystem/BranchRule/ModalReflexiveRule.php" id="ProofSystem/TableauxSystem/BranchRule/ModalReflexiveRule.php"></a><h3>
+<i class="icon-file"></i>ProofSystem/TableauxSystem/BranchRule/ModalReflexiveRule.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>30</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $branch in apply()</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="ProofSystem/TableauxSystem/BranchRule/ModalTransitiveRule.php" id="ProofSystem/TableauxSystem/BranchRule/ModalTransitiveRule.php"></a><h3>
+<i class="icon-file"></i>ProofSystem/TableauxSystem/BranchRule/ModalTransitiveRule.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>30</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $branch in apply()</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="ProofSystem/TableauxSystem/BranchRule.php" id="ProofSystem/TableauxSystem/BranchRule.php"></a><h3>
+<i class="icon-file"></i>ProofSystem/TableauxSystem/BranchRule.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>30</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $branch in apply()</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="ProofSystem/TableauxSystem/ClosureRule.php" id="ProofSystem/TableauxSystem/ClosureRule.php"></a><h3>
+<i class="icon-file"></i>ProofSystem/TableauxSystem/ClosureRule.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>30</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $branch in doesApply()</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="ProofSystem/TableauxSystem/ManyValued.php" id="ProofSystem/TableauxSystem/ManyValued.php"></a><h3>
+<i class="icon-file"></i>ProofSystem/TableauxSystem/ManyValued.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>36</td>
+<td>No DocBlock was found for property $branchClass</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>52</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $tableau in buildTrunk()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>67</td>
+<td>No DocBlock was found for method induceModel()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="ProofSystem/TableauxSystem/Modal/ManyValued.php" id="ProofSystem/TableauxSystem/Modal/ManyValued.php"></a><h3>
+<i class="icon-file"></i>ProofSystem/TableauxSystem/Modal/ManyValued.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>35</td>
+<td>No DocBlock was found for property $branchClass</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>37</td>
+<td>No DocBlock was found for method buildTrunk()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>44</td>
+<td>No DocBlock was found for method induceModel()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="ProofSystem/TableauxSystem/Modal.php" id="ProofSystem/TableauxSystem/Modal.php"></a><h3>
+<i class="icon-file"></i>ProofSystem/TableauxSystem/Modal.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>36</td>
+<td>No DocBlock was found for property $branchClass</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>52</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $tableau in buildTrunk()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>67</td>
+<td>No DocBlock was found for method induceModel()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="ProofSystem/TableauxSystem.php" id="ProofSystem/TableauxSystem.php"></a><h3>
+<i class="icon-file"></i>ProofSystem/TableauxSystem.php<small style="float: right;padding-right: 10px;">6</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>53</td>
+<td>No short description for property $closureRule</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>59</td>
+<td>No short description for property $branchRules</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>106</td>
+<td>Name of argument $branchRules does not match with the DocBlock's name $branchRule in addBranchRules()</td>
+</tr>
+<tr class="notice">
+<td>notice</td>
+<td>106</td>
+<td>Parameter $branchRule could not be found in addBranchRules()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>168</td>
+<td>No DocBlock was found for method constructProofForArgument()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>188</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $tableau in isValidProof()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="ProofSystem.php" id="ProofSystem.php"></a><h3>
+<i class="icon-file"></i>ProofSystem.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="critical">
+<td>critical</td>
+<td>37</td>
+<td>No short description for property $metaSymbolNames</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents"></div>
+<div class="package-contents">
+<a name="ProofWriter/Tableau/LaTeX_Qtree.php" id="ProofWriter/Tableau/LaTeX_Qtree.php"></a><h3>
+<i class="icon-file"></i>ProofWriter/Tableau/LaTeX_Qtree.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>33</td>
+<td>No DocBlock was found for property $translations</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>42</td>
+<td>No DocBlock was found for property $tableauxCommands</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>51</td>
+<td>No DocBlock was found for method writeWorldIndex()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>129</td>
+<td>No DocBlock was found for method formatCommand()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents"></div>
+<div class="package-contents">
+<a name="ProofWriter/Tableau.php" id="ProofWriter/Tableau.php"></a><h3>
+<i class="icon-file"></i>ProofWriter/Tableau.php<small style="float: right;padding-right: 10px;">9</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>53</td>
+<td>No DocBlock was found for method writeCloseMarker()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>58</td>
+<td>No DocBlock was found for method writeDesignationMarker()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>63</td>
+<td>No DocBlock was found for method writeTickMarker()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>68</td>
+<td>No DocBlock was found for method writeWorldIndex()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>99</td>
+<td>Name of argument $tableau does not match with the DocBlock's name $tableauOrStructure in getArray()</td>
+</tr>
+<tr class="notice">
+<td>notice</td>
+<td>99</td>
+<td>Parameter $tableauOrStructure could not be found in getArray()</td>
+</tr>
+<tr class="notice">
+<td>notice</td>
+<td>99</td>
+<td>Parameter $logic could not be found in getArray()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>112</td>
+<td>No DocBlock was found for method writeProof()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>179</td>
+<td>No DocBlock was found for method writeStructure()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="ProofWriter.php" id="ProofWriter.php"></a><h3>
+<i class="icon-file"></i>ProofWriter.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>33</td>
+<td>No short description for property $translations</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>39</td>
+<td>No short description for property $sentenceWriter</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>45</td>
+<td>No short description for property $vocabulary</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents">
+<a name="SentenceParser/Polish.php" id="SentenceParser/Polish.php"></a><h3>
+<i class="icon-file"></i>SentenceParser/Polish.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>58</td>
+<td>No DocBlock was found for property $operandStack</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>60</td>
+<td>No DocBlock was found for method readRPN()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents">
+<a name="SentenceWriter/Polish/LaTeXDecorator.php" id="SentenceWriter/Polish/LaTeXDecorator.php"></a><h3>
+<i class="icon-file"></i>SentenceWriter/Polish/LaTeXDecorator.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>30</td>
+<td>No DocBlock was found for property $sentenceWriter</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>32</td>
+<td>No DocBlock was found for property $operatorTranslations</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="SentenceWriter/Polish.php" id="SentenceWriter/Polish.php"></a><h3>
+<i class="icon-file"></i>SentenceWriter/Polish.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>32</td>
+<td>No DocBlock was found for property $operatorTranslations</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>40</td>
+<td>No DocBlock was found for method writeAtomicSymbol()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="SentenceWriter/Standard/LaTeXDecorator.php" id="SentenceWriter/Standard/LaTeXDecorator.php"></a><h3>
+<i class="icon-file"></i>SentenceWriter/Standard/LaTeXDecorator.php<small style="float: right;padding-right: 10px;">7</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>36</td>
+<td>No DocBlock was found for property $sentenceWriter</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>39</td>
+<td>No DocBlock was found for property $operatorTranslations</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>41</td>
+<td>No DocBlock was found for property $standardOperatorSymbols</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>63</td>
+<td>No DocBlock was found for method writeSubscript()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>68</td>
+<td>No DocBlock was found for method writeOperator()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>74</td>
+<td>No DocBlock was found for method getOperatorSymbolCommands()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>79</td>
+<td>No DocBlock was found for method formatCommand()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents"></div>
+<div class="package-contents">
+<a name="SentenceWriter.php" id="SentenceWriter.php"></a><h3>
+<i class="icon-file"></i>SentenceWriter.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>316</td>
+<td>Argument $sentence is missing from the Docblock of _writeSentence()</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents"></div>
+<div class="package-contents">
+<a name="Utilities.php" id="Utilities.php"></a><h3>
+<i class="icon-file"></i>Utilities.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="notice">
+<td>notice</td>
+<td>59</td>
+<td>Parameter $arr,... could not be found in arraysAreIdentical()</td>
+</tr>
+<tr class="notice">
+<td>notice</td>
+<td>113</td>
+<td>Parameter $var,... could not be found in debug()</td>
+</tr>
+<tr class="notice">
+<td>notice</td>
+<td>137</td>
+<td>Parameter $var could not be found in debug()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents"></div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
+            generated on 2012-04-09T00:16:29-07:00.<br></footer></div>
+</div>
+</body>
+</html>

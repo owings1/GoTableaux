@@ -19,6 +19,9 @@ namespace GoTableaux\Logic\Lukasiewicz\ProofSystem\BranchRule;
 use \GoTableaux\Proof\TableauBranch as Branch;
 use \GoTableaux\Logic as Logic;
 
+/**
+ * @package Lukasiewicz
+ */
 class ConditionalDesignated implements \GoTableaux\ProofSystem\TableauxSystem\BranchRule
 {
 	public function apply( Branch $branch, Logic $logic )

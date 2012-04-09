@@ -1,0 +1,338 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>GoTableaux » \GoTableaux\Sentence\Molecular</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">GoTableaux</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/Exceptions.html"><i class="icon-folder-open"></i> Exceptions</a></li>
+<li><a href="../packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
+<li><a href="../packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
+<li><a href="../packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
+<li><a href="../packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
+<li><a href="../packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
+<li><a href="../packages/ModelTheory.html"><i class="icon-folder-open"></i> ModelTheory</a></li>
+<li><a href="../packages/Proof.html"><i class="icon-folder-open"></i> Proof</a></li>
+<li><a href="../packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
+<li><a href="../packages/Syntax.html"><i class="icon-folder-open"></i> Syntax</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">233</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public "><a href="#addOperand" title="addOperand :: Adds an operand, or many operands."><span class="description">Adds an operand, or many operands.</span><pre>addOperand()</pre></a></li>
+<li class="method public inherited"><a href="#createAtomic" title="createAtomic :: Creates an atomic sentence."><span class="description">Creates an atomic sentence.</span><pre>createAtomic()</pre></a></li>
+<li class="method public inherited"><a href="#createMolecular" title="createMolecular :: Creates a molecular sentence."><span class="description">Creates a molecular sentence.</span><pre>createMolecular()</pre></a></li>
+<li class="method public "><a href="#getOperands" title="getOperands :: Gets the operands."><span class="description">Gets the operands.</span><pre>getOperands()</pre></a></li>
+<li class="method public "><a href="#getOperator" title="getOperator :: Gets the Operator object."><span class="description">Gets the Operator object.</span><pre>getOperator()</pre></a></li>
+<li class="method public inherited"><a href="#getOperatorName" title="getOperatorName :: Gets the operator name."><span class="description">Gets the operator name.</span><pre>getOperatorName()</pre></a></li>
+<li class="method public inherited"><a href="#sameForm" title="sameForm :: Compares two sentences for form and atomic symbol identity."><span class="description">Compares two sentences for form and atomic symbol identity.</span><pre>sameForm()</pre></a></li>
+<li class="method public inherited"><a href="#sameFormInArray" title="sameFormInArray :: Checks whether $haystack has a sentence with the same form as $needle."><span class="description">Checks whether $haystack has a sentence with the same form as $needle.</span><pre>sameFormInArray()</pre></a></li>
+<li class="method public "><a href="#setOperands" title="setOperands :: Sets the operands."><span class="description">Sets the operands.</span><pre>setOperands()</pre></a></li>
+<li class="method public "><a href="#setOperator" title="setOperator :: Sets the operator"><span class="description">Sets the operator</span><pre>setOperator()</pre></a></li>
+<li class="nav-header protected">» Protected</li>
+<li class="method protected "><a href="#_addOperand" title="_addOperand :: Adds an operand, with type forcing."><span class="description">Adds an operand, with type forcing.</span><pre>_addOperand()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="nav-header protected">» Protected</li>
+<li class="property protected "><a href="#%24operands" title="$operands :: Holds the operands."><span class="description">Holds the operands.</span><pre>$operands</pre></a></li>
+<li class="property protected "><a href="#%24operator" title="$operator :: Holds an Operator instance."><span class="description">Holds an Operator instance.</span><pre>$operator</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CGoTableaux%5CSentence%5CMolecular" id="\GoTableaux\Sentence\Molecular"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Sentence.html">Sentence</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/GoTableaux.Sentence.Molecular.html">Molecular</a>
+</li>
+</ul>
+<div href="../classes/GoTableaux.Sentence.Molecular.html" class="element class">
+<p class="short_description">Represents a molecular sentence.</p>
+<div class="details">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>package</th>
+<td><a href="..//packages/Syntax.html">Syntax</a></td>
+</tr></table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="addOperand" id="addOperand"></a><div class="element clickable method public addOperand" data-toggle="collapse" data-target=".addOperand .collapse">
+<h2>Adds an operand, or many operands.</h2>
+<pre>addOperand(\GoTableaux\Sentence\Sentence | array $operand) : \GoTableaux\Sentence\MolecularSentence</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$operand</h4>
+<code>\GoTableaux\Sentence\Sentencearray</code><p>The operand(s) to add.</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\GoTableaux\Sentence\MolecularSentence</code>Current instance.</div>
+</div></div>
+</div>
+<a name="createAtomic" id="createAtomic"></a><div class="element clickable method public createAtomic" data-toggle="collapse" data-target=".createAtomic .collapse">
+<h2>Creates an atomic sentence.</h2>
+<pre>createAtomic(string $symbol, integer $subscript) : <a href="../classes/GoTableaux.Sentence.Atomic.html">\GoTableaux\Sentence\Atomic</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Sentence::createAtomic()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$symbol</h4>
+<code>string</code><p>The atomic symbol, e.g. 'A' or 'B'.</p>
+</div>
+<div class="subelement argument">
+<h4>$subscript</h4>
+<code>integer</code><p>The subscript. Default is 0.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Sentence.Atomic.html">\GoTableaux\Sentence\Atomic</a></code>The created instance.</div>
+</div></div>
+</div>
+<a name="createMolecular" id="createMolecular"></a><div class="element clickable method public createMolecular" data-toggle="collapse" data-target=".createMolecular .collapse">
+<h2>Creates a molecular sentence.</h2>
+<pre>createMolecular(Operator $operator, array $operands) : <a href="../classes/GoTableaux.Sentence.Molecular.html">\GoTableaux\Sentence\Molecular</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Sentence::createMolecular()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$operator</h4>
+<code><a href="../classes/GoTableaux.Operator.html">\GoTableaux\Operator</a></code><p>Operator instance.</p></div>
+<div class="subelement argument">
+<h4>$operands</h4>
+<code>array</code><p>Array of Sentence objects.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Sentence.Molecular.html">\GoTableaux\Sentence\Molecular</a></code>The created instance.</div>
+</div></div>
+</div>
+<a name="getOperands" id="getOperands"></a><div class="element clickable method public getOperands" data-toggle="collapse" data-target=".getOperands .collapse">
+<h2>Gets the operands.</h2>
+<pre>getOperands() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>The sentence's operands. An array of {@link Sentence} objects.</div>
+</div></div>
+</div>
+<a name="getOperator" id="getOperator"></a><div class="element clickable method public getOperator" data-toggle="collapse" data-target=".getOperator .collapse">
+<h2>Gets the Operator object.</h2>
+<pre>getOperator() : \GoTableaux\Sentence\Operator</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\GoTableaux\Sentence\Operator</code>The sentence's operator.</div>
+</div></div>
+</div>
+<a name="getOperatorName" id="getOperatorName"></a><div class="element clickable method public getOperatorName" data-toggle="collapse" data-target=".getOperatorName .collapse">
+<h2>Gets the operator name.</h2>
+<pre>getOperatorName() : string | false</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Sentence::getOperatorName()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code><code>false</code>The name of the operator, or false if atomic.</div>
+</div></div>
+</div>
+<a name="sameForm" id="sameForm"></a><div class="element clickable method public sameForm" data-toggle="collapse" data-target=".sameForm .collapse">
+<h2>Compares two sentences for form and atomic symbol identity.</h2>
+<pre>sameForm(Sentence $sentence_a, Sentence $sentence_b) : boolean</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Sentence::sameForm()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$sentence_a</h4>
+<code><a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></code><p>The first sentence.</p></div>
+<div class="subelement argument">
+<h4>$sentence_b</h4>
+<code><a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></code><p>The second sentence.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>Whether the sentences have the same form and atomic symbols.</div>
+</div></div>
+</div>
+<a name="sameFormInArray" id="sameFormInArray"></a><div class="element clickable method public sameFormInArray" data-toggle="collapse" data-target=".sameFormInArray .collapse">
+<h2>Checks whether $haystack has a sentence with the same form as $needle.</h2>
+<pre>sameFormInArray(Sentence $needle, array $haystack) : boolean</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Sentence::sameFormInArray()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$needle</h4>
+<code><a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></code><p>The sentence to check.</p></div>
+<div class="subelement argument">
+<h4>$haystack</h4>
+<code>array</code><p>Array of {@link Sentence}s to search.</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>Whether a sentence with the same form is found.</div>
+</div></div>
+</div>
+<a name="setOperands" id="setOperands"></a><div class="element clickable method public setOperands" data-toggle="collapse" data-target=".setOperands .collapse">
+<h2>Sets the operands.</h2>
+<pre>setOperands(array $operands) : \GoTableaux\Sentence\MolecularSentence</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$operands</h4>
+<code>array</code><p>Array of {@link Sentence}s.</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\GoTableaux\Sentence\MolecularSentence</code>Current isntace.</div>
+</div></div>
+</div>
+<a name="setOperator" id="setOperator"></a><div class="element clickable method public setOperator" data-toggle="collapse" data-target=".setOperator .collapse">
+<h2>Sets the operator</h2>
+<pre>setOperator(Operator $operator) : \GoTableaux\Sentence\MolecularSentence</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$operator</h4>
+<code>\GoTableaux\Sentence\Operator</code><p>The operator object of the sentence.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\GoTableaux\Sentence\MolecularSentence</code>Current instance.</div>
+</div></div>
+</div>
+<a name="_addOperand" id="_addOperand"></a><div class="element clickable method protected _addOperand" data-toggle="collapse" data-target="._addOperand .collapse">
+<h2>Adds an operand, with type forcing.</h2>
+<pre>_addOperand(Sentence $operand) : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>private</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$operand</h4>
+<code>\GoTableaux\Sentence\Sentence</code>
+</div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24operands" id="$operands"> </a><div class="element clickable property protected $operands" data-toggle="collapse" data-target=".$operands .collapse">
+<h2>Holds the operands.</h2>
+<pre>$operands : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>private</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24operator" id="$operator"> </a><div class="element clickable property protected $operator" data-toggle="collapse" data-target=".$operator .collapse">
+<h2>Holds an Operator instance.</h2>
+<pre>$operator : \GoTableaux\Sentence\Operator</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>private</td>
+</tr></table>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
+            generated on 2012-04-09T00:16:29-07:00.<br></footer></div>
+</div>
+</body>
+</html>

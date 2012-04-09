@@ -1,0 +1,356 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>GoTableaux » \GoTableaux\Proof\Tableau</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">GoTableaux</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/Exceptions.html"><i class="icon-folder-open"></i> Exceptions</a></li>
+<li><a href="../packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
+<li><a href="../packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
+<li><a href="../packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
+<li><a href="../packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
+<li><a href="../packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
+<li><a href="../packages/ModelTheory.html"><i class="icon-folder-open"></i> ModelTheory</a></li>
+<li><a href="../packages/Proof.html"><i class="icon-folder-open"></i> Proof</a></li>
+<li><a href="../packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
+<li><a href="../packages/Syntax.html"><i class="icon-folder-open"></i> Syntax</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">233</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public inherited"><a href="#__construct" title="__construct :: Constructor. Initializes argument."><span class="description">Constructor. Initializes argument.</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#attach" title="attach :: Attaches one or more branches to the tree."><span class="description">Attaches one or more branches to the tree.</span><pre>attach()</pre></a></li>
+<li class="method public "><a href="#clearBranches" title="clearBranches :: Clears all branches from the tree."><span class="description">Clears all branches from the tree.</span><pre>clearBranches()</pre></a></li>
+<li class="method public "><a href="#copy" title="copy :: Copies the tree and all its branches."><span class="description">Copies the tree and all its branches.</span><pre>copy()</pre></a></li>
+<li class="method public "><a href="#createBranch" title="createBranch :: Creates a new branch and attaches it to the tableau."><span class="description">Creates a new branch and attaches it to the tableau.</span><pre>createBranch()</pre></a></li>
+<li class="method public "><a href="#detach" title="detach :: Removes one or more branches from the tree."><span class="description">Removes one or more branches from the tree.</span><pre>detach()</pre></a></li>
+<li class="method public inherited"><a href="#getArgument" title="getArgument :: Gets the Argument object."><span class="description">Gets the Argument object.</span><pre>getArgument()</pre></a></li>
+<li class="method public "><a href="#getBranches" title="getBranches :: Gets all branches on the tree."><span class="description">Gets all branches on the tree.</span><pre>getBranches()</pre></a></li>
+<li class="method public "><a href="#getOpenBranches" title="getOpenBranches :: Gets all open branches on the tree."><span class="description">Gets all open branches on the tree.</span><pre>getOpenBranches()</pre></a></li>
+<li class="method public inherited"><a href="#getProofSystem" title="getProofSystem :: Gets the ProofSystem object."><span class="description">Gets the ProofSystem object.</span><pre>getProofSystem()</pre></a></li>
+<li class="method public "><a href="#getStructure" title="getStructure :: Gets the tableau's tree structure representation."><span class="description">Gets the tableau's tree structure representation.</span><pre>getStructure()</pre></a></li>
+<li class="method public "><a href="#hasOpenBranches" title="hasOpenBranches :: Checks whether there are any open branches on the tree."><span class="description">Checks whether there are any open branches on the tree.</span><pre>hasOpenBranches()</pre></a></li>
+<li class="method public inherited"><a href="#isValid" title="isValid :: Checks whether the proof is valid"><span class="description">Checks whether the proof is valid</span><pre>isValid()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="nav-header protected">» Protected</li>
+<li class="property protected inherited"><a href="#%24argument" title="$argument :: Holds the argument for the proof."><span class="description">Holds the argument for the proof.</span><pre>$argument</pre></a></li>
+<li class="property protected "><a href="#%24branches" title="$branches :: Holds the branches on the tree."><span class="description">Holds the branches on the tree.</span><pre>$branches</pre></a></li>
+<li class="property protected inherited"><a href="#%24proofSystem" title="$proofSystem :: Holds a reference to the proof system."><span class="description">Holds a reference to the proof system.</span><pre>$proofSystem</pre></a></li>
+<li class="property protected "><a href="#%24structure" title="$structure :: Holds the tree structure."><span class="description">Holds the tree structure.</span><pre>$structure</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CGoTableaux%5CProof%5CTableau" id="\GoTableaux\Proof\Tableau"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Proof.html">Proof</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/GoTableaux.Proof.Tableau.html">Tableau</a>
+</li>
+</ul>
+<div href="../classes/GoTableaux.Proof.Tableau.html" class="element class">
+<p class="short_description">Represents a tableau for an argument.</p>
+<div class="details">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>package</th>
+<td><a href="..//packages/GoTableaux.html">GoTableaux</a></td>
+</tr></table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="__construct" id="__construct"></a><div class="element clickable method public __construct" data-toggle="collapse" data-target=".__construct .collapse">
+<h2>Constructor. Initializes argument.</h2>
+<pre>__construct(Argument $argument, ProofSystem $proofSystem) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof::__construct()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$argument</h4>
+<code><a href="../classes/GoTableaux.Argument.html">\GoTableaux\Argument</a></code><p>Argument for the proof.</p></div>
+<div class="subelement argument">
+<h4>$proofSystem</h4>
+<code><a href="../classes/GoTableaux.ProofSystem.html">\GoTableaux\ProofSystem</a></code><p>The proof system of the proof.</p></div>
+</div></div>
+</div>
+<a name="attach" id="attach"></a><div class="element clickable method public attach" data-toggle="collapse" data-target=".attach .collapse">
+<h2>Attaches one or more branches to the tree.</h2>
+<pre>attach(\GoTableaux\Proof\Branch | array $branches) : <a href="../classes/GoTableaux.Proof.Tableau.html">\GoTableaux\Proof\Tableau</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>Ignores branches that are already on the tree.</p></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$branches</h4>
+<code>\GoTableaux\Proof\Brancharray</code><p>The branch or array of branches to add.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Proof.Tableau.html">\GoTableaux\Proof\Tableau</a></code>Current instance.</div>
+</div></div>
+</div>
+<a name="clearBranches" id="clearBranches"></a><div class="element clickable method public clearBranches" data-toggle="collapse" data-target=".clearBranches .collapse">
+<h2>Clears all branches from the tree.</h2>
+<pre>clearBranches() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="copy" id="copy"></a><div class="element clickable method public copy" data-toggle="collapse" data-target=".copy .collapse">
+<h2>Copies the tree and all its branches.</h2>
+<pre>copy() : <a href="../classes/GoTableaux.Proof.Tableau.html">\GoTableaux\Proof\Tableau</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Proof.Tableau.html">\GoTableaux\Proof\Tableau</a></code>The cloned tree.</div>
+</div></div>
+</div>
+<a name="createBranch" id="createBranch"></a><div class="element clickable method public createBranch" data-toggle="collapse" data-target=".createBranch .collapse">
+<h2>Creates a new branch and attaches it to the tableau.</h2>
+<pre>createBranch(\GoTableaux\Proof\Node | array $nodes) : \GoTableaux\Proof\Branch</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$nodes</h4>
+<code>\GoTableaux\Proof\Nodearray</code><p>Node or array of nodes to add to the branch.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\GoTableaux\Proof\Branch</code>The created instance.</div>
+</div></div>
+</div>
+<a name="detach" id="detach"></a><div class="element clickable method public detach" data-toggle="collapse" data-target=".detach .collapse">
+<h2>Removes one or more branches from the tree.</h2>
+<pre>detach(\GoTableaux\Proof\Branch | array $branches) : <a href="../classes/GoTableaux.Proof.Tableau.html">\GoTableaux\Proof\Tableau</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$branches</h4>
+<code>\GoTableaux\Proof\Brancharray</code><p>The branch or array of branches to remove.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Proof.Tableau.html">\GoTableaux\Proof\Tableau</a></code>Current instance.</div>
+</div></div>
+</div>
+<a name="getArgument" id="getArgument"></a><div class="element clickable method public getArgument" data-toggle="collapse" data-target=".getArgument .collapse">
+<h2>Gets the Argument object.</h2>
+<pre>getArgument() : <a href="../classes/GoTableaux.Argument.html">\GoTableaux\Argument</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof::getArgument()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Argument.html">\GoTableaux\Argument</a></code>The argument.</div>
+</div></div>
+</div>
+<a name="getBranches" id="getBranches"></a><div class="element clickable method public getBranches" data-toggle="collapse" data-target=".getBranches .collapse">
+<h2>Gets all branches on the tree.</h2>
+<pre>getBranches() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Array of {@link Branch}s.</div>
+</div></div>
+</div>
+<a name="getOpenBranches" id="getOpenBranches"></a><div class="element clickable method public getOpenBranches" data-toggle="collapse" data-target=".getOpenBranches .collapse">
+<h2>Gets all open branches on the tree.</h2>
+<pre>getOpenBranches() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Array of {@link Branch} objects.</div>
+</div></div>
+</div>
+<a name="getProofSystem" id="getProofSystem"></a><div class="element clickable method public getProofSystem" data-toggle="collapse" data-target=".getProofSystem .collapse">
+<h2>Gets the ProofSystem object.</h2>
+<pre>getProofSystem() : <a href="../classes/GoTableaux.ProofSystem.html">\GoTableaux\ProofSystem</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof::getProofSystem()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.ProofSystem.html">\GoTableaux\ProofSystem</a></code>The proof's proof system.</div>
+</div></div>
+</div>
+<a name="getStructure" id="getStructure"></a><div class="element clickable method public getStructure" data-toggle="collapse" data-target=".getStructure .collapse">
+<h2>Gets the tableau's tree structure representation.</h2>
+<pre>getStructure() : \GoTableaux\Proof\Structure</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\GoTableaux\Proof\Structure</code>The tree structure.</div>
+</div></div>
+</div>
+<a name="hasOpenBranches" id="hasOpenBranches"></a><div class="element clickable method public hasOpenBranches" data-toggle="collapse" data-target=".hasOpenBranches .collapse">
+<h2>Checks whether there are any open branches on the tree.</h2>
+<pre>hasOpenBranches() : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>Whether there are any open branches.</div>
+</div></div>
+</div>
+<a name="isValid" id="isValid"></a><div class="element clickable method public isValid" data-toggle="collapse" data-target=".isValid .collapse">
+<h2>Checks whether the proof is valid</h2>
+<pre>isValid() : boolean</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof::isValid()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>Whether the proof is valid.</div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24argument" id="$argument"> </a><div class="element clickable property protected $argument" data-toggle="collapse" data-target=".$argument .collapse">
+<h2>Holds the argument for the proof.</h2>
+<pre>$argument : <a href="../classes/GoTableaux.Argument.html">\GoTableaux\Argument</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>access</th>
+<td>private</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof::$$argument</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="%24branches" id="$branches"> </a><div class="element clickable property protected $branches" data-toggle="collapse" data-target=".$branches .collapse">
+<h2>Holds the branches on the tree.</h2>
+<pre>$branches : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>private</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24proofSystem" id="$proofSystem"> </a><div class="element clickable property protected $proofSystem" data-toggle="collapse" data-target=".$proofSystem .collapse">
+<h2>Holds a reference to the proof system.</h2>
+<pre>$proofSystem : <a href="../classes/GoTableaux.ProofSystem.html">\GoTableaux\ProofSystem</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>access</th>
+<td>private</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof::$$proofSystem</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="%24structure" id="$structure"> </a><div class="element clickable property protected $structure" data-toggle="collapse" data-target=".$structure .collapse">
+<h2>Holds the tree structure.</h2>
+<pre>$structure : \GoTableaux\Proof\Structure</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>private</td>
+</tr></table>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
+            generated on 2012-04-09T00:16:28-07:00.<br></footer></div>
+</div>
+</body>
+</html>

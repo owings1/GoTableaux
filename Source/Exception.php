@@ -22,6 +22,7 @@ namespace GoTableaux;
 
 /**
  * Represents a program exception.
+ * @package Exceptions
  */
 class Exception extends \Exception
 {

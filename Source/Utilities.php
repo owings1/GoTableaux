@@ -22,17 +22,6 @@
 namespace GoTableaux;
 
 /**
- * Alias for {@link Utilities::debug()}.
- * @param mixed $var
- * @return void
- */
-function debug()
-{
-	$args = func_get_args();
-	return call_user_func_array( array( __NAMESPACE__ . '\Utilities', 'debug' ), $args );
-}
-
-/**
  * Collects general PHP utilities.
  * @package GoTableaux
  */
@@ -143,4 +132,16 @@ class Utilities
 		}
 		echo PHP_EOL;
 	}
+}
+
+/**
+ * Alias for Utilities::debug()
+ * @package GoTableaux
+ * @param mixed $var
+ * @return void
+ */
+function debug()
+{
+	$args = func_get_args();
+	return call_user_func_array( array( __NAMESPACE__ . '\Utilities', 'debug' ), $args );
 }

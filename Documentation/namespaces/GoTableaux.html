@@ -1,0 +1,1485 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>GoTableaux » GoTableaux</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">GoTableaux</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/Exceptions.html"><i class="icon-folder-open"></i> Exceptions</a></li>
+<li><a href="../packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
+<li><a href="../packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
+<li><a href="../packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
+<li><a href="../packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
+<li><a href="../packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
+<li><a href="../packages/ModelTheory.html"><i class="icon-folder-open"></i> ModelTheory</a></li>
+<li><a href="../packages/Proof.html"><i class="icon-folder-open"></i> Proof</a></li>
+<li><a href="../packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
+<li><a href="../packages/Syntax.html"><i class="icon-folder-open"></i> Syntax</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">233</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-map-marker"></i> Namespaces</li>
+<li>
+<a href="../namespaces/GoTableaux.html" title="GoTableaux"><i class="icon-th"></i>GoTableaux</a><ul class="nav nav-list nav-namespaces">
+<li>
+<a href="../namespaces/GoTableaux.Exception.html" title="Exception"><i class="icon-th"></i>Exception</a><ul class="nav nav-list nav-namespaces"></ul>
+</li>
+<li>
+<a href="../namespaces/GoTableaux.Logic.html" title="Logic"><i class="icon-th"></i>Logic</a><ul class="nav nav-list nav-namespaces">
+<li>
+<a href="../namespaces/GoTableaux.Logic.CPL.html" title="CPL"><i class="icon-th"></i>CPL</a><ul class="nav nav-list nav-namespaces"><li>
+<a href="../namespaces/GoTableaux.Logic.CPL.ProofSystem.html" title="ProofSystem"><i class="icon-th"></i>ProofSystem</a><ul class="nav nav-list nav-namespaces"><li>
+<a href="../namespaces/GoTableaux.Logic.CPL.ProofSystem.BranchRule.html" title="BranchRule"><i class="icon-th"></i>BranchRule</a><ul class="nav nav-list nav-namespaces"></ul>
+</li></ul>
+</li></ul>
+</li>
+<li>
+<a href="../namespaces/GoTableaux.Logic.FDE.html" title="FDE"><i class="icon-th"></i>FDE</a><ul class="nav nav-list nav-namespaces"><li>
+<a href="../namespaces/GoTableaux.Logic.FDE.ProofSystem.html" title="ProofSystem"><i class="icon-th"></i>ProofSystem</a><ul class="nav nav-list nav-namespaces"><li>
+<a href="../namespaces/GoTableaux.Logic.FDE.ProofSystem.BranchRule.html" title="BranchRule"><i class="icon-th"></i>BranchRule</a><ul class="nav nav-list nav-namespaces"></ul>
+</li></ul>
+</li></ul>
+</li>
+<li>
+<a href="../namespaces/GoTableaux.Logic.GO.html" title="GO"><i class="icon-th"></i>GO</a><ul class="nav nav-list nav-namespaces"><li>
+<a href="../namespaces/GoTableaux.Logic.GO.ProofSystem.html" title="ProofSystem"><i class="icon-th"></i>ProofSystem</a><ul class="nav nav-list nav-namespaces"><li>
+<a href="../namespaces/GoTableaux.Logic.GO.ProofSystem.BranchRule.html" title="BranchRule"><i class="icon-th"></i>BranchRule</a><ul class="nav nav-list nav-namespaces"></ul>
+</li></ul>
+</li></ul>
+</li>
+<li>
+<a href="../namespaces/GoTableaux.Logic.LP.html" title="LP"><i class="icon-th"></i>LP</a><ul class="nav nav-list nav-namespaces"><li>
+<a href="../namespaces/GoTableaux.Logic.LP.ProofSystem.html" title="ProofSystem"><i class="icon-th"></i>ProofSystem</a><ul class="nav nav-list nav-namespaces"></ul>
+</li></ul>
+</li>
+<li>
+<a href="../namespaces/GoTableaux.Logic.Lukasiewicz.html" title="Lukasiewicz"><i class="icon-th"></i>Lukasiewicz</a><ul class="nav nav-list nav-namespaces"><li>
+<a href="../namespaces/GoTableaux.Logic.Lukasiewicz.ProofSystem.html" title="ProofSystem"><i class="icon-th"></i>ProofSystem</a><ul class="nav nav-list nav-namespaces"><li>
+<a href="../namespaces/GoTableaux.Logic.Lukasiewicz.ProofSystem.BranchRule.html" title="BranchRule"><i class="icon-th"></i>BranchRule</a><ul class="nav nav-list nav-namespaces"></ul>
+</li></ul>
+</li></ul>
+</li>
+<li>
+<a href="../namespaces/GoTableaux.Logic.StrongKleene.html" title="StrongKleene"><i class="icon-th"></i>StrongKleene</a><ul class="nav nav-list nav-namespaces"><li>
+<a href="../namespaces/GoTableaux.Logic.StrongKleene.ProofSystem.html" title="ProofSystem"><i class="icon-th"></i>ProofSystem</a><ul class="nav nav-list nav-namespaces"></ul>
+</li></ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="../namespaces/GoTableaux.Proof.html" title="Proof"><i class="icon-th"></i>Proof</a><ul class="nav nav-list nav-namespaces">
+<li>
+<a href="../namespaces/GoTableaux.Proof.TableauBranch.html" title="TableauBranch"><i class="icon-th"></i>TableauBranch</a><ul class="nav nav-list nav-namespaces"><li>
+<a href="../namespaces/GoTableaux.Proof.TableauBranch.Modal.html" title="Modal"><i class="icon-th"></i>Modal</a><ul class="nav nav-list nav-namespaces"></ul>
+</li></ul>
+</li>
+<li>
+<a href="../namespaces/GoTableaux.Proof.TableauNode.html" title="TableauNode"><i class="icon-th"></i>TableauNode</a><ul class="nav nav-list nav-namespaces"><li>
+<a href="../namespaces/GoTableaux.Proof.TableauNode.Sentence.html" title="Sentence"><i class="icon-th"></i>Sentence</a><ul class="nav nav-list nav-namespaces"><li>
+<a href="../namespaces/GoTableaux.Proof.TableauNode.Sentence.Modal.html" title="Modal"><i class="icon-th"></i>Modal</a><ul class="nav nav-list nav-namespaces"></ul>
+</li></ul>
+</li></ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="../namespaces/GoTableaux.ProofSystem.html" title="ProofSystem"><i class="icon-th"></i>ProofSystem</a><ul class="nav nav-list nav-namespaces"><li>
+<a href="../namespaces/GoTableaux.ProofSystem.TableauxSystem.html" title="TableauxSystem"><i class="icon-th"></i>TableauxSystem</a><ul class="nav nav-list nav-namespaces">
+<li>
+<a href="../namespaces/GoTableaux.ProofSystem.TableauxSystem.BranchRule.html" title="BranchRule"><i class="icon-th"></i>BranchRule</a><ul class="nav nav-list nav-namespaces"></ul>
+</li>
+<li>
+<a href="../namespaces/GoTableaux.ProofSystem.TableauxSystem.Modal.html" title="Modal"><i class="icon-th"></i>Modal</a><ul class="nav nav-list nav-namespaces"></ul>
+</li>
+</ul>
+</li></ul>
+</li>
+<li>
+<a href="../namespaces/GoTableaux.ProofWriter.html" title="ProofWriter"><i class="icon-th"></i>ProofWriter</a><ul class="nav nav-list nav-namespaces"><li>
+<a href="../namespaces/GoTableaux.ProofWriter.Tableau.html" title="Tableau"><i class="icon-th"></i>Tableau</a><ul class="nav nav-list nav-namespaces"></ul>
+</li></ul>
+</li>
+<li>
+<a href="../namespaces/GoTableaux.Sentence.html" title="Sentence"><i class="icon-th"></i>Sentence</a><ul class="nav nav-list nav-namespaces"></ul>
+</li>
+<li>
+<a href="../namespaces/GoTableaux.SentenceParser.html" title="SentenceParser"><i class="icon-th"></i>SentenceParser</a><ul class="nav nav-list nav-namespaces"></ul>
+</li>
+<li>
+<a href="../namespaces/GoTableaux.SentenceWriter.html" title="SentenceWriter"><i class="icon-th"></i>SentenceWriter</a><ul class="nav nav-list nav-namespaces">
+<li>
+<a href="../namespaces/GoTableaux.SentenceWriter.Polish.html" title="Polish"><i class="icon-th"></i>Polish</a><ul class="nav nav-list nav-namespaces"></ul>
+</li>
+<li>
+<a href="../namespaces/GoTableaux.SentenceWriter.Standard.html" title="Standard"><i class="icon-th"></i>Standard</a><ul class="nav nav-list nav-namespaces"></ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8 namespace-contents">
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li class="active"><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-function"></i> Functions</h3>
+<a name="debug" id="debug"></a><div class="element clickable function  debug" data-toggle="collapse" data-target=".debug .collapse">
+<h2>Alias for Utilities::debug()</h2>
+<pre>debug() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>package</th>
+<td><a href="..//packages/GoTableaux.html">GoTableaux</a></td>
+</tr></table>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="Argument" id="Argument"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Argument.html">
+<h1>Argument<a href="../classes/GoTableaux.Argument.html">¶</a>
+</h1>
+<p class="short_description">Represents an argument as a set of premises and one conclusion.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Argument.html" class="more">« More »</a>
+</div>
+<a name="Exception" id="Exception"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Exception.html">
+<h1>Exception<a href="../classes/GoTableaux.Exception.html">¶</a>
+</h1>
+<p class="short_description">Represents a program exception.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Exception.html" class="more">« More »</a>
+</div>
+<a name="Loader" id="Loader"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Loader.html">
+<h1>Loader<a href="../classes/GoTableaux.Loader.html">¶</a>
+</h1>
+<p class="short_description">Loads class files.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Loader.html" class="more">« More »</a>
+</div>
+<a name="Logic" id="Logic"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.html">
+<h1>Logic<a href="../classes/GoTableaux.Logic.html">¶</a>
+</h1>
+<p class="short_description">Represents a Logic.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.html" class="more">« More »</a>
+</div>
+<a name="Model" id="Model"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Model.html">
+<h1>Model<a href="../classes/GoTableaux.Model.html">¶</a>
+</h1>
+<p class="short_description">Represents model-theoretic model.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Model.html" class="more">« More »</a>
+</div>
+<a name="Operator" id="Operator"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Operator.html">
+<h1>Operator<a href="../classes/GoTableaux.Operator.html">¶</a>
+</h1>
+<p class="short_description">Represents an operator.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Operator.html" class="more">« More »</a>
+</div>
+<a name="ParserUtilities" id="ParserUtilities"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ParserUtilities.html">
+<h1>ParserUtilities<a href="../classes/GoTableaux.ParserUtilities.html">¶</a>
+</h1>
+<p class="short_description">Collects utilities for sentence parsers.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.ParserUtilities.html" class="more">« More »</a>
+</div>
+<a name="Proof" id="Proof"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.html">
+<h1>Proof<a href="../classes/GoTableaux.Proof.html">¶</a>
+</h1>
+<p class="short_description">Represents a proof.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Proof.html" class="more">« More »</a>
+</div>
+<a name="ProofSystem" id="ProofSystem"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofSystem.html">
+<h1>ProofSystem<a href="../classes/GoTableaux.ProofSystem.html">¶</a>
+</h1>
+<p class="short_description">Represents a proof system.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.ProofSystem.html" class="more">« More »</a>
+</div>
+<a name="ProofWriter" id="ProofWriter"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofWriter.html">
+<h1>ProofWriter<a href="../classes/GoTableaux.ProofWriter.html">¶</a>
+</h1>
+<p class="short_description">Writes proofs.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.ProofWriter.html" class="more">« More »</a>
+</div>
+<a name="Sentence" id="Sentence"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Sentence.html">
+<h1>Sentence<a href="../classes/GoTableaux.Sentence.html">¶</a>
+</h1>
+<p class="short_description">Represents a sentence.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Sentence.html" class="more">« More »</a>
+</div>
+<a name="SentenceParser" id="SentenceParser"></a><div class="element ajax clickable class" href="../classes/GoTableaux.SentenceParser.html">
+<h1>SentenceParser<a href="../classes/GoTableaux.SentenceParser.html">¶</a>
+</h1>
+<p class="short_description">Represents a sentence parser.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.SentenceParser.html" class="more">« More »</a>
+</div>
+<a name="SentenceWriter" id="SentenceWriter"></a><div class="element ajax clickable class" href="../classes/GoTableaux.SentenceWriter.html">
+<h1>SentenceWriter<a href="../classes/GoTableaux.SentenceWriter.html">¶</a>
+</h1>
+<p class="short_description">Writes sentences.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.SentenceWriter.html" class="more">« More »</a>
+</div>
+<a name="Settings" id="Settings"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Settings.html">
+<h1>Settings<a href="../classes/GoTableaux.Settings.html">¶</a>
+</h1>
+<p class="short_description">Stores the settings.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Settings.html" class="more">« More »</a>
+</div>
+<a name="Utilities" id="Utilities"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Utilities.html">
+<h1>Utilities<a href="../classes/GoTableaux.Utilities.html">¶</a>
+</h1>
+<p class="short_description">Collects general PHP utilities.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Utilities.html" class="more">« More »</a>
+</div>
+<a name="Vocabulary" id="Vocabulary"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Vocabulary.html">
+<h1>Vocabulary<a href="../classes/GoTableaux.Vocabulary.html">¶</a>
+</h1>
+<p class="short_description">Represents a vocabulary.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Vocabulary.html" class="more">« More »</a>
+</div>
+<h3>
+<i class="icon-custom icon-constant"></i> Constants</h3>
+<a name="DS" id="DS"> </a><div class="element clickable constant  DS" data-toggle="collapse" data-target=".DS .collapse">
+<h2>DS</h2>
+<pre>DS </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Exception.html">Exception</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="Loader" id="Loader"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Exception.Loader.html">
+<h1>Loader<a href="../classes/GoTableaux.Exception.Loader.html">¶</a>
+</h1>
+<p class="short_description">Represents a loader exception.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Exception.Loader.html" class="more">« More »</a>
+</div>
+<a name="Parser" id="Parser"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Exception.Parser.html">
+<h1>Parser<a href="../classes/GoTableaux.Exception.Parser.html">¶</a>
+</h1>
+<p class="short_description">Represents a parsing exception.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Exception.Parser.html" class="more">« More »</a>
+</div>
+<a name="Proof" id="Proof"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Exception.Proof.html">
+<h1>Proof<a href="../classes/GoTableaux.Exception.Proof.html">¶</a>
+</h1>
+<p class="short_description">Represents a proof exception.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Exception.Proof.html" class="more">« More »</a>
+</div>
+<a name="Rule" id="Rule"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Exception.Rule.html">
+<h1>Rule<a href="../classes/GoTableaux.Exception.Rule.html">¶</a>
+</h1>
+<p class="short_description">Represents a tableau rule exception.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Exception.Rule.html" class="more">« More »</a>
+</div>
+<a name="Tableau" id="Tableau"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Exception.Tableau.html">
+<h1>Tableau<a href="../classes/GoTableaux.Exception.Tableau.html">¶</a>
+</h1>
+<p class="short_description">Represents a tableau proof exception.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Exception.Tableau.html" class="more">« More »</a>
+</div>
+<a name="Vocabulary" id="Vocabulary"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Exception.Vocabulary.html">
+<h1>Vocabulary<a href="../classes/GoTableaux.Exception.Vocabulary.html">¶</a>
+</h1>
+<p class="short_description">Represents a vocabulary exception.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Exception.Vocabulary.html" class="more">« More »</a>
+</div>
+<a name="Writer" id="Writer"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Exception.Writer.html">
+<h1>Writer<a href="../classes/GoTableaux.Exception.Writer.html">¶</a>
+</h1>
+<p class="short_description">Represents a tableau writer exception.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Exception.Writer.html" class="more">« More »</a>
+</div>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Logic.html">Logic</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="CPL" id="CPL"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.CPL.html">
+<h1>CPL<a href="../classes/GoTableaux.Logic.CPL.html">¶</a>
+</h1>
+<p class="short_description">Represents Classical Propositional Logic.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.CPL.html" class="more">« More »</a>
+</div>
+<a name="FDE" id="FDE"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.FDE.html">
+<h1>FDE<a href="../classes/GoTableaux.Logic.FDE.html">¶</a>
+</h1>
+<p class="short_description">Represents First Degree Entailment Logic.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.FDE.html" class="more">« More »</a>
+</div>
+<a name="GO" id="GO"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.GO.html">
+<h1>GO<a href="../classes/GoTableaux.Logic.GO.html">¶</a>
+</h1>
+<p class="short_description">Represents GO 3-valued Propositional Logic.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.GO.html" class="more">« More »</a>
+</div>
+<a name="LP" id="LP"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.LP.html">
+<h1>LP<a href="../classes/GoTableaux.Logic.LP.html">¶</a>
+</h1>
+<p class="short_description">Represents the Logic of Paradox.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.LP.html" class="more">« More »</a>
+</div>
+<a name="Lukasiewicz" id="Lukasiewicz"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.Lukasiewicz.html">
+<h1>Lukasiewicz<a href="../classes/GoTableaux.Logic.Lukasiewicz.html">¶</a>
+</h1>
+<p class="short_description">Represents Lukasiewicz 3-valued logic.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.Lukasiewicz.html" class="more">« More »</a>
+</div>
+<a name="StrongKleene" id="StrongKleene"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.StrongKleene.html">
+<h1>StrongKleene<a href="../classes/GoTableaux.Logic.StrongKleene.html">¶</a>
+</h1>
+<p class="short_description">Represents Strong Kleene Logic.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.StrongKleene.html" class="more">« More »</a>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.html">Logic</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Logic.CPL.html">CPL</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="ProofSystem" id="ProofSystem"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.CPL.ProofSystem.html">
+<h1>ProofSystem<a href="../classes/GoTableaux.Logic.CPL.ProofSystem.html">¶</a>
+</h1>
+<p class="short_description">Represents the Tableaux system for CPL.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.CPL.ProofSystem.html" class="more">« More »</a>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.html">Logic</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.CPL.html">CPL</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Logic.CPL.ProofSystem.html">ProofSystem</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="ClosureRule" id="ClosureRule"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.CPL.ProofSystem.ClosureRule.html">
+<h1>ClosureRule<a href="../classes/GoTableaux.Logic.CPL.ProofSystem.ClosureRule.html">¶</a>
+</h1>
+<p class="short_description">Represents the tableaux closure rule for CPL.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.CPL.ProofSystem.ClosureRule.html" class="more">« More »</a>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.html">Logic</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.CPL.html">CPL</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.CPL.ProofSystem.html">ProofSystem</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Logic.CPL.ProofSystem.BranchRule.html">BranchRule</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="Conjunction" id="Conjunction"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.Conjunction.html">
+<h1>Conjunction<a href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.Conjunction.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.Conjunction.html" class="more">« More »</a>
+</div>
+<a name="Disjunction" id="Disjunction"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.Disjunction.html">
+<h1>Disjunction<a href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.Disjunction.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.Disjunction.html" class="more">« More »</a>
+</div>
+<a name="DoubleNegation" id="DoubleNegation"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.DoubleNegation.html">
+<h1>DoubleNegation<a href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.DoubleNegation.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.DoubleNegation.html" class="more">« More »</a>
+</div>
+<a name="MaterialBiconditional" id="MaterialBiconditional"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.MaterialBiconditional.html">
+<h1>MaterialBiconditional<a href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.MaterialBiconditional.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.MaterialBiconditional.html" class="more">« More »</a>
+</div>
+<a name="MaterialConditional" id="MaterialConditional"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.MaterialConditional.html">
+<h1>MaterialConditional<a href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.MaterialConditional.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.MaterialConditional.html" class="more">« More »</a>
+</div>
+<a name="NegatedConjunction" id="NegatedConjunction"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.NegatedConjunction.html">
+<h1>NegatedConjunction<a href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.NegatedConjunction.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.NegatedConjunction.html" class="more">« More »</a>
+</div>
+<a name="NegatedDisjunction" id="NegatedDisjunction"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.NegatedDisjunction.html">
+<h1>NegatedDisjunction<a href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.NegatedDisjunction.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.NegatedDisjunction.html" class="more">« More »</a>
+</div>
+<a name="NegatedMaterialBiconditional" id="NegatedMaterialBiconditional"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.NegatedMaterialBiconditional.html">
+<h1>NegatedMaterialBiconditional<a href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.NegatedMaterialBiconditional.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.NegatedMaterialBiconditional.html" class="more">« More »</a>
+</div>
+<a name="NegatedMaterialConditional" id="NegatedMaterialConditional"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.NegatedMaterialConditional.html">
+<h1>NegatedMaterialConditional<a href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.NegatedMaterialConditional.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.CPL.ProofSystem.BranchRule.NegatedMaterialConditional.html" class="more">« More »</a>
+</div>
+</div>
+</div>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.html">Logic</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Logic.FDE.html">FDE</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="ProofSystem" id="ProofSystem"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.FDE.ProofSystem.html">
+<h1>ProofSystem<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.html">¶</a>
+</h1>
+<p class="short_description">Represents the FDE tableaux system.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.html" class="more">« More »</a>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.html">Logic</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.FDE.html">FDE</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Logic.FDE.ProofSystem.html">ProofSystem</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="ClosureRule" id="ClosureRule"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.FDE.ProofSystem.ClosureRule.html">
+<h1>ClosureRule<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.ClosureRule.html">¶</a>
+</h1>
+<p class="short_description">Represents the tableaux closure rule for FDE.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.ClosureRule.html" class="more">« More »</a>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.html">Logic</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.FDE.html">FDE</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.FDE.ProofSystem.html">ProofSystem</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Logic.FDE.ProofSystem.BranchRule.html">BranchRule</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="ConjunctionDesignated" id="ConjunctionDesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.ConjunctionDesignated.html">
+<h1>ConjunctionDesignated<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.ConjunctionDesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.ConjunctionDesignated.html" class="more">« More »</a>
+</div>
+<a name="ConjunctionUndesignated" id="ConjunctionUndesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.ConjunctionUndesignated.html">
+<h1>ConjunctionUndesignated<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.ConjunctionUndesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.ConjunctionUndesignated.html" class="more">« More »</a>
+</div>
+<a name="DisjunctionDesignated" id="DisjunctionDesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.DisjunctionDesignated.html">
+<h1>DisjunctionDesignated<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.DisjunctionDesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.DisjunctionDesignated.html" class="more">« More »</a>
+</div>
+<a name="DisjunctionUndesignated" id="DisjunctionUndesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.DisjunctionUndesignated.html">
+<h1>DisjunctionUndesignated<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.DisjunctionUndesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.DisjunctionUndesignated.html" class="more">« More »</a>
+</div>
+<a name="DoubleNegationDesignated" id="DoubleNegationDesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.DoubleNegationDesignated.html">
+<h1>DoubleNegationDesignated<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.DoubleNegationDesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.DoubleNegationDesignated.html" class="more">« More »</a>
+</div>
+<a name="DoubleNegationUndesignated" id="DoubleNegationUndesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.DoubleNegationUndesignated.html">
+<h1>DoubleNegationUndesignated<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.DoubleNegationUndesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.DoubleNegationUndesignated.html" class="more">« More »</a>
+</div>
+<a name="MaterialBiconditionalDesignated" id="MaterialBiconditionalDesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.MaterialBiconditionalDesignated.html">
+<h1>MaterialBiconditionalDesignated<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.MaterialBiconditionalDesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.MaterialBiconditionalDesignated.html" class="more">« More »</a>
+</div>
+<a name="MaterialBiconditionalUndesignated" id="MaterialBiconditionalUndesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.MaterialBiconditionalUndesignated.html">
+<h1>MaterialBiconditionalUndesignated<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.MaterialBiconditionalUndesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.MaterialBiconditionalUndesignated.html" class="more">« More »</a>
+</div>
+<a name="MaterialConditionalDesignated" id="MaterialConditionalDesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.MaterialConditionalDesignated.html">
+<h1>MaterialConditionalDesignated<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.MaterialConditionalDesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.MaterialConditionalDesignated.html" class="more">« More »</a>
+</div>
+<a name="MaterialConditionalUndesignated" id="MaterialConditionalUndesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.MaterialConditionalUndesignated.html">
+<h1>MaterialConditionalUndesignated<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.MaterialConditionalUndesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.MaterialConditionalUndesignated.html" class="more">« More »</a>
+</div>
+<a name="NegatedConjunctionDesignated" id="NegatedConjunctionDesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.NegatedConjunctionDesignated.html">
+<h1>NegatedConjunctionDesignated<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.NegatedConjunctionDesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.NegatedConjunctionDesignated.html" class="more">« More »</a>
+</div>
+<a name="NegatedConjunctionUndesignated" id="NegatedConjunctionUndesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.NegatedConjunctionUndesignated.html">
+<h1>NegatedConjunctionUndesignated<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.NegatedConjunctionUndesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.NegatedConjunctionUndesignated.html" class="more">« More »</a>
+</div>
+<a name="NegatedDisjunctionDesignated" id="NegatedDisjunctionDesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.NegatedDisjunctionDesignated.html">
+<h1>NegatedDisjunctionDesignated<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.NegatedDisjunctionDesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.NegatedDisjunctionDesignated.html" class="more">« More »</a>
+</div>
+<a name="NegatedDisjunctionUndesignated" id="NegatedDisjunctionUndesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.NegatedDisjunctionUndesignated.html">
+<h1>NegatedDisjunctionUndesignated<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.NegatedDisjunctionUndesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.NegatedDisjunctionUndesignated.html" class="more">« More »</a>
+</div>
+<a name="NegatedMaterialBiconditionalDesignated" id="NegatedMaterialBiconditionalDesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.NegatedMaterialBiconditionalDesignated.html">
+<h1>NegatedMaterialBiconditionalDesignated<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.NegatedMaterialBiconditionalDesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.NegatedMaterialBiconditionalDesignated.html" class="more">« More »</a>
+</div>
+<a name="NegatedMaterialBiconditionalUndesignated" id="NegatedMaterialBiconditionalUndesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.NegatedMaterialBiconditionalUndesignated.html">
+<h1>NegatedMaterialBiconditionalUndesignated<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.NegatedMaterialBiconditionalUndesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.NegatedMaterialBiconditionalUndesignated.html" class="more">« More »</a>
+</div>
+<a name="NegatedMaterialConditionalDesignated" id="NegatedMaterialConditionalDesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.NegatedMaterialConditionalDesignated.html">
+<h1>NegatedMaterialConditionalDesignated<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.NegatedMaterialConditionalDesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.NegatedMaterialConditionalDesignated.html" class="more">« More »</a>
+</div>
+<a name="NegatedMaterialConditionalUndesignated" id="NegatedMaterialConditionalUndesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.NegatedMaterialConditionalUndesignated.html">
+<h1>NegatedMaterialConditionalUndesignated<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.NegatedMaterialConditionalUndesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.FDE.ProofSystem.BranchRule.NegatedMaterialConditionalUndesignated.html" class="more">« More »</a>
+</div>
+</div>
+</div>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.html">Logic</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Logic.GO.html">GO</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="ProofSystem" id="ProofSystem"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.GO.ProofSystem.html">
+<h1>ProofSystem<a href="../classes/GoTableaux.Logic.GO.ProofSystem.html">¶</a>
+</h1>
+<p class="short_description">Represents the Tableaux system for GO.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.GO.ProofSystem.html" class="more">« More »</a>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.html">Logic</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.GO.html">GO</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Logic.GO.ProofSystem.html">ProofSystem</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="ClosureRule" id="ClosureRule"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.GO.ProofSystem.ClosureRule.html">
+<h1>ClosureRule<a href="../classes/GoTableaux.Logic.GO.ProofSystem.ClosureRule.html">¶</a>
+</h1>
+<p class="short_description">Represents the tableaux closure rule for GO.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.GO.ProofSystem.ClosureRule.html" class="more">« More »</a>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.html">Logic</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.GO.html">GO</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.GO.ProofSystem.html">ProofSystem</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Logic.GO.ProofSystem.BranchRule.html">BranchRule</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="ConjunctionUndesignated" id="ConjunctionUndesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.ConjunctionUndesignated.html">
+<h1>ConjunctionUndesignated<a href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.ConjunctionUndesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.ConjunctionUndesignated.html" class="more">« More »</a>
+</div>
+<a name="DisjunctionUndesignated" id="DisjunctionUndesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.DisjunctionUndesignated.html">
+<h1>DisjunctionUndesignated<a href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.DisjunctionUndesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.DisjunctionUndesignated.html" class="more">« More »</a>
+</div>
+<a name="MaterialBiconditionalUndesignated" id="MaterialBiconditionalUndesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.MaterialBiconditionalUndesignated.html">
+<h1>MaterialBiconditionalUndesignated<a href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.MaterialBiconditionalUndesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.MaterialBiconditionalUndesignated.html" class="more">« More »</a>
+</div>
+<a name="MaterialConditionalUndesignated" id="MaterialConditionalUndesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.MaterialConditionalUndesignated.html">
+<h1>MaterialConditionalUndesignated<a href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.MaterialConditionalUndesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.MaterialConditionalUndesignated.html" class="more">« More »</a>
+</div>
+<a name="NegatedConjunctionDesignated" id="NegatedConjunctionDesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.NegatedConjunctionDesignated.html">
+<h1>NegatedConjunctionDesignated<a href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.NegatedConjunctionDesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.NegatedConjunctionDesignated.html" class="more">« More »</a>
+</div>
+<a name="NegatedConjunctionUndesignated" id="NegatedConjunctionUndesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.NegatedConjunctionUndesignated.html">
+<h1>NegatedConjunctionUndesignated<a href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.NegatedConjunctionUndesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.NegatedConjunctionUndesignated.html" class="more">« More »</a>
+</div>
+<a name="NegatedDisjunctionDesignated" id="NegatedDisjunctionDesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.NegatedDisjunctionDesignated.html">
+<h1>NegatedDisjunctionDesignated<a href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.NegatedDisjunctionDesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.NegatedDisjunctionDesignated.html" class="more">« More »</a>
+</div>
+<a name="NegatedDisjunctionUndesignated" id="NegatedDisjunctionUndesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.NegatedDisjunctionUndesignated.html">
+<h1>NegatedDisjunctionUndesignated<a href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.NegatedDisjunctionUndesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.NegatedDisjunctionUndesignated.html" class="more">« More »</a>
+</div>
+<a name="NegatedMaterialBiconditionalDesignated" id="NegatedMaterialBiconditionalDesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.NegatedMaterialBiconditionalDesignated.html">
+<h1>NegatedMaterialBiconditionalDesignated<a href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.NegatedMaterialBiconditionalDesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.NegatedMaterialBiconditionalDesignated.html" class="more">« More »</a>
+</div>
+<a name="NegatedMaterialBiconditionalUndesignated" id="NegatedMaterialBiconditionalUndesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.NegatedMaterialBiconditionalUndesignated.html">
+<h1>NegatedMaterialBiconditionalUndesignated<a href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.NegatedMaterialBiconditionalUndesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.NegatedMaterialBiconditionalUndesignated.html" class="more">« More »</a>
+</div>
+<a name="NegatedMaterialConditionalDesignated" id="NegatedMaterialConditionalDesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.NegatedMaterialConditionalDesignated.html">
+<h1>NegatedMaterialConditionalDesignated<a href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.NegatedMaterialConditionalDesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.NegatedMaterialConditionalDesignated.html" class="more">« More »</a>
+</div>
+<a name="NegatedMaterialConditionalUndesignated" id="NegatedMaterialConditionalUndesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.NegatedMaterialConditionalUndesignated.html">
+<h1>NegatedMaterialConditionalUndesignated<a href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.NegatedMaterialConditionalUndesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.GO.ProofSystem.BranchRule.NegatedMaterialConditionalUndesignated.html" class="more">« More »</a>
+</div>
+</div>
+</div>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.html">Logic</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Logic.LP.html">LP</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="ProofSystem" id="ProofSystem"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.LP.ProofSystem.html">
+<h1>ProofSystem<a href="../classes/GoTableaux.Logic.LP.ProofSystem.html">¶</a>
+</h1>
+<p class="short_description">Represents the LP tableaux system.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.LP.ProofSystem.html" class="more">« More »</a>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.html">Logic</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.LP.html">LP</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Logic.LP.ProofSystem.html">ProofSystem</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="ClosureRule" id="ClosureRule"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.LP.ProofSystem.ClosureRule.html">
+<h1>ClosureRule<a href="../classes/GoTableaux.Logic.LP.ProofSystem.ClosureRule.html">¶</a>
+</h1>
+<p class="short_description">Represents the LP closure rule.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.LP.ProofSystem.ClosureRule.html" class="more">« More »</a>
+</div>
+</div>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.html">Logic</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Logic.Lukasiewicz.html">Lukasiewicz</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="ProofSystem" id="ProofSystem"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.Lukasiewicz.ProofSystem.html">
+<h1>ProofSystem<a href="../classes/GoTableaux.Logic.Lukasiewicz.ProofSystem.html">¶</a>
+</h1>
+<p class="short_description">Represents the Lukasiewicz 3 tableaux system.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.Lukasiewicz.ProofSystem.html" class="more">« More »</a>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.html">Logic</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.Lukasiewicz.html">Lukasiewicz</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Logic.Lukasiewicz.ProofSystem.html">ProofSystem</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="ClosureRule" id="ClosureRule"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.Lukasiewicz.ProofSystem.ClosureRule.html">
+<h1>ClosureRule<a href="../classes/GoTableaux.Logic.Lukasiewicz.ProofSystem.ClosureRule.html">¶</a>
+</h1>
+<p class="short_description">Represents the Lukasiewicz closure rule.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.Lukasiewicz.ProofSystem.ClosureRule.html" class="more">« More »</a>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.html">Logic</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.Lukasiewicz.html">Lukasiewicz</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.Lukasiewicz.ProofSystem.html">ProofSystem</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Logic.Lukasiewicz.ProofSystem.BranchRule.html">BranchRule</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="ConditionalDesignated" id="ConditionalDesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.Lukasiewicz.ProofSystem.BranchRule.ConditionalDesignated.html">
+<h1>ConditionalDesignated<a href="../classes/GoTableaux.Logic.Lukasiewicz.ProofSystem.BranchRule.ConditionalDesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.Lukasiewicz.ProofSystem.BranchRule.ConditionalDesignated.html" class="more">« More »</a>
+</div>
+<a name="ConditionalUndesignated" id="ConditionalUndesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.Lukasiewicz.ProofSystem.BranchRule.ConditionalUndesignated.html">
+<h1>ConditionalUndesignated<a href="../classes/GoTableaux.Logic.Lukasiewicz.ProofSystem.BranchRule.ConditionalUndesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.Lukasiewicz.ProofSystem.BranchRule.ConditionalUndesignated.html" class="more">« More »</a>
+</div>
+<a name="NegatedConditionalDesignated" id="NegatedConditionalDesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.Lukasiewicz.ProofSystem.BranchRule.NegatedConditionalDesignated.html">
+<h1>NegatedConditionalDesignated<a href="../classes/GoTableaux.Logic.Lukasiewicz.ProofSystem.BranchRule.NegatedConditionalDesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.Lukasiewicz.ProofSystem.BranchRule.NegatedConditionalDesignated.html" class="more">« More »</a>
+</div>
+<a name="NegatedConditionalUndesignated" id="NegatedConditionalUndesignated"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.Lukasiewicz.ProofSystem.BranchRule.NegatedConditionalUndesignated.html">
+<h1>NegatedConditionalUndesignated<a href="../classes/GoTableaux.Logic.Lukasiewicz.ProofSystem.BranchRule.NegatedConditionalUndesignated.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.Lukasiewicz.ProofSystem.BranchRule.NegatedConditionalUndesignated.html" class="more">« More »</a>
+</div>
+</div>
+</div>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.html">Logic</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Logic.StrongKleene.html">StrongKleene</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="ProofSystem" id="ProofSystem"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.StrongKleene.ProofSystem.html">
+<h1>ProofSystem<a href="../classes/GoTableaux.Logic.StrongKleene.ProofSystem.html">¶</a>
+</h1>
+<p class="short_description">Represents the K3 tableaux system.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.StrongKleene.ProofSystem.html" class="more">« More »</a>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.html">Logic</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.StrongKleene.html">StrongKleene</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Logic.StrongKleene.ProofSystem.html">ProofSystem</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="ClosureRule" id="ClosureRule"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Logic.StrongKleene.ProofSystem.ClosureRule.html">
+<h1>ClosureRule<a href="../classes/GoTableaux.Logic.StrongKleene.ProofSystem.ClosureRule.html">¶</a>
+</h1>
+<p class="short_description">Represents the K3 closure rule.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Logic.StrongKleene.ProofSystem.ClosureRule.html" class="more">« More »</a>
+</div>
+</div>
+</div>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Proof.html">Proof</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="Tableau" id="Tableau"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.Tableau.html">
+<h1>Tableau<a href="../classes/GoTableaux.Proof.Tableau.html">¶</a>
+</h1>
+<p class="short_description">Represents a tableau for an argument.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Proof.Tableau.html" class="more">« More »</a>
+</div>
+<a name="TableauBranch" id="TableauBranch"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.TableauBranch.html">
+<h1>TableauBranch<a href="../classes/GoTableaux.Proof.TableauBranch.html">¶</a>
+</h1>
+<p class="short_description">Represents a tableau branch.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Proof.TableauBranch.html" class="more">« More »</a>
+</div>
+<a name="TableauNode" id="TableauNode"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.TableauNode.html">
+<h1>TableauNode<a href="../classes/GoTableaux.Proof.TableauNode.html">¶</a>
+</h1>
+<p class="short_description">Represents a node on a branch.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Proof.TableauNode.html" class="more">« More »</a>
+</div>
+<a name="TableauStructure" id="TableauStructure"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.TableauStructure.html">
+<h1>TableauStructure<a href="../classes/GoTableaux.Proof.TableauStructure.html">¶</a>
+</h1>
+<p class="short_description">Represents the proper 'tree' structure of a tableau.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Proof.TableauStructure.html" class="more">« More »</a>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Proof.html">Proof</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Proof.TableauBranch.html">TableauBranch</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="ManyValued" id="ManyValued"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.TableauBranch.ManyValued.html">
+<h1>ManyValued<a href="../classes/GoTableaux.Proof.TableauBranch.ManyValued.html">¶</a>
+</h1>
+<p class="short_description">Represents a many-valued logic tableau branch.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Proof.TableauBranch.ManyValued.html" class="more">« More »</a>
+</div>
+<a name="Modal" id="Modal"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.TableauBranch.Modal.html">
+<h1>Modal<a href="../classes/GoTableaux.Proof.TableauBranch.Modal.html">¶</a>
+</h1>
+<p class="short_description">Represents a modal logic tableau branch.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Proof.TableauBranch.Modal.html" class="more">« More »</a>
+</div>
+<a name="Propositional" id="Propositional"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.TableauBranch.Propositional.html">
+<h1>Propositional<a href="../classes/GoTableaux.Proof.TableauBranch.Propositional.html">¶</a>
+</h1>
+<p class="short_description">Represents a propositional logic tableau branch.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Proof.TableauBranch.Propositional.html" class="more">« More »</a>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Proof.html">Proof</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Proof.TableauBranch.html">TableauBranch</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Proof.TableauBranch.Modal.html">Modal</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="ManyValued" id="ManyValued"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.TableauBranch.Modal.ManyValued.html">
+<h1>ManyValued<a href="../classes/GoTableaux.Proof.TableauBranch.Modal.ManyValued.html">¶</a>
+</h1>
+<p class="short_description">Represents a tableau branch with designation markers for a many-valued
+modal logic.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Proof.TableauBranch.Modal.ManyValued.html" class="more">« More »</a>
+</div>
+</div>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Proof.html">Proof</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Proof.TableauNode.html">TableauNode</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="ManyValued" id="ManyValued"></a><div class="element ajax clickable interface" href="../classes/GoTableaux.Proof.TableauNode.ManyValued.html">
+<h1>ManyValued<a href="../classes/GoTableaux.Proof.TableauNode.ManyValued.html">¶</a>
+</h1>
+<p class="short_description">Signifies a many-valued tableau node that has a designation marker.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Proof.TableauNode.ManyValued.html" class="more">« More »</a>
+</div>
+<a name="Modal" id="Modal"></a><div class="element ajax clickable interface" href="../classes/GoTableaux.Proof.TableauNode.Modal.html">
+<h1>Modal<a href="../classes/GoTableaux.Proof.TableauNode.Modal.html">¶</a>
+</h1>
+<p class="short_description">Signifies a modal tableau node that has at least one index.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Proof.TableauNode.Modal.html" class="more">« More »</a>
+</div>
+<a name="Access" id="Access"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.TableauNode.Access.html">
+<h1>Access<a href="../classes/GoTableaux.Proof.TableauNode.Access.html">¶</a>
+</h1>
+<p class="short_description">Represents a modal logic access relation node.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Proof.TableauNode.Access.html" class="more">« More »</a>
+</div>
+<a name="Sentence" id="Sentence"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.TableauNode.Sentence.html">
+<h1>Sentence<a href="../classes/GoTableaux.Proof.TableauNode.Sentence.html">¶</a>
+</h1>
+<p class="short_description">Represents a sentence tableau node.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Proof.TableauNode.Sentence.html" class="more">« More »</a>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Proof.html">Proof</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Proof.TableauNode.html">TableauNode</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Proof.TableauNode.Sentence.html">Sentence</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="ManyValued" id="ManyValued"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.TableauNode.Sentence.ManyValued.html">
+<h1>ManyValued<a href="../classes/GoTableaux.Proof.TableauNode.Sentence.ManyValued.html">¶</a>
+</h1>
+<p class="short_description">Represents a sentence node on a branch of a many-valued logic tableau.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Proof.TableauNode.Sentence.ManyValued.html" class="more">« More »</a>
+</div>
+<a name="Modal" id="Modal"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.TableauNode.Sentence.Modal.html">
+<h1>Modal<a href="../classes/GoTableaux.Proof.TableauNode.Sentence.Modal.html">¶</a>
+</h1>
+<p class="short_description">Represents a modal sentence tableau node.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Proof.TableauNode.Sentence.Modal.html" class="more">« More »</a>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Proof.html">Proof</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Proof.TableauNode.html">TableauNode</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Proof.TableauNode.Sentence.html">Sentence</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Proof.TableauNode.Sentence.Modal.html">Modal</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="ManyValued" id="ManyValued"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.TableauNode.Sentence.Modal.ManyValued.html">
+<h1>ManyValued<a href="../classes/GoTableaux.Proof.TableauNode.Sentence.Modal.ManyValued.html">¶</a>
+</h1>
+<p class="short_description">Represents a sentence node on a branch of a many-valued modal logic tableau.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Proof.TableauNode.Sentence.Modal.ManyValued.html" class="more">« More »</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.ProofSystem.html">ProofSystem</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="TableauxSystem" id="TableauxSystem"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofSystem.TableauxSystem.html">
+<h1>TableauxSystem<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.html">¶</a>
+</h1>
+<p class="short_description">Represents a tableaux proof system.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.html" class="more">« More »</a>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.ProofSystem.html">ProofSystem</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.ProofSystem.TableauxSystem.html">TableauxSystem</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="BranchRule" id="BranchRule"></a><div class="element ajax clickable interface" href="../classes/GoTableaux.ProofSystem.TableauxSystem.BranchRule.html">
+<h1>BranchRule<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.BranchRule.html">¶</a>
+</h1>
+<p class="short_description">Represents a tableau rule that applies to a branch.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.BranchRule.html" class="more">« More »</a>
+</div>
+<a name="ClosureRule" id="ClosureRule"></a><div class="element ajax clickable interface" href="../classes/GoTableaux.ProofSystem.TableauxSystem.ClosureRule.html">
+<h1>ClosureRule<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.ClosureRule.html">¶</a>
+</h1>
+<p class="short_description">Represents a tableau closure rule.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.ClosureRule.html" class="more">« More »</a>
+</div>
+<a name="Bivalent" id="Bivalent"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofSystem.TableauxSystem.Bivalent.html">
+<h1>Bivalent<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.Bivalent.html">¶</a>
+</h1>
+<p class="short_description">Represents a bivalent propositional tableaux system.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.Bivalent.html" class="more">« More »</a>
+</div>
+<a name="ManyValued" id="ManyValued"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofSystem.TableauxSystem.ManyValued.html">
+<h1>ManyValued<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.ManyValued.html">¶</a>
+</h1>
+<p class="short_description">Represents a many-valued propositional tableaux system.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.ManyValued.html" class="more">« More »</a>
+</div>
+<a name="Modal" id="Modal"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofSystem.TableauxSystem.Modal.html">
+<h1>Modal<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.Modal.html">¶</a>
+</h1>
+<p class="short_description">Represents a bivalent modal tableaux system.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.Modal.html" class="more">« More »</a>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.ProofSystem.html">ProofSystem</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.ProofSystem.TableauxSystem.html">TableauxSystem</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.ProofSystem.TableauxSystem.BranchRule.html">BranchRule</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="ModalReflexive" id="ModalReflexive"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofSystem.TableauxSystem.BranchRule.ModalReflexive.html">
+<h1>ModalReflexive<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.BranchRule.ModalReflexive.html">¶</a>
+</h1>
+<p class="short_description">Implements the reflexivity rule for a standard modal tableaux system.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.BranchRule.ModalReflexive.html" class="more">« More »</a>
+</div>
+<a name="ModalTransitive" id="ModalTransitive"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofSystem.TableauxSystem.BranchRule.ModalTransitive.html">
+<h1>ModalTransitive<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.BranchRule.ModalTransitive.html">¶</a>
+</h1>
+<p class="short_description">Implements the transitivity rule for a modal tableaux system.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.BranchRule.ModalTransitive.html" class="more">« More »</a>
+</div>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.ProofSystem.html">ProofSystem</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.ProofSystem.TableauxSystem.html">TableauxSystem</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.ProofSystem.TableauxSystem.Modal.html">Modal</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="ManyValued" id="ManyValued"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofSystem.TableauxSystem.Modal.ManyValued.html">
+<h1>ManyValued<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.Modal.ManyValued.html">¶</a>
+</h1>
+<p class="short_description">Represents a tableaux system for a many-valued modal logic.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.Modal.ManyValued.html" class="more">« More »</a>
+</div>
+</div>
+</div>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.ProofWriter.html">ProofWriter</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="Tableau" id="Tableau"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofWriter.Tableau.html">
+<h1>Tableau<a href="../classes/GoTableaux.ProofWriter.Tableau.html">¶</a>
+</h1>
+<p class="short_description">Represents a tableaux writer.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.ProofWriter.Tableau.html" class="more">« More »</a>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.ProofWriter.html">ProofWriter</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.ProofWriter.Tableau.html">Tableau</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="JSON" id="JSON"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofWriter.Tableau.JSON.html">
+<h1>JSON<a href="../classes/GoTableaux.ProofWriter.Tableau.JSON.html">¶</a>
+</h1>
+<p class="short_description">Represents a JSON tableau proof writer.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.ProofWriter.Tableau.JSON.html" class="more">« More »</a>
+</div>
+<a name="LaTeX_Qtree" id="LaTeX_Qtree"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofWriter.Tableau.LaTeX_Qtree.html">
+<h1>LaTeX_Qtree<a href="../classes/GoTableaux.ProofWriter.Tableau.LaTeX_Qtree.html">¶</a>
+</h1>
+<p class="short_description">Writes tableaux using the LaTeX Qtree package.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.ProofWriter.Tableau.LaTeX_Qtree.html" class="more">« More »</a>
+</div>
+<a name="Simple" id="Simple"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofWriter.Tableau.Simple.html">
+<h1>Simple<a href="../classes/GoTableaux.ProofWriter.Tableau.Simple.html">¶</a>
+</h1>
+<p class="short_description">Represents a simple tableau proof writer.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.ProofWriter.Tableau.Simple.html" class="more">« More »</a>
+</div>
+</div>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.Sentence.html">Sentence</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="Atomic" id="Atomic"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Sentence.Atomic.html">
+<h1>Atomic<a href="../classes/GoTableaux.Sentence.Atomic.html">¶</a>
+</h1>
+<p class="short_description">Represents an atomic sentence.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Sentence.Atomic.html" class="more">« More »</a>
+</div>
+<a name="Molecular" id="Molecular"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Sentence.Molecular.html">
+<h1>Molecular<a href="../classes/GoTableaux.Sentence.Molecular.html">¶</a>
+</h1>
+<p class="short_description">Represents a molecular sentence.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Sentence.Molecular.html" class="more">« More »</a>
+</div>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.SentenceParser.html">SentenceParser</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="Polish" id="Polish"></a><div class="element ajax clickable class" href="../classes/GoTableaux.SentenceParser.Polish.html">
+<h1>Polish<a href="../classes/GoTableaux.SentenceParser.Polish.html">¶</a>
+</h1>
+<p class="short_description">Represents the standard sentence parser.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.SentenceParser.Polish.html" class="more">« More »</a>
+</div>
+<a name="Standard" id="Standard"></a><div class="element ajax clickable class" href="../classes/GoTableaux.SentenceParser.Standard.html">
+<h1>Standard<a href="../classes/GoTableaux.SentenceParser.Standard.html">¶</a>
+</h1>
+<p class="short_description">Represents the standard sentence parser.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.SentenceParser.Standard.html" class="more">« More »</a>
+</div>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.SentenceWriter.html">SentenceWriter</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="Polish" id="Polish"></a><div class="element ajax clickable class" href="../classes/GoTableaux.SentenceWriter.Polish.html">
+<h1>Polish<a href="../classes/GoTableaux.SentenceWriter.Polish.html">¶</a>
+</h1>
+<p class="short_description">Writes sentences in Polish notation.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.SentenceWriter.Polish.html" class="more">« More »</a>
+</div>
+<a name="Standard" id="Standard"></a><div class="element ajax clickable class" href="../classes/GoTableaux.SentenceWriter.Standard.html">
+<h1>Standard<a href="../classes/GoTableaux.SentenceWriter.Standard.html">¶</a>
+</h1>
+<p class="short_description">Writes sentences in standard notation.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.SentenceWriter.Standard.html" class="more">« More »</a>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.SentenceWriter.html">SentenceWriter</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.SentenceWriter.Polish.html">Polish</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="LaTeXDecorator" id="LaTeXDecorator"></a><div class="element ajax clickable class" href="../classes/GoTableaux.SentenceWriter.Polish.LaTeXDecorator.html">
+<h1>LaTeXDecorator<a href="../classes/GoTableaux.SentenceWriter.Polish.LaTeXDecorator.html">¶</a>
+</h1>
+<p class="short_description">Sets default operator translations for Polish notation.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.SentenceWriter.Polish.LaTeXDecorator.html" class="more">« More »</a>
+</div>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.SentenceWriter.html">SentenceWriter</a></li>
+<span class="divider">\</span><li class="active"><a href="../namespaces/GoTableaux.SentenceWriter.Standard.html">Standard</a></li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="LaTeXDecorator" id="LaTeXDecorator"></a><div class="element ajax clickable class" href="../classes/GoTableaux.SentenceWriter.Standard.LaTeXDecorator.html">
+<h1>LaTeXDecorator<a href="../classes/GoTableaux.SentenceWriter.Standard.LaTeXDecorator.html">¶</a>
+</h1>
+<p class="short_description">Decorates a sentence writer for LaTeX.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.SentenceWriter.Standard.LaTeXDecorator.html" class="more">« More »</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
+            generated on 2012-04-09T00:16:25-07:00.<br></footer></div>
+</div>
+</body>
+</html>

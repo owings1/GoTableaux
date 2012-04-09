@@ -1,0 +1,208 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>GoTableaux » \GoTableaux\Utilities</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">GoTableaux</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/Exceptions.html"><i class="icon-folder-open"></i> Exceptions</a></li>
+<li><a href="../packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
+<li><a href="../packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
+<li><a href="../packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
+<li><a href="../packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
+<li><a href="../packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
+<li><a href="../packages/ModelTheory.html"><i class="icon-folder-open"></i> ModelTheory</a></li>
+<li><a href="../packages/Proof.html"><i class="icon-folder-open"></i> Proof</a></li>
+<li><a href="../packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
+<li><a href="../packages/Syntax.html"><i class="icon-folder-open"></i> Syntax</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">233</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public "><a href="#arrayDiff" title="arrayDiff :: Strictly subtracts one array from the other."><span class="description">Strictly subtracts one array from the other.</span><pre>arrayDiff()</pre></a></li>
+<li class="method public "><a href="#arrayUnique" title="arrayUnique :: Produces a strictly unique array."><span class="description">Produces a strictly unique array.</span><pre>arrayUnique()</pre></a></li>
+<li class="method public "><a href="#arraysAreIdentical" title="arraysAreIdentical :: Compares arrays of objects against identity."><span class="description">Compares arrays of objects against identity.</span><pre>arraysAreIdentical()</pre></a></li>
+<li class="method public "><a href="#debug" title="debug :: Prints debugging information, if the debug setting is set to true."><span class="description">Prints debugging information, if the debug setting is set to true.</span><pre>debug()</pre></a></li>
+<li class="method public "><a href="#sortByStrLen" title="sortByStrLen :: Sorts two strings by their length."><span class="description">Sorts two strings by their length.</span><pre>sortByStrLen()</pre></a></li>
+<li class="method public "><a href="#strPosArr" title="strPosArr :: Searches a string for the first occurrence of any string in a given array."><span class="description">Searches a string for the first occurrence of any string in a given array.</span><pre>strPosArr()</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CGoTableaux%5CUtilities" id="\GoTableaux\Utilities"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/GoTableaux.Utilities.html">Utilities</a>
+</li>
+</ul>
+<div href="../classes/GoTableaux.Utilities.html" class="element class">
+<p class="short_description">Collects general PHP utilities.</p>
+<div class="details">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>package</th>
+<td><a href="..//packages/GoTableaux.html">GoTableaux</a></td>
+</tr></table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="arrayDiff" id="arrayDiff"></a><div class="element clickable method public arrayDiff" data-toggle="collapse" data-target=".arrayDiff .collapse">
+<h2>Strictly subtracts one array from the other.</h2>
+<pre>arrayDiff(array $a, array $b) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$a</h4>
+<code>array</code><p>The first array.</p></div>
+<div class="subelement argument">
+<h4>$b</h4>
+<code>array</code><p>The array of items to subtract.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>The resulting array.</div>
+</div></div>
+</div>
+<a name="arrayUnique" id="arrayUnique"></a><div class="element clickable method public arrayUnique" data-toggle="collapse" data-target=".arrayUnique .collapse">
+<h2>Produces a strictly unique array.</h2>
+<pre>arrayUnique(array $arr) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$arr</h4>
+<code>array</code><p>The array to make unique.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>The unique array.</div>
+</div></div>
+</div>
+<a name="arraysAreIdentical" id="arraysAreIdentical"></a><div class="element clickable method public arraysAreIdentical" data-toggle="collapse" data-target=".arraysAreIdentical .collapse">
+<h2>Compares arrays of objects against identity.</h2>
+<pre>arraysAreIdentical() : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>True if each array has the same keys referencing identical objects.</div>
+</div></div>
+</div>
+<a name="debug" id="debug"></a><div class="element clickable method public debug" data-toggle="collapse" data-target=".debug .collapse">
+<h2>Prints debugging information, if the debug setting is set to true.</h2>
+<pre>debug() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>see</th>
+<td>\GoTableaux\config.php</td>
+</tr></table>
+</div></div>
+</div>
+<a name="sortByStrLen" id="sortByStrLen"></a><div class="element clickable method public sortByStrLen" data-toggle="collapse" data-target=".sortByStrLen .collapse">
+<h2>Sorts two strings by their length.</h2>
+<pre>sortByStrLen(string $a, string $b) : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$a</h4>
+<code>string</code><p>The first string.</p></div>
+<div class="subelement argument">
+<h4>$b</h4>
+<code>string</code><p>The second string.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>integer</code></div>
+</div></div>
+</div>
+<a name="strPosArr" id="strPosArr"></a><div class="element clickable method public strPosArr" data-toggle="collapse" data-target=".strPosArr .collapse">
+<h2>Searches a string for the first occurrence of any string in a given array.</h2>
+<pre>strPosArr(string $haystack, array $needles, integer $offset, string $match) : integer | boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$haystack</h4>
+<code>string</code><p>The string to search.</p></div>
+<div class="subelement argument">
+<h4>$needles</h4>
+<code>array</code><p>An array of strings to seek.</p></div>
+<div class="subelement argument">
+<h4>$offset</h4>
+<code>integer</code><p>The offset of $haystack at which to begin.</p>
+</div>
+<div class="subelement argument">
+<h4>$match</h4>
+<code>string</code><p>&$match Holds the first match.</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>integer</code><code>boolean</code>Position of $haystack at which the first match was found, OR false if no match is found.</div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
+            generated on 2012-04-09T00:16:29-07:00.<br></footer></div>
+</div>
+</body>
+</html>

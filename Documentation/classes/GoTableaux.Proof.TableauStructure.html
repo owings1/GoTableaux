@@ -1,0 +1,331 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>GoTableaux » \GoTableaux\Proof\TableauStructure</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">GoTableaux</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/Exceptions.html"><i class="icon-folder-open"></i> Exceptions</a></li>
+<li><a href="../packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
+<li><a href="../packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
+<li><a href="../packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
+<li><a href="../packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
+<li><a href="../packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
+<li><a href="../packages/ModelTheory.html"><i class="icon-folder-open"></i> ModelTheory</a></li>
+<li><a href="../packages/Proof.html"><i class="icon-folder-open"></i> Proof</a></li>
+<li><a href="../packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
+<li><a href="../packages/Syntax.html"><i class="icon-folder-open"></i> Syntax</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">233</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public "><a href="#build" title="build :: Builds the tree structure."><span class="description">Builds the tree structure.</span><pre>build()</pre></a></li>
+<li class="method public "><a href="#getInstance" title="getInstance :: Creates an instance from a tableau."><span class="description">Creates an instance from a tableau.</span><pre>getInstance()</pre></a></li>
+<li class="method public "><a href="#getNodes" title="getNodes :: Gets the nodes of the current structure."><span class="description">Gets the nodes of the current structure.</span><pre>getNodes()</pre></a></li>
+<li class="method public "><a href="#getStructures" title="getStructures :: Gets the child structures of the current structure."><span class="description">Gets the child structures of the current structure.</span><pre>getStructures()</pre></a></li>
+<li class="method public "><a href="#isClosed" title="isClosed :: Checks whether the structure is closed."><span class="description">Checks whether the structure is closed.</span><pre>isClosed()</pre></a></li>
+<li class="method public "><a href="#nodeIsTicked" title="nodeIsTicked :: Checks whether a node is ticked relative to the current structure."><span class="description">Checks whether a node is ticked relative to the current structure.</span><pre>nodeIsTicked()</pre></a></li>
+<li class="method public "><a href="#setTableau" title="setTableau :: Sets the tableau to represent."><span class="description">Sets the tableau to represent.</span><pre>setTableau()</pre></a></li>
+<li class="nav-header protected">» Protected</li>
+<li class="method protected "><a href="#findBranchesWithNode" title="findBranchesWithNode :: Gets all branches that have a particular node on them."><span class="description">Gets all branches that have a particular node on them.</span><pre>findBranchesWithNode()</pre></a></li>
+<li class="method protected "><a href="#findNodesCommonToBranches" title="findNodesCommonToBranches :: Gets all nodes that are on each of an array of branches."><span class="description">Gets all nodes that are on each of an array of branches.</span><pre>findNodesCommonToBranches()</pre></a></li>
+<li class="method protected "><a href="#structurize" title="structurize :: Recursive structurizing function."><span class="description">Recursive structurizing function.</span><pre>structurize()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="nav-header protected">» Protected</li>
+<li class="property protected "><a href="#%24closed" title="$closed :: "><span class="description">$closed</span><pre>$closed</pre></a></li>
+<li class="property protected "><a href="#%24nodes" title="$nodes :: "><span class="description">Array of {@link Node} objects.</span><pre>$nodes</pre></a></li>
+<li class="property protected "><a href="#%24structures" title="$structures :: "><span class="description">Array of self-similar objects.</span><pre>$structures</pre></a></li>
+<li class="property protected "><a href="#%24tableau" title="$tableau :: "><span class="description">$tableau</span><pre>$tableau</pre></a></li>
+<li class="property protected "><a href="#%24tickedNodes" title="$tickedNodes :: "><span class="description">Array of {@link Node} objects.</span><pre>$tickedNodes</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CGoTableaux%5CProof%5CTableauStructure" id="\GoTableaux\Proof\TableauStructure"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Proof.html">Proof</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/GoTableaux.Proof.TableauStructure.html">TableauStructure</a>
+</li>
+</ul>
+<div href="../classes/GoTableaux.Proof.TableauStructure.html" class="element class">
+<p class="short_description">Represents the proper 'tree' structure of a tableau.</p>
+<div class="details">
+<p class="long_description"><p>This is a simple composition structure class which takes a <a href="Tableau">Tableau</a>
+object and creates a tree structure from its branches. Thinking of a branch
+as a tuple of nodes, a single node can appear on more than one branch. This
+is helpful in applying rules. This class collapses common nodes into one
+structure. A structure comprises an array of <a href="Node">Node</a> objects, and an
+array of self-similar Structure objects.</p></p>
+<table class="table table-bordered"><tr>
+<th>package</th>
+<td><a href="..//packages/GoTableaux.html">GoTableaux</a></td>
+</tr></table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="build" id="build"></a><div class="element clickable method public build" data-toggle="collapse" data-target=".build .collapse">
+<h2>Builds the tree structure.</h2>
+<pre>build() : \GoTableaux\Proof\Structure</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\GoTableaux\Proof\Structure</code>Current instance.</div>
+</div></div>
+</div>
+<a name="getInstance" id="getInstance"></a><div class="element clickable method public getInstance" data-toggle="collapse" data-target=".getInstance .collapse">
+<h2>Creates an instance from a tableau.</h2>
+<pre>getInstance(Tableau $tableau) : \GoTableaux\Proof\Structure</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$tableau</h4>
+<code><a href="../classes/GoTableaux.Proof.Tableau.html">\GoTableaux\Proof\Tableau</a></code><p>The tableau whose structure to represent.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\GoTableaux\Proof\Structure</code>New instance.</div>
+</div></div>
+</div>
+<a name="getNodes" id="getNodes"></a><div class="element clickable method public getNodes" data-toggle="collapse" data-target=".getNodes .collapse">
+<h2>Gets the nodes of the current structure.</h2>
+<pre>getNodes() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Array of {@link Node}s.</div>
+</div></div>
+</div>
+<a name="getStructures" id="getStructures"></a><div class="element clickable method public getStructures" data-toggle="collapse" data-target=".getStructures .collapse">
+<h2>Gets the child structures of the current structure.</h2>
+<pre>getStructures() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Array of {@link Structure}s.</div>
+</div></div>
+</div>
+<a name="isClosed" id="isClosed"></a><div class="element clickable method public isClosed" data-toggle="collapse" data-target=".isClosed .collapse">
+<h2>Checks whether the structure is closed.</h2>
+<pre>isClosed() : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>Whether the structure is closed.</div>
+</div></div>
+</div>
+<a name="nodeIsTicked" id="nodeIsTicked"></a><div class="element clickable method public nodeIsTicked" data-toggle="collapse" data-target=".nodeIsTicked .collapse">
+<h2>Checks whether a node is ticked relative to the current structure.</h2>
+<pre>nodeIsTicked(TableauNode $node) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$node</h4>
+<code>\GoTableaux\Proof\Node</code><p>The node to check.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>Whether the node is ticked.</div>
+</div></div>
+</div>
+<a name="setTableau" id="setTableau"></a><div class="element clickable method public setTableau" data-toggle="collapse" data-target=".setTableau .collapse">
+<h2>Sets the tableau to represent.</h2>
+<pre>setTableau(Tableau $tableau) : \GoTableaux\Proof\Structure</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$tableau</h4>
+<code><a href="../classes/GoTableaux.Proof.Tableau.html">\GoTableaux\Proof\Tableau</a></code><p>The tableau whose structure to represent.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\GoTableaux\Proof\Structure</code>Current instance.</div>
+</div></div>
+</div>
+<a name="findBranchesWithNode" id="findBranchesWithNode"></a><div class="element clickable method protected findBranchesWithNode" data-toggle="collapse" data-target=".findBranchesWithNode .collapse">
+<h2>Gets all branches that have a particular node on them.</h2>
+<pre>findBranchesWithNode(array $searchBranches, TableauNode $node) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$searchBranches</h4>
+<code>array</code><p>Array of {@link Branch}es to search.</p>
+</div>
+<div class="subelement argument">
+<h4>$node</h4>
+<code>\GoTableaux\Proof\Node</code><p>The node to search for.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Array of branches.</div>
+</div></div>
+</div>
+<a name="findNodesCommonToBranches" id="findNodesCommonToBranches"></a><div class="element clickable method protected findNodesCommonToBranches" data-toggle="collapse" data-target=".findNodesCommonToBranches .collapse">
+<h2>Gets all nodes that are on each of an array of branches.</h2>
+<pre>findNodesCommonToBranches(array $branches) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$branches</h4>
+<code>array</code><p>Array of {@link Branch}es.</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Array of common {@link Node}s.</div>
+</div></div>
+</div>
+<a name="structurize" id="structurize"></a><div class="element clickable method protected structurize" data-toggle="collapse" data-target=".structurize .collapse">
+<h2>Recursive structurizing function.</h2>
+<pre>structurize(array $branches) : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>private</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$branches</h4>
+<code>array</code><p>Array of {@link Branch}es to structurize.</p>
+</div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24closed" id="$closed"> </a><div class="element clickable property protected $closed" data-toggle="collapse" data-target=".$closed .collapse">
+<h2>$closed</h2>
+<pre>$closed : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>private</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24nodes" id="$nodes"> </a><div class="element clickable property protected $nodes" data-toggle="collapse" data-target=".$nodes .collapse">
+<h2>Array of {@link Node} objects.</h2>
+<pre>$nodes : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>private</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24structures" id="$structures"> </a><div class="element clickable property protected $structures" data-toggle="collapse" data-target=".$structures .collapse">
+<h2>Array of self-similar objects.</h2>
+<pre>$structures : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>private</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24tableau" id="$tableau"> </a><div class="element clickable property protected $tableau" data-toggle="collapse" data-target=".$tableau .collapse">
+<h2>$tableau</h2>
+<pre>$tableau : <a href="../classes/GoTableaux.Proof.Tableau.html">\GoTableaux\Proof\Tableau</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>private</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24tickedNodes" id="$tickedNodes"> </a><div class="element clickable property protected $tickedNodes" data-toggle="collapse" data-target=".$tickedNodes .collapse">
+<h2>Array of {@link Node} objects.</h2>
+<pre>$tickedNodes : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>private</td>
+</tr></table>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
+            generated on 2012-04-09T00:16:28-07:00.<br></footer></div>
+</div>
+</body>
+</html>

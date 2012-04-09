@@ -19,6 +19,9 @@ namespace GoTableaux\Logic\CPL\ProofSystem\BranchRule;
 use \GoTableaux\Proof\TableauBranch as Branch;
 use \GoTableaux\Logic as Logic;
 
+/**
+ * @package CPL
+ */
 class MaterialConditional implements \GoTableaux\ProofSystem\TableauxSystem\BranchRule
 {
 	public function apply( Branch $branch, Logic $logic )

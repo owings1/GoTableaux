@@ -1,0 +1,761 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>GoTableaux » \GoTableaux\Proof\TableauBranch\Modal</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">GoTableaux</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/Exceptions.html"><i class="icon-folder-open"></i> Exceptions</a></li>
+<li><a href="../packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
+<li><a href="../packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
+<li><a href="../packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
+<li><a href="../packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
+<li><a href="../packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
+<li><a href="../packages/ModelTheory.html"><i class="icon-folder-open"></i> ModelTheory</a></li>
+<li><a href="../packages/Proof.html"><i class="icon-folder-open"></i> Proof</a></li>
+<li><a href="../packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
+<li><a href="../packages/Syntax.html"><i class="icon-folder-open"></i> Syntax</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">233</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public inherited"><a href="#__construct" title="__construct :: Constructor."><span class="description">Constructor.</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#_removeNode" title="_removeNode :: Removes a node from the branch."><span class="description">Removes a node from the branch.</span><pre>_removeNode()</pre></a></li>
+<li class="method public "><a href="#accesses" title="accesses :: Checks whether a given world index accesses another."><span class="description">Checks whether a given world index accesses another.</span><pre>accesses()</pre></a></li>
+<li class="method public inherited"><a href="#branch" title="branch :: Branches the branch."><span class="description">Branches the branch.</span><pre>branch()</pre></a></li>
+<li class="method public inherited"><a href="#close" title="close :: Closes the branch."><span class="description">Closes the branch.</span><pre>close()</pre></a></li>
+<li class="method public inherited"><a href="#copy" title="copy :: Clones the branch. Maintains references to the nodes."><span class="description">Clones the branch. Maintains references to the nodes.</span><pre>copy()</pre></a></li>
+<li class="method public "><a href="#createAccessNode" title="createAccessNode :: Adds a new access node for the given two integer indexes."><span class="description">Adds a new access node for the given two integer indexes.</span><pre>createAccessNode()</pre></a></li>
+<li class="method public "><a href="#createSentenceNodeAtIndex" title="createSentenceNodeAtIndex :: Adds a new sentence node to the branch."><span class="description">Adds a new sentence node to the branch.</span><pre>createSentenceNodeAtIndex()</pre></a></li>
+<li class="method public "><a href="#getAccessNodes" title="getAccessNodes :: Gets all modal access nodes on the branch."><span class="description">Gets all modal access nodes on the branch.</span><pre>getAccessNodes()</pre></a></li>
+<li class="method public "><a href="#getAccessRelation" title="getAccessRelation :: Gets the access relation."><span class="description">Gets the access relation.</span><pre>getAccessRelation()</pre></a></li>
+<li class="method public "><a href="#getIndexes" title="getIndexes :: Gets all world indexes that appear on the branch."><span class="description">Gets all world indexes that appear on the branch.</span><pre>getIndexes()</pre></a></li>
+<li class="method public inherited"><a href="#getNodes" title="getNodes :: Gets the nodes on the branch."><span class="description">Gets the nodes on the branch.</span><pre>getNodes()</pre></a></li>
+<li class="method public inherited"><a href="#getNodesByOperatorName" title="getNodesByOperatorName :: Gets any {@link SentenceNode}s on the branch that have a given operator
+as its sentence's main connective."><span class="description">Gets any {@link SentenceNode}s on the branch that have a given operator
+as its sentence's main connective.</span><pre>getNodesByOperatorName()</pre></a></li>
+<li class="method public inherited"><a href="#getNodesByTwoOperatorNames" title="getNodesByTwoOperatorNames :: Gets any {@link SentenceNode}s by two operator names."><span class="description">Gets any {@link SentenceNode}s by two operator names.</span><pre>getNodesByTwoOperatorNames()</pre></a></li>
+<li class="method public "><a href="#getReflexiveIndexes" title='getReflexiveIndexes :: Gets all world indexes that "see" themselves.'><span class="description">Gets all world indexes that "see" themselves.</span><pre>getReflexiveIndexes()</pre></a></li>
+<li class="method public inherited"><a href="#getSentenceNodes" title="getSentenceNodes :: Gets all sentence nodes on the branch."><span class="description">Gets all sentence nodes on the branch.</span><pre>getSentenceNodes()</pre></a></li>
+<li class="method public inherited"><a href="#getTableau" title="getTableau :: Gets the tableau."><span class="description">Gets the tableau.</span><pre>getTableau()</pre></a></li>
+<li class="method public inherited"><a href="#getTickedNodes" title="getTickedNodes :: Gets all nodes on the branch that are ticked relative to the branch."><span class="description">Gets all nodes on the branch that are ticked relative to the branch.</span><pre>getTickedNodes()</pre></a></li>
+<li class="method public inherited"><a href="#getUntickedNodes" title="getUntickedNodes :: Gets all nodes on the branch that are unticked relative to the branch."><span class="description">Gets all nodes on the branch that are unticked relative to the branch.</span><pre>getUntickedNodes()</pre></a></li>
+<li class="method public inherited"><a href="#hasNode" title="hasNode :: Checks whether a node is on the branch."><span class="description">Checks whether a node is on the branch.</span><pre>hasNode()</pre></a></li>
+<li class="method public inherited"><a href="#hasNodeWithSentence" title="hasNodeWithSentence :: Checks whether a sentence is on the branch."><span class="description">Checks whether a sentence is on the branch.</span><pre>hasNodeWithSentence()</pre></a></li>
+<li class="method public "><a href="#hasSentenceAtIndex" title="hasSentenceAtIndex :: Checks for existence of sentence node with given sentence and index."><span class="description">Checks for existence of sentence node with given sentence and index.</span><pre>hasSentenceAtIndex()</pre></a></li>
+<li class="method public "><a href="#indexIsTransitive" title="indexIsTransitive :: Checks whether a given world index represents a transitive world."><span class="description">Checks whether a given world index represents a transitive world.</span><pre>indexIsTransitive()</pre></a></li>
+<li class="method public inherited"><a href="#isClosed" title="isClosed :: Checks whether the branch is closed."><span class="description">Checks whether the branch is closed.</span><pre>isClosed()</pre></a></li>
+<li class="method public inherited"><a href="#tickNode" title="tickNode :: Ticks a node relative to the branch."><span class="description">Ticks a node relative to the branch.</span><pre>tickNode()</pre></a></li>
+<li class="nav-header protected">» Protected</li>
+<li class="method protected "><a href="#_addAccessRelationship" title="_addAccessRelationship :: Stores an access relationship."><span class="description">Stores an access relationship.</span><pre>_addAccessRelationship()</pre></a></li>
+<li class="method protected "><a href="#_addIndex" title="_addIndex :: Stores an index on the branch."><span class="description">Stores an index on the branch.</span><pre>_addIndex()</pre></a></li>
+<li class="method protected "><a href="#_addNode" title="_addNode :: Adds a node to the branch."><span class="description">Adds a node to the branch.</span><pre>_addNode()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="nav-header protected">» Protected</li>
+<li class="property protected "><a href="#%24accessNodes" title="$accessNodes :: "><span class="description">$accessNodes</span><pre>$accessNodes</pre></a></li>
+<li class="property protected "><a href="#%24accessRelation" title="$accessRelation :: Hashes the access relation."><span class="description">Hashes the access relation.</span><pre>$accessRelation</pre></a></li>
+<li class="property protected inherited"><a href="#%24closed" title="$closed :: Tracks whether the branch is closed."><span class="description">Tracks whether the branch is closed.</span><pre>$closed</pre></a></li>
+<li class="property protected "><a href="#%24indexes" title="$indexes :: Hashes the indexes on the branch."><span class="description">Hashes the indexes on the branch.</span><pre>$indexes</pre></a></li>
+<li class="property protected inherited"><a href="#%24nodes" title="$nodes :: Holds the {@link Node nodes} of the branch."><span class="description">Holds the {@link Node nodes} of the branch.</span><pre>$nodes</pre></a></li>
+<li class="property protected inherited"><a href="#%24sentenceNodes" title="$sentenceNodes :: Holds the {@link SentenceNode}s of the branch."><span class="description">Holds the {@link SentenceNode}s of the branch.</span><pre>$sentenceNodes</pre></a></li>
+<li class="property protected inherited"><a href="#%24tableau" title="$tableau :: Holds a reference to the tableau."><span class="description">Holds a reference to the tableau.</span><pre>$tableau</pre></a></li>
+<li class="property protected inherited"><a href="#%24tickedNodes" title="$tickedNodes :: Holds the ticked {@link Node}s."><span class="description">Holds the ticked {@link Node}s.</span><pre>$tickedNodes</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CGoTableaux%5CProof%5CTableauBranch%5CModal" id="\GoTableaux\Proof\TableauBranch\Modal"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Proof.html">Proof</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Proof.TableauBranch.html">TableauBranch</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/GoTableaux.Proof.TableauBranch.Modal.html">Modal</a>
+</li>
+</ul>
+<div href="../classes/GoTableaux.Proof.TableauBranch.Modal.html" class="element class">
+<p class="short_description">Represents a modal logic tableau branch.</p>
+<div class="details">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>package</th>
+<td><a href="..//packages/GoTableaux.html">GoTableaux</a></td>
+</tr></table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="__construct" id="__construct"></a><div class="element clickable method public __construct" data-toggle="collapse" data-target=".__construct .collapse">
+<h2>Constructor.</h2>
+<pre>__construct(Tableau $tableau) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>Initializes the tableau.</p></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauBranch::__construct()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$tableau</h4>
+<code><a href="../classes/GoTableaux.Proof.Tableau.html">\GoTableaux\Proof\Tableau</a></code><p>The tableau of the branch.</p></div>
+</div></div>
+</div>
+<a name="_removeNode" id="_removeNode"></a><div class="element clickable method public _removeNode" data-toggle="collapse" data-target="._removeNode .collapse">
+<h2>Removes a node from the branch.</h2>
+<pre>_removeNode(Node $node) : \GoTableaux\Proof\TableauBranch\ModalBranch</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>private</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$node</h4>
+<code><a href="../classes/GoTableaux.Proof.TableauNode.html">\GoTableaux\Proof\TableauNode</a></code><p>The node to remove.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\GoTableaux\Proof\TableauBranch\ModalBranch</code>Current instance.</div>
+</div></div>
+</div>
+<a name="accesses" id="accesses"></a><div class="element clickable method public accesses" data-toggle="collapse" data-target=".accesses .collapse">
+<h2>Checks whether a given world index accesses another.</h2>
+<pre>accesses(integer $i, integer $j) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$i</h4>
+<code>integer</code><p>The world that wants to access.</p></div>
+<div class="subelement argument">
+<h4>$j</h4>
+<code>integer</code><p>The world that wants to be accessed.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>Whether the one world accesses the other.</div>
+</div></div>
+</div>
+<a name="branch" id="branch"></a><div class="element clickable method public branch" data-toggle="collapse" data-target=".branch .collapse">
+<h2>Branches the branch.</h2>
+<pre>branch() : \GoTableaux\Proof\Branch</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>Copies the branch, attaches the copy to the tableau, and returns the new
+branch.</p></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauBranch::branch()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\GoTableaux\Proof\Branch</code>The new branch</div>
+</div></div>
+</div>
+<a name="close" id="close"></a><div class="element clickable method public close" data-toggle="collapse" data-target=".close .collapse">
+<h2>Closes the branch.</h2>
+<pre>close() : \GoTableaux\Proof\Branch</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauBranch::close()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\GoTableaux\Proof\Branch</code>Current instance.</div>
+</div></div>
+</div>
+<a name="copy" id="copy"></a><div class="element clickable method public copy" data-toggle="collapse" data-target=".copy .collapse">
+<h2>Clones the branch. Maintains references to the nodes.</h2>
+<pre>copy() : \GoTableaux\Proof\Branch</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauBranch::copy()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\GoTableaux\Proof\Branch</code>The new copy.</div>
+</div></div>
+</div>
+<a name="createAccessNode" id="createAccessNode"></a><div class="element clickable method public createAccessNode" data-toggle="collapse" data-target=".createAccessNode .collapse">
+<h2>Adds a new access node for the given two integer indexes.</h2>
+<pre>createAccessNode(integer $i, integer $j) : \GoTableaux\Proof\TableauBranch\ModalBranch</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$i</h4>
+<code>integer</code><p>The first index.</p></div>
+<div class="subelement argument">
+<h4>$j</h4>
+<code>integer</code><p>The second index.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\GoTableaux\Proof\TableauBranch\ModalBranch</code>Current instance.</div>
+</div></div>
+</div>
+<a name="createSentenceNodeAtIndex" id="createSentenceNodeAtIndex"></a><div class="element clickable method public createSentenceNodeAtIndex" data-toggle="collapse" data-target=".createSentenceNodeAtIndex .collapse">
+<h2>Adds a new sentence node to the branch.</h2>
+<pre>createSentenceNodeAtIndex(Sentence $sentence, $i) : \GoTableaux\Proof\TableauBranch\ModalBranch</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$sentence</h4>
+<code><a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></code><p>The sentence to add.</p></div>
+<div class="subelement argument">
+<h4>$i</h4>
+<code></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\GoTableaux\Proof\TableauBranch\ModalBranch</code>Current instance.</div>
+</div></div>
+</div>
+<a name="getAccessNodes" id="getAccessNodes"></a><div class="element clickable method public getAccessNodes" data-toggle="collapse" data-target=".getAccessNodes .collapse">
+<h2>Gets all modal access nodes on the branch.</h2>
+<pre>getAccessNodes() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Array of {@link AccessNode}s.</div>
+</div></div>
+</div>
+<a name="getAccessRelation" id="getAccessRelation"></a><div class="element clickable method public getAccessRelation" data-toggle="collapse" data-target=".getAccessRelation .collapse">
+<h2>Gets the access relation.</h2>
+<pre>getAccessRelation(integer $i) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$i</h4>
+<code>integer</code><p>The index whose access relation to get.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>If $i is set, then the array of indexes that $i access is returned. Otherwise, a two-dimensional array of the access relation is returned.</div>
+</div></div>
+</div>
+<a name="getIndexes" id="getIndexes"></a><div class="element clickable method public getIndexes" data-toggle="collapse" data-target=".getIndexes .collapse">
+<h2>Gets all world indexes that appear on the branch.</h2>
+<pre>getIndexes() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Array of unique integer indexes that appear on the branch.</div>
+</div></div>
+</div>
+<a name="getNodes" id="getNodes"></a><div class="element clickable method public getNodes" data-toggle="collapse" data-target=".getNodes .collapse">
+<h2>Gets the nodes on the branch.</h2>
+<pre>getNodes(boolean $untickedOnly) : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauBranch::getNodes()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$untickedOnly</h4>
+<code>boolean</code><p>Whether to limit search to nodes that are unticked.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Array of {@link Node}s.</div>
+</div></div>
+</div>
+<a name="getNodesByOperatorName" id="getNodesByOperatorName"></a><div class="element clickable method public getNodesByOperatorName" data-toggle="collapse" data-target=".getNodesByOperatorName .collapse">
+<h2>Gets any {@link SentenceNode}s on the branch that have a given operator
+as its sentence's main connective.</h2>
+<pre>getNodesByOperatorName(string $operatorName, boolean $untickedOnly) : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauBranch::getNodesByOperatorName()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$operatorName</h4>
+<code>string</code><p>The name of the operator.</p></div>
+<div class="subelement argument">
+<h4>$untickedOnly</h4>
+<code>boolean</code><p>Whether to include unticked nodes only. Default is false.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Array of {@link SentenceNode}s.</div>
+</div></div>
+</div>
+<a name="getNodesByTwoOperatorNames" id="getNodesByTwoOperatorNames"></a><div class="element clickable method public getNodesByTwoOperatorNames" data-toggle="collapse" data-target=".getNodesByTwoOperatorNames .collapse">
+<h2>Gets any {@link SentenceNode}s by two operator names.</h2>
+<pre>getNodesByTwoOperatorNames(string $firstOperatorName, string $secondOperatorName, boolean $untickedOnly) : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>Returns sentence nodes whose first operator is a given operator, and
+whose first operand is a molecular sentence with the given second
+operator.</p></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauBranch::getNodesByTwoOperatorNames()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$firstOperatorName</h4>
+<code>string</code><p>The name of the first operator.</p></div>
+<div class="subelement argument">
+<h4>$secondOperatorName</h4>
+<code>string</code><p>The name of the second operator.</p></div>
+<div class="subelement argument">
+<h4>$untickedOnly</h4>
+<code>boolean</code><p>Whether to include unticked nodes only. Default is false.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>The resulting array of {@link SentenceNode}s.</div>
+</div></div>
+</div>
+<a name="getReflexiveIndexes" id="getReflexiveIndexes"></a><div class="element clickable method public getReflexiveIndexes" data-toggle="collapse" data-target=".getReflexiveIndexes .collapse">
+<h2>Gets all world indexes that "see" themselves.</h2>
+<pre>getReflexiveIndexes() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Array of unique integer indexes that have reflexive nodes.</div>
+</div></div>
+</div>
+<a name="getSentenceNodes" id="getSentenceNodes"></a><div class="element clickable method public getSentenceNodes" data-toggle="collapse" data-target=".getSentenceNodes .collapse">
+<h2>Gets all sentence nodes on the branch.</h2>
+<pre>getSentenceNodes(boolean $untickedOnly) : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauBranch::getSentenceNodes()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$untickedOnly</h4>
+<code>boolean</code><p>Whether to limit search to nodes that are unticked.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Array of {@link SentenceNode}s.</div>
+</div></div>
+</div>
+<a name="getTableau" id="getTableau"></a><div class="element clickable method public getTableau" data-toggle="collapse" data-target=".getTableau .collapse">
+<h2>Gets the tableau.</h2>
+<pre>getTableau() : <a href="../classes/GoTableaux.Proof.Tableau.html">\GoTableaux\Proof\Tableau</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauBranch::getTableau()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Proof.Tableau.html">\GoTableaux\Proof\Tableau</a></code>The tableau.</div>
+</div></div>
+</div>
+<a name="getTickedNodes" id="getTickedNodes"></a><div class="element clickable method public getTickedNodes" data-toggle="collapse" data-target=".getTickedNodes .collapse">
+<h2>Gets all nodes on the branch that are ticked relative to the branch.</h2>
+<pre>getTickedNodes() : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauBranch::getTickedNodes()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Array of {@link Node}s.</div>
+</div></div>
+</div>
+<a name="getUntickedNodes" id="getUntickedNodes"></a><div class="element clickable method public getUntickedNodes" data-toggle="collapse" data-target=".getUntickedNodes .collapse">
+<h2>Gets all nodes on the branch that are unticked relative to the branch.</h2>
+<pre>getUntickedNodes() : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauBranch::getUntickedNodes()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Array of {@link Node}s.</div>
+</div></div>
+</div>
+<a name="hasNode" id="hasNode"></a><div class="element clickable method public hasNode" data-toggle="collapse" data-target=".hasNode .collapse">
+<h2>Checks whether a node is on the branch.</h2>
+<pre>hasNode(TableauNode $node) : boolean</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauBranch::hasNode()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$node</h4>
+<code>\GoTableaux\Proof\Node</code><p>The node to check.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>Whether the node is on the branch.</div>
+</div></div>
+</div>
+<a name="hasNodeWithSentence" id="hasNodeWithSentence"></a><div class="element clickable method public hasNodeWithSentence" data-toggle="collapse" data-target=".hasNodeWithSentence .collapse">
+<h2>Checks whether a sentence is on the branch.</h2>
+<pre>hasNodeWithSentence(Sentence $sentence) : boolean</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauBranch::hasNodeWithSentence()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$sentence</h4>
+<code>\GoTableaux\Proof\Sentence</code><p>The sentence to search for.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>Whether the branch has a node with that sentence.</div>
+</div></div>
+</div>
+<a name="hasSentenceAtIndex" id="hasSentenceAtIndex"></a><div class="element clickable method public hasSentenceAtIndex" data-toggle="collapse" data-target=".hasSentenceAtIndex .collapse">
+<h2>Checks for existence of sentence node with given sentence and index.</h2>
+<pre>hasSentenceAtIndex(Sentence $sentence, integer $i) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$sentence</h4>
+<code><a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></code><p>The sentence to search for.</p></div>
+<div class="subelement argument">
+<h4>$i</h4>
+<code>integer</code><p>The index to search for.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>Whether such a sentence node is on the branch.</div>
+</div></div>
+</div>
+<a name="indexIsTransitive" id="indexIsTransitive"></a><div class="element clickable method public indexIsTransitive" data-toggle="collapse" data-target=".indexIsTransitive .collapse">
+<h2>Checks whether a given world index represents a transitive world.</h2>
+<pre>indexIsTransitive(integer $i, integer | null $firstMissing) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$i</h4>
+<code>integer</code><p>The world index to check for transitivity.</p></div>
+<div class="subelement argument">
+<h4>$firstMissing</h4>
+<code>integernull</code><p>&$firstMissing The first counterexample, if found.</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>Whether the world index is transitive.</div>
+</div></div>
+</div>
+<a name="isClosed" id="isClosed"></a><div class="element clickable method public isClosed" data-toggle="collapse" data-target=".isClosed .collapse">
+<h2>Checks whether the branch is closed.</h2>
+<pre>isClosed() : boolean</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauBranch::isClosed()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>Whether the branch is closed.</div>
+</div></div>
+</div>
+<a name="tickNode" id="tickNode"></a><div class="element clickable method public tickNode" data-toggle="collapse" data-target=".tickNode .collapse">
+<h2>Ticks a node relative to the branch.</h2>
+<pre>tickNode(TableauNode $node) : \GoTableaux\Proof\Branch</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauBranch::tickNode()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$node</h4>
+<code>\GoTableaux\Proof\Node</code><p>The node to tick.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\GoTableaux\Proof\Branch</code>Current instance.</div>
+</div></div>
+</div>
+<a name="_addAccessRelationship" id="_addAccessRelationship"></a><div class="element clickable method protected _addAccessRelationship" data-toggle="collapse" data-target="._addAccessRelationship .collapse">
+<h2>Stores an access relationship.</h2>
+<pre>_addAccessRelationship(integer $i, integer $j) : \GoTableaux\Proof\TableauBranch\ModalBranch</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>private</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$i</h4>
+<code>integer</code><p>The first index.</p></div>
+<div class="subelement argument">
+<h4>$j</h4>
+<code>integer</code><p>The second index.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\GoTableaux\Proof\TableauBranch\ModalBranch</code>Current instance.</div>
+</div></div>
+</div>
+<a name="_addIndex" id="_addIndex"></a><div class="element clickable method protected _addIndex" data-toggle="collapse" data-target="._addIndex .collapse">
+<h2>Stores an index on the branch.</h2>
+<pre>_addIndex(integer $i) : \GoTableaux\Proof\TableauBranch\ModalBranch</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>private</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$i</h4>
+<code>integer</code><p>The index to store.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\GoTableaux\Proof\TableauBranch\ModalBranch</code>Current instance.</div>
+</div></div>
+</div>
+<a name="_addNode" id="_addNode"></a><div class="element clickable method protected _addNode" data-toggle="collapse" data-target="._addNode .collapse">
+<h2>Adds a node to the branch.</h2>
+<pre>_addNode(Node $node) : \GoTableaux\Proof\TableauBranch\ModalBranch</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>private</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$node</h4>
+<code><a href="../classes/GoTableaux.Proof.TableauNode.html">\GoTableaux\Proof\TableauNode</a></code><p>The node to add.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\GoTableaux\Proof\TableauBranch\ModalBranch</code>Current instance.</div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24accessNodes" id="$accessNodes"> </a><div class="element clickable property protected $accessNodes" data-toggle="collapse" data-target=".$accessNodes .collapse">
+<h2>$accessNodes</h2>
+<pre>$accessNodes : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>private</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24accessRelation" id="$accessRelation"> </a><div class="element clickable property protected $accessRelation" data-toggle="collapse" data-target=".$accessRelation .collapse">
+<h2>Hashes the access relation.</h2>
+<pre>$accessRelation : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>private</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24closed" id="$closed"> </a><div class="element clickable property protected $closed" data-toggle="collapse" data-target=".$closed .collapse">
+<h2>Tracks whether the branch is closed.</h2>
+<pre>$closed : boolean</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>access</th>
+<td>private</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauBranch::$$closed</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="%24indexes" id="$indexes"> </a><div class="element clickable property protected $indexes" data-toggle="collapse" data-target=".$indexes .collapse">
+<h2>Hashes the indexes on the branch.</h2>
+<pre>$indexes : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>private</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24nodes" id="$nodes"> </a><div class="element clickable property protected $nodes" data-toggle="collapse" data-target=".$nodes .collapse">
+<h2>Holds the {@link Node nodes} of the branch.</h2>
+<pre>$nodes : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>access</th>
+<td>private</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauBranch::$$nodes</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="%24sentenceNodes" id="$sentenceNodes"> </a><div class="element clickable property protected $sentenceNodes" data-toggle="collapse" data-target=".$sentenceNodes .collapse">
+<h2>Holds the {@link SentenceNode}s of the branch.</h2>
+<pre>$sentenceNodes : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>access</th>
+<td>private</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauBranch::$$sentenceNodes</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="%24tableau" id="$tableau"> </a><div class="element clickable property protected $tableau" data-toggle="collapse" data-target=".$tableau .collapse">
+<h2>Holds a reference to the tableau.</h2>
+<pre>$tableau : <a href="../classes/GoTableaux.Proof.Tableau.html">\GoTableaux\Proof\Tableau</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>access</th>
+<td>private</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauBranch::$$tableau</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="%24tickedNodes" id="$tickedNodes"> </a><div class="element clickable property protected $tickedNodes" data-toggle="collapse" data-target=".$tickedNodes .collapse">
+<h2>Holds the ticked {@link Node}s.</h2>
+<pre>$tickedNodes : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>access</th>
+<td>private</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauBranch::$$tickedNodes</td>
+</tr>
+</table>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
+            generated on 2012-04-09T00:16:28-07:00.<br></footer></div>
+</div>
+</body>
+</html>
