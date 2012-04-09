@@ -89,14 +89,14 @@ class LogicsController extends AppController
 	public function get_lexicon( $logic )
 	{
 		if ( is_numeric( $logic )) $logic = $this->logics[$logic];
-		$Logic = GoTableaux\Logic::getInstance( $logic );
+		$Logic = Logic::getInstance( $logic );
 		$Vocabulary = $Logic->getVocabulary();
 		$lexicon = array(
-			'openMarks' => $Vocabulary->getOpenMarks(),
-			'closeMarks' => $Vocabulary->getCloseMarks(),
+			'openMark' => $Vocabulary->getOpenMarks( true ),
+			'closeMark' => $Vocabulary->getCloseMarks( true ),
 			'atomicSymbols' => $Vocabulary->getAtomicSymbols(),
-			'operatorSymbols' => $Vocabulary->getOperatorSymbols(),
-			'subscriptSymbols' => $Vocabulary->getSubscriptSymbols()
+			'operatorNames' => $Vocabulary->getOperatorNames(),
+			'subscriptSymbol' => $Vocabulary->getSubscriptSymbols( true ),
 		);
 		$this->set( compact( 'lexicon' ));
 	}

@@ -15,45 +15,36 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/agpl-3.0.html>.
  */
 ?>
-<dl>
+<div class="lexicon">
 	<h4>Atomic Symbols:</h4>
-	
-		<ul>
-			<?php foreach ( $lexicon['atomicSymbols'] as $symbol ): ?>
-				<li><?= $symbol ?></li>
-			<?php endforeach ?>
-		</ul>
+
+	<ul>
+		<?php foreach ( $lexicon['atomicSymbols'] as $symbol ): ?>
+			<li><?= $symbol ?></li>
+		<?php endforeach ?>
+	</ul>
+	<div class="clear"></div>
 	
 	<h4>Operator Symbols:</h4>
+
+	<dl>
+		<?php foreach ( $lexicon['operatorNames'] as $symbol => $name ): ?>
+			<dt><?= $symbol ?></dt>
+			<dd><?= $name ?></dd>
+		<?php endforeach ?>
+	</dl>
+	<div class="clear"></div>
 	
-		<ul>
-			<?php foreach ( $lexicon['operatorSymbols'] as $symbol => $arity ): ?>
-				<li><?= $symbol ?></li>
-			<?php endforeach ?>
-		</ul>
+	<h4>Punctuation:</h4>
+
+	<dl>
+		<dt><?= $lexicon['subscriptSymbol'] ?></dt>
+		<dd>Atomic subscript</dd>
+		<dt><?= $lexicon['openMark'] ?></dt>
+		<dd>Open parenthesis</dd>
+		<dt><?= $lexicon['closeMark'] ?></dt>
+		<dd>Close parenthesis</dd>
+	</dl>
+	<div class="clear"></div>
 	
-	<h4>Subscript Symbol:</h4>
-	
-		<ul>
-			<?php foreach ( $lexicon['subscriptSymbols'] as $symbol ): ?>
-				<li><?= $symbol ?></li>
-			<?php endforeach ?>
-		</ul>
-	
-	<h4>Open Parenthesis:</h4>
-	
-		<ul>
-			<?php foreach ( $lexicon['openMarks'] as $mark ): ?>
-				<li><?= $mark ?></li>
-			<?php endforeach ?>
-		</ul>
-	
-	<h4>Close Parenthesis:</h4>
-	
-		<ul>
-			<?php foreach ( $lexicon['closeMarks'] as $mark ): ?>
-				<li><?= $mark ?></li>
-			<?php endforeach ?>
-		</ul>
-	
-</dl>
+</div>

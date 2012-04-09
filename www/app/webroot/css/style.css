@@ -755,7 +755,25 @@ ul, ul li {
 	padding:0;
 }
 
-#Lexicon li {
+.lexicon dl {
+	font-weight: normal;
+	font-size: 13px;
+}
+.lexicon dt {
+	background-color: #ddd !important;
+	margin: 5px 0 5px 0;
+	width: 1.5em;
+}
+.lexicon dd {
+	margin-left: 1.5em;
+	margin-top: -2.45em;
+	padding-left: 7px;
+	background-color: #fff !important;
+}
+.lexicon ul {
+	margin-bottom: 10px;
+}
+.lexicon li {
 	margin: 0 2px;
 	padding: 3px 4px;
 	background-color: #ddd;
