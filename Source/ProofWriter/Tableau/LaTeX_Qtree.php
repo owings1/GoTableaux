@@ -40,9 +40,9 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 	);
 	
 	protected $tableauxCommands = array(
-		'closeMarker' 			=> '\varotimes',
-		'designatedMarker' 		=> '\varoplus',
-		'undesignatedMarker' 	=> '\varominus',
+		'closeMarker' 			=> '\times',
+		'designatedMarker' 		=> '+',
+		'undesignatedMarker' 	=> '-',
 		'worldSymbol' 			=> 'w',
 		'accessRelationSymbol' 	=> '\mathcal{R}',
 	);
@@ -84,7 +84,7 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 	{
 		$str = '';
 		$str .= "\documentclass[11pt]{article}\n";
-		$str .= "\usepackage{latexsym, qtree, stmaryrd}\n\n";
+		$str .= "\usepackage{latexsym, qtree}\n\n";
 		$operatorCommands = $this->getSentenceWriter()->getOperatorSymbolCommands();
 		foreach ( array_merge( $operatorCommands, $this->tableauxCommands ) as $name => $command) 
 			$str .= '\newcommand{\GT' . $this->formatCommand( $name ) . '} {\ensuremath{' . $command . "}}\n";
