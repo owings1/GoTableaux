@@ -16,7 +16,7 @@
  */
 /**
  * Contains base Vocabulary class.
- * @package Syntax
+ * @package GoTableaux
  */
 
 namespace GoTableaux;
@@ -27,7 +27,7 @@ use \GoTableaux\Sentence\Molecular as MolecularSentence;
 
 /**
  * Represents a vocabulary.
- * @package Syntax
+ * @package GoTableaux
  */
 class Vocabulary
 {
@@ -493,6 +493,6 @@ class Vocabulary
 			$items = array_merge( $items, $this->getItems( $flag ));
 		else foreach ( $this->items as $item => $flag )
 			if ( $flag == $typeFlag ) $items[] = $item;
-		return $single ? $items[0] : $items;
+		return $single ? array_shift( $items ) : $items;
 	}
 }

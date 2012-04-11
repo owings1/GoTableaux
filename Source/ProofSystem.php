@@ -75,7 +75,7 @@ abstract class ProofSystem
 	 * Constructs a proof for an argument.
 	 * 
 	 * @param Argument $argument The argument for which to construct the proof.
-	 * @return Poof $proof The constructed proof object.
+	 * @return Proof $proof The constructed proof object.
 	 */
 	abstract public function constructProofForArgument( Argument $argument );
 	

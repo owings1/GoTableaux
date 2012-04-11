@@ -49,9 +49,7 @@ abstract class SentenceParser
 	}
 	
 	/**
-	 * Constructor. 
-	 *
-	 * Sets the vocabulary.
+	 * Constructor. Sets the vocabulary.
 	 *
 	 * @param Vocabulary $vocabulary The vocabulary for the parser to use.
 	 */
@@ -63,7 +61,7 @@ abstract class SentenceParser
 	/**
 	 * Gets the vocabulary.
 	 *
-	 * @return Vocabulary The parser's vocabulary.
+	 * @return Vocabulary The vocabulary that the parser is using.
 	 */
 	public function getVocabulary()
 	{
@@ -71,14 +69,19 @@ abstract class SentenceParser
 	}
 	
 	/**
-	 * Parses an atomic sentence string.
+	 * Parses an atomic sentence from a string that starts with an atomic symbol.
+	 *
+	 * This is the default implementation for parsing an atomic sentence from a
+	 * string that starts with an atomic symbol. This implementation expects 
+	 * the next symbol to be either a separator (space) character, or a 
+	 * subscript character followed by an integer. If a subscript is not given,
+	 * it will be assigned 0.
 	 *
 	 * @param string $sentenceStr The string to parse.
 	 * @return Sentence The resulting sentence instance.
 	 * @throws {@link ParserException}.
-	 * @access private
 	 */
-	public function parseAtomic( $sentenceStr )
+	protected function parseAtomic( $sentenceStr )
 	{
 		$vocabulary		= $this->getVocabulary();
 		$atomicSymbols 	= $vocabulary->getAtomicSymbols();
