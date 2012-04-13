@@ -21,6 +21,9 @@
 
 namespace GoTableaux\ProofSystem\TableauxSystem;
 
+use \GoTableaux\Logic as Logic;
+use \GoTableaux\Proof\TableauBranch as Branch;
+
 /**
  * Represents a tableau rule that applies to a branch.
  * @package GoTableaux
@@ -42,5 +45,5 @@ interface BranchRule
 	 * @return boolean Whether the rule did apply.
 	 * @throws {@link RuleException} on any errors.
 	 */
-	public function apply( \GoTableaux\Proof\TableauBranch $branch, \GoTableaux\Logic $logic );
+	public function apply( Branch $branch, Logic $logic );
 }

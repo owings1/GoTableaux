@@ -28,7 +28,7 @@ use \GoTableaux\Proof as Proof;
 use \GoTableaux\Proof\Tableau as Tableau;
 use \GoTableaux\Proof\TableauBranch as Branch;
 use \GoTableaux\Exception\Tableau as TableauException;
-use \GoTableaux\Exception\Loader as LoaderException;
+use \GoTableaux\Utilities as Utilities;
 
 /**
  * Represents a tableaux proof system.
@@ -43,13 +43,7 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 	 * @see TableauxSystem::addBranchRules()
 	 */
 	public $branchRuleClasses = array();
-	
-	/**
-	 * Defines the branch class name for the tableaux.
-	 * @var string
-	 */
-	public $branchClass = 'TableauBranch';
-	
+
 	/**
 	 * @var ClosureRule
 	 * @access private
@@ -117,8 +111,7 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 		}
 		if ( !$branchRules instanceof TableauxSystem\BranchRule )
 			throw new TableauException( 'Branch rule must be instance of BranchRule.' );
-		if ( !in_array( $branchRules, $this->branchRules, true ))
-			$this->branchRules[] = $branchRules;
+		Utilities::uniqueAdd( $branchRules, $this->branchRules );
 		return $this;
 	}
 	
@@ -153,16 +146,6 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 			}
 		}
 		return $this->branchRules;
-	}
-	
-	/**
-	 * Gets the branch class name.
-	 *
-	 * @return string Branch class name.
-	 */
-	public function getBranchClass()
-	{
-		return $this->branchClass;
 	}
 	
 	public function constructProofForArgument( Argument $argument )

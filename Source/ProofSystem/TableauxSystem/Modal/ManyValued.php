@@ -31,9 +31,7 @@ use \GoTableaux\Proof\TableauBranch as Branch;
  * @package GoTableaux
  */
 class ManyValued extends \GoTableaux\ProofSystem\TableauxSystem\Modal
-{
-	public $branchClass = 'ManyValued';
-	
+{	
 	public function buildTrunk( Tableau $tableau, Argument $argument, Logic $logic )
 	{
 		$trunk = $tableau->createBranch();

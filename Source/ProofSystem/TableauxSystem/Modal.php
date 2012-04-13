@@ -32,9 +32,6 @@ use \GoTableaux\Proof\TableauBranch as Branch;
  */
 abstract class Modal extends \GoTableaux\ProofSystem\TableauxSystem
 {
-	
-	public $branchClass = 'Modal';
-	
 	/**
 	 * Constructor.
 	 *

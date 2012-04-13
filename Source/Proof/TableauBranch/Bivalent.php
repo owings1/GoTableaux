@@ -28,7 +28,7 @@ use \GoTableaux\Proof\TableauNode\Sentence as SentenceNode;
  * Represents a propositional logic tableau branch.
  * @package GoTableaux
  */
-class Propositional extends \GoTableaux\Proof\TableauBranch
+class Bivalent extends \GoTableaux\Proof\TableauBranch
 {
 	/**
 	 * Creates a node on the branch.
@@ -38,7 +38,7 @@ class Propositional extends \GoTableaux\Proof\TableauBranch
 	 */
 	public function createNode( Sentence $sentence )
 	{
-		return $this->_addNode( new SentenceNode( $sentence ));
+		return $this->addNode( new SentenceNode( $sentence ));
 	}
 	
 	/**

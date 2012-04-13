@@ -28,6 +28,30 @@ namespace GoTableaux;
 class Utilities
 {
 	/**
+	 * Removes an element from an array, if contained.
+	 *
+	 * @param mixed $element The element to remove.
+	 * @param array $array The array from which to remove the element.
+	 * @return void
+	 */
+	public static function arrayRm( $element, array &$array )
+	{
+		$key = array_search( $element, $array, true );
+		if ( $key !== false ) array_splice( $array, $key, 1 );
+	}
+	
+	/**
+	 * Adds an element to an array, if not already contained.
+	 *
+	 * @param mixed $element The element to add.
+	 * @param array $array The array to which to add the element.
+	 * @return void
+	 */
+	public static function uniqueAdd( $element, array &$array )
+	{
+		if ( !in_array( $element, $array, true )) $array[] = $element;
+	}
+	/**
 	 * Strictly subtracts one array from the other.
 	 *
 	 * @param array $a The first array.

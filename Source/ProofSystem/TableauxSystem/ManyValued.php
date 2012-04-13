@@ -32,9 +32,6 @@ use \GoTableaux\Proof\TableauBranch as Branch;
  */
 abstract class ManyValued extends \GoTableaux\ProofSystem\TableauxSystem
 {
-	
-	public $branchClass = 'ManyValued';
-	
 	/**
 	 * Constructor.
 	 *

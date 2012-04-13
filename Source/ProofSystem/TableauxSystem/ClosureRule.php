@@ -21,6 +21,9 @@
 
 namespace GoTableaux\ProofSystem\TableauxSystem;
 
+use \GoTableaux\Logic as Logic;
+use \GoTableaux\Proof\TableauBranch as Branch;
+
 /**
  * Represents a tableau closure rule.
  * @package GoTableaux
@@ -39,5 +42,5 @@ interface ClosureRule
 	 *				   occurs when true is returned.
 	 * @throws {@link TableauException}
 	 */
-	public function doesApply( \GoTableaux\Proof\TableauBranch $branch, \GoTableaux\Logic $logic );
+	public function doesApply( Branch $branch, Logic $logic );
 }

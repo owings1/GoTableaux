@@ -50,7 +50,7 @@ class ManyValued extends \GoTableaux\Proof\TableauBranch\Modal
 	 */
 	public function createSentenceNodeAtIndexWithDesignation( Sentence $sentence, $i, $isDesignated )
 	{
-		$this->_addNode( new MVMSentenceNode( $sentence, $i, $isDesignated ));		
+		$this->addNode( new MVMSentenceNode( $sentence, $i, $isDesignated ));		
 		return $this;
 	}
 	
@@ -101,11 +101,11 @@ class ManyValued extends \GoTableaux\Proof\TableauBranch\Modal
 	/**
 	 * @access private
 	 */
-	protected function _addNode( Node $node )
+	protected function addNode( Node $node )
 	{
 		if ( $node instanceof SentenceNode && $node->isDesignated() )
 			$this->designatedNodes[] = $node;
-		return parent::_addNode( $node );
+		return parent::addNode( $node );
 	}
 	
 	/**

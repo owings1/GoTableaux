@@ -31,10 +31,7 @@ use \GoTableaux\Proof\TableauBranch as Branch;
  * @package GoTableaux
  */
 abstract class Bivalent extends \GoTableaux\ProofSystem\TableauxSystem
-{
-	
-	public $branchClass = 'Propositional';
-	
+{	
 	/**
 	 * Builds a modal tableau trunk.
 	 *

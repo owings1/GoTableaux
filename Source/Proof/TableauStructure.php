@@ -125,8 +125,8 @@ class TableauStructure
 	 */
 	public function setTableau( Tableau $tableau )
 	{
-		$this->tableau = $tableau;
-		return $this;
+		$this->tableau = $tableau->copy();
+		return $this->build();
 	}
 	
 	/**
@@ -206,7 +206,7 @@ class TableauStructure
 		}
 		// remove nodes from branches
 		foreach ( $nodes as $node )
-			foreach ( $branches as $branch ) $branch->_removeNode( $node );
+			foreach ( $branches as $branch ) $branch->removeNode( $node );
 
 		// assign nodes to structure
 		$this->nodes = $nodes;

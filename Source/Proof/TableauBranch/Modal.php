@@ -33,12 +33,6 @@ use \GoTableaux\Proof\TableauNode\Sentence\Modal as ModalSentenceNode;
 class Modal extends \GoTableaux\Proof\TableauBranch
 {
 	/**
-	 * @var array 
-	 * @access private
-	 */
-	protected $accessNodes = array();
-	
-	/**
 	 * Hashes the access relation.
 	 * @var array
 	 * @access private
@@ -61,7 +55,7 @@ class Modal extends \GoTableaux\Proof\TableauBranch
 	 */
 	public function createAccessNode( $i, $j )
 	{
-		return $this->_addNode( new AccessNode( $i, $j ) );
+		return $this->addNode( new AccessNode( $i, $j ) );
 	}
 	
 	/**
@@ -71,7 +65,7 @@ class Modal extends \GoTableaux\Proof\TableauBranch
 	 */
 	public function getAccessNodes()
 	{
-		return $this->accessNodes;
+		return $this->getNodesByClassName( 'Access' );
 	}
 	
 	/**
@@ -91,10 +85,8 @@ class Modal extends \GoTableaux\Proof\TableauBranch
 	 */
 	public function getReflexiveIndexes()
 	{
-		$indexes = array();
-		foreach ( $this->getIndexes() as $index )
-			if ( $this->accesses( $index, $index )) $indexes[] = $index;
-		return $indexes;
+		$that = $this;
+		return array_filter( $this->getIndexes(), function( $i ) use( $that ) { return $that->access( $i, $i ); });
 	}
 	
 	/**
@@ -120,7 +112,7 @@ class Modal extends \GoTableaux\Proof\TableauBranch
 	public function getAccessRelation( $i = null )
 	{
 		if ( is_null( $i )) return $this->accessRelation;
-		if ( !isset( $this->accessRelation[$i] )) $this->accessRelation[$i] = array();
+		if ( empty( $this->accessRelation[$i] )) return array();
 		return $this->accessRelation[$i];
 	}
 	
@@ -151,7 +143,7 @@ class Modal extends \GoTableaux\Proof\TableauBranch
 	 */
 	public function createSentenceNodeAtIndex( Sentence $sentence, $i )
 	{
-		return $this->_addNode( new ModalSentenceNode( $sentence, $i ));
+		return $this->addNode( new ModalSentenceNode( $sentence, $i ));
 	}
 	
 	/**
@@ -205,15 +197,14 @@ class Modal extends \GoTableaux\Proof\TableauBranch
 	 * @return ModalBranch Current instance.
 	 * @access private
 	 */
-	protected function _addNode( Node $node )
+	protected function addNode( Node $node )
 	{
 		$this->_addIndex( $node->getI() );
 		if ( $node instanceof AccessNode ) {
-			$this->accessNodes[] = $node;
 			$this->_addAccessRelationship( $node->getI(), $node->getJ() )
 				 ->_addIndex( $node->getJ() );
 		}
-		return parent::_addNode( $node );
+		return parent::addNode( $node );
 	}
 	
 	/**
@@ -225,19 +216,13 @@ class Modal extends \GoTableaux\Proof\TableauBranch
 	 */
 	public function _removeNode( Node $node )
 	{
-		if ( $node instanceof AccessNode ) {
-			$key = array_search( $node, $this->accessNodes, true );
-			if ( $key !== false ) array_splice( $this->accessNodes, $key, 1 );
-		}
 		parent::_removeNode( $node );
-		$this->accessNodes = $this->indexes = $this->accessRelation = array();
+		$this->indexes = $this->accessRelation = array();
 		foreach ( $this->getNodes() as $node ) {
 			$this->_addIndex( $node->getI() );
-			if ( $node instanceof AccessNode ) {
-				$this->accessNodes[] = $node;
+			if ( $node instanceof AccessNode ) 
 				$this->_addAccessRelationship( $node->getI(), $node->getJ() )
 					 ->_addIndex( $node->getJ() );
-			}
 		}
 	}
 }

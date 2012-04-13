@@ -22,7 +22,7 @@
 namespace GoTableaux\Proof;
 
 use \GoTableaux\Exception\Tableau as TableauException;
-//use \GoTableaux\Utilities\ArraySet as Set;
+use \GoTableaux\Utilities as Utilities;
 
 /**
  * Represents a tableau for an argument.
@@ -39,25 +39,16 @@ class Tableau extends \GoTableaux\Proof
 	protected $branches = array();
 	
 	/**
-	 * Holds the tree structure.
-	 * @var Structure
-	 * @access private
-	 */	
-	protected $structure;
-	
-	/**
 	 * Creates a new branch and attaches it to the tableau.
 	 *
-	 * @param Node|array Node or array of nodes to add to the branch.
-	 * @param boolean $attachToTableau Whether to attach the branch to the 
-	 *								   tableau. Default is true.
 	 * @return Branch The created instance.
 	 */
-	public function createBranch( $nodes = null )
+	public function createBranch()
 	{
-		$branchClass = __NAMESPACE__ . '\\TableauBranch\\' . $this->getProofSystem()->getBranchClass();
+		echo get_class( $this->getProofSystem() )."\n";
+		$branchClass = str_replace( '\ProofSystem\TableauxSystem\\', '\Proof\TableauBranch\\', get_class( $this->getProofSystem() ));
+		die ($branchClass);
 		$branch = new $branchClass( $this );
-		if ( !empty( $nodes )) $branch->_addNode( $nodes );
 		$this->attach( $branch );
 		return $branch;
 	}
@@ -101,10 +92,7 @@ class Tableau extends \GoTableaux\Proof
 	 */
 	public function getOpenBranches()
 	{
-		$branches = array();
-		foreach ( $this->branches as $branch )
-			if ( !$branch->isClosed() ) $branches[] = $branch;
-		return $branches;
+		return array_filter( $this->getBranches(), function( $branch ) { return $branch->isOpen(); });
 	}
 	
 	/**
@@ -129,8 +117,7 @@ class Tableau extends \GoTableaux\Proof
 			foreach ( $branches as $branch ) $this->detach( $branch );
 			return $this;
 		}
-		$key = array_search( $branch, $this->branches, true );
-		if ( $key !== false ) unset( $this->branches[$key] );
+		Utilities::arrayRm( $branches, $this->branches );
 		return $this;
 	}
 	
@@ -151,12 +138,7 @@ class Tableau extends \GoTableaux\Proof
 	 */
 	public function getStructure()
 	{
-		if ( empty( $this->structure )) {
-			$copy = $this->copy();
-			$this->structure = TableauStructure::getInstance( $copy );
-			$this->structure->build();
-		}
-		return $this->structure;
+		return TableauStructure::getInstance( $this );
 	}
 		
 	/**

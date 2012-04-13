@@ -33,13 +33,6 @@ use \GoTableaux\Proof\TableauNode\Sentence\ManyValued as ManyValuedSentenceNode;
 class ManyValued extends \GoTableaux\Proof\TableauBranch
 {
 	/**
-	 * Holds the designated nodes
-	 * @var array
-	 * @access private
-	 */
-	protected $designatedNodes = array();
-	
-	/**
 	 * Creates a node on the branch.
 	 *
 	 * @param Sentence $sentence The sentence to place on the node.
@@ -48,7 +41,7 @@ class ManyValued extends \GoTableaux\Proof\TableauBranch
 	 */
 	public function createNodeWithDesignation( Sentence $sentence, $isDesignated )
 	{
-		return $this->_addNode( new ManyValuedSentenceNode( $sentence, $isDesignated ));
+		return $this->addNode( new ManyValuedSentenceNode( $sentence, $isDesignated ));
 	}
 	
 	/**
@@ -60,7 +53,7 @@ class ManyValued extends \GoTableaux\Proof\TableauBranch
 	 */
 	public function hasSentenceWithDesignation( Sentence $sentence, $isDesignated )
 	{
-		foreach ( $this->getNodes() as $node )
+		foreach ( $this->getNodesByClassName( 'Sentence\ManyValued' ) as $node )
 			if ( $node->getSentence() === $sentence && $node->isDesignated() === $isDesignated ) return true;
 		return false;
 	}
@@ -74,8 +67,11 @@ class ManyValued extends \GoTableaux\Proof\TableauBranch
 	 */
 	public function getDesignatedNodes( $untickedOnly = false )
 	{
-		if ( !$untickedOnly ) return $this->designatedNodes;
-		return Utilities::arrayDiff( $this->designatedNodes, $this->getTickedNodes() );
+		$designatedNodes = array();
+		foreach ( $this->getNodesByClassName( 'ManyValued' ) as $node ) 
+			if ( $node->isDesignated() ) $designatedNodes[] = $node;
+		if ( !$untickedOnly ) return $designatedNodes;
+		return Utilities::arrayDiff( $designatedNodes, $this->getTickedNodes() );
 	}
 	
 	/**
@@ -87,7 +83,7 @@ class ManyValued extends \GoTableaux\Proof\TableauBranch
 	 */
 	public function getUndesignatedNodes( $untickedOnly = false )
 	{
-		return Utilities::arrayDiff( $this->getSentenceNodes( $untickedOnly ), $this->designatedNodes );
+		return Utilities::arrayDiff( $this->getSentenceNodes( $untickedOnly ), $this->getDesignatedNodes() );
 	}
 	
 	/**
@@ -124,24 +120,4 @@ class ManyValued extends \GoTableaux\Proof\TableauBranch
 			if ( $node->isDesignated() === $isDesignated ) $nodes[] = $node;
 		return $nodes;
 	}
-	
-	/**
-	 * @access private
-	 */
-	protected function _addNode( Node $node )
-	{
-		if ( $node->isDesignated() ) $this->designatedNodes[] = $node;
-		return parent::_addNode( $node );
-	}
-	
-	/**
-	 * @access private
-	 */
-	public function _removeNode( Node $node )
-	{
-		$key = array_search( $node, $this->designatedNodes, true );
-		if ( $key !== false ) array_splice( $this->designatedNodes, $key, 1 );
-		return parent::_removeNode( $node );
-	}
-	
 }

@@ -20,6 +20,8 @@
  */
 
 namespace GoTableaux\Proof;
+
+use \GoTableaux\Sentence as Sentence;
 use \GoTableaux\Utilities as Utilities;
 
 /**
@@ -29,37 +31,26 @@ use \GoTableaux\Utilities as Utilities;
 class TableauBranch
 {
 	/**
-	 * Holds the {@link Node nodes} of the branch.
+	 * Holds the {@link TableauNode}s of the branch.
 	 * @var array
-	 * @access private
 	 */
 	protected $nodes = array();
 	
 	/**
-	 * Holds the ticked {@link Node}s.
-	 * @var array
-	 * @access private
+	 * Holds the ticked {@link TableauNode}s.
+	 * @var \SplObjectStorage
 	 */
-	protected $tickedNodes = array();
-	
-	/**
-	 * Holds the {@link SentenceNode}s of the branch.
-	 * @var array
-	 * @access private
-	 */
-	protected $sentenceNodes = array();
+	private $tickedNodes;
 	
 	/**
 	 * Tracks whether the branch is closed.
 	 * @var boolean
-	 * @access private
 	 */
 	protected $closed = false;
 	
 	/**
 	 * Holds a reference to the tableau.
 	 * @var Tableau
-	 * @access private
 	 */
 	protected $tableau;
 	
@@ -73,6 +64,8 @@ class TableauBranch
 	public function __construct( Tableau $tableau )
 	{
 		$this->tableau = $tableau;
+		$tableau->attach( $this );
+		$this->tickedNodes = new \SplObjectStorage;
 	}
 	
 	/**
@@ -89,7 +82,7 @@ class TableauBranch
 	 * Gets the nodes on the branch.
 	 *
 	 * @param boolean $untickedOnly Whether to limit search to nodes that are unticked.
-	 * @return array Array of {@link Node}s.
+	 * @return array Array of {@link TableauNode}s.
 	 */
 	public function getNodes( $untickedOnly = false )
 	{
@@ -105,8 +98,8 @@ class TableauBranch
 	 */
 	public function getSentenceNodes( $untickedOnly = false )
 	{
-		if ( !$untickedOnly ) return $this->sentenceNodes;
-		return Utilities::arrayDiff( $this->sentenceNodes, $this->getTickedNodes() );
+		if ( !$untickedOnly ) return $this->getNodesByClassName( 'Sentence' );
+		return Utilities::arrayDiff( $this->getNodesByClassName( 'Sentence' ), $this->getTickedNodes() );
 	}
 	
 	/**
@@ -115,9 +108,9 @@ class TableauBranch
 	 * @param Sentence $sentence The sentence to search for.
 	 * @return boolean Whether the branch has a node with that sentence.
 	 */
-	public function hasNodeWithSentence( \GoTableaux\Sentence $sentence )
+	public function hasNodeWithSentence( Sentence $sentence )
 	{
-		foreach ( $this->getSentenceNodes() as $node )
+		foreach ( $this->getNodesByClassName( 'Sentence' ) as $node )
 			if ( $node->getSentence() === $sentence ) return true;
 		return false;
 	}
@@ -125,7 +118,7 @@ class TableauBranch
 	/**
 	 * Gets all nodes on the branch that are unticked relative to the branch.
 	 *
-	 * @return array Array of {@link Node}s.
+	 * @return array Array of {@link TableauNode}s.
 	 */
 	public function getUntickedNodes()
 	{
@@ -135,7 +128,7 @@ class TableauBranch
 	/**
 	 * Gets all nodes on the branch that are ticked relative to the branch.
 	 *
-	 * @return array Array of {@link Node}s.
+	 * @return array Array of {@link TableauNode}s.
 	 */
 	public function getTickedNodes()
 	{
@@ -143,9 +136,26 @@ class TableauBranch
 	}
 	
 	/**
+	 * Gets all nodes of a certain class name.
+	 *
+	 * @param string $className The name of the class, either relative or absolute.
+	 * @param boolean strict Whether to return only nodes that are instantiated
+	 *						 as that particular class. Default behavior is to 
+	 *						 return any node that inherits from the given class.
+	 * @return array The nodes on the branch that are of the class.
+	 */
+	public function getNodesByClassName( $className, $strict = false )
+	{
+		if ( $className{0} !== '\\' ) $className = __NAMESPACE__ . '\TableauNode\\' . $className;
+		return array_filter( $this->getNodes(), function( $node ) use( $className, $strict ) {
+			return $strict ? get_class( $node ) === $className : $node instanceof $className;
+		});
+	}
+	
+	/**
 	 * Closes the branch.
 	 *
-	 * @return Branch Current instance.
+	 * @return TableauBranch Current instance.
 	 */
 	public function close()
 	{
@@ -164,6 +174,16 @@ class TableauBranch
 	}
 	
 	/**
+	 * Checks whether the branch is open.
+	 *
+	 * @return boolean Whether the branch is open.
+	 */
+	public function isOpen()
+	{
+		return !$this->isClosed();
+	}
+	
+	/**
 	 * Checks whether a node is on the branch.
 	 *
 	 * @param Node $node The node to check.
@@ -171,18 +191,17 @@ class TableauBranch
 	 */
 	public function hasNode( TableauNode $node )
 	{
-		return in_array( $node, $this->getNodes(), true );
+		return $this->nodes->contains( $node );
 	}
 	
 	/**
 	 * Clones the branch. Maintains references to the nodes.
 	 *
-	 * @return Branch The new copy.
+	 * @return TableauBranch The new copy.
 	 */
 	public function copy()
 	{
-		$newBranch = clone $this;
-		return $newBranch;
+		return clone $this;
 	}
 	
 	/**
@@ -191,7 +210,7 @@ class TableauBranch
 	 * Copies the branch, attaches the copy to the tableau, and returns the new
 	 * branch.
 	 *
-	 * @return Branch The new branch
+	 * @return TableauBranch The new branch
 	 */
 	public function branch()
 	{
@@ -241,26 +260,41 @@ class TableauBranch
 		return $nodes;
 	}
 	
+	public function find( $ret, array $conditions = array() )
+	{
+		
+	}
 	/**
 	 * Ticks a node relative to the branch.
 	 *
 	 * @param Node $node The node to tick.
-	 * @return Branch Current instance.
+	 * @return TableauBranch Current instance.
 	 */
 	public function tickNode( TableauNode $node )
 	{
-		if ( !in_array( $node, $this->tickedNodes, true ))
-			$this->tickedNodes[] = $node;
+		$this->tickedNodes->attach( $node );
 		return $this;
 	}
-
+	
+	/**
+	 * Unticks a node relative to the branch.
+	 *
+	 * @param Node $node The node to untick.
+	 * @return TableauBranch
+	 */
+	public function untickNode( TalbeauNode $node )
+	{
+		$this->tickedNodes->detach( $node );
+		return $this;
+	}
+	
 	/**
 	 * Adds a node to the branch.
 	 *
 	 * @param Node $node The node to add.
-	 * @return Branch Current instance.
+	 * @return TableauBranch Current instance.
 	 */
-	protected function _addNode( TableauNode $node )
+	public function addNode( TableauNode $node )
 	{
 		if ( $node instanceof TableauNode\Sentence ) {
 			$sentence = $this->getTableau()
@@ -269,7 +303,6 @@ class TableauBranch
 							 ->getVocabulary()
 							 ->registerSentence( $node->getSentence() );
 			$node->setSentence( $sentence );
-			$this->sentenceNodes[] = $node;
 		}
 		$this->nodes[] = $node;
 		return $this;
@@ -280,16 +313,11 @@ class TableauBranch
 	 *
 	 * @param Node $node The node to remove. If the node is on the branch in
 	 *					 multiple places, each reference is removed.
-	 * @return Branch Current instance.
+	 * @return TableauBranch Current instance.
 	 */
-	public function _removeNode( TableauNode $node )
+	public function removeNode( TableauNode $node )
 	{
-		$key = array_search( $node, $this->sentenceNodes, true );
-		if ( $key !== false ) array_splice( $this->sentenceNodes, $key, 1 );
-		$key = array_search( $node, $this->nodes, true );
-		if ( $key !== false ) array_splice( $this->nodes, $key, 1 );
-		$key = array_search( $node, $this->tickedNodes, true );
-		if ( $key !== false ) array_splice( $this->tickedNodes, $key, 1 );
+		$this->nodes->attach( $node );
 		return $this;
 	}
 	
