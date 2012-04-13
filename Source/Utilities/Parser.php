@@ -16,18 +16,20 @@
  */
 /**
  * Defines the ParserUtilities class.
- * @package Syntax
+ * @package GoTableaux
  */
 
-namespace GoTableaux;
+namespace GoTableaux\Utilities;
 
 use \GoTableaux\Exception\Parser as Exception;
+use \GoTableaux\Vocabulary as Vocabulary;
+use \GoTableaux\Utilities as Utilities;
 
 /**
  * Collects utilities for sentence parsers.
- * @package Syntax
+ * @package GoTableaux
  */
-class ParserUtilities 
+class Parser
 {
 	/**
 	 * Trims separator (whitespace) characters from beginning and end of a string.

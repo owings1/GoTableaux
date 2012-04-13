@@ -21,6 +21,7 @@
 
 namespace GoTableaux;
 
+use \GoTableaux\Utilities\Parser as ParserUtilities;
 use \GoTableaux\Sentence\Atomic as AtomicSentence;
 use \GoTableaux\Sentence\Molecular as MolecularSentence;
 

@@ -25,7 +25,7 @@ namespace GoTableaux;
 if ( !defined( 'DS' )) define( 'DS', DIRECTORY_SEPARATOR );
 
 // Load the GoTableaux program
-require __DIR__ . DS . '..' . DS . 'src' . DS . 'Loader.php';
+require __DIR__ . DS . '..' . DS . 'Source' . DS . 'Loader.php';
 
 /**
  * Evaluates a single argument, and returns a summary of the results.

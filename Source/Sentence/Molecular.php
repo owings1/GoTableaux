@@ -16,7 +16,7 @@
  */
 /**
  * Contains the MolecularSentence class.
- * @package Syntax
+ * @package GoTableaux
  */
 
 namespace GoTableaux\Sentence;
@@ -24,7 +24,7 @@ use \GoTableaux\Exception\Vocabulary as Exception;
 
 /**
  * Represents a molecular sentence.
- * @package Syntax
+ * @package GoTableaux
  **/
 class Molecular extends \GoTableaux\Sentence
 {

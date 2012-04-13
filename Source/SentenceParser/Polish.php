@@ -20,8 +20,9 @@
  */
 
 namespace GoTableaux\SentenceParser;
+
 use \GoTableaux\Utilities as Utilities;
-use \GoTableaux\ParserUtilities as ParserUtilities;
+use \GoTableaux\Utilities\Parser as ParserUtilities;
 use \GoTableaux\Exception\Parser as ParserException;
 use \GoTableaux\Vocabulary as Vocabulary;
 use \GoTableaux\Sentence as Sentence;

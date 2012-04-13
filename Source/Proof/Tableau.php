@@ -22,6 +22,7 @@
 namespace GoTableaux\Proof;
 
 use \GoTableaux\Exception\Tableau as TableauException;
+//use \GoTableaux\Utilities\ArraySet as Set;
 
 /**
  * Represents a tableau for an argument.
@@ -32,7 +33,7 @@ class Tableau extends \GoTableaux\Proof
 {	
 	/**
 	 * Holds the branches on the tree.
-	 * @var array Array of {@link Branch} objects.
+	 * @var array Array of {@link TableauBranch}es.
 	 * @access private
 	 */
 	protected $branches = array();

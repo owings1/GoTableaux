@@ -16,7 +16,7 @@
  */
 /**
  * Contains the base Parser class.
- * @package Syntax
+ * @package GoTableaux
  */
 
 namespace GoTableaux;
@@ -25,7 +25,7 @@ use \GoTableaux\Exception\Parser as ParserException;
 
 /**
  * Represents a sentence parser.
- * @package Syntax
+ * @package GoTableaux
  **/
 abstract class SentenceParser
 {

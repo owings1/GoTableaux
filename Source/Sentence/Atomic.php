@@ -16,14 +16,14 @@
  */
 /**
  * Defines the Atomic Sentence class.
- * @package Syntax
+ * @package GoTableaux
  */
 
 namespace GoTableaux\Sentence;
 
 /**
  * Represents an atomic sentence.
- * @package Syntax
+ * @package GoTableaux
  */
 class Atomic extends \GoTableaux\Sentence
 {
