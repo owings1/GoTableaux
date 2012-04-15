@@ -15,17 +15,26 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/agpl-3.0.html>.
  */
 /**
- * Defines the LP tableaux system class.
- * @package LP
+ * Defines the BranchRule interface.
+ * @package GoTableaux
  */
 
-namespace GoTableaux\Logic\LP;
+namespace GoTableaux\ProofSystem\TableauxSystem;
+
+use \GoTableaux\Logic as Logic;
+use \GoTableaux\Proof\Tableau as Tableau;
 
 /**
- * Represents the LP tableaux system.
- * @package LP
+ * Represents a tableau rule that applies to a branch.
+ * @package GoTableaux
  */
-class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem\ManyValued
+interface Rule
 {
-	public $inheritTableauRulesFrom = 'FDE';
+	/**
+	 * Applies the rule to a tableau.
+	 *
+	 * @param Tableau $tableau The tableau to which to apply the rule.
+	 * @return boolean Whether the rule did apply.
+	 */
+	public function apply( Tableau $tableau );
 }

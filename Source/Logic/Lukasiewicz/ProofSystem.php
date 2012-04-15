@@ -27,9 +27,11 @@ namespace GoTableaux\Logic\Lukasiewicz;
  */
 class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem\ManyValued
 {
-	public $inheritBranchRulesFrom = 'StrongKleene';
+	public $inheritTableauRulesFrom = 'StrongKleene';
 	
-	public $branchRuleClasses = array(
+	public $inheritClosureRuleFrom = 'StrongKleene';
+	
+	public $tableauRuleClasses = array(
 		'ConditionalDesignated',
 		'ConditionalUndesignated',
 		'NegatedConditionalDesignated',

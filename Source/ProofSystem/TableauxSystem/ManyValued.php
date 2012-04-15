@@ -25,6 +25,7 @@ use \GoTableaux\Logic as Logic;
 use \GoTableaux\Argument as Argument;
 use \GoTableaux\Proof\Tableau as Tableau;
 use \GoTableaux\Proof\TableauBranch as Branch;
+use \GoTableaux\Utilities as Utilities;
 
 /**
  * Represents a many-valued propositional tableaux system.
@@ -41,8 +42,8 @@ abstract class ManyValued extends \GoTableaux\ProofSystem\TableauxSystem
 	 */
 	public function __construct( Logic $logic )
 	{
-		$this->metaSymbolNames[] = 'designatedMarker';
-		$this->metaSymbolNames[] = 'undesignatedMarker';
+		Utilities::uniqueAdd( 'designatedMarker', $this->metaSymbolNames );
+		Utilities::uniqueAdd( 'undesignatedMarker', $this->metaSymbolNames );
 		parent::__construct( $logic );
 	}
 	

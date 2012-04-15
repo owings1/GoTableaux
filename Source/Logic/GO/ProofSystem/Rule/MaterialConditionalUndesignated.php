@@ -14,18 +14,27 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/agpl-3.0.html>.
  */
-/**
- * Defines the LP tableaux system class.
- * @package LP
- */
+namespace GoTableaux\Logic\GO\ProofSystem\Rule;
 
-namespace GoTableaux\Logic\LP;
+use \GoTableaux\Proof\TableauBranch as Branch;
+use \GoTableaux\Proof\TableauNode as Node;
+use \GoTableaux\Logic as Logic;
 
 /**
- * Represents the LP tableaux system.
- * @package LP
+ * @package GO
  */
-class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem\ManyValued
+class MaterialConditionalUndesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 {
-	public $inheritTableauRulesFrom = 'FDE';
+	protected $conditions = array(
+		'operator' 		=> 'Material Conditional',
+		'designated' 	=> false,
+		'ticked' 		=> false
+	);
+	
+	public function applyToNode( Node $node, Branch $branch, Logic $logic )
+	{
+		$negated = $logic->negate( $node->getSentence() );
+		$branch->createNodeWithDesignation( $negated, true )
+			   ->tickNode( $node );
+	}
 }

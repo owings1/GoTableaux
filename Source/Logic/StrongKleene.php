@@ -25,7 +25,7 @@ namespace GoTableaux\Logic;
  * Represents Strong Kleene Logic.
  * @package StrongKleene
  */
-class StrongKleene extends FDE
+class StrongKleene extends \GoTableaux\Logic
 {
-	
+	public $inheritLexiconFrom = 'FDE';
 }

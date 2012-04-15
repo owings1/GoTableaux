@@ -28,6 +28,7 @@ use \GoTableaux\Proof as Proof;
 use \GoTableaux\Proof\Tableau as Tableau;
 use \GoTableaux\Proof\TableauBranch as Branch;
 use \GoTableaux\Exception\Tableau as TableauException;
+use \GoTableaux\ProofSystem\TableauxSystem\Rule as Rule;
 use \GoTableaux\Utilities as Utilities;
 
 /**
@@ -37,29 +38,22 @@ use \GoTableaux\Utilities as Utilities;
 abstract class TableauxSystem extends \GoTableaux\ProofSystem
 {
 	/**
-	 * Defines the branch rule classes names for the logic.
+	 * Defines the rule class names for the logic.
 	 * @var array
-	 * @see TableauxSystem::__construct()
-	 * @see TableauxSystem::addBranchRules()
 	 */
-	public $branchRuleClasses = array();
-
-	/**
-	 * Defines the branch class.
-	 * @var string
-	 */
-	//protected $branchClass = 'TableauBranch';
+	public $tableauRuleClasses = array();
 	
 	/**
+	 * Holds the closure rule.
 	 * @var ClosureRule
-	 * @access private
 	 */
-	protected $closureRule;
+	private $closureRule;
 	
 	/**
-	 * @var array Array of {@link BranchRule}s.
+	 * Holds the tableau rules.
+	 * @var array.
 	 */
-	protected $branchRules = array();
+	private $_rules = array();
 	
 	/**
 	 * Constructor.
@@ -83,8 +77,13 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 	public function getClosureRule()
 	{
 		if ( empty( $this->closureRule )) {
-			$closureRuleClass = get_class( $this ) . '\\ClosureRule';
-			$this->closureRule = new $closureRuleClass;
+			if ( !empty( $this->inheritClosureRuleFrom )) {
+				$logic = Logic::getInstance( $this->inheritClosureRuleFrom );
+				$this->closureRule = $logic->getProofSystem()->getClosureRule();
+			} else {
+				$closureRuleClass = get_class( $this ) . '\ClosureRule';
+				$this->closureRule = new $closureRuleClass;
+			}
 		}
 		return $this->closureRule;
 	}
@@ -100,45 +99,48 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 	{
 		$closureRule = $this->getClosureRule();
 		foreach ( $tableau->getOpenBranches() as $branch )
-			if ( $closureRule->doesApply( $branch, $this->getLogic() )) $branch->close();
+			if ( $closureRule->doesApply( $branch, $this->getLogic() )) {
+				$branch->close();
+				Utilities::debug( "Closure rule " . get_class( $closureRule ) . ' applied.' );
+			} 
 	}
 	
 	/**
 	 * Adds tableau rules. Duplicate entries are ignored.
 	 *
-	 * @param BranchRule|array $branchRule The branch rule(s) to add.
+	 * @param Rule|array $rules The rule(s) to add.
 	 * @return TableauxSystem Current Instance.
 	 */
-	public function addBranchRules( $branchRules )
+	protected function addRules( $rules )
 	{
-		if ( is_array( $branchRules )) {
-			foreach ( $branchRules as $rule ) $this->addBranchRules( $rule );
+		if ( is_array( $rules )) {
+			foreach ( $rules as $rule ) $this->addRules( $rule );
 			return $this;
 		}
-		if ( !$branchRules instanceof TableauxSystem\BranchRule )
-			throw new TableauException( 'Branch rule must be instance of BranchRule.' );
-		Utilities::uniqueAdd( $branchRules, $this->branchRules );
+		if ( !$rules instanceof Rule )
+			throw new TableauException( 'Rule must be instance of Rule.' );
+		Utilities::uniqueAdd( $rules, $this->_rules );
 		return $this;
 	}
 	
 	/**
-	 * Gets the tableau branch rules.
+	 * Gets the tableau rules.
 	 *
-	 * @return array Array of {@link BranchRule}s.
+	 * @return array Array of {@link Rule}s.
 	 * @throws 
 	 */
-	public function getBranchRules()
+	public function getRules()
 	{
-		if ( empty( $this->branchRules )) {
-			if ( !empty( $this->inheritBranchRulesFrom ))
-				foreach ( (array) $this->inheritBranchRulesFrom as $logicName ) {
+		if ( empty( $this->_rules )) {
+			if ( !empty( $this->inheritTableauRulesFrom ))
+				foreach ( (array) $this->inheritTableauRulesFrom as $logicName ) {
 					$proofSystem = Logic::getInstance( $logicName )->getProofSystem();
 					if ( !$proofSystem instanceof TableauxSystem )
 						throw new TableauException( 'Trying to inherit branch rules from a proof system that is not a tableaux system.' );
-					$this->addBranchRules( $proofSystem->getBranchRules() );
+					$this->addRules( $proofSystem->getRules() );
 				}
 					
-			foreach ( $this->branchRuleClasses as $relClass ) {
+			foreach ( $this->tableauRuleClasses as $relClass ) {
 				if ( strpos( $relClass, '/' )) {
 					list( $otherLogicName, $relClass ) = explode( '/', $relClass );
 					$otherLogic = Logic::getInstance( $otherLogicName );
@@ -146,33 +148,31 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 				} else {
 					$class = get_class( $this );
 				}
-				$branchRuleNamespace = $class . '\\BranchRule';
-				$branchRuleClass = $branchRuleNamespace . '\\' . $relClass;
-				$this->addBranchRules( new $branchRuleClass );
+				$ruleNamespace = $class . '\Rule';
+				$ruleClass = $ruleNamespace . '\\' . $relClass;
+				$this->addRules( new $ruleClass );
 			}
 		}
-		return $this->branchRules;
+		return $this->_rules;
 	}
 	
 	public function constructProofForArgument( Argument $argument )
 	{
 		$tableau = new Tableau( $argument, $this );
 		$this->buildTrunk( $tableau, $argument, $this->getLogic() );
-		$branchRules = $this->getBranchRules();
+		$rules = $this->getRules();
 		$i = 0;
-		
 		do {
 			$this->applyClosureRule( $tableau );
-			$rule 			= $branchRules[$i];
+			$rule 			= $rules[$i];
 			$ruleDidApply 	= false;
-			foreach ( $tableau->getOpenBranches() as $branch ) 
-				if ( $rule->apply( $branch, $this->getLogic() ) !== false ) {
-					$ruleDidApply = true;
-					$i = 0;
-				}
-		} while ( $ruleDidApply || isset( $branchRules[++$i] ));
+			if ( $rule->apply( $tableau ) !== false ) {
+				Utilities::debug( "Rule " . get_class( $rule ) . ' applied' );
+				$ruleDidApply = true;
+				$i = 0;
+			}	
+		} while ( $ruleDidApply || isset( $rules[++$i] ));
 		$this->applyClosureRule( $tableau );
-		
 		return $tableau;
 	}
 	

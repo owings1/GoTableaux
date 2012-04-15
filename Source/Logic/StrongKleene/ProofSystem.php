@@ -27,5 +27,5 @@ namespace GoTableaux\Logic\StrongKleene;
  */
 class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem\ManyValued
 {
-	public $inheritBranchRulesFrom = 'FDE';
+	public $inheritTableauRulesFrom = 'FDE';
 }

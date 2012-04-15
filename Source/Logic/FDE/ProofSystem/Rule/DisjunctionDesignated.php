@@ -14,29 +14,32 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/agpl-3.0.html>.
  */
-/**
- * Defines the K3 Closure Rule class.
- * @package StrongKleene
- */
+namespace GoTableaux\Logic\FDE\ProofSystem\Rule;
 
-namespace GoTableaux\Logic\StrongKleene\ProofSystem;
-
-use \GoTableaux\Logic as Logic;
 use \GoTableaux\Proof\TableauBranch as Branch;
+use \GoTableaux\Proof\TableauNode as Node;
+use \GoTableaux\Logic as Logic;
 
 /**
- * Represents the K3 closure rule.
- * @package StrongKleene
+ * @package FDE
  */
-class ClosureRule extends \GoTableaux\Logic\FDE\ProofSystem\ClosureRule
+class DisjunctionDesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 {
-	public function doesApply( Branch $branch, Logic $logic )
+	protected $conditions = array(
+		'operator'	 => 'Disjunction',
+		'designated' => true,
+		'ticked'	 => false
+	);
+	
+	public function applyToNode( Node $node, Branch $branch, Logic $logic )
 	{
-		foreach ( $branch->find( 'all', array( 'designated' => true )) as $node ) {
-			$negated = $logic->negate( $node->getSentence() );
-			if ( $branch->find( 'exists', array( 'sentence' => $negated, 'designated' => true ))) 
-				return true;
-		}
-		return parent::doesApply( $branch, $logic );
+		list( $leftDisjunct, $rightDisjunct ) = $node->getSentence()->getOperands();
+		
+		$branch->branch()
+			   ->createNodeWithDesignation( $leftDisjunct, true )
+			   ->tickNode( $node );
+			
+		$branch->createNodeWithDesignation( $rightDisjunct, true )
+			   ->tickNode( $node );
 	}
 }

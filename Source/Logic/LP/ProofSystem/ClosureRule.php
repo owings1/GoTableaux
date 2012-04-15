@@ -23,6 +23,7 @@ namespace GoTableaux\Logic\LP\ProofSystem;
 
 use \GoTableaux\Logic as Logic;
 use \GoTableaux\Proof\TableauBranch as Branch;
+use \GoTableaux\Utilities as Utilities;
 
 /**
  * Represents the LP closure rule.
@@ -32,9 +33,10 @@ class ClosureRule extends \GoTableaux\Logic\FDE\ProofSystem\ClosureRule
 {
 	public function doesApply( Branch $branch, Logic $logic )
 	{
-		foreach ( $branch->getUndesignatedNodes() as $node ) {
+		foreach ( $branch->find( 'all', array( 'designated' => false )) as $node ) {
 			$negated = $logic->negate( $node->getSentence() );
-			if ( $branch->hasSentenceWithDesignation( $negated, false )) return true;
+			if ( $branch->find( 'exists', array( 'sentence' => $negated, 'designated' => false ))) 
+				return true;
 		}
 		return parent::doesApply( $branch, $logic );
 	}

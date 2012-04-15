@@ -27,7 +27,7 @@ namespace GoTableaux\Logic\CPL;
  */
 class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem\Bivalent
 {
-	public $branchRuleClasses = array(
+	public $tableauRuleClasses = array(
 		'Conjunction',
 		'NegatedConjunction',
 		'Disjunction',

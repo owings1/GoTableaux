@@ -14,27 +14,30 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/agpl-3.0.html>.
  */
-/**
- * Defines the Closure rule class for FDE.
- * @package FDE
- */
-
-namespace GoTableaux\Logic\FDE\ProofSystem;
+namespace GoTableaux\Logic\FDE\ProofSystem\Rule;
 
 use \GoTableaux\Proof\TableauBranch as Branch;
+use \GoTableaux\Proof\TableauNode as Node;
 use \GoTableaux\Logic as Logic;
 
 /**
- * Represents the tableaux closure rule for FDE.
  * @package FDE
  */
-class ClosureRule implements \GoTableaux\ProofSystem\TableauxSystem\ClosureRule
+class NegatedConjunctionUndesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 {
-	public function doesApply( Branch $branch, Logic $logic )
+	protected $conditions = array(
+		'operator'	 => array( 'Negation', 'Conjunction' ),
+		'designated' => false,
+		'ticked'	 => false
+	);
+	
+	public function applyToNode( Node $node, Branch $branch, Logic $logic )
 	{
-		foreach ( $branch->find( 'all', array( 'designated' => true )) as $node ) 
-			if ( $branch->find( 'exists', array( 'sentence' => $node->getSentence(), 'designated' => false ))) 
-				return true;
-		return false;
+		list( $negatum ) = $node->getSentence()->getOperands();
+		list( $leftConjunct, $rightConjunct ) = $negatum->getOperands();
+		
+		$branch->createNodeWithDesignation( $logic->negate( $leftConjunct ), false )
+  			   ->createNodeWithDesignation( $logic->negate( $rightConjunct ), false )
+			   ->tickNode( $node );
 	}
 }

@@ -32,10 +32,10 @@ class ClosureRule implements \GoTableaux\ProofSystem\TableauxSystem\ClosureRule
 {
 	public function doesApply( Branch $branch, Logic $logic )
 	{
-		foreach ( $branch->getDesignatedNodes() as $node ) {
+		foreach ( $branch->find( 'all', array( 'designated' => true )) as $node ) {
 			$sentence = $node->getSentence();
-			if ( $branch->hasSentenceWithDesignation( $sentence, false )) return true;
-			if ( $branch->hasSentenceWithDesignation( $logic->negate( $sentence ), true )) return true;
+			if ( $branch->find( 'exists', array( 'sentence' => $sentence, 'designated' => false ))) return true;
+			if ( $branch->find( 'exists', array( 'sentence' => $logic->negate( $sentence ), 'designated' => true ))) return true;
 		}
 		return false;
 	}

@@ -25,6 +25,7 @@ class FDETest extends LogicTestCase
 	public $logicName = 'FDE';
 	
 	public $validities = array(
+		'Addition'					=> array( 'A', 'A V B' ),
 		'Simplification'			=> array( 'A & B', 'A' ),
 		'DeMorgan 1' 				=> array( '~(A V B)', '~A & ~B' ),
 		'DeMorgan 2' 				=> array( '~(A & B)', '~A V ~B' ),
