@@ -28,7 +28,7 @@ class Conjunction implements \GoTableaux\ProofSystem\TableauxSystem\BranchRule
 	{
 		$nodes = $branch->getNodesByOperatorName( 'Conjunction', true );
 		if ( empty( $nodes )) return false;
-		$node = $nodes[0];
+		$node = array_shift( $nodes );
 		
 		list( $leftConjunct, $rightConjunct ) = $node->getSentence()->getOperands();
 		$branch->createNode( $leftConjunct )

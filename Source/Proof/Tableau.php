@@ -45,12 +45,7 @@ class Tableau extends \GoTableaux\Proof
 	 */
 	public function createBranch()
 	{
-		echo get_class( $this->getProofSystem() )."\n";
-		$branchClass = str_replace( '\ProofSystem\TableauxSystem\\', '\Proof\TableauBranch\\', get_class( $this->getProofSystem() ));
-		die ($branchClass);
-		$branch = new $branchClass( $this );
-		$this->attach( $branch );
-		return $branch;
+		return new TableauBranch( $this );
 	}
 	
 	/**

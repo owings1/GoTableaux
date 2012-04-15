@@ -28,7 +28,7 @@ class ConjunctionUndesignated implements \GoTableaux\ProofSystem\TableauxSystem\
 	{
 		if ( !$nodes = $branch->getNodesByOperatorNameAndDesignation( 'Conjunction', false, true ))
 			return false;
-		$node = $nodes[0];
+		$node = array_shift( $nodes );
 		
 		$negated = $logic->negate( $node->getSentence() );
 		

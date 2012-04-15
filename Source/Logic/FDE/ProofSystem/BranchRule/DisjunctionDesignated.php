@@ -28,7 +28,7 @@ class DisjunctionDesignated implements \GoTableaux\ProofSystem\TableauxSystem\Br
 	{
 		if ( !$nodes = $branch->getNodesByOperatorNameAndDesignation( 'Disjunction', true, true ))
 			return false;
-		$node = $nodes[0];
+		$node = array_shift( $nodes );
 		
 		list( $leftDisjunct, $rightDisjunct ) = $node->getSentence()->getOperands();
 		

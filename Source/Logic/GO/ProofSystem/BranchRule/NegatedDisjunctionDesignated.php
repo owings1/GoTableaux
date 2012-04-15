@@ -28,7 +28,7 @@ class NegatedDisjunctionDesignated implements \GoTableaux\ProofSystem\TableauxSy
 	{
 		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Disjunction', true, true ))
 			return false;
-		$node = $nodes[0];
+		$node = array_shift( $nodes );
 		
 		list( $negatum ) = $node->getSentence()->getOperands();
 		list( $leftDisjunct, $rightDisjunct ) = $negatum->getOperands();

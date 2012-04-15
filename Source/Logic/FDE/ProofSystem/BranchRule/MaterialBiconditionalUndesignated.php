@@ -28,7 +28,7 @@ class MaterialBiconditionalUndesignated implements \GoTableaux\ProofSystem\Table
 	{
 		if ( !$nodes = $branch->getNodesByOperatorNameAndDesignation( 'Material Biconditional', false, true ))
 			return false;
-		$node = $nodes[0];
+		$node = array_shift( $nodes );
 
 		list( $lhs, $rhs ) = $node->getSentence()->getOperands();
 

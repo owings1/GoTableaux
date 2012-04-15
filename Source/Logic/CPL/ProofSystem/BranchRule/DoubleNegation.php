@@ -28,7 +28,7 @@ class DoubleNegation implements \GoTableaux\ProofSystem\TableauxSystem\BranchRul
 	{
 		if ( !$nodes = $branch->getNodesByTwoOperatorNames( 'Negation', 'Negation', true ))
 			return false;
-		$node = $nodes[0];
+		$node = array_shift( $nodes );
 		
 		list( $singleNegatum ) = $node->getSentence()->getOperands();
 		list( $doubleNegatum ) = $singleNegatum->getOperands();

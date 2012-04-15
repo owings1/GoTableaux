@@ -50,4 +50,17 @@ abstract class TableauNode
 	{
 		return in_array( $this, $branch->getTickedNodes(), true );
 	}
+	
+	/**
+	 * Called before the node is added to a branch.
+	 *
+	 * Implementations should always call parent::beforeAttach().
+	 *
+	 * @param TableauBranch $branch The branch that the node is to be added to.
+	 * @return void
+	 */
+	public function beforeAttach( TableauBranch $branch )
+	{
+		
+	}
 }

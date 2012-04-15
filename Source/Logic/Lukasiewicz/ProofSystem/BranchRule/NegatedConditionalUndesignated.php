@@ -28,7 +28,7 @@ class NegatedConditionalUndesignated implements \GoTableaux\ProofSystem\Tableaux
 	{
 		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Conditional', false, true ))
 			return false;
-		$node = $nodes[0];
+		$node = array_shift( $nodes );
 
 		list( $negatum ) = $node->getSentence()->getOperands();
 		list( $antecedent, $consequent ) = $negatum->getOperands();

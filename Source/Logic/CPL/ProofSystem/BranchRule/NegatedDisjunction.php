@@ -28,7 +28,7 @@ class NegatedDisjunction implements \GoTableaux\ProofSystem\TableauxSystem\Branc
 	{
 		if ( !$nodes = $branch->getNodesByTwoOperatorNames( 'Negation', 'Disjunction', true )) 
 			return false;
-		$node = $nodes[0];
+		$node = array_shift( $nodes );
 		
 		list( $negatum ) = $node->getSentence()->getOperands();
 		list( $leftDisjunct, $rightDisjunct ) = $negatum->getOperands();

@@ -28,7 +28,7 @@ class ConjunctionDesignated implements \GoTableaux\ProofSystem\TableauxSystem\Br
 	{
 		if ( !$nodes = $branch->getNodesByOperatorNameAndDesignation( 'Conjunction', true, true ))
 			return false;
-		$node = $nodes[0];
+		$node = array_shift( $nodes );
 		
 		list( $leftConjunct, $rightConjunct ) = $node->getSentence()->getOperands();
 		

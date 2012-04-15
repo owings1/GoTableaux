@@ -28,7 +28,7 @@ class MaterialConditionalDesignated implements \GoTableaux\ProofSystem\TableauxS
 	{
 		if ( !$nodes = $branch->getNodesByOperatorNameAndDesignation( 'Material Conditional', true, true ))
 			return false;
-		$node = $nodes[0];
+		$node = array_shift( $nodes );
 
 		list( $antecedent, $consequent ) = $node->getSentence()->getOperands();
 		

@@ -21,6 +21,8 @@
 
 namespace GoTableaux\Proof\TableauNode;
 
+use \GoTableaux\Proof\TableauBranch as Branch;
+
 /**
  * Represents a sentence tableau node.
  * @package GoTableaux
@@ -64,5 +66,23 @@ class Sentence extends \GoTableaux\Proof\TableauNode
 	public function getSentence()
 	{
 		return $this->sentence;
+	}
+	
+	/**
+	 * Registers the node's sentence with the logic's vocabulary before the 
+	 * node is attached to the branch.
+	 *
+	 * @param Branch $branch The branch to which the node is to be attached.
+	 * @return void
+	 */
+	public function beforeAttach( Branch $branch )
+	{
+		parent::beforeAttach( $branch );
+		$sentence = $branch->getTableau()
+						   ->getProofSystem()
+						   ->getLogic()
+						   ->getVocabulary()
+						   ->registerSentence( $this->getSentence() );
+		$this->setSentence( $sentence );
 	}
 }

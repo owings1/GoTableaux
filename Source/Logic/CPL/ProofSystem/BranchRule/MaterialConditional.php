@@ -28,7 +28,7 @@ class MaterialConditional implements \GoTableaux\ProofSystem\TableauxSystem\Bran
 	{
 		if ( !$nodes = $branch->getNodesByOperatorName( 'Material Conditional', true ))
 			return false;
-		$node = $nodes[0];
+		$node = array_shift( $nodes );
 		
 		list( $antecedent, $consequent ) = $node->getSentence()->getOperands();
 		

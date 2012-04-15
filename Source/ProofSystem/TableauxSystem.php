@@ -35,7 +35,7 @@ use \GoTableaux\Utilities as Utilities;
  * @package GoTableaux
  */
 abstract class TableauxSystem extends \GoTableaux\ProofSystem
-{	
+{
 	/**
 	 * Defines the branch rule classes names for the logic.
 	 * @var array
@@ -44,6 +44,12 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 	 */
 	public $branchRuleClasses = array();
 
+	/**
+	 * Defines the branch class.
+	 * @var string
+	 */
+	//protected $branchClass = 'TableauBranch';
+	
 	/**
 	 * @var ClosureRule
 	 * @access private
@@ -154,6 +160,7 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 		$this->buildTrunk( $tableau, $argument, $this->getLogic() );
 		$branchRules = $this->getBranchRules();
 		$i = 0;
+		
 		do {
 			$this->applyClosureRule( $tableau );
 			$rule 			= $branchRules[$i];
@@ -165,6 +172,7 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 				}
 		} while ( $ruleDidApply || isset( $branchRules[++$i] ));
 		$this->applyClosureRule( $tableau );
+		
 		return $tableau;
 	}
 	

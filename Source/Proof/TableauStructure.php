@@ -216,7 +216,7 @@ class TableauStructure
 				// grab first node from a branch
 				$branch = $branches[0];
 				$n 		= $branch->getNodes();
-				$node 	= $n[0];
+				$node 	= array_shift( $n );
 				
 				// group branches that have that node
 				$group = self::findBranchesWithNode( $branches, $node );

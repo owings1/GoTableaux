@@ -28,7 +28,7 @@ class MaterialBiconditional implements \GoTableaux\ProofSystem\TableauxSystem\Br
 	{
 		if ( !$nodes = $branch->getNodesByOperatorName( 'Material Biconditional', true ))
 			return false;
-		$node = $nodes[0];
+		$node = array_shift( $nodes );
 		
 		list( $lhs, $rhs ) = $node->getSentence()->getOperands();
 		

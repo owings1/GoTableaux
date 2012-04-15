@@ -28,7 +28,7 @@ class NegatedMaterialBiconditionalDesignated implements \GoTableaux\ProofSystem\
 	{
 		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Material Biconditional', true, true ))
 			return false;
-		$node = $nodes[0];
+		$node = array_shift( $nodes );
 
 		list( $negatum ) = $node->getSentence()->getOperands();
 		list( $lhs, $rhs ) = $negatum->getOperands();

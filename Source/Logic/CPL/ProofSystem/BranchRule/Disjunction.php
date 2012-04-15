@@ -28,7 +28,7 @@ class Disjunction implements \GoTableaux\ProofSystem\TableauxSystem\BranchRule
 	{
 		$nodes = $branch->getNodesByOperatorName( 'Disjunction', true );
 		if ( empty( $nodes )) return false;
-		$node = $nodes[0];
+		$node = array_shift( $nodes );
 		
 		list( $leftDisjunct, $rightDisjunct ) = $node->getSentence()->getOperands();
 		$branch->branch()

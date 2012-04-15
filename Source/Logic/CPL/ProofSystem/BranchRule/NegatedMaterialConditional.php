@@ -28,7 +28,7 @@ class NegatedMaterialConditional implements \GoTableaux\ProofSystem\TableauxSyst
 	{
 		if ( !$nodes = $branch->getNodesByTwoOperatorNames( 'Negation', 'Material Conditional', true ))
 			return false;
-		$node = $nodes[0];
+		$node = array_shift( $nodes );
 		
 		list( $negatum ) = $node->getSentence()->getOperands();
 		list( $antecedent, $consequent ) = $negatum->getOperands();

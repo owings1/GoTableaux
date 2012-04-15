@@ -23,7 +23,9 @@ namespace GoTableaux\Proof;
 
 use \GoTableaux\Sentence as Sentence;
 use \GoTableaux\Utilities as Utilities;
-
+use \GoTableaux\Proof\TableauNode as Node;
+use \GoTableaux\Proof\TableauNode\Sentence as SentenceNode;
+use \GoTableaux\Proof\TableauNode\Sentence\ManyValued as ManyValuedSentenceNode;
 /**
  * Represents a tableau branch.
  * @package GoTableaux
@@ -37,10 +39,10 @@ class TableauBranch
 	protected $nodes = array();
 	
 	/**
-	 * Holds the ticked {@link TableauNode}s.
-	 * @var \SplObjectStorage
+	 * Holds the ticked {@link TableauNode}s relative to the branch.
+	 * @var array
 	 */
-	private $tickedNodes;
+	private $tickedNodes = array();
 	
 	/**
 	 * Tracks whether the branch is closed.
@@ -65,7 +67,6 @@ class TableauBranch
 	{
 		$this->tableau = $tableau;
 		$tableau->attach( $this );
-		$this->tickedNodes = new \SplObjectStorage;
 	}
 	
 	/**
@@ -191,7 +192,7 @@ class TableauBranch
 	 */
 	public function hasNode( TableauNode $node )
 	{
-		return $this->nodes->contains( $node );
+		return in_array( $node, $this->getNodes(), true );
 	}
 	
 	/**
@@ -230,10 +231,9 @@ class TableauBranch
 	 */
 	public function getNodesByOperatorName( $operatorName, $untickedOnly = false )
 	{
-		$nodes = array();
-		foreach ( $this->getSentenceNodes( $untickedOnly ) as $node ) 
-			if ( $node->getSentence()->getOperatorName() === $operatorName ) $nodes[] = $node;
-		return $nodes;
+		return array_filter( $this->getSentenceNodes( $untickedOnly ), function( $node ) use( $operatorName ) {
+			return $node->getSentence()->getOperatorName() === $operatorName;
+		});
 	}
 	
 	/**
@@ -272,7 +272,7 @@ class TableauBranch
 	 */
 	public function tickNode( TableauNode $node )
 	{
-		$this->tickedNodes->attach( $node );
+		Utilities::uniqueAdd( $node, $this->tickedNodes );
 		return $this;
 	}
 	
@@ -284,7 +284,7 @@ class TableauBranch
 	 */
 	public function untickNode( TalbeauNode $node )
 	{
-		$this->tickedNodes->detach( $node );
+		Utilities::arrayRm( $node, $this->tickedNodes );
 		return $this;
 	}
 	
@@ -296,14 +296,7 @@ class TableauBranch
 	 */
 	public function addNode( TableauNode $node )
 	{
-		if ( $node instanceof TableauNode\Sentence ) {
-			$sentence = $this->getTableau()
-							 ->getProofSystem()
-							 ->getLogic()
-							 ->getVocabulary()
-							 ->registerSentence( $node->getSentence() );
-			$node->setSentence( $sentence );
-		}
+		$node->beforeAttach( $this );
 		$this->nodes[] = $node;
 		return $this;
 	}
@@ -317,8 +310,117 @@ class TableauBranch
 	 */
 	public function removeNode( TableauNode $node )
 	{
-		$this->nodes->attach( $node );
+		$this->nodes = array_filter( $this->nodes, function( $n ) use( $node ) { return $n !== $node; });
 		return $this;
 	}
 	
+	/**
+	 * Checks whether a sentence is on the branch.
+	 *
+	 * @param Sentence $sentence The sentence to search for.
+	 * @return boolean Whether the branch has a node with that sentence.
+	 */
+	public function hasSentence( Sentence $sentence )
+	{
+		return $this->hasNodeWithSentence( $sentence );
+	}
+	
+	/**
+	 * Creates a node on the branch.
+	 *
+	 * @param Sentence $sentence The sentence to place on the node.
+	 * @return PropositionalBranch Current instance.
+	 */
+	public function createNode( Sentence $sentence )
+	{
+		return $this->addNode( new SentenceNode( $sentence ));
+	}
+	/**
+	 * Creates a node on the branch.
+	 *
+	 * @param Sentence $sentence The sentence to place on the node.
+	 * @param boolean $isDesignated The designation marker for the node.
+	 * @return ManyValuedBranch Current instance.
+	 */
+	public function createNodeWithDesignation( Sentence $sentence, $isDesignated )
+	{
+		return $this->addNode( new ManyValuedSentenceNode( $sentence, $isDesignated ));
+	}
+	
+	/**
+	 * Checks whether a sentence is on the branch.
+	 *
+	 * @param Sentence $sentence The sentence to search for.
+	 * @param boolean $isDesignated Whether the sentence should be designated.
+	 * @return boolean Whether the branch has a node with that sentence.
+	 */
+	public function hasSentenceWithDesignation( Sentence $sentence, $isDesignated )
+	{
+		foreach ( $this->getNodesByClassName( 'Sentence\ManyValued' ) as $node )
+			if ( $node->getSentence() === $sentence && $node->isDesignated() === $isDesignated ) return true;
+		return false;
+	}
+	
+	/**
+	 * Gets all designated sentence nodes on the branch.
+	 *
+	 * @param boolean $untickedOnly Whether to limit results to unticked nodes.
+	 *								Default is false.
+	 * @return array Array of {@link ManyValuedSentenceNode}s.
+	 */
+	public function getDesignatedNodes( $untickedOnly = false )
+	{
+		$designatedNodes = array();
+		foreach ( $this->getNodesByClassName( 'ManyValued' ) as $node ) 
+			if ( $node->isDesignated() ) $designatedNodes[] = $node;
+		if ( !$untickedOnly ) return $designatedNodes;
+		return Utilities::arrayDiff( $designatedNodes, $this->getTickedNodes() );
+	}
+	
+	/**
+	 * Gets all undesignated sentence nodes on the branch.
+	 * 
+	 * @param boolean $untickedOnly Whether to limit results to unticked nodes.
+	 *								Default is false.
+	 * @return array Array of {@link ManyValuedSentenceNode}s.
+	 */
+	public function getUndesignatedNodes( $untickedOnly = false )
+	{
+		return Utilities::arrayDiff( $this->getSentenceNodes( $untickedOnly ), $this->getDesignatedNodes() );
+	}
+	
+	/**
+	 * Gets all nodes that have a certain operator name and designation.
+	 *
+	 * @param string $operatorName The name of the operator.
+	 * @param boolean $isDesignated Whether the nodes should be designated.
+	 * @param boolean $untickedOnly Whether to restrict to unticked nodes.
+	 * @return array Array of {@link ManyValuedSentenceNode}s.
+	 */
+	public function getNodesByOperatorNameAndDesignation( $operatorName, $isDesignated, $untickedOnly = false )
+	{
+		$nodes = array();
+		$searchNodes = $this->getNodesByOperatorName( $operatorName, $untickedOnly );
+		foreach ( $searchNodes as $node )
+			if ( $node->isDesignated() === $isDesignated ) $nodes[] = $node;
+		return $nodes;
+	}
+	
+	/**
+	 * Gets all nodes that have a two operator names and a certain designation.
+	 *
+	 * @param string $operatorName The name of the operator.
+	 * @param boolean $isDesignated Whether the nodes should be designated.
+	 * @param boolean $untickedOnly Whether to restrict to unticked nodes.
+	 * @return array Array of {@link ManyValuedSentenceNode}s.
+	 * @see Branch::getNodesByTwoOperatorNames()
+	 */
+	public function getNodesByTwoOperatorNamesAndDesignation( $firstOperatorName, $secondOperatorName, $isDesignated, $untickedOnly = false )
+	{
+		$nodes = array();
+		$searchNodes = $this->getNodesByTwoOperatorNames( $firstOperatorName, $secondOperatorName, $untickedOnly );
+		foreach ( $searchNodes as $node )
+			if ( $node->isDesignated() === $isDesignated ) $nodes[] = $node;
+		return $nodes;
+	}
 }

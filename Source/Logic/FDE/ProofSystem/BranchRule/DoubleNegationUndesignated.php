@@ -28,7 +28,7 @@ class DoubleNegationUndesignated implements \GoTableaux\ProofSystem\TableauxSyst
 	{
 		if ( !$nodes = $branch->getNodesByTwoOperatorNamesAndDesignation( 'Negation', 'Negation', false, true ))
 			return false;
-		$node = $nodes[0];
+		$node = array_shift( $nodes );
 
 		list( $negatum ) = $node->getSentence()->getOperands();
 		list( $doubleNegatum ) = $negatum->getOperands();
