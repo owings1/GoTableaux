@@ -34,10 +34,12 @@ class NegatedConjunction extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Nod
 	{
 		list( $negatum ) = $node->getSentence()->getOperands();
 		list( $leftConjunct, $rightConjunct ) = $negatum->getOperands();
+		
 		$branch->branch()
-			   ->createNode( $logic->negate( $leftConjunct ))
+			   ->createNode( 'Sentence', array( 'sentence' => $logic->negate( $leftConjunct )))
 			   ->tickNode( $node );
-		$branch->createNode( $logic->negate( $rightConjunct ))
+			
+		$branch->createNode( 'Sentence', array( 'sentence' => $logic->negate( $rightConjunct )))
 			   ->tickNode( $node );
 	}
 }

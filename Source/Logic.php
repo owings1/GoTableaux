@@ -92,6 +92,11 @@ abstract class Logic {
 	final private function __construct()
 	{
 		$this->getProofSystem();
+		if ( !empty( $this->inheritLexiconFrom ))
+			foreach ( (array) $this->inheritLexiconFrom as $logicName ) {
+				$otherLogic = self::getInstance( $logicName );
+				$this->lexicon = array_merge_recursive( $otherLogic->lexicon, $this->lexicon );
+			}
 	}
 	
 	/**
@@ -116,11 +121,6 @@ abstract class Logic {
 	public function initVocabulary()
 	{
 		$lexicon = $this->lexicon;
-		if ( !empty( $this->inheritLexiconFrom ))
-			foreach ( (array) $this->inheritLexiconFrom as $logicName ) {
-				$otherLogic = self::getInstance( $logicName );
-				$lexicon = array_merge_recursive( $otherLogic->lexicon, $lexicon );
-			}
 		$lexicon['operatorSymbols'] = array();
 		if ( !empty( $lexicon['operators'] ))
 			foreach ( $lexicon['operators'] as $name => $arity )

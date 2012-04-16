@@ -21,7 +21,9 @@
 
 namespace GoTableaux\Proof\TableauNode;
 
+use \GoTableaux\Sentence as Sent;
 use \GoTableaux\Proof\TableauBranch as Branch;
+use \GoTableaux\Exception\Tableau as TableauException;
 
 /**
  * Represents a sentence tableau node.
@@ -36,24 +38,12 @@ class Sentence extends \GoTableaux\Proof\TableauNode
 	protected $sentence;
 	
 	/**
-	 * Constructor.
-	 *
-	 * Sets the sentence.
-	 *
-	 * @param Sentence $sentence The sentence to place on the node.
-	 */
-	public function __construct( \GoTableaux\Sentence $sentence )
-	{
-		$this->setSentence( $sentence );
-	}
-	
-	/**
 	 * Sets the sentence.
 	 *
 	 * @param Sentence $sentence The sentence to place on the node.
 	 * @return SentenceNode Current instance.
 	 */
-	public function setSentence( \GoTableaux\Sentence $sentence )
+	public function setSentence( Sent $sentence )
 	{
 		$this->sentence = $sentence;
 	}
@@ -66,6 +56,20 @@ class Sentence extends \GoTableaux\Proof\TableauNode
 	public function getSentence()
 	{
 		return $this->sentence;
+	}
+	
+	/**
+	 * Sets the node properties.
+	 * @param array $properties The properties.
+	 * @return void
+	 * @throws TableauException when no sentence is given.
+	 */
+	public function setProperties( array $properties )
+	{
+		parent::setProperties( $properties );
+		if ( empty( $properties['sentence'] )) 
+			throw new TableauException( 'Must set sentence when creating a sentence node.' );
+		$this->setSentence( $properties['sentence'] );
 	}
 	
 	/**

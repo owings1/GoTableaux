@@ -42,19 +42,6 @@ class Access extends \GoTableaux\Proof\TableauNode implements Modal
 	protected $j;
 	
 	/**
-	 * Constructor.
-	 * 
-	 * Sets the indexes of the node.
-	 *
-	 * @param integer $i The first index.
-	 * @param integer $j The second index.
-	 */
-	public function __construct( $i, $j )
-	{
-		$this->setI( $i )->setJ( $j ); 
-	}
-	
-	/**
 	 * Sets the first index.
 	 *
 	 * @param integer $i The index.
@@ -96,5 +83,20 @@ class Access extends \GoTableaux\Proof\TableauNode implements Modal
 	public function getJ()
 	{
 		return $this->j;
+	}
+	
+	/**
+	 * Sets the node properties.
+	 * @param array $properties The properties.
+	 * @return void
+	 * @throws TableauException when no sentence is given.
+	 */
+	public function setProperties( array $properties )
+	{
+		parent::setProperties( $properties );
+		if ( empty( $properties['i'] )) throw new TableauException( 'Must set first index when creating a sentence node.' );
+		if ( empty( $properties['j'] )) throw new TableauException( 'Must set second index when creating a sentence node.' );
+		$this->setI( $properties['i'] );
+		$this->setJ( $properties['j'] );
 	}
 }

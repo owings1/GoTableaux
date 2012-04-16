@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/agpl-3.0.html>.
  */
 /**
- * Defines the ManyValuedModalTableauxSystem class.
+ * Defines the Bivalent Modal Tableaux System class.
  * @package GoTableaux
  */
 
@@ -27,24 +27,30 @@ use \GoTableaux\Proof\Tableau as Tableau;
 use \GoTableaux\Proof\TableauBranch as Branch;
 
 /**
- * Represents a tableaux system for a many-valued modal logic.
+ * Represents a tableaux system for a bivalent modal logic.
  * @package GoTableaux
  */
-class ManyValued extends \GoTableaux\ProofSystem\TableauxSystem\Modal
-{	
+class Bivalent extends \GoTableaux\ProofSystem\TableauxSystem\Modal
+{
+	/**
+	 * Builds a bivalent modal tableau trunk.
+	 *
+	 * @param ModalTableau $tableau The modal tableau.
+	 * @param Argument $argument The argument.
+	 * @param Logic $logic The logic of the proof system.
+	 * @return void
+	 */
 	public function buildTrunk( Tableau $tableau, Argument $argument, Logic $logic )
 	{
 		$trunk = $tableau->createBranch();
 		foreach ( $argument->getPremises() as $premise ) 
-			$trunk->createNode( 'Sentence\Modal\ManyValued', array( 
-				'sentence' => $premise, 
-				'i' => 0, '
-				designated' => true 
+			$trunk->createNode( 'Sentence\Modal', array(
+				'sentence' => $premise,
+				'i'	=> 0
 			));
-		$trunk->createNode( 'Sentence\Modal\ManyValued', array( 
-			'sentence' => $argument->getConclusion(), 
-			'i' => 0, 
-			'designated' => false 
+		$trunk->createNode( 'Sentence\Modal', array(
+			'sentence' => $logic->negate( $argument->getConclusion() ),
+			'i'	=> 0
 		));
 	}
 	

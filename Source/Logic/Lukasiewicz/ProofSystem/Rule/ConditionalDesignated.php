@@ -36,14 +36,14 @@ class ConditionalDesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rule\
 		list( $antecedent, $consequent ) = $node->getSentence()->getOperands();
 		
 		$branch->branch()
-			   ->createNodeWithDesignation( $logic->negate( $antecedent ), true )
-			   ->createNodeWithDesignation( $consequent, true )
+			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $antecedent ), 'designated' => true ))
+			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $consequent, 'designated' => true ))
 			   ->tickNode( $node );
 			
-		$branch->createNodeWithDesignation( $antecedent, false )
-			   ->createNodeWithDesignation( $consequent, false )
-			   ->createNodeWithDesignation( $logic->negate( $antecedent ), false )
-			   ->createNodeWithDesignation( $logic->negate( $consequent ), false )
+		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $antecedent, 'designated' => false ))
+			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $consequent, 'designated' => false ))
+			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $antecedent ), 'designated' => false ))
+			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $consequent ), 'designated' => false ))
 			   ->tickNode( $node );
 	}
 }

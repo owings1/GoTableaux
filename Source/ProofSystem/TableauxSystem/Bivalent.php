@@ -43,8 +43,9 @@ abstract class Bivalent extends \GoTableaux\ProofSystem\TableauxSystem
 	public function buildTrunk( Tableau $tableau, Argument $argument, Logic $logic )
 	{
 		$trunk = $tableau->createBranch();
-		foreach ( $argument->getPremises() as $premise ) $trunk->createNode( $premise );
-		$trunk->createNode( $logic->negate( $argument->getConclusion() ));
+		foreach ( $argument->getPremises() as $premise ) 
+			$trunk->createNode( 'Sentence', array( 'sentence' => $premise ));
+		$trunk->createNode( 'Sentence', array( 'sentence' => $logic->negate( $argument->getConclusion() )));
 	}
 	
 	public function induceModel( Branch $branch )

@@ -36,12 +36,12 @@ class MaterialBiconditionalUndesignated extends \GoTableaux\ProofSystem\Tableaux
 		list( $lhs, $rhs ) = $node->getSentence()->getOperands();
 
 		$branch->branch()
-			   ->createNodeWithDesignation( $logic->negate( $lhs ), false )
-			   ->createNodeWithDesignation( $rhs, false )
+			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $lhs ), 'designated' => false ))
+			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $rhs, 'designated' => false ))
 			   ->tickNode( $node );
 			
-		$branch->createNodeWithDesignation( $lhs, false )
-			   ->createNodeWithDesignation( $logic->negate( $rhs ), false )
+		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $lhs, 'designated' => false ))
+			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $rhs ), 'designated' => false ))
 			   ->tickNode( $node );
 	}
 }

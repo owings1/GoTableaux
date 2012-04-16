@@ -37,13 +37,13 @@ use \GoTableaux\Proof\TableauNode\Sentence\ManyValued as ManyValuedSentenceNode;
 class TableauBranch
 {
 	/**
-	 * Holds the {@link TableauNode}s of the branch.
+	 * Holds the nodes of the branch.
 	 * @var array
 	 */
-	protected $nodes = array();
+	private $nodes = array();
 	
 	/**
-	 * Holds the ticked {@link TableauNode}s relative to the branch.
+	 * Tracks the ticked nodes relative to the branch.
 	 * @var array
 	 */
 	private $tickedNodes = array();
@@ -52,13 +52,13 @@ class TableauBranch
 	 * Tracks whether the branch is closed.
 	 * @var boolean
 	 */
-	protected $closed = false;
+	private $closed = false;
 	
 	/**
 	 * Holds a reference to the tableau.
 	 * @var Tableau
 	 */
-	protected $tableau;
+	private $tableau;
 	
 	/**
 	 * Constructor.
@@ -86,12 +86,10 @@ class TableauBranch
 	/**
 	 * Gets the nodes on the branch.
 	 *
-	 * @param boolean $untickedOnly Whether to limit search to nodes that are unticked.
-	 * @return array Array of {@link TableauNode}s.
+	 * @return array The {@link TableauNode nodes}.
 	 */
-	public function getNodes( $untickedOnly = false )
+	public function getNodes()
 	{
-		if ( $untickedOnly ) return $this->getUntickedNodes();
 		return $this->nodes;
 	}
 	
@@ -104,7 +102,7 @@ class TableauBranch
 	{
 		return $this->tickedNodes;
 	}
-	
+
 	/**
 	 * Gets all nodes of a certain class name.
 	 *
@@ -193,14 +191,14 @@ class TableauBranch
 	 * Finds nodes on the branch matching the given conditions.
 	 *
 	 * conditions: 
-	 * 		class - the class name of the node
+	 * 			 class - the class name of the node
 	 *		designated - whether the node is designated
-	 *		sentence - the sentence that is on the node
-	 *		i - the first world index
-	 *		j - the second world index
-	 * 		ticked - whether the node is ticked
-	 *		operator - the operator name, or array of operator names of the
-	 *				   sentence on the node.
+	 *		  sentence - the sentence that is on the node
+	 *				 i - the first world index
+	 *			     j - the second world index
+	 * 			ticked - whether the node is ticked
+	 *		  operator - the operator name, or array of operator names of the
+	 *				     sentence on the node.
 	 *
 	 * @param string $ret Wether to return one or all results ('all' or 'one').
 	 * @param array $conditions The conditions to apply.
@@ -313,23 +311,15 @@ class TableauBranch
 	/**
 	 * Creates a node on the branch.
 	 *
-	 * @param Sentence $sentence The sentence to place on the node.
-	 * @return PropositionalBranch Current instance.
+	 * @param string $class The node class to instantiate.
+	 * @param array $properties The properties of the node.
+	 * @return TableauBranch Current instance.
 	 */
-	public function createNode( Sentence $sentence )
+	public function createNode( $class, array $properties = array() )
 	{
-		return $this->addNode( new SentenceNode( $sentence ));
-	}
-	
-	/**
-	 * Creates a node on the branch.
-	 *
-	 * @param Sentence $sentence The sentence to place on the node.
-	 * @param boolean $isDesignated The designation marker for the node.
-	 * @return ManyValuedBranch Current instance.
-	 */
-	public function createNodeWithDesignation( Sentence $sentence, $isDesignated )
-	{
-		return $this->addNode( new ManyValuedSentenceNode( $sentence, $isDesignated ));
+		$nodeClass = $class{0} === '\\' ? $class : __NAMESPACE__ . '\TableauNode\\' . $class;
+		$node = new $nodeClass( $properties );
+		$this->addNode( $node );
+		return $this;
 	}
 }

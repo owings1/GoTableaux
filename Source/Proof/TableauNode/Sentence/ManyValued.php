@@ -21,6 +21,8 @@
 
 namespace GoTableaux\Proof\TableauNode\Sentence;
 
+use \GoTableaux\Exception\Tableau as TableauException;
+
 /**
  * Represents a sentence node on a branch of a many-valued logic tableau.
  * @package GoTableaux
@@ -33,20 +35,6 @@ class ManyValued extends \GoTableaux\Proof\TableauNode\Sentence implements \GoTa
 	 * @access private
 	 */
 	protected $isDesignated;
-	
-	/**
-	 * Constructor.
-	 *
-	 * Sets the sentence and designation flag.
-	 *
-	 * @param Sentence $sentence The sentence to place on the node.
-	 * @param boolean $isDesignated Whether the sentence is designated at $i.
-	 */
-	public function __construct( \GoTableaux\Sentence $sentence, $isDesignated )
-	{
-		parent::__construct( $sentence );
-		$this->setDesignation( $isDesignated );
-	}
 	
 	/**
 	 * Sets the designation flag.
@@ -68,5 +56,19 @@ class ManyValued extends \GoTableaux\Proof\TableauNode\Sentence implements \GoTa
 	public function isDesignated()
 	{
 		return $this->isDesignated;
+	}
+	
+	/**
+	 * Sets the node properties.
+	 * @param array $properties The properties.
+	 * @return void
+	 * @throws TableauException when no designation is given.
+	 */
+	public function setProperties( array $properties )
+	{
+		parent::setProperties( $properties );
+		if ( !isset( $properties['designated'] )) 
+			throw new TableauException( 'Must set designation when creating a many valued sentence node.' );
+		$this->setDesignation( $properties['designated'] );
 	}
 }

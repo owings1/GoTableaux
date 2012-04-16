@@ -34,7 +34,7 @@ class MaterialBiconditionalUndesignated extends \GoTableaux\ProofSystem\Tableaux
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )
 	{
 		$negated = $logic->negate( $node->getSentence() );
-		$branch->createNodeWithDesignation( $negated, true )
+		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' =>  , 'designated' => $negated, true )
 			   ->tickNode( $node );
 	}
 }

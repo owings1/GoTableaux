@@ -36,10 +36,10 @@ class MaterialConditionalDesignated extends \GoTableaux\ProofSystem\TableauxSyst
 		list( $antecedent, $consequent ) = $node->getSentence()->getOperands();
 		
 		$branch->branch()
-			   ->createNodeWithDesignation( $logic->negate( $antecedent ), true )
+			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $antecedent ), 'designated' => true ))
 			   ->tickNode( $node );
 			
-		$branch->createNodeWithDesignation( $consequent, true )
+		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $consequent, 'designated' => true ))
 			   ->tickNode( $node );
 	}
 }

@@ -33,8 +33,8 @@ class Conjunction extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )
 	{
 		list( $leftConjunct, $rightConjunct ) = $node->getSentence()->getOperands();
-		$branch->createNode( $leftConjunct )
-			   ->createNode( $rightConjunct )
+		$branch->createNode( 'Sentence', array( 'sentence' => $leftConjunct ))
+			   ->createNode( 'Sentence', array( 'sentence' => $rightConjunct ))
 			   ->tickNode( $node );
 	}
 }

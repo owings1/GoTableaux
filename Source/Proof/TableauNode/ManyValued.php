@@ -33,4 +33,11 @@ interface ManyValued
 	 * @return boolean Whether the node is designated.
 	 */
 	public function isDesignated();
+	
+	/**
+	 * Sets the designation of the node.
+	 *
+	 * @return ManyValued Current instance.
+	 */
+	public function setDesignation( $isDesignated );
 }

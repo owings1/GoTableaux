@@ -33,4 +33,12 @@ interface Modal
 	 * @return integer The index, or first index of the node.
 	 */
 	public function getI();
+	
+	/**
+	 * Sets the first index
+	 *
+	 * @param integer $i The index.
+	 * @return Modal Current instance.
+	 */
+	public function setI( $i );
 }

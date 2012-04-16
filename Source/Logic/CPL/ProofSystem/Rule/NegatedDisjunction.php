@@ -34,8 +34,9 @@ class NegatedDisjunction extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Nod
 	{
 		list( $negatum ) = $node->getSentence()->getOperands();
 		list( $leftDisjunct, $rightDisjunct ) = $negatum->getOperands();
-		$branch->createNode( $logic->negate( $leftDisjunct ))
-			   ->createNode( $logic->negate( $rightDisjunct ))
+		
+		$branch->createNode( 'Sentence', array( 'sentence' => $logic->negate( $leftDisjunct )))
+			   ->createNode( 'Sentence', array( 'sentence' => $logic->negate( $rightDisjunct )))
 			   ->tickNode( $node );
 	}
 }

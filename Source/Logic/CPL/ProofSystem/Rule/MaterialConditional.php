@@ -33,12 +33,12 @@ class MaterialConditional extends \GoTableaux\ProofSystem\TableauxSystem\Rule\No
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )
 	{
 		list( $antecedent, $consequent ) = $node->getSentence()->getOperands();
-		
+
 		$branch->branch()
-			   ->createNode( $logic->negate( $antecedent ))
+			   ->createNode( 'Sentence', array( 'sentence' => $consequent ))
 			   ->tickNode( $node );
-		
-		$branch->createNode( $consequent )
+			
+		$branch->createNode( 'Sentence', array( 'sentence' => $logic->negate( $antecedent ) ))
 			   ->tickNode( $node );
 	}
 }

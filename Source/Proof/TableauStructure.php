@@ -22,6 +22,7 @@
 namespace GoTableaux\Proof;
 
 use \GoTableaux\Utilities as Utilities;
+use \GoTableaux\Exception\Tableau as Exception;
 
 /**
  * Represents the proper 'tree' structure of a tableau. 
@@ -83,16 +84,13 @@ class TableauStructure
 	/**
 	 * Gets all branches that have a particular node on them.
 	 *
-	 * @param array $searchBranches Array of {@link Branch}es to search.
+	 * @param array $branches Array of {@link Branch}es to search.
 	 * @param Node $node The node to search for.
 	 * @return array Array of branches.
 	 */
-	protected static function findBranchesWithNode( array $searchBranches, TableauNode $node )
+	protected static function findBranchesWithNode( array $branches, TableauNode $node )
 	{
-		$branches = array();
-		foreach ( $searchBranches as $branch )
-			if ( $branch->hasNode( $node )) $branches[] = $branch;
-		return $branches;
+		return array_filter( $branches, function( $branch ) use( $node ) { return $branch->hasNode( $node ); });
 	}
 	
 	/**
@@ -214,8 +212,13 @@ class TableauStructure
 		if ( count( $branches ) > 1 ) 
 			while ( !empty( $branches )) {
 				// grab first node from a branch
-				$branch = $branches[0];
-				$n 		= $branch->getNodes();
+				$b = $branches;
+				$branch = array_shift( $b );
+				$n 		= $branch->find( 'all' );
+				if ( empty( $n )) {
+					print_r( $branches ); 
+					throw new Exception( 'empty nodes' );
+				}
 				$node 	= array_shift( $n );
 				
 				// group branches that have that node

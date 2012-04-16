@@ -36,7 +36,7 @@ class DoubleNegationUndesignated extends \GoTableaux\ProofSystem\TableauxSystem\
 		list( $negatum ) = $node->getSentence()->getOperands();
 		list( $doubleNegatum ) = $negatum->getOperands();
 
-		$branch->createNodeWithDesignation( $doubleNegatum, false )
+		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $doubleNegatum, 'designated' => false ))
 			   ->tickNode( $node );
 	}
 }

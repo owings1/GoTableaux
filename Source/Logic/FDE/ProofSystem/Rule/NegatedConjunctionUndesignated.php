@@ -36,8 +36,8 @@ class NegatedConjunctionUndesignated extends \GoTableaux\ProofSystem\TableauxSys
 		list( $negatum ) = $node->getSentence()->getOperands();
 		list( $leftConjunct, $rightConjunct ) = $negatum->getOperands();
 		
-		$branch->createNodeWithDesignation( $logic->negate( $leftConjunct ), false )
-  			   ->createNodeWithDesignation( $logic->negate( $rightConjunct ), false )
+		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $leftConjunct ), 'designated' => false ))
+  			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $rightConjunct ), 'designated' => false ))
 			   ->tickNode( $node );
 	}
 }

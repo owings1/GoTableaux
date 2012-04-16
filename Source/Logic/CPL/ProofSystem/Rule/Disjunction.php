@@ -33,10 +33,11 @@ class Disjunction extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )
 	{
 		list( $leftDisjunct, $rightDisjunct ) = $node->getSentence()->getOperands();
+		
 		$branch->branch()
-			   ->createNode( $leftDisjunct )
+			   ->createNode( 'Sentence', array( 'sentence' => $rightDisjunct ))
 			   ->tickNode( $node );
-		$branch->createNode( $rightDisjunct )
+		$branch->createNode( 'Sentence', array( 'sentence' => $leftDisjunct ))
 		       ->tickNode( $node );
 	}
 }

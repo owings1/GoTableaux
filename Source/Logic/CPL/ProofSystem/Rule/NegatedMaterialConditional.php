@@ -35,8 +35,8 @@ class NegatedMaterialConditional extends \GoTableaux\ProofSystem\TableauxSystem\
 		list( $negatum ) = $node->getSentence()->getOperands();
 		list( $antecedent, $consequent ) = $negatum->getOperands();
 		
-		$branch->createNode( $antecedent )
-			   ->createNode( $logic->negate( $consequent ))
+		$branch->createNode( 'Sentence', array( 'sentence' => $antecedent ))
+			   ->createNode( 'Sentence', array( 'sentence' => $logic->negate( $consequent )))
 			   ->tickNode( $node );
 	}
 }

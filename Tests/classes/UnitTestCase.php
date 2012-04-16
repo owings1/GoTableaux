@@ -16,8 +16,11 @@
  */
 namespace GoTableaux\Test;
 
+
 if ( !defined( 'DS' )) define( 'DS', DIRECTORY_SEPARATOR );
 require_once __DIR__ . DS . '..' . DS . '..' . DS . 'Source' . DS . 'Loader.php';
+
+\GoTableaux\Settings::write( 'debug', true );
 
 class UnitTestCase extends \UnitTestCase
 {

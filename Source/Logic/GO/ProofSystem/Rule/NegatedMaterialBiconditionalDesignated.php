@@ -41,8 +41,8 @@ class NegatedMaterialBiconditionalDesignated extends \GoTableaux\ProofSystem\Tab
 			   ->createNodeWithDesigation( $rhs, false )
 			   ->tickNode( $node );
 			
-		$branch->createNodeWithDesignation( $lhs, false )
-			   ->createNodeWithDesignation( $logic->negate( $rhs ), false )
+		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' =>  , 'designated' => $lhs, false )
+			   ->createNode( 'Sentence\ManyValued', array( 'sentence' =>  , 'designated' => $logic->negate( $rhs ), false )
 			   ->tickNode( $node );
 	}
 }

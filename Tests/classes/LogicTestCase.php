@@ -34,14 +34,14 @@ abstract class LogicTestCase extends UnitTestCase
 		$this->logic = \GoTableaux\Logic::getInstance( $this->logicName );
 	}
 
-	public function assertValid( \GoTableaux\Proof $proof, $message = '' )
+	public function assertValid( \GoTableaux\Proof $proof )
 	{
-		$this->assertTrue( $proof->isValid(), $message );
+		$this->assertTrue( $proof->isValid(), print_r( $proof->getStructure(), true ));
 	}
 	
-	public function assertInvalid( \GoTableaux\Proof $proof, $message = '' )
+	public function assertInvalid( \GoTableaux\Proof $proof )
 	{
-		$this->assertFalse( $proof->isValid(), $message );
+		$this->assertFalse( $proof->isValid(), print_r( $proof->getStructure(), true ));
 	}
 	
 	public function parseArguments( array $argumentsArray )

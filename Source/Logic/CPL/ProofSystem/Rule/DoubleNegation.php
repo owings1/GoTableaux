@@ -35,7 +35,7 @@ class DoubleNegation extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 		list( $singleNegatum ) = $node->getSentence()->getOperands();
 		list( $doubleNegatum ) = $singleNegatum->getOperands();
 		
-		$branch->createNode( $doubleNegatum )
+		$branch->createNode( 'Sentence', array( 'sentence' => $doubleNegatum ))
 			   ->tickNode( $node );
 	}
 }

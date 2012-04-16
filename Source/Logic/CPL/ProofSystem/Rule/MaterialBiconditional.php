@@ -35,12 +35,12 @@ class MaterialBiconditional extends \GoTableaux\ProofSystem\TableauxSystem\Rule\
 		list( $lhs, $rhs ) = $node->getSentence()->getOperands();
 		
 		$branch->branch()
-			   ->createNode( $logic->negate( $lhs ))
-			   ->createNode( $logic->negate( $rhs ))
+			   ->createNode( 'Sentence', array( 'sentence' => $logic->negate( $lhs )))
+			   ->createNode( 'Sentence', array( 'sentence' => $logic->negate( $rhs )))
 			   ->tickNode( $node );
-		
-		$branch->createNode( $lhs )
-			   ->createNode( $rhs )
+			
+		$branch->createNode( 'Sentence', array( 'sentence' => $lhs ))
+			   ->createNode( 'Sentence', array( 'sentence' => $rhs ))
 			   ->tickNode( $node );
 	}
 }

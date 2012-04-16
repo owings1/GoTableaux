@@ -36,12 +36,12 @@ class NegatedMaterialBiconditional extends \GoTableaux\ProofSystem\TableauxSyste
 		list( $lhs, $rhs ) = $negatum->getOperands();
 		
 		$branch->branch()
-			   ->createNode( $logic->negate( $lhs ))
-			   ->createNode( $rhs )
+			   ->createNode( 'Sentence', array( 'sentence' => $logic->negate( $lhs )))
+			   ->createNode( 'Sentence', array( 'sentence' => $rhs ))
 			   ->tickNode( $node );
-		
-		$branch->createNode( $lhs )
-			   ->createNode( $logic->negate( $rhs ))
+			
+		$branch->createNode( 'Sentence', array( 'sentence' => $lhs ))
+			   ->createNode( 'Sentence', array( 'sentence' => $logic->negate( $rhs )))
 			   ->tickNode( $node );
 	}
 }

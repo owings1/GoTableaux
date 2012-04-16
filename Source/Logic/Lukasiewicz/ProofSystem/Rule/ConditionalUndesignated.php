@@ -36,14 +36,14 @@ class ConditionalUndesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rul
 		list( $antecedent, $consequent ) = $node->getSentence()->getOperands();
 		
 		$branch->branch()
-			   ->createNodeWithDesignation( $antecedent, true )
-			   ->createNodeWithDesignation( $consequent, false )
+			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $antecedent, 'designated' => true ))
+			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $consequent, 'designated' => false ))
 			   ->tickNode( $node );
 			
-		$branch->createNodeWithDesignation( $antecedent, false )
-			   ->createNodeWithDesignation( $consequent, false )
-			   ->createNodeWithDesignation( $logic->negate( $antecedent ), false )
-			   ->createNodeWithDesignation( $logic->negate( $consequent ), true )
+		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $antecedent, 'designated' => false ))
+			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $consequent, 'designated' => false ))
+			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $antecedent ), 'designated' => false ))
+			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $consequent ), 'designated' => true ))
 			   ->tickNode( $node );
 	}
 }

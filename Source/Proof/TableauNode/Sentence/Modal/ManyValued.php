@@ -35,21 +35,6 @@ class ManyValued extends \GoTableaux\Proof\TableauNode\Sentence\Modal implements
 	protected $isDesignated;
 	
 	/**
-	 * Constructor.
-	 *
-	 * Sets the sentence, index, and designation flag.
-	 *
-	 * @param Sentence $sentence The sentence to place on the node.
-	 * @param integer $i The "world" index of the node.
-	 * @param boolean $isDesignated Whether the sentence is designated at $i.
-	 */
-	public function __construct( \GoTableaux\Sentence $sentence, $i, $isDesignated )
-	{
-		parent::__construct( $sentence, $i );
-		$this->setDesignation( $isDesignated );
-	}
-	
-	/**
 	 * Sets the designation flag.
 	 *
 	 * @param boolean $isDesignated Whether the sentence is designated at the 
@@ -70,5 +55,19 @@ class ManyValued extends \GoTableaux\Proof\TableauNode\Sentence\Modal implements
 	public function isDesignated()
 	{
 		return $this->isDesignated;
+	}
+	
+	/**
+	 * Sets the node properties.
+	 * @param array $properties The properties.
+	 * @return void
+	 * @throws TableauException when no sentence is given.
+	 */
+	public function setProperties( array $properties )
+	{
+		parent::setProperties( $properties );
+		if ( empty( $properties['designated'] )) 
+			throw new TableauException( 'Must set designation when creating a many-valued modal sentence node.' );
+		$this->setDesignation( $properties['designated'] );
 	}
 }

@@ -35,21 +35,7 @@ class Modal extends \GoTableaux\Proof\TableauNode\Sentence implements \GoTableau
 	 * @var integer
 	 */
 	protected $i;
-	
-	/**
-	 * Constructor.
-	 *
-	 * Sets the sentence by calling the parent constructor, and sets the index.
-	 *
-	 * @param Sentence $sentence The sentence to place on the node.
-	 * @param integer $i The index of the node.
-	 */
-	public function __construct( \GoTableaux\Sentence $sentence, $i )
-	{
-		parent::__construct( $sentence );
-		$this->setI( $i );
-	}
-	
+		
 	/**
 	 * Sets the index.
 	 *
@@ -70,5 +56,17 @@ class Modal extends \GoTableaux\Proof\TableauNode\Sentence implements \GoTableau
 	{
 		return $this->i;
 	}
+	
+	/**
+	 * Sets the node properties.
+	 * @param array $properties The properties.
+	 * @return void
+	 * @throws TableauException when no sentence is given.
+	 */
+	public function setProperties( array $properties )
+	{
+		parent::setProperties( $properties );
+		if ( empty( $properties['i'] )) throw new TableauException( 'Must set index when creating a modal sentence node.' );
+		$this->setI( $properties['i'] );
+	}
 }
-?>

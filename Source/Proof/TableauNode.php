@@ -28,6 +28,18 @@ namespace GoTableaux\Proof;
 abstract class TableauNode
 {
 	/**
+	 * Constructor.
+	 *
+	 * Sets the properties.
+	 *
+	 * @param array The properties.
+	 */
+	public function __construct( array $properties )
+	{
+		$this->setProperties( $properties );
+	}
+	
+	/**
 	 * Ticks the node relative to a branch.
 	 *
 	 * @param Branch $branch The branch relative to which to tick the
@@ -48,7 +60,7 @@ abstract class TableauNode
 	 */
 	public function isTickedAtBranch( TableauBranch $branch )
 	{
-		return in_array( $this, $branch->getTickedNodes(), true );
+		return $branch->nodeIsTicked( $this );
 	}
 	
 	/**
@@ -60,6 +72,19 @@ abstract class TableauNode
 	 * @return void
 	 */
 	public function beforeAttach( TableauBranch $branch )
+	{
+		
+	}
+	
+	/**
+	 * Sets node properties from a properties a array.
+	 *
+	 * Implementations will likely call parent::setProperties().
+	 *
+	 * @param array The properties.
+	 * @return void
+	 */
+	public function setProperties( array $properties )
 	{
 		
 	}

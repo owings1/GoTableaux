@@ -37,10 +37,10 @@ class NegatedDisjunctionUndesignated extends \GoTableaux\ProofSystem\TableauxSys
 		list( $leftDisjunct, $rightDisjunct ) = $negatum->getOperands();
 		
 		$branch->branch()
-			   ->createNodeWithDesignation( $logic->negate( $leftDisjunct ), false )
+			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $leftDisjunct ), 'designated' => false ))
 			   ->tickNode( $node );
 			
-  		$branch->createNodeWithDesignation( $logic->negate( $rightDisjunct ), false )
+  		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $rightDisjunct ), 'designated' => false ))
 			   ->tickNode( $node );
 		
 	}

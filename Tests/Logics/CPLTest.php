@@ -42,8 +42,17 @@ class CPLTest extends LogicTestCase
 	);
 	
 	public $invalidities = array(
+		'Triviality 1'				=> array( 'A', 'B' ),
+		'Triviality 2'				=> array( null, 'A' ),
 		'Affirming the Consequent'	=> array( array( 'A > B', 'B' ), 'A' ),
-		'Affirming a Disjunct'		=> array( array( 'A V B', 'A' ), 'B' ),
+		'Affirming a Disjunct 1'	=> array( array( 'A V B', 'A' ), 'B' ),
+		'Affirming a Disjunct 2'	=> array( array( 'A V B', 'A' ), '~B' ),
+		'Conditional Equivalence'	=> array( 'A > B', 'B > A' ),
+		'Extracting the Consequent' => array( 'A > B', 'B' ),
+		'Extracting the Antecedent' => array( 'A > B', 'A' ),
+		'Extracting as Disjunct 1'	=> array( 'A V B', 'B' ),
+		'Extracting as Disjunct 2'	=> array( 'A V ~B', '~A' ),
+	
 		'Denying the Antecedent' 	=> array( array( 'A > B', '~A' ), 'B' ),
 	);
 

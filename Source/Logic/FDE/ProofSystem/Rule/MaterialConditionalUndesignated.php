@@ -35,8 +35,8 @@ class MaterialConditionalUndesignated extends \GoTableaux\ProofSystem\TableauxSy
 	{
 		list( $antecedent, $consequent ) = $node->getSentence()->getOperands();
 		
-		$branch->createNodeWithDesignation( $logic->negate( $antecedent ), false )
-  			   ->createNodeWithDesignation( $consequent, false )
+		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $antecedent ), 'designated' => false ))
+  			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $consequent, 'designated' => false ))
 			   ->tickNode( $node );
 	}
 }

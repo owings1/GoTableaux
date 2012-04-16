@@ -33,10 +33,9 @@ class Tableau extends \GoTableaux\Proof
 {	
 	/**
 	 * Holds the branches on the tree.
-	 * @var array Array of {@link TableauBranch}es.
-	 * @access private
+	 * @var array
 	 */
-	protected $branches = array();
+	private $branches = array();
 	
 	/**
 	 * Creates a new branch and attaches it to the tableau.
