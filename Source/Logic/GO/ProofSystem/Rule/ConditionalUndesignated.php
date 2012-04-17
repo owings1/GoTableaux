@@ -23,21 +23,20 @@ use \GoTableaux\Logic as Logic;
 /**
  * @package GO
  */
-class NegatedMaterialConditionalDesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
+class ConditionalUndesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 {
 	protected $conditions = array(
-		'operator' 		=> array( 'Negation', 'Material Conditional' ),
-		'designated' 	=> true,
-		'ticked' 		=> false
+		'operator' => 'Conditional',
+		'designated' => false,
+		'ticked'	 => false
 	);
 	
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )
 	{
-		list( $negatum ) = $node->getSentence()->getOperands();
-		list( $antecedent, $consequent ) = $negatum->getOperands();
-		
-		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $antecedent ), 'designated' => false ))
-  			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $consequent, 'designated' => false ))
+		$branch->createNode( 'Sentence\ManyValued', array( 
+					'sentence' 	 => $logic->negate( $node->getSentence() ), 
+					'designated' => true 
+				 ))
 			   ->tickNode( $node );
 	}
 }

@@ -34,6 +34,8 @@ class GOTest extends LogicTestCase
 		'Disjunctive Syllogism' 	=> array( array( 'A V B', '~B' ), 'A' ),
 		'Modus Ponens' 				=> array( array( 'A > B', 'A' ), 'B' ),
 		'Modus Tollens' 			=> array( array( 'A > B', '~B' ), '~A' ),
+		'Identity'					=> array( null, 'A $ A' ),
+		'Material to Conditional'	=> array( 'A > B', 'A $ B' ),
 	);
 	
 	public $invalidities = array(
@@ -44,5 +46,7 @@ class GOTest extends LogicTestCase
 		'Identity'					=> array( null, 'A > A' ),
 		'DeMorgan 1' 				=> array( '~(A V B)', '~A & ~B' ),
 		'DeMorgan 2' 				=> array( '~(A & B)', '~A V ~B' ),
+		'Material Identity'			=> array( null, 'A > A' ),
+		'Conditional to Material'	=> array( 'A $ B', 'A > B' ),
 	);
 }

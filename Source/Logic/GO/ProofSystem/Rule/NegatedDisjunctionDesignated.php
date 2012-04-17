@@ -36,8 +36,8 @@ class NegatedDisjunctionDesignated extends \GoTableaux\ProofSystem\TableauxSyste
 		list( $negatum ) = $node->getSentence()->getOperands();
 		list( $leftDisjunct, $rightDisjunct ) = $negatum->getOperands();
 		
-		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' =>  , 'designated' => $leftDisjunct, false )
-  			   ->createNode( 'Sentence\ManyValued', array( 'sentence' =>  , 'designated' => $rightDisjunct, false )
+		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $leftDisjunct, 'designated' => false ))
+  			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $rightDisjunct, 'designated' => false ))
 			   ->tickNode( $node );
 	}
 }

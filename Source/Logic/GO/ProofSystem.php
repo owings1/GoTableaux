@@ -46,6 +46,10 @@ class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem\ManyValued
 		'NegatedMaterialBiconditionalDesignated',
 		'NegatedMaterialBiconditionalUndesignated',
 		'FDE/DoubleNegationDesignated',
-		'FDE/DoubleNegationUndesignated'
+		'FDE/DoubleNegationUndesignated',
+		'Lukasiewicz/ConditionalDesignated',
+		'ConditionalUndesignated',
+		'NegatedConditionalDesignated',
+		'NegatedConditionalUndesignated',
 	);
 }

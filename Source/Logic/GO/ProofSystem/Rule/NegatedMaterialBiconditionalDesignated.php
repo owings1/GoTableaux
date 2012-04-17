@@ -37,12 +37,12 @@ class NegatedMaterialBiconditionalDesignated extends \GoTableaux\ProofSystem\Tab
 		list( $lhs, $rhs ) = $negatum->getOperands();
 
 		$branch->branch()
-			   ->createNodeWithDesigation( $logic->negate( $lhs ), false )
-			   ->createNodeWithDesigation( $rhs, false )
+			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $lhs ), 'designated' => false ))
+			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $rhs, 'designated' => false ))
 			   ->tickNode( $node );
 			
-		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' =>  , 'designated' => $lhs, false )
-			   ->createNode( 'Sentence\ManyValued', array( 'sentence' =>  , 'designated' => $logic->negate( $rhs ), false )
+		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $lhs, 'designated' => false ))
+			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $rhs ), 'designated' => false ))
 			   ->tickNode( $node );
 	}
 }

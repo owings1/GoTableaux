@@ -34,7 +34,7 @@ class NegatedConjunctionUndesignated extends \GoTableaux\ProofSystem\TableauxSys
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )
 	{
 		list( $negatum ) = $node->getSentence()->getOperands();
-		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' =>  , 'designated' => $negatum, true )
+		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $negatum, 'designated' => true ))
 			   ->tickNode( $node );
 	}
 }

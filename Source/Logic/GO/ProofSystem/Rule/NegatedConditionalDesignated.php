@@ -23,12 +23,12 @@ use \GoTableaux\Logic as Logic;
 /**
  * @package GO
  */
-class NegatedMaterialConditionalDesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
+class NegatedConditionalDesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 {
 	protected $conditions = array(
-		'operator' 		=> array( 'Negation', 'Material Conditional' ),
-		'designated' 	=> true,
-		'ticked' 		=> false
+		'operator'   => array( 'Negation', 'Conditional' ),
+		'designated' => true,
+		'ticked'	 => false
 	);
 	
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )
@@ -36,8 +36,13 @@ class NegatedMaterialConditionalDesignated extends \GoTableaux\ProofSystem\Table
 		list( $negatum ) = $node->getSentence()->getOperands();
 		list( $antecedent, $consequent ) = $negatum->getOperands();
 		
+		$branch->branch()
+			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $antecedent, 'designated' => true ))
+			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $consequent, 'designated' => false ))
+			   ->tickNode( $node );
+			
 		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $antecedent ), 'designated' => false ))
-  			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $consequent, 'designated' => false ))
+  			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $consequent ), 'designated' => true ))
 			   ->tickNode( $node );
 	}
 }

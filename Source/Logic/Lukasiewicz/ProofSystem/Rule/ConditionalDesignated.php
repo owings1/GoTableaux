@@ -36,8 +36,15 @@ class ConditionalDesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rule\
 		list( $antecedent, $consequent ) = $node->getSentence()->getOperands();
 		
 		$branch->branch()
-			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $antecedent ), 'designated' => true ))
-			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $consequent, 'designated' => true ))
+			   ->createNode( 'Sentence\ManyValued', array( 
+					'sentence' => $logic->applyOperatorToOperands( 
+						'Disjunction', 
+						array( $logic->negate( $antecedent ), $consequent )), 
+					'designated' => true 
+				))
+			   // TODO write test that these rules would fail
+			   //->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $antecedent ), 'designated' => true ))
+			   //->createNode( 'Sentence\ManyValued', array( 'sentence' => $consequent, 'designated' => true ))
 			   ->tickNode( $node );
 			
 		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $antecedent, 'designated' => false ))
