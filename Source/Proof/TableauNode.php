@@ -25,19 +25,20 @@ namespace GoTableaux\Proof;
  * Represents a node on a branch.
  * @package GoTableaux
  */
-abstract class TableauNode
+class TableauNode
 {
-	/**
-	 * Constructor.
-	 *
-	 * Sets the properties.
-	 *
-	 * @param array The properties.
-	 */
-	public function __construct( array $properties )
-	{
-		$this->setProperties( $properties );
-	}
+    
+        /**
+         * The node for decorators.
+         * @var TableauNode
+         */
+        protected $node;
+        
+        public function __construct( $node = null, array $properties = array() )
+        {
+            $this->node = $node;
+            $this->setProperties( $properties );
+        }
 	
 	/**
 	 * Ticks the node relative to a branch.
@@ -75,17 +76,9 @@ abstract class TableauNode
 	{
 		
 	}
-	
-	/**
-	 * Sets node properties from a properties a array.
-	 *
-	 * Implementations will likely call parent::setProperties().
-	 *
-	 * @param array The properties.
-	 * @return void
-	 */
-	public function setProperties( array $properties )
-	{
-		
-	}
+        
+        public function setProperties( array $properties )
+        {
+            
+        }
 }

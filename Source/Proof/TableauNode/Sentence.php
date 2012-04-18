@@ -35,7 +35,7 @@ class Sentence extends \GoTableaux\Proof\TableauNode
 	 * Holds a reference to the sentence on the node
 	 * @var Sentence
 	 */
-	protected $sentence;
+	private $sentence;
 	
 	/**
 	 * Sets the sentence.
@@ -61,12 +61,11 @@ class Sentence extends \GoTableaux\Proof\TableauNode
 	/**
 	 * Sets the node properties.
 	 * @param array $properties The properties.
-	 * @return void
 	 * @throws TableauException when no sentence is given.
 	 */
 	public function setProperties( array $properties )
 	{
-		parent::setProperties( $properties );
+		$this->node->setProperties( $properties );
 		if ( empty( $properties['sentence'] )) 
 			throw new TableauException( 'Must set sentence when creating a sentence node.' );
 		$this->setSentence( $properties['sentence'] );
@@ -81,7 +80,7 @@ class Sentence extends \GoTableaux\Proof\TableauNode
 	 */
 	public function beforeAttach( Branch $branch )
 	{
-		parent::beforeAttach( $branch );
+		$this->node->beforeAttach( $branch );
 		$sentence = $branch->getTableau()
 						   ->getProofSystem()
 						   ->getLogic()

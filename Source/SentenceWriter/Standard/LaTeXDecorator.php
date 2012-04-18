@@ -38,7 +38,7 @@ class LaTeXDecorator extends \GoTableaux\SentenceWriter\Standard
 	// Generated in constructor.
 	protected $operatorTranslations = array();
 	
-	protected $standardOperatorSymbols = array(
+	private $standardOperatorSymbols = array(
 		'Conjunction' => '\wedge',
 		'Disjunction' => '\vee',
 		'Negation'	  => '\neg ',

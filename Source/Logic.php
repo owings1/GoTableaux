@@ -106,8 +106,7 @@ abstract class Logic {
 	 */
 	public function getName()
 	{
-		$nameParts = explode( '\\', get_class( $this ));
-		return array_pop( $nameParts );
+		return Utilities::getBaseClassName( $this );
 	}
 	
 	/**

@@ -25,14 +25,20 @@ namespace GoTableaux\Proof\TableauNode;
  * Signifies a modal tableau node that has at least one index.
  * @package GoTableaux
  */
-interface Modal
+class Modal extends \GoTableaux\Proof\TableauNode
 {
+        
+        private $i;
+        
 	/**
 	 * Returns the index, or the first index, of a modal node.
 	 *
 	 * @return integer The index, or first index of the node.
 	 */
-	public function getI();
+	public function getI()
+        {
+            return $this->i;
+        }
 	
 	/**
 	 * Sets the first index
@@ -40,5 +46,21 @@ interface Modal
 	 * @param integer $i The index.
 	 * @return Modal Current instance.
 	 */
-	public function setI( $i );
+	public function setI( $i )
+        {
+            $this->i = (int) $i;
+        }
+        
+        /**
+	 * Sets the node properties.
+	 * @param array $properties The properties.
+	 * @throws TableauException when no sentence is given.
+	 */
+	public function setProperties( array $properties )
+	{
+		$this->node->setProperties( $properties );
+		if ( empty( $properties['i'] )) 
+			throw new TableauException( 'Must set index when creating a modal node.' );
+		$this->setI( $properties['i'] );
+	}
 }

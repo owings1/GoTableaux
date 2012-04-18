@@ -126,17 +126,18 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 	/**
 	 * Gets the tableau rules.
 	 *
+         * @param string $class The class of the rules to get.
 	 * @return array Array of {@link Rule}s.
 	 * @throws 
 	 */
-	public function getRules()
+	public function getRules( $filterClass = '' )
 	{
 		if ( empty( $this->_rules )) {
 			if ( !empty( $this->inheritTableauRulesFrom ))
 				foreach ( (array) $this->inheritTableauRulesFrom as $logicName ) {
 					$proofSystem = Logic::getInstance( $logicName )->getProofSystem();
 					if ( !$proofSystem instanceof TableauxSystem )
-						throw new TableauException( 'Trying to inherit branch rules from a proof system that is not a tableaux system.' );
+						throw new TableauException( 'Trying to inherit rules from a proof system that is not a tableaux system.' );
 					$this->addRules( $proofSystem->getRules() );
 				}
 					
@@ -153,9 +154,19 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 				$this->addRules( new $ruleClass );
 			}
 		}
-		return $this->_rules;
+		if ( empty( $filterClass )) return $this->_rules;
+                if ( $filterClass{0} !== '\\' ) $filterClass = __CLASS__ . '\Rule\\' . $filterClass;
+                return array_filter( $this->_rules, function( $rule ) use( $filterClass ) {
+                    return $rule instanceof $filterClass;
+                });
 	}
-	
+
+        /**
+         * Constructs a proof for an argument.
+         * 
+         * @param Argument $argument The argument.
+         * @return Tableau The tableau proof.
+         */
 	public function constructProofForArgument( Argument $argument )
 	{
 		$tableau = new Tableau( $argument, $this );

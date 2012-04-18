@@ -24,6 +24,7 @@ namespace GoTableaux\ProofSystem\TableauxSystem\Rule;
 use \GoTableaux\Logic as Logic;
 use \GoTableaux\Proof\TableauBranch as TableauBranch;
 use \GoTableaux\Proof\TableauNode as TableauNode;
+use \GoTableaux\Utilities as Utilities;
 
 /**
  * Implements the transitivity rule for a modal tableaux system.
@@ -52,6 +53,32 @@ abstract class Node extends Branch
 		return true;
 	}
 	
+        /**
+         * Gets the base name of the rule.
+         * 
+         * @return string The base name of the rule, e.g. NegatedConjunctionDesignated. 
+         */
+        public function getName()
+        {
+            return Utilities::getBaseClassName( $this );
+        }
+        
+        /**
+         * Gets the conditions.
+         * 
+         * @return array The conditions. 
+         */
+        public function getConditions()
+        {
+            return $this->conditions;
+        }
+        
+        public function getExampleNode()
+        {
+            $conditions = $this->getConditions();
+            // TODO Finish function
+            //if ( !empty)
+        }
 	/**
 	 * Applies the changes to a branch for a node that meets $this->conditions.
 	 *

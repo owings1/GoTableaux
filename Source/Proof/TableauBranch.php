@@ -311,14 +311,19 @@ class TableauBranch
 	/**
 	 * Creates a node on the branch.
 	 *
-	 * @param string $class The node class to instantiate.
+	 * @param string|array $class The node classes to instantiate.
 	 * @param array $properties The properties of the node.
 	 * @return TableauBranch Current instance.
 	 */
-	public function createNode( $class, array $properties = array() )
+	public function createNode( $classes, array $properties = array() )
 	{
-		$nodeClass = $class{0} === '\\' ? $class : __NAMESPACE__ . '\TableauNode\\' . $class;
-		$node = new $nodeClass( $properties );
+		$class = str_replace( '\\', '/', $class );
+                $node = new TableauNode;
+                if ( !is_array( $classes )) $classes = explode( '/', $class );
+		foreach ( $classes as $class ) {
+                    if ( $class{0} !== '\\' ) $class = __NAMESPACE__ . '\TableauNode\\' . $class;
+                    $node = new $class( $node, $properties );
+                }
 		$this->addNode( $node );
 		return $this;
 	}

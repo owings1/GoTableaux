@@ -25,7 +25,7 @@ namespace GoTableaux\Proof\TableauNode;
  * Signifies a many-valued tableau node that has a designation marker.
  * @package GoTableaux
  */
-interface ManyValued
+class ManyValued extends \GoTableaux\Proof\TableauNode
 {
 	/**
 	 * Returns whether the node is designated.

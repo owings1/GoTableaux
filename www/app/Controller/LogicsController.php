@@ -16,6 +16,7 @@
  */
 use GoTableaux\Logic as Logic;
 use GoTableaux\ProofWriter as ProofWriter;
+use GoTableaux\SentenceWriter as SentenceWriter;
 use GoTableaux\Argument as Argument;
 
 class LogicsController extends AppController
@@ -24,6 +25,8 @@ class LogicsController extends AppController
 	
 	public $logics = array( 'CPL', 'FDE', 'LP', 'StrongKleene', 'Lukasiewicz', 'GO' );
 	
+        public $helpers = array( 'Inflect' );
+        
 	private $exampleArguments = array(
 		'Disjunctive Syllogism' 	=> array( array( 'A V B', '~B' ), 'A' ),
 		'Affirming a Disjunct'		=> array( array( 'A V B', 'A' ), 'B' ),
@@ -42,6 +45,14 @@ class LogicsController extends AppController
 		'Pseudo Contraction'		=> array( null, '(A > (A > B)) > (A > B)' ),
 	);
 	
+        /**
+         * Home page.
+         * 
+         * 
+	 * @postParam string logic
+	 * @postParam array premises
+	 * @postParam string conclusion
+         */
 	public function index()
 	{	
 		$logics = $this->logics;
@@ -86,6 +97,11 @@ class LogicsController extends AppController
 		}
 	}
 	
+        /**
+         * Gets the parsing lexicon for a logic.
+         * 
+         * @param string $logic The logic name.
+         */
 	public function get_lexicon( $logic )
 	{
 		if ( is_numeric( $logic )) $logic = $this->logics[$logic];
@@ -104,9 +120,9 @@ class LogicsController extends AppController
 	/**
 	 * Streams a LaTeX'd PDF using Qtree.
 	 *
-	 * @param string logic
-	 * @param array premises
-	 * @param string conclusion
+	 * @postParam integer The index of the logic in $this->logics
+	 * @postParam array premises
+	 * @postParam string conclusion
 	 * @sets string pdfContent
 	 */
 	public function view_pdf()
@@ -116,6 +132,7 @@ class LogicsController extends AppController
 			return $this->redirect( 'index' );
 		}
 		try {
+                    debug( $this->data ); die();
 			$Logic = Logic::getInstance( $this->logics[$this->data['logic']] );
 			$premises = array();
 			foreach ( $this->data['premises'] as $premiseStr )
@@ -137,4 +154,23 @@ class LogicsController extends AppController
 		CakeLog::write( 'latex', $this->Latex->log );
 		$this->set( compact( 'pdfContent' ));
 	}
+        
+        /**
+         * Views details about a logic.
+         * 
+         * @param string $logic 
+         * 
+         */
+        public function view( $logic )
+        {
+            if ( !in_array( $logic, $this->logics )) {
+                $this->Session->setFlash( "Unknown logic $logic" );
+                return $this->redirect( 'index' ); 
+            }
+            $Logic = Logic::getInstance( $logic );
+            $title_for_layout = $logicName = $Logic->getName();
+            $nodeRules = $Logic->getProofSystem()->getRules( 'Node' );
+            $sentenceWriter = SentenceWriter::getInstance( $Logic->getVocabulary(), 'Standard\HTML');
+            $this->set( compact( 'logicName', 'title_for_layout', 'nodeRules', 'sentenceWriter' ));
+        }
 }
