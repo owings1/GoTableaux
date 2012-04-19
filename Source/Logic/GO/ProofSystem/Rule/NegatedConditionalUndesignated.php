@@ -35,7 +35,7 @@ class NegatedConditionalUndesignated extends \GoTableaux\ProofSystem\TableauxSys
 	{
 		list( $negatum ) = $node->getSentence()->getOperands();
 		
-		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $negatum, 'designated' => true ))
+		$branch->createNode( 'ManyValued Sentence', array( 'sentence' => $negatum, 'designated' => true ))
 			   ->tickNode( $node );
 	}
 }

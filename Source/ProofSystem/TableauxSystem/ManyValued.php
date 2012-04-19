@@ -59,11 +59,11 @@ abstract class ManyValued extends \GoTableaux\ProofSystem\TableauxSystem
 	{
 		$trunk = $tableau->createBranch();
 		foreach ( $argument->getPremises() as $premise ) 
-			$trunk->createNode( 'Sentence\ManyValued', array( 
+			$trunk->createNode( 'ManyValued Sentence', array( 
 				'sentence' => $premise, 
 				'designated' => true 
 			));
-		$trunk->createNode( 'Sentence\ManyValued', array( 
+		$trunk->createNode( 'ManyValued Sentence', array( 
 			'sentence' => $argument->getConclusion(), 
 			'designated' => false 
 		));

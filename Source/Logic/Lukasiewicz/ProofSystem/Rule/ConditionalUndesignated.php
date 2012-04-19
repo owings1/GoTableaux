@@ -36,14 +36,14 @@ class ConditionalUndesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rul
 		list( $antecedent, $consequent ) = $node->getSentence()->getOperands();
 		
 		$branch->branch()
-			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $antecedent, 'designated' => true ))
-			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $consequent, 'designated' => false ))
+			   ->createNode( 'ManyValued Sentence', array( 'sentence' => $antecedent, 'designated' => true ))
+			   ->createNode( 'ManyValued Sentence', array( 'sentence' => $consequent, 'designated' => false ))
 			   ->tickNode( $node );
 			
-		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $antecedent, 'designated' => false ))
-			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $consequent, 'designated' => false ))
-			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $antecedent ), 'designated' => false ))
-			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $consequent ), 'designated' => true ))
+		$branch->createNode( 'ManyValued Sentence', array( 'sentence' => $antecedent, 'designated' => false ))
+			   ->createNode( 'ManyValued Sentence', array( 'sentence' => $consequent, 'designated' => false ))
+			   ->createNode( 'ManyValued Sentence', array( 'sentence' => $logic->negate( $antecedent ), 'designated' => false ))
+			   ->createNode( 'ManyValued Sentence', array( 'sentence' => $logic->negate( $consequent ), 'designated' => true ))
 			   ->tickNode( $node );
 	}
 }

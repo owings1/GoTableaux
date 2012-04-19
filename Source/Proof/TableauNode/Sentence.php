@@ -68,6 +68,18 @@ class Sentence extends \GoTableaux\Proof\TableauNode
 		$this->setSentence( $sentence );
 	}
 
+	/**
+	 * Determines whether the node passes the given conditions.
+	 *
+	 * This is called, for example, when querying a branch for particular nodes.
+	 * Direct children should first check $this->node->filter(), and return 
+	 * false if it does, otherwise continue with filtering. Further descendants
+	 * should likewise check parent::filter().
+	 *
+	 * @param array $conditions A hash of the conditions to pass.
+	 * @return boolean Wether the node passes (i.e. is not ruled out by) the conditions.
+	 * @see TableauBranch::find()
+	 */
 	public function filter( array $conditions )
 	{
 		if ( !$this->node->filter( $conditions )) return false;

@@ -33,7 +33,7 @@ class ConditionalUndesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rul
 	
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )
 	{
-		$branch->createNode( 'Sentence\ManyValued', array( 
+		$branch->createNode( 'ManyValued Sentence', array( 
 					'sentence' 	 => $logic->negate( $node->getSentence() ), 
 					'designated' => true 
 				 ))

@@ -26,10 +26,6 @@ use \GoTableaux\Proof as Proof;
 use \GoTableaux\SentenceWriter as SentenceWriter;
 use \GoTableaux\Proof\TableauStructure as TableauStructure;
 use \GoTableaux\Proof\TableauNode as Node;
-use \GoTableaux\Proof\TableauNode\Sentence as SentenceNode;
-use \GoTableaux\Proof\TableauNode\Access as AccessNode;
-use \GoTableaux\Proof\TableauNode\Modal as ModalNode;
-use \GoTableaux\Proof\TableauNode\ManyValued as ManyValuedNode;
 
 /**
  * Represents a tableaux writer.
@@ -81,15 +77,15 @@ abstract class Tableau extends \GoTableaux\ProofWriter
 	public function writeNode( Node $node )
 	{
 		$str = '';
-		if ( $node instanceof SentenceNode ) {
+		if ( $node->hasClass( 'Sentence' )) {
 			$str .= $this->writeSentence( $node->getSentence() );
-			if ( $node instanceof ModalNode )
+			if ( $node->hasClass( 'Modal' ))
 				$str .= ', ' . $this->writeWorldIndex( $node->getI() );
-		} elseif ( $node instanceof AccessNode )
+		} elseif ( $node->hasClass( 'Access' ))
 			$str .= $this->writeWorldIndex( $node->getI() ) . 
 					$this->getTranslation( 'accessRelationSymbol' ) . 
 					$this->writeWorldIndex( $node->getJ() );
-		if ( $node instanceof ManyValuedNode )
+		if ( $node->hasClass( 'ManyValued' ))
 			$str .= ' ' . $this->writeDesignationMarker( $node->isDesignated() );
 		if ( $node->writeAsTicked ) 
 			$str .= $this->writeTickMarker();
@@ -123,13 +119,13 @@ abstract class Tableau extends \GoTableaux\ProofWriter
 	public function getClassesForNode( Node $node )
 	{
 		$classes = array();
-		if ( $node instanceof SentenceNode ) 
+		if ( $node->hasClass( 'Sentence' )) 
 			$classes[] = 'sentence';
-		if ( $node instanceof ModalNode )
+		if ( $node->hasClass( 'Modal' ))
 			$classes[] = 'modal';
-		if ( $node instanceof AccessNode )
+		if ( $node->hasClass( 'Access'))
 			$classes[] = 'access';
-		if ( $node instanceof ManyValuedNode )
+		if ( $node->hasClass( 'ManyValued' ))
 			$classes[] = 'manyValued';
 		return $classes;
 	}
@@ -157,15 +153,15 @@ abstract class Tableau extends \GoTableaux\ProofWriter
 				'classes' 	=> $this->getClassesForNode( $node ),
 				'isTicked' 	=> $structure->nodeIsTicked( $node )
 			);
-			if ( $node instanceof SentenceNode ) {
+			if ( $node->hasClass( 'Sentence' )) {
 				$arr['nodes'][$i]['sentenceText'] = $this->writeSentence( $node->getSentence() );
-				if ( $node instanceof ModalSentenceNode )
+				if ( $node->hasClass( 'Modal' ))
 					$arr['nodes'][$i]['index'] = $node->getI();
-			} elseif ( $node instanceof AccessNode ) {
+			} elseif ( $node->hasClass( 'Access' )) {
 				$arr['nodes'][$i]['firstIndex'] = $node->getI();
 				$arr['nodes'][$i]['secondIndex'] = $node->getJ();
 			}
-			if ( $node instanceof ManyValuedNode ) 
+			if ( $node->hasClass( 'ManyValued' )) 
 				$arr['nodes'][$i]['isDesignated'] = $node->isDesignated();
 		}
 		if ( !empty( $subStructures )) 

@@ -34,7 +34,7 @@ class NegatedMaterialConditionalUndesignated extends \GoTableaux\ProofSystem\Tab
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )
 	{
 		list( $negatum ) = $node->getSentence()->getOperands();
-		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $negatum, 'designated' => true ))
+		$branch->createNode( 'ManyValued Sentence', array( 'sentence' => $negatum, 'designated' => true ))
 			   ->tickNode( $node );
 	}
 }

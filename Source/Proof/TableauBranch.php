@@ -105,13 +105,16 @@ class TableauBranch
 	/**
 	 * Gets all nodes that have certain class name.
 	 *
-	 * @param string $className The name of the class.
-	 * @return array The nodes on the branch that are of the class.
+	 * @param string $classes The class(es).
+	 * @return array The nodes on the branch that are of all the classes.
 	 */
-	public function getNodesByClassName( $class )
+	public function getNodesByClassName( $classes )
 	{
-		$class = __NAMESPACE__ . '\TableauNode\\' . $class;
-		return array_filter( $this->getNodes(), function( $node ) use( $class ) { return $node instanceof $class; });
+		if ( !is_array( $classes )) $classes = explode( ' ', $classes );
+		return array_filter( $this->getNodes(), function( $node ) use( $classes ) { 
+			foreach ( $classes as $class ) if ( !$node->hasClass( $class )) return false;
+			return true; 
+		});
 	}
 	
 	/**
@@ -184,7 +187,7 @@ class TableauBranch
 	/**
 	 * Finds nodes on the branch matching the given conditions.
 	 *
-	 * Each node class provides a filter function which returns false when the
+	 * The default parameters for the conditions are 'class' Each node class provides a filter function which returns false when the
 	 * node fails to meet the conditions provided.
 	 *
 	 * @param string $ret Wether to return one or all results ('all' or 'one').
@@ -283,10 +286,7 @@ class TableauBranch
 	 */
 	public function createNode( $classes, array $properties = array() )
 	{
-		if ( !is_array( $classes )) {
-			$classes = str_replace( array( '\\', '/' ), ' ', $classes );
-			$classes = explode( ' ', $classes );
-		} 
+		if ( !is_array( $classes )) $classes = explode( ' ', $classes ); 
 		$node = new TableauNode;
 		foreach ( $classes as $class ) {
             $class = __NAMESPACE__ . '\TableauNode\\' . $class;
