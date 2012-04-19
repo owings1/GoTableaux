@@ -37,10 +37,10 @@ class NegatedConjunctionDesignated extends \GoTableaux\ProofSystem\TableauxSyste
 		list( $leftConjunct, $rightConjunct ) = $negatum->getOperands();
 		
 		$branch->branch()
-			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $leftConjunct ), 'designated' => true ))
+			   ->createNode( 'ManyValued Sentence', array( 'sentence' => $logic->negate( $leftConjunct ), 'designated' => true ))
 			   ->tickNode( $node );
 			
-		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $rightConjunct ), 'designated' => true ))
+		$branch->createNode( 'ManyValued Sentence', array( 'sentence' => $logic->negate( $rightConjunct ), 'designated' => true ))
 			   ->tickNode( $node );
 	}
 }

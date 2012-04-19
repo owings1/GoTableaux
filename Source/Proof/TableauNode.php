@@ -21,6 +21,8 @@
 
 namespace GoTableaux\Proof;
 
+use \GoTableaux\Utilities as Utilities;
+
 /**
  * Represents a node on a branch.
  * @package GoTableaux
@@ -28,17 +30,36 @@ namespace GoTableaux\Proof;
 class TableauNode
 {
     
-        /**
-         * The node for decorators.
-         * @var TableauNode
-         */
-        protected $node;
-        
-        public function __construct( $node = null, array $properties = array() )
-        {
-            $this->node = $node;
-            $this->setProperties( $properties );
-        }
+    /**
+     * The node for decorators.
+     * @var TableauNode
+     */
+    protected $node;
+    
+	/**
+	 * Constructor. Initializes decorator.
+	 *
+	 * To build a node, first create an instance of TableauNode with empty
+	 * arguments, then successively add decorators, each time passing the newly
+	 * created node, along with the properties. 
+	 *
+	 * @param TableauNode $node
+	 */
+    public function __construct( $node = null, array $properties = array() )
+    {
+		if ( !empty( $node )) $this->setNode( $node );
+        $this->setProperties( $properties );
+    }
+
+	/**
+	 * Passes undeclared functions to decorated instance.
+	 */
+	public function __call( $method, $args ) 
+	{
+		if ( !empty( $this->node ))
+			return call_user_func_array( array( $this->node, $method ), $args );
+		throw new \ErrorException( "Invalid method $method" );
+  	}
 	
 	/**
 	 * Ticks the node relative to a branch.
@@ -65,6 +86,26 @@ class TableauNode
 	}
 	
 	/**
+	 * Determines wether the node or its decorated instance has a given class.
+	 *
+	 * @param string $class The class to check.
+	 * @return boolean Whether the node or its instance has the class.
+	 */
+	public function hasClass( $class )
+	{
+		$className = __NAMESPACE__ . '\TableauNode\\' . $class;
+		if ( empty( $this->node )) 
+			return $this instanceof $className;
+		return $this instanceof $className || $this->node->hasClass( $class );
+	}
+	
+	
+	public function filter( array $conditions )
+	{
+		return true;
+	}
+	
+	/**
 	 * Called before the node is added to a branch.
 	 *
 	 * Implementations should always call parent::beforeAttach().
@@ -76,9 +117,29 @@ class TableauNode
 	{
 		
 	}
+    
+	/**
+	 * Called during construct for decorators.
+	 *
+	 * Direct children should always call $this->node->setProperties(),
+	 * and further descendants should call parent::setProperties().
+	 *
+	 * @param array $properties A hash of properties to set.
+	 * @return void
+	 */
+    public function setProperties( array $properties )
+    {
         
-        public function setProperties( array $properties )
-        {
-            
-        }
+    }
+
+	/**
+	 * Sets the decorated node.
+	 *
+	 * @param TableauNode $node The node to decorate.
+	 * @return void
+	 */
+	private function setNode( TableauNode $node )
+	{
+		$this->node = $node;
+	}
 }

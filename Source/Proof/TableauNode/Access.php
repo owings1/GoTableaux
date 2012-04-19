@@ -21,46 +21,40 @@
 
 namespace GoTableaux\Proof\TableauNode;
 
+use \GoTableaux\Exception\Tableau as Tableau;
+
 /**
  * Represents a modal logic access relation node.
  * @package GoTableaux
  */
-class Access extends \GoTableaux\Proof\TableauNode implements Modal
+class Access extends Modal
 {
-	/**
-	 * Holds a reference to the seeing world index.
-	 * @var integer
-	 * @access private
-	 */
-	protected $i;
-	
 	/**
 	 * Holds a reference to the seen world index.
 	 * @var integer
 	 * @access private
 	 */
-	protected $j;
-	
+	private $j;
+
 	/**
-	 * Sets the first index.
+	 * Sets the node properties.
 	 *
-	 * @param integer $i The index.
-	 * @return AccessNode Current instance
+	 * @param array $properties The properties.
+	 * @return void
+	 * @throws TableauException when no second index is given.
 	 */
-	public function setI( $i )
+	public function setProperties( array $properties )
 	{
-		$this->i = (int) $i;
-		return $this;
+		parent::setProperties( $properties );
+		if ( empty( $properties['j'] )) 
+			throw new TableauException( 'Must set second index when creating a sentence node.' );
+		$this->setJ( $properties['j'] );
 	}
 	
-	/**
-	 * Gets the first index
-	 * 
-	 * @return integer The first index.
-	 */
-	public function getI()
+	public function filter( array $conditions )
 	{
-		return $this->i;
+		if ( !parent::filter( $conditions )) return false;
+		return !isset( $conditions['j' ] ) || $this->getJ() === $conditions['j'];
 	}
 	
 	/**
@@ -72,7 +66,6 @@ class Access extends \GoTableaux\Proof\TableauNode implements Modal
 	public function setJ( $j )
 	{
 		$this->j = (int) $j;
-		return $this;
 	}
 	
 	/**
@@ -83,20 +76,5 @@ class Access extends \GoTableaux\Proof\TableauNode implements Modal
 	public function getJ()
 	{
 		return $this->j;
-	}
-	
-	/**
-	 * Sets the node properties.
-	 * @param array $properties The properties.
-	 * @return void
-	 * @throws TableauException when no sentence is given.
-	 */
-	public function setProperties( array $properties )
-	{
-		parent::setProperties( $properties );
-		if ( empty( $properties['i'] )) throw new TableauException( 'Must set first index when creating a sentence node.' );
-		if ( empty( $properties['j'] )) throw new TableauException( 'Must set second index when creating a sentence node.' );
-		$this->setI( $properties['i'] );
-		$this->setJ( $properties['j'] );
 	}
 }

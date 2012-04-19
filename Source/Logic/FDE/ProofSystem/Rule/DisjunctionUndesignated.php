@@ -34,8 +34,8 @@ class DisjunctionUndesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rul
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )
 	{
 		list( $leftDisjunct, $rightDisjunct ) = $node->getSentence()->getOperands();
-		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $leftDisjunct, 'designated' => false ))
-  			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $rightDisjunct, 'designated' => false ))
+		$branch->createNode( 'ManyValued Sentence', array( 'sentence' => $leftDisjunct, 'designated' => false ))
+  			   ->createNode( 'ManyValued Sentence', array( 'sentence' => $rightDisjunct, 'designated' => false ))
 			   ->tickNode( $node );
 	}
 }

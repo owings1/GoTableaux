@@ -155,10 +155,10 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 			}
 		}
 		if ( empty( $filterClass )) return $this->_rules;
-                if ( $filterClass{0} !== '\\' ) $filterClass = __CLASS__ . '\Rule\\' . $filterClass;
-                return array_filter( $this->_rules, function( $rule ) use( $filterClass ) {
-                    return $rule instanceof $filterClass;
-                });
+        if ( $filterClass{0} !== '\\' ) $filterClass = __CLASS__ . '\Rule\\' . $filterClass;
+        return array_filter( $this->_rules, function( $rule ) use( $filterClass ) {
+            return $rule instanceof $filterClass;
+        });
 	}
 
         /**
@@ -173,17 +173,19 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 		$this->buildTrunk( $tableau, $argument, $this->getLogic() );
 		$rules = $this->getRules();
 		$i = 0;
+		$ruleHasApplied = false;
 		do {
 			$this->applyClosureRule( $tableau );
 			$rule 			= $rules[$i];
 			$ruleDidApply 	= false;
 			if ( $rule->apply( $tableau ) !== false ) {
 				Utilities::debug( "Rule " . get_class( $rule ) . ' applied' );
-				$ruleDidApply = true;
+				$ruleDidApply = $reuleHasApplied = true;
 				$i = 0;
 			}	
 		} while ( $ruleDidApply || isset( $rules[++$i] ));
 		$this->applyClosureRule( $tableau );
+		if ( !$ruleHasApplied ) Utilities::debug( 'No rules applied.' );
 		return $tableau;
 	}
 	

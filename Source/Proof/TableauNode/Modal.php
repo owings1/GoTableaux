@@ -27,31 +27,13 @@ namespace GoTableaux\Proof\TableauNode;
  */
 class Modal extends \GoTableaux\Proof\TableauNode
 {
-        
-        private $i;
-        
-	/**
-	 * Returns the index, or the first index, of a modal node.
-	 *
-	 * @return integer The index, or first index of the node.
-	 */
-	public function getI()
-        {
-            return $this->i;
-        }
-	
-	/**
-	 * Sets the first index
-	 *
-	 * @param integer $i The index.
-	 * @return Modal Current instance.
-	 */
-	public function setI( $i )
-        {
-            $this->i = (int) $i;
-        }
-        
-        /**
+    /**
+     * Holds the (first) index.
+ 	 * @var integer
+     */
+    private $i;
+    
+    /**
 	 * Sets the node properties.
 	 * @param array $properties The properties.
 	 * @throws TableauException when no sentence is given.
@@ -63,4 +45,31 @@ class Modal extends \GoTableaux\Proof\TableauNode
 			throw new TableauException( 'Must set index when creating a modal node.' );
 		$this->setI( $properties['i'] );
 	}
+	
+	public function filter( array $conditions )
+	{
+		if ( !$this->node->filter( $conditions )) return false;
+		return !isset( $conditions['i' ] ) || $this->getI() === $conditions['i'];
+	}
+	
+	/**
+	 * Returns the index, or the first index, of a modal node.
+	 *
+	 * @return integer The index, or first index of the node.
+	 */
+	public function getI()
+    {
+        return $this->i;
+    }
+	
+	/**
+	 * Sets the first index
+	 *
+	 * @param integer $i The index.
+	 * @return Modal Current instance.
+	 */
+	public function setI( $i )
+    {
+        $this->i = (int) $i;
+    }
 }

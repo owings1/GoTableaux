@@ -21,6 +21,8 @@
 
 namespace GoTableaux\Proof\TableauNode;
 
+use \GoTableaux\Exception\Tableau as TableauException;
+
 /**
  * Signifies a many-valued tableau node that has a designation marker.
  * @package GoTableaux
@@ -28,16 +30,49 @@ namespace GoTableaux\Proof\TableauNode;
 class ManyValued extends \GoTableaux\Proof\TableauNode
 {
 	/**
+	 * Holds the designation
+	 * @var boolean
+	 */
+	private $designated;
+	
+	/**
+	 * Sets the node properties.
+	 *
+	 * @param array $properties The properties.
+	 * @throws TableauException when no designation is given.
+	 */
+	public function setProperties( array $properties )
+	{
+		$this->node->setProperties( $properties );
+		if ( !isset( $properties['designated'] )) 
+			throw new TableauException( 'Must set designation when creating a many-valued node.' );
+		$this->setDesignation( $properties['designated'] );
+	}
+	
+	public function filter( array $conditions )
+	{
+		if ( !$this->node->filter( $conditions )) return false;
+		return !isset( $conditions['designated' ] ) || $this->isDesignated() === $conditions['designated'];
+	}
+	
+	/**
 	 * Returns whether the node is designated.
 	 *
 	 * @return boolean Whether the node is designated.
 	 */
-	public function isDesignated();
+	public function isDesignated()
+	{
+		return $this->designated;
+	}
 	
 	/**
 	 * Sets the designation of the node.
 	 *
+	 * @param boolean $isDesignated The designation.
 	 * @return ManyValued Current instance.
 	 */
-	public function setDesignation( $isDesignated );
+	public function setDesignation( $isDesignated )
+	{
+		$this->designated = (bool) $isDesignated;
+	}
 }

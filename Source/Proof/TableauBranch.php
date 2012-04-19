@@ -28,7 +28,6 @@ use \GoTableaux\Proof\TableauNode\Modal as ModalNode;
 use \GoTableaux\Proof\TableauNode\Access as AccessNode;
 use \GoTableaux\Proof\TableauNode\Sentence as SentenceNode;
 use \GoTableaux\Proof\TableauNode\ManyValued as ManyValuedNode;
-use \GoTableaux\Proof\TableauNode\Sentence\ManyValued as ManyValuedSentenceNode;
 
 /**
  * Represents a tableau branch.
@@ -104,20 +103,15 @@ class TableauBranch
 	}
 
 	/**
-	 * Gets all nodes of a certain class name.
+	 * Gets all nodes that have certain class name.
 	 *
-	 * @param string $className The name of the class, either relative or absolute.
-	 * @param boolean strict Whether to return only nodes that are instantiated
-	 *						 as that particular class. Default behavior is to 
-	 *						 return any node that inherits from the given class.
+	 * @param string $className The name of the class.
 	 * @return array The nodes on the branch that are of the class.
 	 */
-	public function getNodesByClassName( $className, $strict = false )
+	public function getNodesByClassName( $class )
 	{
-		if ( $className{0} !== '\\' ) $className = __NAMESPACE__ . '\TableauNode\\' . $className;
-		return array_filter( $this->getNodes(), function( $node ) use( $className, $strict ) {
-			return $strict ? get_class( $node ) === $className : $node instanceof $className;
-		});
+		$class = __NAMESPACE__ . '\TableauNode\\' . $class;
+		return array_filter( $this->getNodes(), function( $node ) use( $class ) { return $node instanceof $class; });
 	}
 	
 	/**
@@ -190,61 +184,33 @@ class TableauBranch
 	/**
 	 * Finds nodes on the branch matching the given conditions.
 	 *
-	 * conditions: 
-	 * 			 class - the class name of the node
-	 *		designated - whether the node is designated
-	 *		  sentence - the sentence that is on the node
-	 *				 i - the first world index
-	 *			     j - the second world index
-	 * 			ticked - whether the node is ticked
-	 *		  operator - the operator name, or array of operator names of the
-	 *				     sentence on the node.
+	 * Each node class provides a filter function which returns false when the
+	 * node fails to meet the conditions provided.
 	 *
 	 * @param string $ret Wether to return one or all results ('all' or 'one').
 	 * @param array $conditions The conditions to apply.
 	 * @return mixed The results depending on $ret.
 	 * @throws \ErrorException on an invalid $ret value.
+	 * @see TableauNode::filter()
 	 */
 	public function find( $ret = 'all', array $conditions = array() )
 	{
 		$that = $this;
-		if ( !empty( $conditions['class'] ))
-			$nodes = $this->getNodesByClassName( $conditions['class'] );
-		else $nodes = $this->getNodes();
+		$nodes = !empty( $conditions['class'] ) ? $this->getNodesByClassName( $conditions['class'] ) : $this->getNodes();
 		if ( isset( $conditions['ticked'] ))
 			$nodes = array_filter( $nodes, function( $node ) use( $conditions, $that ) {
 				return $that->nodeIsTicked( $node ) === $conditions['ticked'];
 			});
-		if ( isset( $conditions['i'] ))
-			$nodes = array_filter( $nodes, function( $node ) use( $conditions ) {
-				return $node instanceof ModalNode && $node->getI() === $conditions['i'];
-			});
-		if ( isset( $conditions['j'] ))
-			$nodes = array_filter( $nodes, function( $node ) use( $conditions ) {
-				return $node instanceof AccessNode && $node->getJ() === $conditions['j'];
-			});
-		if ( isset( $conditions['sentence'] ))
-			$nodes = array_filter( $nodes, function( $node ) use( $conditions ) {
-				return $node instanceof SentenceNode && $node->getSentence() === $conditions['sentence'];
-			});
-		if ( isset( $conditions['designated'] ))
-			$nodes = array_filter( $nodes, function( $node ) use( $conditions ) { 
-				return $node instanceof ManyValuedNode && $node->isDesignated() === $conditions['designated'];
-			});
-		if ( !empty( $conditions['operator'] )) {
-			$operators = (array) $conditions['operator'];
-			$nodes = array_filter( $nodes, function( $node ) use( $operators ) {
-				if ( !$node instanceof SentenceNode ) return false;
-				if ( $node->getSentence()->getOperatorName() !== $operators[0] ) return false;
-				if ( empty( $operators[1] )) return true;
-				list( $firstOperand ) = $node->getSentence()->getOperands();
-				return $firstOperand->getOperatorName() === $operators[1];
-			});
+		$nodes = array_filter( $nodes, function( $node ) use( $conditions ) {
+			return $node->filter( $conditions );
+		});
+		switch ( $ret ) {
+			case 'one'    :
+			case 'first'  : return array_shift( $nodes );
+			case 'exists' : return !empty( $nodes );
+			case 'all'    : return $nodes;
 		}
-		if ( $ret === 'all' ) return $nodes;
-		elseif ( $ret === 'one' || $ret === 'first' ) return array_shift( $nodes );
-		elseif ( $ret === 'exists' ) return !empty( $nodes );
-		else throw new \ErrorException( "$ret is not a valid parameter." );
+		throw new \ErrorException( "$ret is not a valid parameter." );
 	}
 	
 	/**
@@ -291,7 +257,7 @@ class TableauBranch
 	public function addNode( TableauNode $node )
 	{
 		$node->beforeAttach( $this );
-		$this->nodes[] = $node;
+		Utilities::uniqueAdd( $node, $this->nodes );
 		return $this;
 	}
 	
@@ -317,13 +283,15 @@ class TableauBranch
 	 */
 	public function createNode( $classes, array $properties = array() )
 	{
-		$class = str_replace( '\\', '/', $class );
-                $node = new TableauNode;
-                if ( !is_array( $classes )) $classes = explode( '/', $class );
+		if ( !is_array( $classes )) {
+			$classes = str_replace( array( '\\', '/' ), ' ', $classes );
+			$classes = explode( ' ', $classes );
+		} 
+		$node = new TableauNode;
 		foreach ( $classes as $class ) {
-                    if ( $class{0} !== '\\' ) $class = __NAMESPACE__ . '\TableauNode\\' . $class;
-                    $node = new $class( $node, $properties );
-                }
+            $class = __NAMESPACE__ . '\TableauNode\\' . $class;
+            $node = new $class( $node, $properties );
+        }
 		$this->addNode( $node );
 		return $this;
 	}

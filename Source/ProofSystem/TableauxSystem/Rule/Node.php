@@ -48,37 +48,37 @@ abstract class Node extends Branch
 	 */
 	final public function applyToBranch( TableauBranch $branch, Logic $logic )
 	{
-		if ( !$node = $branch->find( 'one', $this->conditions )) return false;
+		if ( !$node = $branch->find( 'one', $this->getConditions() )) return false;
 		$this->applyToNode( $node, $branch, $logic );
 		return true;
 	}
 	
-        /**
-         * Gets the base name of the rule.
-         * 
-         * @return string The base name of the rule, e.g. NegatedConjunctionDesignated. 
-         */
-        public function getName()
-        {
-            return Utilities::getBaseClassName( $this );
-        }
-        
-        /**
-         * Gets the conditions.
-         * 
-         * @return array The conditions. 
-         */
-        public function getConditions()
-        {
-            return $this->conditions;
-        }
-        
-        public function getExampleNode()
-        {
-            $conditions = $this->getConditions();
-            // TODO Finish function
-            //if ( !empty)
-        }
+    /**
+     * Gets the base name of the rule.
+     * 
+     * @return string The base name of the rule, e.g. NegatedConjunctionDesignated. 
+     */
+    public function getName()
+    {
+        return Utilities::getBaseClassName( $this );
+    }
+    
+    /**
+     * Gets the conditions.
+     * 
+     * @return array The conditions. 
+     */
+    public function getConditions()
+    {
+        return $this->conditions;
+    }
+    
+    public function getExampleNode()
+    {
+        $conditions = $this->getConditions();
+        // TODO Finish function
+        //if ( !empty)
+    }
 	/**
 	 * Applies the changes to a branch for a node that meets $this->conditions.
 	 *

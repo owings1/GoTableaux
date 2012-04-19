@@ -36,10 +36,10 @@ class DisjunctionDesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rule\
 		list( $leftDisjunct, $rightDisjunct ) = $node->getSentence()->getOperands();
 		
 		$branch->branch()
-			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $leftDisjunct, 'designated' => true ))
+			   ->createNode( 'ManyValued Sentence', array( 'sentence' => $leftDisjunct, 'designated' => true ))
 			   ->tickNode( $node );
 			
-		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $rightDisjunct, 'designated' => true ))
+		$branch->createNode( 'ManyValued Sentence', array( 'sentence' => $rightDisjunct, 'designated' => true ))
 			   ->tickNode( $node );
 	}
 }

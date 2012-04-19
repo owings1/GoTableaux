@@ -36,12 +36,12 @@ class MaterialBiconditionalDesignated extends \GoTableaux\ProofSystem\TableauxSy
 		list( $lhs, $rhs ) = $node->getSentence()->getOperands();
 
 		$branch->branch()
-			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $lhs ), 'designated' => true ))
-			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $rhs ), 'designated' => true ))
+			   ->createNode( 'ManyValued Sentence', array( 'sentence' => $logic->negate( $lhs ), 'designated' => true ))
+			   ->createNode( 'ManyValued Sentence', array( 'sentence' => $logic->negate( $rhs ), 'designated' => true ))
 			   ->tickNode( $node );
 			
-		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $lhs, 'designated' => true ))
-			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $rhs, 'designated' => true ))
+		$branch->createNode( 'ManyValued Sentence', array( 'sentence' => $lhs, 'designated' => true ))
+			   ->createNode( 'ManyValued Sentence', array( 'sentence' => $rhs, 'designated' => true ))
 			   ->tickNode( $node );
 	}
 }

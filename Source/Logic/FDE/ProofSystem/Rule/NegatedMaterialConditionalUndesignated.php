@@ -37,10 +37,10 @@ class NegatedMaterialConditionalUndesignated extends \GoTableaux\ProofSystem\Tab
 		list( $antecedent, $consequent ) = $negatum->getOperands();
 		
 		$branch->branch()
-			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $antecedent, 'designated' => false ))
+			   ->createNode( 'ManyValued Sentence', array( 'sentence' => $antecedent, 'designated' => false ))
 			   ->tickNode( $node );
 			
-  		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $consequent ), 'designated' => false ))
+  		$branch->createNode( 'ManyValued Sentence', array( 'sentence' => $logic->negate( $consequent ), 'designated' => false ))
 			   ->tickNode( $node );
 	}
 }

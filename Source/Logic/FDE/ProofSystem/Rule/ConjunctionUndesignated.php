@@ -36,10 +36,10 @@ class ConjunctionUndesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rul
 		list( $leftConjunct, $rightConjunct ) = $node->getSentence()->getOperands();
 		
 		$branch->branch()
-			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $leftConjunct, 'designated' => false ))
+			   ->createNode( 'ManyValued Sentence', array( 'sentence' => $leftConjunct, 'designated' => false ))
 			   ->tickNode( $node );
 			
-		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $rightConjunct, 'designated' => false ))
+		$branch->createNode( 'ManyValued Sentence', array( 'sentence' => $rightConjunct, 'designated' => false ))
 			   ->tickNode( $node );
 	}
 }

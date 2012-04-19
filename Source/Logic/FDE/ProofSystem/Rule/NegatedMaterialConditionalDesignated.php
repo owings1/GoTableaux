@@ -36,8 +36,8 @@ class NegatedMaterialConditionalDesignated extends \GoTableaux\ProofSystem\Table
 		list( $negatum ) = $node->getSentence()->getOperands();
 		list( $antecedent, $consequent ) = $negatum->getOperands();
 		
-		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $antecedent, 'designated' => true ))
-  			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $consequent ), 'designated' => true ))
+		$branch->createNode( 'ManyValued Sentence', array( 'sentence' => $antecedent, 'designated' => true ))
+  			   ->createNode( 'ManyValued Sentence', array( 'sentence' => $logic->negate( $consequent ), 'designated' => true ))
 			   ->tickNode( $node );
 	}
 }

@@ -37,12 +37,12 @@ class NegatedMaterialBiconditionalUndesignated extends \GoTableaux\ProofSystem\T
 		list( $lhs, $rhs ) = $negatum->getOperands();
 
 		$branch->branch()
-			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $lhs ), 'designated' => false ))
-			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $logic->negate( $rhs ), 'designated' => false ))
+			   ->createNode( 'ManyValued Sentence', array( 'sentence' => $logic->negate( $lhs ), 'designated' => false ))
+			   ->createNode( 'ManyValued Sentence', array( 'sentence' => $logic->negate( $rhs ), 'designated' => false ))
 			   ->tickNode( $node );
 			
-		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $lhs, 'designated' => false ))
-			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $rhs, 'designated' => false ))
+		$branch->createNode( 'ManyValued Sentence', array( 'sentence' => $lhs, 'designated' => false ))
+			   ->createNode( 'ManyValued Sentence', array( 'sentence' => $rhs, 'designated' => false ))
 			   ->tickNode( $node );
 	}
 }

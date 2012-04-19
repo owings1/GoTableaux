@@ -34,8 +34,8 @@ class ConjunctionDesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rule\
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )
 	{
 		list( $leftConjunct, $rightConjunct ) = $node->getSentence()->getOperands();
-		$branch->createNode( 'Sentence\ManyValued', array( 'sentence' => $leftConjunct, 'designated' => true ))
-			   ->createNode( 'Sentence\ManyValued', array( 'sentence' => $rightConjunct, 'designated' => true ))
+		$branch->createNode( 'ManyValued Sentence', array( 'sentence' => $leftConjunct, 'designated' => true ))
+			   ->createNode( 'ManyValued Sentence', array( 'sentence' => $rightConjunct, 'designated' => true ))
 			   ->tickNode( $node );
 	}
 }

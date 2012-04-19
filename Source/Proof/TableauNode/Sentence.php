@@ -38,27 +38,6 @@ class Sentence extends \GoTableaux\Proof\TableauNode
 	private $sentence;
 	
 	/**
-	 * Sets the sentence.
-	 *
-	 * @param Sentence $sentence The sentence to place on the node.
-	 * @return SentenceNode Current instance.
-	 */
-	public function setSentence( Sent $sentence )
-	{
-		$this->sentence = $sentence;
-	}
-	
-	/**
-	 * Gets the sentence.
-	 *
-	 * @return Sentence The sentence on the node.
-	 */
-	public function getSentence()
-	{
-		return $this->sentence;
-	}
-	
-	/**
 	 * Sets the node properties.
 	 * @param array $properties The properties.
 	 * @throws TableauException when no sentence is given.
@@ -87,5 +66,38 @@ class Sentence extends \GoTableaux\Proof\TableauNode
 						   ->getVocabulary()
 						   ->registerSentence( $this->getSentence() );
 		$this->setSentence( $sentence );
+	}
+
+	public function filter( array $conditions )
+	{
+		if ( !$this->node->filter( $conditions )) return false;
+		if ( !empty( $conditions['sentence' ] )) return $this->getSentence() === $conditions['sentence'];
+		if ( empty( $conditions['operator'] )) return true;
+		$operators = (array) $conditions['operator'];
+		if ( $this->getSentence()->getOperatorName() !== $operators[0] ) return false;
+		if ( empty( $operators[1] )) return true;
+		list( $firstOperand ) = $this->getSentence()->getOperands();
+		return $firstOperand->getOperatorName() === $operators[1];
+	}
+	
+	/**
+	 * Sets the sentence.
+	 *
+	 * @param Sentence $sentence The sentence to place on the node.
+	 * @return SentenceNode Current instance.
+	 */
+	public function setSentence( Sent $sentence )
+	{
+		$this->sentence = $sentence;
+	}
+	
+	/**
+	 * Gets the sentence.
+	 *
+	 * @return Sentence The sentence on the node.
+	 */
+	public function getSentence()
+	{
+		return $this->sentence;
 	}
 }
