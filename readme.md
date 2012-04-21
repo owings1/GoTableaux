@@ -14,6 +14,7 @@ The logics currently implemented include propositional classical and non-classic
 - First Degree Entailment (FDE)
 - Logic of Paradox (LP)
 - Strong Kleene (K3)
+- Łukasiewicz
 - GO
 
 ### History
@@ -32,10 +33,10 @@ logics.
 In addition to starting to work on a web interface, I am expanding the 
 framework to accommodate new logics. Current plans include:
 
-- Łukasiewicz
 - Weak Kleene
 - Bochvar
 - Normal Modal Logic (K)
+- Modal FDE
 - Modal GO
 
 Links
@@ -48,6 +49,10 @@ The beginnings of a web interface are up. It can be viewed at:
 
 [http://logic.dougowings.net/](http://logic.dougowings.net/)
 
+The generated API documentation is available here:
+
+[http://logic.dougowings.net/doc](http://logic.dougowings.net/doc)
+
 License
 -------
 GoTableaux is released under Version 3 of the GNU Affero General Public License. See LICENSE file for the full text.
@@ -55,3 +60,5 @@ GoTableaux is released under Version 3 of the GNU Affero General Public License.
 The example web interface uses [CakePHP](http://www.cakephp.org), which is released under the MIT license. See readme.md in the www directory for more information.
 
 GoTableaux uses [Simple Test](http://simpletest.org), which is released under the GNU Lesser General Public License v2.1.
+
+The [API Documentation](http://logic.dougowings.net/doc) is generated using [PhpDocumentor 2](http://www.phpdoc.org/), which is released under the MIT license.
