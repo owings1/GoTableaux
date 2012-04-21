@@ -16,7 +16,7 @@
  */
 /**
  * Defines the ProofWriter class.
- * @package Proof
+ * @package GoTableaux
  */
 
 namespace GoTableaux;
@@ -26,7 +26,7 @@ use \GoTableaux\SentenceWriter\Decorator as SentenceWriterDecorator;
 
 /**
  * Writes proofs.
- * @package Proof
+ * @package GoTableaux
  */
 abstract class ProofWriter
 {

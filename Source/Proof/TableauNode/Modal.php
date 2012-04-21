@@ -27,6 +27,12 @@ namespace GoTableaux\Proof\TableauNode;
  */
 class Modal extends \GoTableaux\Proof\TableauNode
 {
+	/**
+	 * Meta symbol names required by the node.
+	 * @var array
+	 */
+    public static $metaSymbolNames = array( 'worldSymbol' );
+
     /**
      * Holds the (first) index.
  	 * @var integer

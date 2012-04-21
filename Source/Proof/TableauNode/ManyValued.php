@@ -30,6 +30,12 @@ use \GoTableaux\Exception\Tableau as TableauException;
 class ManyValued extends \GoTableaux\Proof\TableauNode
 {
 	/**
+	 * Meta symbol names required by the node.
+	 * @var array
+	 */
+    public static $metaSymbolNames = array( 'designatedMarker', 'undesignatedMarker' );
+
+	/**
 	 * Holds the designation
 	 * @var boolean
 	 */

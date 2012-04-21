@@ -26,10 +26,14 @@ use \GoTableaux\Exception\Loader as LoaderException;
 // Register autload function
 spl_autoload_register( array( __NAMESPACE__ . '\Loader', 'loadClass' ));
 
-/**
- * @package GoTableaux
- */
-if ( !defined( 'DS' )) define( 'DS', DIRECTORY_SEPARATOR );
+
+if ( !defined( 'DS' )) {
+	/**
+	 * Directory separator shortcut.
+	 * @package GoTableaux
+	 */
+	define( 'DS', DIRECTORY_SEPARATOR );
+} 
 
 /**
  * Loads class files.

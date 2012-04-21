@@ -23,17 +23,12 @@
 <li><a href="../namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
 <li><a>Packages</a></li>
 <li><a href="../packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
-<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
-<li><a href="../packages/Exceptions.html"><i class="icon-folder-open"></i> Exceptions</a></li>
 <li><a href="../packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
 <li><a href="../packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
 <li><a href="../packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
 <li><a href="../packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
 <li><a href="../packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
-<li><a href="../packages/ModelTheory.html"><i class="icon-folder-open"></i> ModelTheory</a></li>
-<li><a href="../packages/Proof.html"><i class="icon-folder-open"></i> Proof</a></li>
 <li><a href="../packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
-<li><a href="../packages/Syntax.html"><i class="icon-folder-open"></i> Syntax</a></li>
 </ul>
 </li>
 <li class="dropdown" id="charts-menu">
@@ -44,9 +39,11 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">233</span></a></li>
+                <span class="label label-info">255</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
-                <ul></ul></a></li>
+                <ul><li>todo 
+                <span class="label label-info">2</span>
+</li></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
                 <span class="label label-info">0</span></a></li>
 </ul>
@@ -69,33 +66,31 @@
 <li class="nav-header">
 <i class="icon-custom icon-method"></i> Methods</li>
 <li class="method public "><a href="#__construct" title="__construct :: Constructor."><span class="description">Constructor.</span><pre>__construct()</pre></a></li>
-<li class="method public "><a href="#_removeNode" title="_removeNode :: Removes all references to a node from the branch."><span class="description">Removes all references to a node from the branch.</span><pre>_removeNode()</pre></a></li>
+<li class="method public "><a href="#addNode" title="addNode :: Adds a node to the branch."><span class="description">Adds a node to the branch.</span><pre>addNode()</pre></a></li>
 <li class="method public "><a href="#branch" title="branch :: Branches the branch."><span class="description">Branches the branch.</span><pre>branch()</pre></a></li>
 <li class="method public "><a href="#close" title="close :: Closes the branch."><span class="description">Closes the branch.</span><pre>close()</pre></a></li>
 <li class="method public "><a href="#copy" title="copy :: Clones the branch. Maintains references to the nodes."><span class="description">Clones the branch. Maintains references to the nodes.</span><pre>copy()</pre></a></li>
+<li class="method public "><a href="#createNode" title="createNode :: Creates a node on the branch."><span class="description">Creates a node on the branch.</span><pre>createNode()</pre></a></li>
+<li class="method public "><a href="#find" title="find :: Finds nodes on the branch matching the given conditions."><span class="description">Finds nodes on the branch matching the given conditions.</span><pre>find()</pre></a></li>
 <li class="method public "><a href="#getNodes" title="getNodes :: Gets the nodes on the branch."><span class="description">Gets the nodes on the branch.</span><pre>getNodes()</pre></a></li>
-<li class="method public "><a href="#getNodesByOperatorName" title="getNodesByOperatorName :: Gets any {@link SentenceNode}s on the branch that have a given operator
-as its sentence's main connective."><span class="description">Gets any {@link SentenceNode}s on the branch that have a given operator
-as its sentence's main connective.</span><pre>getNodesByOperatorName()</pre></a></li>
-<li class="method public "><a href="#getNodesByTwoOperatorNames" title="getNodesByTwoOperatorNames :: Gets any {@link SentenceNode}s by two operator names."><span class="description">Gets any {@link SentenceNode}s by two operator names.</span><pre>getNodesByTwoOperatorNames()</pre></a></li>
-<li class="method public "><a href="#getSentenceNodes" title="getSentenceNodes :: Gets all sentence nodes on the branch."><span class="description">Gets all sentence nodes on the branch.</span><pre>getSentenceNodes()</pre></a></li>
+<li class="method public "><a href="#getNodesByClassName" title="getNodesByClassName :: Gets all nodes that have certain class name."><span class="description">Gets all nodes that have certain class name.</span><pre>getNodesByClassName()</pre></a></li>
 <li class="method public "><a href="#getTableau" title="getTableau :: Gets the tableau."><span class="description">Gets the tableau.</span><pre>getTableau()</pre></a></li>
 <li class="method public "><a href="#getTickedNodes" title="getTickedNodes :: Gets all nodes on the branch that are ticked relative to the branch."><span class="description">Gets all nodes on the branch that are ticked relative to the branch.</span><pre>getTickedNodes()</pre></a></li>
-<li class="method public "><a href="#getUntickedNodes" title="getUntickedNodes :: Gets all nodes on the branch that are unticked relative to the branch."><span class="description">Gets all nodes on the branch that are unticked relative to the branch.</span><pre>getUntickedNodes()</pre></a></li>
+<li class="method public "><a href="#getUntickedNodes" title="getUntickedNodes :: Gets all the nodes on the branch that are not ticked relative to the branch."><span class="description">Gets all the nodes on the branch that are not ticked relative to the branch.</span><pre>getUntickedNodes()</pre></a></li>
 <li class="method public "><a href="#hasNode" title="hasNode :: Checks whether a node is on the branch."><span class="description">Checks whether a node is on the branch.</span><pre>hasNode()</pre></a></li>
-<li class="method public "><a href="#hasNodeWithSentence" title="hasNodeWithSentence :: Checks whether a sentence is on the branch."><span class="description">Checks whether a sentence is on the branch.</span><pre>hasNodeWithSentence()</pre></a></li>
 <li class="method public "><a href="#isClosed" title="isClosed :: Checks whether the branch is closed."><span class="description">Checks whether the branch is closed.</span><pre>isClosed()</pre></a></li>
+<li class="method public "><a href="#isOpen" title="isOpen :: Checks whether the branch is open."><span class="description">Checks whether the branch is open.</span><pre>isOpen()</pre></a></li>
+<li class="method public "><a href="#nodeIsTicked" title="nodeIsTicked :: Determines whether a node is ticked relative to the branch."><span class="description">Determines whether a node is ticked relative to the branch.</span><pre>nodeIsTicked()</pre></a></li>
+<li class="method public "><a href="#removeNode" title="removeNode :: Removes all references to a node from the branch."><span class="description">Removes all references to a node from the branch.</span><pre>removeNode()</pre></a></li>
 <li class="method public "><a href="#tickNode" title="tickNode :: Ticks a node relative to the branch."><span class="description">Ticks a node relative to the branch.</span><pre>tickNode()</pre></a></li>
-<li class="nav-header protected">» Protected</li>
-<li class="method protected "><a href="#_addNode" title="_addNode :: Adds a node to the branch."><span class="description">Adds a node to the branch.</span><pre>_addNode()</pre></a></li>
+<li class="method public "><a href="#untickNode" title="untickNode :: Unticks a node relative to the branch."><span class="description">Unticks a node relative to the branch.</span><pre>untickNode()</pre></a></li>
 <li class="nav-header">
 <i class="icon-custom icon-property"></i> Properties</li>
-<li class="nav-header protected">» Protected</li>
-<li class="property protected "><a href="#%24closed" title="$closed :: Tracks whether the branch is closed."><span class="description">Tracks whether the branch is closed.</span><pre>$closed</pre></a></li>
-<li class="property protected "><a href="#%24nodes" title="$nodes :: Holds the {@link Node nodes} of the branch."><span class="description">Holds the {@link Node nodes} of the branch.</span><pre>$nodes</pre></a></li>
-<li class="property protected "><a href="#%24sentenceNodes" title="$sentenceNodes :: Holds the {@link SentenceNode}s of the branch."><span class="description">Holds the {@link SentenceNode}s of the branch.</span><pre>$sentenceNodes</pre></a></li>
-<li class="property protected "><a href="#%24tableau" title="$tableau :: Holds a reference to the tableau."><span class="description">Holds a reference to the tableau.</span><pre>$tableau</pre></a></li>
-<li class="property protected "><a href="#%24tickedNodes" title="$tickedNodes :: Holds the ticked {@link Node}s."><span class="description">Holds the ticked {@link Node}s.</span><pre>$tickedNodes</pre></a></li>
+<li class="nav-header private">» Private</li>
+<li class="property private "><a href="#%24closed" title="$closed :: Tracks whether the branch is closed."><span class="description">Tracks whether the branch is closed.</span><pre>$closed</pre></a></li>
+<li class="property private "><a href="#%24nodes" title="$nodes :: Holds the nodes of the branch."><span class="description">Holds the nodes of the branch.</span><pre>$nodes</pre></a></li>
+<li class="property private "><a href="#%24tableau" title="$tableau :: Holds a reference to the tableau."><span class="description">Holds a reference to the tableau.</span><pre>$tableau</pre></a></li>
+<li class="property private "><a href="#%24tickedNodes" title="$tickedNodes :: Tracks the ticked nodes relative to the branch."><span class="description">Tracks the ticked nodes relative to the branch.</span><pre>$tickedNodes</pre></a></li>
 </ul>
 </div>
 <div class="span8">
@@ -131,125 +126,128 @@ as its sentence's main connective.</span><pre>getNodesByOperatorName()</pre></a>
 <code><a href="../classes/GoTableaux.Proof.Tableau.html">\GoTableaux\Proof\Tableau</a></code><p>The tableau of the branch.</p></div>
 </div></div>
 </div>
-<a name="_removeNode" id="_removeNode"></a><div class="element clickable method public _removeNode" data-toggle="collapse" data-target="._removeNode .collapse">
-<h2>Removes all references to a node from the branch.</h2>
-<pre>_removeNode(TableauNode $node) : \GoTableaux\Proof\Branch</pre>
+<a name="addNode" id="addNode"></a><div class="element clickable method public addNode" data-toggle="collapse" data-target=".addNode .collapse">
+<h2>Adds a node to the branch.</h2>
+<pre>addNode(TableauNode $node) : <a href="../classes/GoTableaux.Proof.TableauBranch.html">\GoTableaux\Proof\TableauBranch</a></pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$node</h4>
-<code>\GoTableaux\Proof\Node</code><p>The node to remove. If the node is on the branch in multiple places, each reference is removed.</p></div>
+<code><a href="../classes/GoTableaux.Proof.TableauNode.html">\GoTableaux\Proof\TableauNode</a></code><p>The node to add.</p></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>\GoTableaux\Proof\Branch</code>Current instance.</div>
+<code><a href="../classes/GoTableaux.Proof.TableauBranch.html">\GoTableaux\Proof\TableauBranch</a></code>Current instance.</div>
 </div></div>
 </div>
 <a name="branch" id="branch"></a><div class="element clickable method public branch" data-toggle="collapse" data-target=".branch .collapse">
 <h2>Branches the branch.</h2>
-<pre>branch() : \GoTableaux\Proof\Branch</pre>
+<pre>branch() : <a href="../classes/GoTableaux.Proof.TableauBranch.html">\GoTableaux\Proof\TableauBranch</a></pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"><p>Copies the branch, attaches the copy to the tableau, and returns the new
 branch.</p></p>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>\GoTableaux\Proof\Branch</code>The new branch</div>
+<code><a href="../classes/GoTableaux.Proof.TableauBranch.html">\GoTableaux\Proof\TableauBranch</a></code>The new branch</div>
 </div></div>
 </div>
 <a name="close" id="close"></a><div class="element clickable method public close" data-toggle="collapse" data-target=".close .collapse">
 <h2>Closes the branch.</h2>
-<pre>close() : \GoTableaux\Proof\Branch</pre>
+<pre>close() : <a href="../classes/GoTableaux.Proof.TableauBranch.html">\GoTableaux\Proof\TableauBranch</a></pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>\GoTableaux\Proof\Branch</code>Current instance.</div>
+<code><a href="../classes/GoTableaux.Proof.TableauBranch.html">\GoTableaux\Proof\TableauBranch</a></code>Current instance.</div>
 </div></div>
 </div>
 <a name="copy" id="copy"></a><div class="element clickable method public copy" data-toggle="collapse" data-target=".copy .collapse">
 <h2>Clones the branch. Maintains references to the nodes.</h2>
-<pre>copy() : \GoTableaux\Proof\Branch</pre>
+<pre>copy() : <a href="../classes/GoTableaux.Proof.TableauBranch.html">\GoTableaux\Proof\TableauBranch</a></pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>\GoTableaux\Proof\Branch</code>The new copy.</div>
+<code><a href="../classes/GoTableaux.Proof.TableauBranch.html">\GoTableaux\Proof\TableauBranch</a></code>The new copy.</div>
+</div></div>
+</div>
+<a name="createNode" id="createNode"></a><div class="element clickable method public createNode" data-toggle="collapse" data-target=".createNode .collapse">
+<h2>Creates a node on the branch.</h2>
+<pre>createNode(string | array $classes, array $properties) : <a href="../classes/GoTableaux.Proof.TableauBranch.html">\GoTableaux\Proof\TableauBranch</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$classes</h4>
+<code>stringarray</code><p>The node class(es) to instantiate.</p>
+</div>
+<div class="subelement argument">
+<h4>$properties</h4>
+<code>array</code><p>The properties of the node.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Proof.TableauBranch.html">\GoTableaux\Proof\TableauBranch</a></code>Current instance.</div>
+</div></div>
+</div>
+<a name="find" id="find"></a><div class="element clickable method public find" data-toggle="collapse" data-target=".find .collapse">
+<h2>Finds nodes on the branch matching the given conditions.</h2>
+<pre>find(string $ret, array $conditions) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>The default parameters for the conditions are 'class' Each node class provides a filter function which returns false when the
+node fails to meet the conditions provided.</p></p>
+<table class="table table-bordered"><tr>
+<th>see</th>
+<td>\GoTableaux\Proof\TableauNode::filter()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$ret</h4>
+<code>string</code><p>Wether to return one or all results ('all' or 'one').</p>
+</div>
+<div class="subelement argument">
+<h4>$conditions</h4>
+<code>array</code><p>The conditions to apply.</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="http://php.net/manual/en/class.errorexception.php">\ErrorException</a></code></th>
+<td>on an invalid $ret value.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>mixed</code>The results depending on $ret.</div>
 </div></div>
 </div>
 <a name="getNodes" id="getNodes"></a><div class="element clickable method public getNodes" data-toggle="collapse" data-target=".getNodes .collapse">
 <h2>Gets the nodes on the branch.</h2>
-<pre>getNodes(boolean $untickedOnly) : array</pre>
+<pre>getNodes() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>The {@link TableauNode nodes}.</div>
+</div></div>
+</div>
+<a name="getNodesByClassName" id="getNodesByClassName"></a><div class="element clickable method public getNodesByClassName" data-toggle="collapse" data-target=".getNodesByClassName .collapse">
+<h2>Gets all nodes that have certain class name.</h2>
+<pre>getNodesByClassName(string $classes) : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$untickedOnly</h4>
-<code>boolean</code><p>Whether to limit search to nodes that are unticked.</p></div>
-<h3>Returns</h3>
-<div class="subelement response">
-<code>array</code>Array of {@link Node}s.</div>
-</div></div>
+<h4>$classes</h4>
+<code>string</code><p>The class(es).</p>
 </div>
-<a name="getNodesByOperatorName" id="getNodesByOperatorName"></a><div class="element clickable method public getNodesByOperatorName" data-toggle="collapse" data-target=".getNodesByOperatorName .collapse">
-<h2>Gets any {@link SentenceNode}s on the branch that have a given operator
-as its sentence's main connective.</h2>
-<pre>getNodesByOperatorName(string $operatorName, boolean $untickedOnly) : array</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="span8">
-<p class="long_description"></p>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$operatorName</h4>
-<code>string</code><p>The name of the operator.</p></div>
-<div class="subelement argument">
-<h4>$untickedOnly</h4>
-<code>boolean</code><p>Whether to include unticked nodes only. Default is false.</p></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>array</code>Array of {@link SentenceNode}s.</div>
-</div></div>
-</div>
-<a name="getNodesByTwoOperatorNames" id="getNodesByTwoOperatorNames"></a><div class="element clickable method public getNodesByTwoOperatorNames" data-toggle="collapse" data-target=".getNodesByTwoOperatorNames .collapse">
-<h2>Gets any {@link SentenceNode}s by two operator names.</h2>
-<pre>getNodesByTwoOperatorNames(string $firstOperatorName, string $secondOperatorName, boolean $untickedOnly) : array</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="span8">
-<p class="long_description"><p>Returns sentence nodes whose first operator is a given operator, and
-whose first operand is a molecular sentence with the given second
-operator.</p></p>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$firstOperatorName</h4>
-<code>string</code><p>The name of the first operator.</p></div>
-<div class="subelement argument">
-<h4>$secondOperatorName</h4>
-<code>string</code><p>The name of the second operator.</p></div>
-<div class="subelement argument">
-<h4>$untickedOnly</h4>
-<code>boolean</code><p>Whether to include unticked nodes only. Default is false.</p></div>
-<h3>Returns</h3>
-<div class="subelement response">
-<code>array</code>The resulting array of {@link SentenceNode}s.</div>
-</div></div>
-</div>
-<a name="getSentenceNodes" id="getSentenceNodes"></a><div class="element clickable method public getSentenceNodes" data-toggle="collapse" data-target=".getSentenceNodes .collapse">
-<h2>Gets all sentence nodes on the branch.</h2>
-<pre>getSentenceNodes(boolean $untickedOnly) : array</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="span8">
-<p class="long_description"></p>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$untickedOnly</h4>
-<code>boolean</code><p>Whether to limit search to nodes that are unticked.</p></div>
-<h3>Returns</h3>
-<div class="subelement response">
-<code>array</code>Array of {@link SentenceNode}s.</div>
+<code>array</code>The nodes on the branch that are of all the classes.</div>
 </div></div>
 </div>
 <a name="getTableau" id="getTableau"></a><div class="element clickable method public getTableau" data-toggle="collapse" data-target=".getTableau .collapse">
@@ -271,18 +269,18 @@ operator.</p></p>
 <p class="long_description"></p>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>array</code>Array of {@link Node}s.</div>
+<code>array</code>Array of {@link TableauNode}s.</div>
 </div></div>
 </div>
 <a name="getUntickedNodes" id="getUntickedNodes"></a><div class="element clickable method public getUntickedNodes" data-toggle="collapse" data-target=".getUntickedNodes .collapse">
-<h2>Gets all nodes on the branch that are unticked relative to the branch.</h2>
+<h2>Gets all the nodes on the branch that are not ticked relative to the branch.</h2>
 <pre>getUntickedNodes() : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>array</code>Array of {@link Node}s.</div>
+<code>array</code>The unticked nodes.</div>
 </div></div>
 </div>
 <a name="hasNode" id="hasNode"></a><div class="element clickable method public hasNode" data-toggle="collapse" data-target=".hasNode .collapse">
@@ -294,25 +292,10 @@ operator.</p></p>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$node</h4>
-<code>\GoTableaux\Proof\Node</code><p>The node to check.</p></div>
+<code><a href="../classes/GoTableaux.Proof.TableauNode.html">\GoTableaux\Proof\TableauNode</a></code><p>The node to check.</p></div>
 <h3>Returns</h3>
 <div class="subelement response">
 <code>boolean</code>Whether the node is on the branch.</div>
-</div></div>
-</div>
-<a name="hasNodeWithSentence" id="hasNodeWithSentence"></a><div class="element clickable method public hasNodeWithSentence" data-toggle="collapse" data-target=".hasNodeWithSentence .collapse">
-<h2>Checks whether a sentence is on the branch.</h2>
-<pre>hasNodeWithSentence(Sentence $sentence) : boolean</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="span8">
-<p class="long_description"></p>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$sentence</h4>
-<code>\GoTableaux\Proof\Sentence</code><p>The sentence to search for.</p></div>
-<h3>Returns</h3>
-<div class="subelement response">
-<code>boolean</code>Whether the branch has a node with that sentence.</div>
 </div></div>
 </div>
 <a name="isClosed" id="isClosed"></a><div class="element clickable method public isClosed" data-toggle="collapse" data-target=".isClosed .collapse">
@@ -326,97 +309,101 @@ operator.</p></p>
 <code>boolean</code>Whether the branch is closed.</div>
 </div></div>
 </div>
-<a name="tickNode" id="tickNode"></a><div class="element clickable method public tickNode" data-toggle="collapse" data-target=".tickNode .collapse">
-<h2>Ticks a node relative to the branch.</h2>
-<pre>tickNode(TableauNode $node) : \GoTableaux\Proof\Branch</pre>
+<a name="isOpen" id="isOpen"></a><div class="element clickable method public isOpen" data-toggle="collapse" data-target=".isOpen .collapse">
+<h2>Checks whether the branch is open.</h2>
+<pre>isOpen() : boolean</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$node</h4>
-<code>\GoTableaux\Proof\Node</code><p>The node to tick.</p></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>\GoTableaux\Proof\Branch</code>Current instance.</div>
+<code>boolean</code>Whether the branch is open.</div>
 </div></div>
 </div>
-<a name="_addNode" id="_addNode"></a><div class="element clickable method protected _addNode" data-toggle="collapse" data-target="._addNode .collapse">
-<h2>Adds a node to the branch.</h2>
-<pre>_addNode(TableauNode $node) : \GoTableaux\Proof\Branch</pre>
+<a name="nodeIsTicked" id="nodeIsTicked"></a><div class="element clickable method public nodeIsTicked" data-toggle="collapse" data-target=".nodeIsTicked .collapse">
+<h2>Determines whether a node is ticked relative to the branch.</h2>
+<pre>nodeIsTicked(TableauNode $node) : boolean</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$node</h4>
-<code>\GoTableaux\Proof\Node</code><p>The node to add.</p></div>
+<code><a href="../classes/GoTableaux.Proof.TableauNode.html">\GoTableaux\Proof\TableauNode</a></code><p>The node to check.</p></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>\GoTableaux\Proof\Branch</code>Current instance.</div>
+<code>boolean</code>Whether the node is ticked relative to the branch.</div>
+</div></div>
+</div>
+<a name="removeNode" id="removeNode"></a><div class="element clickable method public removeNode" data-toggle="collapse" data-target=".removeNode .collapse">
+<h2>Removes all references to a node from the branch.</h2>
+<pre>removeNode(TableauNode $node) : <a href="../classes/GoTableaux.Proof.TableauBranch.html">\GoTableaux\Proof\TableauBranch</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$node</h4>
+<code><a href="../classes/GoTableaux.Proof.TableauNode.html">\GoTableaux\Proof\TableauNode</a></code><p>The node to remove. If the node is on the branch in multiple places, each reference is removed.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Proof.TableauBranch.html">\GoTableaux\Proof\TableauBranch</a></code>Current instance.</div>
+</div></div>
+</div>
+<a name="tickNode" id="tickNode"></a><div class="element clickable method public tickNode" data-toggle="collapse" data-target=".tickNode .collapse">
+<h2>Ticks a node relative to the branch.</h2>
+<pre>tickNode(TableauNode $node) : <a href="../classes/GoTableaux.Proof.TableauBranch.html">\GoTableaux\Proof\TableauBranch</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$node</h4>
+<code><a href="../classes/GoTableaux.Proof.TableauNode.html">\GoTableaux\Proof\TableauNode</a></code><p>The node to tick.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Proof.TableauBranch.html">\GoTableaux\Proof\TableauBranch</a></code>Current instance.</div>
+</div></div>
+</div>
+<a name="untickNode" id="untickNode"></a><div class="element clickable method public untickNode" data-toggle="collapse" data-target=".untickNode .collapse">
+<h2>Unticks a node relative to the branch.</h2>
+<pre>untickNode(TableauNode $node) : <a href="../classes/GoTableaux.Proof.TableauBranch.html">\GoTableaux\Proof\TableauBranch</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$node</h4>
+<code><a href="../classes/GoTableaux.Proof.TableauNode.html">\GoTableaux\Proof\TableauNode</a></code><p>The node to untick.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/GoTableaux.Proof.TableauBranch.html">\GoTableaux\Proof\TableauBranch</a></code></div>
 </div></div>
 </div>
 <h3>
 <i class="icon-custom icon-property"></i> Properties</h3>
-<a name="%24closed" id="$closed"> </a><div class="element clickable property protected $closed" data-toggle="collapse" data-target=".$closed .collapse">
+<a name="%24closed" id="$closed"> </a><div class="element clickable property private $closed" data-toggle="collapse" data-target=".$closed .collapse">
 <h2>Tracks whether the branch is closed.</h2>
 <pre>$closed : boolean</pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="span8">
-<p class="long_description"></p>
-<table class="table table-bordered"><tr>
-<th>access</th>
-<td>private</td>
-</tr></table>
-</div></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
 </div>
-<a name="%24nodes" id="$nodes"> </a><div class="element clickable property protected $nodes" data-toggle="collapse" data-target=".$nodes .collapse">
-<h2>Holds the {@link Node nodes} of the branch.</h2>
+<a name="%24nodes" id="$nodes"> </a><div class="element clickable property private $nodes" data-toggle="collapse" data-target=".$nodes .collapse">
+<h2>Holds the nodes of the branch.</h2>
 <pre>$nodes : array</pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="span8">
-<p class="long_description"></p>
-<table class="table table-bordered"><tr>
-<th>access</th>
-<td>private</td>
-</tr></table>
-</div></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
 </div>
-<a name="%24sentenceNodes" id="$sentenceNodes"> </a><div class="element clickable property protected $sentenceNodes" data-toggle="collapse" data-target=".$sentenceNodes .collapse">
-<h2>Holds the {@link SentenceNode}s of the branch.</h2>
-<pre>$sentenceNodes : array</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="span8">
-<p class="long_description"></p>
-<table class="table table-bordered"><tr>
-<th>access</th>
-<td>private</td>
-</tr></table>
-</div></div>
-</div>
-<a name="%24tableau" id="$tableau"> </a><div class="element clickable property protected $tableau" data-toggle="collapse" data-target=".$tableau .collapse">
+<a name="%24tableau" id="$tableau"> </a><div class="element clickable property private $tableau" data-toggle="collapse" data-target=".$tableau .collapse">
 <h2>Holds a reference to the tableau.</h2>
 <pre>$tableau : <a href="../classes/GoTableaux.Proof.Tableau.html">\GoTableaux\Proof\Tableau</a></pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="span8">
-<p class="long_description"></p>
-<table class="table table-bordered"><tr>
-<th>access</th>
-<td>private</td>
-</tr></table>
-</div></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
 </div>
-<a name="%24tickedNodes" id="$tickedNodes"> </a><div class="element clickable property protected $tickedNodes" data-toggle="collapse" data-target=".$tickedNodes .collapse">
-<h2>Holds the ticked {@link Node}s.</h2>
+<a name="%24tickedNodes" id="$tickedNodes"> </a><div class="element clickable property private $tickedNodes" data-toggle="collapse" data-target=".$tickedNodes .collapse">
+<h2>Tracks the ticked nodes relative to the branch.</h2>
 <pre>$tickedNodes : array</pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="span8">
-<p class="long_description"></p>
-<table class="table table-bordered"><tr>
-<th>access</th>
-<td>private</td>
-</tr></table>
-</div></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
 </div>
 </div>
 </div>
@@ -425,7 +412,7 @@ operator.</p></p>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
-            generated on 2012-04-09T00:16:28-07:00.<br></footer></div>
+            generated on 2012-04-21T00:47:24-07:00.<br></footer></div>
 </div>
 </body>
 </html>

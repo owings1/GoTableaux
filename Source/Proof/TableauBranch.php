@@ -23,7 +23,6 @@ namespace GoTableaux\Proof;
 
 use \GoTableaux\Sentence as Sentence;
 use \GoTableaux\Utilities as Utilities;
-use \GoTableaux\Proof\TableauNode as Node;
 
 /**
  * Represents a tableau branch.
@@ -210,9 +209,7 @@ class TableauBranch
 			$nodes = array_filter( $nodes, function( $node ) use( $conditions, $that ) {
 				return $that->nodeIsTicked( $node ) === $conditions['ticked'];
 			});
-		$nodes = array_filter( $nodes, function( $node ) use( $conditions ) {
-			return $node->filter( $conditions );
-		});
+		$nodes = array_filter( $nodes, function( $node ) use( $conditions ) { return $node->filter( $conditions ); });
 		switch ( $ret ) {
 			case 'one'    :
 			case 'first'  : return array_shift( $nodes );
@@ -240,7 +237,7 @@ class TableauBranch
 	 * @param TableauNode $node The node to untick.
 	 * @return TableauBranch
 	 */
-	public function untickNode( TalbeauNode $node )
+	public function untickNode( TableauNode $node )
 	{
 		Utilities::arrayRm( $node, $this->tickedNodes );
 		return $this;
@@ -250,7 +247,7 @@ class TableauBranch
 	 * Determines whether a node is ticked relative to the branch.
 	 *
 	 * @param TableauNode $node The node to check.
-	 * @param boolean Whether the node is ticked relative to the branch.
+	 * @return boolean Whether the node is ticked relative to the branch.
 	 */
 	public function nodeIsTicked( TableauNode $node )
 	{
@@ -286,7 +283,7 @@ class TableauBranch
 	/**
 	 * Creates a node on the branch.
 	 *
-	 * @param string|array $class The node classes to instantiate.
+	 * @param string|array $classes The node class(es) to instantiate.
 	 * @param array $properties The properties of the node.
 	 * @return TableauBranch Current instance.
 	 */
@@ -296,6 +293,7 @@ class TableauBranch
 		$node = new TableauNode;
 		foreach ( $classes as $class ) {
             $class = __NAMESPACE__ . '\TableauNode\\' . $class;
+			$this->getTableau()->addMetaSymbolNames( $class::$metaSymbolNames );
             $node = new $class( $node, $properties );
         }
 		$this->addNode( $node );

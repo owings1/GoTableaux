@@ -16,14 +16,14 @@
  */
 /**
  * Defines the RuleException class.
- * @package Exceptions
+ * @package GoTableaux
  */
 
 namespace GoTableaux\Exception;
 
 /**
  * Represents a tableau rule exception.
- * @package Exceptions
+ * @package GoTableaux
  */
 class Rule extends Tableau
 {

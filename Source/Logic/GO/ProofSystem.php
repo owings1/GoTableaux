@@ -26,7 +26,7 @@ namespace GoTableaux\Logic\GO;
  *
  * @package GO
  */
-class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem\ManyValued
+class ProofSystem extends \GoTableaux\Logic\FDE\ProofSystem
 {
 	public $ruleClasses = array(
 		'Closure',

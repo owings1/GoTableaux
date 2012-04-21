@@ -48,20 +48,6 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 	 * @var array.
 	 */
 	private $_rules = array();
-	
-	/**
-	 * Constructor.
-	 *
-	 * Adds tickMarker and closeMarker meta symbols.
-	 *
-	 * @param Logic logic The logic of the proof system.
-	 */
-	public function __construct( Logic $logic )
-	{
-		$this->metaSymbolNames[] = 'tickMarker';
-		$this->metaSymbolNames[] = 'closeMarker';
-		parent::__construct( $logic );
-	}
 
 	/**
 	 * Adds tableau rules. Duplicate entries are ignored.
@@ -188,7 +174,7 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 	 * @param Branch $branch The open branch from which to induce a model
 	 * @return Model The induced model.
 	 */
-	abstract public function induceModel( Branch $branch );
+	//abstract public function induceModel( Branch $branch );
 	
 	/**
 	 * Constructs the initial list (trunk) for an argument.

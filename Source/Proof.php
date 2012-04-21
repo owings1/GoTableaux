@@ -16,7 +16,7 @@
  */
 /**
  * Defines the base proof class.
- * @package Proof
+ * @package GoTableaux
  */
 
 namespace GoTableaux;
@@ -24,23 +24,29 @@ namespace GoTableaux;
 /**
  * Represents a proof.
  *
- * @package Proof
+ * @package GoTableaux
  **/
 abstract class Proof
 {
 	/**
-	 * Holds the argument for the proof.
+	 * Reference to the argument for the proof.
 	 * @var Argument
 	 * @access private
 	 */
 	protected $argument;
 	
 	/**
-	 * Holds a reference to the proof system.
+	 * Reference to the proof system.
 	 * @var ProofSystem
 	 * @access private
 	 */
 	protected $proofSystem;
+	
+	/**
+	 * Meta proof symbol names.
+	 * @var array
+	 */
+	protected $metaSymbolNames = array();
 	
 	/**
 	 * Constructor. Initializes argument.
@@ -52,6 +58,27 @@ abstract class Proof
 	{
 		$this->argument = $argument;
 		$this->proofSystem = $proofSystem;
+	}
+	
+	/**
+	 * Gets the meta symbols names.
+	 * 
+	 * @return array The meta symbol names.
+	 */
+	public function getMetaSymbolNames()
+	{
+		return $this->metaSymbolNames;
+	}
+	
+	/**
+	 * Adds meta symbol names.
+	 *
+	 * @param string|array $names The meta symbol name(s).
+	 * @return void
+	 */
+	public function addMetaSymbolNames( $names )
+	{
+		foreach ( (array) $names as $name )	Utilities::uniqueAdd( $name, $this->metaSymbolNames );
 	}
 	
 	/**

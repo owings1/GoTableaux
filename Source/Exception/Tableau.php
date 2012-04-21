@@ -16,14 +16,14 @@
  */
 /**
  * Defines the TableauException class.
- * @package Exceptions
+ * @package GoTableaux
  */
 
 namespace GoTableaux\Exception;
 
 /**
  * Represents a tableau proof exception.
- * @package Exceptions
+ * @package GoTableaux
  */
 class Tableau extends Proof
 {

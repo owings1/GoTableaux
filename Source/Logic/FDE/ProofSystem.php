@@ -21,11 +21,15 @@
 
 namespace GoTableaux\Logic\FDE;
 
+use \GoTableaux\Proof\Tableau as Tableau;
+use \GoTableaux\Argument as Argument;
+use \GoTableaux\Logic as Logic;
+
 /**
  * Represents the FDE tableaux system.
  * @package FDE
  */
-class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem\ManyValued
+class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem
 {
 	public $ruleClasses = array(
 		'Closure',
@@ -48,4 +52,26 @@ class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem\ManyValued
 		'DoubleNegationDesignated',
 		'DoubleNegationUndesignated'
 	);
+	
+	/**
+	 * Constructs the initial list (trunk) for an argument.
+	 *
+	 * @param Tableau $tableau The tableau to attach the 
+	 * @param Argument $argument The argument for which to build the trunk.
+	 * @param Logic $logic The logic of the proof system.
+	 * @return void
+	 */
+	public function buildTrunk( Tableau $tableau, Argument $argument, Logic $logic )
+	{
+		$trunk = $tableau->createBranch();
+		foreach ( $argument->getPremises() as $premise ) 
+			$trunk->createNode( 'ManyValued Sentence', array( 
+				'sentence' => $premise, 
+				'designated' => true 
+			));
+		$trunk->createNode( 'ManyValued Sentence', array( 
+			'sentence' => $argument->getConclusion(), 
+			'designated' => false 
+		));
+	}
 }

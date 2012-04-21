@@ -25,7 +25,7 @@ namespace GoTableaux\Logic\StrongKleene;
  * Represents the K3 tableaux system.
  * @package StrongKleene
  */
-class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem\ManyValued
+class ProofSystem extends \GoTableaux\Logic\FDE\ProofSystem
 {
 	public $ruleClasses = array(
 		'Closure',

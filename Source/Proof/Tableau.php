@@ -32,6 +32,12 @@ use \GoTableaux\Utilities as Utilities;
 class Tableau extends \GoTableaux\Proof
 {	
 	/**
+	 * Meta symbol names required by the node.
+	 * @var array
+	 */
+    public $metaSymbolNames = array( 'closeMarker' );
+
+	/**
 	 * Holds the branches on the tree.
 	 * @var array
 	 */

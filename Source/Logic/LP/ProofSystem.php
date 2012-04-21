@@ -25,7 +25,7 @@ namespace GoTableaux\Logic\LP;
  * Represents the LP tableaux system.
  * @package LP
  */
-class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem\ManyValued
+class ProofSystem extends \GoTableaux\Logic\FDE\ProofSystem
 {
 	public $ruleClasses = array(
 		'Closure',

@@ -21,15 +21,18 @@
 
 namespace GoTableaux\Proof;
 
-use \GoTableaux\Utilities as Utilities;
-
 /**
  * Represents a node on a branch.
  * @package GoTableaux
  */
 class TableauNode
 {
-    
+	/**
+	 * Meta proof symbol names required by the node.
+	 * @var array
+	 */
+    public static $metaSymbolNames = array( 'tickMarker' );
+
     /**
      * The node for decorators.
      * @var TableauNode
@@ -43,7 +46,8 @@ class TableauNode
 	 * arguments, then successively add decorators, each time passing the newly
 	 * created node, along with the properties. 
 	 *
-	 * @param TableauNode $node
+	 * @param TableauNode $node The node to decorate.
+	 * @param array $properties The properties hash of the node.
 	 */
     public function __construct( $node = null, array $properties = array() )
     {
@@ -53,6 +57,10 @@ class TableauNode
 
 	/**
 	 * Passes undeclared functions to decorated instance.
+	 *
+	 * @param string $method The name of the method invoked.
+	 * @param array $args The passed arguments.
+	 * @return void
 	 */
 	public function __call( $method, $args ) 
 	{
@@ -64,9 +72,9 @@ class TableauNode
 	/**
 	 * Ticks the node relative to a branch.
 	 *
-	 * @param Branch $branch The branch relative to which to tick the
+	 * @param TableauBranch $branch The branch relative to which to tick the
 	 *								  node.
-	 * @return Node Current instance.
+	 * @return TableauNode Current instance.
 	 */
 	public function tickAtBranch( TableauBranch $branch )
 	{
@@ -77,12 +85,25 @@ class TableauNode
 	/**
 	 * Checks whether the node is ticked relative to a particular branch.
 	 *
-	 * @param Branch $branch The branch relative to which to check.
+	 * @param TableauBranch $branch The branch relative to which to check.
 	 * @return boolean Whether the node is ticked relative to $branch.
 	 */
 	public function isTickedAtBranch( TableauBranch $branch )
 	{
 		return $branch->nodeIsTicked( $this );
+	}
+	
+	/**
+	 * Gets all the classes of the node, including decorated classes.
+	 *
+	 * @return array The classes of the node
+	 */
+	public function getClasses()
+	{
+		$classes = array();
+		for ( $node = $this; !empty( $node ); $node = $node->node ) 
+			Utilities::uniqueAdd( Utilities::getBaseClassName( $node ), $classes );
+		return $classes;
 	}
 	
 	/**
@@ -94,8 +115,7 @@ class TableauNode
 	public function hasClass( $class )
 	{
 		$className = __NAMESPACE__ . '\TableauNode\\' . $class;
-		if ( empty( $this->node )) 
-			return $this instanceof $className;
+		if ( empty( $this->node )) return $this instanceof $className;
 		return $this instanceof $className || $this->node->hasClass( $class );
 	}
 	

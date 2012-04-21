@@ -23,17 +23,12 @@
 <li><a href="../namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
 <li><a>Packages</a></li>
 <li><a href="../packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
-<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
-<li><a href="../packages/Exceptions.html"><i class="icon-folder-open"></i> Exceptions</a></li>
 <li><a href="../packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
 <li><a href="../packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
 <li><a href="../packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
 <li><a href="../packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
 <li><a href="../packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
-<li><a href="../packages/ModelTheory.html"><i class="icon-folder-open"></i> ModelTheory</a></li>
-<li><a href="../packages/Proof.html"><i class="icon-folder-open"></i> Proof</a></li>
 <li><a href="../packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
-<li><a href="../packages/Syntax.html"><i class="icon-folder-open"></i> Syntax</a></li>
 </ul>
 </li>
 <li class="dropdown" id="charts-menu">
@@ -44,9 +39,11 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">233</span></a></li>
+                <span class="label label-info">255</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
-                <ul></ul></a></li>
+                <ul><li>todo 
+                <span class="label label-info">2</span>
+</li></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
                 <span class="label label-info">0</span></a></li>
 </ul>
@@ -68,15 +65,28 @@
 <ul class="side-nav nav nav-list">
 <li class="nav-header">
 <i class="icon-custom icon-method"></i> Methods</li>
-<li class="method public "><a href="#__construct" title="__construct :: Constructor."><span class="description">Constructor.</span><pre>__construct()</pre></a></li>
+<li class="method public inherited"><a href="#__call" title="__call :: Passes undeclared functions to decorated instance."><span class="description">Passes undeclared functions to decorated instance.</span><pre>__call()</pre></a></li>
+<li class="method public inherited"><a href="#__construct" title="__construct :: Constructor. Initializes decorator."><span class="description">Constructor. Initializes decorator.</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#beforeAttach" title="beforeAttach :: Registers the node's sentence with the logic's vocabulary before the
+node is attached to the branch."><span class="description">Registers the node's sentence with the logic's vocabulary before the
+node is attached to the branch.</span><pre>beforeAttach()</pre></a></li>
+<li class="method public "><a href="#filter" title="filter :: Determines whether the node passes the given conditions."><span class="description">Determines whether the node passes the given conditions.</span><pre>filter()</pre></a></li>
+<li class="method public inherited"><a href="#getClasses" title="getClasses :: Gets all the classes of the node, including decorated classes."><span class="description">Gets all the classes of the node, including decorated classes.</span><pre>getClasses()</pre></a></li>
 <li class="method public "><a href="#getSentence" title="getSentence :: Gets the sentence."><span class="description">Gets the sentence.</span><pre>getSentence()</pre></a></li>
+<li class="method public inherited"><a href="#hasClass" title="hasClass :: Determines wether the node or its decorated instance has a given class."><span class="description">Determines wether the node or its decorated instance has a given class.</span><pre>hasClass()</pre></a></li>
 <li class="method public inherited"><a href="#isTickedAtBranch" title="isTickedAtBranch :: Checks whether the node is ticked relative to a particular branch."><span class="description">Checks whether the node is ticked relative to a particular branch.</span><pre>isTickedAtBranch()</pre></a></li>
+<li class="method public "><a href="#setProperties" title="setProperties :: Sets the node properties."><span class="description">Sets the node properties.</span><pre>setProperties()</pre></a></li>
 <li class="method public "><a href="#setSentence" title="setSentence :: Sets the sentence."><span class="description">Sets the sentence.</span><pre>setSentence()</pre></a></li>
 <li class="method public inherited"><a href="#tickAtBranch" title="tickAtBranch :: Ticks the node relative to a branch."><span class="description">Ticks the node relative to a branch.</span><pre>tickAtBranch()</pre></a></li>
+<li class="nav-header private">» Private</li>
+<li class="method private inherited"><a href="#setNode" title="setNode :: Sets the decorated node."><span class="description">Sets the decorated node.</span><pre>setNode()</pre></a></li>
 <li class="nav-header">
 <i class="icon-custom icon-property"></i> Properties</li>
+<li class="property public inherited"><a href="#%24metaSymbolNames" title="$metaSymbolNames :: Meta proof symbol names required by the node."><span class="description">Meta proof symbol names required by the node.</span><pre>$metaSymbolNames</pre></a></li>
 <li class="nav-header protected">» Protected</li>
-<li class="property protected "><a href="#%24sentence" title="$sentence :: Holds a reference to the sentence on the node"><span class="description">Holds a reference to the sentence on the node</span><pre>$sentence</pre></a></li>
+<li class="property protected inherited"><a href="#%24node" title="$node :: The node for decorators."><span class="description">The node for decorators.</span><pre>$node</pre></a></li>
+<li class="nav-header private">» Private</li>
+<li class="property private "><a href="#%24sentence" title="$sentence :: Holds a reference to the sentence on the node"><span class="description">Holds a reference to the sentence on the node</span><pre>$sentence</pre></a></li>
 </ul>
 </div>
 <div class="span8">
@@ -101,27 +111,124 @@
 </tr></table>
 <h3>
 <i class="icon-custom icon-method"></i> Methods</h3>
-<a name="__construct" id="__construct"></a><div class="element clickable method public __construct" data-toggle="collapse" data-target=".__construct .collapse">
-<h2>Constructor.</h2>
-<pre>__construct(Sentence $sentence) </pre>
-<div class="labels"></div>
+<a name="__call" id="__call"></a><div class="element clickable method public __call" data-toggle="collapse" data-target=".__call .collapse">
+<h2>Passes undeclared functions to decorated instance.</h2>
+<pre>__call(string $method, array $args) : void</pre>
+<div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
-<p class="long_description"><p>Sets the sentence.</p></p>
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauNode::__call()</td>
+</tr></table>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$sentence</h4>
-<code><a href="../classes/GoTableaux.Proof.TableauNode.Sentence.html">\GoTableaux\Proof\TableauNode\Sentence</a></code><p>The sentence to place on the node.</p></div>
+<h4>$method</h4>
+<code>string</code><p>The name of the method invoked.</p></div>
+<div class="subelement argument">
+<h4>$args</h4>
+<code>array</code><p>The passed arguments.</p></div>
+</div></div>
+</div>
+<a name="__construct" id="__construct"></a><div class="element clickable method public __construct" data-toggle="collapse" data-target=".__construct .collapse">
+<h2>Constructor. Initializes decorator.</h2>
+<pre>__construct(<a href="../classes/GoTableaux.Proof.TableauNode.html">\GoTableaux\Proof\TableauNode</a> $node, array $properties) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>To build a node, first create an instance of TableauNode with empty
+arguments, then successively add decorators, each time passing the newly
+created node, along with the properties.</p></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauNode::__construct()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$node</h4>
+<code><a href="../classes/GoTableaux.Proof.TableauNode.html">\GoTableaux\Proof\TableauNode</a></code><p>The node to decorate.</p></div>
+<div class="subelement argument">
+<h4>$properties</h4>
+<code>array</code><p>The properties hash of the node.</p></div>
+</div></div>
+</div>
+<a name="beforeAttach" id="beforeAttach"></a><div class="element clickable method public beforeAttach" data-toggle="collapse" data-target=".beforeAttach .collapse">
+<h2>Registers the node's sentence with the logic's vocabulary before the
+node is attached to the branch.</h2>
+<pre>beforeAttach(Branch $branch) : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>Implementations should always call parent::beforeAttach().</p></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$branch</h4>
+<code><a href="../classes/GoTableaux.Proof.TableauBranch.html">\GoTableaux\Proof\TableauBranch</a></code><p>The branch to which the node is to be attached.</p></div>
+</div></div>
+</div>
+<a name="filter" id="filter"></a><div class="element clickable method public filter" data-toggle="collapse" data-target=".filter .collapse">
+<h2>Determines whether the node passes the given conditions.</h2>
+<pre>filter(array $conditions) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>This is called, for example, when querying a branch for particular nodes.
+Direct children should first check $this->node->filter(), and return
+false if it does, otherwise continue with filtering. Further descendants
+should likewise check parent::filter().</p></p>
+<table class="table table-bordered"><tr>
+<th>see</th>
+<td>\GoTableaux\Proof\TableauNode\TableauBranch::find()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$conditions</h4>
+<code>array</code><p>A hash of the conditions to pass.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>Wether the node passes (i.e. is not ruled out by) the conditions.</div>
+</div></div>
+</div>
+<a name="getClasses" id="getClasses"></a><div class="element clickable method public getClasses" data-toggle="collapse" data-target=".getClasses .collapse">
+<h2>Gets all the classes of the node, including decorated classes.</h2>
+<pre>getClasses() : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauNode::getClasses()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>The classes of the node</div>
 </div></div>
 </div>
 <a name="getSentence" id="getSentence"></a><div class="element clickable method public getSentence" data-toggle="collapse" data-target=".getSentence .collapse">
 <h2>Gets the sentence.</h2>
-<pre>getSentence() : <a href="../classes/GoTableaux.Proof.TableauNode.Sentence.html">\GoTableaux\Proof\TableauNode\Sentence</a></pre>
+<pre>getSentence() : <a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
 <h3>Returns</h3>
 <div class="subelement response">
-<code><a href="../classes/GoTableaux.Proof.TableauNode.Sentence.html">\GoTableaux\Proof\TableauNode\Sentence</a></code>The sentence on the node.</div>
+<code><a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></code>The sentence on the node.</div>
+</div></div>
+</div>
+<a name="hasClass" id="hasClass"></a><div class="element clickable method public hasClass" data-toggle="collapse" data-target=".hasClass .collapse">
+<h2>Determines wether the node or its decorated instance has a given class.</h2>
+<pre>hasClass(string $class) : boolean</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauNode::hasClass()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$class</h4>
+<code>string</code><p>The class to check.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>Whether the node or its instance has the class.</div>
 </div></div>
 </div>
 <a name="isTickedAtBranch" id="isTickedAtBranch"></a><div class="element clickable method public isTickedAtBranch" data-toggle="collapse" data-target=".isTickedAtBranch .collapse">
@@ -137,30 +244,48 @@
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$branch</h4>
-<code>\GoTableaux\Proof\Branch</code><p>The branch relative to which to check.</p></div>
+<code><a href="../classes/GoTableaux.Proof.TableauBranch.html">\GoTableaux\Proof\TableauBranch</a></code><p>The branch relative to which to check.</p></div>
 <h3>Returns</h3>
 <div class="subelement response">
 <code>boolean</code>Whether the node is ticked relative to $branch.</div>
 </div></div>
 </div>
+<a name="setProperties" id="setProperties"></a><div class="element clickable method public setProperties" data-toggle="collapse" data-target=".setProperties .collapse">
+<h2>Sets the node properties.</h2>
+<pre>setProperties(array $properties) : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>Direct children should always call $this->node->setProperties(),
+and further descendants should call parent::setProperties().</p></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$properties</h4>
+<code>array</code><p>The properties.</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/GoTableaux.Exception.Tableau.html">\GoTableaux\Exception\Tableau</a></code></th>
+<td>when no sentence is given.</td>
+</tr></table>
+</div></div>
+</div>
 <a name="setSentence" id="setSentence"></a><div class="element clickable method public setSentence" data-toggle="collapse" data-target=".setSentence .collapse">
 <h2>Sets the sentence.</h2>
-<pre>setSentence(Sentence $sentence) : \GoTableaux\Proof\TableauNode\SentenceNode</pre>
+<pre>setSentence(Sent $sentence) : <a href="../classes/GoTableaux.Proof.TableauNode.Sentence.html">\GoTableaux\Proof\TableauNode\Sentence</a></pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$sentence</h4>
-<code><a href="../classes/GoTableaux.Proof.TableauNode.Sentence.html">\GoTableaux\Proof\TableauNode\Sentence</a></code><p>The sentence to place on the node.</p></div>
+<code><a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></code><p>The sentence to place on the node.</p></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>\GoTableaux\Proof\TableauNode\SentenceNode</code>Current instance.</div>
+<code><a href="../classes/GoTableaux.Proof.TableauNode.Sentence.html">\GoTableaux\Proof\TableauNode\Sentence</a></code>Current instance.</div>
 </div></div>
 </div>
 <a name="tickAtBranch" id="tickAtBranch"></a><div class="element clickable method public tickAtBranch" data-toggle="collapse" data-target=".tickAtBranch .collapse">
 <h2>Ticks the node relative to a branch.</h2>
-<pre>tickAtBranch(TableauBranch $branch) : \GoTableaux\Proof\Node</pre>
+<pre>tickAtBranch(TableauBranch $branch) : <a href="../classes/GoTableaux.Proof.TableauNode.html">\GoTableaux\Proof\TableauNode</a></pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
@@ -171,15 +296,55 @@
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$branch</h4>
-<code>\GoTableaux\Proof\Branch</code><p>The branch relative to which to tick the node.</p></div>
+<code><a href="../classes/GoTableaux.Proof.TableauBranch.html">\GoTableaux\Proof\TableauBranch</a></code><p>The branch relative to which to tick the node.</p></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>\GoTableaux\Proof\Node</code>Current instance.</div>
+<code><a href="../classes/GoTableaux.Proof.TableauNode.html">\GoTableaux\Proof\TableauNode</a></code>Current instance.</div>
+</div></div>
+</div>
+<a name="setNode" id="setNode"></a><div class="element clickable method private setNode" data-toggle="collapse" data-target=".setNode .collapse">
+<h2>Sets the decorated node.</h2>
+<pre>setNode(TableauNode $node) : void</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauNode::setNode()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$node</h4>
+<code><a href="../classes/GoTableaux.Proof.TableauNode.html">\GoTableaux\Proof\TableauNode</a></code><p>The node to decorate.</p></div>
 </div></div>
 </div>
 <h3>
 <i class="icon-custom icon-property"></i> Properties</h3>
-<a name="%24sentence" id="$sentence"> </a><div class="element clickable property protected $sentence" data-toggle="collapse" data-target=".$sentence .collapse">
+<a name="%24metaSymbolNames" id="$metaSymbolNames"> </a><div class="element clickable property public $metaSymbolNames" data-toggle="collapse" data-target=".$metaSymbolNames .collapse">
+<h2>Meta proof symbol names required by the node.</h2>
+<pre>$metaSymbolNames : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauNode::$$metaSymbolNames</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24node" id="$node"> </a><div class="element clickable property protected $node" data-toggle="collapse" data-target=".$node .collapse">
+<h2>The node for decorators.</h2>
+<pre>$node : <a href="../classes/GoTableaux.Proof.TableauNode.html">\GoTableaux\Proof\TableauNode</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof\TableauNode::$$node</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24sentence" id="$sentence"> </a><div class="element clickable property private $sentence" data-toggle="collapse" data-target=".$sentence .collapse">
 <h2>Holds a reference to the sentence on the node</h2>
 <pre>$sentence : <a href="../classes/GoTableaux.Proof.TableauNode.Sentence.html">\GoTableaux\Proof\TableauNode\Sentence</a></pre>
 <div class="labels"></div>
@@ -192,7 +357,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
-            generated on 2012-04-09T00:16:28-07:00.<br></footer></div>
+            generated on 2012-04-21T00:47:24-07:00.<br></footer></div>
 </div>
 </body>
 </html>

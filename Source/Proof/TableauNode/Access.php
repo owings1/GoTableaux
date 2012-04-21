@@ -30,6 +30,12 @@ use \GoTableaux\Exception\Tableau as Tableau;
 class Access extends Modal
 {
 	/**
+	 * Meta symbol names required by the node.
+	 * @var array
+	 */
+    public static $metaSymbolNames = array( 'accessRelationSymbol' );
+
+	/**
 	 * Holds a reference to the seen world index.
 	 * @var integer
 	 * @access private

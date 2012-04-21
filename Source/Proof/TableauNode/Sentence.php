@@ -95,8 +95,8 @@ class Sentence extends \GoTableaux\Proof\TableauNode
 	/**
 	 * Sets the sentence.
 	 *
-	 * @param Sentence $sentence The sentence to place on the node.
-	 * @return SentenceNode Current instance.
+	 * @param Sent $sentence The sentence to place on the node.
+	 * @return Sentence Current instance.
 	 */
 	public function setSentence( Sent $sentence )
 	{
@@ -106,7 +106,7 @@ class Sentence extends \GoTableaux\Proof\TableauNode
 	/**
 	 * Gets the sentence.
 	 *
-	 * @return Sentence The sentence on the node.
+	 * @return Sent The sentence on the node.
 	 */
 	public function getSentence()
 	{

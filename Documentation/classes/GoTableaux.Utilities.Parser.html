@@ -1,0 +1,257 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>GoTableaux » \GoTableaux\Utilities\Parser</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">GoTableaux</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
+<li><a href="../packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
+<li><a href="../packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
+<li><a href="../packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
+<li><a href="../packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
+<li><a href="../packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
+<li><a href="../packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">255</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul><li>todo 
+                <span class="label label-info">2</span>
+</li></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public "><a href="#addOuterParens" title="addOuterParens :: Adds outer parentheses to a string."><span class="description">Adds outer parentheses to a string.</span><pre>addOuterParens()</pre></a></li>
+<li class="method public "><a href="#closePosFromOpenPos" title="closePosFromOpenPos :: Finds a string's for the corresponding close mark of an open mark at the
+given position."><span class="description">Finds a string's for the corresponding close mark of an open mark at the
+given position.</span><pre>closePosFromOpenPos()</pre></a></li>
+<li class="method public "><a href="#dropOuterParens" title="dropOuterParens :: Drops outer parentheses from a string, if they exist."><span class="description">Drops outer parentheses from a string, if they exist.</span><pre>dropOuterParens()</pre></a></li>
+<li class="method public "><a href="#removeAllParens" title="removeAllParens :: Removes all parentheses from a string."><span class="description">Removes all parentheses from a string.</span><pre>removeAllParens()</pre></a></li>
+<li class="method public "><a href="#removeSeparators" title="removeSeparators :: Removes separator (whitespace) characters from a string."><span class="description">Removes separator (whitespace) characters from a string.</span><pre>removeSeparators()</pre></a></li>
+<li class="method public "><a href="#trimSeparators" title="trimSeparators :: Trims separator (whitespace) characters from beginning and end of a string."><span class="description">Trims separator (whitespace) characters from beginning and end of a string.</span><pre>trimSeparators()</pre></a></li>
+<li class="nav-header private">» Private</li>
+<li class="method private "><a href="#grabParenGroup" title="grabParenGroup :: Parses first complete parenthesized group in a string."><span class="description">Parses first complete parenthesized group in a string.</span><pre>grabParenGroup()</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CGoTableaux%5CUtilities%5CParser" id="\GoTableaux\Utilities\Parser"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Utilities.html">Utilities</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/GoTableaux.Utilities.Parser.html">Parser</a>
+</li>
+</ul>
+<div href="../classes/GoTableaux.Utilities.Parser.html" class="element class">
+<p class="short_description">Collects utilities for sentence parsers.</p>
+<div class="details">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>package</th>
+<td><a href="..//packages/GoTableaux.html">GoTableaux</a></td>
+</tr></table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="addOuterParens" id="addOuterParens"></a><div class="element clickable method public addOuterParens" data-toggle="collapse" data-target=".addOuterParens .collapse">
+<h2>Adds outer parentheses to a string.</h2>
+<pre>addOuterParens(string $string, Vocabulary $vocabulary) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$string</h4>
+<code>string</code><p>The string to be added to.</p></div>
+<div class="subelement argument">
+<h4>$vocabulary</h4>
+<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code><p>The vocabulary to use.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The resulting string.</div>
+</div></div>
+</div>
+<a name="closePosFromOpenPos" id="closePosFromOpenPos"></a><div class="element clickable method public closePosFromOpenPos" data-toggle="collapse" data-target=".closePosFromOpenPos .collapse">
+<h2>Finds a string's for the corresponding close mark of an open mark at the
+given position.</h2>
+<pre>closePosFromOpenPos(string $string, integer $openPos, Vocabulary $vocabulary) : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$string</h4>
+<code>string</code><p>The string to scan.</p></div>
+<div class="subelement argument">
+<h4>$openPos</h4>
+<code>integer</code><p>String position of open mark.</p></div>
+<div class="subelement argument">
+<h4>$vocabulary</h4>
+<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code><p>The vocabulary to use.</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\GoTableaux\Utilities\{@link</code></th>
+<td>Exception\Parser} on parsing error.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>integer</code>The position of the corresponding close mark.</div>
+</div></div>
+</div>
+<a name="dropOuterParens" id="dropOuterParens"></a><div class="element clickable method public dropOuterParens" data-toggle="collapse" data-target=".dropOuterParens .collapse">
+<h2>Drops outer parentheses from a string, if they exist.</h2>
+<pre>dropOuterParens(string $string, Vocabulary $vocabulary) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$string</h4>
+<code>string</code><p>The string to be parsed.</p></div>
+<div class="subelement argument">
+<h4>$vocabulary</h4>
+<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code><p>The vocabulary to use.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The resulting string.</div>
+</div></div>
+</div>
+<a name="removeAllParens" id="removeAllParens"></a><div class="element clickable method public removeAllParens" data-toggle="collapse" data-target=".removeAllParens .collapse">
+<h2>Removes all parentheses from a string.</h2>
+<pre>removeAllParens(string $string, Vocabulary $vocabulary) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$string</h4>
+<code>string</code><p>The string from which to remove parentheses.</p></div>
+<div class="subelement argument">
+<h4>$vocabulary</h4>
+<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code><p>The vocabulary to use.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The string with parentheses removed.</div>
+</div></div>
+</div>
+<a name="removeSeparators" id="removeSeparators"></a><div class="element clickable method public removeSeparators" data-toggle="collapse" data-target=".removeSeparators .collapse">
+<h2>Removes separator (whitespace) characters from a string.</h2>
+<pre>removeSeparators(string $string, Vocabulary $vocabulary) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$string</h4>
+<code>string</code><p>The string to replace.</p></div>
+<div class="subelement argument">
+<h4>$vocabulary</h4>
+<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code><p>The vocabulary whose separators to remove.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The string with all separators removed.</div>
+</div></div>
+</div>
+<a name="trimSeparators" id="trimSeparators"></a><div class="element clickable method public trimSeparators" data-toggle="collapse" data-target=".trimSeparators .collapse">
+<h2>Trims separator (whitespace) characters from beginning and end of a string.</h2>
+<pre>trimSeparators(string $string, Vocabulary $vocabulary) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$string</h4>
+<code>string</code><p>The string to trim.</p></div>
+<div class="subelement argument">
+<h4>$vocabulary</h4>
+<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code><p>The vocabulary whose separators to trim.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The trimmed string.</div>
+</div></div>
+</div>
+<a name="grabParenGroup" id="grabParenGroup"></a><div class="element clickable method private grabParenGroup" data-toggle="collapse" data-target=".grabParenGroup .collapse">
+<h2>Parses first complete parenthesized group in a string.</h2>
+<pre>grabParenGroup(string $str, Vocabulary $vocabulary, boolean $includeOuter, integer $offset) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$str</h4>
+<code>string</code><p>The string to be parsed. Must contain at least one parenthesized group.</p></div>
+<div class="subelement argument">
+<h4>$vocabulary</h4>
+<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code><p>The vocabulary to use.</p></div>
+<div class="subelement argument">
+<h4>$includeOuter</h4>
+<code>boolean</code><p>Whether to include the outer parentheses in the returned string. Default is false.</p></div>
+<div class="subelement argument">
+<h4>$offset</h4>
+<code>integer</code><p>String offset at which to start searching.</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\GoTableaux\Utilities\{@link</code></th>
+<td>Exception\Parser} on no parentheses in string, or parsing error.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>Everything inside the first parenthesized group. Includes outer parentheses if $includeOuter is set to true.</div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
+            generated on 2012-04-21T00:47:25-07:00.<br></footer></div>
+</div>
+</body>
+</html>

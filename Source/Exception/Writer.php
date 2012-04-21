@@ -16,14 +16,14 @@
  */
 /**
  * Defines the Writer exception class.
- * @package Exceptions
+ * @package GoTableaux
  */
 
 namespace GoTableaux\Exception;
 
 /**
  * Represents a tableau writer exception.
- * @package Exceptions
+ * @package GoTableaux
  */
 class Writer extends \GoTableaux\Exception
 {

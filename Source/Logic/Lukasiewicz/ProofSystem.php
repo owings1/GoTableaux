@@ -25,7 +25,7 @@ namespace GoTableaux\Logic\Lukasiewicz;
  * Represents the Lukasiewicz 3 tableaux system.
  * @package Lukasiewicz
  */
-class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem\ManyValued
+class ProofSystem extends \GoTableaux\Logic\FDE\ProofSystem
 {
 	public $ruleClasses = array(
 		'StrongKleene.Closure',

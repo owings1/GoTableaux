@@ -16,14 +16,14 @@
  */
 /**
  * Defines the ProofSystem base class.
- * @package Proof
+ * @package GoTableaux
  */
 
 namespace GoTableaux;
 
 /**
  * Represents a proof system.
- * @package Proof
+ * @package GoTableaux
  */
 abstract class ProofSystem
 {	
@@ -34,11 +34,6 @@ abstract class ProofSystem
 	 */
 	protected $logic;
 
-	/**
-	 * @var array Array of meta symbol names.
-	 */
-	protected $metaSymbolNames = array();
-	
 	/**
 	 * Constructor.
 	 *
@@ -59,16 +54,6 @@ abstract class ProofSystem
 	public function getLogic()
 	{
 		return $this->logic;
-	}
-	
-	/**
-	 * Gets the meta symbols names.
-	 * 
-	 * @return array The meta symbol names.
-	 */
-	public function getMetaSymbolNames()
-	{
-		return $this->metaSymbolNames;
 	}
 	
 	/**

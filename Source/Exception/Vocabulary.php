@@ -16,14 +16,14 @@
  */
 /**
  * Defines the Vocabulary exception class.
- * @package Exceptions
+ * @package GoTableaux
  */
 
 namespace GoTableaux\Exception;
 
 /**
  * Represents a vocabulary exception.
- * @package Exceptions
+ * @package GoTableaux
  */
 class Vocabulary extends \GoTableaux\Exception
 {
