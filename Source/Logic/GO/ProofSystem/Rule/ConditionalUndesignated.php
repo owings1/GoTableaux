@@ -28,7 +28,6 @@ class ConditionalUndesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rul
 	protected $conditions = array(
 		'operator' => 'Conditional',
 		'designated' => false,
-		'ticked'	 => false
 	);
 	
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )

@@ -41,13 +41,7 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 	 * Defines the rule class names for the logic.
 	 * @var array
 	 */
-	public $tableauRuleClasses = array();
-	
-	/**
-	 * Holds the closure rule.
-	 * @var ClosureRule
-	 */
-	private $closureRule;
+	public $ruleClasses = array();
 	
 	/**
 	 * Holds the tableau rules.
@@ -68,43 +62,7 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 		$this->metaSymbolNames[] = 'closeMarker';
 		parent::__construct( $logic );
 	}
-	
-	/**
-	 * Gets the closure rule.
-	 *
-	 * @return ClosureRule The closure rule.
-	 */
-	public function getClosureRule()
-	{
-		if ( empty( $this->closureRule )) {
-			if ( !empty( $this->inheritClosureRuleFrom )) {
-				$logic = Logic::getInstance( $this->inheritClosureRuleFrom );
-				$this->closureRule = $logic->getProofSystem()->getClosureRule();
-			} else {
-				$closureRuleClass = get_class( $this ) . '\ClosureRule';
-				$this->closureRule = new $closureRuleClass;
-			}
-		}
-		return $this->closureRule;
-	}
-	
-	/**
-	 * Applies the closure rule to a tableau.
-	 *
-	 * @param Tableau $tableau The tableau to which to apply closure rule.
-	 * @return void
-	 * @throws {@link TableauException} on empty closure rule.
-	 */
-	public function applyClosureRule( Tableau $tableau )
-	{
-		$closureRule = $this->getClosureRule();
-		foreach ( $tableau->getOpenBranches() as $branch )
-			if ( $closureRule->doesApply( $branch, $this->getLogic() )) {
-				$branch->close();
-				Utilities::debug( "Closure rule " . get_class( $closureRule ) . ' applied.' );
-			} 
-	}
-	
+
 	/**
 	 * Adds tableau rules. Duplicate entries are ignored.
 	 *
@@ -133,17 +91,11 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 	public function getRules( $filterClass = '' )
 	{
 		if ( empty( $this->_rules )) {
-			if ( !empty( $this->inheritTableauRulesFrom ))
-				foreach ( (array) $this->inheritTableauRulesFrom as $logicName ) {
-					$proofSystem = Logic::getInstance( $logicName )->getProofSystem();
-					if ( !$proofSystem instanceof TableauxSystem )
-						throw new TableauException( 'Trying to inherit rules from a proof system that is not a tableaux system.' );
-					$this->addRules( $proofSystem->getRules() );
-				}
-					
-			foreach ( $this->tableauRuleClasses as $relClass ) {
-				if ( strpos( $relClass, '/' )) {
-					list( $otherLogicName, $relClass ) = explode( '/', $relClass );
+			foreach ( $this->ruleClasses as $relClass ) {
+				// compatibility
+				$relClass = str_replace( '/', '.', $relClass );
+				if ( strpos( $relClass, '.' )) {
+					list( $otherLogicName, $relClass ) = explode( '.', $relClass );
 					$otherLogic = Logic::getInstance( $otherLogicName );
 					$class = get_class( $otherLogic->getProofSystem() );
 				} else {
@@ -153,6 +105,7 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 				$ruleClass = $ruleNamespace . '\\' . $relClass;
 				$this->addRules( new $ruleClass );
 			}
+			if ( empty( $this->_rules )) Utilities::debug( '[NOTICE] Empty ruleset for ' . get_class( $this ));
 		}
 		if ( empty( $filterClass )) return $this->_rules;
         if ( $filterClass{0} !== '\\' ) $filterClass = __CLASS__ . '\Rule\\' . $filterClass;
@@ -184,25 +137,16 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 	{
 		$tableau = new Tableau( $argument, $this );
 		$this->buildTrunk( $tableau, $argument, $this->getLogic() );
-		$this->applyClosureRule( $tableau );
-		while ( !$tableau->isClosed() && $this->ruleCanApply( $tableau )) {
-			
-		}
-		while
-		$rules = $this->getRules();
 		$ruleHasApplied = false;
-		do {
-			$this->applyClosureRule( $tableau );
-			$ruleDidApply = false;
-			foreach ( $rules as $rule )
+		while ( !$tableau->isClosed() && $this->ruleCanApply( $tableau )) {
+			foreach ( $this->getRules() as $rule )
 				if ( $rule->applies( $tableau )) {
+					$ruleHasApplied = true;
 					Utilities::debug( "Applying " . get_class( $rule ) . ' rule.' );
-					$ruleHasApplied = $ruleDidApply = true;
 					$rule->apply( $tableau );
 					break;
 				}
-		} while ( $ruleDidApply || !$tableau->isClosed() );
-		$this->applyClosureRule( $tableau );
+		}
 		if ( !$ruleHasApplied ) Utilities::debug( '[NOTICE] No rules applied to the tableau.' );
 		return $tableau;
 	}
@@ -216,7 +160,7 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 	 */
 	public function isValidProof( Proof $tableau )
 	{
-		return !$tableau->hasOpenBranches();
+		return $tableau->isClosed();
 	}
 	
 	/**

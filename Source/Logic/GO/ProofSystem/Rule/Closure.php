@@ -15,29 +15,28 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/agpl-3.0.html>.
  */
 /**
- * Defines the LP Closure Rule class.
- * @package LP
+ * Defines the Closure rule class for GO.
+ * @package GO
  */
 
-namespace GoTableaux\Logic\LP\ProofSystem;
+namespace GoTableaux\Logic\GO\ProofSystem\Rule;
 
-use \GoTableaux\Logic as Logic;
 use \GoTableaux\Proof\TableauBranch as Branch;
-use \GoTableaux\Utilities as Utilities;
+use \GoTableaux\Logic as Logic;
 
 /**
- * Represents the LP closure rule.
- * @package LP
+ * Represents the tableaux closure rule for GO.
+ * @package GO
  */
-class ClosureRule extends \GoTableaux\Logic\FDE\ProofSystem\ClosureRule
+class Closure extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Closure
 {
-	public function doesApply( Branch $branch, Logic $logic )
+	public function appliesToBranch( Branch $branch, Logic $logic )
 	{
-		foreach ( $branch->find( 'all', array( 'designated' => false )) as $node ) {
-			$negated = $logic->negate( $node->getSentence() );
-			if ( $branch->find( 'exists', array( 'sentence' => $negated, 'designated' => false ))) 
-				return true;
+		foreach ( $branch->find( 'all', array( 'designated' => true )) as $node ) {
+			$sentence = $node->getSentence();
+			if ( $branch->find( 'exists', array( 'sentence' => $sentence, 'designated' => false ))) return true;
+			if ( $branch->find( 'exists', array( 'sentence' => $logic->negate( $sentence ), 'designated' => true ))) return true;
 		}
-		return parent::doesApply( $branch, $logic );
+		return false;
 	}
 }

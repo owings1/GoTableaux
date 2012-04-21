@@ -28,7 +28,6 @@ class MaterialBiconditionalDesignated extends \GoTableaux\ProofSystem\TableauxSy
 	protected $conditions = array(
 		'operator'	 => 'Material Biconditional',
 		'designated' => true,
-		'ticked'	 => false
 	);
 	
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )

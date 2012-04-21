@@ -28,7 +28,6 @@ class NegatedConditionalDesignated extends \GoTableaux\ProofSystem\TableauxSyste
 	protected $conditions = array(
 		'operator'   => array( 'Negation', 'Conditional' ),
 		'designated' => true,
-		'ticked'	 => false
 	);
 	
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )

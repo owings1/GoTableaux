@@ -26,8 +26,7 @@ use \GoTableaux\Logic as Logic;
 class NegatedMaterialConditional extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 {
 	protected $conditions = array(
-		'operator' 	=> array( 'Negation', 'Material Conditional' ),
-		'ticked' 	=> false,
+		'operator' 	=> array( 'Negation', 'Material Conditional' )
 	);
 	
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )

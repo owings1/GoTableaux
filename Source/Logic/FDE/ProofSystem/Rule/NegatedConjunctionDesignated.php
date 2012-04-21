@@ -28,7 +28,6 @@ class NegatedConjunctionDesignated extends \GoTableaux\ProofSystem\TableauxSyste
 	protected $conditions = array(
 		'operator'	 => array( 'Negation', 'Conjunction' ),
 		'designated' => true,
-		'ticked'	 => false
 	);
 	
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )

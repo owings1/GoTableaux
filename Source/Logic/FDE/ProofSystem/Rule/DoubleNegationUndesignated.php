@@ -28,7 +28,6 @@ class DoubleNegationUndesignated extends \GoTableaux\ProofSystem\TableauxSystem\
 	protected $conditions = array(
 		'operator'	 => array( 'Negation', 'Negation' ),
 		'designated' => false,
-		'ticked'	 => false
 	);
 	
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )

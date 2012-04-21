@@ -28,7 +28,6 @@ class DisjunctionUndesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rul
 	protected $conditions = array(
 		'operator'	 => 'Disjunction',
 		'designated' => false,
-		'ticked'	 => false
 	);
 	
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )

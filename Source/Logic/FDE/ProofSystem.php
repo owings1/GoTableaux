@@ -27,7 +27,8 @@ namespace GoTableaux\Logic\FDE;
  */
 class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem\ManyValued
 {
-	public $tableauRuleClasses = array(
+	public $ruleClasses = array(
+		'Closure',
 		'ConjunctionDesignated',
 		'ConjunctionUndesignated',
 		'NegatedConjunctionDesignated',

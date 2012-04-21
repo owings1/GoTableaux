@@ -15,28 +15,27 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/agpl-3.0.html>.
  */
 /**
- * Defines the K3 Closure Rule class.
- * @package StrongKleene
+ * Defines the Closure rule class for CPL.
+ * @package CPL
  */
 
-namespace GoTableaux\Logic\StrongKleene\ProofSystem;
+namespace GoTableaux\Logic\CPL\ProofSystem\Rule;
 
-use \GoTableaux\Logic as Logic;
 use \GoTableaux\Proof\TableauBranch as Branch;
+use \GoTableaux\Logic as Logic;
 
 /**
- * Represents the K3 closure rule.
- * @package StrongKleene
+ * Represents the tableaux closure rule for CPL.
+ * @package CPL
  */
-class ClosureRule extends \GoTableaux\Logic\FDE\ProofSystem\ClosureRule
+class Closure extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Closure
 {
-	public function doesApply( Branch $branch, Logic $logic )
+	public function appliesToBranch( Branch $branch, Logic $logic )
 	{
-		foreach ( $branch->find( 'all', array( 'designated' => true )) as $node ) {
-			$negated = $logic->negate( $node->getSentence() );
-			if ( $branch->find( 'exists', array( 'sentence' => $negated, 'designated' => true ))) 
-				return true;
+		foreach ( $branch->find( 'all' ) as $node ) {
+			$sentence = $logic->negate( $node->getSentence() );
+			if ( $branch->find( 'exists', compact( 'sentence' ))) return true;
 		}
-		return parent::doesApply( $branch, $logic );
+		return false;
 	}
 }

@@ -15,26 +15,27 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/agpl-3.0.html>.
  */
 /**
- * Defines the Closure rule class for FDE.
- * @package FDE
+ * Defines the LP Closure Rule class.
+ * @package LP
  */
 
-namespace GoTableaux\Logic\FDE\ProofSystem;
+namespace GoTableaux\Logic\LP\ProofSystem\Rule;
 
-use \GoTableaux\Proof\TableauBranch as Branch;
 use \GoTableaux\Logic as Logic;
+use \GoTableaux\Proof\TableauBranch as Branch;
 
 /**
- * Represents the tableaux closure rule for FDE.
- * @package FDE
+ * Represents the LP closure rule.
+ * @package LP
  */
-class ClosureRule implements \GoTableaux\ProofSystem\TableauxSystem\ClosureRule
+class Closure extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Closure
 {
-	public function doesApply( Branch $branch, Logic $logic )
+	public function appliesToBranch( Branch $branch, Logic $logic )
 	{
-		foreach ( $branch->find( 'all', array( 'designated' => true )) as $node ) 
-			if ( $branch->find( 'exists', array( 'sentence' => $node->getSentence(), 'designated' => false ))) 
+		foreach ( $branch->find( 'all', array( 'designated' => false )) as $node ) {
+			$negated = $logic->negate( $node->getSentence() );
+			if ( $branch->find( 'exists', array( 'sentence' => $negated, 'designated' => false ))) 
 				return true;
-		return false;
+		}
 	}
 }

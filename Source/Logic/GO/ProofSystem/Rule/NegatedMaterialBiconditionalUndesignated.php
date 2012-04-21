@@ -28,7 +28,6 @@ class NegatedMaterialBiconditionalUndesignated extends \GoTableaux\ProofSystem\T
 	protected $conditions = array(
 		'operator' 		=> array( 'Negation', 'Material Biconditional' ),
 		'designated' 	=> false,
-		'ticked' 		=> false
 	);
 	
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )

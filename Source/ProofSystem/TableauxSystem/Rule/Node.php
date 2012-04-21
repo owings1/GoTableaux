@@ -50,7 +50,7 @@ abstract class Node extends Branch
 	 */
 	final public function appliesToBranch( TableauBranch $branch, Logic $logic )
 	{
-		return $branch->find( 'exists', array_merge( $this->getConditions(), array( 'ticked' => false )));
+		return $branch->find( 'exists', $this->getConditions() );
 	}
 	
 	/**
@@ -65,8 +65,11 @@ abstract class Node extends Branch
 	 */
 	final public function applyToBranch( TableauBranch $branch, Logic $logic )
 	{
-		if ( !$node = $branch->find( 'first', array_merge( $this->getConditions(), array( 'ticked' => false ))))
+		$node = $branch->find( 'first', $this->getConditions() );
+		if ( empty( $node )) {
+			Utilities::debug( get_class( $this ));
 			throw new TableauException( 'Trying to apply a node rule to a branch that has no applicable nodes.' );
+		}
 		$this->applyToNode( $node, $branch, $logic );
 	}
 	
@@ -81,13 +84,13 @@ abstract class Node extends Branch
     }
     
     /**
-     * Gets the conditions.
+     * Gets the conditions. Forces unticked.
      * 
      * @return array The conditions. 
      */
     public function getConditions()
     {
-        return $this->conditions;
+        return array_merge( $this->conditions, array( 'ticked' => false ));
     }
     
     public function getExampleNode()
@@ -98,7 +101,7 @@ abstract class Node extends Branch
     }
 	
 	/**
-	 * Applies the changes to a branch for a node that meets $this->conditions.
+	 * Applies the changes to a branch for an unticked node that meets $this->conditions.
 	 *
 	 * @param TableauNode $node The node to apply the changes.
 	 * @param Branch $branch The branch for which the rule is applying.

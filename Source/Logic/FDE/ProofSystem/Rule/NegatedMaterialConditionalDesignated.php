@@ -28,7 +28,6 @@ class NegatedMaterialConditionalDesignated extends \GoTableaux\ProofSystem\Table
 	protected $conditions = array(
 		'operator'	 => array( 'Negation', 'Material Conditional' ),
 		'designated' => true,
-		'ticked'	 => false
 	);
 	
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )

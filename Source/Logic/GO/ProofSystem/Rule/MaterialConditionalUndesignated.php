@@ -28,7 +28,6 @@ class MaterialConditionalUndesignated extends \GoTableaux\ProofSystem\TableauxSy
 	protected $conditions = array(
 		'operator' 		=> 'Material Conditional',
 		'designated' 	=> false,
-		'ticked' 		=> false
 	);
 	
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )

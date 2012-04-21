@@ -28,7 +28,6 @@ class ConjunctionDesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rule\
 	protected $conditions = array(
 		'operator'	 => 'Conjunction',
 		'designated' => true,
-		'ticked'	 => false
 	);
 	
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )

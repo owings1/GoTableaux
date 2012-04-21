@@ -19,17 +19,29 @@
  * @package GoTableaux
  */
 
-namespace GoTableaux\ProofSystem\TableauxSystem;
+namespace GoTableaux\ProofSystem\TableauxSystem\Rule;
 
 use \GoTableaux\Logic as Logic;
-use \GoTableaux\Proof\TableauBranch as Branch;
+use \GoTableaux\Proof\TableauBranch as TableauBranch;
 
 /**
  * Represents a tableau closure rule.
  * @package GoTableaux
  */
-interface ClosureRule
+abstract class Closure extends Branch
 {
+	/**
+	 * Closes the branch.
+	 *
+	 * @param TableauBranch $branch The open branch.
+	 * @param Logic $logic The logic of the proof system.
+	 * @return void
+	 */
+	final public function applyToBranch( TableauBranch $branch, Logic $logic )
+	{
+		$branch->close();
+	}
+	
 	/**
 	 * Determines whether a branch should be closed, according to the 
 	 * implementation of the rule.
@@ -37,10 +49,8 @@ interface ClosureRule
 	 * @param Branch $branch The branch to check for applicability.
 	 * @param Logic $logic The logic.
 	 * @return boolean Whether the closure rule applies, and thus whether the
-	 *				   branch should be closed. In the default implementation
-	 *				   of Tableau::build(), the closing of the branch
-	 *				   occurs when true is returned.
+	 *				   branch should be closed.
 	 * @throws {@link TableauException}
 	 */
-	public function doesApply( Branch $branch, Logic $logic );
+	//abstract public function appliesToBranch( TableauBranch $branch, Logic $logic );
 }

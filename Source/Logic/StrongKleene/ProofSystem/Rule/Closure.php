@@ -15,28 +15,27 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/agpl-3.0.html>.
  */
 /**
- * Defines the Closure rule class for GO.
- * @package GO
+ * Defines the K3 Closure Rule class.
+ * @package StrongKleene
  */
 
-namespace GoTableaux\Logic\GO\ProofSystem;
+namespace GoTableaux\Logic\StrongKleene\ProofSystem\Rule;
 
-use \GoTableaux\Proof\TableauBranch as Branch;
 use \GoTableaux\Logic as Logic;
+use \GoTableaux\Proof\TableauBranch as Branch;
 
 /**
- * Represents the tableaux closure rule for GO.
- * @package GO
+ * Represents the K3 closure rule.
+ * @package StrongKleene
  */
-class ClosureRule implements \GoTableaux\ProofSystem\TableauxSystem\ClosureRule
+class Closure extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Closure
 {
-	public function doesApply( Branch $branch, Logic $logic )
+	public function appliesToBranch( Branch $branch, Logic $logic )
 	{
 		foreach ( $branch->find( 'all', array( 'designated' => true )) as $node ) {
-			$sentence = $node->getSentence();
-			if ( $branch->find( 'exists', array( 'sentence' => $sentence, 'designated' => false ))) return true;
-			if ( $branch->find( 'exists', array( 'sentence' => $logic->negate( $sentence ), 'designated' => true ))) return true;
+			$negated = $logic->negate( $node->getSentence() );
+			if ( $branch->find( 'exists', array( 'sentence' => $negated, 'designated' => true ))) 
+				return true;
 		}
-		return false;
 	}
 }

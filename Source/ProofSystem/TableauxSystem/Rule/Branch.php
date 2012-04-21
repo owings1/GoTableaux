@@ -42,24 +42,27 @@ abstract class Branch implements \GoTableaux\ProofSystem\TableauxSystem\Rule
 	public function applies( Tableau $tableau )
 	{
 		foreach( $tableau->getOpenBranches() as $branch )
-		 	if ( $this->appliesToBranch( $branch )) return true;	
+		 	if ( $this->appliesToBranch( $branch, $tableau->getProofSystem()->getLogic() )) return true;	
 		return false;
 	}
 
 	/**
 	 * Applies the rule to a tableau. 
 	 * 
-	 * A branch rule applies to the first open branch, if any.
+	 * A branch rule applies to the first open branch.
 	 *
 	 * @param Tableau $tableau The tableau to which to apply the rule.
 	 * @param Logic $logic The logic.
-	 * @return boolean Whether the rule did apply.
+	 * @return void
 	 */
 	public function apply( Tableau $tableau )
 	{
+		$logic = $tableau->getProofSystem()->getLogic();
 		foreach ( $tableau->getOpenBranches() as $branch )
-			if ( $this->applyToBranch( $branch, $tableau->getProofSystem()->getLogic() )) return true;
-		return false;
+			if ( $this->appliesToBranch( $branch, $logic )) 
+				return $this->applyToBranch( $branch, $logic );
+		Utilities::debug( get_class( $this ));
+		throw new TableauException( 'Trying to apply a branch rule to a tableau with no applicable branches.' );
 	}
 	
 	/**
