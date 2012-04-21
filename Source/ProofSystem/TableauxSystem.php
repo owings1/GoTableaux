@@ -161,31 +161,49 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
         });
 	}
 
-        /**
-         * Constructs a proof for an argument.
-         * 
-         * @param Argument $argument The argument.
-         * @return Tableau The tableau proof.
-         */
+	/**
+	 * Determines whether at least one rule can apply to a tableau.
+	 *
+	 * @param Tableau $tableau The tableau to check.
+	 * @return boolean Whether at least one rule can apply.
+	 */
+	public function ruleCanApply( Tableau $tableau )
+	{
+		foreach ( $this->getRules() as $rule )
+			if ( $rule->applies( $tableau )) return true;
+		return false;
+	}
+	
+    /**
+     * Constructs a proof for an argument.
+     * 
+     * @param Argument $argument The argument.
+     * @return Tableau The tableau proof.
+     */
 	public function constructProofForArgument( Argument $argument )
 	{
 		$tableau = new Tableau( $argument, $this );
 		$this->buildTrunk( $tableau, $argument, $this->getLogic() );
+		$this->applyClosureRule( $tableau );
+		while ( !$tableau->isClosed() && $this->ruleCanApply( $tableau )) {
+			
+		}
+		while
 		$rules = $this->getRules();
-		$i = 0;
 		$ruleHasApplied = false;
 		do {
 			$this->applyClosureRule( $tableau );
-			$rule 			= $rules[$i];
-			$ruleDidApply 	= false;
-			if ( $rule->apply( $tableau ) !== false ) {
-				Utilities::debug( "Rule " . get_class( $rule ) . ' applied' );
-				$ruleDidApply = $reuleHasApplied = true;
-				$i = 0;
-			}	
-		} while ( $ruleDidApply || isset( $rules[++$i] ));
+			$ruleDidApply = false;
+			foreach ( $rules as $rule )
+				if ( $rule->applies( $tableau )) {
+					Utilities::debug( "Applying " . get_class( $rule ) . ' rule.' );
+					$ruleHasApplied = $ruleDidApply = true;
+					$rule->apply( $tableau );
+					break;
+				}
+		} while ( $ruleDidApply || !$tableau->isClosed() );
 		$this->applyClosureRule( $tableau );
-		if ( !$ruleHasApplied ) Utilities::debug( 'No rules applied.' );
+		if ( !$ruleHasApplied ) Utilities::debug( '[NOTICE] No rules applied to the tableau.' );
 		return $tableau;
 	}
 	

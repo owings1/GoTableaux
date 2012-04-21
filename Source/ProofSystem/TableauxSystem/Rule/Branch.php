@@ -32,6 +32,21 @@ use \GoTableaux\Proof\TableauBranch as TableauBranch;
 abstract class Branch implements \GoTableaux\ProofSystem\TableauxSystem\Rule
 {
 	/**
+	 * Determines whether the rule can apply to the tableau.
+	 *
+	 * A branch rule can apply to a tableau when it can apply to an open branch.
+	 *
+	 * @param Tableau $tableau The tableau to check.
+	 * @return boolean Whether the rule can apply.
+	 */
+	public function applies( Tableau $tableau )
+	{
+		foreach( $tableau->getOpenBranches() as $branch )
+		 	if ( $this->appliesToBranch( $branch )) return true;	
+		return false;
+	}
+
+	/**
 	 * Applies the rule to a tableau. 
 	 * 
 	 * A branch rule applies to the first open branch, if any.
@@ -40,7 +55,7 @@ abstract class Branch implements \GoTableaux\ProofSystem\TableauxSystem\Rule
 	 * @param Logic $logic The logic.
 	 * @return boolean Whether the rule did apply.
 	 */
-	final public function apply( Tableau $tableau )
+	public function apply( Tableau $tableau )
 	{
 		foreach ( $tableau->getOpenBranches() as $branch )
 			if ( $this->applyToBranch( $branch, $tableau->getProofSystem()->getLogic() )) return true;
@@ -48,11 +63,20 @@ abstract class Branch implements \GoTableaux\ProofSystem\TableauxSystem\Rule
 	}
 	
 	/**
+	 * Determines whether a rule can apply to a branch.
+	 *
+	 * @param TableauBranch The branch to check.
+	 * @param Logic $logic The logic of the proof system.
+	 * @return boolean Whether the rule can apply.
+	 */
+	abstract public function appliesToBranch( TableauBranch $branch, Logic $logic );
+	
+	/**
 	 * Applies the rule to an open branch.
 	 *
-	 * @param Branch $branch The open branch.
+	 * @param TableauBranch $branch The open branch.
 	 * @param Logic $logic The logic of the proof system.
-	 * @return boolean Whether the rule did apply.
+	 * @return void
 	 */
 	abstract public function applyToBranch( TableauBranch $branch, Logic $logic );
 }

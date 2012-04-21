@@ -24,10 +24,6 @@ namespace GoTableaux\Proof;
 use \GoTableaux\Sentence as Sentence;
 use \GoTableaux\Utilities as Utilities;
 use \GoTableaux\Proof\TableauNode as Node;
-use \GoTableaux\Proof\TableauNode\Modal as ModalNode;
-use \GoTableaux\Proof\TableauNode\Access as AccessNode;
-use \GoTableaux\Proof\TableauNode\Sentence as SentenceNode;
-use \GoTableaux\Proof\TableauNode\ManyValued as ManyValuedNode;
 
 /**
  * Represents a tableau branch.
@@ -100,6 +96,16 @@ class TableauBranch
 	public function getTickedNodes()
 	{
 		return $this->tickedNodes;
+	}
+	
+	/**
+	 * Gets all the nodes on the branch that are not ticked relative to the branch.
+	 *
+	 * @return array The unticked nodes.
+	 */
+	public function getUntickedNodes()
+	{
+		return Utilities::arrayDiff( $this->getNodes(), $this->getTickedNodes() );
 	}
 
 	/**

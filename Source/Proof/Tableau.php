@@ -100,6 +100,18 @@ class Tableau extends \GoTableaux\Proof
 	}
 	
 	/**
+	 * Checks whether the tableau is closed.
+	 *
+	 * A tableau is closed when it has no open branches.
+	 *
+	 * @return boolean Whether the tableau is closed.
+	 */
+	public function isClosed()
+	{
+		return !$this->hasOpenBranches();
+	}
+	
+	/**
 	 * Removes one or more branches from the tree.
 	 *
 	 * @param Branch|array $branches The branch or array of branches to remove.

@@ -89,6 +89,11 @@ abstract class ProofSystem
 	abstract public function isValidProof( Proof $proof );
 	
 	/**
+	 * Checks whether a proof is completed.
+	 *
+	 * @
+	 */
+	/**
 	 * Gets a counterexample from a proof.
 	 *
 	 * @param Proof $proof The (putative) proof from which to get a counterexample.

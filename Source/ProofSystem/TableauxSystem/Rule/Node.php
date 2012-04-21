@@ -24,6 +24,7 @@ namespace GoTableaux\ProofSystem\TableauxSystem\Rule;
 use \GoTableaux\Logic as Logic;
 use \GoTableaux\Proof\TableauBranch as TableauBranch;
 use \GoTableaux\Proof\TableauNode as TableauNode;
+use \GoTableaux\Exception\Tableau as TableauException;
 use \GoTableaux\Utilities as Utilities;
 
 /**
@@ -39,18 +40,34 @@ abstract class Node extends Branch
 	protected $conditions = array();
 	
 	/**
+	 * Determines whether a rule can apply to a branch.
+	 *
+	 * A node rule can apply to a branch when it can apply to a node.
+	 *
+	 * @param TableauBranch The branch to check.
+	 * @param Logic $logic The logic of the proof system.
+	 * @return boolean Whether the rule can apply.
+	 */
+	final public function appliesToBranch( TableauBranch $branch, Logic $logic )
+	{
+		return $branch->find( 'exists', array_merge( $this->getConditions(), array( 'ticked' => false )));
+	}
+	
+	/**
 	 * Looks for a node on the branch that meets $this->conditions, and passes
 	 * it to applyToNode().
 	 *
 	 * @param Branch $branch The branch.
 	 * @param Logic $logic The logic.
-	 * @return boolean Whether the rule was applied.
+	 * @return void
+	 * @throws TableauException if there is no node on the branch to which the 
+	 *		   rule applies.
 	 */
 	final public function applyToBranch( TableauBranch $branch, Logic $logic )
 	{
-		if ( !$node = $branch->find( 'one', $this->getConditions() )) return false;
+		if ( !$node = $branch->find( 'first', array_merge( $this->getConditions(), array( 'ticked' => false ))))
+			throw new TableauException( 'Trying to apply a node rule to a branch that has no applicable nodes.' );
 		$this->applyToNode( $node, $branch, $logic );
-		return true;
 	}
 	
     /**
@@ -79,6 +96,7 @@ abstract class Node extends Branch
         // TODO Finish function
         //if ( !empty)
     }
+	
 	/**
 	 * Applies the changes to a branch for a node that meets $this->conditions.
 	 *

@@ -31,6 +31,14 @@ use \GoTableaux\Proof\Tableau as Tableau;
 interface Rule
 {
 	/**
+	 * Determines whether the rule can apply to the tableau.
+	 *
+	 * @param Tableau $tableau The tableau to check.
+	 * @return boolean Whether the rule can apply.
+	 */
+	public function applies( Tableau $tableau );
+	
+	/**
 	 * Applies the rule to a tableau.
 	 *
 	 * @param Tableau $tableau The tableau to which to apply the rule.
