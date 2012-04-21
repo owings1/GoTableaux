@@ -119,14 +119,7 @@ abstract class Tableau extends \GoTableaux\ProofWriter
 	public function getClassesForNode( Node $node )
 	{
 		$classes = array();
-		if ( $node->hasClass( 'Sentence' )) 
-			$classes[] = 'sentence';
-		if ( $node->hasClass( 'Modal' ))
-			$classes[] = 'modal';
-		if ( $node->hasClass( 'Access'))
-			$classes[] = 'access';
-		if ( $node->hasClass( 'ManyValued' ))
-			$classes[] = 'manyValued';
+		foreach ( $node->getClasses() as $class ) $classes[] = lcfirst( $class );
 		return $classes;
 	}
 	

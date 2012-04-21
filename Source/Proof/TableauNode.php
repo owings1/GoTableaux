@@ -21,6 +21,9 @@
 
 namespace GoTableaux\Proof;
 
+use \GoTableaux\Logic as Logic;
+use \GoTableaux\Utilities as Utilities;
+
 /**
  * Represents a node on a branch.
  * @package GoTableaux
@@ -128,10 +131,11 @@ class TableauNode
 	 * should likewise check parent::filter().
 	 *
 	 * @param array $conditions A hash of the conditions to pass.
+	 * @param Logic $logic The logic.
 	 * @return boolean Wether the node passes (i.e. is not ruled out by) the conditions.
 	 * @see TableauBranch::find()
 	 */
-	public function filter( array $conditions )
+	public function filter( array $conditions, Logic $logic )
 	{
 		return true;
 	}
@@ -146,7 +150,7 @@ class TableauNode
 	 */
 	public function beforeAttach( TableauBranch $branch )
 	{
-		
+		return;
 	}
     
 	/**
@@ -160,7 +164,7 @@ class TableauNode
 	 */
     public function setProperties( array $properties )
     {
-        
+        return;
     }
 
 	/**

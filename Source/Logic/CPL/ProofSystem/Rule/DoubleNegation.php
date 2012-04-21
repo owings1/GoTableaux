@@ -26,7 +26,7 @@ use \GoTableaux\Logic as Logic;
 class DoubleNegation extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 {
 	protected $conditions = array(
-		'operator' 	=> array( 'Negation', 'Negation' )
+		'sentenceForm' => '~~A'
 	);
 	
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )

@@ -21,7 +21,8 @@
 
 namespace GoTableaux\Proof\TableauNode;
 
-use \GoTableaux\Exception\Tableau as Tableau;
+use \GoTableaux\Logic as Logic;
+use \GoTableaux\Exception\Tableau as TableauException;
 
 /**
  * Represents a modal logic access relation node.
@@ -66,12 +67,13 @@ class Access extends Modal
 	 * should likewise check parent::filter().
 	 *
 	 * @param array $conditions A hash of the conditions to pass.
+	 * @param Logic $logic The logic.
 	 * @return boolean Wether the node passes (i.e. is not ruled out by) the conditions.
 	 * @see TableauBranch::find()
 	 */
-	public function filter( array $conditions )
+	public function filter( array $conditions, Logic $logic )
 	{
-		if ( !parent::filter( $conditions )) return false;
+		if ( !parent::filter( $conditions, $logic )) return false;
 		return !isset( $conditions['j' ] ) || $this->getJ() === $conditions['j'];
 	}
 	

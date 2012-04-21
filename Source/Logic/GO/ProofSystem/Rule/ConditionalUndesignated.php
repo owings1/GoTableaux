@@ -26,7 +26,7 @@ use \GoTableaux\Logic as Logic;
 class ConditionalUndesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 {
 	protected $conditions = array(
-		'operator' => 'Conditional',
+		'sentenceForm' => 'A $ B',
 		'designated' => false,
 	);
 	

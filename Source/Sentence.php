@@ -89,25 +89,25 @@ class Sentence
 		return true;
 	}
 	
-        /**
-         * Checks whether the form of the first sentence is consitent, if less
-         * complex, than the first.
-         * 
-         * @param Sentence $super A sentence with the basic form.
-         * @param Sentence $sentence The sentence to examine whether it has a 
-         *                           form consitent with $super.
-         * @return boolean Whether the sentences have a similar form.
-         */
-        public static function similarForm( Sentence $super, Sentence $sentence )
-        {
-            if ( $super instanceof AtomicSentence ) return true;
-            if ( $sentence->getOperatorName() !== $super->getOperatorName() ) return false;
-            $sentenceOperands = $sentence->getOperands();
-            foreach ( $super->gerOperands() as $key => $operand )
-                if ( empty( $sentenceOperands[$key] ) || !self::similarForm( $operand, $sentenceOperands[$key] )) 
-                    return false;
-            return true;
-        }
+    /**
+     * Checks whether the form of the first sentence is consitent, if less
+     * complex, than the first.
+     * 
+     * @param Sentence $super A sentence with the basic form.
+     * @param Sentence $sentence The sentence to examine whether it has a 
+     *                           form consitent with $super.
+     * @return boolean Whether the sentences have a similar form.
+     */
+    public static function similarForm( Sentence $super, Sentence $sentence )
+    {
+        if ( $super instanceof AtomicSentence ) return true;
+        if ( $sentence->getOperatorName() !== $super->getOperatorName() ) return false;
+        $sentenceOperands = $sentence->getOperands();
+        foreach ( $super->getOperands() as $key => $operand )
+            if ( empty( $sentenceOperands[$key] ) || !self::similarForm( $operand, $sentenceOperands[$key] )) 
+                return false;
+        return true;
+    }
 	/**
 	 * Checks whether $haystack has a sentence with the same form as $needle.
 	 *

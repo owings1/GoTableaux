@@ -21,6 +21,7 @@
 
 namespace GoTableaux\Proof\TableauNode;
 
+use \GoTableaux\Logic as Logic;
 use \GoTableaux\Sentence as Sent;
 use \GoTableaux\Proof\TableauBranch as Branch;
 use \GoTableaux\Exception\Tableau as TableauException;
@@ -77,19 +78,28 @@ class Sentence extends \GoTableaux\Proof\TableauNode
 	 * should likewise check parent::filter().
 	 *
 	 * @param array $conditions A hash of the conditions to pass.
+	 * @param Logic $logic The logic.
 	 * @return boolean Wether the node passes (i.e. is not ruled out by) the conditions.
 	 * @see TableauBranch::find()
 	 */
-	public function filter( array $conditions )
+	public function filter( array $conditions, Logic $logic )
 	{
-		if ( !$this->node->filter( $conditions )) return false;
-		if ( !empty( $conditions['sentence' ] )) return $this->getSentence() === $conditions['sentence'];
-		if ( empty( $conditions['operator'] )) return true;
-		$operators = (array) $conditions['operator'];
-		if ( $this->getSentence()->getOperatorName() !== $operators[0] ) return false;
-		if ( empty( $operators[1] )) return true;
-		list( $firstOperand ) = $this->getSentence()->getOperands();
-		return $firstOperand->getOperatorName() === $operators[1];
+		if ( !$this->node->filter( $conditions, $logic )) return false;
+		if ( !empty( $conditions['sentence'] )) return $this->getSentence() === $conditions['sentence'];
+		if ( !empty( $conditions['sentenceForm'] )) {
+			$sentence = $logic->parseSentence( $conditions['sentenceForm'] );
+			if ( !Sent::similarForm( $sentence, $this->getSentence() )) return false;			
+		}
+		if ( !empty( $conditions['operator'] )) {
+			$operators = (array) $conditions['operator'];
+			if ( $this->getSentence()->getOperatorName() !== $operators[0] ) return false;
+			if ( !empty( $operators[1] )) {
+				list( $firstOperand ) = $this->getSentence()->getOperands();
+				if ( $firstOperand->getOperatorName() !== $operators[1] ) return false;
+			}
+		} 
+		return true;
+		
 	}
 	
 	/**

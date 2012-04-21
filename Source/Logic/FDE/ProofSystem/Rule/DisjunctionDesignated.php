@@ -26,7 +26,7 @@ use \GoTableaux\Logic as Logic;
 class DisjunctionDesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 {
 	protected $conditions = array(
-		'operator'	 => 'Disjunction',
+		'sentenceForm' => 'A V B',
 		'designated' => true,
 	);
 	

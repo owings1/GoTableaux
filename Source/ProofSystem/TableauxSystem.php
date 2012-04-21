@@ -186,3 +186,30 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 	 */
 	abstract public function buildTrunk( Tableau $tableau, Argument $argument, Logic $logic );
 }
+// old build trunks
+/*
+
+$trunk = $tableau->createBranch();
+foreach ( $argument->getPremises() as $premise ) 
+	$trunk->createNode( 'Sentence\Modal', array(
+		'sentence' => $premise,
+		'i'	=> 0
+	));
+$trunk->createNode( 'Sentence\Modal', array(
+	'sentence' => $logic->negate( $argument->getConclusion() ),
+	'i'	=> 0
+));
+
+$trunk = $tableau->createBranch();
+foreach ( $argument->getPremises() as $premise ) 
+	$trunk->createNode( 'Sentence\Modal\ManyValued', array( 
+		'sentence' => $premise, 
+		'i' => 0, '
+		designated' => true 
+	));
+$trunk->createNode( 'Sentence\Modal\ManyValued', array( 
+	'sentence' => $argument->getConclusion(), 
+	'i' => 0, 
+	'designated' => false 
+));
+*/

@@ -26,7 +26,7 @@ use \GoTableaux\Logic as Logic;
 class MaterialBiconditional extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 {
 	protected $conditions = array(
-		'operator' 	=> 'Material Biconditional'
+		'sentenceForm' => 'A < B'
 	);
 	
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )

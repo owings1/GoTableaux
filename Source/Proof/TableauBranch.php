@@ -21,6 +21,7 @@
 
 namespace GoTableaux\Proof;
 
+use \GoTableaux\Logic as Logic;
 use \GoTableaux\Sentence as Sentence;
 use \GoTableaux\Utilities as Utilities;
 
@@ -209,7 +210,10 @@ class TableauBranch
 			$nodes = array_filter( $nodes, function( $node ) use( $conditions, $that ) {
 				return $that->nodeIsTicked( $node ) === $conditions['ticked'];
 			});
-		$nodes = array_filter( $nodes, function( $node ) use( $conditions ) { return $node->filter( $conditions ); });
+		$logic = $this->getTableau()->getProofSystem()->getLogic();
+		$nodes = array_filter( $nodes, function( $node ) use( $conditions, $logic ) { 
+			return $node->filter( $conditions, $logic ); 
+		});
 		switch ( $ret ) {
 			case 'one'    :
 			case 'first'  : return array_shift( $nodes );

@@ -26,9 +26,8 @@ use \GoTableaux\Logic as Logic;
 class ConditionalDesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 {
 	protected $conditions = array(
-		'operator' => 'Conditional',
+		'sentenceForm' => 'A $ B',
 		'designated' => true,
-		'ticked'	 => false
 	);
 	
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )

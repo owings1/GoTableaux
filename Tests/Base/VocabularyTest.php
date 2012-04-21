@@ -45,6 +45,18 @@ class VocabularyTest extends UnitTestCase
 		return $this->logic->getVocabulary()->registerSentence( $sentence );
 	}
 	
+	private function assertSimForm( $a, $b )
+	{
+		if ( is_string( $a )) $a = $this->parse( $a );
+		if ( is_string( $b )) $b = $this->parse( $b );
+		return $this->assertTrue( Sentence::similarForm( $a, $b ));
+	}
+	private function assertNotSimForm( $a, $b )
+	{
+		if ( is_string( $a )) $a = $this->parse( $a );
+		if ( is_string( $b )) $b = $this->parse( $b );
+		return $this->assertFalse( Sentence::similarForm( $a, $b ));
+	}
 	public function testRegisteringCreatesMissingMoleculars()
 	{
 		$this->logic->initVocabulary();
@@ -93,5 +105,23 @@ class VocabularyTest extends UnitTestCase
 		$this->assertEachIsA( $b_and_c_ops, '\GoTableaux\Sentence\Atomic' );
 		$this->assertIdentical( $b_and_c_ops[0]->getSymbol(), 'B' );
 		$this->assertIdentical( $b_and_c_ops[1]->getSymbol(), 'C' );
+	}
+	
+	function testSimilarForm()
+	{
+		$this->assertSimForm( 'A', 'A' );
+		$this->assertSimForm( 'A', 'B' );
+		$this->assertSimForm( 'A', 'B & C' );
+		$this->assertSimForm( 'A & B', 'A & B' );
+		$this->assertSimForm( 'A & B', 'B & C' );
+		$this->assertSimForm( 'A & B', 'C & D');
+		$this->assertSimForm( 'A & B', 'C & ~A' );
+		$this->assertSimForm( 'A & B', 'A & (B V C)' );
+		
+		$this->assertNotSimForm( 'A & B', 'A' );
+		$this->assertNotSimForm( '~B', 'A > B' );
+		$this->assertNotSimForm( 'B V C', 'A & (B V C)' );
+		$this->assertNotSimForm( 'C & D', 'C V D' );
+
 	}
 }

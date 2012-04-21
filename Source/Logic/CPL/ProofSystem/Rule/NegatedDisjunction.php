@@ -26,7 +26,7 @@ use \GoTableaux\Logic as Logic;
 class NegatedDisjunction extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 {
 	protected $conditions = array(
-		'operator' 	=> array( 'Negation', 'Disjunction' )
+		'sentenceForm' => '~(A V B)'
 	);
 	
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )
