@@ -37,6 +37,12 @@ class ManyValued extends \GoTableaux\Proof\TableauNode
     public static $metaSymbolNames = array( 'designatedMarker', 'undesignatedMarker' );
 
 	/**
+	 * States which filter conditions should enforce a node to be this class.
+	 * @var array
+	 */
+	public static $forceClassOnConditions = array( 'designated' );
+
+	/**
 	 * Holds the designation
 	 * @var boolean
 	 */

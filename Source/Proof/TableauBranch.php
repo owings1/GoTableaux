@@ -111,7 +111,7 @@ class TableauBranch
 	/**
 	 * Gets all nodes that have certain class name.
 	 *
-	 * @param string $classes The class(es).
+	 * @param array|string $classes The class(es).
 	 * @return array The nodes on the branch that are of all the classes.
 	 */
 	public function getNodesByClassName( $classes )
@@ -204,8 +204,17 @@ class TableauBranch
 	 */
 	public function find( $ret = 'all', array $conditions = array() )
 	{
+		$classes = TableauNode::induceClassesFromConditions( $conditions );
+	//	if ( !empty( $classes ))
+	//		Utilities::debug( $classes ) || 		die();
+
+		if ( !empty( $conditions['class'] )) 
+			$classes = array_merge( 
+				is_array( $conditions['class'] ) ? $conditions['class'] : explode( ' ', $conditions['class'] ),
+				$classes
+			);
+		$nodes = $this->getNodesByClassName( $classes );
 		$that = $this;
-		$nodes = !empty( $conditions['class'] ) ? $this->getNodesByClassName( $conditions['class'] ) : $this->getNodes();
 		if ( isset( $conditions['ticked'] ))
 			$nodes = array_filter( $nodes, function( $node ) use( $conditions, $that ) {
 				return $that->nodeIsTicked( $node ) === $conditions['ticked'];
@@ -302,5 +311,34 @@ class TableauBranch
         }
 		$this->addNode( $node );
 		return $this;
+	}
+	
+	/**
+	 * Gets all the indexes that appear on the branch.
+	 *
+	 * @return array The indexes on the branch.
+	 */
+	public function getIndexes()
+	{
+		return array_unique( array_merge( 
+			array_map( 
+				function( $node ) { return $node->getI(); }, 
+				$this->find( 'all', array( 'class' => 'Modal' ))
+			), 
+			array_map( 
+				function ( $node ) { return $node->getJ(); }, 
+				$this->find( 'all', array( 'class' => 'Access' ))
+			)
+		));
+	}
+	
+	/**
+	 * Gets an index that does not appear on the branch.
+	 *
+	 * @return integer An index new to the branch.
+	 */
+	public function newIndex()
+	{
+		return max( $this->getIndexes() ) + 1;
 	}
 }

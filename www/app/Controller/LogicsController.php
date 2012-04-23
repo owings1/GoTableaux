@@ -14,18 +14,21 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/agpl-3.0.html>.
  */
+use GoTableaux\Utilities as Utilities;
 use GoTableaux\Logic as Logic;
 use GoTableaux\ProofWriter as ProofWriter;
 use GoTableaux\SentenceWriter as SentenceWriter;
 use GoTableaux\Argument as Argument;
+use GoTableaux\Proof\Tableau as Tableau;
+use GoTableaux\ProofSystem\TableauxSystem\Rule\Node as NodeRule;
 
 class LogicsController extends AppController
 {
 	public $uses = null;
 	
-	public $logics = array( 'CPL', 'FDE', 'LP', 'StrongKleene', 'Lukasiewicz', 'GO' );
+	public $logics = array( 'CPL', 'FDE', 'LP', 'StrongKleene', 'Lukasiewicz', 'GO', 'K' );
 	
-        public $helpers = array( 'Inflect' );
+    public $helpers = array( 'Inflect' );
         
 	private $exampleArguments = array(
 		'Disjunctive Syllogism' 	=> array( array( 'A V B', '~B' ), 'A' ),
@@ -78,7 +81,7 @@ class LogicsController extends AppController
 				$result = $proof->isValid() ? 'valid' : 'invalid';
 				
 				$proofWriter = ProofWriter::getInstance( $proof );
-				$argumentText = $proofWriter->writeArgumentOfProof( $proof );
+				$argumentText = $proofWriter->writeArgumentOfProof( $proof, 'Standard\HTML' );
 				
 				$latexProofWriter = ProofWriter::getInstance( $proof, 'LaTeX_Qtree' );
 				$proofLatex = $latexProofWriter->writeProof( $proof );
@@ -132,7 +135,6 @@ class LogicsController extends AppController
 			return $this->redirect( 'index' );
 		}
 		try {
-                    debug( $this->data ); die();
 			$Logic = Logic::getInstance( $this->logics[$this->data['logic']] );
 			$premises = array();
 			foreach ( $this->data['premises'] as $premiseStr )
@@ -155,22 +157,50 @@ class LogicsController extends AppController
 		$this->set( compact( 'pdfContent' ));
 	}
         
-        /**
-         * Views details about a logic.
-         * 
-         * @param string $logic 
-         * 
-         */
-        public function view( $logic )
-        {
-            if ( !in_array( $logic, $this->logics )) {
-                $this->Session->setFlash( "Unknown logic $logic" );
-                return $this->redirect( 'index' ); 
-            }
-            $Logic = Logic::getInstance( $logic );
-            $title_for_layout = $logicName = $Logic->getName();
-            $nodeRules = $Logic->getProofSystem()->getRules( 'Node' );
-            $sentenceWriter = SentenceWriter::getInstance( $Logic->getVocabulary(), 'Standard\HTML');
-            $this->set( compact( 'logicName', 'title_for_layout', 'nodeRules', 'sentenceWriter' ));
-        }
+	/**
+	 * View details about a logic.
+	 * 
+	 * @param string $logic 
+	 * 
+	 */
+	public function view( $logic )
+	{
+	    if ( !in_array( $logic, $this->logics )) {
+	        $this->Session->setFlash( "Unknown logic $logic" );
+	        return $this->redirect( 'index' ); 
+	    }
+	    $Logic = Logic::getInstance( $logic );
+	    $title_for_layout = $logicName = $Logic->getName();
+		$rules = array();
+		$rule['class'] = str_replace( '\\', '.', get_class( $Logic->getProofSystem() )) . '.TrunkRule';
+		$rule['name'] = 'Trunk (Initial Rule)';
+		$exampleTableau = new Tableau( $Logic->getProofSystem() );
+		$Logic->getProofSystem()->buildTrunk( $exampleTableau, $Logic->parseArgument( array( 'A > B', 'A' ), 'B' ), $Logic );
+		$jsonProofWriter = ProofWriter::getInstance( $exampleTableau, 'JSON' );
+		$rule['tableauJSON'] = $jsonProofWriter->writeProof( $exampleTableau );
+		$rules[] = $rule;
+	    $sentenceWriter = SentenceWriter::getInstance( $Logic->getVocabulary(), 'Standard\HTML');
+		foreach ( $Logic->getProofSystem()->getRules() as $Rule ) {
+			$rule = array();
+			$rule['class'] = str_replace( '\\', '.', get_class( $Rule ));
+			$rule['name'] = Utilities::getBaseClassName( $Rule );
+			if ( $Rule instanceof NodeRule ) {
+				$rule['conditions'] = $Rule->getConditions();
+				// Convert sentences to HTML
+				if ( !empty( $rule['conditions']['sentenceForm'] )) {
+					$sentence = $Logic->parseSentence( $rule['conditions']['sentenceForm'] );
+					$rule['conditions']['sentenceForm'] = $sentenceWriter->writeSentence( $sentence );
+				}
+				if ( !empty( $rules['conditions']['sentence'] )) {
+					$rule['conditions']['sentence'] = $sentenceWriter->writeSentence( $rule['conditions']['sentence'] );
+				}
+			}
+			if ( $exampleTableau = $Rule->getExample( $Logic )) {
+				$jsonProofWriter = ProofWriter::getInstance( $exampleTableau, 'JSON' );
+				$rule['tableauJSON'] = $jsonProofWriter->writeProof( $exampleTableau );
+			}
+			$rules[] = $rule;
+		}
+	    $this->set( compact( 'logicName', 'title_for_layout', 'rules' ));
+	}
 }

@@ -33,7 +33,7 @@ if ( !defined( 'DS' )) {
 	 * @package GoTableaux
 	 */
 	define( 'DS', DIRECTORY_SEPARATOR );
-} 
+}
 
 /**
  * Loads class files.

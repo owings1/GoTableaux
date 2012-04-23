@@ -29,7 +29,8 @@ namespace GoTableaux\Logic\GO;
 class ProofSystem extends \GoTableaux\Logic\FDE\ProofSystem
 {
 	public $ruleClasses = array(
-		'Closure',
+		'FDE.Closure',
+		'StrongKleene.Closure',
 		'FDE.ConjunctionDesignated',
 		'ConjunctionUndesignated',
 		'NegatedConjunctionDesignated',
@@ -48,7 +49,7 @@ class ProofSystem extends \GoTableaux\Logic\FDE\ProofSystem
 		'NegatedMaterialBiconditionalUndesignated',
 		'FDE.DoubleNegationDesignated',
 		'FDE.DoubleNegationUndesignated',
-		'Lukasiewicz/ConditionalDesignated',
+		'Lukasiewicz.ConditionalDesignated',
 		'ConditionalUndesignated',
 		'NegatedConditionalDesignated',
 		'NegatedConditionalUndesignated',

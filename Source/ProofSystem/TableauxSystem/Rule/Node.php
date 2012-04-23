@@ -50,7 +50,9 @@ abstract class Node extends Branch
 	 */
 	final public function appliesToBranch( TableauBranch $branch, Logic $logic )
 	{
-		return $branch->find( 'exists', $this->getConditions() );
+		foreach ( $branch->getUntickedNodes() as $node )
+			if ( $this->appliesToNode( $node, $branch, $logic )) return true;
+		return false;
 	}
 	
 	/**
@@ -73,6 +75,18 @@ abstract class Node extends Branch
 		$this->applyToNode( $node, $branch, $logic );
 	}
 	
+	/**
+	 * Builds an example branch for the rule.
+	 *
+	 * @param TableauBrach $branch The branch to build.
+	 * @param Logic $logic The logic.
+	 * @return void
+	 */
+	final public function buildExample( TableauBranch $branch, Logic $logic )
+	{
+		$branch->addNode( $this->getExampleNode( $logic ));
+	}
+	
     /**
      * Gets the base name of the rule.
      * 
@@ -90,15 +104,56 @@ abstract class Node extends Branch
      */
     public function getConditions()
     {
-        return array_merge( $this->conditions, array( 'ticked' => false ));
+        return array_merge( array( 'ticked' => false ), $this->conditions );
     }
     
-    public function getExampleNode()
+	/**
+	 * Gets an example node based on the rule's conditions.
+	 *
+	 * @param Logic $logic The logic.
+	 * @return TableauNode|boolean The example node, or false if no example 
+	 *							   could be induced.
+	 */
+    private function getExampleNode( Logic $logic )
     {
         $conditions = $this->getConditions();
-        // TODO Finish function
-        //if ( !empty)
+		$classes = $properties = array();
+		if ( !empty( $conditions['sentenceForm'] )) {
+			$classes[] = 'Sentence';
+			$properties['sentence'] = $logic->parseSentence( $conditions['sentenceForm'] );
+		}
+		if ( isset( $conditions['designated'] )) {
+			$classes[] = 'ManyValued';
+			$properties['designated'] = $conditions['designated'];
+		}
+		if ( isset( $conditions['i'] )) {
+			$classes[] = 'Modal';
+			$properties['i'] = $conditions['i'] === '*' ? 0 : $conditions['i'];
+		}
+		if ( isset( $conditions['j'] )) {
+			$classes[] = 'Access';
+			$properties['i'] = $conditions['j'] === '*' ? 0 : $conditions['j'];
+		}
+		if ( empty( $classes )) return false;
+		$node = new TableauNode;
+		$baseClass = get_class( $node );
+		foreach ( $classes as $class ) {
+			$class = $baseClass . '\\' . $class;
+			$node = new $class( $node, $properties );
+		}
+		return $node;
     }
+	
+	/**
+	 * Determines whether the rule applies to a node.
+	 *
+	 * The default implementation is to run a simple find query on the branch 
+	 * with the rule's conditions.
+	 */
+	public function appliesToNode( TableauNode $node, TableauBranch $branch, Logic $logic )
+	{
+		return $node->filter( $this->getConditions(), $logic );
+	}
 	
 	/**
 	 * Applies the changes to a branch for an unticked node that meets $this->conditions.

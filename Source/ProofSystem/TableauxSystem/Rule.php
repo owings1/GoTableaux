@@ -45,4 +45,12 @@ interface Rule
 	 * @return boolean Whether the rule did apply.
 	 */
 	public function apply( Tableau $tableau );
+	
+	/**
+	 * Creates an example tableau for the rule.
+	 * 
+	 * @param Logic $logic The logic.
+	 * @return Tableau The example tableau.
+	 */
+	public function getExample( Logic $logic );
 }

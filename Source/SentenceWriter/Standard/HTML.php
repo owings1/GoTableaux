@@ -34,12 +34,14 @@ use \GoTableaux\Sentence\Molecular as MolecularSentence;
 class HTML extends \GoTableaux\SentenceWriter\Standard
 {
 	protected $operatorTranslations = array(
-		'Conjunction' => '&amp;',
-		'Disjunction' => 'v',
-		'Negation'	  => '~',
-		'Material Conditional' 	=> '\supset',
-		'Material Biconditional' => '\equiv',
-		'Conditional' => '\rightarrow',
+		'Conjunction' => '&and;',
+		'Disjunction' => '&or;',
+		'Negation'	  => '&not;',
+		'Material Conditional' 	=> '&sup;',
+		'Material Biconditional' => '&equiv;',
+		'Conditional' => '&rarr;',
+		'Necessity' => '◻',
+		'Possibility' => '⟡'
 	);
 	
 	public function writeSubscript( $subscript )

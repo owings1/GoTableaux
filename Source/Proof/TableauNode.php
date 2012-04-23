@@ -43,6 +43,50 @@ class TableauNode
     protected $node;
     
 	/**
+	 * The child classes.
+	 * @var array
+	 */
+	private static $childClasses = array();
+	
+	/**
+	 * Gets all the child classes.
+	 *
+	 * @return array The child classes.
+	 */
+	public static function getChildClasses()
+	{
+		if ( empty( self::$childClasses )) {
+			foreach ( glob( __DIR__ . DS . 'TableauNode' . DS . '*.php') as $file ) {
+				$class =  __NAMESPACE__ . '\TableauNode\\' . str_replace( '.php', '', basename( $file ));
+				if ( class_exists( $class )) self::$childClasses[] = '\\' . $class; 
+			}
+		}
+		return self::$childClasses;
+	}
+	
+	/**
+	 * Induces node classes based on which conditions are set.
+	 *
+	 * @param array $conditions The conditions.
+	 */
+	public static function induceClassesFromConditions( array $conditions )
+	{
+		$classes = array();
+		foreach ( self::getChildClasses() as $class ) {
+			//Utilities::debug( $class );
+			if ( empty( $class::$forceClassOnConditions )) continue;
+			foreach ( $class::$forceClassOnConditions as $condition )
+				//Utilities::debug( $condition );
+				//Utilities::debug( $conditions );
+				if ( isset( $conditions[$condition] )) {
+					$classes[] = Utilities::getBaseClassName( $class );
+					break;
+				}
+		}
+		return $classes;
+	}
+	
+	/**
 	 * Constructor. Initializes decorator.
 	 *
 	 * To build a node, first create an instance of TableauNode with empty

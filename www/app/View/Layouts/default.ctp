@@ -44,8 +44,10 @@
 		echo $this->element( 'define_webroot' );
 		echo $this->fetch( 'meta' );
 		echo $this->fetch( 'css' );
-		echo $this->Html->script( 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' );
+		echo $this->Html->script( 'jquery.min.js' );
 		echo $this->Html->script( 'jquery-ui.min' );
+		echo $this->Html->script( 'processing-1.3.6.min.js' );
+		echo $this->Html->script( 'processingTableauWriter' );
 		echo $this->fetch( 'script' );
 	?>
 </head>

@@ -13,24 +13,33 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/agpl-3.0.html>.
  */
-function tableauProc( processing )
+function tableauProc( processing, _options )
 {
-	var canvasWidth = 900;
-	var canvasHeight = 800;
+	var options = {
+		tableau: {},
+		canvasWidth: 400,
+		canvasHeight: 400
+	}
+	
+	jQuery.extend( options, _options )
 	
 	var drawStructure = function( structure, startX, startY, remainingWidth ) {
 		var y = startY + 15
 		// Draw nodes.
 		$.each( structure.nodes, function( n, node ) {
-			var sentenceText
+			var text = ''
 			y += 20
 			processing.fill( node.isTicked ? 100 : 0 )
 			if ( node.sentenceText ) {
-				sentenceText = node.sentenceText;
-				if ( node.classes.indexOf( 'manyValued' ) !== -1 ) 
-					sentenceText += node.isDesignated ? ' +' : ' -';
-				processing.text( sentenceText, startX, y )
+				text = node.sentenceText
+				if ( node.classes.indexOf( 'modal' ) !== -1 )
+					text += ', w' + node.index
 			}
+			if ( node.classes.indexOf( 'access' ) !== -1 )
+				text += 'w' + node.firstIndex + ' R w' + node.secondIndex
+			if ( node.classes.indexOf( 'manyValued' ) !== -1 ) 
+				text += node.isDesignated ? ' +' : ' -'
+			processing.text( text, startX, y )
 		})
 		if ( structure.isClosed ) {
 			y += 20
@@ -51,16 +60,17 @@ function tableauProc( processing )
 	
 	processing.setup = function() {
 		var font = processing.loadFont( 'arial' )
-		processing.size( canvasWidth, canvasHeight, processing.OPENGL )
+		processing.size( options.canvasWidth, options.canvasHeight, processing.OPENGL )
 		processing.hint( processing.ENABLE_OPENGL_4X_SMOOTH )
 		processing.textFont( font, 15 )
 		processing.textAlign( processing.CENTER )
 		processing.smooth()
+		processing.background( 'white' )
 	}
 	
 	processing.draw = function() {
 		processing.stroke( 100 )
-		drawStructure( window.tableau, Math.floor( canvasWidth / 2 ), 0, canvasWidth )
+		drawStructure( options.tableau, Math.floor( options.canvasWidth / 2 ), 0, options.canvasWidth )
 		processing.noLoop()
 	}	
 }

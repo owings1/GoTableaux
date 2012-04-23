@@ -33,6 +33,12 @@ use \GoTableaux\Exception\Tableau as TableauException;
 class Sentence extends \GoTableaux\Proof\TableauNode
 {
 	/**
+	 * States which filter conditions should enforce a node to be this class.
+	 * @var array
+	 */
+	public static $forceClassOnConditions = array( 'sentence', 'sentenceForm', 'operator' );
+	
+	/**
 	 * Holds a reference to the sentence on the node
 	 * @var Sentence
 	 */
@@ -85,7 +91,9 @@ class Sentence extends \GoTableaux\Proof\TableauNode
 	public function filter( array $conditions, Logic $logic )
 	{
 		if ( !$this->node->filter( $conditions, $logic )) return false;
-		if ( !empty( $conditions['sentence'] )) return $this->getSentence() === $conditions['sentence'];
+		if ( !empty( $conditions['sentence'] ))
+		 	//if ( !Sent::sameForm( $this->getSentence(), $conditions['sentence'] )) return false;
+			if ( $this->getSentence() !== $conditions['sentence'] ) return false;
 		if ( !empty( $conditions['sentenceForm'] )) {
 			$sentence = $logic->parseSentence( $conditions['sentenceForm'] );
 			if ( !Sent::similarForm( $sentence, $this->getSentence() )) return false;			
@@ -98,8 +106,7 @@ class Sentence extends \GoTableaux\Proof\TableauNode
 				if ( $firstOperand->getOperatorName() !== $operators[1] ) return false;
 			}
 		} 
-		return true;
-		
+		return true;	
 	}
 	
 	/**

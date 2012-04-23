@@ -71,7 +71,7 @@ abstract class ProofWriter
 	public function __construct( Proof $proof, $sentenceWriterType = 'Standard' )
 	{
 		$this->vocabulary = $proof->getProofSystem()->getLogic()->getVocabulary();
-		$this->setSentenceWriter( SentenceWriter::getInstance( $this->vocabulary, $sentenceWriterType ));
+		$this->setSentenceWriter( $this->getSentenceWriter( $sentenceWriterType ));
 	}
 	
 	/**
@@ -117,9 +117,10 @@ abstract class ProofWriter
 	 *
 	 * @return SentenceWriter The sentence writer.
 	 */
-	public function getSentenceWriter()
+	public function getSentenceWriter( $type = null )
 	{
-		return $this->sentenceWriter;
+		if ( empty( $type )) return $this->sentenceWriter;
+		return SentenceWriter::getInstance( $this->vocabulary, $type );
 	}
 	
 	/**
@@ -164,11 +165,12 @@ abstract class ProofWriter
 	 * Delegates to $this->sentenceWriter.
 	 * 
 	 * @param Proof $proof The proof whose argument to write.
+	 * @param string $sentenceWriterType The type of sentence writer to use.
 	 * @return string The string for the argument.
 	 */
-	public function writeArgumentOfProof( Proof $proof )
+	public function writeArgumentOfProof( Proof $proof, $sentenceWriterType = null )
 	{
-		return $this->getSentenceWriter()->writeArgument( $proof->getArgument() );
+		return $this->getSentenceWriter( $sentenceWriterType )->writeArgument( $proof->getArgument() );
 	}
 	
 	/**

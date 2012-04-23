@@ -66,6 +66,30 @@ abstract class Branch implements \GoTableaux\ProofSystem\TableauxSystem\Rule
 	}
 	
 	/**
+	 * Creates an example tableau for the rule.
+	 * 
+	 * @param Logic $logic The logic.
+	 * @return Tableau The example tableau.
+	 */
+	public function getExample( Logic $logic )
+	{
+		$tableau = new Tableau( $logic->getProofSystem() );
+		$branch = $tableau->createBranch();
+		$this->buildExample( $branch, $logic );
+		$this->applyToBranch( $branch, $logic );
+		return $tableau;
+	}
+	
+	/**
+	 * Builds an example branch for the rule.
+	 *
+	 * @param TableauBrach $branch The branch to build.
+	 * @param Logic $logic The logic.
+	 * @return void
+	 */
+	abstract public function buildExample( TableauBranch $branch, Logic $logic );
+	
+	/**
 	 * Determines whether a rule can apply to a branch.
 	 *
 	 * @param TableauBranch The branch to check.

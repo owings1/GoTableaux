@@ -54,9 +54,8 @@ abstract class Proof
 	 * @param Argument $argument Argument for the proof.
 	 * @param ProofSystem $proofSystem The proof system of the proof.
 	 */
-	public function __construct( Argument $argument, ProofSystem $proofSystem )
+	public function __construct( ProofSystem $proofSystem )
 	{
-		$this->argument = $argument;
 		$this->proofSystem = $proofSystem;
 	}
 	
@@ -89,6 +88,17 @@ abstract class Proof
 	public function getArgument()
 	{
 		return $this->argument;
+	}
+	
+	/**
+	 * Sets the argument.
+	 *
+	 * @param Argument The argument.
+	 * @return Proof Current instance.
+	 */
+	public function setArgument( Argument $argument )
+	{
+		$this->argument = $argument;
 	}
 	
 	/**

@@ -37,5 +37,20 @@ class Closure extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Closure
 			if ( $branch->find( 'exists', array( 'sentence' => $negated, 'designated' => true ))) 
 				return true;
 		}
+		return false;
+	}
+	
+	/**
+	 * Builds an example branch for the rule.
+	 *
+	 * @param TableauBrach $branch The branch to build.
+	 * @param Logic $logic The logic.
+	 * @return void
+	 */
+	public function buildExample( Branch $branch, Logic $logic )
+	{
+		$sentence = $logic->parseSentence( 'A' );
+		$branch->createNode( 'ManyValued Sentence', array( 'sentence' => $sentence, 'designated' => true ))
+			   ->createNode( 'ManyValued Sentence', array( 'sentence' => $logic->negate( $sentence ), 'designated' => true ));
 	}
 }

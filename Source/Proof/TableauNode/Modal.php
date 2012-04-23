@@ -36,6 +36,12 @@ class Modal extends \GoTableaux\Proof\TableauNode
 	 */
     public static $metaSymbolNames = array( 'worldSymbol' );
 
+	/**
+	 * States which filter conditions should enforce a node to be this class.
+	 * @var array
+	 */
+	public static $forceClassOnConditions = array( 'i' );
+
     /**
      * Holds the (first) index.
  	 * @var integer
@@ -50,7 +56,7 @@ class Modal extends \GoTableaux\Proof\TableauNode
 	public function setProperties( array $properties )
 	{
 		$this->node->setProperties( $properties );
-		if ( empty( $properties['i'] )) 
+		if ( !isset( $properties['i'] )) 
 			throw new TableauException( 'Must set index when creating a modal node.' );
 		$this->setI( $properties['i'] );
 	}
@@ -71,7 +77,7 @@ class Modal extends \GoTableaux\Proof\TableauNode
 	public function filter( array $conditions, Logic $logic )
 	{
 		if ( !$this->node->filter( $conditions, $logic )) return false;
-		return !isset( $conditions['i' ] ) || $this->getI() === $conditions['i'];
+		return !isset( $conditions['i' ] ) || $conditions['i'] === '*' || $this->getI() === $conditions['i'];
 	}
 	
 	/**

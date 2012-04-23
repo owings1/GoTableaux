@@ -15,17 +15,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/agpl-3.0.html>.
  */
 ?>
-<?php $this->start( 'script' ) ?>
-	<?= $this->Html->script( 'main' ) ?>
-	<?= $this->Html->script( 'http://cloud.github.com/downloads/processing-js/processing-js/processing-1.3.6.min.js' ) ?>
-	<?= $this->Html->script( 'processingTableauWriter' ) ?>
-<?php $this->end() ?>
-
 <?= $this->Form->create( null ) ?>
 <div class="container_12">
 	<div class="grid_4">
 		<h3>Logic</h3>
-		<?= $this->Form->input( 'logic', array( 'type' => 'radio', 'legend' => false )) ?>
+		<div class="input_radio">
+			<? foreach ( $logics as $i => $logic ) : ?>
+				<input id="Logic<?= $i ?>" type="radio" value="<?= $i ?>" name="data[logic]">
+				<label for="Logic<?= $i ?>">
+					<?= $this->Html->link( $this->Inflect->human( $logic ), array( 'action' => 'view', $logic )) ?>
+				</label>
+			<? endforeach ?>
+		</div>
 	</div>
 	<div class="grid_4">
 		<h3>Lexicon</h3>
@@ -35,11 +36,11 @@
 		<h3>Argument</h3>
 		
 			<?= $this->Form->label( 'Premises' ) ?>
-			<?php foreach( $this->data['premises'] as $key => $premise ): ?>
+			<? foreach( $this->data['premises'] as $key => $premise ): ?>
 				<div class="input">
 					<input type="text" name="data[premises][<?= $key ?>]" id="premises<?= $key ?>" value="<?= $premise ?>">
 				</div>
-			<?php endforeach ?>
+			<? endforeach ?>
 			<a id="AddPremise" href="javascript:">Add Premise</a>
 			<br><br>
 			<?= $this->Form->input( 'conclusion' ) ?>
@@ -47,15 +48,12 @@
 	</div>
 	<div class="clear"></div>
 	<div class="grid_12">
-		<?php if ( !empty( $argumentText )) : ?>
+		<? if ( !empty( $argumentText )) : ?>
 			<?= $argumentText ?>
 			<div class="result">
-				<span class="<?= $result ?>"><?= ucfirst( $result ) ?></span> in <?= $logicName ?>
+				<span class="<?= $result ?>"><?= ucfirst( $result ) ?></span> in <?= $this->Inflect->human( $logicName ) ?>
 			</div>
-			<?php if ( !empty( $proofJSON )) : ?>
-				<script type="text/javascript">
-					var tableau = <?= $proofJSON ?>
-				</script>
+			<? if ( !empty( $proofJSON )) : ?>
 				<div class="clear"></div>
 				<div class="tabs">
 					<ul>
@@ -69,9 +67,9 @@
 						<br>
 						<br>
 						<?= $this->Form->create( null, array( 'action' => 'view_pdf' )) ?>
-							<?php foreach( $this->data['premises'] as $key => $premise ): ?>
+							<? foreach( $this->data['premises'] as $key => $premise ): ?>
 								<input type="hidden" name="data[premises][<?= $key ?>]" id="premises<?= $key ?>" value="<?= $premise ?>">
-							<?php endforeach ?>
+							<? endforeach ?>
 							<?= $this->Form->hidden( 'logic' ) ?>
 							<?= $this->Form->hidden( 'conclusion' ) ?>
 							<textarea name="data[latex]" class="output"><?= $proofLatex ?></textarea>
@@ -79,9 +77,50 @@
 						
 					</div>
 				</div>
-			<?php endif ?>
-		<?php endif ?>
+			<? endif ?>
+		<? endif ?>
 	</div>
 </div>
 
 <?= $this->Form->end() ?>
+
+<script type="text/javascript">
+	$(document).ready( function() {
+		// Update Lexicon on logic change
+		$( '#indexForm' ).on( 'click', 'input, a', function() {
+			var $me = $(this)
+			var id = $me.attr('id')
+			var name = $me.attr('name')
+			
+			if ( name === 'data[logic]' )
+				$('#Lexicon').load( window.WWW + '/logics/get_lexicon/' + $(this).val() )
+			else if ( id == 'AddPremise') {
+				var newKey = $('input[name^="data[premises]"]', $me.closest( 'form' )).length
+				console.log( newKey )
+				$me.before( '<div class="input"><input type="text" name="data[premises][' + newKey + ']"></div>' )
+			}
+				
+		})
+		// Select first logic as default
+		if ( !$( 'input[name="data[logic]"]:checked' ).length )
+			$( 'input[name="data[logic]"]:visible:eq(0)' ).prop( 'checked', true )
+		
+		$( 'input[name="data[logic]"]:checked' ).trigger( 'click' )
+		
+		<? if ( !empty( $proofJSON )) : ?>
+			// Draw proof canvas
+			var canvas = document.getElementById( 'ProofCanvas' )
+			var tableau = <?= $proofJSON ?>
+			
+			var p = new Processing( canvas, function( processing ) { 
+				tableauProc( processing, {
+					tableau: tableau,
+					canvasHeight: 900,
+					canvasWidth: 800
+				}) 
+			})
+		<? endif ?>
+		$( '.tabs' ).tabs()
+	})
+	
+</script>

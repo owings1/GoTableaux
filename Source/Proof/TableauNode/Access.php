@@ -37,6 +37,12 @@ class Access extends Modal
     public static $metaSymbolNames = array( 'accessRelationSymbol' );
 
 	/**
+	 * States which filter conditions should enforce a node to be this class.
+	 * @var array
+	 */
+	public static $forceClassOnConditions = array( 'j' );
+	
+	/**
 	 * Holds a reference to the seen world index.
 	 * @var integer
 	 * @access private
@@ -74,7 +80,7 @@ class Access extends Modal
 	public function filter( array $conditions, Logic $logic )
 	{
 		if ( !parent::filter( $conditions, $logic )) return false;
-		return !isset( $conditions['j' ] ) || $this->getJ() === $conditions['j'];
+		return !isset( $conditions['j' ] ) || $conditions['j'] === '*' || $this->getJ() === $conditions['j'];
 	}
 	
 	/**

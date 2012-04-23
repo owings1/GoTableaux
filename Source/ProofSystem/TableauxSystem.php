@@ -78,8 +78,6 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 	{
 		if ( empty( $this->_rules )) {
 			foreach ( $this->ruleClasses as $relClass ) {
-				// compatibility
-				$relClass = str_replace( '/', '.', $relClass );
 				if ( strpos( $relClass, '.' )) {
 					list( $otherLogicName, $relClass ) = explode( '.', $relClass );
 					$otherLogic = Logic::getInstance( $otherLogicName );
@@ -121,7 +119,8 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
      */
 	public function constructProofForArgument( Argument $argument )
 	{
-		$tableau = new Tableau( $argument, $this );
+		$tableau = new Tableau( $this );
+		$tableau->setArgument( $argument );
 		$this->buildTrunk( $tableau, $argument, $this->getLogic() );
 		$ruleHasApplied = false;
 		while ( !$tableau->isClosed() && $this->ruleCanApply( $tableau )) {

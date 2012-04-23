@@ -45,6 +45,8 @@ class LaTeXDecorator extends \GoTableaux\SentenceWriter\Standard
 		'Material Conditional' 	=> '\supset',
 		'Material Biconditional' => '\equiv',
 		'Conditional' => '\rightarrow',
+		'Necessity' => '\Box',
+		'Possibility' => '\Diamond',
 	);
 	
 	/**

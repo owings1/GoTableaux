@@ -60,5 +60,7 @@ class AppController extends Controller
 	{
 		parent::beforeFilter();
 		$this->Latex->pdfLatexPath = Configure::read( 'pdfLaTeXPath' );
+		if ( Configure::read( 'debug' ) === 2 )
+			GoTableaux\Settings::write( 'debug', true );
 	}
 }

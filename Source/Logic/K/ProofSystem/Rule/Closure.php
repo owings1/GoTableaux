@@ -15,28 +15,29 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/agpl-3.0.html>.
  */
 /**
- * Defines the LP Closure Rule class.
- * @package LP
+ * Defines the Closure rule class for K.
+ * @package K
  */
 
-namespace GoTableaux\Logic\LP\ProofSystem\Rule;
+namespace GoTableaux\Logic\K\ProofSystem\Rule;
 
-use \GoTableaux\Logic as Logic;
 use \GoTableaux\Proof\TableauBranch as Branch;
+use \GoTableaux\Logic as Logic;
 
 /**
- * Represents the LP closure rule.
- * @package LP
+ * Represents the tableaux closure rule for K.
+ * @package K
  */
 class Closure extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Closure
 {
 	public function appliesToBranch( Branch $branch, Logic $logic )
 	{
-		foreach ( $branch->find( 'all', array( 'designated' => false )) as $node ) {
-			$negated = $logic->negate( $node->getSentence() );
-			if ( $branch->find( 'exists', array( 'sentence' => $negated, 'designated' => false ))) 
-				return true;
+		foreach ( $branch->find( 'all', array( 'class' => 'Modal Sentence' )) as $node ) {
+			$sentence = $logic->negate( $node->getSentence() );
+			$i = $node->getI();
+			if ( $branch->find( 'exists', compact( 'sentence', 'i' ))) return true;
 		}
+		return false;
 	}
 	
 	/**
@@ -49,7 +50,8 @@ class Closure extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Closure
 	public function buildExample( Branch $branch, Logic $logic )
 	{
 		$sentence = $logic->parseSentence( 'A' );
-		$branch->createNode( 'ManyValued Sentence', array( 'sentence' => $sentence, 'designated' => false ))
-			   ->createNode( 'ManyValued Sentence', array( 'sentence' => $logic->negate( $sentence ), 'designated' => false ));
+		$i = 0;
+		$branch->createNode( 'Modal Sentence', compact( 'sentence', 'i' ))
+			   ->createNode( 'Modal Sentence', array( 'sentence' => $logic->negate( $sentence ), 'i' => $i ));
 	}
 }

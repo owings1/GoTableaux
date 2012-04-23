@@ -38,4 +38,18 @@ class Closure extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Closure
 		}
 		return false;
 	}
+	
+	/**
+	 * Builds an example branch for the rule.
+	 *
+	 * @param TableauBrach $branch The branch to build.
+	 * @param Logic $logic The logic.
+	 * @return void
+	 */
+	public function buildExample( Branch $branch, Logic $logic )
+	{
+		$sentence = $logic->parseSentence( 'A' );
+		$branch->createNode( 'Sentence', compact( 'sentence' ))
+			   ->createNode( 'Sentence', array( 'sentence' => $logic->negate( $sentence )));
+	}
 }

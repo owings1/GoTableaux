@@ -792,3 +792,23 @@ textarea.output {
 	font-size: 12px;
 	height: 200px;
 }
+canvas.example{
+	background-color: white;
+	border: 1px solid #666;
+}
+.rule {
+	border-width: 0 0 1px 0;
+	border-style: solid;
+	border-color: #999;
+	margin: 0 0 20px 0;
+	padding: 10px;
+}
+label a {
+	font-size: inherit;
+	text-decoration: none;
+	display: block;
+	font-weight: normal;
+	margin: 10px 0 10px 20px;
+	padding: 4px 0 0 0;
+}
+

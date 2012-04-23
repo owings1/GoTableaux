@@ -39,6 +39,8 @@ abstract class Logic {
 		'Material Conditional' => '>',
 		'Material Biconditional' => '<',
 		'Conditional' => '$',
+		'Possibility' => 'P',
+		'Necessity' => 'N'
 	);
 	
 	/**

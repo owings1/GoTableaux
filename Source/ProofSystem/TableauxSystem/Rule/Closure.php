@@ -43,6 +43,18 @@ abstract class Closure extends Branch
 	}
 	
 	/**
+	 * Builds an example branch for the rule.
+	 *
+	 * @param TableauBrach $branch The branch to build.
+	 * @param Logic $logic The logic.
+	 * @return void
+	 */
+	public function buildExample( TableauBranch $branch, Logic $logic )
+	{
+		//TODO implement in child classes
+	}
+	
+	/**
 	 * Determines whether a branch should be closed, according to the 
 	 * implementation of the rule.
 	 *
