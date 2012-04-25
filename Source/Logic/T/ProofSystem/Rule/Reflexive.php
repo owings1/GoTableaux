@@ -14,30 +14,35 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/agpl-3.0.html>.
  */
-namespace GoTableaux\Logic\K\ProofSystem\Rule;
+namespace GoTableaux\Logic\T\ProofSystem\Rule;
 
 use \GoTableaux\Proof\TableauBranch as Branch;
 use \GoTableaux\Proof\TableauNode as Node;
 use \GoTableaux\Logic as Logic;
-use \GoTableaux\Utilities as Utilities;
 
 /**
- * @package K
+ * @package T
  */
-class Possibility extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
+class Reflexive extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Branch
 {
-	protected $conditions = array(
-		'sentenceForm' => 'PA',
-		'i' => '*'
-	);
-	
-	public function applyToNode( Node $node, Branch $branch, Logic $logic )
+	public function appliesToBranch( Branch $branch, Logic $logic )
 	{
-		list( $operand ) = $node->getSentence()->getOperands();
-		$newIndex = $branch->newIndex();
-		$branch->createNode( 'Modal Sentence', array( 'sentence' => $operand, 'i' => $newIndex ))
-			   ->tickNode( $node );
-		if ( !$branch->find( 'exists', array( 'i' => $node->getI(), 'j' => $newIndex )))
-			$branch->createNode( 'Access', array( 'i' => $node->getI(), 'j' => $newIndex ));
+		foreach ( $branch->getIndexes() as $i )
+			if ( !$branch->find( 'exists', array( 'i' => $i, 'j' => $i ))) return true;
+		return false;
+	}
+	
+	public function applyToBranch( Branch $branch, Logic $logic )
+	{
+		foreach ( $branch->getIndexes() as $i )
+			if ( !$branch->find( 'exists', array( 'i' => $i, 'j' => $i ))) {
+				$branch->createNode( 'Access', array( 'i' => $i, 'j' => $i ));
+				return;	
+			}
+	}
+	
+	public function buildExample( Branch $branch, Logic $logic )
+	{
+		$branch->createNode( 'Modal Sentence', array( 'sentence' => $logic->parseSentence( 'A' ), 'i' => 0 ));
 	}
 }

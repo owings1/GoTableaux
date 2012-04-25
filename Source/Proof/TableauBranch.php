@@ -205,9 +205,6 @@ class TableauBranch
 	public function find( $ret = 'all', array $conditions = array() )
 	{
 		$classes = TableauNode::induceClassesFromConditions( $conditions );
-	//	if ( !empty( $classes ))
-	//		Utilities::debug( $classes ) || 		die();
-
 		if ( !empty( $conditions['class'] )) 
 			$classes = array_merge( 
 				is_array( $conditions['class'] ) ? $conditions['class'] : explode( ' ', $conditions['class'] ),

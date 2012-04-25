@@ -59,8 +59,8 @@ class Access extends Modal
 	public function setProperties( array $properties )
 	{
 		parent::setProperties( $properties );
-		if ( empty( $properties['j'] )) 
-			throw new TableauException( 'Must set second index when creating a sentence node.' );
+		if ( !isset( $properties['j'] )) 
+			throw new TableauException( 'Must set second index when creating an access node.' );
 		$this->setJ( $properties['j'] );
 	}
 	

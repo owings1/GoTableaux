@@ -20,9 +20,9 @@ if ( !defined( 'DS' )) define( 'DS', DIRECTORY_SEPARATOR );
 require_once __DIR__ . DS . '..' . DS . 'simpletest' . DS . 'autorun.php';
 require_once __DIR__ . DS . '..' . DS . 'classes' . DS . 'LogicTestCase.php';
 
-class KTest extends LogicTestCase
+class TTest extends LogicTestCase
 {
-	public $logicName = 'K';
+	public $logicName = 'T';
 	
 	public $validities = array(
 		'Disjunctive Syllogism' 	=> array( array( 'A V B', '~B' ), 'A' ),
@@ -47,6 +47,10 @@ class KTest extends LogicTestCase
 		'Modal Transformation 3'	=> array( '~NA', 'P~A' ),
 		'Modal Transformation 4'	=> array( 'P~A', '~NA' ),
 		'Necessity Distribution'	=> array( null, 'N(A > B) > (NA > NB)' ),
+		'Reflexive Inference 1'		=> array( null, 'NA > A' ),
+		'Possibility Addition'		=> array( 'A', 'PA' ),
+		'Necessity Elimination'		=> array( 'NA', 'A'),
+		'Serial Inference 1'		=> array( null, 'NA > PA' ),
 	);
 	
 	public $invalidities = array(
@@ -61,10 +65,7 @@ class KTest extends LogicTestCase
 		'Extracting as Disjunct 1'	=> array( 'A V B', 'B' ),
 		'Extracting as Disjunct 2'	=> array( 'A V ~B', '~A' ),
 		'Denying the Antecedent' 	=> array( array( 'A > B', '~A' ), 'B' ),
-		'Possibility Addition'		=> array( 'A', 'PA' ),
-		'Necessity Elimination'		=> array( 'NA', 'A'),
 		'Possibility distribution'	=> array( 'PA & PB', 'P(A & B)'),
-		'Reflexive Inference 1'		=> array( null, 'NA > A' ),
 	);
 
 }

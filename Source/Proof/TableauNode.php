@@ -43,6 +43,12 @@ class TableauNode
     protected $node;
     
 	/**
+	 * The decorating node, if any.
+	 * @var TableauNode
+	 */
+	protected $master;
+	
+	/**
 	 * The child classes.
 	 * @var array
 	 */
@@ -74,7 +80,10 @@ class TableauNode
 		$classes = array();
 		foreach ( self::getChildClasses() as $class ) {
 			//Utilities::debug( $class );
-			if ( empty( $class::$forceClassOnConditions )) continue;
+			$forceConditions = $class::$forceClassOnConditions;
+			//Utilities::debug( $forceConditions );
+			if ( empty( $forceConditions )) continue;
+			
 			foreach ( $class::$forceClassOnConditions as $condition )
 				//Utilities::debug( $condition );
 				//Utilities::debug( $conditions );
@@ -83,6 +92,7 @@ class TableauNode
 					break;
 				}
 		}
+		//Utilities::debug( $classes );
 		return $classes;
 	}
 	
@@ -98,7 +108,10 @@ class TableauNode
 	 */
     public function __construct( $node = null, array $properties = array() )
     {
-		if ( !empty( $node )) $this->setNode( $node );
+		if ( !empty( $node )) {
+			$this->node = $node;
+			$node->master = $this;
+		}
         $this->setProperties( $properties );
     }
 
@@ -148,8 +161,9 @@ class TableauNode
 	public function getClasses()
 	{
 		$classes = array();
-		for ( $node = $this; !empty( $node ); $node = $node->node ) 
-			Utilities::uniqueAdd( Utilities::getBaseClassName( $node ), $classes );
+		for ( $node = $this->getMaster(); !empty( $node ); $node = $node->node ) 
+			if ( get_class( $node ) !== __CLASS__ ) 
+				Utilities::uniqueAdd( Utilities::getBaseClassName( $node ), $classes );
 		return $classes;
 	}
 	
@@ -161,9 +175,13 @@ class TableauNode
 	 */
 	public function hasClass( $class )
 	{
+		if ( is_array( $class )) throw new \ErrorException( 'cannot pass array ' );
+		//Utilities::debug( "Checking node for class $class." );
+		for ( $master = $this; !empty( $master->master ); $master = $master->master );
 		$className = __NAMESPACE__ . '\TableauNode\\' . $class;
-		if ( empty( $this->node )) return $this instanceof $className;
-		return $this instanceof $className || $this->node->hasClass( $class );
+		for ( $node = $this->getMaster(); !empty( $node ); $node = $node->node )
+			if ( $node instanceof $className ) return true;
+		return false;
 	}
 	
 	/**
@@ -181,6 +199,16 @@ class TableauNode
 	 */
 	public function filter( array $conditions, Logic $logic )
 	{
+		$master = $this->getMaster();
+		$classes = self::induceClassesFromConditions( $conditions );
+		//Utilities::debug( $classes );
+		foreach ( $classes as $class ) if ( !$master->hasClass( $class )) return false;
+		//if ( !empty( $classes )) {
+		//	Utilities::debug( $classes, $this->getClasses(), $this ); 
+			
+	//		die();
+		//}
+		
 		return true;
 	}
 	
@@ -212,13 +240,13 @@ class TableauNode
     }
 
 	/**
-	 * Sets the decorated node.
-	 *
-	 * @param TableauNode $node The node to decorate.
-	 * @return void
+	 * Gets the master decorating node.
+	 * 
+	 * @return TableauNode The master node.
 	 */
-	private function setNode( TableauNode $node )
+	protected function getMaster()
 	{
-		$this->node = $node;
+		for ( $master = $this; !empty( $master->master ); $master = $master->master );
+		return $master;
 	}
 }

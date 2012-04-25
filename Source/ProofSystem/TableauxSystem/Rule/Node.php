@@ -67,11 +67,14 @@ abstract class Node extends Branch
 	 */
 	final public function applyToBranch( TableauBranch $branch, Logic $logic )
 	{
-		$node = $branch->find( 'first', $this->getConditions() );
-		if ( empty( $node )) {
-			Utilities::debug( get_class( $this ));
-			throw new TableauException( 'Trying to apply a node rule to a branch that has no applicable nodes.' );
-		}
+		//$node = $branch->find( 'first', $this->getConditions() );
+		//foreach ( $branch->getUntickedNodes() as $node )
+		//	if ( $this->appliesToNode( $node, $branch, $logic )) break;
+		//if ( empty( $node )) {
+		//	Utilities::debug( get_class( $this ), $this->getConditions() );
+		//	throw new TableauException( 'Trying to apply a node rule to a branch that has no applicable nodes.' );
+		//}
+		$node = $this->getApplicableNode( $branch, $logic );
 		$this->applyToNode( $node, $branch, $logic );
 	}
 	
@@ -107,6 +110,19 @@ abstract class Node extends Branch
         return array_merge( array( 'ticked' => false ), $this->conditions );
     }
     
+	/**
+	 * Gets the first applicable node.
+	 * 
+	 * @return TableauNode The first applicable node.
+	 * @throws TableauException when no applicable nodes found.
+	 */
+	protected function getApplicableNode( TableauBranch $branch, Logic $logic )
+	{
+		foreach ( $branch->getUntickedNodes() as $node )
+			if ( $this->appliesToNode( $node, $branch, $logic )) return $node;
+		Utilities::debug( get_class( $this ));
+		throw new TableauException( 'trying to get an applicable node when there are none.' );
+	}
 	/**
 	 * Gets an example node based on the rule's conditions.
 	 *

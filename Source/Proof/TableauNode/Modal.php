@@ -23,6 +23,7 @@ namespace GoTableaux\Proof\TableauNode;
 
 use \GoTableaux\Logic as Logic;
 use \GoTableaux\Exception\Tableau as TableauException;
+use \GoTableaux\Utilities as Utilities;
 
 /**
  * Signifies a modal tableau node that has at least one index.
@@ -77,6 +78,7 @@ class Modal extends \GoTableaux\Proof\TableauNode
 	public function filter( array $conditions, Logic $logic )
 	{
 		if ( !$this->node->filter( $conditions, $logic )) return false;
+		//Utilities::debug( 'Pass' );
 		return !isset( $conditions['i' ] ) || $conditions['i'] === '*' || $this->getI() === $conditions['i'];
 	}
 	

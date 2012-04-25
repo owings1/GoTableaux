@@ -23,6 +23,7 @@ namespace GoTableaux\Proof;
 
 use \GoTableaux\Exception\Tableau as TableauException;
 use \GoTableaux\Utilities as Utilities;
+use \GoTableaux\ProofSystem\TableauxSystem\Rule as Rule;
 
 /**
  * Represents a tableau for an argument.
@@ -36,12 +37,24 @@ class Tableau extends \GoTableaux\Proof
 	 * @var array
 	 */
     public $metaSymbolNames = array( 'closeMarker' );
-
+	
+	/**
+	 * Holds whether the tableau is finished.
+	 * @var boolean
+	 */
+	private $finished = false;
+	
 	/**
 	 * Holds the branches on the tree.
 	 * @var array
 	 */
 	private $branches = array();
+	
+	/**
+	 * Holds a reference to the last rule applied.
+	 * @var Rule The last rule applied.
+	 */
+	private $lastRule;
 	
 	/**
 	 * Creates a new branch and attaches it to the tableau.
@@ -118,6 +131,33 @@ class Tableau extends \GoTableaux\Proof
 	}
 	
 	/**
+	 * Checks whether the tableau is finished.
+	 *
+	 * A tableau is finished iff it is closed or marked as finished. Marking as
+	 * finished is useful for stopper rules to prevent infinite tableaux.
+	 * 
+	 * @return boolean Whether the tableau is finished.
+	 */
+	public function isFinished()
+	{
+		if ( $this->isClosed() ) $this->finished = true;
+		return $this->finished;
+	}
+	
+	/**
+	 * Marks a tableau as finished.
+	 *
+	 * A tableau is finished iff it is closed or marked as finished. Marking as
+	 * finished is useful for stopper rules to prevent infinite tableaux.
+	 * 
+	 * @return void
+	 */
+	public function finish()
+	{
+		$this->finished = true;
+	}
+	
+	/**
 	 * Removes one or more branches from the tree.
 	 *
 	 * @param Branch|array $branches The branch or array of branches to remove.
@@ -164,5 +204,26 @@ class Tableau extends \GoTableaux\Proof
 		$copy->clearBranches();
 		foreach ( $this->branches as $branch ) $copy->attach( $branch->copy() );
 		return $copy;
+	}
+	
+	/**
+	 * Sets the last rule applied.
+	 *
+	 * @param Rule The last rule that applied.
+	 * @return void
+	 */
+	public function setLastRule( Rule $rule )
+	{
+		$this->rule = $rule;
+	}
+	
+	/**
+	 * Gets the last rule applied.
+	 *
+	 * @return Rule|null The last rule applied, or null if none set.
+	 */
+	public function getLastRule()
+	{
+		return $this->lastRule;
 	}
 }

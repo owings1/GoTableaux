@@ -78,15 +78,19 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 	{
 		if ( empty( $this->_rules )) {
 			foreach ( $this->ruleClasses as $relClass ) {
-				if ( strpos( $relClass, '.' )) {
-					list( $otherLogicName, $relClass ) = explode( '.', $relClass );
-					$otherLogic = Logic::getInstance( $otherLogicName );
-					$class = get_class( $otherLogic->getProofSystem() );
+				if ( strpos( $relClass, 'Core.' ) === 0 ) {
+					$ruleClass = __CLASS__ . '\Rule\\' . str_replace( 'Core.', '', $relClass );
 				} else {
-					$class = get_class( $this );
+					if ( strpos( $relClass, '.' )) {
+						list( $otherLogicName, $relClass ) = explode( '.', $relClass );
+						$otherLogic = Logic::getInstance( $otherLogicName );
+						$class = get_class( $otherLogic->getProofSystem() );
+					} else {
+						$class = get_class( $this );
+					}
+					$ruleNamespace = $class . '\Rule';
+					$ruleClass = $ruleNamespace . '\\' . $relClass;
 				}
-				$ruleNamespace = $class . '\Rule';
-				$ruleClass = $ruleNamespace . '\\' . $relClass;
 				$this->addRules( new $ruleClass );
 			}
 			if ( empty( $this->_rules )) Utilities::debug( '[NOTICE] Empty ruleset for ' . get_class( $this ));
@@ -119,21 +123,28 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
      */
 	public function constructProofForArgument( Argument $argument )
 	{
-		$tableau = new Tableau( $this );
-		$tableau->setArgument( $argument );
-		$this->buildTrunk( $tableau, $argument, $this->getLogic() );
-		$ruleHasApplied = false;
-		while ( !$tableau->isClosed() && $this->ruleCanApply( $tableau )) {
-			foreach ( $this->getRules() as $rule )
-				if ( $rule->applies( $tableau )) {
-					$ruleHasApplied = true;
-					Utilities::debug( "Applying " . get_class( $rule ) . ' rule.' );
-					$rule->apply( $tableau );
-					break;
-				}
+		try {
+			$tableau = new Tableau( $this );
+			$tableau->setArgument( $argument );
+			$this->buildTrunk( $tableau, $argument, $this->getLogic() );
+			$ruleHasApplied = false;
+			while ( !$tableau->isClosed() && !$tableau->isFinished() && $this->ruleCanApply( $tableau )) {
+				foreach ( $this->getRules() as $rule )
+					if ( $rule->applies( $tableau )) {
+						$ruleHasApplied = true;
+						Utilities::debug( "Applying " . get_class( $rule ) . ' rule.' );
+						$rule->apply( $tableau );
+						$tableau->setLastRule( $rule );
+						break;
+					}
+			}
+			$tableau->finish();
+			if ( !$ruleHasApplied ) Utilities::debug( '[NOTICE] No rules applied to the tableau.' );
+			return $tableau;
+		} catch ( \Exception $e ) {
+			Utilities::debug( $argument );
+			throw $e;
 		}
-		if ( !$ruleHasApplied ) Utilities::debug( '[NOTICE] No rules applied to the tableau.' );
-		return $tableau;
 	}
 	
 	/**
