@@ -29,7 +29,7 @@ use \GoTableaux\Proof\TableauBranch as TableauBranch;
  * Represents a tableau rule that applies to a branch.
  * @package GoTableaux
  */
-abstract class Branch implements \GoTableaux\ProofSystem\TableauxSystem\Rule
+abstract class Branch extends \GoTableaux\ProofSystem\TableauxSystem\Rule
 {
 	/**
 	 * Determines whether the rule can apply to the tableau.
@@ -57,6 +57,7 @@ abstract class Branch implements \GoTableaux\ProofSystem\TableauxSystem\Rule
 	 */
 	public function apply( Tableau $tableau )
 	{
+		parent::apply( $tableau );
 		$logic = $tableau->getProofSystem()->getLogic();
 		foreach ( $tableau->getOpenBranches() as $branch )
 			if ( $this->appliesToBranch( $branch, $logic )) 

@@ -214,7 +214,7 @@ class Tableau extends \GoTableaux\Proof
 	 */
 	public function setLastRule( Rule $rule )
 	{
-		$this->rule = $rule;
+		$this->lastRule = $rule;
 	}
 	
 	/**

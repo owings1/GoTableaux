@@ -132,9 +132,8 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 				foreach ( $this->getRules() as $rule )
 					if ( $rule->applies( $tableau )) {
 						$ruleHasApplied = true;
-						Utilities::debug( "Applying " . get_class( $rule ) . ' rule.' );
+						Utilities::debug( "Applying " . $rule->getName() . ' rule.' );
 						$rule->apply( $tableau );
-						$tableau->setLastRule( $rule );
 						break;
 					}
 			}

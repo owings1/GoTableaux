@@ -22,6 +22,7 @@
 namespace GoTableaux\Logic\D\ProofSystem\Rule;
 
 use \GoTableaux\Proof\Tableau as Tableau;
+use \GoTableaux\Utilities as Util;
 
 /**
  * Forces finishing of the tableau.
@@ -37,6 +38,7 @@ class FinishAfterSerial extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Tabl
 	 */
 	public function applies( Tableau $tableau )
 	{
+		Util::debug( get_class( $tableau->getLastRule() ));
 		return $tableau->getLastRule() instanceof Serial;
 	}
 }

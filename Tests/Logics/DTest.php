@@ -62,8 +62,8 @@ class DTest extends LogicTestCase
 		'Extracting as Disjunct 1'	=> array( 'A V B', 'B' ),
 		'Extracting as Disjunct 2'	=> array( 'A V ~B', '~A' ),
 		'Denying the Antecedent' 	=> array( array( 'A > B', '~A' ), 'B' ),
-		//'Possibility Addition'		=> array( 'A', 'PA' ),
-		//'Necessity Elimination'		=> array( 'NA', 'A'),
+		'Possibility Addition'		=> array( 'A', 'PA' ),
+		'Necessity Elimination'		=> array( 'NA', 'A'),
 		//'Possibility distribution'	=> array( 'PA & PB', 'P(A & B)'),
 		//'Reflexive Inference 1'		=> array( null, 'NA > A' ),
 	);

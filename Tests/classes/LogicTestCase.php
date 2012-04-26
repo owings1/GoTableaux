@@ -16,6 +16,8 @@
  */
 namespace GoTableaux\Test;
 
+use \GoTableaux\Utilities as Utilities;
+
 require_once __DIR__ . '/UnitTestCase.php';
 
 abstract class LogicTestCase extends UnitTestCase
@@ -56,9 +58,12 @@ abstract class LogicTestCase extends UnitTestCase
 	{
 		$arguments = $this->parseArguments( $this->validities );
 		foreach ( $arguments as $name => $argument ) {
+			$t = microtime( true );
+			Utilities::debug( "Checking for validity of $name.");
 			$proof = $this->logic->getProofSystem()
 							   	 ->constructProofForArgument( $argument );
 			$this->assertValid( $proof, $name );
+			Utilities::debug ( 'Elapsed time: ' . (microtime( true ) - $t) );
 		}
 	}
 	
@@ -66,9 +71,12 @@ abstract class LogicTestCase extends UnitTestCase
 	{
 		$arguments = $this->parseArguments( $this->invalidities );
 		foreach ( $arguments as $name => $argument ) {
+			$t = microtime( true );
+			Utilities::debug( "Checking for invalidity of $name.");
 			$proof = $this->logic->getProofSystem()
 							   	 ->constructProofForArgument( $argument );
 			$this->assertInvalid( $proof, $name );
+			Utilities::debug ( 'Elapsed time: ' . (microtime( true ) - $t) );
 		}
 	}
 }

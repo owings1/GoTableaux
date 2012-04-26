@@ -26,7 +26,7 @@ class LogicsController extends AppController
 {
 	public $uses = null;
 	
-	public $logics = array( 'CPL', 'FDE', 'LP', 'StrongKleene', 'Lukasiewicz', 'GO', 'K' );
+	public $logics = array( 'CPL', 'FDE', 'LP', 'StrongKleene', 'Lukasiewicz', 'GO', 'K', 'T', 'D' );
 	
     public $helpers = array( 'Inflect' );
         

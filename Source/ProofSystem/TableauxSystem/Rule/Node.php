@@ -95,10 +95,10 @@ abstract class Node extends Branch
      * 
      * @return string The base name of the rule, e.g. NegatedConjunctionDesignated. 
      */
-    public function getName()
+    /*public function getName()
     {
         return Utilities::getBaseClassName( $this );
-    }
+    }*/
     
     /**
      * Gets the conditions. Forces unticked.

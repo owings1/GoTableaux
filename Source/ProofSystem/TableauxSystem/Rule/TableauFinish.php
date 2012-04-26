@@ -29,7 +29,7 @@ use \GoTableaux\Proof\TableauBranch as TableauBranch;
  * Forces finishing of the tableau.
  * @package GoTableaux
  */
-class TableauFinish implements \GoTableaux\ProofSystem\TableauxSystem\Rule
+abstract class TableauFinish extends \GoTableaux\ProofSystem\TableauxSystem\Rule
 {
 	/**
 	 * Determines whether the rule can apply to the tableau.
@@ -37,10 +37,7 @@ class TableauFinish implements \GoTableaux\ProofSystem\TableauxSystem\Rule
 	 * @param Tableau $tableau The tableau to check.
 	 * @return boolean Whether the rule can apply.
 	 */
-	public function applies( Tableau $tableau )
-	{
-		return true;
-	}
+	//abstract public function applies( Tableau $tableau );
 
 	/**
 	 * Applies the rule to a tableau. 
@@ -52,6 +49,8 @@ class TableauFinish implements \GoTableaux\ProofSystem\TableauxSystem\Rule
 	public function apply( Tableau $tableau )
 	{
 		$tableau->finish();
+		parent::apply( $tableau );
+		
 	}
 	
 	/**

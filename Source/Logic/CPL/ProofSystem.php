@@ -33,15 +33,15 @@ class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem
 {
 	public $ruleClasses = array(
 		'Closure',
+		'DoubleNegation',
 		'Conjunction',
+		'NegatedDisjunction',
+		'NegatedMaterialConditional',
 		'NegatedConjunction',
 		'Disjunction',
-		'NegatedDisjunction',
 		'MaterialConditional',
-		'NegatedMaterialConditional',
 		'MaterialBiconditional',
 		'NegatedMaterialBiconditional',
-		'DoubleNegation'
 	);
 	
 	/**
