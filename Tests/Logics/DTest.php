@@ -64,8 +64,8 @@ class DTest extends LogicTestCase
 		'Denying the Antecedent' 	=> array( array( 'A > B', '~A' ), 'B' ),
 		'Possibility Addition'		=> array( 'A', 'PA' ),
 		'Necessity Elimination'		=> array( 'NA', 'A'),
-		//'Possibility distribution'	=> array( 'PA & PB', 'P(A & B)'),
-		//'Reflexive Inference 1'		=> array( null, 'NA > A' ),
+		'Possibility distribution'	=> array( 'PA & PB', 'P(A & B)'),
+		'Reflexive Inference 1'		=> array( null, 'NA > A' ),
 	);
 
 }
