@@ -202,7 +202,10 @@ class Tableau extends \GoTableaux\Proof
 	{
 		$copy = clone $this;
 		$copy->clearBranches();
-		foreach ( $this->branches as $branch ) $copy->attach( $branch->copy() );
+		foreach ( $this->branches as $branch ) {
+			$branchCopy = $branch->copy();
+			$branchCopy->__construct( $copy );	
+		}
 		return $copy;
 	}
 	

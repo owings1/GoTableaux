@@ -64,7 +64,6 @@ abstract class Rule
 		$tableau->setLastRule( $this );
 	}
 	
-	
 	/**
 	 * Creates an example tableau for the rule.
 	 * 

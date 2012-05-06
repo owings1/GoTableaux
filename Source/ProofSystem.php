@@ -85,5 +85,5 @@ abstract class ProofSystem
 	 * @return Model The countermodel built from the proof.
 	 * @throws {@link ProofException} on type errors.
 	 */
-	abstract public function getCountermodel( Proof $proof );
+	//abstract public function getCountermodel( Proof $proof );
 }

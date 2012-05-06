@@ -99,6 +99,7 @@ abstract class Proof
 	public function setArgument( Argument $argument )
 	{
 		$this->argument = $argument;
+		return $this;
 	}
 	
 	/**

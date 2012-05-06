@@ -15,27 +15,28 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/agpl-3.0.html>.
  */
 /**
- * Defines the S4 Tableaux System.
- * @package S4
+ * Defines the S5 Tableaux System.
+ * @package S5
  */
 
-namespace GoTableaux\Logic\S4;
+namespace GoTableaux\Logic\S5;
 
 use \GoTableaux\Proof\Tableau as Tableau;
 use \GoTableaux\Argument as Argument;
 use \GoTableaux\Logic as Logic;
 
 /**
- * Represents the Tableaux system for S4.
+ * Represents the Tableaux system for S5.
  *
- * @package S4
+ * @package S5
  */
 class ProofSystem extends \GoTableaux\Logic\K\ProofSystem
 {
 	public $ruleClasses = array(
 		'K.Closure',
+		'Symmetric',
+		'S4.Transitive',
 		'T.Reflexive',
-		'Transitive',
 		'K.Conjunction',
 		'K.NegatedConjunction',
 		'K.Disjunction',
