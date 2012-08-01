@@ -27,12 +27,7 @@ namespace GoTableaux\Logic;
  */
 class K extends \GoTableaux\Logic
 {
-	public $inheritLexiconFrom = 'FDE';
+	public $inheritOperatorsFrom = 'FDE';
 	
-	public $lexicon = array(
-		'operators' => array(
-			'Necessity' => 1,
-			'Possibility' => 1
-		)
-	);
+	public $operatorArities = array( 'Necessity' => 1, 'Possibility' => 1 );
 }

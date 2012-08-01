@@ -27,5 +27,5 @@ namespace GoTableaux\Logic;
  */
 class T extends \GoTableaux\Logic
 {
-	public $inheritLexiconFrom = 'K';
+	public $inheritOperatorsFrom = 'K';
 }

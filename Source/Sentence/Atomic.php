@@ -21,6 +21,8 @@
 
 namespace GoTableaux\Sentence;
 
+use \GoTableaux\Exception as Exception;
+
 /**
  * Represents an atomic sentence.
  * @package GoTableaux
@@ -28,39 +30,37 @@ namespace GoTableaux\Sentence;
 class Atomic extends \GoTableaux\Sentence
 {
 	/**
-	 * Atomic symbol, e.g. 'A' or 'B'.
-	 * @var string
-	 * @access private
+	 * Atomic symbol index.
+	 * @var integer
 	 */
-	protected $symbol;
+	protected $symbolIndex;
 	
 	/**
 	 * Subscript of the atomic symbol.
 	 * @var integer
-	 * @access private
 	 */
 	protected $subscript;
 	
 	/**
-	 * Sets the atomic symbol.
+	 * Sets the atomic symbol index.
 	 * 
-	 * @param string $symbol The symbol, e.g. 'A' or 'B'.
+	 * @param integer $index The index of the atomic symbol
 	 * @return Atomic Current instance.
 	 */
-	public function setSymbol( $symbol )
+	public function setSymbolIndex( $index )
 	{
-		$this->symbol = $symbol;
+		$this->symbolIndex = $index;
 		return $this;
 	}
 	
 	/**
-	 * Gets the atomic symbol.
+	 * Gets the atomic symbol index.
 	 *
-	 * @return string The atomic symbol, e.g. 'A' or 'B'.
+	 * @return integer The index of the atomic symbol
 	 */
-	public function getSymbol()
+	public function getSymbolIndex()
 	{
-		return $this->symbol;
+		return $this->symbolIndex;
 	}
 	
 	/**
@@ -71,6 +71,7 @@ class Atomic extends \GoTableaux\Sentence
 	 */
 	public function setSubscript( $subscript )
 	{
+		if ( !is_int( $subscript )) throw new Exception( "subscript must be numeric" );
 		$this->subscript = (int) $subscript;
 		return $this;
 	}

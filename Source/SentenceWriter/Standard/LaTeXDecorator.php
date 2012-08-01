@@ -35,10 +35,7 @@ class LaTeXDecorator extends \GoTableaux\SentenceWriter\Standard
 {
 	protected $sentenceWriter;
 	
-	// Generated in constructor.
-	protected $operatorTranslations = array();
-	
-	private $standardOperatorSymbols = array(
+	public $operatorStrings = array(
 		'Conjunction' => '\wedge',
 		'Disjunction' => '\vee',
 		'Negation'	  => '\neg ',
@@ -49,18 +46,6 @@ class LaTeXDecorator extends \GoTableaux\SentenceWriter\Standard
 		'Possibility' => '\Diamond',
 	);
 	
-	/**
-	 * Constructor.
-	 *
-	 * @param Vocabulary $vocabulary The vocabulary.
-	 */
-	protected function __construct( Vocabulary $vocabulary )
-	{
-		// Write operators as \GT$operatorName
-		foreach ( $vocabulary->getOperatorNames() as $operatorName )
-			$this->operatorTranslations[$operatorName] = '\GT'. $this->formatCommand( $operatorName );
-		parent::__construct( $vocabulary );
-	}
 	
 	public function writeSubscript( $subscript )
 	{
@@ -72,23 +57,4 @@ class LaTeXDecorator extends \GoTableaux\SentenceWriter\Standard
 		// Add extra space in case it's a unary operator.
 		return $this->sentenceWriter->writeOperator( $operatorOrName ) . ' ';
 	}
-	
-	public function getOperatorSymbolCommands()
-	{
-		return $this->standardOperatorSymbols;
-	}
-	
-	public function formatCommand( $command )
-	{
-		return str_replace( ' ', '', $command );
-	}
-	/*
-	protected $specialCharacters = array( '\\', '#', '$', '%', '&', '~', '_', '^', '{', '}' );
-	public function escape( $str )
-	{
-		foreach ( $this->specialCharacters as $char )
-			$str = str_replace( $char, '\\' . $char, $str );
-		return $str;
-	}
-	*/
 }

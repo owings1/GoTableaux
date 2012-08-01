@@ -33,7 +33,7 @@ use \GoTableaux\Sentence\Molecular as MolecularSentence;
  */
 class HTML extends \GoTableaux\SentenceWriter\Standard
 {
-	protected $operatorTranslations = array(
+	public $operatorStrings = array(
 		'Conjunction' => '&and;',
 		'Disjunction' => '&or;',
 		'Negation'	  => '&not;',

@@ -20,7 +20,10 @@
  */
 
 namespace GoTableaux\Sentence;
-use \GoTableaux\Exception\Vocabulary as Exception;
+
+use \GoTableaux\Sentence as Sentence;
+use \GoTableaux\Operator as Operator;
+use \GoTableaux\Exception as Exception;
 
 /**
  * Represents a molecular sentence.
@@ -48,7 +51,7 @@ class Molecular extends \GoTableaux\Sentence
 	 * @param Operator $operator The operator object of the sentence.
 	 * @return MolecularSentence Current instance.
 	 */
-	public function setOperator( \GoTableaux\Operator $operator )
+	public function setOperator( Operator $operator )
 	{
 		$this->operator = $operator;
 		return $this;
@@ -76,7 +79,7 @@ class Molecular extends \GoTableaux\Sentence
 	 * @return void
 	 * @access private
 	 */
-	protected function _addOperand( \GoTableaux\Sentence $operand )
+	protected function _addOperand( Sentence $operand )
 	{
 		if ( count( $this->operands ) == $this->operator->getArity() )
 			throw new Exception( 'Cannot exceed operator arity.' );

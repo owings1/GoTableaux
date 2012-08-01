@@ -27,5 +27,5 @@ namespace GoTableaux\Logic;
  */
 class LP extends \GoTableaux\Logic
 {
-	public $inheritLexiconFrom = 'FDE';
+	public $inheritOperatorsFrom = 'FDE';
 }

@@ -27,11 +27,7 @@ namespace GoTableaux\Logic;
  */
 class Lukasiewicz extends \GoTableaux\Logic
 {
-	public $inheritLexiconFrom = 'FDE';
+	public $inheritOperatorsFrom = 'FDE';
 	
-	public $lexicon = array(
-		'operators' => array(
-			'Conditional' => 2
-		)
-	);
+	public $operatorArities = array(	'Conditional' => 2 );
 }

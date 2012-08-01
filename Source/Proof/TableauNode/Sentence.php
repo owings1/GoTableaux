@@ -70,7 +70,6 @@ class Sentence extends \GoTableaux\Proof\TableauNode
 		$sentence = $branch->getTableau()
 						   ->getProofSystem()
 						   ->getLogic()
-						   ->getVocabulary()
 						   ->registerSentence( $this->getSentence() );
 		$this->setSentence( $sentence );
 	}

@@ -30,6 +30,18 @@ use \GoTableaux\Sentence\Molecular as MolecularSentence;
  */
 class Standard extends \GoTableaux\SentenceWriter
 {
+	public $atomicStrings = array( 'A', 'B', 'C', 'D', 'E' );
+	
+	public $operatorStrings = array(
+		'Negation' => '~',
+		'Conjunction' => '&',
+		'Disjunction' => 'V',
+		'Material Conditional' => '>',
+		'Material Biconditional' => '<>',
+		'Conditional' => '->',
+		'Possibility' => 'P',
+		'Necessity' => 'N'
+	);
 	/**
 	 * Makes a string representation of a molecular sentence.
 	 *
@@ -40,7 +52,6 @@ class Standard extends \GoTableaux\SentenceWriter
 	{
 		$operator		= $sentence->getOperator();
 		$operands	 	= $sentence->getOperands();
-		$vocabulary		= $this->getVocabulary();
 		
 		$operatorStr 	= $this->writeOperator( $operator );
 		
@@ -49,12 +60,12 @@ class Standard extends \GoTableaux\SentenceWriter
 				$sentenceStr = $operatorStr . $this->_writeSentence( $operands[0] );
 				break;
 			case 2 :
-				$separator	 = $vocabulary->getSeparators( true );
-				$sentenceStr = $vocabulary->getOpenMarks( true ) . 
+				$separator	 = $this->spaceString;
+				$sentenceStr = $this->openMarkString . 
 									$this->_writeSentence( $operands[0] ) .
 							   		$separator . $operatorStr . $separator .
 							   		$this->_writeSentence( $operands[1] ) . 
-							   $vocabulary->getCloseMarks( true );
+							   $this->closeMarkString;
 				break;
 			default:
 				throw new WriterException( 'Cannot represent sentences with operators of arity > 2.' );

@@ -33,6 +33,20 @@ use \GoTableaux\Sentence as Sentence;
  **/
 class Standard extends \GoTableaux\SentenceParser
 {
+	
+	public $atomicSymbols = array( 'A', 'B', 'C', 'D', 'E' );
+	
+	public $operatorNameSymbols = array(
+		'Negation' => '~',
+		'Conjunction' => '&',
+		'Disjunction' => 'V',
+		'Material Conditional' => '>',
+		'Material Biconditional' => '<',
+		'Conditional' => '$',
+		'Possibility' => 'P',
+		'Necessity' => 'N'
+	);
+	
 	/**
 	 * Creates a {@link Sentence sentence} from a string.
 	 * 
@@ -41,24 +55,23 @@ class Standard extends \GoTableaux\SentenceParser
 	 */
 	public function stringToSentence( $sentenceStr )
 	{
-		$vocabulary  = $this->getVocabulary();
-		$sentenceStr = ParserUtilities::removeSeparators( $sentenceStr, $vocabulary );
-		$sentenceStr = ParserUtilities::dropOuterParens( $sentenceStr, $vocabulary );
+		$sentenceStr = $this->removeSeparators( $sentenceStr );
+		$sentenceStr = $this->dropOuterParens( $sentenceStr );
 		
 		if ( empty( $sentenceStr )) 
 			throw new ParserException( 'Sentence string cannot be empty.' );
 		
-		$firstSentenceStr = $this->_readSentence( $sentenceStr, $vocabulary );
+		$firstSentenceStr = $this->_readSentence( $sentenceStr );
 		
 		if ( $firstSentenceStr === $sentenceStr ) {
-			$firstSymbolType = $vocabulary->getSymbolType( $sentenceStr{0} );
+			$firstSymbolType = $this->symbolTable[ $sentenceStr{0} ];
 			switch ( $firstSymbolType ) {
-				case Vocabulary::ATOMIC :
-					return $this->parseAtomic( $sentenceStr, $vocabulary );
-				case Vocabulary::OPER_UNARY :
-					$operator 	= $vocabulary->getOperatorBySymbol( $sentenceStr{0} );
+				case self::ATOMIC :
+					return $this->parseAtomic( $sentenceStr );
+				case self::OPER_UNARY :
+					$operator 	= $this->getOperatorBySymbol( $sentenceStr{0} );
 					$operandStr = substr( $sentenceStr, 1 );
-					$operand 	= $this->stringToSentence( $operandStr, $vocabulary );
+					$operand 	= $this->stringToSentence( $operandStr );
 					return Sentence::createMolecular( $operator, array( $operand ));
 				default :
 					throw ParserException::createWithMsgInputPos( 'Unexpected symbol type.', $sentenceStr, 0 );
@@ -67,21 +80,21 @@ class Standard extends \GoTableaux\SentenceParser
 		
 		$pos 			= strlen( $firstSentenceStr );
 		$nextSymbol 	= $sentenceStr{$pos};
-		$nextSymbolType = $vocabulary->getSymbolType( $nextSymbol );
+		$nextSymbolType = $this->symbolTable[ $nextSymbol ];
 		
-		if ( $nextSymbolType !== Vocabulary::OPER_BINARY )
+		if ( $nextSymbolType !== self::OPER_BINARY )
 			throw ParserException::createWithMsgInputPos( 'Unexpected symbol. Expecting binary operator.', $sentenceStr, $pos );
 		
 		$rightStr			= substr( $sentenceStr, ++$pos );
-		$secondSentenceStr 	= $this->_readSentence( $rightStr, $vocabulary );
+		$secondSentenceStr 	= $this->_readSentence( $rightStr );
 		
 		if ( $rightStr !== $secondSentenceStr )
 			throw ParserException::createWithMsgInputPos( 'Invalid right operand string.', $sentenceStr, $pos );
 		
-		$operator = $vocabulary->getOperatorBySymbol( $nextSymbol );
+		$operator = $this->getOperatorBySymbol( $nextSymbol );
 		$operands = array(
-			$this->stringToSentence( $firstSentenceStr, $vocabulary ),
-			$this->stringToSentence( $secondSentenceStr, $vocabulary )
+			$this->stringToSentence( $firstSentenceStr ),
+			$this->stringToSentence( $secondSentenceStr )
 		);
 		return Sentence::createMolecular( $operator, $operands );
 	}
@@ -96,21 +109,18 @@ class Standard extends \GoTableaux\SentenceParser
 	 */
 	private function _readSentence( $string )
 	{	
-		$vocabulary		 = $this->getVocabulary(); 
-		$firstSymbolType = $vocabulary->getSymbolType( $string{0} );
-		switch ( $firstSymbolType ) {
-			case Vocabulary::ATOMIC :
-				$hasSubscript = strlen( $string ) > 1 && 
-								$vocabulary->getSymbolType( $string{1} ) === Vocabulary::CTRL_SUBSCRIPT;
+		switch ( $this->symbolTable[ $string{0} ] ) {
+			case self::ATOMIC :
+				$hasSubscript = strlen( $string ) > 1 && $string{1} === $this->subscriptSymbol;
 				$firstSentenceStr = $hasSubscript ? substr( $string, 0, 2 ) . intval( substr( $string, 2 ))
 												  : $string{0};
 				break;
-			case Vocabulary::PUNCT_OPEN;
-				$closePos = ParserUtilities::closePosFromOpenPos( $string, 0, $vocabulary );
+			case self::PUNCT_OPEN;
+				$closePos = $this->closePosFromOpenPos( $string, 0 );
 				$firstSentenceStr = substr( $string, 0, $closePos + 1 );
 				break;
-			case Vocabulary::OPER_UNARY :
-				$firstSentenceStr = $string{0} . $this->_readSentence( substr( $string, 1 ), $vocabulary );
+			case self::OPER_UNARY :
+				$firstSentenceStr = $string{0} . $this->_readSentence( substr( $string, 1 ));
 				break;
 			default :
 				throw ParserException::createWithMsgInputPos( 'Unexpected symbol type.', $string, 0 );

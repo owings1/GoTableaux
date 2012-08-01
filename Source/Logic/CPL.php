@@ -27,5 +27,5 @@ namespace GoTableaux\Logic;
  */
 class CPL extends \GoTableaux\Logic
 {	
-	public $inheritLexiconFrom = 'FDE';
+	public $inheritOperatorsFrom = 'FDE';
 }

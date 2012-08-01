@@ -34,18 +34,19 @@ abstract class ProofWriter
 	 * 
 	 * @var array
 	 */
-	protected $translations = array();
+	public $operatorStrings = array();
+	
+	public $metaSymbolStrings = array();
 	
 	/**
 	 * @var SentenceWriter
-	 * @access private
 	 */
-	private $sentenceWriter;
+	protected $sentenceWriter;
 	
 	/**
-	 * @var Vocabulary
+	 * @var Logic
 	 */
-	private $vocabulary;
+	protected $logic;
 	
 	/**
 	 * Gets a child instance.
@@ -59,80 +60,20 @@ abstract class ProofWriter
 	{
 		$proofClass = get_class( $proof );
 		$class = str_replace( '\\Proof\\', '\\ProofWriter\\', $proofClass ) . "\\$type";
-		return new $class( $proof, $sentenceWriterType );
+		return new $class( $proof->getProofSystem()->getLogic(), $sentenceWriterType );
 	}
 	
 	/**
 	 * Constructor.
 	 *
-	 * @param Proof $proof The proof to write.
+	 * @param Logic $logic The logic.
 	 * @param string $sentenceWriterType The type of sentence writer to use.
 	 */
-	public function __construct( Proof $proof, $sentenceWriterType = 'Standard' )
+	public function __construct( Logic $logic, $sentenceWriterType = 'Standard' )
 	{
-		$this->vocabulary = $proof->getProofSystem()->getLogic()->getVocabulary();
-		$this->setSentenceWriter( $this->getSentenceWriter( $sentenceWriterType ));
-	}
-	
-	/**
-	 * Adds translations.
-	 *
-	 * @param array $translations The translations to add, where key is to be
-	 *							  translated into value.
-	 * @return ProofWriter Current instance.
-	 */
-	public function addTranslations( array $translations )
-	{
-		$this->translations = array_merge( $this->translations, $translations );
-		return $this;
-	}
-	
-	/**
-	 * Removes a translation.
-	 *
-	 * @param string $name Name of the translation to remove.
-	 * @return ProofWriter Current instance.
-	 */
-	public function removeTranslation( $name )
-	{
-		unset( $this->translations[$name] );
-		return $this;
-	}
-	
-	/**
-	 * Gets a translation.
-	 *
-	 * @param string $name Name of the translation.
-	 * @return string The translation.
-	 */
-	public function getTranslation( $name )
-	{
-		if ( empty( $this->translations[$name] ))
-			throw new WriterException( "Unknown translation name: $name" );
-		return $this->translations[$name];
-	}
-	
-	/**
-	 * Gets the sentence writer object.
-	 *
-	 * @return SentenceWriter The sentence writer.
-	 */
-	public function getSentenceWriter( $type = null )
-	{
-		if ( empty( $type )) return $this->sentenceWriter;
-		return SentenceWriter::getInstance( $this->vocabulary, $type );
-	}
-	
-	/**
-	 * Sets the sentence writer object.
-	 *
-	 * @param SentenceWriter $sentenceWriter The sentence writer to set.
-	 * @return ProofWriter Current instance.
-	 */
-	public function setSentenceWriter( SentenceWriter $sentenceWriter )
-	{
-		$this->sentenceWriter = $sentenceWriter;
-		return $this;
+		$this->logic = $logic;
+		$this->sentenceWriter = SentenceWriter::getInstance( $logic, $sentenceWriterType );
+		$this->sentenceWriter->operatorStrings = array_merge( $this->sentenceWriter->operatorStrings, $this->operatorStrings );
 	}
 	
 	/**
@@ -143,7 +84,8 @@ abstract class ProofWriter
 	 */
 	public function decorateSentenceWriter( $type )
 	{
-		return $this->setSentenceWriter( SentenceWriter::getDecoratorInstance( $this->getSentenceWriter(), $type ));
+		return $this->sentenceWriter = SentenceWriter::getDecoratorInstance( $this->sentenceWriter, $type );
+		$this->sentenceWriter->operatorStrings = array_merge( $this->sentenceWriter->operatorStrings, $this->operatorStrings );
 	}
 	
 	/**
@@ -156,7 +98,7 @@ abstract class ProofWriter
 	 */
 	public function writeSentence( Sentence $sentence )
 	{
-		return $this->getSentenceWriter()->writeSentence( $sentence );
+		return $this->sentenceWriter->writeSentence( $sentence );
 	}
 	
 	/**
@@ -165,12 +107,11 @@ abstract class ProofWriter
 	 * Delegates to $this->sentenceWriter.
 	 * 
 	 * @param Proof $proof The proof whose argument to write.
-	 * @param string $sentenceWriterType The type of sentence writer to use.
 	 * @return string The string for the argument.
 	 */
-	public function writeArgumentOfProof( Proof $proof, $sentenceWriterType = null )
+	public function writeArgumentOfProof( Proof $proof )
 	{
-		return $this->getSentenceWriter( $sentenceWriterType )->writeArgument( $proof->getArgument() );
+		return $this->sentenceWriter->writeArgument( $proof->getArgument() );
 	}
 	
 	/**

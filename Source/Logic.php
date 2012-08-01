@@ -21,41 +21,25 @@
 
 namespace GoTableaux;
 
+use \GoTableaux\Sentence\Atomic as AtomicSentence;
+use \GoTableaux\Sentence\Molecular as MolecularSentence;
+
 /**
  * Represents a Logic.
  * @package GoTableaux
  */
 abstract class Logic {
 	
-	/**
-	 * Defines the default operator symbols for the lexicon.
-	 * @var array Key is operator name, value is operator symbol.
-	 * @see Logic::initVocabulary()
-	 */
-	public static $defaultOperatorSymbols = array(
-		'Negation' => '~',
-		'Conjunction' => '&',
-		'Disjunction' => 'V',
-		'Material Conditional' => '>',
-		'Material Biconditional' => '<',
-		'Conditional' => '$',
-		'Possibility' => 'P',
-		'Necessity' => 'N'
-	);
+	public $inheritOperatorsFrom = null;
 	
-	/**
-	 * Defines the default lexicon for initializing the vocabulary.
-	 * @var array Associate array of lexical items.
-	 * @see Vocabulary::__construct()
-	 */
-	public $lexicon = array();
-
-	/**
-	 * Holds a reference to the vocabulary.
-	 * @var Vocabulary
-	 * @access private
-	 */
-	protected $vocabulary;
+	public $operatorArities = array();
+	
+	protected $operators = array();
+	
+	protected $sentences = array();
+	
+	//  Convenience
+	protected $parsers = array();
 	
 	/**
 	 * Holds a reference to the proof system.
@@ -93,12 +77,17 @@ abstract class Logic {
 	 */
 	final private function __construct()
 	{
-		$this->getProofSystem();
-		if ( !empty( $this->inheritLexiconFrom ))
-			foreach ( (array) $this->inheritLexiconFrom as $logicName ) {
+		$class = get_class( $this ) . '\\ProofSystem';
+		$this->proofSystem = new $class( $this );
+		
+		if ( !empty( $this->inheritOperatorsFrom ))
+			foreach ( (array) $this->inheritOperatorsFrom as $logicName ) {
 				$otherLogic = self::getInstance( $logicName );
-				$this->lexicon = array_merge_recursive( $otherLogic->lexicon, $this->lexicon );
+				$this->operatorArities = array_merge( $otherLogic->operatorArities, $this->operatorArities );
 			}
+			
+		foreach ( $this->operatorArities as $name => $arity ) 
+			$this->operators[ $name ] = new Operator( $name, $arity );
 	}
 	
 	/**
@@ -112,39 +101,6 @@ abstract class Logic {
 	}
 	
 	/**
-	 * Initializes the vocabulary.
-	 *
-	 * This should be run to reload any changes to the lexicon. This creates a
-	 * new {@link Vocabulary} object, and so also clears the set of sentences.
-	 *
-	 * @return Logic Current instance.
-	 */
-	public function initVocabulary()
-	{
-		$lexicon = $this->lexicon;
-		$lexicon['operatorSymbols'] = array();
-		if ( !empty( $lexicon['operators'] ))
-			foreach ( $lexicon['operators'] as $name => $arity )
-				$lexicon['operatorSymbols'][self::$defaultOperatorSymbols[$name]] = array( $name => $arity );
-		unset( $lexicon['operators'] );
-		$this->vocabulary = Vocabulary::createWithLexicon( $lexicon );
-		return $this;
-	}
-	
-	/**
-	 * Gets the vocabulary.
-	 *
-	 * Lazily initializes the vocabulary.
-	 *
-	 * @return Vocabulary The logic's vocabulary.
-	 */
-	public function getVocabulary()
-	{
-		if ( empty( $this->vocabulary )) $this->initVocabulary();
-		return $this->vocabulary;
-	}
-	
-	/**
 	 * Gets a new sentence parser of the specified type.
 	 *
 	 * @param string $type Type of parser to instantiate. Default is 'Standard'.
@@ -152,35 +108,32 @@ abstract class Logic {
 	 */
 	public function getParser( $type = 'Standard' )
 	{
-		return SentenceParser::getInstance( $this->getVocabulary(), $type );
+		if ( empty( $this->parsers[ $type ])) 
+			$this->parsers[ $type ] = SentenceParser::getInstance( $this, $type );
+		return $this->parsers[ $type ];
 	}
 	
 	/**
 	 * Gets the proof system.
-	 *
-	 * Lazily instantiates proof system.
 	 * 
 	 * @return ProofSystem The logic's proof system.
 	 */
 	public function getProofSystem()
 	{
-		if ( empty( $this->proofSystem )) {
-			$class 	=  get_class( $this ) . '\\ProofSystem';
-			$this->proofSystem = new $class( $this );
-		}
 		return $this->proofSystem;
 	}
 	
 	/**
-	 * Gets an operator from the logic's vocabulary.
+	 * Gets an operator.
 	 *
 	 * @param string $name The name of the operator.
 	 * @return Operator The operator object.
-	 * @see Vocabulary::getOperatorByName()
 	 */
 	public function getOperator( $name )
 	{
-		return $this->getVocabulary()->getOperatorByName( $name );
+		if ( !array_key_exists( $name, $this->operators ))
+			throw new Exception( "Operator $name does not exist." );
+		return $this->operators[ $name ];
 	}
 	
 	/**
@@ -193,7 +146,7 @@ abstract class Logic {
 	public function parseSentence( $string, $parserType = 'Standard' )
 	{
 		$sentence = $this->getParser( $parserType )->stringToSentence( $string );
-		return $this->getVocabulary()->registerSentence( $sentence );
+		return $this->registerSentence( $sentence );
 	}
 	
 	/**
@@ -214,7 +167,7 @@ abstract class Logic {
 	/**
 	 * Parses an argument.
 	 *
-	 * @param string|array $premiseStrings The premise strings.
+	 * @param string|array $premiseStrings The premise string(s).
 	 * @param string $conclusionString Non-empty conclusion string.
 	 * @param string $parserType The parser type to do the parsing. Default is 'Standard'.
 	 * @return Argument The argument instance.
@@ -255,7 +208,7 @@ abstract class Logic {
 		}
 		if ( !is_array( $operands )) $operands = array( $operands );
 		$sentence = Sentence::createMolecular( $operator, $operands );
-		return $this->getVocabulary()->registerSentence( $sentence );
+		return $this->registerSentence( $sentence );
 	}
 	
 	/**
@@ -269,5 +222,31 @@ abstract class Logic {
 	public function negate( Sentence $sentence )
 	{
 		return $this->applyOperatorToOperands( 'Negation', $sentence );
+	}
+	
+	/**
+	 * Adds a sentence to the vocabulary, maintaining uniqueness.
+	 *
+	 * If the sentence, or one of the same form is already in the vocabulary,
+	 * then that sentence is returned. Otherwise the passed sentence is
+	 * returned. 
+	 *
+	 * @param Sentence $sentence The sentence to add.
+	 * @return Sentence Old or new sentence.
+	 */
+	public function registerSentence( Sentence $sentence )
+	{
+		foreach ( $this->sentences as $existingSentence )
+			if ( Sentence::sameForm( $existingSentence, $sentence )) return $existingSentence;
+		
+		if ( $sentence instanceof AtomicSentence ) {	
+			$newSentence = clone $sentence;
+		} elseif ( $sentence instanceof MolecularSentence ) {
+			$operands = array_map( array( $this, 'registerSentence' ), $sentence->getOperands() );
+			$operator = $this->getOperator( $sentence->getOperatorName() );
+			$newSentence = Sentence::createMolecular( $operator, $operands );
+		} else throw new Exception( 'Unknown Sentence type: ' . get_class( $sentence ));
+		$this->sentences[] = $newSentence;		
+		return $newSentence;
 	}
 }

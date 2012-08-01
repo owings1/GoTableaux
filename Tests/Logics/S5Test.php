@@ -52,6 +52,8 @@ class S5Test extends LogicTestCase
 		'Possibility Addition'		=> array( 'A', 'PA' ),
 		'Necessity Elimination'		=> array( 'NA', 'A'), 
 		'S4 Inference 1'			=> array( null, 'NA > NNA' ),
+		'Necessity of LNC'			=> array( null, '~P(A & ~A)'),
+		'S5 Inference 1'			=> array( null, 'A > NPA' ),
 	);
 	
 	public $invalidities = array(
@@ -66,10 +68,10 @@ class S5Test extends LogicTestCase
 		'Extracting as Disjunct 1'	=> array( 'A V B', 'B' ),
 		'Extracting as Disjunct 2'	=> array( 'A V ~B', '~A' ),
 		'Denying the Antecedent' 	=> array( array( 'A > B', '~A' ), 'B' ),
-		'Possibility distribution'	=> array( 'PA & PB', 'P(A & B)'),
+		'Possibility distribution1'	=> array( 'PA & P~A', 'P(A & ~A)'),
+		'Possibility distribution2'	=> array( 'PA & PB', 'P(A & B)'),
 		//'S4 Infinite 1'				=> array( null, 'NPA > PNA' ),
-		'S4 Infinite 2'				=> array( null, 'PA > PNA' ),
-		'S5 Inference 1'			=> array( null, 'A > NPA' ),
+		//'S4 Infinite 2'				=> array( null, 'PA > PNA' ),
 	);
 
 }

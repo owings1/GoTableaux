@@ -30,15 +30,6 @@ use \GoTableaux\Proof\TableauStructure as Structure;
  */
 class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 {
-	protected $translations = array(
-		'closeMarker' 			=> '\GTcloseMarker',
-		'designatedMarker' 		=> '\GTdesignatedMarker',
-		'undesignatedMarker' 	=> '\GTundesignatedMarker',
-		'worldSymbol' 			=> '\GTworldSymbol',
-		'accessRelationSymbol' 	=> '\GTaccessRelationSymbol',
-		'tickMarker'			=> '\GTtickMarker',
-	);
-	
 	protected $tableauxCommands = array(
 		'closeMarker' 			=> '\times',
 		'designatedMarker' 		=> '+',
@@ -78,17 +69,25 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 	 */
 	public function writeProof( Proof $tableau )
 	{
-		$str = '';
-		$str .= "\documentclass[11pt]{article}\n";
+		$str = "\documentclass[11pt]{article}\n";
 		$str .= "\usepackage{latexsym, qtree}\n\n";
-		$operatorCommands = $this->getSentenceWriter()->getOperatorSymbolCommands();
+		
+		$operatorStrings = $this->getSentenceWriter()->operatorStrings;
+		$operatorNames = array_keys( $operatorStrings );
 		$metaSymbolNames = $tableau->getMetaSymbolNames();
-		foreach ( array_merge( $operatorCommands, $this->tableauxCommands ) as $name => $command) 
-			if ( in_array( $name, array_merge( array_keys( $operatorCommands ), $metaSymbolNames )))
-				$str .= '\newcommand{\GT' . $this->formatCommand( $name ) . '} {\ensuremath{' . $command . "}}\n";
+		
+		foreach ( $operatorStrings as $name => $command ) 
+			$str .= '\newcommand{\Operator_' . str_replace( ' ', '', $name ) . '} {\ensuremath{' . $command . "}}\n";
+		
+		foreach ( $metaSymbolNames as $name )
+			$str .= '\newcommand{\Tableau_' . $name . '} {\ensuremath{' . $this->tableauxCommands[ $name ] . "}}\n";
+			
 		$str .= "\n\n\begin{document}\n\n";
-		$str .= $this->writeProofBody( $tableau ) . "\n\n";
+		
+		$str .= '\Tree[.' . parent::writeProof( $tableau ) . "]\n\n";
+		
 		$str .= "\end{document}";
+		
 		return $str;
 	}	
 	
@@ -113,21 +112,5 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 		
 		$string = trim( $string, "\n" );
 		return $string;
-	}
-	
-	/**
-	 * Writes the body of the proof.
-	 *
-	 * @param Proof $tableau The proof whose body to write.
-	 * @return string The string representation.
-	 */
-	public function writeProofBody( Proof $tableau )
-	{
-		return '\Tree[.' . parent::writeProof( $tableau ) . ' ]';
-	}
-	
-	public function formatCommand( $command )
-	{
-		return $this->getSentenceWriter()->formatCommand( $command );
 	}
 }

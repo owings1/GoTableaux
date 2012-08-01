@@ -31,17 +31,15 @@ use \GoTableaux\Sentence\Molecular as MolecularSentence;
  */
 abstract class SentenceWriter
 {
-	/**
-	 * Defines the standard operator translations, if any.
-	 * @var array
-	 */
-	protected $operatorTranslations = array();
 	
-	/**
-	 * Holds the operator strings.
-	 * @var array
-	 */
-	private $operatorStrings = array();
+	//  Define in child classes
+	public $atomicStrings = array();
+	public $operatorStrings = array();
+	
+	//  Reasonable defaults
+	public $openMarkString = '(';
+	public $closeMarkString = ')';
+	public $spaceString = ' ';
 	
 	/**
 	 * Holds the options.
@@ -54,23 +52,16 @@ abstract class SentenceWriter
 	);
 	
 	/**
-	 * Holds the vocabulary
-	 * @var Vocabulary
-	 * @access private
-	 */
-	protected $vocabulary;
-	
-	/**
 	 * Creates a child instance.
 	 *
-	 * @param Vocabulary $vocabulary The vocabulary for the writer to use.
+	 * @param Logic $logic The logic for the writer to use.
 	 * @param string $type Type of writer to instantiate, default is 'Standard'.
 	 * @return SentenceWriter New instance.
 	 */
-	public static function getInstance( Vocabulary $vocabulary, $type = 'Standard' )
+	public static function getInstance( Logic $logic, $type = 'Standard' )
 	{
 		$class = __CLASS__ . '\\' . $type;
-		return new $class( $vocabulary );
+		return new $class( $logic );
 	}
 	
 	/**
@@ -82,10 +73,10 @@ abstract class SentenceWriter
 	public static function getDecoratorInstance( SentenceWriter $sentenceWriter, $decoratorType )
 	{
 		$class = get_class( $sentenceWriter ) . '\\' . $decoratorType . 'Decorator';
-		$instance = new $class( $sentenceWriter->getVocabulary() );
-		$sentenceWriter->operatorTranslations = array_merge( 
-			$sentenceWriter->operatorTranslations, 
-			$instance->operatorTranslations
+		$instance = new $class( $sentenceWriter->getLogic() );
+		$sentenceWriter->operatorStrings = array_merge( 
+			$sentenceWriter->operatorStrings, 
+			$instance->operatorStrings
 		);
 		$instance->sentenceWriter = $sentenceWriter;
 		return $instance;
@@ -98,30 +89,19 @@ abstract class SentenceWriter
 	 *
 	 * @param Vocabulary $vocabulary The vocabulary for the writer to use.
 	 */
-	protected function __construct( Vocabulary $vocabulary )
+	protected function __construct( Logic $logic )
 	{
-		$this->setVocabulary( $vocabulary );
+		$this->logic = $logic;
 	}
-	
+
 	/**
-	 * Gets the vocabulary.
+	 * Gets the logic
 	 *
-	 * @return Vocabulary The writer's vocabulary.
+	 * @return Logic The logic.
 	 */
-	public function getVocabulary()
+	public function getLogic()
 	{
-		return $this->vocabulary;
-	}
-	
-	/**
-	 * Sets the vocabulary.
-	 *
-	 * @param Vocabulary $vocabulary 
-	 * @return SentenceWriter Current instance.
-	 */
-	public function setVocabulary( Vocabulary $vocabulary )
-	{
-		$this->vocabulary = $vocabulary;
+		return $this->logic;
 	}
 	
 	/**
@@ -171,34 +151,6 @@ abstract class SentenceWriter
 	}
 	
 	/**
-	 * Gets the string for an operator by its name.
-	 * 
-	 * @param string $operatorName The name of the operator.
-	 * @return string The string for the operator.
-	 */
-	public function getOperatorString( $operatorName )
-	{
-		if ( empty( $this->operatorStrings[$operatorName] )) {
-			if ( isset( $this->operatorTranslations[$operatorName] ))
-				$this->operatorStrings[$operatorName] = $this->operatorTranslations[$operatorName];
-			else $this->operatorStrings[$operatorName] = $this->getVocabulary()->getSymbolForOperator( $operatorName );
-		}
-		return $this->operatorStrings[$operatorName];
-	}
-	
-	/**
-	 * Sets the strings to use for some operators.
-	 * 
-	 * @param array $strings Key is operator name, value is string.
-	 * @return SentenceWriter Current instance.
-	 */
-	public function setOperatorStrings( array $strings )
-	{
-		$this->operatorStrings = array_merge( $this->operatorStrings, $strings );
-		return $this;
-	}
-	
-	/**
 	 * Writes an operator.
 	 *
 	 * @param Operator|string $operatorOrName Operator object or name of operator.
@@ -207,7 +159,7 @@ abstract class SentenceWriter
 	public function writeOperator( $operatorOrName )
 	{
 		$name = $operatorOrName instanceof Operator ? $operatorOrName->getName() : $operatorOrName;
-		return $this->getOperatorString( $name );
+		return $this->operatorStrings[ $name ];
 	}
 	
 	/**
@@ -218,19 +170,18 @@ abstract class SentenceWriter
 	 */
 	public function writeSubscript( $subscript )
 	{
-		$subscriptSymbol = $this->getVocabulary()->getSubscriptSymbols( true );
-		return $subscriptSymbol . $subscript;
+		return "_$subscript";
 	}
 	
 	/**
 	 * Writes an atomic symbol.
 	 *
-	 * @param string $symbol The atomic symbol to write.
+	 * @param integer $index The atomic symbol index to write.
 	 * @return string The representation of the atomic symbol.
 	 */
-	public function writeAtomicSymbol( $symbol )
+	public function writeAtomicSymbolIndex( $index )
 	{
-		return $symbol;
+		return $this->atomicStrings[ $index ];
 	}
 	
 	/**
@@ -242,7 +193,7 @@ abstract class SentenceWriter
 	public function writeAtomic( AtomicSentence $sentence )
 	{
 		$subscript = $sentence->getSubscript();
-		$str = $this->writeAtomicSymbol( $sentence->getSymbol() );
+		$str = $this->writeAtomicSymbolIndex( $sentence->getSymbolIndex() );
 		if ( $subscript > 0 || $this->getOption( 'printZeroSubscripts' ))
 			$str .= $this->writeSubscript( $subscript );
 		return $str;
@@ -255,13 +206,14 @@ abstract class SentenceWriter
 	 * @return string The string representation of the sentence.
 	 */
 	public function writeSentence( Sentence $sentence )
+	{	
+		return $this->_writeSentence( $sentence );
+	}
+	
+	public function _writeSentence( Sentence $sentence )
 	{
-		$str = $this->_writeSentence( $sentence );
-									
-		if ( $this->getOption( 'dropOuterParentheses' ))
-			$str = ParserUtilities::dropOuterParens( $str, $this->getVocabulary() );
-		
-		return $str;
+		return $sentence instanceof AtomicSentence ? $this->writeAtomic( $sentence )
+												   : $this->writeMolecular( $sentence );
 	}
 	
 	/**
@@ -313,13 +265,5 @@ abstract class SentenceWriter
 	 * @return string The string representation of the sentence.
 	 */
 	abstract public function writeMolecular( MolecularSentence $sentence );
-	
-	/**
-	 * Recursive function for writing sentences.
-	 */
-	protected function _writeSentence( Sentence $sentence )
-	{
-		return $sentence instanceof AtomicSentence ? $this->writeAtomic( $sentence )
-												   : $this->writeMolecular( $sentence );
-	}
+
 }

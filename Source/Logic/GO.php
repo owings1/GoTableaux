@@ -27,5 +27,5 @@ namespace GoTableaux\Logic;
  */
 class GO extends \GoTableaux\Logic
 {	
-	public $inheritLexiconFrom = 'Lukasiewicz';
+	public $inheritOperatorsFrom = 'Lukasiewicz';
 }

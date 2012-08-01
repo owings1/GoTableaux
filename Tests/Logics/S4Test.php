@@ -57,7 +57,7 @@ class S4Test extends LogicTestCase
 		'S4 Complex 3'				=> array( 'NPA', 'PNPA' ),
 	);
 	
-	public $invalidities = array(/*
+	public $invalidities = array(
 		'Triviality 1'				=> array( 'A', 'B' ),
 		'Triviality 2'				=> array( null, 'A' ),
 		'Affirming the Consequent'	=> array( array( 'A > B', 'B' ), 'A' ),
@@ -69,12 +69,12 @@ class S4Test extends LogicTestCase
 		'Extracting as Disjunct 1'	=> array( 'A V B', 'B' ),
 		'Extracting as Disjunct 2'	=> array( 'A V ~B', '~A' ),
 		'Denying the Antecedent' 	=> array( array( 'A > B', '~A' ), 'B' ),
-		'Possibility distribution'	=> array( 'PA & PB', 'P(A & B)'),*/
+		'Possibility distribution'	=> array( 'PA & PB', 'P(A & B)'),
 		//'S4 Infinite 1'				=> array( null, 'NPA > PNA' ),
 		//'S4 Infinite 2'				=> array( null, 'PA > PNA' ),
 		//'S4 Infinite 3'			=> array( 'PA', 'PNA' ),
 		//'S4 Infinite 4'			=> array( 'NPA', 'NPB' ),
-		'S4 Infinite 5'				=> array( 'NPA', 'B' ),
+		//'S4 Infinite 5'				=> array( 'NPA', 'B' ),
 		'S5 Inference 1'			=> array( null, 'A > NPA' ),
 	);
 
