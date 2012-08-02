@@ -71,7 +71,7 @@ class Atomic extends \GoTableaux\Sentence
 	 */
 	public function setSubscript( $subscript )
 	{
-		if ( !is_int( $subscript )) throw new Exception( "subscript must be numeric" );
+		if ( !is_numeric( $subscript )) throw new Exception( "subscript must be numeric" );
 		$this->subscript = (int) $subscript;
 		return $this;
 	}

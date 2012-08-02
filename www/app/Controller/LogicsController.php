@@ -105,17 +105,18 @@ class LogicsController extends AppController
          * 
          * @param string $logic The logic name.
          */
-	public function get_lexicon( $logic )
+	public function get_lexicon( $logic, $parserType = 'Standard' )
 	{
 		if ( is_numeric( $logic )) $logic = $this->logics[$logic];
 		$Logic = Logic::getInstance( $logic );
-		$Vocabulary = $Logic->getVocabulary();
+		$parser = $Logic->getParser( $parserType );
 		$lexicon = array(
-			'openMark' => $Vocabulary->getOpenMarks( true ),
-			'closeMark' => $Vocabulary->getCloseMarks( true ),
-			'atomicSymbols' => $Vocabulary->getAtomicSymbols(),
-			'operatorNames' => $Vocabulary->getOperatorNames(),
-			'subscriptSymbol' => $Vocabulary->getSubscriptSymbols( true ),
+			'openMark' => $parser->openMark,
+			'closeMark' => $parser->closeMark,
+			'atomicSymbols' => $parser->atomicSymbols,
+			'operatorNames' => $parser->getLogicOperatorSymbolNames(),
+			'allOperatorNames' => $parser->getOperatorSymbolNames(),
+			'subscriptSymbol' => $parser->subscriptSymbol,
 		);
 		$this->set( compact( 'lexicon' ));
 	}

@@ -36,25 +36,19 @@ class LaTeXDecorator extends \GoTableaux\SentenceWriter\Standard
 	protected $sentenceWriter;
 	
 	public $operatorStrings = array(
-		'Conjunction' => '\wedge',
-		'Disjunction' => '\vee',
+		'Conjunction' => '\wedge ',
+		'Disjunction' => '\vee ',
 		'Negation'	  => '\neg ',
-		'Material Conditional' 	=> '\supset',
-		'Material Biconditional' => '\equiv',
-		'Conditional' => '\rightarrow',
-		'Necessity' => '\Box',
-		'Possibility' => '\Diamond',
+		'Material Conditional' 	=> '\supset ',
+		'Material Biconditional' => '\equiv ',
+		'Conditional' => '\rightarrow ',
+		'Necessity' => '\Box ',
+		'Possibility' => '\Diamond ',
 	);
 	
 	
 	public function writeSubscript( $subscript )
 	{
 		return '_{' . $subscript .'}';
-	}
-	
-	public function writeOperator( $operatorOrName )
-	{
-		// Add extra space in case it's a unary operator.
-		return $this->sentenceWriter->writeOperator( $operatorOrName ) . ' ';
 	}
 }

@@ -44,17 +44,17 @@ abstract class SentenceParser
 	public $atomicSymbols = array();
 	public $operatorNameSymbols = array();
 	
+	//  Reasonable defaults
+	public $openMark = '(';
+	public $closeMark = ')';
+	public $subscriptSymbol = '_';
+	public $spaceSymbols = array( ' ', "\n", "\t" );
+	
 	//  Constructed from logic
 	protected $operatorSymbolArities = array();
 	
 	//  Hashed for convenience
 	protected $operatorSymbolNames = array();
-	
-	//  Reasonable defaults
-	protected $openMark = '(';
-	protected $closeMark = ')';
-	protected $subscriptSymbol = '_';
-	protected $spaceSymbols = array( ' ', "\n", "\t" );
 	
 	/**
 	 * Maps symbols to types.
@@ -141,18 +141,20 @@ abstract class SentenceParser
 	protected function parseAtomic( $sentenceStr )
 	{
 		$symbolIndex = array_search( $sentenceStr{0}, $this->atomicSymbols );
-		if ( $symbolIndex === false )
-			throw new ParserException( "$symbol is not an atomic symbol." );
+		if ( $symbolIndex === false ) {
+			$char = $sentenceStr{0};
+			throw new ParserException( "$char is not an atomic symbol." );
+		}
+			
 		
 		$symbol = $sentenceStr{0};
 		$hasSubscript = strlen( $sentenceStr ) > 1 && $sentenceStr{1} === $this->subscriptSymbol;
 		if ( $hasSubscript ) {
 			$subscriptStr = '';
-			for ( $i = 2; $i < strlen( $sentenceStr ) && is_int( $sentenceStr{$i} ); $i++ )
-				$subscriptStr += $sentenceStr{$i};
+			for ( $i = 2; $i < strlen( $sentenceStr ) && is_numeric( $sentenceStr{$i} ); $i++ )
+				$subscriptStr .= $sentenceStr{$i};
 			$subscript = ( int ) $subscriptStr;
 		} else $subscript = 0;
-		
 		return Sentence::createAtomic( $symbolIndex, $subscript );
 	}
 	
@@ -284,6 +286,19 @@ abstract class SentenceParser
 		return substr( $str, $startPos, $endPos - 1 );
 	}
 	
+	public function getOperatorSymbolNames()
+	{
+		return $this->operatorSymbolNames;
+	}
+	
+	
+	public function getLogicOperatorSymbolNames()
+	{
+		$logic = $this->logic;
+		return array_filter( $this->operatorSymbolNames, function( $name ) use ( $logic ){
+			return array_key_exists( $name, $logic->operatorArities );
+		});
+	}
 	/**
 	 * Creates a {@link Sentence sentence} instance from a string.
 	 * 

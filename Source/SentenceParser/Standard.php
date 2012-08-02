@@ -109,6 +109,8 @@ class Standard extends \GoTableaux\SentenceParser
 	 */
 	private function _readSentence( $string )
 	{	
+		if ( !isset( $this->symbolTable[ $string{0} ]))
+			throw new ParserException( $string{0}. ' is not in the symbol table.' );
 		switch ( $this->symbolTable[ $string{0} ] ) {
 			case self::ATOMIC :
 				$hasSubscript = strlen( $string ) > 1 && $string{1} === $this->subscriptSymbol;

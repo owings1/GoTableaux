@@ -21,6 +21,7 @@
 
 namespace GoTableaux\SentenceWriter;
 
+use \GoTableaux\Sentence as Sentence;
 use \GoTableaux\Exception\Writer as WriterException;
 use \GoTableaux\Sentence\Molecular as MolecularSentence;
 
@@ -42,6 +43,16 @@ class Standard extends \GoTableaux\SentenceWriter
 		'Possibility' => 'P',
 		'Necessity' => 'N'
 	);
+	
+	public function writeSentence( Sentence $sentence )
+	{
+		$str = parent::writeSentence( $sentence );
+		if ( $sentence->getArity() === 2 ) {
+			$str = substr( $str, strlen( $this->openMarkString ), -strlen( $this->closeMarkString ));
+		}
+		return $str;
+	}
+	
 	/**
 	 * Makes a string representation of a molecular sentence.
 	 *
@@ -57,14 +68,14 @@ class Standard extends \GoTableaux\SentenceWriter
 		
 		switch ( $operator->getArity() ) {
 			case 1 :
-				$sentenceStr = $operatorStr . $this->_writeSentence( $operands[0] );
+				$sentenceStr = $operatorStr . parent::writeSentence( $operands[0] );
 				break;
 			case 2 :
 				$separator	 = $this->spaceString;
 				$sentenceStr = $this->openMarkString . 
-									$this->_writeSentence( $operands[0] ) .
+									parent::writeSentence( $operands[0] ) .
 							   		$separator . $operatorStr . $separator .
-							   		$this->_writeSentence( $operands[1] ) . 
+							   		parent::writeSentence( $operands[1] ) . 
 							   $this->closeMarkString;
 				break;
 			default:

@@ -29,7 +29,7 @@ use \GoTableaux\Utilities as Utilities;
  * Collects utilities for sentence parsers.
  * @package GoTableaux
  */
-class Parser
+class Parserwwwww
 {
 	/**
 	 * Trims separator (whitespace) characters from beginning and end of a string.

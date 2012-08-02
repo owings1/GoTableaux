@@ -85,9 +85,9 @@ abstract class SentenceWriter
 	/**
 	 * Constructor.
 	 *
-	 * Sets the vocabulary.
+	 * Sets the logic.
 	 *
-	 * @param Vocabulary $vocabulary The vocabulary for the writer to use.
+	 * @param Logic $logic The Logic for the writer to use.
 	 */
 	protected function __construct( Logic $logic )
 	{
@@ -207,11 +207,6 @@ abstract class SentenceWriter
 	 */
 	public function writeSentence( Sentence $sentence )
 	{	
-		return $this->_writeSentence( $sentence );
-	}
-	
-	public function _writeSentence( Sentence $sentence )
-	{
 		return $sentence instanceof AtomicSentence ? $this->writeAtomic( $sentence )
 												   : $this->writeMolecular( $sentence );
 	}

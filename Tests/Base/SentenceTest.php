@@ -31,8 +31,7 @@ class SentenceTest extends UnitTestCase
 	public function setUp()
 	{
 		$this->logic = Logic::getInstance( 'CPL' );
-		$vocabulary = $this->logic->getVocabulary();
-		$this->parser = Parser::getInstance( $vocabulary );
+		$this->parser = Parser::getInstance( $this->logic );
 	}
 	
 	private function parse( $str )
@@ -56,7 +55,7 @@ class SentenceTest extends UnitTestCase
 		$d = $this->parse( 'B V A' );
 		$e = $this->parse( 'A & (B & C)' );
 		$f = $this->parse( '(A & (B & C))' );
-		$g = $this->parse( 'F' );
+		$g = $this->parse( 'E' );
 		list( $a_op1, $a_op2 ) = $a->getOperands();
 		list( $e_op1, $e_op2 ) = $e->getOperands();
 		$this->assertTrue( $a !== $b );

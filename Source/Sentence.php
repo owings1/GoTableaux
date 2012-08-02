@@ -68,6 +68,17 @@ class Sentence
 	}
 	
 	/**
+	 * Gets the arity (0 for atomic).
+	 *
+	 * @return integer The arity of the main connective or 0 for atomic.
+	 */
+	public function getArity()
+	{
+		if ( $this instanceof AtomicSentence ) return 0;
+		return $this->getOperator()->getArity();
+	}
+	
+	/**
 	 * Compares two sentences for form and atomic symbol identity.
 	 *
 	 * @param Sentence $sentence_a The first sentence.

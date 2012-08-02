@@ -38,9 +38,6 @@ abstract class Logic {
 	
 	protected $sentences = array();
 	
-	//  Convenience
-	protected $parsers = array();
-	
 	/**
 	 * Holds a reference to the proof system.
 	 * @var ProofSystem
@@ -108,9 +105,7 @@ abstract class Logic {
 	 */
 	public function getParser( $type = 'Standard' )
 	{
-		if ( empty( $this->parsers[ $type ])) 
-			$this->parsers[ $type ] = SentenceParser::getInstance( $this, $type );
-		return $this->parsers[ $type ];
+		return SentenceParser::getInstance( $this, $type );
 	}
 	
 	/**
@@ -248,5 +243,15 @@ abstract class Logic {
 		} else throw new Exception( 'Unknown Sentence type: ' . get_class( $sentence ));
 		$this->sentences[] = $newSentence;		
 		return $newSentence;
+	}
+	
+	/**
+	 * Gets the set of sentences.
+	 *
+	 * @return array The sentences.
+	 */
+	public function getSentences()
+	{
+		return $this->sentences;
 	}
 }

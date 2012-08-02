@@ -41,7 +41,7 @@ $logicNames = array(
 );
 
 // Select proof writer output.
-$output = 'Simple';
+//$output = 'Simple';
 //$output = 'JSON';
 $output = 'LaTeX_Qtree';
 

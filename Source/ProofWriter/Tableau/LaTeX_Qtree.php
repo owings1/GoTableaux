@@ -21,6 +21,7 @@
 
 namespace GoTableaux\ProofWriter\Tableau;
 
+use \GoTableaux\Logic as Logic;
 use \GoTableaux\Proof as Proof;
 use \GoTableaux\Proof\TableauStructure as Structure;
 
@@ -30,7 +31,10 @@ use \GoTableaux\Proof\TableauStructure as Structure;
  */
 class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 {
-	protected $tableauxCommands = array(
+	//  Defined in constructor.
+	public $metaSymbolStrings = array();
+	
+	protected $_metaSymbolStrings = array(
 		'closeMarker' 			=> '\times',
 		'designatedMarker' 		=> '+',
 		'undesignatedMarker' 	=> '-',
@@ -39,9 +43,11 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 		'tickMarker'			=> '\bullet',
 	);
 	
+	protected $operatorStrings = array();
+	
 	public function writeWorldIndex( $index )
 	{
-		return $this->getTranslation( 'worldSymbol' ) . '_{' . $index . '}';
+		return $this->metaSymbolStrings[ 'worldSymbol' ] . '_{' . $index . '}';
 	}
 	
 	/**
@@ -50,15 +56,22 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 	 * Decorates the sentence writer with the LaTeX decorator; sets default
 	 * LaTeX translations, and removes the tickMarker translation.
 	 *
-	 * @param Proof $proof The with which to initialize the writer.
+	 * @param Logic $logic The logic with which to initialize the writer.
 	 * @param string $sentenceWriterType The sentence notation type to use.
 	 */
-	public function __construct( Proof $proof, $sentenceWriterType = 'Standard' )
+	public function __construct( Logic $logic, $sentenceWriterType = 'Standard' )
 	{
-		parent::__construct( $proof, $sentenceWriterType );
+		parent::__construct( $logic, $sentenceWriterType );
 		$this->decorateSentenceWriter( 'LaTeX' );
-		foreach ( $this->tableauxCommands as $name => $command )
-			$this->addTranslations( array( $name => "\GT$name" ));
+		$this->operatorStrings = $this->sentenceWriter->operatorStrings;
+		$newStrings = array();
+		foreach ( array_keys( $this->operatorStrings ) as $name ) 
+			$newStrings[ $name ] = "\Operator_" . str_replace( ' ', '', $name ). ' ';
+		$this->sentenceWriter->operatorStrings = $newStrings;
+		$newStrings = array();
+		foreach ( array_keys( $this->_metaSymbolStrings ) as $name )
+			$newStrings[ $name ] = "\Tableau_" . str_replace( ' ', '', $name ) . ' ';
+		$this->metaSymbolStrings = $newStrings;
 	}
 	
 	/**
@@ -72,15 +85,11 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 		$str = "\documentclass[11pt]{article}\n";
 		$str .= "\usepackage{latexsym, qtree}\n\n";
 		
-		$operatorStrings = $this->getSentenceWriter()->operatorStrings;
-		$operatorNames = array_keys( $operatorStrings );
-		$metaSymbolNames = $tableau->getMetaSymbolNames();
-		
-		foreach ( $operatorStrings as $name => $command ) 
+		foreach ( $this->operatorStrings as $name => $command ) 
 			$str .= '\newcommand{\Operator_' . str_replace( ' ', '', $name ) . '} {\ensuremath{' . $command . "}}\n";
 		
-		foreach ( $metaSymbolNames as $name )
-			$str .= '\newcommand{\Tableau_' . $name . '} {\ensuremath{' . $this->tableauxCommands[ $name ] . "}}\n";
+		foreach ( $tableau->getMetaSymbolNames() as $name )
+			$str .= '\newcommand{\Tableau_' . $name . '} {\ensuremath{' . $this->_metaSymbolStrings[ $name ] . "}}\n";
 			
 		$str .= "\n\n\begin{document}\n\n";
 		

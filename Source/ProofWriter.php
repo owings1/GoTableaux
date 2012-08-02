@@ -30,12 +30,6 @@ use \GoTableaux\SentenceWriter\Decorator as SentenceWriterDecorator;
  */
 abstract class ProofWriter
 {
-	/**
-	 * 
-	 * @var array
-	 */
-	public $operatorStrings = array();
-	
 	public $metaSymbolStrings = array();
 	
 	/**
@@ -73,7 +67,7 @@ abstract class ProofWriter
 	{
 		$this->logic = $logic;
 		$this->sentenceWriter = SentenceWriter::getInstance( $logic, $sentenceWriterType );
-		$this->sentenceWriter->operatorStrings = array_merge( $this->sentenceWriter->operatorStrings, $this->operatorStrings );
+		//$this->sentenceWriter->operatorStrings = array_merge( $this->sentenceWriter->operatorStrings, $this->operatorStrings );
 	}
 	
 	/**
