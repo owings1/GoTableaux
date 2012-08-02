@@ -66,11 +66,11 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 		$this->operatorStrings = $this->sentenceWriter->operatorStrings;
 		$newStrings = array();
 		foreach ( array_keys( $this->operatorStrings ) as $name ) 
-			$newStrings[ $name ] = "\Operator_" . str_replace( ' ', '', $name ). ' ';
+			$newStrings[ $name ] = "\Operator" . str_replace( ' ', '', $name ). ' ';
 		$this->sentenceWriter->operatorStrings = $newStrings;
 		$newStrings = array();
 		foreach ( array_keys( $this->_metaSymbolStrings ) as $name )
-			$newStrings[ $name ] = "\Tableau_" . str_replace( ' ', '', $name ) . ' ';
+			$newStrings[ $name ] = "\Tableau" . str_replace( ' ', '', $name ) . ' ';
 		$this->metaSymbolStrings = $newStrings;
 	}
 	
@@ -83,13 +83,14 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 	public function writeProof( Proof $tableau )
 	{
 		$str = "\documentclass[11pt]{article}\n";
+		$str .= "%  The Qtree package is available at http://www.ling.upenn.edu/advice/latex/qtree/\n";
 		$str .= "\usepackage{latexsym, qtree}\n\n";
 		
 		foreach ( $this->operatorStrings as $name => $command ) 
-			$str .= '\newcommand{\Operator_' . str_replace( ' ', '', $name ) . '} {\ensuremath{' . $command . "}}\n";
+			$str .= '\newcommand{\Operator' . str_replace( ' ', '', $name ) . '} {\ensuremath{' . $command . "}}\n";
 		
 		foreach ( $tableau->getMetaSymbolNames() as $name )
-			$str .= '\newcommand{\Tableau_' . $name . '} {\ensuremath{' . $this->_metaSymbolStrings[ $name ] . "}}\n";
+			$str .= '\newcommand{\Tableau' . $name . '} {\ensuremath{' . $this->_metaSymbolStrings[ $name ] . "}}\n";
 			
 		$str .= "\n\n\begin{document}\n\n";
 		

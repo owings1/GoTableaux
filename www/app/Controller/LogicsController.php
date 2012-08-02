@@ -180,7 +180,7 @@ class LogicsController extends AppController
 		$jsonProofWriter = ProofWriter::getInstance( $exampleTableau, 'JSON' );
 		$rule['tableauJSON'] = $jsonProofWriter->writeProof( $exampleTableau );
 		$rules[] = $rule;
-	    $sentenceWriter = SentenceWriter::getInstance( $Logic->getVocabulary(), 'Standard\HTML');
+	    $sentenceWriter = SentenceWriter::getInstance( $Logic, 'Standard\HTML');
 		foreach ( $Logic->getProofSystem()->getRules() as $Rule ) {
 			$rule = array();
 			$rule['class'] = str_replace( '\\', '.', get_class( $Rule ));
