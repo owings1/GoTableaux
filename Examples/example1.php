@@ -23,8 +23,9 @@
 // Load the example functions.
 require_once __DIR__ . '/example_functions.php';
 
-// Select standard sentence notation.
-$notation = 'Standard';
+// Select write notation.
+$writeNotation = 'Standard';
+//$writeNotation = 'Polish';
 
 // Create an example argument.
 $premises = array( 'A_2 > B', 'B' );
@@ -41,13 +42,13 @@ $logicNames = array(
 );
 
 // Select proof writer output.
-//$output = 'Simple';
+$output = 'Simple';
 //$output = 'JSON';
-$output = 'LaTeX_Qtree';
+//$output = 'LaTeX_Qtree';
 
 // Evaluate the argument in several logics and print the result.
 foreach ( $logicNames as $logicName )
-	echo GoTableaux\evaluate_argument( $premises, $conclusion, $logicName, $output, $notation );
+	echo GoTableaux\evaluate_argument( $premises, $conclusion, $logicName, $output, 'Standard', $writeNotation );
 
 // Load example arguments in standard notation.
 $exampleArguments = array(
@@ -69,4 +70,4 @@ $exampleArguments = array(
 
 // Evaluate the example arugments in several logics and print the results.
 foreach ( $logicNames as $logicName )
-	echo GoTableaux\evaluate_many_arguments( $exampleArguments, $logicName, $output, $notation );
+	echo GoTableaux\evaluate_many_arguments( $exampleArguments, $logicName, $output, 'Standard', $writeNotation );

@@ -35,12 +35,7 @@ abstract class SentenceWriter
 	//  Define in child classes
 	public $atomicStrings = array();
 	public $operatorStrings = array();
-	
-	//  Reasonable defaults
-	public $openMarkString = '(';
-	public $closeMarkString = ')';
-	public $spaceString = ' ';
-	
+
 	/**
 	 * Holds the options.
 	 * @var array
@@ -55,31 +50,16 @@ abstract class SentenceWriter
 	 * Creates a child instance.
 	 *
 	 * @param Logic $logic The logic for the writer to use.
-	 * @param string $type Type of writer to instantiate, default is 'Standard'.
+	 * @param string $notation Type sentence notation.
+	 * @param string $format The sentence format.
 	 * @return SentenceWriter New instance.
 	 */
-	public static function getInstance( Logic $logic, $type = 'Standard' )
+	public static function getInstance( Logic $logic, $notation = 'Standard', $format = null )
 	{
-		$class = __CLASS__ . '\\' . $type;
+		if ( empty( $notation )) $notation = 'Standard';
+		$class = __CLASS__ . '\\' . $notation;
+		if ( !empty( $format )) $class .= '\\' . $format;
 		return new $class( $logic );
-	}
-	
-	/**
-	 * Gets a decorator instance of a given type for a sentence writer.
-	 *
-	 * @param SentenceWriter $sentenceWriter The sentence writer for the instance to decorate.
-	 * @param string $decoratorType The decorator type to instantiate.
-	 */
-	public static function getDecoratorInstance( SentenceWriter $sentenceWriter, $decoratorType )
-	{
-		$class = get_class( $sentenceWriter ) . '\\' . $decoratorType . 'Decorator';
-		$instance = new $class( $sentenceWriter->getLogic() );
-		$sentenceWriter->operatorStrings = array_merge( 
-			$sentenceWriter->operatorStrings, 
-			$instance->operatorStrings
-		);
-		$instance->sentenceWriter = $sentenceWriter;
-		return $instance;
 	}
 	
 	/**
@@ -94,6 +74,20 @@ abstract class SentenceWriter
 		$this->logic = $logic;
 	}
 
+	final public function getNotation()
+	{
+		$class = str_replace( __CLASS__, get_class( $this ));
+		list( $notation ) = explode( '\\', trim( $class, '\\' ));
+		return $notation;
+	}
+	
+	final public function getFormat()
+	{
+		$class = str_replace( __CLASS__, get_class( $this ));
+		list( $notation, $format ) = explode( '\\', trim( $class, '\\' ));
+		return $format;
+	}
+	
 	/**
 	 * Gets the logic
 	 *
@@ -148,18 +142,6 @@ abstract class SentenceWriter
 	{
 		foreach ( $options as $option => $value ) $this->setOption( $option, $value );
 		return $this;
-	}
-	
-	/**
-	 * Writes an operator.
-	 *
-	 * @param Operator|string $operatorOrName Operator object or name of operator.
-	 * @return string String representation of the operator.
-	 */
-	public function writeOperator( $operatorOrName )
-	{
-		$name = $operatorOrName instanceof Operator ? $operatorOrName->getName() : $operatorOrName;
-		return $this->operatorStrings[ $name ];
 	}
 	
 	/**

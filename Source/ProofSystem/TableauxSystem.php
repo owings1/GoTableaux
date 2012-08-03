@@ -29,6 +29,7 @@ use \GoTableaux\Proof\Tableau as Tableau;
 use \GoTableaux\Proof\TableauBranch as Branch;
 use \GoTableaux\Exception\Tableau as TableauException;
 use \GoTableaux\ProofSystem\TableauxSystem\Rule as Rule;
+use \GoTableaux\ProofWriter as ProofWriter;
 use \GoTableaux\Utilities as Utilities;
 
 /**
@@ -49,6 +50,11 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 	 */
 	private $_rules = array();
 
+	public function getProofWriter( $output = null, $notation = null, $format = null )
+	{
+		return ProofWriter::getInstance( 'Tableau', $this->getLogic(), $output, $notation, $format );
+	}
+	
 	/**
 	 * Adds tableau rules. Duplicate entries are ignored.
 	 *
@@ -199,32 +205,4 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 	 * @return void
 	 */
 	abstract public function buildTrunk( Tableau $tableau, Argument $argument, Logic $logic );
-	
-	/**
-	 * Gets a counterexample from a Tableau proof.
-	 *
-	 * A counterexample for a tableaux system is a model induced from an open
-	 * branch. 
-	 *
-	 * @param Proof $tableau The tableau from which to build the counterexample
-	 * @return Model The countermodel extracted from the proof.
-	 * @throws {@link TableauException} on no open branches or type error.
-	 */
-	/*public function getCountermodel( Proof $tableau )
-	{
-		if ( !$tableau instanceof Tableau )
-			throw new TableauException( "Proof must be a Tableau." );
-		if ( !$openBranch = array_rand( $tableau->getOpenBranches() ))
-			throw new TableauException( "No open branches found on tableau." );
-		return $this->induceModel( $openBranch );
-	}*/
-	
-	/**
-	 * Induces a model from an open branch.
-	 *
-	 * @param Branch $branch The open branch from which to induce a model
-	 * @return Model The induced model.
-	 */
-	//abstract public function induceModel( Branch $branch );
-	
 }

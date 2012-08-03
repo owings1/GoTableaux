@@ -21,7 +21,7 @@
 		<h3>Logic</h3>
 		<div class="input_radio">
 			<? foreach ( $logics as $i => $logic ) : ?>
-				<input id="Logic<?= $i ?>" type="radio" value="<?= $i ?>" name="data[logic]">
+				<input id="Logic<?= $i ?>" type="radio" value="<?= $i ?>" name="data[logic]"<?= isset( $this->data['logic'] ) && $this->data['logic'] == $i ? ' checked="checked"' : '' ?>>
 				<label for="Logic<?= $i ?>">
 					<?= $this->Html->link( $this->Inflect->human( $logic ), array( 'action' => 'view', $logic )) ?>
 				</label>
@@ -44,6 +44,7 @@
 			<a id="AddPremise" href="javascript:">Add Premise</a>
 			<br><br>
 			<?= $this->Form->input( 'conclusion' ) ?>
+			<?= $this->Form->input( 'write_notation', array( 'label' => 'Output notation', 'options' => $write_notations, 'value' => isset( $this->data['write_notation'] ) ? $this->data['write_notation'] : 0 )) ?>
 		<?= $this->Form->end( 'Evaluate' ) ?>
 	</div>
 	<div class="clear"></div>
@@ -72,6 +73,7 @@
 							<? endforeach ?>
 							<?= $this->Form->hidden( 'logic' ) ?>
 							<?= $this->Form->hidden( 'conclusion' ) ?>
+							<?= $this->Form->hidden( 'write_notation' ) ?>
 							<textarea name="data[latex]" class="output"><?= $proofLatex ?></textarea>
 						<?= $this->Form->end( 'View PDF' ) ?>
 						

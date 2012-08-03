@@ -44,6 +44,10 @@ class Standard extends \GoTableaux\SentenceWriter
 		'Necessity' => 'N'
 	);
 	
+	public $openMarkString = '(';
+	public $closeMarkString = ')';
+	public $spaceString = ' ';
+	
 	public function writeSentence( Sentence $sentence )
 	{
 		$str = parent::writeSentence( $sentence );
@@ -64,7 +68,7 @@ class Standard extends \GoTableaux\SentenceWriter
 		$operator		= $sentence->getOperator();
 		$operands	 	= $sentence->getOperands();
 		
-		$operatorStr 	= $this->writeOperator( $operator );
+		$operatorStr 	= $this->operatorStrings[ $operator->getName() ];
 		
 		switch ( $operator->getArity() ) {
 			case 1 :

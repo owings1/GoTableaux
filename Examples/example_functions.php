@@ -34,12 +34,12 @@ require __DIR__ . DS . '..' . DS . 'Source' . DS . 'Loader.php';
  *								 the {@link StandardSentenceParser standard sentence parser}.
  * @param string $conclusion The conclusion string.
  * @param string $logicName The name of the logic against which to evaluate the argument.
- * @param string $writer The type of proof writer to use. Default is Simple.
+ * @param string $output The type of proof writer output to use. Default is Simple.
  * @param string $notation The sentence notation for the proof writer to use.
  *						   Default is Standard notation.
  * @return string The summary of the results.
  */
-function evaluate_argument( $premises, $conclusion, $logicName, $writer = 'Simple', $notation = 'Standard' )
+function evaluate_argument( $premises, $conclusion, $logicName, $output = 'Simple', $parseNotation = 'Standard', $writeNotation = null )
 {
 	// Get instance of logic
 	$logic = Logic::getInstance( $logicName );
@@ -47,13 +47,13 @@ function evaluate_argument( $premises, $conclusion, $logicName, $writer = 'Simpl
 	$summary = "Evaluating argument with $logicName...\n\n";
 	
 	// Create an argument
-	$argument = $logic->parseArgument( $premises, $conclusion, $notation );
+	$argument = $logic->parseArgument( $premises, $conclusion, $parseNotation );
 	
 	// Build a proof for the argument from the logic's proof system
 	$proof = $logic->constructProofForArgument( $argument );
 	
 	// Get instance of proof writer
-	$proofWriter = ProofWriter::getInstance( $proof, $writer, $notation );
+	$proofWriter = $logic->getProofWriter( $output, empty( $writeNotation ) ? $parseNotation : $writeNotation );
 	
 	// Print argument representation
 	$summary .= "Argument: " . $proofWriter->writeArgumentOfProof( $proof ) . "\n\n";
@@ -80,17 +80,17 @@ function evaluate_argument( $premises, $conclusion, $logicName, $writer = 'Simpl
  * </code>
  * @param array $arguments An array of argument strings.
  * @param string $logicName The name of the logic.
- * @param string $writer The type of proof writer to use. Default is Simple.
+ * @param string $output The type of proof writer to use. Default is Simple.
  * @param string $notation The sentence notation for the proof writer to use.
  *						   Default is Standard notation.
  * @return string The summary of the results.
  */
-function evaluate_many_arguments( array $arguments, $logicName, $writer = 'Simple', $notation = 'Standard' )
+function evaluate_many_arguments( array $arguments, $logicName, $output = 'Simple', $parseNotation = 'Standard', $writeNotation = null )
 {
 	$summary = "Evaluating " . count( $arguments ) . " Arguments with $logicName...\n\n";
 	foreach ( $arguments as $name => $strings ) {	
 		list( $premises, $conclusion ) = $strings;
-		$summary .= evaluate_argument( $premises, $conclusion, $logicName, $writer, $notation );
+		$summary .= evaluate_argument( $premises, $conclusion, $logicName, $output, $parseNotation, $writeNotation );
 	}
 	return $summary;
 }

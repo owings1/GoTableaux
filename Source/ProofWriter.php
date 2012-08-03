@@ -45,41 +45,31 @@ abstract class ProofWriter
 	/**
 	 * Gets a child instance.
 	 *
-	 * @param Proof $proof The proof to write.
-	 * @param string $type Proof writer type.
-	 * @param string $sentenceWriterType The type of sentence writer to use.
+	 * @param string $proofType The type of proof.
+	 * @param Logic $logic The logic to use.
+	 * @param string $type Proof writer output type.
+	 * @param string $notation The type of sentence writer to use.
+	 * @param string $format The sentence writer format.
 	 * @return ProofWriter Created instance.
 	 */
-	public static function getInstance( Proof $proof, $type = 'Simple', $sentenceWriterType = 'Standard' )
+	public static function getInstance( $proofType, Logic $logic, $output = 'Simple', $notation = 'Standard', $format = null )
 	{
-		$proofClass = get_class( $proof );
-		$class = str_replace( '\\Proof\\', '\\ProofWriter\\', $proofClass ) . "\\$type";
-		return new $class( $proof->getProofSystem()->getLogic(), $sentenceWriterType );
+		if ( empty( $notation )) $notation = 'Standard';
+		if ( empty( $output )) $output = 'Simple';
+		$class = __CLASS__ . '\\' . $proofType . '\\' . $output;
+		return new $class( $logic, $notation, $format );
 	}
 	
 	/**
 	 * Constructor.
 	 *
 	 * @param Logic $logic The logic.
-	 * @param string $sentenceWriterType The type of sentence writer to use.
+	 * @param string $notation The type of sentence writer to use.
 	 */
-	public function __construct( Logic $logic, $sentenceWriterType = 'Standard' )
+	public function __construct( Logic $logic, $notation = null, $format = null )
 	{
 		$this->logic = $logic;
-		$this->sentenceWriter = SentenceWriter::getInstance( $logic, $sentenceWriterType );
-		//$this->sentenceWriter->operatorStrings = array_merge( $this->sentenceWriter->operatorStrings, $this->operatorStrings );
-	}
-	
-	/**
-	 * Decorates the sentence writer.
-	 *
-	 * @param string $type Type of decorator.
-	 * @return ProofWriter Current instance.
-	 */
-	public function decorateSentenceWriter( $type )
-	{
-		return $this->sentenceWriter = SentenceWriter::getDecoratorInstance( $this->sentenceWriter, $type );
-		$this->sentenceWriter->operatorStrings = array_merge( $this->sentenceWriter->operatorStrings, $this->operatorStrings );
+		$this->sentenceWriter = SentenceWriter::getInstance( $logic, $notation, $format );
 	}
 	
 	/**

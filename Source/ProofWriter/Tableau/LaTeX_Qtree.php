@@ -43,7 +43,8 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 		'tickMarker'			=> '\bullet',
 	);
 	
-	protected $operatorStrings = array();
+	//  Saved from SentenceWriter
+	protected $_operatorStrings = array();
 	
 	public function writeWorldIndex( $index )
 	{
@@ -59,15 +60,16 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 	 * @param Logic $logic The logic with which to initialize the writer.
 	 * @param string $sentenceWriterType The sentence notation type to use.
 	 */
-	public function __construct( Logic $logic, $sentenceWriterType = 'Standard' )
+	public function __construct( Logic $logic, $notation = null, $format = null )
 	{
-		parent::__construct( $logic, $sentenceWriterType );
-		$this->decorateSentenceWriter( 'LaTeX' );
-		$this->operatorStrings = $this->sentenceWriter->operatorStrings;
+		//  Enforce LaTeX format for sentence writer
+		$format = 'LaTeX';
+		parent::__construct( $logic, $notation, $format );
+		$this->_operatorStrings = $this->sentenceWriter->operatorStrings;
 		$newStrings = array();
-		foreach ( array_keys( $this->operatorStrings ) as $name ) 
+		foreach ( array_keys( $this->_operatorStrings ) as $name ) 
 			$newStrings[ $name ] = "\Operator" . str_replace( ' ', '', $name ). ' ';
-		$this->sentenceWriter->operatorStrings = $newStrings;
+		$this->sentenceWriter->_operatorStrings = $newStrings;
 		$newStrings = array();
 		foreach ( array_keys( $this->_metaSymbolStrings ) as $name )
 			$newStrings[ $name ] = "\Tableau" . str_replace( ' ', '', $name ) . ' ';
@@ -86,8 +88,8 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 		$str .= "%  The Qtree package is available at http://www.ling.upenn.edu/advice/latex/qtree/\n";
 		$str .= "\usepackage{latexsym, qtree}\n\n";
 		
-		foreach ( $this->operatorStrings as $name => $command ) 
-			$str .= '\newcommand{\Operator' . str_replace( ' ', '', $name ) . '} {\ensuremath{' . $command . "}}\n";
+		foreach ( $this->logic->getOperatorNames() as $name ) 
+			$str .= '\newcommand{\Operator' . str_replace( ' ', '', $name ) . '} {\ensuremath{' . $this->_operatorStrings[ $name ] . "}}\n";
 		
 		foreach ( $tableau->getMetaSymbolNames() as $name )
 			$str .= '\newcommand{\Tableau' . $name . '} {\ensuremath{' . $this->_metaSymbolStrings[ $name ] . "}}\n";

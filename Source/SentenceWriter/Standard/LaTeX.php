@@ -31,10 +31,8 @@ use \GoTableaux\Sentence\Molecular as MolecularSentence;
  * Decorates a sentence writer for LaTeX.
  * @package GoTableaux
  */
-class LaTeXDecorator extends \GoTableaux\SentenceWriter\Standard
+class LaTeX extends \GoTableaux\SentenceWriter\Standard
 {
-	protected $sentenceWriter;
-	
 	public $operatorStrings = array(
 		'Conjunction' => '\wedge ',
 		'Disjunction' => '\vee ',
@@ -45,7 +43,6 @@ class LaTeXDecorator extends \GoTableaux\SentenceWriter\Standard
 		'Necessity' => '\Box ',
 		'Possibility' => '\Diamond ',
 	);
-	
 	
 	public function writeSubscript( $subscript )
 	{

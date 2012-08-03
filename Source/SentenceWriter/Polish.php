@@ -29,18 +29,18 @@ use \GoTableaux\Sentence\Molecular as MolecularSentence;
  */
 class Polish extends \GoTableaux\SentenceWriter
 {
-	protected $operatorTranslations = array(
+	public $atomicStrings = array( 'a', 'b', 'c', 'd', 'e' );
+	
+	public $operatorStrings = array(
 		'Conjunction' => 'K',
 		'Disjunction' => 'A',
 		'Negation'	  => 'N',
-		'Material Conditional' 		=> 'M',
-		'Material Biconditional' 	=> 'Q',
+		'Material Conditional' 		=> 'C',
+		'Material Biconditional' 	=> 'E',
+		'Possibility' => 'M',
+		'Necessity' => 'L',
+		'Conditional' => 'U'
 	);
-	
-	public function writeAtomicSymbol( $symbol )
-	{
-		return strtolower( $symbol );
-	}
 	
 	/**
 	 * Makes a string representation of a molecular sentence.
@@ -50,9 +50,14 @@ class Polish extends \GoTableaux\SentenceWriter
 	 */
 	public function writeMolecular( MolecularSentence $sentence )
 	{
-		$str = $this->writeOperator( $sentence->getOperator() );
+		$str = $this->operatorStrings[ $sentence->getOperatorName() ];
 		foreach ( $sentence->getOperands() as $operand )
-			$str .= $this->_writeSentence( $operand );
+			$str .= parent::writeSentence( $operand );
 		return $str;
+	}
+	
+	public function writeSubscript( $subscript )
+	{
+		return "$subscript";
 	}
 }

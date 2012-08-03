@@ -59,6 +59,13 @@ abstract class Proof
 		$this->proofSystem = $proofSystem;
 	}
 	
+	public function getType()
+	{
+		$class = trim( str_replace( __CLASS__, '', get_class( $this )), '\\' );
+		list( $type ) = explode( '\\', $class );
+		return $type;
+	}
+	
 	/**
 	 * Gets the meta symbols names.
 	 * 
@@ -112,6 +119,15 @@ abstract class Proof
 		return $this->proofSystem;
 	}
 	
+	public function getProofSystemType()
+	{
+		return $this->getProofSystem()->getType();
+	}
+	
+	public function getWriter( $output = 'Simple', $notation = 'Standard', $format = null )
+	{
+		return $this->getProofSystem()->getProofWriter( $output, $notation, $format );
+	}
 	/**
 	 * Checks whether the proof is valid
 	 *

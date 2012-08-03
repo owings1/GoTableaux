@@ -79,20 +79,15 @@ class TableauNode
 	{
 		$classes = array();
 		foreach ( self::getChildClasses() as $class ) {
-			//Utilities::debug( $class );
 			$forceConditions = $class::$forceClassOnConditions;
-			//Utilities::debug( $forceConditions );
 			if ( empty( $forceConditions )) continue;
 			
 			foreach ( $class::$forceClassOnConditions as $condition )
-				//Utilities::debug( $condition );
-				//Utilities::debug( $conditions );
 				if ( isset( $conditions[$condition] )) {
 					$classes[] = Utilities::getBaseClassName( $class );
 					break;
 				}
 		}
-		//Utilities::debug( $classes );
 		return $classes;
 	}
 	
@@ -176,8 +171,6 @@ class TableauNode
 	public function hasClass( $class )
 	{
 		if ( is_array( $class )) throw new \ErrorException( 'cannot pass array ' );
-		//Utilities::debug( "Checking node for class $class." );
-		for ( $master = $this; !empty( $master->master ); $master = $master->master );
 		$className = __NAMESPACE__ . '\TableauNode\\' . $class;
 		for ( $node = $this->getMaster(); !empty( $node ); $node = $node->node )
 			if ( $node instanceof $className ) return true;
@@ -201,14 +194,7 @@ class TableauNode
 	{
 		$master = $this->getMaster();
 		$classes = self::induceClassesFromConditions( $conditions );
-		//Utilities::debug( $classes );
 		foreach ( $classes as $class ) if ( !$master->hasClass( $class )) return false;
-		//if ( !empty( $classes )) {
-		//	Utilities::debug( $classes, $this->getClasses(), $this ); 
-			
-	//		die();
-		//}
-		
 		return true;
 	}
 	

@@ -118,6 +118,11 @@ abstract class Logic {
 		return $this->proofSystem;
 	}
 	
+	public function getProofWriter( $output = null, $notation = null, $format = null )
+	{
+		return $this->getProofSystem()->getProofWriter( $output, $notation, $format );
+	}
+	
 	/**
 	 * Gets an operator.
 	 *
@@ -129,6 +134,16 @@ abstract class Logic {
 		if ( !array_key_exists( $name, $this->operators ))
 			throw new Exception( "Operator $name does not exist." );
 		return $this->operators[ $name ];
+	}
+	
+	public function getOperators()
+	{
+		return $this->operators;
+	}
+	
+	public function getOperatorNames()
+	{
+		return array_keys( $this->operators );
 	}
 	
 	/**
@@ -222,7 +237,7 @@ abstract class Logic {
 	/**
 	 * Adds a sentence to the vocabulary, maintaining uniqueness.
 	 *
-	 * If the sentence, or one of the same form is already in the vocabulary,
+	 * If the sentence, or one of the same form is already in the set of sentences,
 	 * then that sentence is returned. Otherwise the passed sentence is
 	 * returned. 
 	 *

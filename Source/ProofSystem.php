@@ -44,6 +44,13 @@ abstract class ProofSystem
 		$this->logic = $logic;
 	}
 	
+	public function getType()
+	{
+		$class = trim( str_replace( __CLASS__ , '', get_class( $this )), '\\' );
+		list( $type ) = explode( '\\', $class );
+		return $type;
+	}
+	
 	/**
 	 * Gets the logic instance.
 	 *
@@ -55,6 +62,8 @@ abstract class ProofSystem
 	{
 		return $this->logic;
 	}
+	
+	abstract public function getProofWriter( $output = null, $notation = null, $format = null );
 	
 	/**
 	 * Constructs a proof for an argument.
@@ -72,18 +81,4 @@ abstract class ProofSystem
 	 * @throws {@link ProofException} on type errors.
 	 */
 	abstract public function isValidProof( Proof $proof );
-	
-	/**
-	 * Checks whether a proof is completed.
-	 *
-	 * @
-	 */
-	/**
-	 * Gets a counterexample from a proof.
-	 *
-	 * @param Proof $proof The (putative) proof from which to get a counterexample.
-	 * @return Model The countermodel built from the proof.
-	 * @throws {@link ProofException} on type errors.
-	 */
-	//abstract public function getCountermodel( Proof $proof );
 }

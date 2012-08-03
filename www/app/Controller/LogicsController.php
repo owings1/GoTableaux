@@ -26,7 +26,22 @@ class LogicsController extends AppController
 {
 	public $uses = null;
 	
-	public $logics = array( 'CPL', 'FDE', 'LP', 'StrongKleene', 'Lukasiewicz', 'GO', 'K', 'T', 'D' );
+	public $logics = array( 
+		'CPL', 
+		'FDE', 
+		'LP', 
+		'StrongKleene', 
+		'Lukasiewicz', 
+		'GO', 
+		'K', 
+		'T', 
+		'D' 
+	);
+	
+	public $writeNotations = array(
+		'Standard',
+		'Polish'
+	);
 	
     public $helpers = array( 'Inflect' );
         
@@ -60,8 +75,8 @@ class LogicsController extends AppController
 	{	
 		$logics = $this->logics;
 		$title_for_layout = 'GoTableaux Proof Generator';
-		//$exampleArguments = 
-		$this->set( compact( 'logics', 'title_for_layout' ));
+		$write_notations = $this->writeNotations;
+		$this->set( compact( 'logics', 'write_notations', 'title_for_layout' ));
 		if ( !empty( $this->data )) {
 			
 			if ( !strlen( $this->data['logic'] ))
@@ -75,18 +90,18 @@ class LogicsController extends AppController
 					if ( !empty( $premiseStr )) $premises[] = $Logic->parseSentence( $premiseStr );
 				$conclusion = $Logic->parseSentence( $this->data['conclusion'] );
 				$argument = Argument::createWithPremisesAndConclusion( $premises, $conclusion );
-				
+				$writeNotation = empty( $this->request->data['write_notation'] ) ? 'Standard' : $this->writeNotations[ $this->request->data['write_notation'] ];
 				$proof = $Logic->constructProofForArgument( $argument );
 				
 				$result = $proof->isValid() ? 'valid' : 'invalid';
 				
-				$proofWriter = ProofWriter::getInstance( $proof );
-				$argumentText = $proofWriter->writeArgumentOfProof( $proof, 'Standard\HTML' );
+				$proofWriter = $proof->getWriter( null, $writeNotation );
+				$argumentText = $proofWriter->writeArgumentOfProof( $proof );
 				
-				$latexProofWriter = ProofWriter::getInstance( $proof, 'LaTeX_Qtree' );
+				$latexProofWriter = $proof->getWriter( 'LaTeX_Qtree', $writeNotation );
 				$proofLatex = $latexProofWriter->writeProof( $proof );
 				
-				$jsonProofWriter = ProofWriter::getInstance( $proof, 'JSON' );
+				$jsonProofWriter = $proof->getWriter( 'JSON', $writeNotation );
 				$proofJSON = $jsonProofWriter->writeProof( $proof );
 				
 				$logicName = Inflector::humanize( $Logic->getName() );
@@ -96,7 +111,7 @@ class LogicsController extends AppController
 				return $this->Session->setFlash( $e->getMessage() );
 			}
 		} else {
-			$this->data = array( 'premises' => array( '', '' ));
+			$this->request->data = array( 'premises' => array( '', '' ));
 		}
 	}
 	
@@ -143,7 +158,7 @@ class LogicsController extends AppController
 			$conclusion = $Logic->parseSentence( $this->data['conclusion'] );
 			$argument = Argument::createWithPremisesAndConclusion( $premises, $conclusion );
 			$proof = $Logic->constructProofForArgument( $argument );	
-			$proofWriter = ProofWriter::getInstance( $proof, 'LaTeX_Qtree' );
+			$proofWriter = $proof->getWriter( 'LaTeX_Qtree', $this->writeNotations[ $this->request->data['write_notation'] ]);
 			$this->Latex->addLibraryFile( APPLIBS . 'qtree.sty' );
 			$this->Latex->input = $proofWriter->writeProof( $proof );
 			$pdfContent = $this->Latex->getPdfContent();
@@ -177,10 +192,10 @@ class LogicsController extends AppController
 		$rule['name'] = 'Trunk (Initial Rule)';
 		$exampleTableau = new Tableau( $Logic->getProofSystem() );
 		$Logic->getProofSystem()->buildTrunk( $exampleTableau, $Logic->parseArgument( array( 'A > B', 'A' ), 'B' ), $Logic );
-		$jsonProofWriter = ProofWriter::getInstance( $exampleTableau, 'JSON' );
+		$jsonProofWriter = $exampleTableau->getWriter( 'JSON' );
 		$rule['tableauJSON'] = $jsonProofWriter->writeProof( $exampleTableau );
 		$rules[] = $rule;
-	    $sentenceWriter = SentenceWriter::getInstance( $Logic, 'Standard\HTML');
+	    $sentenceWriter = SentenceWriter::getInstance( $Logic, 'Standard', 'HTML');
 		foreach ( $Logic->getProofSystem()->getRules() as $Rule ) {
 			$rule = array();
 			$rule['class'] = str_replace( '\\', '.', get_class( $Rule ));
@@ -197,7 +212,7 @@ class LogicsController extends AppController
 				}
 			}
 			if ( $exampleTableau = $Rule->getExample( $Logic )) {
-				$jsonProofWriter = ProofWriter::getInstance( $exampleTableau, 'JSON' );
+				$jsonProofWriter = $exampleTableau->getWriter( 'JSON' );
 				$rule['tableauJSON'] = $jsonProofWriter->writeProof( $exampleTableau );
 			}
 			$rules[] = $rule;
