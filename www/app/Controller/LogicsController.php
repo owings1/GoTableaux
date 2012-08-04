@@ -38,6 +38,11 @@ class LogicsController extends AppController
 		'D' 
 	);
 	
+	public $parseNotations = array(
+		'Standard',
+		'Polish'
+	);
+	
 	public $writeNotations = array(
 		'Standard',
 		'Polish'
@@ -68,6 +73,8 @@ class LogicsController extends AppController
          * 
          * 
 	 * @postParam string logic
+	 * @postParam string parse_notation
+	 * @postParam string write_notation
 	 * @postParam array premises
 	 * @postParam string conclusion
          */
@@ -76,7 +83,8 @@ class LogicsController extends AppController
 		$logics = $this->logics;
 		$title_for_layout = 'GoTableaux Proof Generator';
 		$write_notations = $this->writeNotations;
-		$this->set( compact( 'logics', 'write_notations', 'title_for_layout' ));
+		$parse_notations = $this->parseNotations;
+		$this->set( compact( 'logics', 'write_notations', 'parse_notations', 'title_for_layout' ));
 		if ( !empty( $this->data )) {
 			
 			if ( !strlen( $this->data['logic'] ))
@@ -85,12 +93,14 @@ class LogicsController extends AppController
 			$Logic = Logic::getInstance( $this->logics[$this->data['logic']] );
 			
 			try {
+				$parseNotation = empty( $this->request->data['parse_notation'] ) ? 'Standard' : $this->parseNotations[ $this->request->data['parse_notation'] ];
+				$writeNotation = empty( $this->request->data['write_notation'] ) ? 'Standard' : $this->writeNotations[ $this->request->data['write_notation'] ];
+				
 				$premises = array();
 				foreach ( $this->data['premises'] as $premiseStr )
-					if ( !empty( $premiseStr )) $premises[] = $Logic->parseSentence( $premiseStr );
-				$conclusion = $Logic->parseSentence( $this->data['conclusion'] );
+					if ( !empty( $premiseStr )) $premises[] = $Logic->parseSentence( $premiseStr, $parseNotation );
+				$conclusion = $Logic->parseSentence( $this->data['conclusion'], $parseNotation );
 				$argument = Argument::createWithPremisesAndConclusion( $premises, $conclusion );
-				$writeNotation = empty( $this->request->data['write_notation'] ) ? 'Standard' : $this->writeNotations[ $this->request->data['write_notation'] ];
 				$proof = $Logic->constructProofForArgument( $argument );
 				
 				$result = $proof->isValid() ? 'valid' : 'invalid';
@@ -120,18 +130,16 @@ class LogicsController extends AppController
          * 
          * @param string $logic The logic name.
          */
-	public function get_lexicon( $logic, $parserType = 'Standard' )
+	public function get_lexicon( $logic, $notation = 'Standard' )
 	{
 		if ( is_numeric( $logic )) $logic = $this->logics[$logic];
+		if ( is_numeric( $notation )) $notation = $this->parseNotations[$notation];
 		$Logic = Logic::getInstance( $logic );
-		$parser = $Logic->getParser( $parserType );
+		$parser = $Logic->getParser( $notation );
 		$lexicon = array(
-			'openMark' => $parser->openMark,
-			'closeMark' => $parser->closeMark,
 			'atomicSymbols' => $parser->atomicSymbols,
 			'operatorNames' => $parser->getLogicOperatorSymbolNames(),
 			'allOperatorNames' => $parser->getOperatorSymbolNames(),
-			'subscriptSymbol' => $parser->subscriptSymbol,
 		);
 		$this->set( compact( 'lexicon' ));
 	}

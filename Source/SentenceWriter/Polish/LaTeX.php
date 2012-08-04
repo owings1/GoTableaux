@@ -22,7 +22,7 @@
 namespace GoTableaux\SentenceWriter\Polish;
 
 /**
- * Sets default operator translations for Polish notation.
+ * Writes sentences in LaTeX.
  * @package GoTableaux
  */
 class LaTeX extends \GoTableaux\SentenceWriter\Polish

@@ -21,14 +21,13 @@
 
 namespace GoTableaux\SentenceWriter\Standard;
 
-use \GoTableaux\Vocabulary as Vocabulary;
 use \GoTableaux\Sentence as Sentence;
 use \GoTableaux\Utilities as Utilities;
 use \GoTableaux\Sentence\Atomic as AtomicSentence;
 use \GoTableaux\Sentence\Molecular as MolecularSentence;
 
 /**
- * Decorates a sentence writer for LaTeX.
+ * Writes sentences in LaTeX.
  * @package GoTableaux
  */
 class LaTeX extends \GoTableaux\SentenceWriter\Standard

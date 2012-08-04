@@ -59,11 +59,11 @@ abstract class LogicTestCase extends UnitTestCase
 		$arguments = $this->parseArguments( $this->validities );
 		foreach ( $arguments as $name => $argument ) {
 			$t = microtime( true );
-			Utilities::debug( "Checking for validity of $name.");
+			Utilities::debug( "Checking for validity of $name in {$this->logicName}");
 			$proof = $this->logic->getProofSystem()
 							   	 ->constructProofForArgument( $argument );
 			$this->assertValid( $proof, $name );
-			Utilities::debug ( 'Elapsed time: ' . (microtime( true ) - $t) );
+			Utilities::debug ( 'Elapsed time: ' . round(microtime( true ) - $t, 2 ) . 's');
 		}
 	}
 	
@@ -72,11 +72,11 @@ abstract class LogicTestCase extends UnitTestCase
 		$arguments = $this->parseArguments( $this->invalidities );
 		foreach ( $arguments as $name => $argument ) {
 			$t = microtime( true );
-			Utilities::debug( "Checking for invalidity of $name.");
+			Utilities::debug( "Checking for invalidity of $name in {$this->logicName}");
 			$proof = $this->logic->getProofSystem()
 							   	 ->constructProofForArgument( $argument );
 			$this->assertInvalid( $proof, $name );
-			Utilities::debug ( 'Elapsed time: ' . (microtime( true ) - $t) );
+			Utilities::debug ( 'Elapsed time: ' . round(microtime( true ) - $t, 2 ) . 's');
 		}
 	}
 }

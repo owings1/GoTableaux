@@ -21,14 +21,13 @@
 
 namespace GoTableaux\SentenceWriter\Standard;
 
-use \GoTableaux\Vocabulary as Vocabulary;
 use \GoTableaux\Sentence as Sentence;
 use \GoTableaux\Utilities as Utilities;
 use \GoTableaux\Sentence\Atomic as AtomicSentence;
 use \GoTableaux\Sentence\Molecular as MolecularSentence;
 
 /**
- * Decorates a sentence writer for HTML.
+ * Writes sentences in HTML.
  * @package GoTableaux
  */
 class HTML extends \GoTableaux\SentenceWriter\Standard

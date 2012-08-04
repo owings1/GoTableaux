@@ -37,17 +37,12 @@ abstract class SentenceParser
 	const PUNCT_OPEN 		= -1;
 	const PUNCT_CLOSE 		= -2;
 	const PUNCT_SEPARATOR 	= -3;
-	const CTRL_SUBSCRIPT	= -4;
-	const NUMERIC_CHAR		= -5;
 	
 	//  Define in child classes
 	public $atomicSymbols = array();
 	public $operatorNameSymbols = array();
 	
 	//  Reasonable defaults
-	public $openMark = '(';
-	public $closeMark = ')';
-	public $subscriptSymbol = '_';
 	public $spaceSymbols = array( ' ', "\n", "\t" );
 	
 	//  Constructed from logic
@@ -61,6 +56,9 @@ abstract class SentenceParser
 	 */
 	protected $symbolTable = array();
 	
+	/**
+	 * @var Logic
+	 */
 	protected $logic;
 	
 	/**
@@ -106,8 +104,6 @@ abstract class SentenceParser
 			$this->symbolTable[ $symbol ] = self::ATOMIC;
 		foreach ( $this->spaceSymbols as $symbol )
 			$this->symbolTable[ $symbol ] = self::PUNCT_SEPARATOR;
-		$this->symbolTable[ $this->openMark ] = self::PUNCT_OPEN;
-		$this->symbolTable[ $this->closeMark ] = self::PUNCT_CLOSE;
 		$this->symbolTable = array_merge( $this->symbolTable, $this->operatorSymbolArities );
 	}
 	
@@ -127,12 +123,23 @@ abstract class SentenceParser
 	}
 	
 	/**
+	 * Tests for a symbol being an operator symbol.
+	 *
+	 * @param string $symbol  The symbol to check.
+	 * @return boolean  Whether the symbol is an operator symbol.
+	 */
+	public function isOperatorSymbol( $symbol )
+	{
+		return array_key_exists( $symbol, $this->operatorSymbolNames );
+	}
+	
+	/**
 	 * Parses an atomic sentence from a string that starts with an atomic symbol.
 	 *
 	 * This provides default functionality for parsing an atomic sentence from a
-	 * string that starts with an atomic symbol. If the next character is a 
-	 * subscript symbol, it will read the following series of integer characters.
-	 * If a subscript is not given, it will be assigned 0.
+	 * string that starts with an atomic symbol. If the atomic symbol is followed
+	 * by an integer, the sentence's subscript will be assigned the intval of the
+	 * remaining string. 
 	 *
 	 * @param string $sentenceStr The string to parse.
 	 * @return Sentence The resulting sentence instance.
@@ -140,33 +147,26 @@ abstract class SentenceParser
 	 */
 	protected function parseAtomic( $sentenceStr )
 	{
-		$symbolIndex = array_search( $sentenceStr{0}, $this->atomicSymbols );
-		if ( $symbolIndex === false ) {
-			$char = $sentenceStr{0};
-			throw new ParserException( "$char is not an atomic symbol." );
-		}
-			
-		
-		$symbol = $sentenceStr{0};
-		$hasSubscript = strlen( $sentenceStr ) > 1 && $sentenceStr{1} === $this->subscriptSymbol;
-		if ( $hasSubscript ) {
-			$subscriptStr = '';
-			for ( $i = 2; $i < strlen( $sentenceStr ) && is_numeric( $sentenceStr{$i} ); $i++ )
-				$subscriptStr .= $sentenceStr{$i};
-			$subscript = ( int ) $subscriptStr;
-		} else $subscript = 0;
-		return Sentence::createAtomic( $symbolIndex, $subscript );
+		$atomicStr = $this->readAtomic( $sentenceStr );
+		$symbol = $atomicStr{0};
+		$symbolIndex = array_search( $symbol, $this->atomicSymbols );
+		if ( $symbolIndex === false ) throw new ParserException( "$char is not an atomic symbol." );
+		return Sentence::createAtomic( $symbolIndex, ( int ) substr( $atomicStr, 1 ));
 	}
 	
 	/**
-	 * Trims separator (whitespace) characters from beginning and end of a string.
+	 * Reads an atomic sentence from a string that starts with an atomic symbol.
 	 *
-	 * @param string $string The string to trim.
-	 * @return string The trimmed string.
+	 * @param string $sentenceStr  The string to read.
+	 * @return string  The atomic sentence string.
+	 * @throws {@link ParserException}.
 	 */
-	public function trimSeparators( $string )
+	protected function readAtomic( $sentenceStr )
 	{
-		return trim( $string, implode( '', $this->spaceSymbols ));
+		$char = $sentenceStr{0};
+		if ( !in_array( $char, $this->atomicSymbols )) throw new ParserException( "$char is not an atomic symbol." );
+		for ( $i = 1; $i < strlen( $sentenceStr ) && is_numeric( $sentenceStr{$i} ); $i++ );
+		return substr( $sentenceStr, 0, $i );
 	}
 	
 	/**
@@ -180,117 +180,10 @@ abstract class SentenceParser
 		return str_replace( $this->spaceSymbols, '', $string );
 	}
 		
-	/**
-	 * Drops outer parentheses from a string, if they exist.
-	 *
-	 * @param string $string The string to be parsed.
-	 * @return string The resulting string.
-	 */
-	public function dropOuterParens( $string )
-	{
-		try {
-			$parenGroup = $this->grabParenGroup( $string, true );
-			if ( $parenGroup === $string ) {
-				$string = substr( $string, 1, strlen( $string ) - 2 );
-				return $this->dropOuterParens( $string );
-			}
-		} catch ( ParserException $e ) { }
-		return $string;
-	}
-	
-	/**
-	 * Removes all parentheses from a string.
-	 * 
-	 * @param string $string The string from which to remove parentheses.
-	 * @return string The string with parentheses removed.
-	 */
-	public function removeAllParens( $string )
-	{
-		$parens = array( $this->openMark, $this->closeMark );
-		return str_replace( $parens, '', $string );
-	}
-	
-	/**
-	 * Adds outer parentheses to a string.
-	 *
-	 * @param string $string The string to be added to.
-	 * @return string The resulting string.
-	 */
-	public function addOuterParens( $string )
-	{
-		return $this->openMark . $string . $this->closeMark;
-	}
-	
-	/**
-	 * Finds a string's position for the corresponding close mark of an open 
-	 * mark at the given position.
-	 *
-	 * @param string $string The string to scan.
-	 * @param integer $openPos String position of open mark.
-	 * @return integer The position of the corresponding close mark.
-	 * @throws {@link Exception\Parser} on parsing error.
-	 */
-	public function closePosFromOpenPos( $string, $openPos )
-	{
-		if ( $this->symbolTable[ $string{$openPos} ] !== self::PUNCT_OPEN )
-			throw ParserException::createWithMsgInputPos( "Open mark expected.", $string, $openPos );
-		$length 	= strlen( $string );
-		$depth  	= 1;
-		$pos 		= $openPos;
-		do {
-			if ( ++$pos === $length )
-				throw ParserException::createWithMsgInputPos( 'Unterminated open mark.', $string, --$pos );
-			$char = $string{$pos};
-			if ( $char === $this->openMark ) $depth++;
-			elseif ( $char === $this->closeMark ) $depth--;
-		} while ( $depth );
-		return $pos;
-	}
-	
-	/**
-	 * Parses first complete parenthesized group in a string.
-	 *
-	 * @param string $str The string to be parsed. Must contain at least one
-	 *					  parenthesized group.
-	 * @param boolean $includeOuter Whether to include the outer parentheses
-	 *								in the returned string. Default is false.
-	 * @param integer $offset String offset at which to start searching.
-	 * @return string Everything inside the first parenthesized group. Includes
-	 *				  outer parentheses if $includeOuter is set to true.
-	 * @throws {@link Exception\Parser} on no parentheses in string, or parsing error.
-	 */
-	private function grabParenGroup( $str, $includeOuter = false, $offset = 0 )
-	{
-		$length		= strlen( $str );
-		$startPos 	= strpos( $str, $this->openMark, $offset );
-		
-		if ( $startPos === false )
-			throw new ParserException( "No open punctuation found. Check parentheses." );
-		
-		$depth  = 1;
-		$endPos = $startPos;
-		$startPos += 1;
-		do {
-			if ( ++$endPos === $length )
-				throw new ParserException( "Unable to parse punctuation. Check parentheses." );
-			$char = $str{$endPos};
-			if ( $char === $this->openMark ) $depth++;
-			elseif ( $char === $this->closeMark ) $depth--;
-		} while ( $depth );
-		
-		if ( $includeOuter ) {
-			$startPos -= 1;
-			$endPos += 2;
-		}
-		
-		return substr( $str, $startPos, $endPos - 1 );
-	}
-	
 	public function getOperatorSymbolNames()
 	{
 		return $this->operatorSymbolNames;
 	}
-	
 	
 	public function getLogicOperatorSymbolNames()
 	{

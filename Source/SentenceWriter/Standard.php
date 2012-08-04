@@ -44,6 +44,10 @@ class Standard extends \GoTableaux\SentenceWriter
 		'Necessity' => 'N'
 	);
 	
+	public $options = array(
+		'dropOuterParentheses' => true,
+	);
+	
 	public $openMarkString = '(';
 	public $closeMarkString = ')';
 	public $spaceString = ' ';

@@ -35,16 +35,6 @@
 	</dl>
 	<div class="clear"></div>
 	
-	<h4>Punctuation:</h4>
-
-	<dl>
-		<dt><?= $lexicon['subscriptSymbol'] ?></dt>
-		<dd>Atomic subscript</dd>
-		<dt><?= $lexicon['openMark'] ?></dt>
-		<dd>Open parenthesis</dd>
-		<dt><?= $lexicon['closeMark'] ?></dt>
-		<dd>Close parenthesis</dd>
-	</dl>
 	<div class="clear"></div>
 	
 </div>

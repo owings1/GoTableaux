@@ -53,27 +53,10 @@ class CPLTest extends LogicTestCase
 		'Extracting as Disjunct 1'	=> array( 'A V B', 'B' ),
 		'Extracting as Disjunct 2'	=> array( 'A V ~B', '~A' ),
 		'Denying the Antecedent' 	=> array( array( 'A > B', '~A' ), 'B' ),
-		'Long Argument 1'			=> array( array(
-			'A_0 V B_0', 'A_1 V B_1', 'A_1 V B_1', 'A_1 V B_1', 
-		/*	'A_0 V B_0', 'A_1 V B_1', 'A_1 V B_1', 'A_1 V B_1', 
-			'A_0 V B_0', 'A_1 V B_1', 'A_1 V B_1', 'A_1 V B_1', 
-			'A_0 V B_0', 'A_1 V B_1', 'A_1 V B_1', 'A_1 V B_1', 
-			'A_0 V B_0', 'A_1 V B_1', 'A_1 V B_1', 'A_1 V B_1', 
-			'A_0 V B_0', 'A_1 V B_1', 'A_1 V B_1', 'A_1 V B_1', 
-			'A_0 V B_0', 'A_1 V B_1', 'A_1 V B_1', 'A_1 V B_1', 	
-			'A_0 V B_0', 'A_1 V B_1', 'A_1 V B_1', 'A_1 V B_1', 
-			'A_0 V B_0', 'A_1 V B_1', 'A_1 V B_1', 'A_1 V B_1', 
-			'A_0 V B_0', 'A_1 V B_1', 'A_1 V B_1', 'A_1 V B_1', 
-			'A_0 V B_0', 'A_1 V B_1', 'A_1 V B_1', 'A_1 V B_1', 
-			'A_0 V B_0', 'A_1 V B_1', 'A_1 V B_1', 'A_1 V B_1', 
-			'A_0 V B_0', 'A_1 V B_1', 'A_1 V B_1', 'A_1 V B_1', 
-			'A_0 V B_0', 'A_1 V B_1', 'A_1 V B_1', 'A_1 V B_1', 
-			'A_0 V B_0', 'A_1 V B_1', 'A_1 V B_1', 'A_1 V B_1', 
-			'A_0 V B_0', 'A_1 V B_1', 'A_1 V B_1', 'A_1 V B_1', 
-			'A_0 V B_0', 'A_1 V B_1', 'A_1 V B_1', 'A_1 V B_1', 
-			'A_0 V B_0', 'A_1 V B_1', 'A_1 V B_1', 'A_1 V B_1', 
-		*/	
-		), '(A_0 & B_0) & (A_1 & B_1)'),
+		'Long Argument 1'			=> array( 
+			array('A0 V B0', 'A1 V B1', 'A1 V B1', 'A1 V B1' ), 
+			'(A0 & B0) & (A1 & B1)'
+		),
 	);
 
 }

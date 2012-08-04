@@ -163,14 +163,14 @@ abstract class Logic {
 	 * Parses an array of sentence strings.
 	 *
 	 * @param array $strings Array of sentence strings to parse.
-	 * @param string $parserType The parser type to do the parsing. Default is 'Standard'.
+	 * @param string $notation The parser type to do the parsing. Default is 'Standard'.
 	 * @return array Array of {@link Sentence}s.
 	 */
-	public function parseSentences( array $strings, $parserType = 'Standard' )
+	public function parseSentences( array $strings, $notation = 'Standard' )
 	{
 		$sentences = array();
 		foreach ( $strings as $key => $string )
-			$sentences[$key] = $this->parseSentence( $string, $parserType );
+			$sentences[$key] = $this->parseSentence( $string, $notation );
 		return $sentences;
 	}
 	
@@ -179,13 +179,13 @@ abstract class Logic {
 	 *
 	 * @param string|array $premiseStrings The premise string(s).
 	 * @param string $conclusionString Non-empty conclusion string.
-	 * @param string $parserType The parser type to do the parsing. Default is 'Standard'.
+	 * @param string $notation The parser type to do the parsing. Default is 'Standard'.
 	 * @return Argument The argument instance.
 	 */
-	public function parseArgument( $premiseStrings, $conclusionString, $parserType = 'Standard' )
+	public function parseArgument( $premiseStrings, $conclusionString, $notation = 'Standard' )
 	{
-		$premises 	= $this->parseSentences( (array) $premiseStrings, $parserType );
-		$conclusion = $this->parseSentence( $conclusionString, $parserType );
+		$premises 	= $this->parseSentences( (array) $premiseStrings, $notation );
+		$conclusion = $this->parseSentence( $conclusionString, $notation );
 		return Argument::createWithPremisesAndConclusion( $premises, $conclusion );
 	}
 	

@@ -15,17 +15,25 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/agpl-3.0.html>.
  */
 /**
- * Defines the Vocabulary exception class.
+ * Defines the LaTeX sentence writer decorator class.
  * @package GoTableaux
  */
 
-namespace GoTableaux\Exception;
+namespace GoTableaux\SentenceWriter\Polish;
+
+use \GoTableaux\Sentence as Sentence;
+use \GoTableaux\Utilities as Utilities;
+use \GoTableaux\Sentence\Atomic as AtomicSentence;
+use \GoTableaux\Sentence\Molecular as MolecularSentence;
 
 /**
- * Represents a vocabulary exception.
+ * Writes sentences in HTML.
  * @package GoTableaux
  */
-class Vocabulary extends \GoTableaux\Exception
-{
-	
+class HTML extends \GoTableaux\SentenceWriter\Standard
+{	
+	public function writeSubscript( $subscript )
+	{
+		return '<span class="subscript" style="vertical-align: sub;">' . $subscript .'</span>';
+	}
 }

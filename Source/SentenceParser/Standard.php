@@ -24,7 +24,6 @@ namespace GoTableaux\SentenceParser;
 use \GoTableaux\Utilities as Utilities;
 use \GoTableaux\Utilities\Parser as ParserUtilities;
 use \GoTableaux\Exception\Parser as ParserException;
-use \GoTableaux\Vocabulary as Vocabulary;
 use \GoTableaux\Sentence as Sentence;
 
 /**
@@ -47,6 +46,16 @@ class Standard extends \GoTableaux\SentenceParser
 		'Necessity' => 'N'
 	);
 	
+	public $openMark = '(';
+
+	public $closeMark = ')';
+
+	public function buildSymbolTable()
+	{
+		parent::buildSymbolTable();
+		$this->symbolTable[ $this->openMark ] = self::PUNCT_OPEN;
+		$this->symbolTable[ $this->closeMark ] = self::PUNCT_CLOSE;
+	}
 	/**
 	 * Creates a {@link Sentence sentence} from a string.
 	 * 
@@ -113,9 +122,10 @@ class Standard extends \GoTableaux\SentenceParser
 			throw new ParserException( $string{0}. ' is not in the symbol table.' );
 		switch ( $this->symbolTable[ $string{0} ] ) {
 			case self::ATOMIC :
-				$hasSubscript = strlen( $string ) > 1 && $string{1} === $this->subscriptSymbol;
-				$firstSentenceStr = $hasSubscript ? substr( $string, 0, 2 ) . intval( substr( $string, 2 ))
-												  : $string{0};
+				$firstSentenceStr = $string{0};
+				$hasSubscript = strlen( $string ) > 1 && is_numeric( $string{1} );
+				if ( $hasSubscript ) for ( $i = 1; isset( $string{$i} ) && is_numeric( $string{$i} ); $i++ )
+					$firstSentenceStr .= $string{$i};
 				break;
 			case self::PUNCT_OPEN;
 				$closePos = $this->closePosFromOpenPos( $string, 0 );
@@ -130,5 +140,86 @@ class Standard extends \GoTableaux\SentenceParser
 		return $firstSentenceStr;
 	}
 	
+	/**
+	 * Drops outer parentheses from a string, if they exist.
+	 *
+	 * @param string $string The string to be parsed.
+	 * @return string The resulting string.
+	 */
+	private function dropOuterParens( $string )
+	{
+		try {
+			$parenGroup = $this->grabParenGroup( $string, true );
+			if ( $parenGroup === $string ) {
+				$string = substr( $string, 1, strlen( $string ) - 2 );
+				return $this->dropOuterParens( $string );
+			}
+		} catch ( ParserException $e ) { }
+		return $string;
+	}
 
+	/**
+	 * Finds a string's position for the corresponding close mark of an open 
+	 * mark at the given position.
+	 *
+	 * @param string $string The string to scan.
+	 * @param integer $openPos String position of open mark.
+	 * @return integer The position of the corresponding close mark.
+	 * @throws {@link Exception\Parser} on parsing error.
+	 */
+	private function closePosFromOpenPos( $string, $openPos )
+	{
+		if ( $this->symbolTable[ $string{$openPos} ] !== self::PUNCT_OPEN )
+			throw ParserException::createWithMsgInputPos( "Open mark expected.", $string, $openPos );
+		$length 	= strlen( $string );
+		$depth  	= 1;
+		$pos 		= $openPos;
+		do {
+			if ( ++$pos === $length )
+				throw ParserException::createWithMsgInputPos( 'Unterminated open mark.', $string, --$pos );
+			$char = $string{$pos};
+			if ( $char === $this->openMark ) $depth++;
+			elseif ( $char === $this->closeMark ) $depth--;
+		} while ( $depth );
+		return $pos;
+	}
+	
+	/**
+	 * Parses first complete parenthesized group in a string.
+	 *
+	 * @param string $str The string to be parsed. Must contain at least one
+	 *					  parenthesized group.
+	 * @param boolean $includeOuter Whether to include the outer parentheses
+	 *								in the returned string. Default is false.
+	 * @param integer $offset String offset at which to start searching.
+	 * @return string Everything inside the first parenthesized group. Includes
+	 *				  outer parentheses if $includeOuter is set to true.
+	 * @throws {@link Exception\Parser} on no parentheses in string, or parsing error.
+	 */
+	private function grabParenGroup( $str, $includeOuter = false, $offset = 0 )
+	{
+		$length		= strlen( $str );
+		$startPos 	= strpos( $str, $this->openMark, $offset );
+		
+		if ( $startPos === false )
+			throw new ParserException( "No open punctuation found. Check parentheses." );
+		
+		$depth  = 1;
+		$endPos = $startPos;
+		$startPos += 1;
+		do {
+			if ( ++$endPos === $length )
+				throw new ParserException( "Unable to parse punctuation. Check parentheses." );
+			$char = $str{$endPos};
+			if ( $char === $this->openMark ) $depth++;
+			elseif ( $char === $this->closeMark ) $depth--;
+		} while ( $depth );
+		
+		if ( $includeOuter ) {
+			$startPos -= 1;
+			$endPos += 2;
+		}
+		
+		return substr( $str, $startPos, $endPos - 1 );
+	}
 }

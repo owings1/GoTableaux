@@ -29,6 +29,7 @@
 		</div>
 	</div>
 	<div class="grid_4">
+		<?= $this->Form->input( 'parse_notation', array( 'label' => 'Parse notation', 'options' => $parse_notations, 'value' => isset( $this->data['parse_notation'] ) ? $this->data['parse_notation'] : 0 )) ?>
 		<h3>Lexicon</h3>
 		<div id="Lexicon"></div>
 	</div>
@@ -88,14 +89,25 @@
 
 <script type="text/javascript">
 	$(document).ready( function() {
-		// Update Lexicon on logic change
+		var lexUrl = '<?= $this->Html->url("/logics/get_lexicon") ?>'
+		
+		function updateLexicon()
+		{
+			var logicId = $('input[name="data[logic]"]:checked').val()
+			var notationId = $('select[name="data[parse_notation]"]').val()
+			$('#Lexicon').load( lexUrl + '/' + logicId + '/' + notationId )
+		}
+		
 		$( '#indexForm' ).on( 'click', 'input, a', function() {
 			var $me = $(this)
 			var id = $me.attr('id')
 			var name = $me.attr('name')
 			
-			if ( name === 'data[logic]' )
-				$('#Lexicon').load( window.WWW + '/logics/get_lexicon/' + $(this).val() )
+			//  Update Lexicon on logic change
+			if ( name === 'data[logic]' ) {
+				updateLexicon()
+			}
+			//  Add premise input box
 			else if ( id == 'AddPremise') {
 				var newKey = $('input[name^="data[premises]"]', $me.closest( 'form' )).length
 				console.log( newKey )
@@ -103,11 +115,14 @@
 			}
 				
 		})
+		
+		$('select[name="data[parse_notation]"]').on( 'change', updateLexicon )
+		
 		// Select first logic as default
 		if ( !$( 'input[name="data[logic]"]:checked' ).length )
 			$( 'input[name="data[logic]"]:visible:eq(0)' ).prop( 'checked', true )
 		
-		$( 'input[name="data[logic]"]:checked' ).trigger( 'click' )
+		updateLexicon()
 		
 		<? if ( !empty( $proofJSON )) : ?>
 			// Draw proof canvas

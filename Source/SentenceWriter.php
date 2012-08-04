@@ -35,15 +35,17 @@ abstract class SentenceWriter
 	//  Define in child classes
 	public $atomicStrings = array();
 	public $operatorStrings = array();
-
+	
+	//  Optional
+	public $options = array();
+	
 	/**
 	 * Holds the options.
 	 * @var array
 	 * @access private
 	 */
-	protected $options = array( 
+	private $_options = array( 
 		'printZeroSubscripts' => false,
-		'dropOuterParentheses' => true,
 	);
 	
 	/**
@@ -72,6 +74,7 @@ abstract class SentenceWriter
 	protected function __construct( Logic $logic )
 	{
 		$this->logic = $logic;
+		$this->options = array_merge( $this->_options, $this->options );
 	}
 
 	final public function getNotation()
@@ -152,7 +155,7 @@ abstract class SentenceWriter
 	 */
 	public function writeSubscript( $subscript )
 	{
-		return "_$subscript";
+		return "$subscript";
 	}
 	
 	/**
