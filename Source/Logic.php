@@ -30,9 +30,13 @@ use \GoTableaux\Sentence\Molecular as MolecularSentence;
  */
 abstract class Logic {
 	
+	public $title = '';
+	
 	public $inheritOperatorsFrom = null;
 	
 	public $operatorArities = array();
+	
+	public $externalLinks = array();
 	
 	protected $operators = array();
 	
@@ -85,6 +89,8 @@ abstract class Logic {
 			
 		foreach ( $this->operatorArities as $name => $arity ) 
 			$this->operators[ $name ] = new Operator( $name, $arity );
+			
+		if ( empty( $this->title )) $this->title = $this->getName();
 	}
 	
 	/**

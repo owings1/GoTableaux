@@ -27,5 +27,7 @@ namespace GoTableaux\Logic;
  */
 class S4 extends \GoTableaux\Logic
 {
+	public $title = 'S4 Normal Modal Logic';
+	
 	public $inheritOperatorsFrom = 'K';
 }

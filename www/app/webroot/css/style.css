@@ -742,6 +742,18 @@ pre {
 	color: #0a0;
 }
 
+#nav {
+	margin-left: 140px;
+}
+#nav li a {
+	padding: 10px;
+	background-color: #F95;
+	
+}
+#nav li.selected  a {
+	color: #777;
+	background-color: #fff;
+}
 /** Elements **/
 #url-rewriting-warning {
 	display:none;
@@ -811,4 +823,5 @@ label a {
 	margin: 10px 0 10px 20px;
 	padding: 4px 0 0 0;
 }
+
 

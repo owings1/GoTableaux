@@ -69,7 +69,7 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 		$newStrings = array();
 		foreach ( array_keys( $this->_operatorStrings ) as $name ) 
 			$newStrings[ $name ] = "\Operator" . str_replace( ' ', '', $name ). ' ';
-		$this->sentenceWriter->_operatorStrings = $newStrings;
+		$this->sentenceWriter->operatorStrings = $newStrings;
 		$newStrings = array();
 		foreach ( array_keys( $this->_metaSymbolStrings ) as $name )
 			$newStrings[ $name ] = "\Tableau" . str_replace( ' ', '', $name ) . ' ';

@@ -22,7 +22,6 @@
 namespace GoTableaux\SentenceParser;
 
 use \GoTableaux\Utilities as Utilities;
-use \GoTableaux\Utilities\Parser as ParserUtilities;
 use \GoTableaux\Exception\Parser as ParserException;
 use \GoTableaux\Sentence as Sentence;
 
@@ -36,14 +35,14 @@ class Standard extends \GoTableaux\SentenceParser
 	public $atomicSymbols = array( 'A', 'B', 'C', 'D', 'E' );
 	
 	public $operatorNameSymbols = array(
-		'Negation' => '~',
-		'Conjunction' => '&',
-		'Disjunction' => 'V',
-		'Material Conditional' => '>',
+		'Negation'               => '~',
+		'Conjunction'            => '&',
+		'Disjunction'            => 'V',
+		'Material Conditional'   => '>',
 		'Material Biconditional' => '<',
-		'Conditional' => '$',
-		'Possibility' => 'P',
-		'Necessity' => 'N'
+		'Conditional'            => '$',
+		'Possibility'            => 'P',
+		'Necessity'              => 'N'
 	);
 	
 	public $openMark = '(';

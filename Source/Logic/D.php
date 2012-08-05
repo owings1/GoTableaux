@@ -27,5 +27,11 @@ namespace GoTableaux\Logic;
  */
 class D extends \GoTableaux\Logic
 {
+	public $title = 'Deontic Normal Modal Logic';
+	
 	public $inheritOperatorsFrom = 'K';
+	
+	public $externalLinks = array(
+		'Stanford Encyclopedia' => 'http://plato.stanford.edu/entries/logic-deontic/'
+	);
 }

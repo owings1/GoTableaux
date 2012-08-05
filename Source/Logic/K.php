@@ -27,6 +27,8 @@ namespace GoTableaux\Logic;
  */
 class K extends \GoTableaux\Logic
 {
+	public $title = 'Kripke Normal Modal Logic';
+	
 	public $inheritOperatorsFrom = 'FDE';
 	
 	public $operatorArities = array( 'Necessity' => 1, 'Possibility' => 1 );

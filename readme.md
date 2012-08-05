@@ -6,7 +6,10 @@ About
 
 ### Description
 
-A multi-logic tableaux proof generator.
+A multi-logic proof generator. Evaluates arguments in several logics, 
+and generates [analytic tableaux](http://en.wikipedia.org/wiki/Method_of_analytic_tableaux) 
+proofs in JavaScript (using [Processing.js](http://processingjs.org/)), 
+LaTeX format (using [Qtree](http://www.ling.upenn.edu/advice/latex/qtree/)), and JSON data.
 
 The logics currently implemented include propositional classical and non-classical propositional logics:
 
@@ -16,6 +19,9 @@ The logics currently implemented include propositional classical and non-classic
 - Strong Kleene (K3)
 - Łukasiewicz
 - GO
+- Normal Modal Logic (K)
+- T
+- Deontic Logic (D)
 
 ### History
 
@@ -23,7 +29,7 @@ This project originated from an auxiliary project for my dissertation,
 in which I develop a many-valued propositional logic (which I call GO), 
 and explore its applications. This software began as a tableaux proof 
 generator for GO, so I could quickly generate LaTeX proofs for any argument.
-Since I built the framework abstracted from the particulars of GO, I later 
+Since framework was abstracted from the particulars of GO, I later 
 decided to expand the program by implementing the tableaux rules for other
 logics. 
 
@@ -35,7 +41,6 @@ framework to accommodate new logics. Current plans include:
 
 - Weak Kleene
 - Bochvar
-- Normal Modal Logic (K)
 - Modal FDE
 - Modal GO
 
@@ -45,7 +50,7 @@ GitHub project page:
 
 [https://github.com/owings1/GoTableaux](https://github.com/owings1/GoTableaux)
 
-The beginnings of a web interface are up. It can be viewed at:
+Web UI:
 
 [http://logic.dougowings.net/](http://logic.dougowings.net/)
 

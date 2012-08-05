@@ -1,5 +1,12 @@
-<h2><strong><?= $this->Inflect->human( $logicName ) ?></strong></h2> 
+<h2><strong><?= $this->Inflect->human( $logicName ) ?>: <?= $logicTitle ?></strong></h2> 
 <hr>
+<? if ( !empty( $externalLinks )) : ?>
+	<h3>External Links</h3>
+		<? foreach ( $externalLinks as $title => $url ) : ?>
+			<p>- <?= $this->Html->link( $title, $url ) ?></p>
+		<? endforeach ?>
+	<hr>
+<? endif ?>
 <h2>Tableaux Rules</h2>
 <? foreach ( $rules as $rule ): ?>
 	<div class="rule">

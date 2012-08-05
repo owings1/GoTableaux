@@ -22,7 +22,6 @@
 namespace GoTableaux\SentenceParser;
 
 use \GoTableaux\Utilities as Utilities;
-use \GoTableaux\Utilities\Parser as ParserUtilities;
 use \GoTableaux\Exception\Parser as ParserException;
 use \GoTableaux\Sentence as Sentence;
 
@@ -35,14 +34,14 @@ class Polish extends \GoTableaux\SentenceParser
 	public $atomicSymbols = array( 'a', 'b', 'c', 'd', 'e' );
 	
 	public $operatorNameSymbols = array(
+		'Negation'	             => 'N',
 		'Conjunction'            => 'K',
 		'Disjunction'            => 'A',
-		'Negation'	             => 'N',
 		'Material Conditional' 	 => 'C',
 		'Material Biconditional' => 'E',
+		'Conditional'            => 'U',
 		'Possibility'            => 'M',
 		'Necessity'              => 'L',
-		'Conditional'            => 'U'
 	);
 	
 	/**
@@ -54,10 +53,7 @@ class Polish extends \GoTableaux\SentenceParser
 	public function stringToSentence( $sentenceStr )
 	{
 		$sentenceStr = $this->removeSeparators( $sentenceStr );
-		
-		if ( empty( $sentenceStr ))
-			throw new ParserException( 'Input cannot be empty.' );
-		
+		if ( empty( $sentenceStr ))	throw new ParserException( 'Input cannot be empty.' );
 		$stack = array();
 		$this->_readSentences( $sentenceStr, $stack );
 		return $this->_processStack( $stack );
@@ -65,7 +61,7 @@ class Polish extends \GoTableaux\SentenceParser
 	
 	/**
 	 * Reads a string (whitespace stripped) for the first occurrence 
-	 * of a sentence.
+	 * of a sentence, adds it to the stack, and returns the length.
 	 *
 	 * @param string $string The string to read.
 	 * @return string The string length of the sentence read.
@@ -85,14 +81,25 @@ class Polish extends \GoTableaux\SentenceParser
 		if ( $this->isOperatorSymbol( $char )) {
 			$operator = $this->getOperatorBySymbol( $char );
 			$subStack = array();
-			for ( $i = 0, $pos++; $i < $operator->getArity(); $i++ ) 
-				$pos += $this->_readSentences( substr( $string, $pos ), $subStack );
+			$arity = $operator->getArity();
+			for ( $i = 0, $pos++; $i < $arity; $i++ ) {
+				$nextStr = substr( $string, $pos );
+				if ( empty( $nextStr )) throw new ParserException( "$char expects $arity operand(s).");
+				$pos += $this->_readSentences( $nextStr, $subStack );
+			}
+				
 			$stack[] = array( $char => $subStack );
 			return $pos;
 		}
 		throw new ParserException( "Unexpected symbol '$char'" );
 	}
 	
+	/**
+	 * Shifts an element from the beginning of a stack and makes a sentence object.
+	 *
+	 * @param array $stack  The stack.
+	 * @return Sentence
+	 */
 	private function _processStack( array &$stack )
 	{
 		$element = array_shift( $stack );

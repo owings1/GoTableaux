@@ -27,7 +27,9 @@ namespace GoTableaux\Logic;
  */
 class Lukasiewicz extends \GoTableaux\Logic
 {
+	public $title = 'Lukasiewicz 3-valued Logic';
+	
 	public $inheritOperatorsFrom = 'FDE';
 	
-	public $operatorArities = array(	'Conditional' => 2 );
+	public $operatorArities = array( 'Conditional' => 2 );
 }

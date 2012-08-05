@@ -27,6 +27,8 @@ namespace GoTableaux\Logic;
  */
 class FDE extends \GoTableaux\Logic
 {	
+	public $title = 'First Degree Entailment 4-valued logic';
+	
 	public $operatorArities = array(
 		'Negation' => 1,
 		'Conjunction' => 2,

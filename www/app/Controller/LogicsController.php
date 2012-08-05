@@ -78,7 +78,7 @@ class LogicsController extends AppController
 	 * @postParam array premises
 	 * @postParam string conclusion
          */
-	public function index()
+	public function evaluate()
 	{	
 		$logics = $this->logics;
 		$title_for_layout = 'GoTableaux Proof Generator';
@@ -154,19 +154,22 @@ class LogicsController extends AppController
 	 */
 	public function view_pdf()
 	{
-		if ( empty( $this->data )) {
+		if ( empty( $this->request->data )) {
 			$this->Session->setFlash( 'No data.' );
 			return $this->redirect( 'index' );
 		}
 		try {
-			$Logic = Logic::getInstance( $this->logics[$this->data['logic']] );
+			$Logic = Logic::getInstance( $this->logics[ $this->request->data['logic'] ]);
+			$parseNotation = empty( $this->request->data['parse_notation'] ) ? 'Standard' : $this->parseNotations[ $this->request->data['parse_notation'] ];
+			$writeNotation = empty( $this->request->data['write_notation'] ) ? 'Standard' : $this->writeNotations[ $this->request->data['write_notation'] ];
+			
 			$premises = array();
 			foreach ( $this->data['premises'] as $premiseStr )
-				if ( !empty( $premiseStr )) $premises[] = $Logic->parseSentence( $premiseStr );
-			$conclusion = $Logic->parseSentence( $this->data['conclusion'] );
+				if ( !empty( $premiseStr )) $premises[] = $Logic->parseSentence( $premiseStr, $parseNotation );
+			$conclusion = $Logic->parseSentence( $this->data['conclusion'], $parseNotation );
 			$argument = Argument::createWithPremisesAndConclusion( $premises, $conclusion );
 			$proof = $Logic->constructProofForArgument( $argument );	
-			$proofWriter = $proof->getWriter( 'LaTeX_Qtree', $this->writeNotations[ $this->request->data['write_notation'] ]);
+			$proofWriter = $proof->getWriter( 'LaTeX_Qtree', $writeNotation );
 			$this->Latex->addLibraryFile( APPLIBS . 'qtree.sty' );
 			$this->Latex->input = $proofWriter->writeProof( $proof );
 			$pdfContent = $this->Latex->getPdfContent();
@@ -180,7 +183,13 @@ class LogicsController extends AppController
 		CakeLog::write( 'latex', $this->Latex->log );
 		$this->set( compact( 'pdfContent' ));
 	}
-        
+    
+
+	public function index()
+	{
+		foreach ( $this->logics as $name ) $logics[ $name ] = Logic::getInstance( $name );
+		$this->set( compact( 'logics' ));
+	}
 	/**
 	 * View details about a logic.
 	 * 
@@ -195,6 +204,8 @@ class LogicsController extends AppController
 	    }
 	    $Logic = Logic::getInstance( $logic );
 	    $title_for_layout = $logicName = $Logic->getName();
+		$logicTitle = $Logic->title;
+		$externalLinks = $Logic->externalLinks;
 		$rules = array();
 		$rule['class'] = str_replace( '\\', '.', get_class( $Logic->getProofSystem() )) . '.TrunkRule';
 		$rule['name'] = 'Trunk (Initial Rule)';
@@ -225,6 +236,6 @@ class LogicsController extends AppController
 			}
 			$rules[] = $rule;
 		}
-	    $this->set( compact( 'logicName', 'title_for_layout', 'rules' ));
+	    $this->set( compact( 'logicName', 'logicTitle', 'title_for_layout', 'externalLinks', 'rules' ));
 	}
 }

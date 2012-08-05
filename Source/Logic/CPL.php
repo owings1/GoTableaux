@@ -27,5 +27,9 @@ namespace GoTableaux\Logic;
  */
 class CPL extends \GoTableaux\Logic
 {	
+	public $title = 'Classical Propositional Logic';
+	
 	public $inheritOperatorsFrom = 'FDE';
+	
+	public $externalLinks = array();
 }
