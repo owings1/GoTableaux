@@ -32,4 +32,8 @@ class Lukasiewicz extends \GoTableaux\Logic
 	public $inheritOperatorsFrom = 'FDE';
 	
 	public $operatorArities = array( 'Conditional' => 2 );
+	
+	public $externalLinks = array(
+		'Stanford Encyclopedia' => 'http://plato.stanford.edu/entries/logic-manyvalued/#LukLog'
+	);
 }

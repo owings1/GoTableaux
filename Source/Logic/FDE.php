@@ -36,4 +36,8 @@ class FDE extends \GoTableaux\Logic
 		'Material Conditional' => 2,
 		'Material Biconditional' => 2,
 	);
+	
+	public $externalLinks = array(
+		'Stanford Encyclopedia' => 'http://plato.stanford.edu/entries/logic-paraconsistent/'
+	);
 }

@@ -32,4 +32,8 @@ class K extends \GoTableaux\Logic
 	public $inheritOperatorsFrom = 'FDE';
 	
 	public $operatorArities = array( 'Necessity' => 1, 'Possibility' => 1 );
+
+	public $externalLinks = array(
+		'Stanford Encyclopedia' => 'http://plato.stanford.edu/entries/logic-modal/'
+	);
 }

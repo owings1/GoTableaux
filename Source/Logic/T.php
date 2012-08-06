@@ -30,4 +30,8 @@ class T extends \GoTableaux\Logic
 	public $title = 'T Normal Modal Logic';
 	
 	public $inheritOperatorsFrom = 'K';
+	
+	public $externalLinks = array(
+		'Stanford Encyclopedia' => 'http://plato.stanford.edu/entries/logic-modal/'
+	);
 }
