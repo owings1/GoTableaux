@@ -16,14 +16,14 @@
  */
 /**
  * Defines the Parser class.
- * @package Exceptions
+ * @package GoTableaux
  */
 
 namespace GoTableaux\Exception;
 
 /**
  * Represents a parsing exception.
- * @package Exceptions
+ * @package GoTableaux
  */
 class Parser extends \GoTableaux\Exception
 {

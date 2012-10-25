@@ -23,17 +23,12 @@
 <li><a href="../namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
 <li><a>Packages</a></li>
 <li><a href="../packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
-<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
-<li><a href="../packages/Exceptions.html"><i class="icon-folder-open"></i> Exceptions</a></li>
 <li><a href="../packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
 <li><a href="../packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
 <li><a href="../packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
 <li><a href="../packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
 <li><a href="../packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
-<li><a href="../packages/ModelTheory.html"><i class="icon-folder-open"></i> ModelTheory</a></li>
-<li><a href="../packages/Proof.html"><i class="icon-folder-open"></i> Proof</a></li>
 <li><a href="../packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
-<li><a href="../packages/Syntax.html"><i class="icon-folder-open"></i> Syntax</a></li>
 </ul>
 </li>
 <li class="dropdown" id="charts-menu">
@@ -44,9 +39,11 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">233</span></a></li>
+                <span class="label label-info">255</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
-                <ul></ul></a></li>
+                <ul><li>todo 
+                <span class="label label-info">2</span>
+</li></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
                 <span class="label label-info">0</span></a></li>
 </ul>
@@ -86,6 +83,7 @@
 <li class="nav-header">
 <i class="icon-custom icon-property"></i> Properties</li>
 <li class="property public inherited"><a href="#%24defaultOperatorSymbols" title="$defaultOperatorSymbols :: Defines the default operator symbols for the lexicon."><span class="description">Defines the default operator symbols for the lexicon.</span><pre>$defaultOperatorSymbols</pre></a></li>
+<li class="property public "><a href="#%24inheritLexiconFrom" title="$inheritLexiconFrom :: "><span class="description">$inheritLexiconFrom</span><pre>$inheritLexiconFrom</pre></a></li>
 <li class="property public inherited"><a href="#%24lexicon" title="$lexicon :: Defines the default lexicon for initializing the vocabulary."><span class="description">Defines the default lexicon for initializing the vocabulary.</span><pre>$lexicon</pre></a></li>
 <li class="nav-header protected">» Protected</li>
 <li class="property protected inherited"><a href="#%24instances" title="$instances :: Holds the singleton instances of the logics."><span class="description">Holds the singleton instances of the logics.</span><pre>$instances</pre></a></li>
@@ -120,16 +118,10 @@
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
 <td>\GoTableaux\Logic::applyOperatorToOperands()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\Logic\FDE::applyOperatorToOperands()</td>
-</tr>
-</table>
+</tr></table>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$operatorOrName</h4>
@@ -154,16 +146,10 @@
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
 <td>\GoTableaux\Logic::constructProofForArgument()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\Logic\FDE::constructProofForArgument()</td>
-</tr>
-</table>
+</tr></table>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$argument</h4>
@@ -179,16 +165,10 @@
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"><p>If the logic class is not loaded, it will attempt to load automatically.</p></p>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
 <td>\GoTableaux\Logic::getInstance()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\Logic\FDE::getInstance()</td>
-</tr>
-</table>
+</tr></table>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$name</h4>
@@ -204,16 +184,10 @@
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
 <td>\GoTableaux\Logic::getName()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\Logic\FDE::getName()</td>
-</tr>
-</table>
+</tr></table>
 <h3>Returns</h3>
 <div class="subelement response">
 <code>string</code>The name of the logic.</div>
@@ -234,10 +208,6 @@
 <th>inherited_from</th>
 <td>\GoTableaux\Logic::getOperator()</td>
 </tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\Logic\FDE::getOperator()</td>
-</tr>
 </table>
 <h3>Parameters</h3>
 <div class="subelement argument">
@@ -254,16 +224,10 @@
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
 <td>\GoTableaux\Logic::getParser()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\Logic\FDE::getParser()</td>
-</tr>
-</table>
+</tr></table>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$type</h4>
@@ -280,16 +244,10 @@
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"><p>Lazily instantiates proof system.</p></p>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
 <td>\GoTableaux\Logic::getProofSystem()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\Logic\FDE::getProofSystem()</td>
-</tr>
-</table>
+</tr></table>
 <h3>Returns</h3>
 <div class="subelement response">
 <code><a href="../classes/GoTableaux.ProofSystem.html">\GoTableaux\ProofSystem</a></code>The logic's proof system.</div>
@@ -301,16 +259,10 @@
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"><p>Lazily initializes the vocabulary.</p></p>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
 <td>\GoTableaux\Logic::getVocabulary()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\Logic\FDE::getVocabulary()</td>
-</tr>
-</table>
+</tr></table>
 <h3>Returns</h3>
 <div class="subelement response">
 <code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code>The logic's vocabulary.</div>
@@ -323,16 +275,10 @@
 <div class="row collapse"><div class="span8">
 <p class="long_description"><p>This should be run to reload any changes to the lexicon. This creates a
 new <a href="Vocabulary">Vocabulary</a> object, and so also clears the set of sentences.</p></p>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
 <td>\GoTableaux\Logic::initVocabulary()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\Logic\FDE::initVocabulary()</td>
-</tr>
-</table>
+</tr></table>
 <h3>Returns</h3>
 <div class="subelement response">
 <code><a href="../classes/GoTableaux.Logic.html">\GoTableaux\Logic</a></code>Current instance.</div>
@@ -344,16 +290,10 @@ new <a href="Vocabulary">Vocabulary</a> object, and so also clears the set of se
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"><p>Requires an operator named 'Negation' in the language.</p></p>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
 <td>\GoTableaux\Logic::negate()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\Logic\FDE::negate()</td>
-</tr>
-</table>
+</tr></table>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$sentence</h4>
@@ -369,16 +309,10 @@ new <a href="Vocabulary">Vocabulary</a> object, and so also clears the set of se
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
 <td>\GoTableaux\Logic::parseArgument()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\Logic\FDE::parseArgument()</td>
-</tr>
-</table>
+</tr></table>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$premiseStrings</h4>
@@ -402,16 +336,10 @@ new <a href="Vocabulary">Vocabulary</a> object, and so also clears the set of se
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
 <td>\GoTableaux\Logic::parseSentence()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\Logic\FDE::parseSentence()</td>
-</tr>
-</table>
+</tr></table>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$string</h4>
@@ -431,16 +359,10 @@ new <a href="Vocabulary">Vocabulary</a> object, and so also clears the set of se
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
 <td>\GoTableaux\Logic::parseSentences()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\Logic\FDE::parseSentences()</td>
-</tr>
-</table>
+</tr></table>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$strings</h4>
@@ -460,16 +382,10 @@ new <a href="Vocabulary">Vocabulary</a> object, and so also clears the set of se
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
 <td>\GoTableaux\Logic::__construct()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\Logic\FDE::__construct()</td>
-</tr>
-</table>
+</tr></table>
 </div></div>
 </div>
 <h3>
@@ -489,12 +405,14 @@ new <a href="Vocabulary">Vocabulary</a> object, and so also clears the set of se
 <th>inherited_from</th>
 <td>\GoTableaux\Logic::$$defaultOperatorSymbols</td>
 </tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\Logic\FDE::$$defaultOperatorSymbols</td>
-</tr>
 </table>
 </div></div>
+</div>
+<a name="%24inheritLexiconFrom" id="$inheritLexiconFrom"> </a><div class="element clickable property public $inheritLexiconFrom" data-toggle="collapse" data-target=".$inheritLexiconFrom .collapse">
+<h2>$inheritLexiconFrom</h2>
+<pre>$inheritLexiconFrom </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
 </div>
 <a name="%24lexicon" id="$lexicon"> </a><div class="element clickable property public $lexicon" data-toggle="collapse" data-target=".$lexicon .collapse">
 <h2>Defines the default lexicon for initializing the vocabulary.</h2>
@@ -502,10 +420,16 @@ new <a href="Vocabulary">Vocabulary</a> object, and so also clears the set of se
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
+<th>see</th>
+<td>\GoTableaux\Vocabulary::__construct()</td>
+</tr>
+<tr>
 <th>inherited_from</th>
-<td>\GoTableaux\Logic\FDE::$$lexicon</td>
-</tr></table>
+<td>\GoTableaux\Logic::$$lexicon</td>
+</tr>
+</table>
 </div></div>
 </div>
 <a name="%24instances" id="$instances"> </a><div class="element clickable property protected $instances" data-toggle="collapse" data-target=".$instances .collapse">
@@ -522,10 +446,6 @@ new <a href="Vocabulary">Vocabulary</a> object, and so also clears the set of se
 <tr>
 <th>inherited_from</th>
 <td>\GoTableaux\Logic::$$instances</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\Logic\FDE::$$instances</td>
 </tr>
 </table>
 </div></div>
@@ -545,10 +465,6 @@ new <a href="Vocabulary">Vocabulary</a> object, and so also clears the set of se
 <th>inherited_from</th>
 <td>\GoTableaux\Logic::$$proofSystem</td>
 </tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\Logic\FDE::$$proofSystem</td>
-</tr>
 </table>
 </div></div>
 </div>
@@ -567,10 +483,6 @@ new <a href="Vocabulary">Vocabulary</a> object, and so also clears the set of se
 <th>inherited_from</th>
 <td>\GoTableaux\Logic::$$vocabulary</td>
 </tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\Logic\FDE::$$vocabulary</td>
-</tr>
 </table>
 </div></div>
 </div>
@@ -581,7 +493,7 @@ new <a href="Vocabulary">Vocabulary</a> object, and so also clears the set of se
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
-            generated on 2012-04-09T00:16:28-07:00.<br></footer></div>
+            generated on 2012-04-21T00:47:24-07:00.<br></footer></div>
 </div>
 </body>
 </html>

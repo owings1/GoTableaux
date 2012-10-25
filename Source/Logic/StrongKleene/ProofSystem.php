@@ -25,7 +25,28 @@ namespace GoTableaux\Logic\StrongKleene;
  * Represents the K3 tableaux system.
  * @package StrongKleene
  */
-class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem\ManyValued
+class ProofSystem extends \GoTableaux\Logic\FDE\ProofSystem
 {
-	public $inheritTableauRulesFrom = 'FDE';
+	public $ruleClasses = array(
+		'Closure',
+		'FDE.Closure',
+		'FDE.ConjunctionDesignated',
+		'FDE.ConjunctionUndesignated',
+		'FDE.NegatedConjunctionDesignated',
+		'FDE.NegatedConjunctionUndesignated',
+		'FDE.DisjunctionDesignated',
+		'FDE.DisjunctionUndesignated',
+		'FDE.NegatedDisjunctionDesignated',
+		'FDE.NegatedDisjunctionUndesignated',
+		'FDE.MaterialConditionalDesignated',
+		'FDE.MaterialConditionalUndesignated',
+		'FDE.NegatedMaterialConditionalDesignated',
+		'FDE.NegatedMaterialConditionalUndesignated',
+		'FDE.MaterialBiconditionalDesignated',
+		'FDE.MaterialBiconditionalUndesignated',
+		'FDE.NegatedMaterialBiconditionalDesignated',
+		'FDE.NegatedMaterialBiconditionalUndesignated',
+		'FDE.DoubleNegationDesignated',
+		'FDE.DoubleNegationUndesignated',
+	);
 }

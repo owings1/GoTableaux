@@ -16,14 +16,14 @@
  */
 /**
  * Defines the ProofSystem base class.
- * @package Proof
+ * @package GoTableaux
  */
 
 namespace GoTableaux;
 
 /**
  * Represents a proof system.
- * @package Proof
+ * @package GoTableaux
  */
 abstract class ProofSystem
 {	
@@ -35,11 +35,6 @@ abstract class ProofSystem
 	protected $logic;
 
 	/**
-	 * @var array Array of meta symbol names.
-	 */
-	protected $metaSymbolNames = array();
-	
-	/**
 	 * Constructor.
 	 *
 	 * @param Logic $logic The logic for the proof system to use.
@@ -47,6 +42,13 @@ abstract class ProofSystem
 	public function __construct( Logic $logic )
 	{
 		$this->logic = $logic;
+	}
+	
+	public function getType()
+	{
+		$class = trim( str_replace( __CLASS__ , '', get_class( $this )), '\\' );
+		list( $type ) = explode( '\\', $class );
+		return $type;
 	}
 	
 	/**
@@ -61,15 +63,7 @@ abstract class ProofSystem
 		return $this->logic;
 	}
 	
-	/**
-	 * Gets the meta symbols names.
-	 * 
-	 * @return array The meta symbol names.
-	 */
-	public function getMetaSymbolNames()
-	{
-		return $this->metaSymbolNames;
-	}
+	abstract public function getProofWriter( $output = null, $notation = null, $format = null );
 	
 	/**
 	 * Constructs a proof for an argument.
@@ -87,13 +81,4 @@ abstract class ProofSystem
 	 * @throws {@link ProofException} on type errors.
 	 */
 	abstract public function isValidProof( Proof $proof );
-	
-	/**
-	 * Gets a counterexample from a proof.
-	 *
-	 * @param Proof $proof The (putative) proof from which to get a counterexample.
-	 * @return Model The countermodel built from the proof.
-	 * @throws {@link ProofException} on type errors.
-	 */
-	abstract public function getCountermodel( Proof $proof );
 }

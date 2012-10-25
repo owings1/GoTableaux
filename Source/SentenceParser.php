@@ -29,53 +29,117 @@ use \GoTableaux\Exception\Parser as ParserException;
  **/
 abstract class SentenceParser
 {
+	// Operator Symbols are Flagged by Positive n = arity
+	const OPER_TERNARY		= 3;
+	const OPER_BINARY		= 2;
+	const OPER_UNARY		= 1;
+	const ATOMIC 			= 0;
+	const PUNCT_OPEN 		= -1;
+	const PUNCT_CLOSE 		= -2;
+	const PUNCT_SEPARATOR 	= -3;
+	
+	//  Define in child classes
+	public $atomicSymbols = array();
+	public $operatorNameSymbols = array();
+	
+	//  Reasonable defaults
+	public $spaceSymbols = array( ' ', "\n", "\t" );
+	
+	//  Constructed from logic
+	protected $operatorSymbolArities = array();
+	
+	//  Hashed for convenience
+	protected $operatorSymbolNames = array();
+	
 	/**
-	 * Holds the vocabulary.
-	 * @var Vocabulary
-	 * @access private
+	 * Maps symbols to types.
 	 */
-	protected $vocabulary;
+	protected $symbolTable = array();
+	
+	/**
+	 * @var Logic
+	 */
+	protected $logic;
 	
 	/**
 	 * Creates a child instance.
 	 *
-	 * @param Vocabulary $vocabulary The vocabulary for the parser to use.
+	 * @param Logic $logic The logic whose operators/arities to use.
 	 * @param string $type The type of parser to create.
 	 */
-	public static function getInstance( Vocabulary $vocabulary, $type = 'Standard' )
+	public static function getInstance( Logic $logic, $type = 'Standard' )
 	{
 		$class = __CLASS__ . '\\' . $type;
-		return new $class( $vocabulary );
+		return new $class( $logic );
 	}
 	
 	/**
-	 * Constructor. Sets the vocabulary.
+	 * Constructor. Initializes the operators
 	 *
-	 * @param Vocabulary $vocabulary The vocabulary for the parser to use.
+	 * @param Logic $logic The logic (language) for which to parse.
+	 * @throws Exception
 	 */
-	public function __construct( Vocabulary $vocabulary )
+	protected function __construct( Logic $logic )
 	{
-		$this->vocabulary = $vocabulary;
+		$this->logic = $logic;
+		$operatorArities = $logic->operatorArities;
+		foreach ( $operatorArities as $name => $arity ) {
+			if ( empty( $this->operatorNameSymbols[ $name ]))
+				throw new Exception( "No symbol defined for operator $name" );
+			$symbol = $this->operatorNameSymbols[ $name ];
+			$arity = intval( $arity );
+			if ( $arity < self::OPER_UNARY )
+				throw new Exception( "Invalid arity." );
+			
+			$this->operatorSymbolArities[ $symbol ] = $arity;
+		}
+		$this->operatorSymbolNames = array_flip( $this->operatorNameSymbols );
+		$this->buildSymbolTable();
+		
+	}
+	
+	public function buildSymbolTable()
+	{
+		foreach ( $this->atomicSymbols as $symbol ) 
+			$this->symbolTable[ $symbol ] = self::ATOMIC;
+		foreach ( $this->spaceSymbols as $symbol )
+			$this->symbolTable[ $symbol ] = self::PUNCT_SEPARATOR;
+		$this->symbolTable = array_merge( $this->symbolTable, $this->operatorSymbolArities );
 	}
 	
 	/**
-	 * Gets the vocabulary.
+	 * Gets Operator object by its symbol.
 	 *
-	 * @return Vocabulary The vocabulary that the parser is using.
+	 * @param string $symbol Operator symbol.
+	 * @return Operator Operator instance.
+	 * @throws {@link ParserException} when $symbol is not an operator 
+	 * 		   symbol in the vocabulary.
 	 */
-	public function getVocabulary()
+	public function getOperatorBySymbol( $symbol )
 	{
-		return $this->vocabulary;
+		if ( !array_key_exists( $symbol, $this->operatorSymbolNames ))
+			throw new ParserException( "$symbol is not an operator symbol in the vocabulary." );
+		return $this->logic->getOperator( $this->operatorSymbolNames[ $symbol ]);
+	}
+	
+	/**
+	 * Tests for a symbol being an operator symbol.
+	 *
+	 * @param string $symbol  The symbol to check.
+	 * @return boolean  Whether the symbol is an operator symbol.
+	 */
+	public function isOperatorSymbol( $symbol )
+	{
+		return array_key_exists( $symbol, $this->operatorSymbolNames );
 	}
 	
 	/**
 	 * Parses an atomic sentence from a string that starts with an atomic symbol.
 	 *
-	 * This is the default implementation for parsing an atomic sentence from a
-	 * string that starts with an atomic symbol. This implementation expects 
-	 * the next symbol to be either a separator (space) character, or a 
-	 * subscript character followed by an integer. If a subscript is not given,
-	 * it will be assigned 0.
+	 * This provides default functionality for parsing an atomic sentence from a
+	 * string that starts with an atomic symbol. If the atomic symbol is followed
+	 * by an integer, the sentence's subscript will be assigned the intval of the
+	 * remaining string. 
 	 *
 	 * @param string $sentenceStr The string to parse.
 	 * @return Sentence The resulting sentence instance.
@@ -83,23 +147,51 @@ abstract class SentenceParser
 	 */
 	protected function parseAtomic( $sentenceStr )
 	{
-		$vocabulary		= $this->getVocabulary();
-		$atomicSymbols 	= $vocabulary->getAtomicSymbols();
-		$subscripts 	= $vocabulary->getSubscriptSymbols();
-		$hasSubscript 	= false !== Utilities::strPosArr( $sentenceStr, $subscripts, 1, $match );
-		
-		list( $symbol, $subscript ) = $hasSubscript ? explode( $match, $sentenceStr ) 
-													: array( $sentenceStr, 0 );
-		
-		if ( !in_array( $symbol, $atomicSymbols ))
-			throw new ParserException( "$symbol is not an atomic symbol." );
-		
-		if ( !is_numeric( $subscript ))
-			throw new ParserException( "Subscript must be numeric." );
-		
-		return Sentence::createAtomic( $symbol, $subscript );
+		$atomicStr = $this->readAtomic( $sentenceStr );
+		$symbol = $atomicStr{0};
+		$symbolIndex = array_search( $symbol, $this->atomicSymbols );
+		if ( $symbolIndex === false ) throw new ParserException( "$char is not an atomic symbol." );
+		return Sentence::createAtomic( $symbolIndex, ( int ) substr( $atomicStr, 1 ));
 	}
 	
+	/**
+	 * Reads an atomic sentence from a string that starts with an atomic symbol.
+	 *
+	 * @param string $sentenceStr  The string to read.
+	 * @return string  The atomic sentence string.
+	 * @throws {@link ParserException}.
+	 */
+	protected function readAtomic( $sentenceStr )
+	{
+		$char = $sentenceStr{0};
+		if ( !in_array( $char, $this->atomicSymbols )) throw new ParserException( "$char is not an atomic symbol." );
+		for ( $i = 1; $i < strlen( $sentenceStr ) && is_numeric( $sentenceStr{$i} ); $i++ );
+		return substr( $sentenceStr, 0, $i );
+	}
+	
+	/**
+	 * Removes separator (space) characters from a string.
+	 *
+	 * @param string $string The string to replace.
+	 * @return string The string with all separators removed.
+	 */
+	public function removeSeparators( $string )
+	{
+		return str_replace( $this->spaceSymbols, '', $string );
+	}
+		
+	public function getOperatorSymbolNames()
+	{
+		return $this->operatorSymbolNames;
+	}
+	
+	public function getLogicOperatorSymbolNames()
+	{
+		$logic = $this->logic;
+		return array_filter( $this->operatorSymbolNames, function( $name ) use ( $logic ){
+			return array_key_exists( $name, $logic->operatorArities );
+		});
+	}
 	/**
 	 * Creates a {@link Sentence sentence} instance from a string.
 	 * 

@@ -26,9 +26,8 @@ use \GoTableaux\Logic as Logic;
 class NegatedConjunctionUndesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 {
 	protected $conditions = array(
-		'operator' 		=> array( 'Negation', 'Conjunction' ),
+		'sentenceForm' => '~(A & B)',
 		'designated' 	=> false,
-		'ticked' 		=> false
 	);
 	
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )

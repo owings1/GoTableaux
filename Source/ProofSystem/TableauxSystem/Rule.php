@@ -28,13 +28,47 @@ use \GoTableaux\Proof\Tableau as Tableau;
  * Represents a tableau rule that applies to a branch.
  * @package GoTableaux
  */
-interface Rule
+abstract class Rule
 {
+	/**
+	 * Gets the logic-qualified name of the rule.
+	 *
+	 * The logic name is deduced from the namespace of the rule class. E.g.,
+	 * \GoTableaux\Logic\CPL\ProofSystem\Rule\MaterialConditional is rendered
+	 * CPL.MaterialConditional.
+	 *
+	 * @return string The name of the rule.
+	 */
+	public function getName()
+	{
+		preg_match( '/\\\\Logic\\\\(.*)\\\\ProofSystem\\\\Rule\\\\(.*)/', get_class( $this ), $matches );
+		return "{$matches[1]}.{$matches[2]}";
+	}
+	
+	/**
+	 * Determines whether the rule can apply to the tableau.
+	 *
+	 * @param Tableau $tableau The tableau to check.
+	 * @return boolean Whether the rule can apply.
+	 */
+	abstract public function applies( Tableau $tableau );
+	
 	/**
 	 * Applies the rule to a tableau.
 	 *
 	 * @param Tableau $tableau The tableau to which to apply the rule.
 	 * @return boolean Whether the rule did apply.
 	 */
-	public function apply( Tableau $tableau );
+	public function apply( Tableau $tableau )
+	{
+		$tableau->setLastRule( $this );
+	}
+	
+	/**
+	 * Creates an example tableau for the rule.
+	 * 
+	 * @param Logic $logic The logic.
+	 * @return Tableau The example tableau.
+	 */
+	abstract public function getExample( Logic $logic );
 }

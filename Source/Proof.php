@@ -16,7 +16,7 @@
  */
 /**
  * Defines the base proof class.
- * @package Proof
+ * @package GoTableaux
  */
 
 namespace GoTableaux;
@@ -24,23 +24,29 @@ namespace GoTableaux;
 /**
  * Represents a proof.
  *
- * @package Proof
+ * @package GoTableaux
  **/
 abstract class Proof
 {
 	/**
-	 * Holds the argument for the proof.
+	 * Reference to the argument for the proof.
 	 * @var Argument
 	 * @access private
 	 */
 	protected $argument;
 	
 	/**
-	 * Holds a reference to the proof system.
+	 * Reference to the proof system.
 	 * @var ProofSystem
 	 * @access private
 	 */
 	protected $proofSystem;
+	
+	/**
+	 * Meta proof symbol names.
+	 * @var array
+	 */
+	protected $metaSymbolNames = array();
 	
 	/**
 	 * Constructor. Initializes argument.
@@ -48,10 +54,37 @@ abstract class Proof
 	 * @param Argument $argument Argument for the proof.
 	 * @param ProofSystem $proofSystem The proof system of the proof.
 	 */
-	public function __construct( Argument $argument, ProofSystem $proofSystem )
+	public function __construct( ProofSystem $proofSystem )
 	{
-		$this->argument = $argument;
 		$this->proofSystem = $proofSystem;
+	}
+	
+	public function getType()
+	{
+		$class = trim( str_replace( __CLASS__, '', get_class( $this )), '\\' );
+		list( $type ) = explode( '\\', $class );
+		return $type;
+	}
+	
+	/**
+	 * Gets the meta symbols names.
+	 * 
+	 * @return array The meta symbol names.
+	 */
+	public function getMetaSymbolNames()
+	{
+		return $this->metaSymbolNames;
+	}
+	
+	/**
+	 * Adds meta symbol names.
+	 *
+	 * @param string|array $names The meta symbol name(s).
+	 * @return void
+	 */
+	public function addMetaSymbolNames( $names )
+	{
+		foreach ( (array) $names as $name )	Utilities::uniqueAdd( $name, $this->metaSymbolNames );
 	}
 	
 	/**
@@ -65,6 +98,18 @@ abstract class Proof
 	}
 	
 	/**
+	 * Sets the argument.
+	 *
+	 * @param Argument The argument.
+	 * @return Proof Current instance.
+	 */
+	public function setArgument( Argument $argument )
+	{
+		$this->argument = $argument;
+		return $this;
+	}
+	
+	/**
 	 * Gets the ProofSystem object.
 	 *
 	 * @return ProofSystem The proof's proof system.
@@ -74,6 +119,15 @@ abstract class Proof
 		return $this->proofSystem;
 	}
 	
+	public function getProofSystemType()
+	{
+		return $this->getProofSystem()->getType();
+	}
+	
+	public function getWriter( $output = 'Simple', $notation = 'Standard', $format = null )
+	{
+		return $this->getProofSystem()->getProofWriter( $output, $notation, $format );
+	}
 	/**
 	 * Checks whether the proof is valid
 	 *

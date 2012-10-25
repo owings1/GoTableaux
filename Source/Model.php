@@ -16,14 +16,14 @@
  */
 /**
  * Defines the Model class.
- * @package ModelTheory
+ * @package GoTableaux
  */
 
 namespace GoTableaux;
 
 /**
  * Represents model-theoretic model.
- * @package ModelTheory
+ * @package GoTableaux
  */
 class Model
 {

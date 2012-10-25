@@ -27,18 +27,17 @@ namespace GoTableaux\Logic;
  */
 class FDE extends \GoTableaux\Logic
 {	
-	public $lexicon = array(
-		'openMarks' 		=> array('('),
-		'closeMarks' 		=> array(')'),
-		'separators' 		=> array(' '),
-		'subscripts' 		=> array('_'),
-		'atomicSymbols' 	=> array('A', 'B', 'C', 'D', 'E', 'F'),
-		'operators' 	=> array(
-			'Negation' => 1,
-			'Conjunction' => 2,
-			'Disjunction' => 2,
-			'Material Conditional' => 2,
-			'Material Biconditional' => 2,
-		)
+	public $title = 'First Degree Entailment 4-valued logic';
+	
+	public $operatorArities = array(
+		'Negation' => 1,
+		'Conjunction' => 2,
+		'Disjunction' => 2,
+		'Material Conditional' => 2,
+		'Material Biconditional' => 2,
+	);
+	
+	public $externalLinks = array(
+		'Stanford Encyclopedia' => 'http://plato.stanford.edu/entries/logic-paraconsistent/'
 	);
 }

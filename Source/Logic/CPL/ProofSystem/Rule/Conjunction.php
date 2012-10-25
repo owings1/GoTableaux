@@ -26,8 +26,7 @@ use \GoTableaux\Logic as Logic;
 class Conjunction extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 {
 	protected $conditions = array(
-		'operator' 	=> 'Conjunction',
-		'ticked' 	=> false,
+		'sentenceForm' => 'A & B'
 	);
 	
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )

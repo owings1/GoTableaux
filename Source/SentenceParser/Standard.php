@@ -22,9 +22,7 @@
 namespace GoTableaux\SentenceParser;
 
 use \GoTableaux\Utilities as Utilities;
-use \GoTableaux\Utilities\Parser as ParserUtilities;
 use \GoTableaux\Exception\Parser as ParserException;
-use \GoTableaux\Vocabulary as Vocabulary;
 use \GoTableaux\Sentence as Sentence;
 
 /**
@@ -33,6 +31,30 @@ use \GoTableaux\Sentence as Sentence;
  **/
 class Standard extends \GoTableaux\SentenceParser
 {
+	
+	public $atomicSymbols = array( 'A', 'B', 'C', 'D', 'E' );
+	
+	public $operatorNameSymbols = array(
+		'Negation'               => '~',
+		'Conjunction'            => '&',
+		'Disjunction'            => 'V',
+		'Material Conditional'   => '>',
+		'Material Biconditional' => '<',
+		'Conditional'            => '$',
+		'Possibility'            => 'P',
+		'Necessity'              => 'N'
+	);
+	
+	public $openMark = '(';
+
+	public $closeMark = ')';
+
+	public function buildSymbolTable()
+	{
+		parent::buildSymbolTable();
+		$this->symbolTable[ $this->openMark ] = self::PUNCT_OPEN;
+		$this->symbolTable[ $this->closeMark ] = self::PUNCT_CLOSE;
+	}
 	/**
 	 * Creates a {@link Sentence sentence} from a string.
 	 * 
@@ -41,24 +63,23 @@ class Standard extends \GoTableaux\SentenceParser
 	 */
 	public function stringToSentence( $sentenceStr )
 	{
-		$vocabulary  = $this->getVocabulary();
-		$sentenceStr = ParserUtilities::removeSeparators( $sentenceStr, $vocabulary );
-		$sentenceStr = ParserUtilities::dropOuterParens( $sentenceStr, $vocabulary );
+		$sentenceStr = $this->removeSeparators( $sentenceStr );
+		$sentenceStr = $this->dropOuterParens( $sentenceStr );
 		
 		if ( empty( $sentenceStr )) 
 			throw new ParserException( 'Sentence string cannot be empty.' );
 		
-		$firstSentenceStr = $this->_readSentence( $sentenceStr, $vocabulary );
+		$firstSentenceStr = $this->_readSentence( $sentenceStr );
 		
 		if ( $firstSentenceStr === $sentenceStr ) {
-			$firstSymbolType = $vocabulary->getSymbolType( $sentenceStr{0} );
+			$firstSymbolType = $this->symbolTable[ $sentenceStr{0} ];
 			switch ( $firstSymbolType ) {
-				case Vocabulary::ATOMIC :
-					return $this->parseAtomic( $sentenceStr, $vocabulary );
-				case Vocabulary::OPER_UNARY :
-					$operator 	= $vocabulary->getOperatorBySymbol( $sentenceStr{0} );
+				case self::ATOMIC :
+					return $this->parseAtomic( $sentenceStr );
+				case self::OPER_UNARY :
+					$operator 	= $this->getOperatorBySymbol( $sentenceStr{0} );
 					$operandStr = substr( $sentenceStr, 1 );
-					$operand 	= $this->stringToSentence( $operandStr, $vocabulary );
+					$operand 	= $this->stringToSentence( $operandStr );
 					return Sentence::createMolecular( $operator, array( $operand ));
 				default :
 					throw ParserException::createWithMsgInputPos( 'Unexpected symbol type.', $sentenceStr, 0 );
@@ -67,21 +88,21 @@ class Standard extends \GoTableaux\SentenceParser
 		
 		$pos 			= strlen( $firstSentenceStr );
 		$nextSymbol 	= $sentenceStr{$pos};
-		$nextSymbolType = $vocabulary->getSymbolType( $nextSymbol );
+		$nextSymbolType = $this->symbolTable[ $nextSymbol ];
 		
-		if ( $nextSymbolType !== Vocabulary::OPER_BINARY )
+		if ( $nextSymbolType !== self::OPER_BINARY )
 			throw ParserException::createWithMsgInputPos( 'Unexpected symbol. Expecting binary operator.', $sentenceStr, $pos );
 		
 		$rightStr			= substr( $sentenceStr, ++$pos );
-		$secondSentenceStr 	= $this->_readSentence( $rightStr, $vocabulary );
+		$secondSentenceStr 	= $this->_readSentence( $rightStr );
 		
 		if ( $rightStr !== $secondSentenceStr )
 			throw ParserException::createWithMsgInputPos( 'Invalid right operand string.', $sentenceStr, $pos );
 		
-		$operator = $vocabulary->getOperatorBySymbol( $nextSymbol );
+		$operator = $this->getOperatorBySymbol( $nextSymbol );
 		$operands = array(
-			$this->stringToSentence( $firstSentenceStr, $vocabulary ),
-			$this->stringToSentence( $secondSentenceStr, $vocabulary )
+			$this->stringToSentence( $firstSentenceStr ),
+			$this->stringToSentence( $secondSentenceStr )
 		);
 		return Sentence::createMolecular( $operator, $operands );
 	}
@@ -96,21 +117,21 @@ class Standard extends \GoTableaux\SentenceParser
 	 */
 	private function _readSentence( $string )
 	{	
-		$vocabulary		 = $this->getVocabulary(); 
-		$firstSymbolType = $vocabulary->getSymbolType( $string{0} );
-		switch ( $firstSymbolType ) {
-			case Vocabulary::ATOMIC :
-				$hasSubscript = strlen( $string ) > 1 && 
-								$vocabulary->getSymbolType( $string{1} ) === Vocabulary::CTRL_SUBSCRIPT;
-				$firstSentenceStr = $hasSubscript ? substr( $string, 0, 2 ) . intval( substr( $string, 2 ))
-												  : $string{0};
+		if ( !isset( $this->symbolTable[ $string{0} ]))
+			throw new ParserException( $string{0}. ' is not in the symbol table.' );
+		switch ( $this->symbolTable[ $string{0} ] ) {
+			case self::ATOMIC :
+				$firstSentenceStr = $string{0};
+				$hasSubscript = strlen( $string ) > 1 && is_numeric( $string{1} );
+				if ( $hasSubscript ) for ( $i = 1; isset( $string{$i} ) && is_numeric( $string{$i} ); $i++ )
+					$firstSentenceStr .= $string{$i};
 				break;
-			case Vocabulary::PUNCT_OPEN;
-				$closePos = ParserUtilities::closePosFromOpenPos( $string, 0, $vocabulary );
+			case self::PUNCT_OPEN;
+				$closePos = $this->closePosFromOpenPos( $string, 0 );
 				$firstSentenceStr = substr( $string, 0, $closePos + 1 );
 				break;
-			case Vocabulary::OPER_UNARY :
-				$firstSentenceStr = $string{0} . $this->_readSentence( substr( $string, 1 ), $vocabulary );
+			case self::OPER_UNARY :
+				$firstSentenceStr = $string{0} . $this->_readSentence( substr( $string, 1 ));
 				break;
 			default :
 				throw ParserException::createWithMsgInputPos( 'Unexpected symbol type.', $string, 0 );
@@ -118,5 +139,86 @@ class Standard extends \GoTableaux\SentenceParser
 		return $firstSentenceStr;
 	}
 	
+	/**
+	 * Drops outer parentheses from a string, if they exist.
+	 *
+	 * @param string $string The string to be parsed.
+	 * @return string The resulting string.
+	 */
+	private function dropOuterParens( $string )
+	{
+		try {
+			$parenGroup = $this->grabParenGroup( $string, true );
+			if ( $parenGroup === $string ) {
+				$string = substr( $string, 1, strlen( $string ) - 2 );
+				return $this->dropOuterParens( $string );
+			}
+		} catch ( ParserException $e ) { }
+		return $string;
+	}
 
+	/**
+	 * Finds a string's position for the corresponding close mark of an open 
+	 * mark at the given position.
+	 *
+	 * @param string $string The string to scan.
+	 * @param integer $openPos String position of open mark.
+	 * @return integer The position of the corresponding close mark.
+	 * @throws {@link Exception\Parser} on parsing error.
+	 */
+	private function closePosFromOpenPos( $string, $openPos )
+	{
+		if ( $this->symbolTable[ $string{$openPos} ] !== self::PUNCT_OPEN )
+			throw ParserException::createWithMsgInputPos( "Open mark expected.", $string, $openPos );
+		$length 	= strlen( $string );
+		$depth  	= 1;
+		$pos 		= $openPos;
+		do {
+			if ( ++$pos === $length )
+				throw ParserException::createWithMsgInputPos( 'Unterminated open mark.', $string, --$pos );
+			$char = $string{$pos};
+			if ( $char === $this->openMark ) $depth++;
+			elseif ( $char === $this->closeMark ) $depth--;
+		} while ( $depth );
+		return $pos;
+	}
+	
+	/**
+	 * Parses first complete parenthesized group in a string.
+	 *
+	 * @param string $str The string to be parsed. Must contain at least one
+	 *					  parenthesized group.
+	 * @param boolean $includeOuter Whether to include the outer parentheses
+	 *								in the returned string. Default is false.
+	 * @param integer $offset String offset at which to start searching.
+	 * @return string Everything inside the first parenthesized group. Includes
+	 *				  outer parentheses if $includeOuter is set to true.
+	 * @throws {@link Exception\Parser} on no parentheses in string, or parsing error.
+	 */
+	private function grabParenGroup( $str, $includeOuter = false, $offset = 0 )
+	{
+		$length		= strlen( $str );
+		$startPos 	= strpos( $str, $this->openMark, $offset );
+		
+		if ( $startPos === false )
+			throw new ParserException( "No open punctuation found. Check parentheses." );
+		
+		$depth  = 1;
+		$endPos = $startPos;
+		$startPos += 1;
+		do {
+			if ( ++$endPos === $length )
+				throw new ParserException( "Unable to parse punctuation. Check parentheses." );
+			$char = $str{$endPos};
+			if ( $char === $this->openMark ) $depth++;
+			elseif ( $char === $this->closeMark ) $depth--;
+		} while ( $depth );
+		
+		if ( $includeOuter ) {
+			$startPos -= 1;
+			$endPos += 2;
+		}
+		
+		return substr( $str, $startPos, $endPos - 1 );
+	}
 }

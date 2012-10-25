@@ -26,8 +26,7 @@ use \GoTableaux\Logic as Logic;
 class Disjunction extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 {
 	protected $conditions = array(
-		'operator' 	=> 'Disjunction',
-		'ticked' 	=> false,
+		'sentenceForm' => 'A V B'
 	);
 	
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )

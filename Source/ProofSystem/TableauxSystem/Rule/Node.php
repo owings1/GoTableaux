@@ -24,6 +24,7 @@ namespace GoTableaux\ProofSystem\TableauxSystem\Rule;
 use \GoTableaux\Logic as Logic;
 use \GoTableaux\Proof\TableauBranch as TableauBranch;
 use \GoTableaux\Proof\TableauNode as TableauNode;
+use \GoTableaux\Exception\Tableau as TableauException;
 use \GoTableaux\Utilities as Utilities;
 
 /**
@@ -39,18 +40,54 @@ abstract class Node extends Branch
 	protected $conditions = array();
 	
 	/**
+	 * Determines whether a rule can apply to a branch.
+	 *
+	 * A node rule can apply to a branch when it can apply to a node.
+	 *
+	 * @param TableauBranch The branch to check.
+	 * @param Logic $logic The logic of the proof system.
+	 * @return boolean Whether the rule can apply.
+	 */
+	final public function appliesToBranch( TableauBranch $branch, Logic $logic )
+	{
+		foreach ( $branch->getUntickedNodes() as $node )
+			if ( $this->appliesToNode( $node, $branch, $logic )) return true;
+		return false;
+	}
+	
+	/**
 	 * Looks for a node on the branch that meets $this->conditions, and passes
 	 * it to applyToNode().
 	 *
 	 * @param Branch $branch The branch.
 	 * @param Logic $logic The logic.
-	 * @return boolean Whether the rule was applied.
+	 * @return void
+	 * @throws TableauException if there is no node on the branch to which the 
+	 *		   rule applies.
 	 */
 	final public function applyToBranch( TableauBranch $branch, Logic $logic )
 	{
-		if ( !$node = $branch->find( 'one', $this->getConditions() )) return false;
+		//$node = $branch->find( 'first', $this->getConditions() );
+		//foreach ( $branch->getUntickedNodes() as $node )
+		//	if ( $this->appliesToNode( $node, $branch, $logic )) break;
+		//if ( empty( $node )) {
+		//	Utilities::debug( get_class( $this ), $this->getConditions() );
+		//	throw new TableauException( 'Trying to apply a node rule to a branch that has no applicable nodes.' );
+		//}
+		$node = $this->getApplicableNode( $branch, $logic );
 		$this->applyToNode( $node, $branch, $logic );
-		return true;
+	}
+	
+	/**
+	 * Builds an example branch for the rule.
+	 *
+	 * @param TableauBrach $branch The branch to build.
+	 * @param Logic $logic The logic.
+	 * @return void
+	 */
+	final public function buildExample( TableauBranch $branch, Logic $logic )
+	{
+		$branch->addNode( $this->getExampleNode( $logic ));
 	}
 	
     /**
@@ -58,29 +95,84 @@ abstract class Node extends Branch
      * 
      * @return string The base name of the rule, e.g. NegatedConjunctionDesignated. 
      */
-    public function getName()
+    /*public function getName()
     {
         return Utilities::getBaseClassName( $this );
-    }
+    }*/
     
     /**
-     * Gets the conditions.
+     * Gets the conditions. Forces unticked.
      * 
      * @return array The conditions. 
      */
     public function getConditions()
     {
-        return $this->conditions;
+        return array_merge( array( 'ticked' => false ), $this->conditions );
     }
     
-    public function getExampleNode()
+	/**
+	 * Gets the first applicable node.
+	 * 
+	 * @return TableauNode The first applicable node.
+	 * @throws TableauException when no applicable nodes found.
+	 */
+	protected function getApplicableNode( TableauBranch $branch, Logic $logic )
+	{
+		foreach ( $branch->getUntickedNodes() as $node )
+			if ( $this->appliesToNode( $node, $branch, $logic )) return $node;
+		Utilities::debug( get_class( $this ));
+		throw new TableauException( 'trying to get an applicable node when there are none.' );
+	}
+	/**
+	 * Gets an example node based on the rule's conditions.
+	 *
+	 * @param Logic $logic The logic.
+	 * @return TableauNode|boolean The example node, or false if no example 
+	 *							   could be induced.
+	 */
+    private function getExampleNode( Logic $logic )
     {
         $conditions = $this->getConditions();
-        // TODO Finish function
-        //if ( !empty)
+		$classes = $properties = array();
+		if ( !empty( $conditions['sentenceForm'] )) {
+			$classes[] = 'Sentence';
+			$properties['sentence'] = $logic->parseSentence( $conditions['sentenceForm'] );
+		}
+		if ( isset( $conditions['designated'] )) {
+			$classes[] = 'ManyValued';
+			$properties['designated'] = $conditions['designated'];
+		}
+		if ( isset( $conditions['i'] )) {
+			$classes[] = 'Modal';
+			$properties['i'] = $conditions['i'] === '*' ? 0 : $conditions['i'];
+		}
+		if ( isset( $conditions['j'] )) {
+			$classes[] = 'Access';
+			$properties['i'] = $conditions['j'] === '*' ? 0 : $conditions['j'];
+		}
+		if ( empty( $classes )) return false;
+		$node = new TableauNode;
+		$baseClass = get_class( $node );
+		foreach ( $classes as $class ) {
+			$class = $baseClass . '\\' . $class;
+			$node = new $class( $node, $properties );
+		}
+		return $node;
     }
+	
 	/**
-	 * Applies the changes to a branch for a node that meets $this->conditions.
+	 * Determines whether the rule applies to a node.
+	 *
+	 * The default implementation is to run a simple find query on the branch 
+	 * with the rule's conditions.
+	 */
+	public function appliesToNode( TableauNode $node, TableauBranch $branch, Logic $logic )
+	{
+		return $node->filter( $this->getConditions(), $logic );
+	}
+	
+	/**
+	 * Applies the changes to a branch for an unticked node that meets $this->conditions.
 	 *
 	 * @param TableauNode $node The node to apply the changes.
 	 * @param Branch $branch The branch for which the rule is applying.

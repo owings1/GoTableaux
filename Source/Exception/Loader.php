@@ -16,14 +16,14 @@
  */
 /**
  * Defines the Loader exception class.
- * @package Exceptions
+ * @package GoTableaux
  */
 
 namespace GoTableaux\Exception;
 
 /**
  * Represents a loader exception.
- * @package Exceptions
+ * @package GoTableaux
  */
 class Loader extends \GoTableaux\Exception
 {

@@ -27,5 +27,12 @@ namespace GoTableaux\Logic;
  */
 class LP extends \GoTableaux\Logic
 {
-	public $inheritLexiconFrom = 'FDE';
+	public $title = 'The Logic of Paradox';
+	
+	public $inheritOperatorsFrom = 'FDE';
+	
+	public $externalLinks = array(
+		'Stanford Encyclopedia' => 'http://plato.stanford.edu/entries/logic-paraconsistent/',
+		'Liar Paradox' => 'http://plato.stanford.edu/entries/liar-paradox/'
+	);
 }

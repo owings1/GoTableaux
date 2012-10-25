@@ -23,17 +23,12 @@
 <li><a href="../namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
 <li><a>Packages</a></li>
 <li><a href="../packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
-<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
-<li><a href="../packages/Exceptions.html"><i class="icon-folder-open"></i> Exceptions</a></li>
 <li><a href="../packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
 <li><a href="../packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
 <li><a href="../packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
 <li><a href="../packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
 <li><a href="../packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
-<li><a href="../packages/ModelTheory.html"><i class="icon-folder-open"></i> ModelTheory</a></li>
-<li><a href="../packages/Proof.html"><i class="icon-folder-open"></i> Proof</a></li>
 <li><a href="../packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
-<li><a href="../packages/Syntax.html"><i class="icon-folder-open"></i> Syntax</a></li>
 </ul>
 </li>
 <li class="dropdown" id="charts-menu">
@@ -44,9 +39,11 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">233</span></a></li>
+                <span class="label label-info">255</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
-                <ul></ul></a></li>
+                <ul><li>todo 
+                <span class="label label-info">2</span>
+</li></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
                 <span class="label label-info">0</span></a></li>
 </ul>
@@ -69,11 +66,14 @@
 <li class="nav-header">
 <i class="icon-custom icon-method"></i> Methods</li>
 <li class="method public "><a href="#arrayDiff" title="arrayDiff :: Strictly subtracts one array from the other."><span class="description">Strictly subtracts one array from the other.</span><pre>arrayDiff()</pre></a></li>
+<li class="method public "><a href="#arrayRm" title="arrayRm :: Removes an element from an array, if contained."><span class="description">Removes an element from an array, if contained.</span><pre>arrayRm()</pre></a></li>
 <li class="method public "><a href="#arrayUnique" title="arrayUnique :: Produces a strictly unique array."><span class="description">Produces a strictly unique array.</span><pre>arrayUnique()</pre></a></li>
 <li class="method public "><a href="#arraysAreIdentical" title="arraysAreIdentical :: Compares arrays of objects against identity."><span class="description">Compares arrays of objects against identity.</span><pre>arraysAreIdentical()</pre></a></li>
 <li class="method public "><a href="#debug" title="debug :: Prints debugging information, if the debug setting is set to true."><span class="description">Prints debugging information, if the debug setting is set to true.</span><pre>debug()</pre></a></li>
+<li class="method public "><a href="#getBaseClassName" title="getBaseClassName :: Gets the base class name of an object."><span class="description">Gets the base class name of an object.</span><pre>getBaseClassName()</pre></a></li>
 <li class="method public "><a href="#sortByStrLen" title="sortByStrLen :: Sorts two strings by their length."><span class="description">Sorts two strings by their length.</span><pre>sortByStrLen()</pre></a></li>
 <li class="method public "><a href="#strPosArr" title="strPosArr :: Searches a string for the first occurrence of any string in a given array."><span class="description">Searches a string for the first occurrence of any string in a given array.</span><pre>strPosArr()</pre></a></li>
+<li class="method public "><a href="#uniqueAdd" title="uniqueAdd :: Adds an element to an array, if not already contained."><span class="description">Adds an element to an array, if not already contained.</span><pre>uniqueAdd()</pre></a></li>
 </ul>
 </div>
 <div class="span8">
@@ -114,6 +114,21 @@
 <code>array</code>The resulting array.</div>
 </div></div>
 </div>
+<a name="arrayRm" id="arrayRm"></a><div class="element clickable method public arrayRm" data-toggle="collapse" data-target=".arrayRm .collapse">
+<h2>Removes an element from an array, if contained.</h2>
+<pre>arrayRm(mixed $element, array $array) : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$element</h4>
+<code>mixed</code><p>The element to remove.</p></div>
+<div class="subelement argument">
+<h4>$array</h4>
+<code>array</code><p>The array from which to remove the element.</p></div>
+</div></div>
+</div>
 <a name="arrayUnique" id="arrayUnique"></a><div class="element clickable method public arrayUnique" data-toggle="collapse" data-target=".arrayUnique .collapse">
 <h2>Produces a strictly unique array.</h2>
 <pre>arrayUnique(array $arr) : array</pre>
@@ -150,6 +165,21 @@
 <th>see</th>
 <td>\GoTableaux\config.php</td>
 </tr></table>
+</div></div>
+</div>
+<a name="getBaseClassName" id="getBaseClassName"></a><div class="element clickable method public getBaseClassName" data-toggle="collapse" data-target=".getBaseClassName .collapse">
+<h2>Gets the base class name of an object.</h2>
+<pre>getBaseClassName(object $object) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$object</h4>
+<code>object</code><p>The object whose base class name to get.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The base class name, e.g. a object of class Space\Cadet will return 'Cadet'.</div>
 </div></div>
 </div>
 <a name="sortByStrLen" id="sortByStrLen"></a><div class="element clickable method public sortByStrLen" data-toggle="collapse" data-target=".sortByStrLen .collapse">
@@ -195,6 +225,21 @@
 <code>integer</code><code>boolean</code>Position of $haystack at which the first match was found, OR false if no match is found.</div>
 </div></div>
 </div>
+<a name="uniqueAdd" id="uniqueAdd"></a><div class="element clickable method public uniqueAdd" data-toggle="collapse" data-target=".uniqueAdd .collapse">
+<h2>Adds an element to an array, if not already contained.</h2>
+<pre>uniqueAdd(mixed $element, array $array) : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$element</h4>
+<code>mixed</code><p>The element to add.</p></div>
+<div class="subelement argument">
+<h4>$array</h4>
+<code>array</code><p>The array to which to add the element.</p></div>
+</div></div>
+</div>
 </div>
 </div>
 </div>
@@ -202,7 +247,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
-            generated on 2012-04-09T00:16:29-07:00.<br></footer></div>
+            generated on 2012-04-21T00:47:25-07:00.<br></footer></div>
 </div>
 </body>
 </html>

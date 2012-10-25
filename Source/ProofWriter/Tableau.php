@@ -37,7 +37,7 @@ abstract class Tableau extends \GoTableaux\ProofWriter
 	 * Translations for tableau-wide markings.
 	 * @var array
 	 */
-	protected $translations = array(
+	public $metaSymbolStrings = array(
 		'tickMarker'			=> '^',
 		'closeMarker' 			=> '[><]',
 		'designatedMarker' 		=> '+',
@@ -48,22 +48,22 @@ abstract class Tableau extends \GoTableaux\ProofWriter
 	
 	public function writeCloseMarker()
 	{
-		return $this->getTranslation( 'closeMarker' );
+		return $this->metaSymbolStrings[ 'closeMarker' ];
 	}	
 	
 	public function writeDesignationMarker( $isDesignated )
 	{
-		return $this->getTranslation( $isDesignated ? 'designatedMarker' : 'undesignatedMarker' );
+		return $this->metaSymbolStrings[ $isDesignated ? 'designatedMarker' : 'undesignatedMarker' ];
 	}
 	
 	public function writeTickMarker()
 	{
-		return $this->getTranslation( 'tickMarker');
+		return $this->metaSymbolStrings[ 'tickMarker' ];
 	}
 	
 	public function writeWorldIndex( $index )
 	{
-		return $this->getTranslation( 'worldSymbol' ) . $index;
+		return $this->metaSymbolStrings[ 'worldSymbol' ] . $index;
 	}
 	
 	/**
@@ -83,7 +83,7 @@ abstract class Tableau extends \GoTableaux\ProofWriter
 				$str .= ', ' . $this->writeWorldIndex( $node->getI() );
 		} elseif ( $node->hasClass( 'Access' ))
 			$str .= $this->writeWorldIndex( $node->getI() ) . 
-					$this->getTranslation( 'accessRelationSymbol' ) . 
+					$this->metaSymbolStrings[ 'accessRelationSymbol' ]. 
 					$this->writeWorldIndex( $node->getJ() );
 		if ( $node->hasClass( 'ManyValued' ))
 			$str .= ' ' . $this->writeDesignationMarker( $node->isDesignated() );
@@ -119,14 +119,7 @@ abstract class Tableau extends \GoTableaux\ProofWriter
 	public function getClassesForNode( Node $node )
 	{
 		$classes = array();
-		if ( $node->hasClass( 'Sentence' )) 
-			$classes[] = 'sentence';
-		if ( $node->hasClass( 'Modal' ))
-			$classes[] = 'modal';
-		if ( $node->hasClass( 'Access'))
-			$classes[] = 'access';
-		if ( $node->hasClass( 'ManyValued' ))
-			$classes[] = 'manyValued';
+		foreach ( $node->getClasses() as $class ) $classes[] = lcfirst( $class );
 		return $classes;
 	}
 	

@@ -22,9 +22,7 @@
 namespace GoTableaux\SentenceParser;
 
 use \GoTableaux\Utilities as Utilities;
-use \GoTableaux\Utilities\Parser as ParserUtilities;
 use \GoTableaux\Exception\Parser as ParserException;
-use \GoTableaux\Vocabulary as Vocabulary;
 use \GoTableaux\Sentence as Sentence;
 
 /**
@@ -33,6 +31,19 @@ use \GoTableaux\Sentence as Sentence;
  **/
 class Polish extends \GoTableaux\SentenceParser
 {
+	public $atomicSymbols = array( 'a', 'b', 'c', 'd', 'e' );
+	
+	public $operatorNameSymbols = array(
+		'Negation'	             => 'N',
+		'Conjunction'            => 'K',
+		'Disjunction'            => 'A',
+		'Material Conditional' 	 => 'C',
+		'Material Biconditional' => 'E',
+		'Conditional'            => 'U',
+		'Possibility'            => 'M',
+		'Necessity'              => 'L',
+	);
+	
 	/**
 	 * Creates a {@link Sentence sentence} from a string.
 	 * 
@@ -41,57 +52,63 @@ class Polish extends \GoTableaux\SentenceParser
 	 */
 	public function stringToSentence( $sentenceStr )
 	{
-		$sentenceStr = ParserUtilities::removeSeparators( $sentenceStr, $this->getVocabulary() );
-		$sentencestr = ParserUtilities::removeAllParens( $sentenceStr, $this->getVocabulary() );
-		
-		if ( empty( $sentenceStr ))
-			throw new ParserException( 'Input cannot be empty.' );
-			
-		if ( $error = $this->readRPN( strrev( $sentenceStr )))
-			throw ParserException::createWithMsgInputPos( $error );
-		
-		if ( count( $this->operandStack ) !== 1 )
-			throw new ParserException( 'Expected operand stack to contain exactly one sentence.' );
-		
-		return array_pop( $this->operandStack );
+		$sentenceStr = $this->removeSeparators( $sentenceStr );
+		if ( empty( $sentenceStr ))	throw new ParserException( 'Input cannot be empty.' );
+		$stack = array();
+		$this->_readSentences( $sentenceStr, $stack );
+		return $this->_processStack( $stack );
 	}
 	
-	private $operandStack = array();
-	
-	private function readRPN( $input )
+	/**
+	 * Reads a string (whitespace stripped) for the first occurrence 
+	 * of a sentence, adds it to the stack, and returns the length.
+	 *
+	 * @param string $string The string to read.
+	 * @return string The string length of the sentence read.
+	 * @throws {@link ParserException} on parse error.
+	 */
+	private function _readSentences( $string, &$stack = array() )
 	{
-		if ( empty( $input )) return false;
-		
-		$vocabulary = $this->getVocabulary();
-		$firstCharType = $vocabulary->getSymbolType( $input{0} );
-		
-		if ( $firstCharType === Vocabulary::NUMERIC_CHAR ) {
-			$i = 1;
-			$subscriptStr = '';
-			do {
-				$subscriptStr .= $input{$i};
-				$nextType = $vocabulary->getSymbolType( $input{++$i} );
-			} while ( $nextType === Vocabulary::NUMERIC_CHAR );
-			if ( $nextType !== Vocabulary::CTRL_SUBSCRIPT )
-				return array( 'message' => 'Expecting subscript character', 'position' => $i, 'input' => $input );
-			$atomicSymbol = $input{++$i};
-			$this->operandStack[] = Sentence::createAtomic( $atomicSymbol, (int) $subscriptStr );
-			return $this->readRPN( substr( $input , $i ));
+		$pos = 0;
+		$char = $string{$pos};
+		if ( !isset( $this->symbolTable[ $char ]))
+			throw new ParserException( "$char is not in the symbol table." );
+		if ( in_array( $char, $this->atomicSymbols )) {
+			$sentenceStr = $this->readAtomic( $string );
+			$stack[] = $sentenceStr;
+			return strlen( $sentenceStr );
 		}
-		
-		if ( $firstCharType === Vocabulary::ATOMIC ) {
-			$this->operandStack[] = Sentence::createAtomic( $atomicSymbol, 0 );
-			return $this->readRPN( substr( $input , 1 ));
+		if ( $this->isOperatorSymbol( $char )) {
+			$operator = $this->getOperatorBySymbol( $char );
+			$subStack = array();
+			$arity = $operator->getArity();
+			for ( $i = 0, $pos++; $i < $arity; $i++ ) {
+				$nextStr = substr( $string, $pos );
+				if ( empty( $nextStr )) throw new ParserException( "$char expects $arity operand(s).");
+				$pos += $this->_readSentences( $nextStr, $subStack );
+			}
+				
+			$stack[] = array( $char => $subStack );
+			return $pos;
 		}
-		
-		if ( $firstCharType < Vocabulary::OPER_UNARY )
-			return array( 'message' => 'Expecting operator symbol', 'position' => 0, 'input' => $input );
-		
-		$operator = $vocabulary->getOperatorBySymbol( $input{0} );
+		throw new ParserException( "Unexpected symbol '$char'" );
+	}
+	
+	/**
+	 * Shifts an element from the beginning of a stack and makes a sentence object.
+	 *
+	 * @param array $stack  The stack.
+	 * @return Sentence
+	 */
+	private function _processStack( array &$stack )
+	{
+		$element = array_shift( $stack );
+		if ( !is_array( $element )) return $this->parseAtomic( $element );
+		$operator = $this->getOperatorBySymbol( key( $element ));
 		$operands = array();
+		$element = array_shift( $element );
 		for ( $i = 0; $i < $operator->getArity(); $i++ )
-			$operands[] = array_pop( $this->operandStack );
-		$this->operandStack[] = Sentence::createMolecular( $operator, $operands );
-		return $this->readRPN( substr( $input, 1 ));
+			$operands[] = $this->_processStack( $element );
+		return Sentence::createMolecular( $operator, $operands );
 	}
 }

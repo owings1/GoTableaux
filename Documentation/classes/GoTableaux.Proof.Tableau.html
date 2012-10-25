@@ -23,17 +23,12 @@
 <li><a href="../namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
 <li><a>Packages</a></li>
 <li><a href="../packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
-<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
-<li><a href="../packages/Exceptions.html"><i class="icon-folder-open"></i> Exceptions</a></li>
 <li><a href="../packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
 <li><a href="../packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
 <li><a href="../packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
 <li><a href="../packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
 <li><a href="../packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
-<li><a href="../packages/ModelTheory.html"><i class="icon-folder-open"></i> ModelTheory</a></li>
-<li><a href="../packages/Proof.html"><i class="icon-folder-open"></i> Proof</a></li>
 <li><a href="../packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
-<li><a href="../packages/Syntax.html"><i class="icon-folder-open"></i> Syntax</a></li>
 </ul>
 </li>
 <li class="dropdown" id="charts-menu">
@@ -44,9 +39,11 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">233</span></a></li>
+                <span class="label label-info">255</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
-                <ul></ul></a></li>
+                <ul><li>todo 
+                <span class="label label-info">2</span>
+</li></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
                 <span class="label label-info">0</span></a></li>
 </ul>
@@ -69,6 +66,7 @@
 <li class="nav-header">
 <i class="icon-custom icon-method"></i> Methods</li>
 <li class="method public inherited"><a href="#__construct" title="__construct :: Constructor. Initializes argument."><span class="description">Constructor. Initializes argument.</span><pre>__construct()</pre></a></li>
+<li class="method public inherited"><a href="#addMetaSymbolNames" title="addMetaSymbolNames :: Adds meta symbol names."><span class="description">Adds meta symbol names.</span><pre>addMetaSymbolNames()</pre></a></li>
 <li class="method public "><a href="#attach" title="attach :: Attaches one or more branches to the tree."><span class="description">Attaches one or more branches to the tree.</span><pre>attach()</pre></a></li>
 <li class="method public "><a href="#clearBranches" title="clearBranches :: Clears all branches from the tree."><span class="description">Clears all branches from the tree.</span><pre>clearBranches()</pre></a></li>
 <li class="method public "><a href="#copy" title="copy :: Copies the tree and all its branches."><span class="description">Copies the tree and all its branches.</span><pre>copy()</pre></a></li>
@@ -76,18 +74,21 @@
 <li class="method public "><a href="#detach" title="detach :: Removes one or more branches from the tree."><span class="description">Removes one or more branches from the tree.</span><pre>detach()</pre></a></li>
 <li class="method public inherited"><a href="#getArgument" title="getArgument :: Gets the Argument object."><span class="description">Gets the Argument object.</span><pre>getArgument()</pre></a></li>
 <li class="method public "><a href="#getBranches" title="getBranches :: Gets all branches on the tree."><span class="description">Gets all branches on the tree.</span><pre>getBranches()</pre></a></li>
+<li class="method public inherited"><a href="#getMetaSymbolNames" title="getMetaSymbolNames :: Gets the meta symbols names."><span class="description">Gets the meta symbols names.</span><pre>getMetaSymbolNames()</pre></a></li>
 <li class="method public "><a href="#getOpenBranches" title="getOpenBranches :: Gets all open branches on the tree."><span class="description">Gets all open branches on the tree.</span><pre>getOpenBranches()</pre></a></li>
 <li class="method public inherited"><a href="#getProofSystem" title="getProofSystem :: Gets the ProofSystem object."><span class="description">Gets the ProofSystem object.</span><pre>getProofSystem()</pre></a></li>
 <li class="method public "><a href="#getStructure" title="getStructure :: Gets the tableau's tree structure representation."><span class="description">Gets the tableau's tree structure representation.</span><pre>getStructure()</pre></a></li>
 <li class="method public "><a href="#hasOpenBranches" title="hasOpenBranches :: Checks whether there are any open branches on the tree."><span class="description">Checks whether there are any open branches on the tree.</span><pre>hasOpenBranches()</pre></a></li>
+<li class="method public "><a href="#isClosed" title="isClosed :: Checks whether the tableau is closed."><span class="description">Checks whether the tableau is closed.</span><pre>isClosed()</pre></a></li>
 <li class="method public inherited"><a href="#isValid" title="isValid :: Checks whether the proof is valid"><span class="description">Checks whether the proof is valid</span><pre>isValid()</pre></a></li>
 <li class="nav-header">
 <i class="icon-custom icon-property"></i> Properties</li>
+<li class="property public "><a href="#%24metaSymbolNames" title="$metaSymbolNames :: Meta symbol names required by the node."><span class="description">Meta symbol names required by the node.</span><pre>$metaSymbolNames</pre></a></li>
 <li class="nav-header protected">» Protected</li>
-<li class="property protected inherited"><a href="#%24argument" title="$argument :: Holds the argument for the proof."><span class="description">Holds the argument for the proof.</span><pre>$argument</pre></a></li>
-<li class="property protected "><a href="#%24branches" title="$branches :: Holds the branches on the tree."><span class="description">Holds the branches on the tree.</span><pre>$branches</pre></a></li>
-<li class="property protected inherited"><a href="#%24proofSystem" title="$proofSystem :: Holds a reference to the proof system."><span class="description">Holds a reference to the proof system.</span><pre>$proofSystem</pre></a></li>
-<li class="property protected "><a href="#%24structure" title="$structure :: Holds the tree structure."><span class="description">Holds the tree structure.</span><pre>$structure</pre></a></li>
+<li class="property protected inherited"><a href="#%24argument" title="$argument :: Reference to the argument for the proof."><span class="description">Reference to the argument for the proof.</span><pre>$argument</pre></a></li>
+<li class="property protected inherited"><a href="#%24proofSystem" title="$proofSystem :: Reference to the proof system."><span class="description">Reference to the proof system.</span><pre>$proofSystem</pre></a></li>
+<li class="nav-header private">» Private</li>
+<li class="property private "><a href="#%24branches" title="$branches :: Holds the branches on the tree."><span class="description">Holds the branches on the tree.</span><pre>$branches</pre></a></li>
 </ul>
 </div>
 <div class="span8">
@@ -130,6 +131,23 @@
 <code><a href="../classes/GoTableaux.ProofSystem.html">\GoTableaux\ProofSystem</a></code><p>The proof system of the proof.</p></div>
 </div></div>
 </div>
+<a name="addMetaSymbolNames" id="addMetaSymbolNames"></a><div class="element clickable method public addMetaSymbolNames" data-toggle="collapse" data-target=".addMetaSymbolNames .collapse">
+<h2>Adds meta symbol names.</h2>
+<pre>addMetaSymbolNames(string | array $names) : void</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof::addMetaSymbolNames()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$names</h4>
+<code>stringarray</code><p>The meta symbol name(s).</p>
+</div>
+</div></div>
+</div>
 <a name="attach" id="attach"></a><div class="element clickable method public attach" data-toggle="collapse" data-target=".attach .collapse">
 <h2>Attaches one or more branches to the tree.</h2>
 <pre>attach(\GoTableaux\Proof\Branch | array $branches) : <a href="../classes/GoTableaux.Proof.Tableau.html">\GoTableaux\Proof\Tableau</a></pre>
@@ -164,14 +182,10 @@
 </div>
 <a name="createBranch" id="createBranch"></a><div class="element clickable method public createBranch" data-toggle="collapse" data-target=".createBranch .collapse">
 <h2>Creates a new branch and attaches it to the tableau.</h2>
-<pre>createBranch(\GoTableaux\Proof\Node | array $nodes) : \GoTableaux\Proof\Branch</pre>
+<pre>createBranch() : \GoTableaux\Proof\Branch</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$nodes</h4>
-<code>\GoTableaux\Proof\Nodearray</code><p>Node or array of nodes to add to the branch.</p></div>
 <h3>Returns</h3>
 <div class="subelement response">
 <code>\GoTableaux\Proof\Branch</code>The created instance.</div>
@@ -216,6 +230,21 @@
 <h3>Returns</h3>
 <div class="subelement response">
 <code>array</code>Array of {@link Branch}s.</div>
+</div></div>
+</div>
+<a name="getMetaSymbolNames" id="getMetaSymbolNames"></a><div class="element clickable method public getMetaSymbolNames" data-toggle="collapse" data-target=".getMetaSymbolNames .collapse">
+<h2>Gets the meta symbols names.</h2>
+<pre>getMetaSymbolNames() : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Proof::getMetaSymbolNames()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>The meta symbol names.</div>
 </div></div>
 </div>
 <a name="getOpenBranches" id="getOpenBranches"></a><div class="element clickable method public getOpenBranches" data-toggle="collapse" data-target=".getOpenBranches .collapse">
@@ -266,6 +295,17 @@
 <code>boolean</code>Whether there are any open branches.</div>
 </div></div>
 </div>
+<a name="isClosed" id="isClosed"></a><div class="element clickable method public isClosed" data-toggle="collapse" data-target=".isClosed .collapse">
+<h2>Checks whether the tableau is closed.</h2>
+<pre>isClosed() : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>A tableau is closed when it has no open branches.</p></p>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>Whether the tableau is closed.</div>
+</div></div>
+</div>
 <a name="isValid" id="isValid"></a><div class="element clickable method public isValid" data-toggle="collapse" data-target=".isValid .collapse">
 <h2>Checks whether the proof is valid</h2>
 <pre>isValid() : boolean</pre>
@@ -283,8 +323,14 @@
 </div>
 <h3>
 <i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24metaSymbolNames" id="$metaSymbolNames"> </a><div class="element clickable property public $metaSymbolNames" data-toggle="collapse" data-target=".$metaSymbolNames .collapse">
+<h2>Meta symbol names required by the node.</h2>
+<pre>$metaSymbolNames : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
 <a name="%24argument" id="$argument"> </a><div class="element clickable property protected $argument" data-toggle="collapse" data-target=".$argument .collapse">
-<h2>Holds the argument for the proof.</h2>
+<h2>Reference to the argument for the proof.</h2>
 <pre>$argument : <a href="../classes/GoTableaux.Argument.html">\GoTableaux\Argument</a></pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
@@ -301,20 +347,8 @@
 </table>
 </div></div>
 </div>
-<a name="%24branches" id="$branches"> </a><div class="element clickable property protected $branches" data-toggle="collapse" data-target=".$branches .collapse">
-<h2>Holds the branches on the tree.</h2>
-<pre>$branches : array</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="span8">
-<p class="long_description"></p>
-<table class="table table-bordered"><tr>
-<th>access</th>
-<td>private</td>
-</tr></table>
-</div></div>
-</div>
 <a name="%24proofSystem" id="$proofSystem"> </a><div class="element clickable property protected $proofSystem" data-toggle="collapse" data-target=".$proofSystem .collapse">
-<h2>Holds a reference to the proof system.</h2>
+<h2>Reference to the proof system.</h2>
 <pre>$proofSystem : <a href="../classes/GoTableaux.ProofSystem.html">\GoTableaux\ProofSystem</a></pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
@@ -331,17 +365,11 @@
 </table>
 </div></div>
 </div>
-<a name="%24structure" id="$structure"> </a><div class="element clickable property protected $structure" data-toggle="collapse" data-target=".$structure .collapse">
-<h2>Holds the tree structure.</h2>
-<pre>$structure : \GoTableaux\Proof\Structure</pre>
+<a name="%24branches" id="$branches"> </a><div class="element clickable property private $branches" data-toggle="collapse" data-target=".$branches .collapse">
+<h2>Holds the branches on the tree.</h2>
+<pre>$branches : array</pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="span8">
-<p class="long_description"></p>
-<table class="table table-bordered"><tr>
-<th>access</th>
-<td>private</td>
-</tr></table>
-</div></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
 </div>
 </div>
 </div>
@@ -350,7 +378,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
-            generated on 2012-04-09T00:16:28-07:00.<br></footer></div>
+            generated on 2012-04-21T00:47:24-07:00.<br></footer></div>
 </div>
 </body>
 </html>

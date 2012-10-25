@@ -26,8 +26,7 @@ use \GoTableaux\Logic as Logic;
 class NegatedMaterialBiconditional extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 {
 	protected $conditions = array(
-		'operator' 	=> array( 'Negation', 'Material Biconditional' ),
-		'ticked' 	=> false,
+		'sentenceForm' => '~(A < B)'
 	);
 	
 	public function applyToNode( Node $node, Branch $branch, Logic $logic )

@@ -27,11 +27,13 @@ namespace GoTableaux\Logic;
  */
 class Lukasiewicz extends \GoTableaux\Logic
 {
-	public $inheritLexiconFrom = 'FDE';
+	public $title = 'Lukasiewicz 3-valued Logic';
 	
-	public $lexicon = array(
-		'operators' => array(
-			'Conditional' => 2
-		)
+	public $inheritOperatorsFrom = 'FDE';
+	
+	public $operatorArities = array( 'Conditional' => 2 );
+	
+	public $externalLinks = array(
+		'Stanford Encyclopedia' => 'http://plato.stanford.edu/entries/logic-manyvalued/#LukLog'
 	);
 }

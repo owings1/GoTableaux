@@ -27,5 +27,7 @@ namespace GoTableaux\Logic;
  */
 class GO extends \GoTableaux\Logic
 {	
-	public $inheritLexiconFrom = 'Lukasiewicz';
+	public $title = 'Gappy Objects 3-valued Logic';
+	
+	public $inheritOperatorsFrom = 'Lukasiewicz';
 }

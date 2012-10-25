@@ -21,6 +21,7 @@
 
 namespace GoTableaux\SentenceWriter;
 
+use \GoTableaux\Sentence as Sentence;
 use \GoTableaux\Exception\Writer as WriterException;
 use \GoTableaux\Sentence\Molecular as MolecularSentence;
 
@@ -30,6 +31,36 @@ use \GoTableaux\Sentence\Molecular as MolecularSentence;
  */
 class Standard extends \GoTableaux\SentenceWriter
 {
+	public $atomicStrings = array( 'A', 'B', 'C', 'D', 'E' );
+	
+	public $operatorStrings = array(
+		'Negation' => '~',
+		'Conjunction' => '&',
+		'Disjunction' => 'V',
+		'Material Conditional' => '>',
+		'Material Biconditional' => '<>',
+		'Conditional' => '->',
+		'Possibility' => 'P',
+		'Necessity' => 'N'
+	);
+	
+	public $options = array(
+		'dropOuterParentheses' => true,
+	);
+	
+	public $openMarkString = '(';
+	public $closeMarkString = ')';
+	public $spaceString = ' ';
+	
+	public function writeSentence( Sentence $sentence )
+	{
+		$str = parent::writeSentence( $sentence );
+		if ( $sentence->getArity() === 2 ) {
+			$str = substr( $str, strlen( $this->openMarkString ), -strlen( $this->closeMarkString ));
+		}
+		return $str;
+	}
+	
 	/**
 	 * Makes a string representation of a molecular sentence.
 	 *
@@ -40,21 +71,20 @@ class Standard extends \GoTableaux\SentenceWriter
 	{
 		$operator		= $sentence->getOperator();
 		$operands	 	= $sentence->getOperands();
-		$vocabulary		= $this->getVocabulary();
 		
-		$operatorStr 	= $this->writeOperator( $operator );
+		$operatorStr 	= $this->operatorStrings[ $operator->getName() ];
 		
 		switch ( $operator->getArity() ) {
 			case 1 :
-				$sentenceStr = $operatorStr . $this->_writeSentence( $operands[0] );
+				$sentenceStr = $operatorStr . parent::writeSentence( $operands[0] );
 				break;
 			case 2 :
-				$separator	 = $vocabulary->getSeparators( true );
-				$sentenceStr = $vocabulary->getOpenMarks( true ) . 
-									$this->_writeSentence( $operands[0] ) .
+				$separator	 = $this->spaceString;
+				$sentenceStr = $this->openMarkString . 
+									parent::writeSentence( $operands[0] ) .
 							   		$separator . $operatorStr . $separator .
-							   		$this->_writeSentence( $operands[1] ) . 
-							   $vocabulary->getCloseMarks( true );
+							   		parent::writeSentence( $operands[1] ) . 
+							   $this->closeMarkString;
 				break;
 			default:
 				throw new WriterException( 'Cannot represent sentences with operators of arity > 2.' );

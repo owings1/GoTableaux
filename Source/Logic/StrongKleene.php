@@ -27,5 +27,11 @@ namespace GoTableaux\Logic;
  */
 class StrongKleene extends \GoTableaux\Logic
 {
-	public $inheritLexiconFrom = 'FDE';
+	public $title = 'Strong Kleene 3-valued Logic';
+	
+	public $inheritOperatorsFrom = 'FDE';
+	
+	public $externalLinks = array(
+		'Kleene\'s Three Valued Logics and Their Children (Fitting)' => 'http://comet.lehman.cuny.edu/fitting/bookspapers/pdf/papers/KleeneThree.pdf'
+	);
 }

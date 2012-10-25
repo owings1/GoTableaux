@@ -21,13 +21,9 @@
 
 namespace GoTableaux\Proof;
 
+use \GoTableaux\Logic as Logic;
 use \GoTableaux\Sentence as Sentence;
 use \GoTableaux\Utilities as Utilities;
-use \GoTableaux\Proof\TableauNode as Node;
-use \GoTableaux\Proof\TableauNode\Modal as ModalNode;
-use \GoTableaux\Proof\TableauNode\Access as AccessNode;
-use \GoTableaux\Proof\TableauNode\Sentence as SentenceNode;
-use \GoTableaux\Proof\TableauNode\ManyValued as ManyValuedNode;
 
 /**
  * Represents a tableau branch.
@@ -101,11 +97,21 @@ class TableauBranch
 	{
 		return $this->tickedNodes;
 	}
+	
+	/**
+	 * Gets all the nodes on the branch that are not ticked relative to the branch.
+	 *
+	 * @return array The unticked nodes.
+	 */
+	public function getUntickedNodes()
+	{
+		return Utilities::arrayDiff( $this->getNodes(), $this->getTickedNodes() );
+	}
 
 	/**
 	 * Gets all nodes that have certain class name.
 	 *
-	 * @param string $classes The class(es).
+	 * @param array|string $classes The class(es).
 	 * @return array The nodes on the branch that are of all the classes.
 	 */
 	public function getNodesByClassName( $classes )
@@ -198,14 +204,21 @@ class TableauBranch
 	 */
 	public function find( $ret = 'all', array $conditions = array() )
 	{
+		$classes = TableauNode::induceClassesFromConditions( $conditions );
+		if ( !empty( $conditions['class'] )) 
+			$classes = array_merge( 
+				is_array( $conditions['class'] ) ? $conditions['class'] : explode( ' ', $conditions['class'] ),
+				$classes
+			);
+		$nodes = $this->getNodesByClassName( $classes );
 		$that = $this;
-		$nodes = !empty( $conditions['class'] ) ? $this->getNodesByClassName( $conditions['class'] ) : $this->getNodes();
 		if ( isset( $conditions['ticked'] ))
 			$nodes = array_filter( $nodes, function( $node ) use( $conditions, $that ) {
 				return $that->nodeIsTicked( $node ) === $conditions['ticked'];
 			});
-		$nodes = array_filter( $nodes, function( $node ) use( $conditions ) {
-			return $node->filter( $conditions );
+		$logic = $this->getTableau()->getProofSystem()->getLogic();
+		$nodes = array_filter( $nodes, function( $node ) use( $conditions, $logic ) { 
+			return $node->filter( $conditions, $logic ); 
 		});
 		switch ( $ret ) {
 			case 'one'    :
@@ -234,7 +247,7 @@ class TableauBranch
 	 * @param TableauNode $node The node to untick.
 	 * @return TableauBranch
 	 */
-	public function untickNode( TalbeauNode $node )
+	public function untickNode( TableauNode $node )
 	{
 		Utilities::arrayRm( $node, $this->tickedNodes );
 		return $this;
@@ -244,7 +257,7 @@ class TableauBranch
 	 * Determines whether a node is ticked relative to the branch.
 	 *
 	 * @param TableauNode $node The node to check.
-	 * @param boolean Whether the node is ticked relative to the branch.
+	 * @return boolean Whether the node is ticked relative to the branch.
 	 */
 	public function nodeIsTicked( TableauNode $node )
 	{
@@ -280,7 +293,7 @@ class TableauBranch
 	/**
 	 * Creates a node on the branch.
 	 *
-	 * @param string|array $class The node classes to instantiate.
+	 * @param string|array $classes The node class(es) to instantiate.
 	 * @param array $properties The properties of the node.
 	 * @return TableauBranch Current instance.
 	 */
@@ -290,9 +303,39 @@ class TableauBranch
 		$node = new TableauNode;
 		foreach ( $classes as $class ) {
             $class = __NAMESPACE__ . '\TableauNode\\' . $class;
+			$this->getTableau()->addMetaSymbolNames( $class::$metaSymbolNames );
             $node = new $class( $node, $properties );
         }
 		$this->addNode( $node );
 		return $this;
+	}
+	
+	/**
+	 * Gets all the indexes that appear on the branch.
+	 *
+	 * @return array The indexes on the branch.
+	 */
+	public function getIndexes()
+	{
+		return array_unique( array_merge( 
+			array_map( 
+				function( $node ) { return $node->getI(); }, 
+				$this->find( 'all', array( 'class' => 'Modal' ))
+			), 
+			array_map( 
+				function ( $node ) { return $node->getJ(); }, 
+				$this->find( 'all', array( 'class' => 'Access' ))
+			)
+		));
+	}
+	
+	/**
+	 * Gets an index that does not appear on the branch.
+	 *
+	 * @return integer An index new to the branch.
+	 */
+	public function newIndex()
+	{
+		return max( $this->getIndexes() ) + 1;
 	}
 }

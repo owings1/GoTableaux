@@ -134,18 +134,19 @@ class Utilities
 		return ( $position < ( strlen( $haystack ) + 1 )) ? $position : false;
 	}
 	
-        /**
-         * Gets the base class name of an object.
-         * 
-         * @param object $object The object whose base class name to get.
-         * @return string The base class name, e.g. a object of class Space\Cadet
-         *                will return 'Cadet'.
-         */
-        public static function getBaseClassName( $object )
-        {
-                $nameParts = explode( '\\', get_class( $object ));
+    /**
+     * Gets the base class name of an object.
+     * 
+     * @param object|string $objectOrClass The object or class whose base class name to get.
+     * @return string The base class name, e.g. a object of class Space\Cadet
+     *                will return 'Cadet'.
+     */
+    public static function getBaseClassName( $objectOrClass )
+    {
+		$class = is_object( $objectOrClass ) ? get_class( $objectOrClass ) : $objectOrClass;
+        $nameParts = explode( '\\', $class );
 		return array_pop( $nameParts );
-        }
+    }
         
 	/**
 	 * Prints debugging information, if the debug setting is set to true.

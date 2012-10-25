@@ -21,6 +21,7 @@
 
 namespace GoTableaux\ProofWriter\Tableau;
 
+use \GoTableaux\Logic as Logic;
 use \GoTableaux\Proof as Proof;
 use \GoTableaux\Proof\TableauStructure as Structure;
 
@@ -30,16 +31,10 @@ use \GoTableaux\Proof\TableauStructure as Structure;
  */
 class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 {
-	protected $translations = array(
-		'closeMarker' 			=> '\GTcloseMarker',
-		'designatedMarker' 		=> '\GTdesignatedMarker',
-		'undesignatedMarker' 	=> '\GTundesignatedMarker',
-		'worldSymbol' 			=> '\GTworldSymbol',
-		'accessRelationSymbol' 	=> '\GTaccessRelationSymbol',
-		'tickMarker'			=> '\GTtickMarker',
-	);
+	//  Defined in constructor.
+	public $metaSymbolStrings = array();
 	
-	protected $tableauxCommands = array(
+	protected $_metaSymbolStrings = array(
 		'closeMarker' 			=> '\times',
 		'designatedMarker' 		=> '+',
 		'undesignatedMarker' 	=> '-',
@@ -48,9 +43,12 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 		'tickMarker'			=> '\bullet',
 	);
 	
+	//  Saved from SentenceWriter
+	protected $_operatorStrings = array();
+	
 	public function writeWorldIndex( $index )
 	{
-		return $this->getTranslation( 'worldSymbol' ) . '_{' . $index . '}';
+		return $this->metaSymbolStrings[ 'worldSymbol' ] . '_{' . $index . '}';
 	}
 	
 	/**
@@ -59,15 +57,23 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 	 * Decorates the sentence writer with the LaTeX decorator; sets default
 	 * LaTeX translations, and removes the tickMarker translation.
 	 *
-	 * @param Proof $proof The with which to initialize the writer.
+	 * @param Logic $logic The logic with which to initialize the writer.
 	 * @param string $sentenceWriterType The sentence notation type to use.
 	 */
-	public function __construct( Proof $proof, $sentenceWriterType = 'Standard' )
+	public function __construct( Logic $logic, $notation = null, $format = null )
 	{
-		parent::__construct( $proof, $sentenceWriterType );
-		$this->decorateSentenceWriter( 'LaTeX' );
-		foreach ( $this->tableauxCommands as $name => $command )
-			$this->addTranslations( array( $name => "\GT$name" ));
+		//  Enforce LaTeX format for sentence writer
+		$format = 'LaTeX';
+		parent::__construct( $logic, $notation, $format );
+		$this->_operatorStrings = $this->sentenceWriter->operatorStrings;
+		$newStrings = array();
+		foreach ( array_keys( $this->_operatorStrings ) as $name ) 
+			$newStrings[ $name ] = "\Operator" . str_replace( ' ', '', $name ). ' ';
+		$this->sentenceWriter->operatorStrings = $newStrings;
+		$newStrings = array();
+		foreach ( array_keys( $this->_metaSymbolStrings ) as $name )
+			$newStrings[ $name ] = "\Tableau" . str_replace( ' ', '', $name ) . ' ';
+		$this->metaSymbolStrings = $newStrings;
 	}
 	
 	/**
@@ -78,17 +84,22 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 	 */
 	public function writeProof( Proof $tableau )
 	{
-		$str = '';
-		$str .= "\documentclass[11pt]{article}\n";
+		$str = "\documentclass[11pt]{article}\n";
+		$str .= "%  The Qtree package is available at http://www.ling.upenn.edu/advice/latex/qtree/\n";
 		$str .= "\usepackage{latexsym, qtree}\n\n";
-		$operatorCommands = $this->getSentenceWriter()->getOperatorSymbolCommands();
-		$metaSymbolNames = $tableau->getProofSystem()->getMetaSymbolNames();
-		foreach ( array_merge( $operatorCommands, $this->tableauxCommands ) as $name => $command) 
-			if ( in_array( $name, array_merge( array_keys( $operatorCommands ), $metaSymbolNames )))
-				$str .= '\newcommand{\GT' . $this->formatCommand( $name ) . '} {\ensuremath{' . $command . "}}\n";
+		
+		foreach ( $this->logic->getOperatorNames() as $name ) 
+			$str .= '\newcommand{\Operator' . str_replace( ' ', '', $name ) . '} {\ensuremath{' . $this->_operatorStrings[ $name ] . "}}\n";
+		
+		foreach ( $tableau->getMetaSymbolNames() as $name )
+			$str .= '\newcommand{\Tableau' . $name . '} {\ensuremath{' . $this->_metaSymbolStrings[ $name ] . "}}\n";
+			
 		$str .= "\n\n\begin{document}\n\n";
-		$str .= $this->writeProofBody( $tableau ) . "\n\n";
+		
+		$str .= '\Tree[.' . parent::writeProof( $tableau ) . "]\n\n";
+		
 		$str .= "\end{document}";
+		
 		return $str;
 	}	
 	
@@ -113,21 +124,5 @@ class LaTeX_Qtree extends \GoTableaux\ProofWriter\Tableau
 		
 		$string = trim( $string, "\n" );
 		return $string;
-	}
-	
-	/**
-	 * Writes the body of the proof.
-	 *
-	 * @param Proof $tableau The proof whose body to write.
-	 * @return string The string representation.
-	 */
-	public function writeProofBody( Proof $tableau )
-	{
-		return '\Tree[.' . parent::writeProof( $tableau ) . ' ]';
-	}
-	
-	public function formatCommand( $command )
-	{
-		return $this->getSentenceWriter()->formatCommand( $command );
 	}
 }

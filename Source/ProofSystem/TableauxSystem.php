@@ -29,6 +29,7 @@ use \GoTableaux\Proof\Tableau as Tableau;
 use \GoTableaux\Proof\TableauBranch as Branch;
 use \GoTableaux\Exception\Tableau as TableauException;
 use \GoTableaux\ProofSystem\TableauxSystem\Rule as Rule;
+use \GoTableaux\ProofWriter as ProofWriter;
 use \GoTableaux\Utilities as Utilities;
 
 /**
@@ -41,68 +42,17 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 	 * Defines the rule class names for the logic.
 	 * @var array
 	 */
-	public $tableauRuleClasses = array();
-	
-	/**
-	 * Holds the closure rule.
-	 * @var ClosureRule
-	 */
-	private $closureRule;
+	public $ruleClasses = array();
 	
 	/**
 	 * Holds the tableau rules.
 	 * @var array.
 	 */
 	private $_rules = array();
-	
-	/**
-	 * Constructor.
-	 *
-	 * Adds tickMarker and closeMarker meta symbols.
-	 *
-	 * @param Logic logic The logic of the proof system.
-	 */
-	public function __construct( Logic $logic )
+
+	public function getProofWriter( $output = null, $notation = null, $format = null )
 	{
-		$this->metaSymbolNames[] = 'tickMarker';
-		$this->metaSymbolNames[] = 'closeMarker';
-		parent::__construct( $logic );
-	}
-	
-	/**
-	 * Gets the closure rule.
-	 *
-	 * @return ClosureRule The closure rule.
-	 */
-	public function getClosureRule()
-	{
-		if ( empty( $this->closureRule )) {
-			if ( !empty( $this->inheritClosureRuleFrom )) {
-				$logic = Logic::getInstance( $this->inheritClosureRuleFrom );
-				$this->closureRule = $logic->getProofSystem()->getClosureRule();
-			} else {
-				$closureRuleClass = get_class( $this ) . '\ClosureRule';
-				$this->closureRule = new $closureRuleClass;
-			}
-		}
-		return $this->closureRule;
-	}
-	
-	/**
-	 * Applies the closure rule to a tableau.
-	 *
-	 * @param Tableau $tableau The tableau to which to apply closure rule.
-	 * @return void
-	 * @throws {@link TableauException} on empty closure rule.
-	 */
-	public function applyClosureRule( Tableau $tableau )
-	{
-		$closureRule = $this->getClosureRule();
-		foreach ( $tableau->getOpenBranches() as $branch )
-			if ( $closureRule->doesApply( $branch, $this->getLogic() )) {
-				$branch->close();
-				Utilities::debug( "Closure rule " . get_class( $closureRule ) . ' applied.' );
-			} 
+		return ProofWriter::getInstance( 'Tableau', $this->getLogic(), $output, $notation, $format );
 	}
 	
 	/**
@@ -126,33 +76,32 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 	/**
 	 * Gets the tableau rules.
 	 *
-         * @param string $class The class of the rules to get.
-	 * @return array Array of {@link Rule}s.
+	 * Lazy instantiation of the rules. Reads $ruleClasses and resolves them
+	 * into class names. 
+	 *
+     * @param string $class The class of the rules to get.
+	 * @return array The rule instances.
 	 * @throws 
 	 */
 	public function getRules( $filterClass = '' )
 	{
 		if ( empty( $this->_rules )) {
-			if ( !empty( $this->inheritTableauRulesFrom ))
-				foreach ( (array) $this->inheritTableauRulesFrom as $logicName ) {
-					$proofSystem = Logic::getInstance( $logicName )->getProofSystem();
-					if ( !$proofSystem instanceof TableauxSystem )
-						throw new TableauException( 'Trying to inherit rules from a proof system that is not a tableaux system.' );
-					$this->addRules( $proofSystem->getRules() );
-				}
-					
-			foreach ( $this->tableauRuleClasses as $relClass ) {
-				if ( strpos( $relClass, '/' )) {
-					list( $otherLogicName, $relClass ) = explode( '/', $relClass );
-					$otherLogic = Logic::getInstance( $otherLogicName );
-					$class = get_class( $otherLogic->getProofSystem() );
+			foreach ( $this->ruleClasses as $relClass ) {
+				if ( strpos( $relClass, 'Core.' ) === 0 ) {
+					$ruleClass = __CLASS__ . '\Rule\\' . str_replace( 'Core.', '', $relClass );
 				} else {
-					$class = get_class( $this );
+					if ( strpos( $relClass, '.' )) {
+						list( $otherLogicName, $relClass ) = explode( '.', $relClass );
+						$otherLogic = Logic::getInstance( $otherLogicName );
+						$class = get_class( $otherLogic->getProofSystem() );
+					} else {
+						$class = get_class( $this );
+					}
+					$ruleClass = $class . '\Rule\\' . $relClass;
 				}
-				$ruleNamespace = $class . '\Rule';
-				$ruleClass = $ruleNamespace . '\\' . $relClass;
 				$this->addRules( new $ruleClass );
 			}
+			if ( empty( $this->_rules )) Utilities::debug( '[NOTICE] Empty ruleset for ' . get_class( $this ));
 		}
 		if ( empty( $filterClass )) return $this->_rules;
         if ( $filterClass{0} !== '\\' ) $filterClass = __CLASS__ . '\Rule\\' . $filterClass;
@@ -161,32 +110,78 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
         });
 	}
 
-        /**
-         * Constructs a proof for an argument.
-         * 
-         * @param Argument $argument The argument.
-         * @return Tableau The tableau proof.
-         */
-	public function constructProofForArgument( Argument $argument )
+	/**
+	 * Determines whether at least one rule can apply to a tableau.
+	 *
+	 * @param Tableau $tableau The tableau to check.
+	 * @return boolean Whether at least one rule can apply.
+	 */
+	public function ruleCanApply( Tableau $tableau )
 	{
-		$tableau = new Tableau( $argument, $this );
-		$this->buildTrunk( $tableau, $argument, $this->getLogic() );
-		$rules = $this->getRules();
-		$i = 0;
-		$ruleHasApplied = false;
-		do {
-			$this->applyClosureRule( $tableau );
-			$rule 			= $rules[$i];
-			$ruleDidApply 	= false;
-			if ( $rule->apply( $tableau ) !== false ) {
-				Utilities::debug( "Rule " . get_class( $rule ) . ' applied' );
-				$ruleDidApply = $reuleHasApplied = true;
-				$i = 0;
-			}	
-		} while ( $ruleDidApply || isset( $rules[++$i] ));
-		$this->applyClosureRule( $tableau );
-		if ( !$ruleHasApplied ) Utilities::debug( 'No rules applied.' );
+		foreach ( $this->getRules() as $rule )
+			if ( $rule->applies( $tableau )) return true;
+		return false;
+	}
+	
+    /**
+     * Constructs a proof for an argument.
+     * 
+     * @param Argument $argument The argument.
+     * @return Tableau The tableau proof.
+     */
+	final public function constructProofForArgument( Argument $argument )
+	{
+		try {
+			$tableau = new Tableau( $this );
+			$tableau->setArgument( $argument );
+			$this->buildTrunk( $tableau, $argument, $this->getLogic() );
+			$ruleHasApplied = false;
+			while ( !$tableau->isFinished() ) 
+				if ( $this->step( $tableau )) $ruleHasApplied = true;
+		} catch ( \Exception $e ) {
+			Utilities::debug( $argument );
+			throw $e;
+		}
+		if ( !$ruleHasApplied ) 
+			Utilities::debug( '[NOTICE] No rules applied to the tableau.' );
 		return $tableau;
+	}
+	
+	/**
+	 * Applies the next applicable rule to the tableau.
+	 *
+	 * @param Tableau $tableau The tableau to step.
+	 * @return boolean True if a rule applied, false if the tableau is finished.			   
+	 */
+	public function step( Tableau $tableau )
+	{
+		if ( $tableau->isClosed() ) $tableau->finish();
+		if ( $tableau->isFinished() ) return false;
+		foreach ( $this->getRules() as $rule ) 
+			if ( $rule->applies( $tableau )) {
+				Utilities::debug( "Applying " . $rule->getName() . ' rule.' );
+				$rule->apply( $tableau );
+				return true;
+			}
+		$tableau->finish();
+		return false;
+	}
+	
+	/**
+	 * Returns an array of tableaux representing the state of the proof for an
+	 * argument at each stage.
+	 *
+	 * @param Argument $argument The argument whose tableau stages to build.
+	 * @return array The stages of the tableau.
+	 */
+	public function getStages( Argument $argument )
+	{
+		$tableau = new Tableau;
+		$tableau->setArgument( $argument )
+				->buildTrunk( $tableau, $argument, $this->getLogic() );
+		for ( true; !$tableau->isFinished(); $this->step( $tableau ))
+			$stages[] = $tableau->copy();
+		return $stages;
 	}
 	
 	/**
@@ -196,37 +191,10 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 	 * @return boolean Whether the tableau is a valid proof.
 	 * @throws {@link ProofException} when $proof is of wrong type.
 	 */
-	public function isValidProof( Proof $tableau )
+	final public function isValidProof( Proof $tableau )
 	{
-		return !$tableau->hasOpenBranches();
+		return $tableau->isClosed();
 	}
-	
-	/**
-	 * Gets a counterexample from a Tableau proof.
-	 *
-	 * A counterexample for a tableaux system is a model induced from an open
-	 * branch. 
-	 *
-	 * @param Proof $tableau The tableau from which to build the counterexample
-	 * @return Model The countermodel extracted from the proof.
-	 * @throws {@link TableauException} on no open branches or type error.
-	 */
-	public function getCountermodel( Proof $tableau )
-	{
-		if ( !$tableau instanceof Tableau )
-			throw new TableauException( "Proof must be a Tableau." );
-		if ( !$openBranch = array_rand( $tableau->getOpenBranches() ))
-			throw new TableauException( "No open branches found on tableau." );
-		return $this->induceModel( $openBranch );
-	}
-	
-	/**
-	 * Induces a model from an open branch.
-	 *
-	 * @param Branch $branch The open branch from which to induce a model
-	 * @return Model The induced model.
-	 */
-	abstract public function induceModel( Branch $branch );
 	
 	/**
 	 * Constructs the initial list (trunk) for an argument.

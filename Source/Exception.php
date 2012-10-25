@@ -16,13 +16,13 @@
  */
 /**
  * Defines the Exception class.
- * @package Exceptions
+ * @package GoTableaux
  */
 namespace GoTableaux;
 
 /**
  * Represents a program exception.
- * @package Exceptions
+ * @package GoTableaux
  */
 class Exception extends \Exception
 {

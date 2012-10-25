@@ -21,21 +21,41 @@
 
 namespace GoTableaux\Logic\CPL;
 
+use \GoTableaux\Proof\Tableau as Tableau;
+use \GoTableaux\Argument as Argument;
+use \GoTableaux\Logic as Logic;
+
 /**
  * Represents the Tableaux system for CPL.
  * @package CPL
  */
-class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem\Bivalent
+class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem
 {
-	public $tableauRuleClasses = array(
+	public $ruleClasses = array(
+		'Closure',
+		'DoubleNegation',
 		'Conjunction',
+		'NegatedDisjunction',
+		'NegatedMaterialConditional',
 		'NegatedConjunction',
 		'Disjunction',
-		'NegatedDisjunction',
 		'MaterialConditional',
-		'NegatedMaterialConditional',
 		'MaterialBiconditional',
 		'NegatedMaterialBiconditional',
-		'DoubleNegation'
 	);
+	
+	/**
+	 * Builds the trunk of a tableau for an argument.
+	 *
+	 * @param Tableau $tableau The empty tableau.
+	 * @param Argument $argument The argument.
+	 * @param Logic $logic The logic of the proof system.
+	 * @return void
+	 */
+	public function buildTrunk( Tableau $tableau, Argument $argument, Logic $logic )
+	{
+		$trunk = $tableau->createBranch();
+		foreach ( $argument->getPremises() as $sentence ) $trunk->createNode( 'Sentence', compact( 'sentence' ));
+		$trunk->createNode( 'Sentence', array( 'sentence' => $logic->negate( $argument->getConclusion() )));
+	}
 }

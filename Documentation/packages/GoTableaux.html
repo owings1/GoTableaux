@@ -23,17 +23,12 @@
 <li><a href="../namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
 <li><a>Packages</a></li>
 <li><a href="../packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
-<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
-<li><a href="../packages/Exceptions.html"><i class="icon-folder-open"></i> Exceptions</a></li>
 <li><a href="../packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
 <li><a href="../packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
 <li><a href="../packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
 <li><a href="../packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
 <li><a href="../packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
-<li><a href="../packages/ModelTheory.html"><i class="icon-folder-open"></i> ModelTheory</a></li>
-<li><a href="../packages/Proof.html"><i class="icon-folder-open"></i> Proof</a></li>
 <li><a href="../packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
-<li><a href="../packages/Syntax.html"><i class="icon-folder-open"></i> Syntax</a></li>
 </ul>
 </li>
 <li class="dropdown" id="charts-menu">
@@ -44,9 +39,11 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">233</span></a></li>
+                <span class="label label-info">255</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
-                <ul></ul></a></li>
+                <ul><li>todo 
+                <span class="label label-info">2</span>
+</li></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
                 <span class="label label-info">0</span></a></li>
 </ul>
@@ -76,50 +73,62 @@
 <li class="function  "><a href="#debug" title="debug :: Alias for Utilities::debug()"><span class="description">Alias for Utilities::debug()</span><pre>debug</pre></a></li>
 <li class="nav-header">
 <i class="icon-custom icon-interface"></i> Interfaces</li>
-<li><a href="#ManyValued" title="Signifies a many-valued tableau node that has a designation marker.">ManyValued</a></li>
-<li><a href="#Modal" title="Signifies a modal tableau node that has at least one index.">Modal</a></li>
-<li><a href="#BranchRule" title="Represents a tableau rule that applies to a branch.">BranchRule</a></li>
-<li><a href="#ClosureRule" title="Represents a tableau closure rule.">ClosureRule</a></li>
+<li><a href="#Rule" title="Represents a tableau rule that applies to a branch.">Rule</a></li>
 <li class="nav-header">
 <i class="icon-custom icon-class"></i> Classes</li>
 <li><a href="#Argument" title="Represents an argument as a set of premises and one conclusion.">Argument</a></li>
+<li><a href="#Loader" title="Represents a loader exception.">Loader</a></li>
+<li><a href="#Parser" title="Represents a parsing exception.">Parser</a></li>
 <li><a href="#Proof" title="Represents a proof exception.">Proof</a></li>
+<li><a href="#Rule" title="Represents a tableau rule exception.">Rule</a></li>
+<li><a href="#Tableau" title="Represents a tableau proof exception.">Tableau</a></li>
+<li><a href="#Vocabulary" title="Represents a vocabulary exception.">Vocabulary</a></li>
+<li><a href="#Writer" title="Represents a tableau writer exception.">Writer</a></li>
+<li><a href="#Exception" title="Represents a program exception.">Exception</a></li>
 <li><a href="#Loader" title="Loads class files.">Loader</a></li>
 <li><a href="#Logic" title="Represents a Logic.">Logic</a></li>
+<li><a href="#Model" title="Represents model-theoretic model.">Model</a></li>
+<li><a href="#Operator" title="Represents an operator.">Operator</a></li>
 <li><a href="#Tableau" title="Represents a tableau for an argument.">Tableau</a></li>
-<li><a href="#ManyValued" title="Represents a many-valued logic tableau branch.">ManyValued</a></li>
-<li><a href="#ManyValued" title="Represents a tableau branch with designation markers for a many-valued
-modal logic.">ManyValued</a></li>
-<li><a href="#Modal" title="Represents a modal logic tableau branch.">Modal</a></li>
-<li><a href="#Propositional" title="Represents a propositional logic tableau branch.">Propositional</a></li>
 <li><a href="#TableauBranch" title="Represents a tableau branch.">TableauBranch</a></li>
 <li><a href="#Access" title="Represents a modal logic access relation node.">Access</a></li>
-<li><a href="#ManyValued" title="Represents a sentence node on a branch of a many-valued logic tableau.">ManyValued</a></li>
-<li><a href="#ManyValued" title="Represents a sentence node on a branch of a many-valued modal logic tableau.">ManyValued</a></li>
-<li><a href="#Modal" title="Represents a modal sentence tableau node.">Modal</a></li>
+<li><a href="#ManyValued" title="Signifies a many-valued tableau node that has a designation marker.">ManyValued</a></li>
+<li><a href="#Modal" title="Signifies a modal tableau node that has at least one index.">Modal</a></li>
 <li><a href="#Sentence" title="Represents a sentence tableau node.">Sentence</a></li>
 <li><a href="#TableauNode" title="Represents a node on a branch.">TableauNode</a></li>
 <li><a href="#TableauStructure" title="Represents the proper 'tree' structure of a tableau.">TableauStructure</a></li>
-<li><a href="#Bivalent" title="Represents a bivalent propositional tableaux system.">Bivalent</a></li>
-<li><a href="#ModalReflexive" title="Implements the reflexivity rule for a standard modal tableaux system.">ModalReflexive</a></li>
-<li><a href="#ModalTransitive" title="Implements the transitivity rule for a modal tableaux system.">ModalTransitive</a></li>
-<li><a href="#ManyValued" title="Represents a many-valued propositional tableaux system.">ManyValued</a></li>
+<li><a href="#Proof" title="Represents a proof.">Proof</a></li>
+<li><a href="#Bivalent" title="Represents a tableaux system for a bivalent modal logic.">Bivalent</a></li>
 <li><a href="#ManyValued" title="Represents a tableaux system for a many-valued modal logic.">ManyValued</a></li>
-<li><a href="#Modal" title="Represents a bivalent modal tableaux system.">Modal</a></li>
+<li><a href="#Branch" title="Represents a tableau rule that applies to a branch.">Branch</a></li>
+<li><a href="#Closure" title="Represents a tableau closure rule.">Closure</a></li>
+<li><a href="#Node" title="Implements the transitivity rule for a modal tableaux system.">Node</a></li>
 <li><a href="#TableauxSystem" title="Represents a tableaux proof system.">TableauxSystem</a></li>
+<li><a href="#ProofSystem" title="Represents a proof system.">ProofSystem</a></li>
 <li><a href="#JSON" title="Represents a JSON tableau proof writer.">JSON</a></li>
 <li><a href="#LaTeX_Qtree" title="Writes tableaux using the LaTeX Qtree package.">LaTeX_Qtree</a></li>
 <li><a href="#Simple" title="Represents a simple tableau proof writer.">Simple</a></li>
 <li><a href="#Tableau" title="Represents a tableaux writer.">Tableau</a></li>
+<li><a href="#ProofWriter" title="Writes proofs.">ProofWriter</a></li>
+<li><a href="#Atomic" title="Represents an atomic sentence.">Atomic</a></li>
+<li><a href="#Molecular" title="Represents a molecular sentence.">Molecular</a></li>
 <li><a href="#Sentence" title="Represents a sentence.">Sentence</a></li>
 <li><a href="#Polish" title="Represents the standard sentence parser.">Polish</a></li>
+<li><a href="#Standard" title="Represents the standard sentence parser.">Standard</a></li>
+<li><a href="#SentenceParser" title="Represents a sentence parser.">SentenceParser</a></li>
 <li><a href="#LaTeXDecorator" title="Sets default operator translations for Polish notation.">LaTeXDecorator</a></li>
 <li><a href="#Polish" title="Writes sentences in Polish notation.">Polish</a></li>
+<li><a href="#HTML" title="Decorates a sentence writer for HTML.">HTML</a></li>
 <li><a href="#LaTeXDecorator" title="Decorates a sentence writer for LaTeX.">LaTeXDecorator</a></li>
 <li><a href="#Standard" title="Writes sentences in standard notation.">Standard</a></li>
 <li><a href="#SentenceWriter" title="Writes sentences.">SentenceWriter</a></li>
 <li><a href="#Settings" title="Stores the settings.">Settings</a></li>
+<li><a href="#Parser" title="Collects utilities for sentence parsers.">Parser</a></li>
 <li><a href="#Utilities" title="Collects general PHP utilities.">Utilities</a></li>
+<li><a href="#Vocabulary" title="Represents a vocabulary.">Vocabulary</a></li>
+<li class="nav-header">
+<i class="icon-custom icon-constant"></i> Constants</li>
+<li class="constant  "><a href="#DS" title="DS :: Directory separator shortcut."><span class="description">Directory separator shortcut.</span><pre>DS</pre></a></li>
 </ul>
 </div>
 <div class="span8 package-contents">
@@ -146,33 +155,12 @@ modal logic.">ManyValued</a></li>
 </div>
 <h3>
 <i class="icon-custom icon-class"></i> Classes and interfaces</h3>
-<a name="BranchRule" id="BranchRule"></a><div class="element ajax clickable interface" href="../classes/GoTableaux.ProofSystem.TableauxSystem.BranchRule.html">
-<h1>BranchRule<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.BranchRule.html">¶</a>
+<a name="Rule" id="Rule"></a><div class="element ajax clickable interface" href="../classes/GoTableaux.ProofSystem.TableauxSystem.Rule.html">
+<h1>Rule<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.Rule.html">¶</a>
 </h1>
 <p class="short_description">Represents a tableau rule that applies to a branch.</p>
 <div class="details collapse"></div>
-<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.BranchRule.html" class="more">« More »</a>
-</div>
-<a name="ClosureRule" id="ClosureRule"></a><div class="element ajax clickable interface" href="../classes/GoTableaux.ProofSystem.TableauxSystem.ClosureRule.html">
-<h1>ClosureRule<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.ClosureRule.html">¶</a>
-</h1>
-<p class="short_description">Represents a tableau closure rule.</p>
-<div class="details collapse"></div>
-<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.ClosureRule.html" class="more">« More »</a>
-</div>
-<a name="ManyValued" id="ManyValued"></a><div class="element ajax clickable interface" href="../classes/GoTableaux.Proof.TableauNode.ManyValued.html">
-<h1>ManyValued<a href="../classes/GoTableaux.Proof.TableauNode.ManyValued.html">¶</a>
-</h1>
-<p class="short_description">Signifies a many-valued tableau node that has a designation marker.</p>
-<div class="details collapse"></div>
-<a href="../classes/GoTableaux.Proof.TableauNode.ManyValued.html" class="more">« More »</a>
-</div>
-<a name="Modal" id="Modal"></a><div class="element ajax clickable interface" href="../classes/GoTableaux.Proof.TableauNode.Modal.html">
-<h1>Modal<a href="../classes/GoTableaux.Proof.TableauNode.Modal.html">¶</a>
-</h1>
-<p class="short_description">Signifies a modal tableau node that has at least one index.</p>
-<div class="details collapse"></div>
-<a href="../classes/GoTableaux.Proof.TableauNode.Modal.html" class="more">« More »</a>
+<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.Rule.html" class="more">« More »</a>
 </div>
 <a name="Argument" id="Argument"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Argument.html">
 <h1>Argument<a href="../classes/GoTableaux.Argument.html">¶</a>
@@ -181,12 +169,61 @@ modal logic.">ManyValued</a></li>
 <div class="details collapse"></div>
 <a href="../classes/GoTableaux.Argument.html" class="more">« More »</a>
 </div>
+<a name="Exception" id="Exception"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Exception.html">
+<h1>Exception<a href="../classes/GoTableaux.Exception.html">¶</a>
+</h1>
+<p class="short_description">Represents a program exception.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Exception.html" class="more">« More »</a>
+</div>
+<a name="Loader" id="Loader"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Exception.Loader.html">
+<h1>Loader<a href="../classes/GoTableaux.Exception.Loader.html">¶</a>
+</h1>
+<p class="short_description">Represents a loader exception.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Exception.Loader.html" class="more">« More »</a>
+</div>
+<a name="Parser" id="Parser"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Exception.Parser.html">
+<h1>Parser<a href="../classes/GoTableaux.Exception.Parser.html">¶</a>
+</h1>
+<p class="short_description">Represents a parsing exception.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Exception.Parser.html" class="more">« More »</a>
+</div>
 <a name="Proof" id="Proof"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Exception.Proof.html">
 <h1>Proof<a href="../classes/GoTableaux.Exception.Proof.html">¶</a>
 </h1>
 <p class="short_description">Represents a proof exception.</p>
 <div class="details collapse"></div>
 <a href="../classes/GoTableaux.Exception.Proof.html" class="more">« More »</a>
+</div>
+<a name="Rule" id="Rule"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Exception.Rule.html">
+<h1>Rule<a href="../classes/GoTableaux.Exception.Rule.html">¶</a>
+</h1>
+<p class="short_description">Represents a tableau rule exception.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Exception.Rule.html" class="more">« More »</a>
+</div>
+<a name="Tableau" id="Tableau"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Exception.Tableau.html">
+<h1>Tableau<a href="../classes/GoTableaux.Exception.Tableau.html">¶</a>
+</h1>
+<p class="short_description">Represents a tableau proof exception.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Exception.Tableau.html" class="more">« More »</a>
+</div>
+<a name="Vocabulary" id="Vocabulary"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Exception.Vocabulary.html">
+<h1>Vocabulary<a href="../classes/GoTableaux.Exception.Vocabulary.html">¶</a>
+</h1>
+<p class="short_description">Represents a vocabulary exception.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Exception.Vocabulary.html" class="more">« More »</a>
+</div>
+<a name="Writer" id="Writer"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Exception.Writer.html">
+<h1>Writer<a href="../classes/GoTableaux.Exception.Writer.html">¶</a>
+</h1>
+<p class="short_description">Represents a tableau writer exception.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Exception.Writer.html" class="more">« More »</a>
 </div>
 <a name="Loader" id="Loader"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Loader.html">
 <h1>Loader<a href="../classes/GoTableaux.Loader.html">¶</a>
@@ -202,6 +239,34 @@ modal logic.">ManyValued</a></li>
 <div class="details collapse"></div>
 <a href="../classes/GoTableaux.Logic.html" class="more">« More »</a>
 </div>
+<a name="Model" id="Model"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Model.html">
+<h1>Model<a href="../classes/GoTableaux.Model.html">¶</a>
+</h1>
+<p class="short_description">Represents model-theoretic model.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Model.html" class="more">« More »</a>
+</div>
+<a name="Operator" id="Operator"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Operator.html">
+<h1>Operator<a href="../classes/GoTableaux.Operator.html">¶</a>
+</h1>
+<p class="short_description">Represents an operator.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Operator.html" class="more">« More »</a>
+</div>
+<a name="Proof" id="Proof"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.html">
+<h1>Proof<a href="../classes/GoTableaux.Proof.html">¶</a>
+</h1>
+<p class="short_description">Represents a proof.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Proof.html" class="more">« More »</a>
+</div>
+<a name="ProofSystem" id="ProofSystem"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofSystem.html">
+<h1>ProofSystem<a href="../classes/GoTableaux.ProofSystem.html">¶</a>
+</h1>
+<p class="short_description">Represents a proof system.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.ProofSystem.html" class="more">« More »</a>
+</div>
 <a name="TableauxSystem" id="TableauxSystem"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofSystem.TableauxSystem.html">
 <h1>TableauxSystem<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.html">¶</a>
 </h1>
@@ -209,40 +274,12 @@ modal logic.">ManyValued</a></li>
 <div class="details collapse"></div>
 <a href="../classes/GoTableaux.ProofSystem.TableauxSystem.html" class="more">« More »</a>
 </div>
-<a name="Bivalent" id="Bivalent"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofSystem.TableauxSystem.Bivalent.html">
-<h1>Bivalent<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.Bivalent.html">¶</a>
+<a name="Bivalent" id="Bivalent"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofSystem.TableauxSystem.Modal.Bivalent.html">
+<h1>Bivalent<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.Modal.Bivalent.html">¶</a>
 </h1>
-<p class="short_description">Represents a bivalent propositional tableaux system.</p>
+<p class="short_description">Represents a tableaux system for a bivalent modal logic.</p>
 <div class="details collapse"></div>
-<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.Bivalent.html" class="more">« More »</a>
-</div>
-<a name="ModalReflexive" id="ModalReflexive"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofSystem.TableauxSystem.BranchRule.ModalReflexive.html">
-<h1>ModalReflexive<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.BranchRule.ModalReflexive.html">¶</a>
-</h1>
-<p class="short_description">Implements the reflexivity rule for a standard modal tableaux system.</p>
-<div class="details collapse"></div>
-<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.BranchRule.ModalReflexive.html" class="more">« More »</a>
-</div>
-<a name="ModalTransitive" id="ModalTransitive"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofSystem.TableauxSystem.BranchRule.ModalTransitive.html">
-<h1>ModalTransitive<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.BranchRule.ModalTransitive.html">¶</a>
-</h1>
-<p class="short_description">Implements the transitivity rule for a modal tableaux system.</p>
-<div class="details collapse"></div>
-<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.BranchRule.ModalTransitive.html" class="more">« More »</a>
-</div>
-<a name="ManyValued" id="ManyValued"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofSystem.TableauxSystem.ManyValued.html">
-<h1>ManyValued<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.ManyValued.html">¶</a>
-</h1>
-<p class="short_description">Represents a many-valued propositional tableaux system.</p>
-<div class="details collapse"></div>
-<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.ManyValued.html" class="more">« More »</a>
-</div>
-<a name="Modal" id="Modal"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofSystem.TableauxSystem.Modal.html">
-<h1>Modal<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.Modal.html">¶</a>
-</h1>
-<p class="short_description">Represents a bivalent modal tableaux system.</p>
-<div class="details collapse"></div>
-<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.Modal.html" class="more">« More »</a>
+<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.Modal.Bivalent.html" class="more">« More »</a>
 </div>
 <a name="ManyValued" id="ManyValued"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofSystem.TableauxSystem.Modal.ManyValued.html">
 <h1>ManyValued<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.Modal.ManyValued.html">¶</a>
@@ -250,6 +287,34 @@ modal logic.">ManyValued</a></li>
 <p class="short_description">Represents a tableaux system for a many-valued modal logic.</p>
 <div class="details collapse"></div>
 <a href="../classes/GoTableaux.ProofSystem.TableauxSystem.Modal.ManyValued.html" class="more">« More »</a>
+</div>
+<a name="Branch" id="Branch"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofSystem.TableauxSystem.Rule.Branch.html">
+<h1>Branch<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.Rule.Branch.html">¶</a>
+</h1>
+<p class="short_description">Represents a tableau rule that applies to a branch.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.Rule.Branch.html" class="more">« More »</a>
+</div>
+<a name="Closure" id="Closure"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofSystem.TableauxSystem.Rule.Closure.html">
+<h1>Closure<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.Rule.Closure.html">¶</a>
+</h1>
+<p class="short_description">Represents a tableau closure rule.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.Rule.Closure.html" class="more">« More »</a>
+</div>
+<a name="Node" id="Node"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofSystem.TableauxSystem.Rule.Node.html">
+<h1>Node<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.Rule.Node.html">¶</a>
+</h1>
+<p class="short_description">Implements the transitivity rule for a modal tableaux system.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.ProofSystem.TableauxSystem.Rule.Node.html" class="more">« More »</a>
+</div>
+<a name="ProofWriter" id="ProofWriter"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofWriter.html">
+<h1>ProofWriter<a href="../classes/GoTableaux.ProofWriter.html">¶</a>
+</h1>
+<p class="short_description">Writes proofs.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.ProofWriter.html" class="more">« More »</a>
 </div>
 <a name="Tableau" id="Tableau"></a><div class="element ajax clickable class" href="../classes/GoTableaux.ProofWriter.Tableau.html">
 <h1>Tableau<a href="../classes/GoTableaux.ProofWriter.Tableau.html">¶</a>
@@ -293,35 +358,6 @@ modal logic.">ManyValued</a></li>
 <div class="details collapse"></div>
 <a href="../classes/GoTableaux.Proof.TableauBranch.html" class="more">« More »</a>
 </div>
-<a name="ManyValued" id="ManyValued"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.TableauBranch.ManyValued.html">
-<h1>ManyValued<a href="../classes/GoTableaux.Proof.TableauBranch.ManyValued.html">¶</a>
-</h1>
-<p class="short_description">Represents a many-valued logic tableau branch.</p>
-<div class="details collapse"></div>
-<a href="../classes/GoTableaux.Proof.TableauBranch.ManyValued.html" class="more">« More »</a>
-</div>
-<a name="Modal" id="Modal"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.TableauBranch.Modal.html">
-<h1>Modal<a href="../classes/GoTableaux.Proof.TableauBranch.Modal.html">¶</a>
-</h1>
-<p class="short_description">Represents a modal logic tableau branch.</p>
-<div class="details collapse"></div>
-<a href="../classes/GoTableaux.Proof.TableauBranch.Modal.html" class="more">« More »</a>
-</div>
-<a name="ManyValued" id="ManyValued"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.TableauBranch.Modal.ManyValued.html">
-<h1>ManyValued<a href="../classes/GoTableaux.Proof.TableauBranch.Modal.ManyValued.html">¶</a>
-</h1>
-<p class="short_description">Represents a tableau branch with designation markers for a many-valued
-modal logic.</p>
-<div class="details collapse"></div>
-<a href="../classes/GoTableaux.Proof.TableauBranch.Modal.ManyValued.html" class="more">« More »</a>
-</div>
-<a name="Propositional" id="Propositional"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.TableauBranch.Propositional.html">
-<h1>Propositional<a href="../classes/GoTableaux.Proof.TableauBranch.Propositional.html">¶</a>
-</h1>
-<p class="short_description">Represents a propositional logic tableau branch.</p>
-<div class="details collapse"></div>
-<a href="../classes/GoTableaux.Proof.TableauBranch.Propositional.html" class="more">« More »</a>
-</div>
 <a name="TableauNode" id="TableauNode"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.TableauNode.html">
 <h1>TableauNode<a href="../classes/GoTableaux.Proof.TableauNode.html">¶</a>
 </h1>
@@ -336,33 +372,26 @@ modal logic.</p>
 <div class="details collapse"></div>
 <a href="../classes/GoTableaux.Proof.TableauNode.Access.html" class="more">« More »</a>
 </div>
+<a name="ManyValued" id="ManyValued"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.TableauNode.ManyValued.html">
+<h1>ManyValued<a href="../classes/GoTableaux.Proof.TableauNode.ManyValued.html">¶</a>
+</h1>
+<p class="short_description">Signifies a many-valued tableau node that has a designation marker.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Proof.TableauNode.ManyValued.html" class="more">« More »</a>
+</div>
+<a name="Modal" id="Modal"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.TableauNode.Modal.html">
+<h1>Modal<a href="../classes/GoTableaux.Proof.TableauNode.Modal.html">¶</a>
+</h1>
+<p class="short_description">Signifies a modal tableau node that has at least one index.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Proof.TableauNode.Modal.html" class="more">« More »</a>
+</div>
 <a name="Sentence" id="Sentence"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.TableauNode.Sentence.html">
 <h1>Sentence<a href="../classes/GoTableaux.Proof.TableauNode.Sentence.html">¶</a>
 </h1>
 <p class="short_description">Represents a sentence tableau node.</p>
 <div class="details collapse"></div>
 <a href="../classes/GoTableaux.Proof.TableauNode.Sentence.html" class="more">« More »</a>
-</div>
-<a name="ManyValued" id="ManyValued"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.TableauNode.Sentence.ManyValued.html">
-<h1>ManyValued<a href="../classes/GoTableaux.Proof.TableauNode.Sentence.ManyValued.html">¶</a>
-</h1>
-<p class="short_description">Represents a sentence node on a branch of a many-valued logic tableau.</p>
-<div class="details collapse"></div>
-<a href="../classes/GoTableaux.Proof.TableauNode.Sentence.ManyValued.html" class="more">« More »</a>
-</div>
-<a name="Modal" id="Modal"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.TableauNode.Sentence.Modal.html">
-<h1>Modal<a href="../classes/GoTableaux.Proof.TableauNode.Sentence.Modal.html">¶</a>
-</h1>
-<p class="short_description">Represents a modal sentence tableau node.</p>
-<div class="details collapse"></div>
-<a href="../classes/GoTableaux.Proof.TableauNode.Sentence.Modal.html" class="more">« More »</a>
-</div>
-<a name="ManyValued" id="ManyValued"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.TableauNode.Sentence.Modal.ManyValued.html">
-<h1>ManyValued<a href="../classes/GoTableaux.Proof.TableauNode.Sentence.Modal.ManyValued.html">¶</a>
-</h1>
-<p class="short_description">Represents a sentence node on a branch of a many-valued modal logic tableau.</p>
-<div class="details collapse"></div>
-<a href="../classes/GoTableaux.Proof.TableauNode.Sentence.Modal.ManyValued.html" class="more">« More »</a>
 </div>
 <a name="TableauStructure" id="TableauStructure"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Proof.TableauStructure.html">
 <h1>TableauStructure<a href="../classes/GoTableaux.Proof.TableauStructure.html">¶</a>
@@ -378,12 +407,26 @@ modal logic.</p>
 <div class="details collapse"></div>
 <a href="../classes/GoTableaux.Sentence.html" class="more">« More »</a>
 </div>
+<a name="SentenceParser" id="SentenceParser"></a><div class="element ajax clickable class" href="../classes/GoTableaux.SentenceParser.html">
+<h1>SentenceParser<a href="../classes/GoTableaux.SentenceParser.html">¶</a>
+</h1>
+<p class="short_description">Represents a sentence parser.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.SentenceParser.html" class="more">« More »</a>
+</div>
 <a name="Polish" id="Polish"></a><div class="element ajax clickable class" href="../classes/GoTableaux.SentenceParser.Polish.html">
 <h1>Polish<a href="../classes/GoTableaux.SentenceParser.Polish.html">¶</a>
 </h1>
 <p class="short_description">Represents the standard sentence parser.</p>
 <div class="details collapse"></div>
 <a href="../classes/GoTableaux.SentenceParser.Polish.html" class="more">« More »</a>
+</div>
+<a name="Standard" id="Standard"></a><div class="element ajax clickable class" href="../classes/GoTableaux.SentenceParser.Standard.html">
+<h1>Standard<a href="../classes/GoTableaux.SentenceParser.Standard.html">¶</a>
+</h1>
+<p class="short_description">Represents the standard sentence parser.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.SentenceParser.Standard.html" class="more">« More »</a>
 </div>
 <a name="SentenceWriter" id="SentenceWriter"></a><div class="element ajax clickable class" href="../classes/GoTableaux.SentenceWriter.html">
 <h1>SentenceWriter<a href="../classes/GoTableaux.SentenceWriter.html">¶</a>
@@ -413,12 +456,33 @@ modal logic.</p>
 <div class="details collapse"></div>
 <a href="../classes/GoTableaux.SentenceWriter.Standard.html" class="more">« More »</a>
 </div>
+<a name="HTML" id="HTML"></a><div class="element ajax clickable class" href="../classes/GoTableaux.SentenceWriter.Standard.HTML.html">
+<h1>HTML<a href="../classes/GoTableaux.SentenceWriter.Standard.HTML.html">¶</a>
+</h1>
+<p class="short_description">Decorates a sentence writer for HTML.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.SentenceWriter.Standard.HTML.html" class="more">« More »</a>
+</div>
 <a name="LaTeXDecorator" id="LaTeXDecorator"></a><div class="element ajax clickable class" href="../classes/GoTableaux.SentenceWriter.Standard.LaTeXDecorator.html">
 <h1>LaTeXDecorator<a href="../classes/GoTableaux.SentenceWriter.Standard.LaTeXDecorator.html">¶</a>
 </h1>
 <p class="short_description">Decorates a sentence writer for LaTeX.</p>
 <div class="details collapse"></div>
 <a href="../classes/GoTableaux.SentenceWriter.Standard.LaTeXDecorator.html" class="more">« More »</a>
+</div>
+<a name="Atomic" id="Atomic"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Sentence.Atomic.html">
+<h1>Atomic<a href="../classes/GoTableaux.Sentence.Atomic.html">¶</a>
+</h1>
+<p class="short_description">Represents an atomic sentence.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Sentence.Atomic.html" class="more">« More »</a>
+</div>
+<a name="Molecular" id="Molecular"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Sentence.Molecular.html">
+<h1>Molecular<a href="../classes/GoTableaux.Sentence.Molecular.html">¶</a>
+</h1>
+<p class="short_description">Represents a molecular sentence.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Sentence.Molecular.html" class="more">« More »</a>
 </div>
 <a name="Settings" id="Settings"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Settings.html">
 <h1>Settings<a href="../classes/GoTableaux.Settings.html">¶</a>
@@ -434,13 +498,41 @@ modal logic.</p>
 <div class="details collapse"></div>
 <a href="../classes/GoTableaux.Utilities.html" class="more">« More »</a>
 </div>
+<a name="Parser" id="Parser"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Utilities.Parser.html">
+<h1>Parser<a href="../classes/GoTableaux.Utilities.Parser.html">¶</a>
+</h1>
+<p class="short_description">Collects utilities for sentence parsers.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Utilities.Parser.html" class="more">« More »</a>
+</div>
+<a name="Vocabulary" id="Vocabulary"></a><div class="element ajax clickable class" href="../classes/GoTableaux.Vocabulary.html">
+<h1>Vocabulary<a href="../classes/GoTableaux.Vocabulary.html">¶</a>
+</h1>
+<p class="short_description">Represents a vocabulary.</p>
+<div class="details collapse"></div>
+<a href="../classes/GoTableaux.Vocabulary.html" class="more">« More »</a>
+</div>
+<h3>
+<i class="icon-custom icon-constant"></i> Constants</h3>
+<a name="DS" id="DS"> </a><div class="element clickable constant  DS" data-toggle="collapse" data-target=".DS .collapse">
+<h2>Directory separator shortcut.</h2>
+<pre>DS </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>package</th>
+<td><a href="..//packages/GoTableaux.html">GoTableaux</a></td>
+</tr></table>
+</div></div>
+</div>
 </div>
 </div>
 </div>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
-            generated on 2012-04-09T00:16:26-07:00.<br></footer></div>
+            generated on 2012-04-21T00:47:22-07:00.<br></footer></div>
 </div>
 </body>
 </html>

@@ -52,8 +52,11 @@ class CPLTest extends LogicTestCase
 		'Extracting the Antecedent' => array( 'A > B', 'A' ),
 		'Extracting as Disjunct 1'	=> array( 'A V B', 'B' ),
 		'Extracting as Disjunct 2'	=> array( 'A V ~B', '~A' ),
-	
 		'Denying the Antecedent' 	=> array( array( 'A > B', '~A' ), 'B' ),
+		'Long Argument 1'			=> array( 
+			array('A0 V B0', 'A1 V B1', 'A1 V B1', 'A1 V B1' ), 
+			'(A0 & B0) & (A1 & B1)'
+		),
 	);
 
 }

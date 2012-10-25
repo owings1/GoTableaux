@@ -29,30 +29,82 @@ use \GoTableaux\Proof\TableauBranch as TableauBranch;
  * Represents a tableau rule that applies to a branch.
  * @package GoTableaux
  */
-abstract class Branch implements \GoTableaux\ProofSystem\TableauxSystem\Rule
+abstract class Branch extends \GoTableaux\ProofSystem\TableauxSystem\Rule
 {
+	/**
+	 * Determines whether the rule can apply to the tableau.
+	 *
+	 * A branch rule can apply to a tableau when it can apply to an open branch.
+	 *
+	 * @param Tableau $tableau The tableau to check.
+	 * @return boolean Whether the rule can apply.
+	 */
+	public function applies( Tableau $tableau )
+	{
+		foreach( $tableau->getOpenBranches() as $branch )
+		 	if ( $this->appliesToBranch( $branch, $tableau->getProofSystem()->getLogic() )) return true;	
+		return false;
+	}
+
 	/**
 	 * Applies the rule to a tableau. 
 	 * 
-	 * A branch rule applies to the first open branch, if any.
+	 * A branch rule applies to the first open branch.
 	 *
 	 * @param Tableau $tableau The tableau to which to apply the rule.
 	 * @param Logic $logic The logic.
-	 * @return boolean Whether the rule did apply.
+	 * @return void
 	 */
-	final public function apply( Tableau $tableau )
+	public function apply( Tableau $tableau )
 	{
+		parent::apply( $tableau );
+		$logic = $tableau->getProofSystem()->getLogic();
 		foreach ( $tableau->getOpenBranches() as $branch )
-			if ( $this->applyToBranch( $branch, $tableau->getProofSystem()->getLogic() )) return true;
-		return false;
+			if ( $this->appliesToBranch( $branch, $logic )) 
+				return $this->applyToBranch( $branch, $logic );
+		Utilities::debug( get_class( $this ));
+		throw new TableauException( 'Trying to apply a branch rule to a tableau with no applicable branches.' );
 	}
+	
+	/**
+	 * Creates an example tableau for the rule.
+	 * 
+	 * @param Logic $logic The logic.
+	 * @return Tableau The example tableau.
+	 */
+	public function getExample( Logic $logic )
+	{
+		$tableau = new Tableau( $logic->getProofSystem() );
+		$branch = $tableau->createBranch();
+		$this->buildExample( $branch, $logic );
+		$this->applyToBranch( $branch, $logic );
+		return $tableau;
+	}
+	
+	/**
+	 * Builds an example branch for the rule.
+	 *
+	 * @param TableauBrach $branch The branch to build.
+	 * @param Logic $logic The logic.
+	 * @return void
+	 */
+	abstract public function buildExample( TableauBranch $branch, Logic $logic );
+	
+	/**
+	 * Determines whether a rule can apply to a branch.
+	 *
+	 * @param TableauBranch The branch to check.
+	 * @param Logic $logic The logic of the proof system.
+	 * @return boolean Whether the rule can apply.
+	 */
+	abstract public function appliesToBranch( TableauBranch $branch, Logic $logic );
 	
 	/**
 	 * Applies the rule to an open branch.
 	 *
-	 * @param Branch $branch The open branch.
+	 * @param TableauBranch $branch The open branch.
 	 * @param Logic $logic The logic of the proof system.
-	 * @return boolean Whether the rule did apply.
+	 * @return void
 	 */
 	abstract public function applyToBranch( TableauBranch $branch, Logic $logic );
 }

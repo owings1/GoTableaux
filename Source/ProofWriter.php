@@ -16,7 +16,7 @@
  */
 /**
  * Defines the ProofWriter class.
- * @package Proof
+ * @package GoTableaux
  */
 
 namespace GoTableaux;
@@ -26,123 +26,50 @@ use \GoTableaux\SentenceWriter\Decorator as SentenceWriterDecorator;
 
 /**
  * Writes proofs.
- * @package Proof
+ * @package GoTableaux
  */
 abstract class ProofWriter
 {
-	/**
-	 * 
-	 * @var array
-	 */
-	protected $translations = array();
+	public $metaSymbolStrings = array();
 	
 	/**
 	 * @var SentenceWriter
-	 * @access private
 	 */
-	private $sentenceWriter;
+	protected $sentenceWriter;
 	
 	/**
-	 * @var Vocabulary
+	 * @var Logic
 	 */
-	private $vocabulary;
+	protected $logic;
 	
 	/**
 	 * Gets a child instance.
 	 *
-	 * @param Proof $proof The proof to write.
-	 * @param string $type Proof writer type.
-	 * @param string $sentenceWriterType The type of sentence writer to use.
+	 * @param string $proofType The type of proof.
+	 * @param Logic $logic The logic to use.
+	 * @param string $type Proof writer output type.
+	 * @param string $notation The type of sentence writer to use.
+	 * @param string $format The sentence writer format.
 	 * @return ProofWriter Created instance.
 	 */
-	public static function getInstance( Proof $proof, $type = 'Simple', $sentenceWriterType = 'Standard' )
+	public static function getInstance( $proofType, Logic $logic, $output = 'Simple', $notation = 'Standard', $format = null )
 	{
-		$proofClass = get_class( $proof );
-		$class = str_replace( '\\Proof\\', '\\ProofWriter\\', $proofClass ) . "\\$type";
-		return new $class( $proof, $sentenceWriterType );
+		if ( empty( $notation )) $notation = 'Standard';
+		if ( empty( $output )) $output = 'Simple';
+		$class = __CLASS__ . '\\' . $proofType . '\\' . $output;
+		return new $class( $logic, $notation, $format );
 	}
 	
 	/**
 	 * Constructor.
 	 *
-	 * @param Proof $proof The proof to write.
-	 * @param string $sentenceWriterType The type of sentence writer to use.
+	 * @param Logic $logic The logic.
+	 * @param string $notation The type of sentence writer to use.
 	 */
-	public function __construct( Proof $proof, $sentenceWriterType = 'Standard' )
+	public function __construct( Logic $logic, $notation = null, $format = null )
 	{
-		$this->vocabulary = $proof->getProofSystem()->getLogic()->getVocabulary();
-		$this->setSentenceWriter( SentenceWriter::getInstance( $this->vocabulary, $sentenceWriterType ));
-	}
-	
-	/**
-	 * Adds translations.
-	 *
-	 * @param array $translations The translations to add, where key is to be
-	 *							  translated into value.
-	 * @return ProofWriter Current instance.
-	 */
-	public function addTranslations( array $translations )
-	{
-		$this->translations = array_merge( $this->translations, $translations );
-		return $this;
-	}
-	
-	/**
-	 * Removes a translation.
-	 *
-	 * @param string $name Name of the translation to remove.
-	 * @return ProofWriter Current instance.
-	 */
-	public function removeTranslation( $name )
-	{
-		unset( $this->translations[$name] );
-		return $this;
-	}
-	
-	/**
-	 * Gets a translation.
-	 *
-	 * @param string $name Name of the translation.
-	 * @return string The translation.
-	 */
-	public function getTranslation( $name )
-	{
-		if ( empty( $this->translations[$name] ))
-			throw new WriterException( "Unknown translation name: $name" );
-		return $this->translations[$name];
-	}
-	
-	/**
-	 * Gets the sentence writer object.
-	 *
-	 * @return SentenceWriter The sentence writer.
-	 */
-	public function getSentenceWriter()
-	{
-		return $this->sentenceWriter;
-	}
-	
-	/**
-	 * Sets the sentence writer object.
-	 *
-	 * @param SentenceWriter $sentenceWriter The sentence writer to set.
-	 * @return ProofWriter Current instance.
-	 */
-	public function setSentenceWriter( SentenceWriter $sentenceWriter )
-	{
-		$this->sentenceWriter = $sentenceWriter;
-		return $this;
-	}
-	
-	/**
-	 * Decorates the sentence writer.
-	 *
-	 * @param string $type Type of decorator.
-	 * @return ProofWriter Current instance.
-	 */
-	public function decorateSentenceWriter( $type )
-	{
-		return $this->setSentenceWriter( SentenceWriter::getDecoratorInstance( $this->getSentenceWriter(), $type ));
+		$this->logic = $logic;
+		$this->sentenceWriter = SentenceWriter::getInstance( $logic, $notation, $format );
 	}
 	
 	/**
@@ -155,7 +82,7 @@ abstract class ProofWriter
 	 */
 	public function writeSentence( Sentence $sentence )
 	{
-		return $this->getSentenceWriter()->writeSentence( $sentence );
+		return $this->sentenceWriter->writeSentence( $sentence );
 	}
 	
 	/**
@@ -168,7 +95,7 @@ abstract class ProofWriter
 	 */
 	public function writeArgumentOfProof( Proof $proof )
 	{
-		return $this->getSentenceWriter()->writeArgument( $proof->getArgument() );
+		return $this->sentenceWriter->writeArgument( $proof->getArgument() );
 	}
 	
 	/**

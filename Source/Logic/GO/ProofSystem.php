@@ -26,28 +26,30 @@ namespace GoTableaux\Logic\GO;
  *
  * @package GO
  */
-class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem\ManyValued
+class ProofSystem extends \GoTableaux\Logic\FDE\ProofSystem
 {
-	public $tableauRuleClasses = array(
-		'FDE/ConjunctionDesignated',
+	public $ruleClasses = array(
+		'FDE.Closure',
+		'StrongKleene.Closure',
+		'FDE.ConjunctionDesignated',
 		'ConjunctionUndesignated',
 		'NegatedConjunctionDesignated',
 		'NegatedConjunctionUndesignated',
-		'FDE/DisjunctionDesignated',
+		'FDE.DisjunctionDesignated',
 		'DisjunctionUndesignated',
 		'NegatedDisjunctionDesignated',
 		'NegatedDisjunctionUndesignated',
-		'FDE/MaterialConditionalDesignated',
+		'FDE.MaterialConditionalDesignated',
 		'MaterialConditionalUndesignated',
 		'NegatedMaterialConditionalDesignated',
 		'NegatedMaterialConditionalUndesignated',
-		'FDE/MaterialBiconditionalDesignated',
+		'FDE.MaterialBiconditionalDesignated',
 		'MaterialBiconditionalUndesignated',
 		'NegatedMaterialBiconditionalDesignated',
 		'NegatedMaterialBiconditionalUndesignated',
-		'FDE/DoubleNegationDesignated',
-		'FDE/DoubleNegationUndesignated',
-		'Lukasiewicz/ConditionalDesignated',
+		'FDE.DoubleNegationDesignated',
+		'FDE.DoubleNegationUndesignated',
+		'Lukasiewicz.ConditionalDesignated',
 		'ConditionalUndesignated',
 		'NegatedConditionalDesignated',
 		'NegatedConditionalUndesignated',

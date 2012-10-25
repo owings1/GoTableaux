@@ -16,6 +16,8 @@
  */
 namespace GoTableaux\Test;
 
+use \GoTableaux\Utilities as Utilities;
+
 require_once __DIR__ . '/UnitTestCase.php';
 
 abstract class LogicTestCase extends UnitTestCase
@@ -34,14 +36,14 @@ abstract class LogicTestCase extends UnitTestCase
 		$this->logic = \GoTableaux\Logic::getInstance( $this->logicName );
 	}
 
-	public function assertValid( \GoTableaux\Proof $proof )
+	public function assertValid( \GoTableaux\Proof $proof, $msg = '')
 	{
-		$this->assertTrue( $proof->isValid(), print_r( $proof->getStructure(), true ));
+		$this->assertTrue( $proof->isValid(), $msg );
 	}
 	
-	public function assertInvalid( \GoTableaux\Proof $proof )
+	public function assertInvalid( \GoTableaux\Proof $proof, $msg = '' )
 	{
-		$this->assertFalse( $proof->isValid(), print_r( $proof->getStructure(), true ));
+		$this->assertFalse( $proof->isValid(), $msg );
 	}
 	
 	public function parseArguments( array $argumentsArray )
@@ -56,9 +58,12 @@ abstract class LogicTestCase extends UnitTestCase
 	{
 		$arguments = $this->parseArguments( $this->validities );
 		foreach ( $arguments as $name => $argument ) {
+			$t = microtime( true );
+			Utilities::debug( "Checking for validity of $name in {$this->logicName}");
 			$proof = $this->logic->getProofSystem()
 							   	 ->constructProofForArgument( $argument );
 			$this->assertValid( $proof, $name );
+			Utilities::debug ( 'Elapsed time: ' . round(microtime( true ) - $t, 2 ) . 's');
 		}
 	}
 	
@@ -66,9 +71,12 @@ abstract class LogicTestCase extends UnitTestCase
 	{
 		$arguments = $this->parseArguments( $this->invalidities );
 		foreach ( $arguments as $name => $argument ) {
+			$t = microtime( true );
+			Utilities::debug( "Checking for invalidity of $name in {$this->logicName}");
 			$proof = $this->logic->getProofSystem()
 							   	 ->constructProofForArgument( $argument );
 			$this->assertInvalid( $proof, $name );
+			Utilities::debug ( 'Elapsed time: ' . round(microtime( true ) - $t, 2 ) . 's');
 		}
 	}
 }

@@ -23,17 +23,12 @@
 <li><a href="../namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
 <li><a>Packages</a></li>
 <li><a href="../packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
-<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
-<li><a href="../packages/Exceptions.html"><i class="icon-folder-open"></i> Exceptions</a></li>
 <li><a href="../packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
 <li><a href="../packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
 <li><a href="../packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
 <li><a href="../packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
 <li><a href="../packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
-<li><a href="../packages/ModelTheory.html"><i class="icon-folder-open"></i> ModelTheory</a></li>
-<li><a href="../packages/Proof.html"><i class="icon-folder-open"></i> Proof</a></li>
 <li><a href="../packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
-<li><a href="../packages/Syntax.html"><i class="icon-folder-open"></i> Syntax</a></li>
 </ul>
 </li>
 <li class="dropdown" id="charts-menu">
@@ -44,9 +39,11 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">233</span></a></li>
+                <span class="label label-info">255</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
-                <ul></ul></a></li>
+                <ul><li>todo 
+                <span class="label label-info">2</span>
+</li></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
                 <span class="label label-info">0</span></a></li>
 </ul>
@@ -68,11 +65,12 @@
 <ul class="side-nav nav nav-list">
 <li class="nav-header">
 <i class="icon-custom icon-method"></i> Methods</li>
-<li class="method public "><a href="#__construct" title="__construct :: Constructor."><span class="description">Constructor.</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#__construct" title="__construct :: Constructor. Sets the vocabulary."><span class="description">Constructor. Sets the vocabulary.</span><pre>__construct()</pre></a></li>
 <li class="method public "><a href="#getInstance" title="getInstance :: Creates a child instance."><span class="description">Creates a child instance.</span><pre>getInstance()</pre></a></li>
 <li class="method public "><a href="#getVocabulary" title="getVocabulary :: Gets the vocabulary."><span class="description">Gets the vocabulary.</span><pre>getVocabulary()</pre></a></li>
-<li class="method public "><a href="#parseAtomic" title="parseAtomic :: Parses an atomic sentence string."><span class="description">Parses an atomic sentence string.</span><pre>parseAtomic()</pre></a></li>
 <li class="method public "><a href="#stringToSentence" title="stringToSentence :: Creates a {@link Sentence sentence} instance from a string."><span class="description">Creates a {@link Sentence sentence} instance from a string.</span><pre>stringToSentence()</pre></a></li>
+<li class="nav-header protected">» Protected</li>
+<li class="method protected "><a href="#parseAtomic" title="parseAtomic :: Parses an atomic sentence from a string that starts with an atomic symbol."><span class="description">Parses an atomic sentence from a string that starts with an atomic symbol.</span><pre>parseAtomic()</pre></a></li>
 <li class="nav-header">
 <i class="icon-custom icon-property"></i> Properties</li>
 <li class="nav-header protected">» Protected</li>
@@ -95,16 +93,16 @@
 <p class="long_description"></p>
 <table class="table table-bordered"><tr>
 <th>package</th>
-<td><a href="..//packages/Syntax.html">Syntax</a></td>
+<td><a href="..//packages/GoTableaux.html">GoTableaux</a></td>
 </tr></table>
 <h3>
 <i class="icon-custom icon-method"></i> Methods</h3>
 <a name="__construct" id="__construct"></a><div class="element clickable method public __construct" data-toggle="collapse" data-target=".__construct .collapse">
-<h2>Constructor.</h2>
+<h2>Constructor. Sets the vocabulary.</h2>
 <pre>__construct(Vocabulary $vocabulary) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="span8">
-<p class="long_description"><p>Sets the vocabulary.</p></p>
+<p class="long_description"></p>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$vocabulary</h4>
@@ -134,31 +132,7 @@
 <p class="long_description"></p>
 <h3>Returns</h3>
 <div class="subelement response">
-<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code>The parser's vocabulary.</div>
-</div></div>
-</div>
-<a name="parseAtomic" id="parseAtomic"></a><div class="element clickable method public parseAtomic" data-toggle="collapse" data-target=".parseAtomic .collapse">
-<h2>Parses an atomic sentence string.</h2>
-<pre>parseAtomic(string $sentenceStr) : <a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="span8">
-<p class="long_description"></p>
-<table class="table table-bordered"><tr>
-<th>access</th>
-<td>private</td>
-</tr></table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$sentenceStr</h4>
-<code>string</code><p>The string to parse.</p></div>
-<h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th><code>\GoTableaux\{@link</code></th>
-<td>ParserException}.</td>
-</tr></table>
-<h3>Returns</h3>
-<div class="subelement response">
-<code><a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></code>The resulting sentence instance.</div>
+<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code>The vocabulary that the parser is using.</div>
 </div></div>
 </div>
 <a name="stringToSentence" id="stringToSentence"></a><div class="element clickable method public stringToSentence" data-toggle="collapse" data-target=".stringToSentence .collapse">
@@ -179,6 +153,30 @@
 <h3>Returns</h3>
 <div class="subelement response">
 <code><a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></code>The resulting instance.</div>
+</div></div>
+</div>
+<a name="parseAtomic" id="parseAtomic"></a><div class="element clickable method protected parseAtomic" data-toggle="collapse" data-target=".parseAtomic .collapse">
+<h2>Parses an atomic sentence from a string that starts with an atomic symbol.</h2>
+<pre>parseAtomic(string $sentenceStr) : <a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>This is the default implementation for parsing an atomic sentence from a
+string that starts with an atomic symbol. This implementation expects
+the next symbol to be either a separator (space) character, or a
+subscript character followed by an integer. If a subscript is not given,
+it will be assigned 0.</p></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$sentenceStr</h4>
+<code>string</code><p>The string to parse.</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\GoTableaux\{@link</code></th>
+<td>ParserException}.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></code>The resulting sentence instance.</div>
 </div></div>
 </div>
 <h3>
@@ -202,7 +200,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
-            generated on 2012-04-09T00:16:29-07:00.<br></footer></div>
+            generated on 2012-04-21T00:47:25-07:00.<br></footer></div>
 </div>
 </body>
 </html>

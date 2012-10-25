@@ -21,7 +21,8 @@
 
 namespace GoTableaux\Proof\TableauNode;
 
-use \GoTableaux\Exception\Tableau as Tableau;
+use \GoTableaux\Logic as Logic;
+use \GoTableaux\Exception\Tableau as TableauException;
 
 /**
  * Represents a modal logic access relation node.
@@ -29,6 +30,18 @@ use \GoTableaux\Exception\Tableau as Tableau;
  */
 class Access extends Modal
 {
+	/**
+	 * Meta symbol names required by the node.
+	 * @var array
+	 */
+    public static $metaSymbolNames = array( 'accessRelationSymbol' );
+
+	/**
+	 * States which filter conditions should enforce a node to be this class.
+	 * @var array
+	 */
+	public static $forceClassOnConditions = array( 'j' );
+	
 	/**
 	 * Holds a reference to the seen world index.
 	 * @var integer
@@ -46,8 +59,8 @@ class Access extends Modal
 	public function setProperties( array $properties )
 	{
 		parent::setProperties( $properties );
-		if ( empty( $properties['j'] )) 
-			throw new TableauException( 'Must set second index when creating a sentence node.' );
+		if ( !isset( $properties['j'] )) 
+			throw new TableauException( 'Must set second index when creating an access node.' );
 		$this->setJ( $properties['j'] );
 	}
 	
@@ -60,13 +73,14 @@ class Access extends Modal
 	 * should likewise check parent::filter().
 	 *
 	 * @param array $conditions A hash of the conditions to pass.
+	 * @param Logic $logic The logic.
 	 * @return boolean Wether the node passes (i.e. is not ruled out by) the conditions.
 	 * @see TableauBranch::find()
 	 */
-	public function filter( array $conditions )
+	public function filter( array $conditions, Logic $logic )
 	{
-		if ( !parent::filter( $conditions )) return false;
-		return !isset( $conditions['j' ] ) || $this->getJ() === $conditions['j'];
+		if ( !parent::filter( $conditions, $logic )) return false;
+		return !isset( $conditions['j' ] ) || $conditions['j'] === '*' || $this->getJ() === $conditions['j'];
 	}
 	
 	/**

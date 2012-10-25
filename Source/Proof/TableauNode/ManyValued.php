@@ -21,6 +21,7 @@
 
 namespace GoTableaux\Proof\TableauNode;
 
+use \GoTableaux\Logic as Logic;
 use \GoTableaux\Exception\Tableau as TableauException;
 
 /**
@@ -29,6 +30,18 @@ use \GoTableaux\Exception\Tableau as TableauException;
  */
 class ManyValued extends \GoTableaux\Proof\TableauNode
 {
+	/**
+	 * Meta symbol names required by the node.
+	 * @var array
+	 */
+    public static $metaSymbolNames = array( 'designatedMarker', 'undesignatedMarker' );
+
+	/**
+	 * States which filter conditions should enforce a node to be this class.
+	 * @var array
+	 */
+	public static $forceClassOnConditions = array( 'designated' );
+
 	/**
 	 * Holds the designation
 	 * @var boolean
@@ -58,12 +71,13 @@ class ManyValued extends \GoTableaux\Proof\TableauNode
 	 * should likewise check parent::filter().
 	 *
 	 * @param array $conditions A hash of the conditions to pass.
+	 * @param Logic $logic The logic.
 	 * @return boolean Wether the node passes (i.e. is not ruled out by) the conditions.
 	 * @see TableauBranch::find()
 	 */
-	public function filter( array $conditions )
+	public function filter( array $conditions, Logic $logic )
 	{
-		if ( !$this->node->filter( $conditions )) return false;
+		if ( !$this->node->filter( $conditions, $logic )) return false;
 		return !isset( $conditions['designated' ] ) || $this->isDesignated() === $conditions['designated'];
 	}
 	
