@@ -159,7 +159,7 @@ abstract class TableauxSystem extends \GoTableaux\ProofSystem
 		if ( $tableau->isFinished() ) return false;
 		foreach ( $this->getRules() as $rule ) 
 			if ( $rule->applies( $tableau )) {
-				Utilities::debug( "Applying " . $rule->getName() . ' rule.' );
+				Utilities::debug( "Applying " . $rule->getName() . ' rule. Open Branches : ' . count( $tableau->getOpenBranches() ) . ' of ' . count( $tableau->getBranches() ));
 				$rule->apply( $tableau );
 				return true;
 			}

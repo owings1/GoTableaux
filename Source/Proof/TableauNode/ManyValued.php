@@ -78,7 +78,7 @@ class ManyValued extends \GoTableaux\Proof\TableauNode
 	public function filter( array $conditions, Logic $logic )
 	{
 		if ( !$this->node->filter( $conditions, $logic )) return false;
-		return !isset( $conditions['designated' ] ) || $this->isDesignated() === $conditions['designated'];
+		if ( isset( $conditions['designated'] )) return $this->isDesignated() === $conditions['designated'];
 	}
 	
 	/**

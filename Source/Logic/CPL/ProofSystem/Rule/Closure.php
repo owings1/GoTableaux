@@ -22,6 +22,7 @@
 namespace GoTableaux\Logic\CPL\ProofSystem\Rule;
 
 use \GoTableaux\Proof\TableauBranch as Branch;
+use \GoTableaux\Utilities as Utilities;
 use \GoTableaux\Logic as Logic;
 
 /**
@@ -32,10 +33,15 @@ class Closure extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Closure
 {
 	public function appliesToBranch( Branch $branch, Logic $logic )
 	{
+		$t = microtime( true );
 		foreach ( $branch->find( 'all' ) as $node ) {
 			$sentence = $logic->negate( $node->getSentence() );
-			if ( $branch->find( 'exists', compact( 'sentence' ))) return true;
+			if ( $branch->find( 'exists', compact( 'sentence' ))) {
+				Utilities::debug( 'Felicitous applies search lasted ' . round( microtime( true ) - $t, 2 ) . ' seconds.' );
+				return true;
+			}
 		}
+		Utilities::debug( 'Infelicitous applies search lasted ' . round( microtime( true ) - $t, 2 ) . ' seconds for ' . $this->getName() . '.' );
 		return false;
 	}
 	

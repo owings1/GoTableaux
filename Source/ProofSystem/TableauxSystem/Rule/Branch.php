@@ -22,6 +22,7 @@
 namespace GoTableaux\ProofSystem\TableauxSystem\Rule;
 
 use \GoTableaux\Logic as Logic;
+use \GoTableaux\Utilities as Utilities;
 use \GoTableaux\Proof\Tableau as Tableau;
 use \GoTableaux\Proof\TableauBranch as TableauBranch;
 
@@ -41,8 +42,13 @@ abstract class Branch extends \GoTableaux\ProofSystem\TableauxSystem\Rule
 	 */
 	public function applies( Tableau $tableau )
 	{
+		$t = microtime( true );
 		foreach( $tableau->getOpenBranches() as $branch )
-		 	if ( $this->appliesToBranch( $branch, $tableau->getProofSystem()->getLogic() )) return true;	
+		 	if ( $this->appliesToBranch( $branch, $tableau->getProofSystem()->getLogic() )) {
+				Utilities::debug( 'Felicitous applies search lasted ' . round( microtime( true ) - $t, 2 ) . ' seconds.' );
+				return true;
+			} 
+		Utilities::debug( 'Infelicitous applies search lasted ' . round( microtime( true ) - $t, 2 ) . ' seconds for ' . $this->getName() . '.' );
 		return false;
 	}
 

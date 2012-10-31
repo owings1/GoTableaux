@@ -204,6 +204,7 @@ class TableauBranch
 	 */
 	public function find( $ret = 'all', array $conditions = array() )
 	{
+		$t = microtime( true );
 		$classes = TableauNode::induceClassesFromConditions( $conditions );
 		if ( !empty( $conditions['class'] )) 
 			$classes = array_merge( 
@@ -220,6 +221,7 @@ class TableauBranch
 		$nodes = array_filter( $nodes, function( $node ) use( $conditions, $logic ) { 
 			return $node->filter( $conditions, $logic ); 
 		});
+		//Utilities::debug( 'Filter operation lasted ' . round( microtime( true ) - $t, 2 ) . ' seconds.' );
 		switch ( $ret ) {
 			case 'one'    :
 			case 'first'  : return array_shift( $nodes );
