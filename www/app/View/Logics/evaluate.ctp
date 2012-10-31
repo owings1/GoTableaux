@@ -101,7 +101,7 @@
 			$('#Lexicon').load( lexUrl + '/' + logicId + '/' + notationId )
 		}
 		
-		$( '#indexForm' ).on( 'click', 'input, a', function() {
+		$( '#evaluateForm' ).on( 'click', 'input, a', function() {
 			var $me = $(this)
 			var id = $me.attr('id')
 			var name = $me.attr('name')
