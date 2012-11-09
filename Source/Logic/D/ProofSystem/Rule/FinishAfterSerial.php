@@ -38,7 +38,7 @@ class FinishAfterSerial extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Tabl
 	 */
 	public function applies( Tableau $tableau )
 	{
-		Util::debug( get_class( $tableau->getLastRule() ));
+		//Util::debug( get_class( $tableau->getLastRule() ));
 		return $tableau->getLastRule() instanceof Serial;
 	}
 }

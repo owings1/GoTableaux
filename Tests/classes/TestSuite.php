@@ -16,15 +16,26 @@
  */
 namespace GoTableaux\Test;
 
+use \GoTableaux\Utilities as Utilities;
+
 if ( !defined( 'DS' )) define( 'DS', DIRECTORY_SEPARATOR );
 require_once __DIR__ . DS . '..' . DS . '..' . DS . 'Source' . DS . 'Loader.php';
 abstract class TestSuite extends \TestSuite 
 {
 	public $subDirectory;
+	public $t1;
 	
 	public function __construct()
 	{
 		parent::__construct();
+		$this->t1 = microtime( true );
 		$this->collect( __DIR__ . DS . '..' . DS . $this->subDirectory, new \SimplePatternCollector( '/Test.php/' ));
+
+	}
+	
+	public function tearDown()
+	{
+		Utilities::debug ( "{$this->subDirectory} time: " . round(microtime( true ) - $this->t1, 2 ) . 's');
+		Utilities::debug ( "\n" );
 	}
 }

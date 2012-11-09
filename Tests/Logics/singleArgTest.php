@@ -20,7 +20,7 @@ if ( !defined( 'DS' )) define( 'DS', DIRECTORY_SEPARATOR );
 require_once __DIR__ . DS . '..' . DS . 'simpletest' . DS . 'autorun.php';
 require_once __DIR__ . DS . '..' . DS . 'classes' . DS . 'LogicTestCase.php';
 
-class CPLTest extends LogicTestCase
+class SingleArgTest extends LogicTestCase
 {
 	public $logicName = 'CPL';
 	

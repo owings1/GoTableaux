@@ -216,7 +216,7 @@ class TableauStructure
 				$branch = array_shift( $b );
 				$n 		= $branch->find( 'all' );
 				if ( empty( $n )) {
-					print_r( $branches ); 
+					Utilities::debug( $branches ); 
 					throw new Exception( 'empty nodes' );
 				}
 				$node 	= array_shift( $n );

@@ -56,27 +56,33 @@ abstract class LogicTestCase extends UnitTestCase
 	
 	public function testValidities()
 	{
+		$t1 = microtime( true );
 		$arguments = $this->parseArguments( $this->validities );
 		foreach ( $arguments as $name => $argument ) {
 			$t = microtime( true );
-			Utilities::debug( "Checking for validity of $name in {$this->logicName}");
+			//Utilities::debug( "Checking for validity of $name in {$this->logicName}");
 			$proof = $this->logic->getProofSystem()
 							   	 ->constructProofForArgument( $argument );
 			$this->assertValid( $proof, $name );
-			Utilities::debug ( 'Elapsed time: ' . round(microtime( true ) - $t, 2 ) . 's');
+			//Utilities::debug ( 'Argument time: ' . round(microtime( true ) - $t, 3 ) . 's');
 		}
+		Utilities::debug ( "{$this->logicName} validities time: " . round(microtime( true ) - $t1, 2 ) . 's');
+		Utilities::debug ( "" );
 	}
 	
 	public function testInvalidities()
 	{
+		$t1 = microtime( true );
 		$arguments = $this->parseArguments( $this->invalidities );
 		foreach ( $arguments as $name => $argument ) {
 			$t = microtime( true );
-			Utilities::debug( "Checking for invalidity of $name in {$this->logicName}");
+			//Utilities::debug( "Checking for invalidity of $name in {$this->logicName}");
 			$proof = $this->logic->getProofSystem()
 							   	 ->constructProofForArgument( $argument );
 			$this->assertInvalid( $proof, $name );
-			Utilities::debug ( 'Elapsed time: ' . round(microtime( true ) - $t, 2 ) . 's');
+			//Utilities::debug ( 'Argument time: ' . round(microtime( true ) - $t, 2 ) . 's');
 		}
+		Utilities::debug ( "{$this->logicName} invalidities time: " . round(microtime( true ) - $t1, 2 ) . 's');
+		Utilities::debug ( "" );
 	}
 }

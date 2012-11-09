@@ -23,10 +23,14 @@ namespace GoTableaux\Proof;
 
 use \GoTableaux\Logic as Logic;
 use \GoTableaux\Sentence as Sentence;
+use \GoTableaux\EventHandler as EventHandler;
 use \GoTableaux\Utilities as Utilities;
 
 /**
  * Represents a tableau branch.
+ *
+ * Core events: beforeAddNode, afterAddNode.
+ *
  * @package GoTableaux
  */
 class TableauBranch
@@ -54,6 +58,18 @@ class TableauBranch
 	 * @var Tableau
 	 */
 	private $tableau;
+	
+	/**
+	 * Holds the listeners.
+	 * @var array
+	 */
+	private $listeners = array();
+	
+	/**
+	 * Counts the listeners as they are added, to make an id.
+	 * @var integer
+	 */
+	private static $_listenerCount = 0;
 	
 	/**
 	 * Constructor.
@@ -172,7 +188,9 @@ class TableauBranch
 	 */
 	public function copy()
 	{
-		return clone $this;
+		$branch = clone $this;
+		EventHandler::copy( $this, $branch );
+		return $branch;
 	}
 	
 	/**
@@ -212,11 +230,12 @@ class TableauBranch
 				$classes
 			);
 		$nodes = $this->getNodesByClassName( $classes );
-		$that = $this;
-		if ( isset( $conditions['ticked'] ))
+		if ( isset( $conditions['ticked'] )) {
+			$that = $this;
 			$nodes = array_filter( $nodes, function( $node ) use( $conditions, $that ) {
 				return $that->nodeIsTicked( $node ) === $conditions['ticked'];
 			});
+		}
 		$logic = $this->getTableau()->getProofSystem()->getLogic();
 		$nodes = array_filter( $nodes, function( $node ) use( $conditions, $logic ) { 
 			return $node->filter( $conditions, $logic ); 
@@ -275,7 +294,9 @@ class TableauBranch
 	public function addNode( TableauNode $node )
 	{
 		$node->beforeAttach( $this );
+		EventHandler::trigger( $this, 'beforeAddNode' );
 		Utilities::uniqueAdd( $node, $this->nodes );
+		EventHandler::trigger( $this, 'afterAddNode' );
 		return $this;
 	}
 	

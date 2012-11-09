@@ -37,11 +37,11 @@ class Closure extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Closure
 		foreach ( $branch->find( 'all' ) as $node ) {
 			$sentence = $logic->negate( $node->getSentence() );
 			if ( $branch->find( 'exists', compact( 'sentence' ))) {
-				Utilities::debug( 'Felicitous applies search lasted ' . round( microtime( true ) - $t, 2 ) . ' seconds.' );
+				//Utilities::debug( 'Felicitous applies search lasted ' . round( microtime( true ) - $t, 2 ) . ' seconds.' );
 				return true;
 			}
 		}
-		Utilities::debug( 'Infelicitous applies search lasted ' . round( microtime( true ) - $t, 2 ) . ' seconds for ' . $this->getName() . '.' );
+		//Utilities::debug( 'Infelicitous applies search lasted ' . round( microtime( true ) - $t, 2 ) . ' seconds for ' . $this->getName() . '.' );
 		return false;
 	}
 	

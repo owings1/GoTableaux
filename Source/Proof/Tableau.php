@@ -23,10 +23,13 @@ namespace GoTableaux\Proof;
 
 use \GoTableaux\Exception\Tableau as TableauException;
 use \GoTableaux\Utilities as Utilities;
+use \GoTableaux\EventHandler as EventHandler;
 use \GoTableaux\ProofSystem\TableauxSystem\Rule as Rule;
 
 /**
  * Represents a tableau for an argument.
+ *
+ * Core events: afterCreateBranch
  *
  * @package GoTableaux
  */
@@ -63,7 +66,9 @@ class Tableau extends \GoTableaux\Proof
 	 */
 	public function createBranch()
 	{
-		return new TableauBranch( $this );
+		$branch = new TableauBranch( $this );
+		EventHandler::trigger( $this, 'afterCreateBranch', array( $branch ));
+		return $branch;
 	}
 	
 	/**
