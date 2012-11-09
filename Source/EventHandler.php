@@ -41,7 +41,10 @@ class EventHandler
 	 */
 	public static function bind( $object, $event, $callback )
 	{
-		self::$bindings[ 'listener' . self::$bindingCount ] = array( $object, $event, $callback );
+		$objectId = is_object( $object ) ? spl_object_hash( $object ) : $object;
+		if ( !isset( self::$bindings[ $objectId ]))
+			self::$bindings[ $objectId ] = array( 'object' => $object, 'listeners' => array() );
+		self::$bindings[ $objectId ][ 'listeners' ][ 'listener' . self::$bindingCount ] = array( $event, $callback );
 		return self::$bindingCount++;
 	}
 	
@@ -51,10 +54,10 @@ class EventHandler
 	 * @param integer $listenerId The listener id returned by bind().
 	 * @return void
 	 */
-	public static function unbind( $listenerId )
-	{
-		unset( self::$bindings[ 'listener' . $listenerId ]);
-	}
+	//public static function unbind( $listenerId )
+	//{
+	//	unset( self::$bindings[ 'listener' . $listenerId ]);
+	//}
 	
 	/**
 	 * Triggers an event on an object.
@@ -67,7 +70,7 @@ class EventHandler
 	{
 		$args = array_merge( array( $object ), $args );
 		foreach ( self::getBindings( $object, $event ) as $binding ) 
-			call_user_func_array( $binding[2], $args );
+			call_user_func_array( $binding[1], $args );
 	}
 	
 	/**
@@ -78,8 +81,9 @@ class EventHandler
 	 */
 	public static function copy( $source, $target )
 	{
+		$targetId = spl_object_hash( $target );
 		foreach ( self::getBindings( $source ) as $binding )
-			self::bind( $target, $binding[1], $binding[2] );
+			self::bind( $targetId, $binding[0], $binding[1] );
 	}
 	
 	/**
@@ -91,8 +95,12 @@ class EventHandler
 	 */
 	public static function getBindings( $object, $event = null )
 	{
-		return array_filter( self::$bindings, function( $binding ) use( $object, $event ) {
-			return $object === $binding[0] && ( $event === null || $event === $binding[1] );
+		$objectId = spl_object_hash( $object );
+		if ( !isset( self::$bindings[ $objectId ])) return array();
+		$bindings = self::$bindings[ $objectId ][ 'listeners' ];
+		if ( $event === null ) return $bindings;
+		return array_filter( $bindings, function( $binding ) use( $event ) {
+			return $event === $binding[0];
 		});
 	}
 }
