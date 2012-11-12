@@ -1,0 +1,270 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>GoTableaux » \GoTableaux\Logic\K\ProofSystem\Rule\Necessity</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">GoTableaux</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
+<li><a href="../packages/D.html"><i class="icon-folder-open"></i> D</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
+<li><a href="../packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
+<li><a href="../packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
+<li><a href="../packages/K.html"><i class="icon-folder-open"></i> K</a></li>
+<li><a href="../packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
+<li><a href="../packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
+<li><a href="../packages/S4.html"><i class="icon-folder-open"></i> S4</a></li>
+<li><a href="../packages/S5.html"><i class="icon-folder-open"></i> S5</a></li>
+<li><a href="../packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
+<li><a href="../packages/T.html"><i class="icon-folder-open"></i> T</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">425</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul><li>todo 
+                <span class="label label-info">2</span>
+</li></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public inherited"><a href="#applies" title="applies :: Determines whether the rule can apply to the tableau."><span class="description">Determines whether the rule can apply to the tableau.</span><pre>applies()</pre></a></li>
+<li class="method public "><a href="#appliesToBranch" title="appliesToBranch :: Determines whether a rule can apply to a branch."><span class="description">Determines whether a rule can apply to a branch.</span><pre>appliesToBranch()</pre></a></li>
+<li class="method public inherited"><a href="#apply" title="apply :: Applies the rule to a tableau."><span class="description">Applies the rule to a tableau.</span><pre>apply()</pre></a></li>
+<li class="method public "><a href="#applyToBranch" title="applyToBranch :: Applies the rule to an open branch."><span class="description">Applies the rule to an open branch.</span><pre>applyToBranch()</pre></a></li>
+<li class="method public "><a href="#applyToNodeForIndex" title="applyToNodeForIndex :: "><span class="description">applyToNodeForIndex()
+        </span><pre>applyToNodeForIndex()</pre></a></li>
+<li class="method public "><a href="#buildExample" title="buildExample :: Builds an example branch for the rule."><span class="description">Builds an example branch for the rule.</span><pre>buildExample()</pre></a></li>
+<li class="method public inherited"><a href="#getExample" title="getExample :: Creates an example tableau for the rule."><span class="description">Creates an example tableau for the rule.</span><pre>getExample()</pre></a></li>
+<li class="method public inherited"><a href="#getName" title="getName :: Gets the logic-qualified name of the rule."><span class="description">Gets the logic-qualified name of the rule.</span><pre>getName()</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CGoTableaux%5CLogic%5CK%5CProofSystem%5CRule%5CNecessity" id="\GoTableaux\Logic\K\ProofSystem\Rule\Necessity"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.html">Logic</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.K.html">K</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.K.ProofSystem.html">ProofSystem</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.K.ProofSystem.Rule.html">Rule</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/GoTableaux.Logic.K.ProofSystem.Rule.Necessity.html">Necessity</a>
+</li>
+</ul>
+<div href="../classes/GoTableaux.Logic.K.ProofSystem.Rule.Necessity.html" class="element class">
+<p class="short_description">Represents a tableau rule that applies to a branch.</p>
+<div class="details">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>package</th>
+<td><a href="..//packages/K.html">K</a></td>
+</tr></table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="applies" id="applies"></a><div class="element clickable method public applies" data-toggle="collapse" data-target=".applies .collapse">
+<h2>Determines whether the rule can apply to the tableau.</h2>
+<pre>applies(Tableau $tableau) : boolean</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>A branch rule can apply to a tableau when it can apply to an open branch.</p></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\ProofSystem\TableauxSystem\Rule\Branch::applies()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$tableau</h4>
+<code><a href="../classes/GoTableaux.Proof.Tableau.html">\GoTableaux\Proof\Tableau</a></code><p>The tableau to check.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>Whether the rule can apply.</div>
+</div></div>
+</div>
+<a name="appliesToBranch" id="appliesToBranch"></a><div class="element clickable method public appliesToBranch" data-toggle="collapse" data-target=".appliesToBranch .collapse">
+<h2>Determines whether a rule can apply to a branch.</h2>
+<pre>appliesToBranch(Branch $branch, Logic $logic) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$branch</h4>
+<code><a href="../classes/GoTableaux.Proof.TableauBranch.html">\GoTableaux\Proof\TableauBranch</a></code><p>The branch to check.</p></div>
+<div class="subelement argument">
+<h4>$logic</h4>
+<code><a href="../classes/GoTableaux.Logic.html">\GoTableaux\Logic</a></code><p>The logic of the proof system.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>Whether the rule can apply.</div>
+</div></div>
+</div>
+<a name="apply" id="apply"></a><div class="element clickable method public apply" data-toggle="collapse" data-target=".apply .collapse">
+<h2>Applies the rule to a tableau.</h2>
+<pre>apply(Tableau $tableau) : void</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>A branch rule applies to the first open branch.</p></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\ProofSystem\TableauxSystem\Rule\Branch::apply()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$tableau</h4>
+<code><a href="../classes/GoTableaux.Proof.Tableau.html">\GoTableaux\Proof\Tableau</a></code><p>The tableau to which to apply the rule.</p></div>
+</div></div>
+</div>
+<a name="applyToBranch" id="applyToBranch"></a><div class="element clickable method public applyToBranch" data-toggle="collapse" data-target=".applyToBranch .collapse">
+<h2>Applies the rule to an open branch.</h2>
+<pre>applyToBranch(Branch $branch, Logic $logic) : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$branch</h4>
+<code><a href="../classes/GoTableaux.Proof.TableauBranch.html">\GoTableaux\Proof\TableauBranch</a></code><p>The open branch.</p></div>
+<div class="subelement argument">
+<h4>$logic</h4>
+<code><a href="../classes/GoTableaux.Logic.html">\GoTableaux\Logic</a></code><p>The logic of the proof system.</p></div>
+</div></div>
+</div>
+<a name="applyToNodeForIndex" id="applyToNodeForIndex"></a><div class="element clickable method public applyToNodeForIndex" data-toggle="collapse" data-target=".applyToNodeForIndex .collapse">
+<h2>applyToNodeForIndex()
+        </h2>
+<pre>applyToNodeForIndex(Node $node, $i, Branch $branch, Logic $logic) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$node</h4>
+<code></code>
+</div>
+<div class="subelement argument">
+<h4>$i</h4>
+<code></code>
+</div>
+<div class="subelement argument">
+<h4>$branch</h4>
+<code></code>
+</div>
+<div class="subelement argument">
+<h4>$logic</h4>
+<code></code>
+</div>
+</div></div>
+</div>
+<a name="buildExample" id="buildExample"></a><div class="element clickable method public buildExample" data-toggle="collapse" data-target=".buildExample .collapse">
+<h2>Builds an example branch for the rule.</h2>
+<pre>buildExample(Branch $branch, Logic $logic) : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$branch</h4>
+<code>\GoTableaux\ProofSystem\TableauxSystem\Rule\TableauBrach</code><p>The branch to build.</p></div>
+<div class="subelement argument">
+<h4>$logic</h4>
+<code><a href="../classes/GoTableaux.Logic.html">\GoTableaux\Logic</a></code><p>The logic.</p></div>
+</div></div>
+</div>
+<a name="getExample" id="getExample"></a><div class="element clickable method public getExample" data-toggle="collapse" data-target=".getExample .collapse">
+<h2>Creates an example tableau for the rule.</h2>
+<pre>getExample(Logic $logic) : <a href="../classes/GoTableaux.Proof.Tableau.html">\GoTableaux\Proof\Tableau</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\ProofSystem\TableauxSystem\Rule\Branch::getExample()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$logic</h4>
+<code><a href="../classes/GoTableaux.Logic.html">\GoTableaux\Logic</a></code><p>The logic.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Proof.Tableau.html">\GoTableaux\Proof\Tableau</a></code>The example tableau.</div>
+</div></div>
+</div>
+<a name="getName" id="getName"></a><div class="element clickable method public getName" data-toggle="collapse" data-target=".getName .collapse">
+<h2>Gets the logic-qualified name of the rule.</h2>
+<pre>getName() : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>The logic name is deduced from the namespace of the rule class. E.g.,
+\GoTableaux\Logic\CPL\ProofSystem\Rule\MaterialConditional is rendered
+CPL.MaterialConditional.</p></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\ProofSystem\TableauxSystem\Rule::getName()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\ProofSystem\TableauxSystem\Rule\Branch::getName()</td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The name of the rule.</div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
+            generated on 2012-11-11T22:26:40-08:00.<br></footer></div>
+</div>
+</body>
+</html>

@@ -23,12 +23,18 @@
 <li><a href="namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
 <li><a>Packages</a></li>
 <li><a href="packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
+<li><a href="packages/D.html"><i class="icon-folder-open"></i> D</a></li>
+<li><a href="packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
 <li><a href="packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
 <li><a href="packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
 <li><a href="packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
+<li><a href="packages/K.html"><i class="icon-folder-open"></i> K</a></li>
 <li><a href="packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
 <li><a href="packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
+<li><a href="packages/S4.html"><i class="icon-folder-open"></i> S4</a></li>
+<li><a href="packages/S5.html"><i class="icon-folder-open"></i> S5</a></li>
 <li><a href="packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
+<li><a href="packages/T.html"><i class="icon-folder-open"></i> T</a></li>
 </ul>
 </li>
 <li class="dropdown" id="charts-menu">
@@ -39,7 +45,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">255</span></a></li>
+                <span class="label label-info">425</span></a></li>
 <li><a href="markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul><li>todo 
                 <span class="label label-info">2</span>
@@ -64,6 +70,7 @@
 <button class="btn critical">Critical</button><button class="btn error">Error</button><button class="btn notice">Notice</button>
 </div></li>
 <li class="nav-header">Navigation</li>
+<li><a href="#EventHandler.php"><i class="icon-file"></i>EventHandler.php</a></li>
 <li><a href="#Logic/CPL/ProofSystem/Rule/Closure.php"><i class="icon-file"></i>Logic/CPL/ProofSystem/Rule/Closure.php</a></li>
 <li><a href="#Logic/CPL/ProofSystem/Rule/Conjunction.php"><i class="icon-file"></i>Logic/CPL/ProofSystem/Rule/Conjunction.php</a></li>
 <li><a href="#Logic/CPL/ProofSystem/Rule/Disjunction.php"><i class="icon-file"></i>Logic/CPL/ProofSystem/Rule/Disjunction.php</a></li>
@@ -76,6 +83,9 @@
 <li><a href="#Logic/CPL/ProofSystem/Rule/NegatedMaterialConditional.php"><i class="icon-file"></i>Logic/CPL/ProofSystem/Rule/NegatedMaterialConditional.php</a></li>
 <li><a href="#Logic/CPL/ProofSystem.php"><i class="icon-file"></i>Logic/CPL/ProofSystem.php</a></li>
 <li><a href="#Logic/CPL.php"><i class="icon-file"></i>Logic/CPL.php</a></li>
+<li><a href="#Logic/D/ProofSystem/Rule/Serial.php"><i class="icon-file"></i>Logic/D/ProofSystem/Rule/Serial.php</a></li>
+<li><a href="#Logic/D/ProofSystem.php"><i class="icon-file"></i>Logic/D/ProofSystem.php</a></li>
+<li><a href="#Logic/D.php"><i class="icon-file"></i>Logic/D.php</a></li>
 <li><a href="#Logic/FDE/ProofSystem/Rule/Closure.php"><i class="icon-file"></i>Logic/FDE/ProofSystem/Rule/Closure.php</a></li>
 <li><a href="#Logic/FDE/ProofSystem/Rule/ConjunctionDesignated.php"><i class="icon-file"></i>Logic/FDE/ProofSystem/Rule/ConjunctionDesignated.php</a></li>
 <li><a href="#Logic/FDE/ProofSystem/Rule/ConjunctionUndesignated.php"><i class="icon-file"></i>Logic/FDE/ProofSystem/Rule/ConjunctionUndesignated.php</a></li>
@@ -97,7 +107,6 @@
 <li><a href="#Logic/FDE/ProofSystem/Rule/NegatedMaterialConditionalUndesignated.php"><i class="icon-file"></i>Logic/FDE/ProofSystem/Rule/NegatedMaterialConditionalUndesignated.php</a></li>
 <li><a href="#Logic/FDE/ProofSystem.php"><i class="icon-file"></i>Logic/FDE/ProofSystem.php</a></li>
 <li><a href="#Logic/FDE.php"><i class="icon-file"></i>Logic/FDE.php</a></li>
-<li><a href="#Logic/GO/ProofSystem/Rule/Closure.php"><i class="icon-file"></i>Logic/GO/ProofSystem/Rule/Closure.php</a></li>
 <li><a href="#Logic/GO/ProofSystem/Rule/ConditionalUndesignated.php"><i class="icon-file"></i>Logic/GO/ProofSystem/Rule/ConditionalUndesignated.php</a></li>
 <li><a href="#Logic/GO/ProofSystem/Rule/ConjunctionUndesignated.php"><i class="icon-file"></i>Logic/GO/ProofSystem/Rule/ConjunctionUndesignated.php</a></li>
 <li><a href="#Logic/GO/ProofSystem/Rule/DisjunctionUndesignated.php"><i class="icon-file"></i>Logic/GO/ProofSystem/Rule/DisjunctionUndesignated.php</a></li>
@@ -115,6 +124,22 @@
 <li><a href="#Logic/GO/ProofSystem/Rule/NegatedMaterialConditionalUndesignated.php"><i class="icon-file"></i>Logic/GO/ProofSystem/Rule/NegatedMaterialConditionalUndesignated.php</a></li>
 <li><a href="#Logic/GO/ProofSystem.php"><i class="icon-file"></i>Logic/GO/ProofSystem.php</a></li>
 <li><a href="#Logic/GO.php"><i class="icon-file"></i>Logic/GO.php</a></li>
+<li><a href="#Logic/K/ProofSystem/Rule/Closure.php"><i class="icon-file"></i>Logic/K/ProofSystem/Rule/Closure.php</a></li>
+<li><a href="#Logic/K/ProofSystem/Rule/Conjunction.php"><i class="icon-file"></i>Logic/K/ProofSystem/Rule/Conjunction.php</a></li>
+<li><a href="#Logic/K/ProofSystem/Rule/Disjunction.php"><i class="icon-file"></i>Logic/K/ProofSystem/Rule/Disjunction.php</a></li>
+<li><a href="#Logic/K/ProofSystem/Rule/DoubleNegation.php"><i class="icon-file"></i>Logic/K/ProofSystem/Rule/DoubleNegation.php</a></li>
+<li><a href="#Logic/K/ProofSystem/Rule/MaterialBiconditional.php"><i class="icon-file"></i>Logic/K/ProofSystem/Rule/MaterialBiconditional.php</a></li>
+<li><a href="#Logic/K/ProofSystem/Rule/MaterialConditional.php"><i class="icon-file"></i>Logic/K/ProofSystem/Rule/MaterialConditional.php</a></li>
+<li><a href="#Logic/K/ProofSystem/Rule/Necessity.php"><i class="icon-file"></i>Logic/K/ProofSystem/Rule/Necessity.php</a></li>
+<li><a href="#Logic/K/ProofSystem/Rule/NegatedConjunction.php"><i class="icon-file"></i>Logic/K/ProofSystem/Rule/NegatedConjunction.php</a></li>
+<li><a href="#Logic/K/ProofSystem/Rule/NegatedDisjunction.php"><i class="icon-file"></i>Logic/K/ProofSystem/Rule/NegatedDisjunction.php</a></li>
+<li><a href="#Logic/K/ProofSystem/Rule/NegatedMaterialBiconditional.php"><i class="icon-file"></i>Logic/K/ProofSystem/Rule/NegatedMaterialBiconditional.php</a></li>
+<li><a href="#Logic/K/ProofSystem/Rule/NegatedMaterialConditional.php"><i class="icon-file"></i>Logic/K/ProofSystem/Rule/NegatedMaterialConditional.php</a></li>
+<li><a href="#Logic/K/ProofSystem/Rule/NegatedNecessity.php"><i class="icon-file"></i>Logic/K/ProofSystem/Rule/NegatedNecessity.php</a></li>
+<li><a href="#Logic/K/ProofSystem/Rule/NegatedPossibility.php"><i class="icon-file"></i>Logic/K/ProofSystem/Rule/NegatedPossibility.php</a></li>
+<li><a href="#Logic/K/ProofSystem/Rule/Possibility.php"><i class="icon-file"></i>Logic/K/ProofSystem/Rule/Possibility.php</a></li>
+<li><a href="#Logic/K/ProofSystem.php"><i class="icon-file"></i>Logic/K/ProofSystem.php</a></li>
+<li><a href="#Logic/K.php"><i class="icon-file"></i>Logic/K.php</a></li>
 <li><a href="#Logic/LP/ProofSystem/Rule/Closure.php"><i class="icon-file"></i>Logic/LP/ProofSystem/Rule/Closure.php</a></li>
 <li><a href="#Logic/LP/ProofSystem.php"><i class="icon-file"></i>Logic/LP/ProofSystem.php</a></li>
 <li><a href="#Logic/LP.php"><i class="icon-file"></i>Logic/LP.php</a></li>
@@ -124,23 +149,40 @@
 <li><a href="#Logic/Lukasiewicz/ProofSystem/Rule/NegatedConditionalUndesignated.php"><i class="icon-file"></i>Logic/Lukasiewicz/ProofSystem/Rule/NegatedConditionalUndesignated.php</a></li>
 <li><a href="#Logic/Lukasiewicz/ProofSystem.php"><i class="icon-file"></i>Logic/Lukasiewicz/ProofSystem.php</a></li>
 <li><a href="#Logic/Lukasiewicz.php"><i class="icon-file"></i>Logic/Lukasiewicz.php</a></li>
+<li><a href="#Logic/S4/ProofSystem/Rule/Transitive.php"><i class="icon-file"></i>Logic/S4/ProofSystem/Rule/Transitive.php</a></li>
+<li><a href="#Logic/S4/ProofSystem.php"><i class="icon-file"></i>Logic/S4/ProofSystem.php</a></li>
+<li><a href="#Logic/S4.php"><i class="icon-file"></i>Logic/S4.php</a></li>
+<li><a href="#Logic/S5/ProofSystem/Rule/Symmetric.php"><i class="icon-file"></i>Logic/S5/ProofSystem/Rule/Symmetric.php</a></li>
+<li><a href="#Logic/S5/ProofSystem.php"><i class="icon-file"></i>Logic/S5/ProofSystem.php</a></li>
+<li><a href="#Logic/S5.php"><i class="icon-file"></i>Logic/S5.php</a></li>
 <li><a href="#Logic/StrongKleene/ProofSystem/Rule/Closure.php"><i class="icon-file"></i>Logic/StrongKleene/ProofSystem/Rule/Closure.php</a></li>
 <li><a href="#Logic/StrongKleene/ProofSystem.php"><i class="icon-file"></i>Logic/StrongKleene/ProofSystem.php</a></li>
 <li><a href="#Logic/StrongKleene.php"><i class="icon-file"></i>Logic/StrongKleene.php</a></li>
+<li><a href="#Logic/T/ProofSystem/Rule/Reflexive.php"><i class="icon-file"></i>Logic/T/ProofSystem/Rule/Reflexive.php</a></li>
+<li><a href="#Logic/T/ProofSystem.php"><i class="icon-file"></i>Logic/T/ProofSystem.php</a></li>
+<li><a href="#Logic/T.php"><i class="icon-file"></i>Logic/T.php</a></li>
+<li><a href="#Logic.php"><i class="icon-file"></i>Logic.php</a></li>
 <li><a href="#Proof/TableauStructure.php"><i class="icon-file"></i>Proof/TableauStructure.php</a></li>
-<li><a href="#ProofSystem/TableauxSystem/Modal/Bivalent.php"><i class="icon-file"></i>ProofSystem/TableauxSystem/Modal/Bivalent.php</a></li>
-<li><a href="#ProofSystem/TableauxSystem/Modal/ManyValued.php"><i class="icon-file"></i>ProofSystem/TableauxSystem/Modal/ManyValued.php</a></li>
+<li><a href="#Proof.php"><i class="icon-file"></i>Proof.php</a></li>
+<li><a href="#ProofSystem/TableauxSystem/BranchEventListener.php"><i class="icon-file"></i>ProofSystem/TableauxSystem/BranchEventListener.php</a></li>
 <li><a href="#ProofSystem/TableauxSystem/Rule/Branch.php"><i class="icon-file"></i>ProofSystem/TableauxSystem/Rule/Branch.php</a></li>
+<li><a href="#ProofSystem/TableauxSystem/Rule/Closure.php"><i class="icon-file"></i>ProofSystem/TableauxSystem/Rule/Closure.php</a></li>
 <li><a href="#ProofSystem/TableauxSystem/Rule/Node.php"><i class="icon-file"></i>ProofSystem/TableauxSystem/Rule/Node.php</a></li>
+<li><a href="#ProofSystem/TableauxSystem/Rule/TableauFinish.php"><i class="icon-file"></i>ProofSystem/TableauxSystem/Rule/TableauFinish.php</a></li>
 <li><a href="#ProofSystem/TableauxSystem.php"><i class="icon-file"></i>ProofSystem/TableauxSystem.php</a></li>
+<li><a href="#ProofSystem.php"><i class="icon-file"></i>ProofSystem.php</a></li>
 <li><a href="#ProofWriter/Tableau/LaTeX_Qtree.php"><i class="icon-file"></i>ProofWriter/Tableau/LaTeX_Qtree.php</a></li>
 <li><a href="#ProofWriter/Tableau.php"><i class="icon-file"></i>ProofWriter/Tableau.php</a></li>
 <li><a href="#ProofWriter.php"><i class="icon-file"></i>ProofWriter.php</a></li>
 <li><a href="#SentenceParser/Polish.php"><i class="icon-file"></i>SentenceParser/Polish.php</a></li>
-<li><a href="#SentenceWriter/Polish/LaTeXDecorator.php"><i class="icon-file"></i>SentenceWriter/Polish/LaTeXDecorator.php</a></li>
+<li><a href="#SentenceParser/Standard.php"><i class="icon-file"></i>SentenceParser/Standard.php</a></li>
+<li><a href="#SentenceParser.php"><i class="icon-file"></i>SentenceParser.php</a></li>
+<li><a href="#SentenceWriter/Polish/HTML.php"><i class="icon-file"></i>SentenceWriter/Polish/HTML.php</a></li>
+<li><a href="#SentenceWriter/Polish/LaTeX.php"><i class="icon-file"></i>SentenceWriter/Polish/LaTeX.php</a></li>
 <li><a href="#SentenceWriter/Polish.php"><i class="icon-file"></i>SentenceWriter/Polish.php</a></li>
 <li><a href="#SentenceWriter/Standard/HTML.php"><i class="icon-file"></i>SentenceWriter/Standard/HTML.php</a></li>
-<li><a href="#SentenceWriter/Standard/LaTeXDecorator.php"><i class="icon-file"></i>SentenceWriter/Standard/LaTeXDecorator.php</a></li>
+<li><a href="#SentenceWriter/Standard/LaTeX.php"><i class="icon-file"></i>SentenceWriter/Standard/LaTeX.php</a></li>
+<li><a href="#SentenceWriter/Standard.php"><i class="icon-file"></i>SentenceWriter/Standard.php</a></li>
 <li><a href="#SentenceWriter.php"><i class="icon-file"></i>SentenceWriter.php</a></li>
 <li><a href="#Utilities.php"><i class="icon-file"></i>Utilities.php</a></li>
 </ul></div>
@@ -154,7 +196,50 @@
 <div class="package-contents"></div>
 <div class="package-contents"></div>
 <div class="package-contents"></div>
-<div class="package-contents"></div>
+<div class="package-contents">
+<a name="EventHandler.php" id="EventHandler.php"></a><h3>
+<i class="icon-file"></i>EventHandler.php<small style="float: right;padding-right: 10px;">6</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>31</td>
+<td>No DocBlock was found for property $bindings</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>33</td>
+<td>No DocBlock was found for property $bindingCount</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>35</td>
+<td>Name of argument $object does not match with the DocBlock's name $event in bind()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>35</td>
+<td>Name of argument $event does not match with the DocBlock's name $callback in bind()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>35</td>
+<td>Argument $callback is missing from the Docblock of bind()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>62</td>
+<td>Argument $args is missing from the Docblock of trigger()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
 <div class="package-contents"></div>
 <div class="package-contents"></div>
 <div class="package-contents"></div>
@@ -165,7 +250,7 @@
 <div class="package-contents"></div>
 <div class="package-contents">
 <a name="Logic/CPL/ProofSystem/Rule/Closure.php" id="Logic/CPL/ProofSystem/Rule/Closure.php"></a><h3>
-<i class="icon-file"></i>Logic/CPL/ProofSystem/Rule/Closure.php<small style="float: right;padding-right: 10px;">1</small>
+<i class="icon-file"></i>Logic/CPL/ProofSystem/Rule/Closure.php<small style="float: right;padding-right: 10px;">2</small>
 </h3>
 <div><table class="table markers table-bordered">
 <thead><tr>
@@ -173,11 +258,18 @@
 <th>Line</th>
 <th>Description</th>
 </tr></thead>
-<tbody><tr class="error">
+<tbody>
+<tr class="error">
 <td>error</td>
-<td>33</td>
+<td>34</td>
 <td>No DocBlock was found for method appliesToBranch()</td>
-</tr></tbody>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>48</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $branch in buildExample()</td>
+</tr>
+</tbody>
 </table></div>
 </div>
 <div class="package-contents">
@@ -505,7 +597,76 @@
 </div>
 <div class="package-contents">
 <a name="Logic/CPL.php" id="Logic/CPL.php"></a><h3>
-<i class="icon-file"></i>Logic/CPL.php<small style="float: right;padding-right: 10px;">1</small>
+<i class="icon-file"></i>Logic/CPL.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>30</td>
+<td>No DocBlock was found for property $title</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>32</td>
+<td>No DocBlock was found for property $inheritOperatorsFrom</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>34</td>
+<td>No DocBlock was found for property $externalLinks</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents"></div>
+<div class="package-contents">
+<a name="Logic/D/ProofSystem/Rule/Serial.php" id="Logic/D/ProofSystem/Rule/Serial.php"></a><h3>
+<i class="icon-file"></i>Logic/D/ProofSystem/Rule/Serial.php<small style="float: right;padding-right: 10px;">5</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/D/ProofSystem/Rule/Serial.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>23</td>
+<td>No short description for class Serial</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>28</td>
+<td>No DocBlock was found for method appliesToBranch()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>35</td>
+<td>No DocBlock was found for method applyToBranch()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>44</td>
+<td>No DocBlock was found for method buildExample()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/D/ProofSystem.php" id="Logic/D/ProofSystem.php"></a><h3>
+<i class="icon-file"></i>Logic/D/ProofSystem.php<small style="float: right;padding-right: 10px;">1</small>
 </h3>
 <div><table class="table markers table-bordered">
 <thead><tr>
@@ -515,14 +676,14 @@
 </tr></thead>
 <tbody><tr class="error">
 <td>error</td>
-<td>30</td>
-<td>No DocBlock was found for property $inheritLexiconFrom</td>
+<td>35</td>
+<td>No DocBlock was found for property $ruleClasses</td>
 </tr></tbody>
 </table></div>
 </div>
 <div class="package-contents">
-<a name="Logic/FDE/ProofSystem/Rule/Closure.php" id="Logic/FDE/ProofSystem/Rule/Closure.php"></a><h3>
-<i class="icon-file"></i>Logic/FDE/ProofSystem/Rule/Closure.php<small style="float: right;padding-right: 10px;">1</small>
+<a name="Logic/D.php" id="Logic/D.php"></a><h3>
+<i class="icon-file"></i>Logic/D.php<small style="float: right;padding-right: 10px;">3</small>
 </h3>
 <div><table class="table markers table-bordered">
 <thead><tr>
@@ -530,11 +691,47 @@
 <th>Line</th>
 <th>Description</th>
 </tr></thead>
-<tbody><tr class="error">
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>30</td>
+<td>No DocBlock was found for property $title</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>32</td>
+<td>No DocBlock was found for property $inheritOperatorsFrom</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>34</td>
+<td>No DocBlock was found for property $externalLinks</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/FDE/ProofSystem/Rule/Closure.php" id="Logic/FDE/ProofSystem/Rule/Closure.php"></a><h3>
+<i class="icon-file"></i>Logic/FDE/ProofSystem/Rule/Closure.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
 <td>error</td>
 <td>33</td>
 <td>No DocBlock was found for method appliesToBranch()</td>
-</tr></tbody>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>41</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $branch in buildExample()</td>
+</tr>
+</tbody>
 </table></div>
 </div>
 <div class="package-contents">
@@ -1168,7 +1365,7 @@
 </div>
 <div class="package-contents">
 <a name="Logic/FDE.php" id="Logic/FDE.php"></a><h3>
-<i class="icon-file"></i>Logic/FDE.php<small style="float: right;padding-right: 10px;">1</small>
+<i class="icon-file"></i>Logic/FDE.php<small style="float: right;padding-right: 10px;">3</small>
 </h3>
 <div><table class="table markers table-bordered">
 <thead><tr>
@@ -1176,28 +1373,23 @@
 <th>Line</th>
 <th>Description</th>
 </tr></thead>
-<tbody><tr class="error">
+<tbody>
+<tr class="error">
 <td>error</td>
 <td>30</td>
-<td>No DocBlock was found for property $lexicon</td>
-</tr></tbody>
-</table></div>
-</div>
-<div class="package-contents">
-<a name="Logic/GO/ProofSystem/Rule/Closure.php" id="Logic/GO/ProofSystem/Rule/Closure.php"></a><h3>
-<i class="icon-file"></i>Logic/GO/ProofSystem/Rule/Closure.php<small style="float: right;padding-right: 10px;">1</small>
-</h3>
-<div><table class="table markers table-bordered">
-<thead><tr>
-<th>Type</th>
-<th>Line</th>
-<th>Description</th>
-</tr></thead>
-<tbody><tr class="error">
+<td>No DocBlock was found for property $title</td>
+</tr>
+<tr class="error">
 <td>error</td>
-<td>33</td>
-<td>No DocBlock was found for method appliesToBranch()</td>
-</tr></tbody>
+<td>32</td>
+<td>No DocBlock was found for property $operatorArities</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>40</td>
+<td>No DocBlock was found for property $externalLinks</td>
+</tr>
+</tbody>
 </table></div>
 </div>
 <div class="package-contents">
@@ -1729,7 +1921,522 @@
 </div>
 <div class="package-contents">
 <a name="Logic/GO.php" id="Logic/GO.php"></a><h3>
-<i class="icon-file"></i>Logic/GO.php<small style="float: right;padding-right: 10px;">1</small>
+<i class="icon-file"></i>Logic/GO.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>30</td>
+<td>No DocBlock was found for property $title</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>32</td>
+<td>No DocBlock was found for property $inheritOperatorsFrom</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/K/ProofSystem/Rule/Closure.php" id="Logic/K/ProofSystem/Rule/Closure.php"></a><h3>
+<i class="icon-file"></i>Logic/K/ProofSystem/Rule/Closure.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>33</td>
+<td>No DocBlock was found for method appliesToBranch()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>43</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $branch in buildExample()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/K/ProofSystem/Rule/Conjunction.php" id="Logic/K/ProofSystem/Rule/Conjunction.php"></a><h3>
+<i class="icon-file"></i>Logic/K/ProofSystem/Rule/Conjunction.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/K/ProofSystem/Rule/Conjunction.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>23</td>
+<td>No short description for class Conjunction</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>28</td>
+<td>No DocBlock was found for property $conditions</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>33</td>
+<td>No DocBlock was found for method applyToNode()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/K/ProofSystem/Rule/Disjunction.php" id="Logic/K/ProofSystem/Rule/Disjunction.php"></a><h3>
+<i class="icon-file"></i>Logic/K/ProofSystem/Rule/Disjunction.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/K/ProofSystem/Rule/Disjunction.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>23</td>
+<td>No short description for class Disjunction</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>28</td>
+<td>No DocBlock was found for property $conditions</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>33</td>
+<td>No DocBlock was found for method applyToNode()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/K/ProofSystem/Rule/DoubleNegation.php" id="Logic/K/ProofSystem/Rule/DoubleNegation.php"></a><h3>
+<i class="icon-file"></i>Logic/K/ProofSystem/Rule/DoubleNegation.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/K/ProofSystem/Rule/DoubleNegation.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>23</td>
+<td>No short description for class DoubleNegation</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>28</td>
+<td>No DocBlock was found for property $conditions</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>33</td>
+<td>No DocBlock was found for method applyToNode()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/K/ProofSystem/Rule/MaterialBiconditional.php" id="Logic/K/ProofSystem/Rule/MaterialBiconditional.php"></a><h3>
+<i class="icon-file"></i>Logic/K/ProofSystem/Rule/MaterialBiconditional.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/K/ProofSystem/Rule/MaterialBiconditional.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>23</td>
+<td>No short description for class MaterialBiconditional</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>28</td>
+<td>No DocBlock was found for property $conditions</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>33</td>
+<td>No DocBlock was found for method applyToNode()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/K/ProofSystem/Rule/MaterialConditional.php" id="Logic/K/ProofSystem/Rule/MaterialConditional.php"></a><h3>
+<i class="icon-file"></i>Logic/K/ProofSystem/Rule/MaterialConditional.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/K/ProofSystem/Rule/MaterialConditional.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>23</td>
+<td>No short description for class MaterialConditional</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>28</td>
+<td>No DocBlock was found for property $conditions</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>33</td>
+<td>No DocBlock was found for method applyToNode()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/K/ProofSystem/Rule/Necessity.php" id="Logic/K/ProofSystem/Rule/Necessity.php"></a><h3>
+<i class="icon-file"></i>Logic/K/ProofSystem/Rule/Necessity.php<small style="float: right;padding-right: 10px;">6</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/K/ProofSystem/Rule/Necessity.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>24</td>
+<td>No short description for class Necessity</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>30</td>
+<td>No DocBlock was found for method appliesToBranch()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>44</td>
+<td>No DocBlock was found for method applyToBranch()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>57</td>
+<td>No DocBlock was found for method applyToNodeForIndex()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>63</td>
+<td>No DocBlock was found for method buildExample()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/K/ProofSystem/Rule/NegatedConjunction.php" id="Logic/K/ProofSystem/Rule/NegatedConjunction.php"></a><h3>
+<i class="icon-file"></i>Logic/K/ProofSystem/Rule/NegatedConjunction.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/K/ProofSystem/Rule/NegatedConjunction.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>23</td>
+<td>No short description for class NegatedConjunction</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>28</td>
+<td>No DocBlock was found for property $conditions</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>33</td>
+<td>No DocBlock was found for method applyToNode()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/K/ProofSystem/Rule/NegatedDisjunction.php" id="Logic/K/ProofSystem/Rule/NegatedDisjunction.php"></a><h3>
+<i class="icon-file"></i>Logic/K/ProofSystem/Rule/NegatedDisjunction.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/K/ProofSystem/Rule/NegatedDisjunction.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>23</td>
+<td>No short description for class NegatedDisjunction</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>28</td>
+<td>No DocBlock was found for property $conditions</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>33</td>
+<td>No DocBlock was found for method applyToNode()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/K/ProofSystem/Rule/NegatedMaterialBiconditional.php" id="Logic/K/ProofSystem/Rule/NegatedMaterialBiconditional.php"></a><h3>
+<i class="icon-file"></i>Logic/K/ProofSystem/Rule/NegatedMaterialBiconditional.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/K/ProofSystem/Rule/NegatedMaterialBiconditional.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>23</td>
+<td>No short description for class NegatedMaterialBiconditional</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>28</td>
+<td>No DocBlock was found for property $conditions</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>33</td>
+<td>No DocBlock was found for method applyToNode()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/K/ProofSystem/Rule/NegatedMaterialConditional.php" id="Logic/K/ProofSystem/Rule/NegatedMaterialConditional.php"></a><h3>
+<i class="icon-file"></i>Logic/K/ProofSystem/Rule/NegatedMaterialConditional.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/K/ProofSystem/Rule/NegatedMaterialConditional.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>23</td>
+<td>No short description for class NegatedMaterialConditional</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>28</td>
+<td>No DocBlock was found for property $conditions</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>33</td>
+<td>No DocBlock was found for method applyToNode()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/K/ProofSystem/Rule/NegatedNecessity.php" id="Logic/K/ProofSystem/Rule/NegatedNecessity.php"></a><h3>
+<i class="icon-file"></i>Logic/K/ProofSystem/Rule/NegatedNecessity.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/K/ProofSystem/Rule/NegatedNecessity.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>23</td>
+<td>No short description for class NegatedNecessity</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>28</td>
+<td>No DocBlock was found for property $conditions</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>33</td>
+<td>No DocBlock was found for method applyToNode()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/K/ProofSystem/Rule/NegatedPossibility.php" id="Logic/K/ProofSystem/Rule/NegatedPossibility.php"></a><h3>
+<i class="icon-file"></i>Logic/K/ProofSystem/Rule/NegatedPossibility.php<small style="float: right;padding-right: 10px;">7</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/K/ProofSystem/Rule/NegatedPossibility.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>24</td>
+<td>No short description for class NegatedPossibility</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>30</td>
+<td>No DocBlock was found for method appliesToBranch()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>44</td>
+<td>No DocBlock was found for method applyToBranch()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>57</td>
+<td>No DocBlock was found for method applyToNodeForIndex()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>63</td>
+<td>No DocBlock was found for method buildExample()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>69</td>
+<td>No DocBlock was found for method getSentence()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/K/ProofSystem/Rule/Possibility.php" id="Logic/K/ProofSystem/Rule/Possibility.php"></a><h3>
+<i class="icon-file"></i>Logic/K/ProofSystem/Rule/Possibility.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/K/ProofSystem/Rule/Possibility.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>24</td>
+<td>No short description for class Possibility</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>29</td>
+<td>No DocBlock was found for property $conditions</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>34</td>
+<td>No DocBlock was found for method applyToNode()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/K/ProofSystem.php" id="Logic/K/ProofSystem.php"></a><h3>
+<i class="icon-file"></i>Logic/K/ProofSystem.php<small style="float: right;padding-right: 10px;">1</small>
 </h3>
 <div><table class="table markers table-bordered">
 <thead><tr>
@@ -1739,14 +2446,14 @@
 </tr></thead>
 <tbody><tr class="error">
 <td>error</td>
-<td>30</td>
-<td>No DocBlock was found for property $inheritLexiconFrom</td>
+<td>35</td>
+<td>No DocBlock was found for property $ruleClasses</td>
 </tr></tbody>
 </table></div>
 </div>
 <div class="package-contents">
-<a name="Logic/LP/ProofSystem/Rule/Closure.php" id="Logic/LP/ProofSystem/Rule/Closure.php"></a><h3>
-<i class="icon-file"></i>Logic/LP/ProofSystem/Rule/Closure.php<small style="float: right;padding-right: 10px;">1</small>
+<a name="Logic/K.php" id="Logic/K.php"></a><h3>
+<i class="icon-file"></i>Logic/K.php<small style="float: right;padding-right: 10px;">4</small>
 </h3>
 <div><table class="table markers table-bordered">
 <thead><tr>
@@ -1754,11 +2461,52 @@
 <th>Line</th>
 <th>Description</th>
 </tr></thead>
-<tbody><tr class="error">
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>30</td>
+<td>No DocBlock was found for property $title</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>32</td>
+<td>No DocBlock was found for property $inheritOperatorsFrom</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>34</td>
+<td>No DocBlock was found for property $operatorArities</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>36</td>
+<td>No DocBlock was found for property $externalLinks</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/LP/ProofSystem/Rule/Closure.php" id="Logic/LP/ProofSystem/Rule/Closure.php"></a><h3>
+<i class="icon-file"></i>Logic/LP/ProofSystem/Rule/Closure.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
 <td>error</td>
 <td>33</td>
 <td>No DocBlock was found for method appliesToBranch()</td>
-</tr></tbody>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>42</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $branch in buildExample()</td>
+</tr>
+</tbody>
 </table></div>
 </div>
 <div class="package-contents">
@@ -1780,7 +2528,7 @@
 </div>
 <div class="package-contents">
 <a name="Logic/LP.php" id="Logic/LP.php"></a><h3>
-<i class="icon-file"></i>Logic/LP.php<small style="float: right;padding-right: 10px;">1</small>
+<i class="icon-file"></i>Logic/LP.php<small style="float: right;padding-right: 10px;">3</small>
 </h3>
 <div><table class="table markers table-bordered">
 <thead><tr>
@@ -1788,11 +2536,23 @@
 <th>Line</th>
 <th>Description</th>
 </tr></thead>
-<tbody><tr class="error">
+<tbody>
+<tr class="error">
 <td>error</td>
 <td>30</td>
-<td>No DocBlock was found for property $inheritLexiconFrom</td>
-</tr></tbody>
+<td>No DocBlock was found for property $title</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>32</td>
+<td>No DocBlock was found for property $inheritOperatorsFrom</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>34</td>
+<td>No DocBlock was found for property $externalLinks</td>
+</tr>
+</tbody>
 </table></div>
 </div>
 <div class="package-contents">
@@ -1823,7 +2583,7 @@
 </tr>
 <tr class="error">
 <td>error</td>
-<td>34</td>
+<td>33</td>
 <td>No DocBlock was found for method applyToNode()</td>
 </tr>
 </tbody>
@@ -1857,7 +2617,7 @@
 </tr>
 <tr class="error">
 <td>error</td>
-<td>34</td>
+<td>33</td>
 <td>No DocBlock was found for method applyToNode()</td>
 </tr>
 </tbody>
@@ -1891,7 +2651,7 @@
 </tr>
 <tr class="error">
 <td>error</td>
-<td>34</td>
+<td>33</td>
 <td>No DocBlock was found for method applyToNode()</td>
 </tr>
 </tbody>
@@ -1925,7 +2685,7 @@
 </tr>
 <tr class="error">
 <td>error</td>
-<td>34</td>
+<td>33</td>
 <td>No DocBlock was found for method applyToNode()</td>
 </tr>
 </tbody>
@@ -1950,7 +2710,7 @@
 </div>
 <div class="package-contents">
 <a name="Logic/Lukasiewicz.php" id="Logic/Lukasiewicz.php"></a><h3>
-<i class="icon-file"></i>Logic/Lukasiewicz.php<small style="float: right;padding-right: 10px;">2</small>
+<i class="icon-file"></i>Logic/Lukasiewicz.php<small style="float: right;padding-right: 10px;">4</small>
 </h3>
 <div><table class="table markers table-bordered">
 <thead><tr>
@@ -1962,19 +2722,68 @@
 <tr class="error">
 <td>error</td>
 <td>30</td>
-<td>No DocBlock was found for property $inheritLexiconFrom</td>
+<td>No DocBlock was found for property $title</td>
 </tr>
 <tr class="error">
 <td>error</td>
 <td>32</td>
-<td>No DocBlock was found for property $lexicon</td>
+<td>No DocBlock was found for property $inheritOperatorsFrom</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>34</td>
+<td>No DocBlock was found for property $operatorArities</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>36</td>
+<td>No DocBlock was found for property $externalLinks</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <div class="package-contents">
-<a name="Logic/StrongKleene/ProofSystem/Rule/Closure.php" id="Logic/StrongKleene/ProofSystem/Rule/Closure.php"></a><h3>
-<i class="icon-file"></i>Logic/StrongKleene/ProofSystem/Rule/Closure.php<small style="float: right;padding-right: 10px;">1</small>
+<a name="Logic/S4/ProofSystem/Rule/Transitive.php" id="Logic/S4/ProofSystem/Rule/Transitive.php"></a><h3>
+<i class="icon-file"></i>Logic/S4/ProofSystem/Rule/Transitive.php<small style="float: right;padding-right: 10px;">5</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/S4/ProofSystem/Rule/Transitive.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>23</td>
+<td>No short description for class Transitive</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>28</td>
+<td>No DocBlock was found for method appliesToBranch()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>38</td>
+<td>No DocBlock was found for method applyToBranch()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>49</td>
+<td>No DocBlock was found for method buildExample()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/S4/ProofSystem.php" id="Logic/S4/ProofSystem.php"></a><h3>
+<i class="icon-file"></i>Logic/S4/ProofSystem.php<small style="float: right;padding-right: 10px;">1</small>
 </h3>
 <div><table class="table markers table-bordered">
 <thead><tr>
@@ -1984,9 +2793,137 @@
 </tr></thead>
 <tbody><tr class="error">
 <td>error</td>
+<td>35</td>
+<td>No DocBlock was found for property $ruleClasses</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/S4.php" id="Logic/S4.php"></a><h3>
+<i class="icon-file"></i>Logic/S4.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>30</td>
+<td>No DocBlock was found for property $title</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>32</td>
+<td>No DocBlock was found for property $inheritOperatorsFrom</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/S5/ProofSystem/Rule/Symmetric.php" id="Logic/S5/ProofSystem/Rule/Symmetric.php"></a><h3>
+<i class="icon-file"></i>Logic/S5/ProofSystem/Rule/Symmetric.php<small style="float: right;padding-right: 10px;">5</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/S5/ProofSystem/Rule/Symmetric.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>23</td>
+<td>No short description for class Symmetric</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>28</td>
+<td>No DocBlock was found for method appliesToBranch()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>37</td>
+<td>No DocBlock was found for method applyToBranch()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>47</td>
+<td>No DocBlock was found for method buildExample()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/S5/ProofSystem.php" id="Logic/S5/ProofSystem.php"></a><h3>
+<i class="icon-file"></i>Logic/S5/ProofSystem.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>35</td>
+<td>No DocBlock was found for property $ruleClasses</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/S5.php" id="Logic/S5.php"></a><h3>
+<i class="icon-file"></i>Logic/S5.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>30</td>
+<td>No DocBlock was found for property $title</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>32</td>
+<td>No DocBlock was found for property $inheritOperatorsFrom</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/StrongKleene/ProofSystem/Rule/Closure.php" id="Logic/StrongKleene/ProofSystem/Rule/Closure.php"></a><h3>
+<i class="icon-file"></i>Logic/StrongKleene/ProofSystem/Rule/Closure.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
 <td>33</td>
 <td>No DocBlock was found for method appliesToBranch()</td>
-</tr></tbody>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>43</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $branch in buildExample()</td>
+</tr>
+</tbody>
 </table></div>
 </div>
 <div class="package-contents">
@@ -2008,7 +2945,75 @@
 </div>
 <div class="package-contents">
 <a name="Logic/StrongKleene.php" id="Logic/StrongKleene.php"></a><h3>
-<i class="icon-file"></i>Logic/StrongKleene.php<small style="float: right;padding-right: 10px;">1</small>
+<i class="icon-file"></i>Logic/StrongKleene.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>30</td>
+<td>No DocBlock was found for property $title</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>32</td>
+<td>No DocBlock was found for property $inheritOperatorsFrom</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>34</td>
+<td>No DocBlock was found for property $externalLinks</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/T/ProofSystem/Rule/Reflexive.php" id="Logic/T/ProofSystem/Rule/Reflexive.php"></a><h3>
+<i class="icon-file"></i>Logic/T/ProofSystem/Rule/Reflexive.php<small style="float: right;padding-right: 10px;">5</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>1</td>
+<td>No page-level DocBlock was found in file Logic/T/ProofSystem/Rule/Reflexive.php</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>23</td>
+<td>No short description for class Reflexive</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>28</td>
+<td>No DocBlock was found for method appliesToBranch()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>35</td>
+<td>No DocBlock was found for method applyToBranch()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>44</td>
+<td>No DocBlock was found for method buildExample()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic/T/ProofSystem.php" id="Logic/T/ProofSystem.php"></a><h3>
+<i class="icon-file"></i>Logic/T/ProofSystem.php<small style="float: right;padding-right: 10px;">1</small>
 </h3>
 <div><table class="table markers table-bordered">
 <thead><tr>
@@ -2018,12 +3023,99 @@
 </tr></thead>
 <tbody><tr class="error">
 <td>error</td>
-<td>30</td>
-<td>No DocBlock was found for property $inheritLexiconFrom</td>
+<td>35</td>
+<td>No DocBlock was found for property $ruleClasses</td>
 </tr></tbody>
 </table></div>
 </div>
-<div class="package-contents"></div>
+<div class="package-contents">
+<a name="Logic/T.php" id="Logic/T.php"></a><h3>
+<i class="icon-file"></i>Logic/T.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>30</td>
+<td>No DocBlock was found for property $title</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>32</td>
+<td>No DocBlock was found for property $inheritOperatorsFrom</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>34</td>
+<td>No DocBlock was found for property $externalLinks</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="Logic.php" id="Logic.php"></a><h3>
+<i class="icon-file"></i>Logic.php<small style="float: right;padding-right: 10px;">9</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>33</td>
+<td>No DocBlock was found for property $title</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>35</td>
+<td>No DocBlock was found for property $inheritOperatorsFrom</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>37</td>
+<td>No DocBlock was found for property $operatorArities</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>39</td>
+<td>No DocBlock was found for property $externalLinks</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>41</td>
+<td>No DocBlock was found for property $operators</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>43</td>
+<td>No DocBlock was found for property $sentences</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>127</td>
+<td>No DocBlock was found for method getProofWriter()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>145</td>
+<td>No DocBlock was found for method getOperators()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>150</td>
+<td>No DocBlock was found for method getOperatorNames()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
 <div class="package-contents"></div>
 <div class="package-contents"></div>
 <div class="package-contents"></div>
@@ -2082,10 +3174,9 @@
 </tbody>
 </table></div>
 </div>
-<div class="package-contents"></div>
 <div class="package-contents">
-<a name="ProofSystem/TableauxSystem/Modal/Bivalent.php" id="ProofSystem/TableauxSystem/Modal/Bivalent.php"></a><h3>
-<i class="icon-file"></i>ProofSystem/TableauxSystem/Modal/Bivalent.php<small style="float: right;padding-right: 10px;">2</small>
+<a name="Proof.php" id="Proof.php"></a><h3>
+<i class="icon-file"></i>Proof.php<small style="float: right;padding-right: 10px;">6</small>
 </h3>
 <div><table class="table markers table-bordered">
 <thead><tr>
@@ -2096,20 +3187,40 @@
 <tbody>
 <tr class="error">
 <td>error</td>
-<td>35</td>
-<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $tableau in buildTrunk()</td>
+<td>51</td>
+<td>Name of argument $proofSystem does not match with the DocBlock's name $argument in __construct()</td>
 </tr>
 <tr class="error">
 <td>error</td>
-<td>57</td>
-<td>No DocBlock was found for method induceModel()</td>
+<td>51</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $proofSystem in __construct()</td>
+</tr>
+<tr class="notice">
+<td>notice</td>
+<td>51</td>
+<td>Parameter $argument could not be found in __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>62</td>
+<td>No DocBlock was found for method getType()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>122</td>
+<td>No DocBlock was found for method getProofSystemType()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>127</td>
+<td>No DocBlock was found for method getWriter()</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <div class="package-contents">
-<a name="ProofSystem/TableauxSystem/Modal/ManyValued.php" id="ProofSystem/TableauxSystem/Modal/ManyValued.php"></a><h3>
-<i class="icon-file"></i>ProofSystem/TableauxSystem/Modal/ManyValued.php<small style="float: right;padding-right: 10px;">2</small>
+<a name="ProofSystem/TableauxSystem/BranchEventListener.php" id="ProofSystem/TableauxSystem/BranchEventListener.php"></a><h3>
+<i class="icon-file"></i>ProofSystem/TableauxSystem/BranchEventListener.php<small style="float: right;padding-right: 10px;">2</small>
 </h3>
 <div><table class="table markers table-bordered">
 <thead><tr>
@@ -2120,20 +3231,115 @@
 <tbody>
 <tr class="error">
 <td>error</td>
-<td>35</td>
-<td>No DocBlock was found for method buildTrunk()</td>
+<td>27</td>
+<td>No DocBlock was found for BranchEventListener</td>
 </tr>
 <tr class="error">
 <td>error</td>
-<td>51</td>
-<td>No DocBlock was found for method induceModel()</td>
+<td>29</td>
+<td>No DocBlock was found for method afterAddNode()</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <div class="package-contents">
 <a name="ProofSystem/TableauxSystem/Rule/Branch.php" id="ProofSystem/TableauxSystem/Rule/Branch.php"></a><h3>
-<i class="icon-file"></i>ProofSystem/TableauxSystem/Rule/Branch.php<small style="float: right;padding-right: 10px;">1</small>
+<i class="icon-file"></i>ProofSystem/TableauxSystem/Rule/Branch.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="notice">
+<td>notice</td>
+<td>55</td>
+<td>Parameter $logic could not be found in apply()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>90</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $branch in buildExample()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="ProofSystem/TableauxSystem/Rule/Closure.php" id="ProofSystem/TableauxSystem/Rule/Closure.php"></a><h3>
+<i class="icon-file"></i>ProofSystem/TableauxSystem/Rule/Closure.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>45</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $branch in buildExample()</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="ProofSystem/TableauxSystem/Rule/Node.php" id="ProofSystem/TableauxSystem/Rule/Node.php"></a><h3>
+<i class="icon-file"></i>ProofSystem/TableauxSystem/Rule/Node.php<small style="float: right;padding-right: 10px;">8</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>58</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $branch in applyToBranch()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>81</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $branch in buildExample()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>113</td>
+<td>Argument $branch is missing from the Docblock of getApplicableNode()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>113</td>
+<td>Argument $logic is missing from the Docblock of getApplicableNode()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>163</td>
+<td>Argument $node is missing from the Docblock of appliesToNode()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>163</td>
+<td>Argument $branch is missing from the Docblock of appliesToNode()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>163</td>
+<td>Argument $logic is missing from the Docblock of appliesToNode()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>174</td>
+<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $branch in applyToNode()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="ProofSystem/TableauxSystem/Rule/TableauFinish.php" id="ProofSystem/TableauxSystem/Rule/TableauFinish.php"></a><h3>
+<i class="icon-file"></i>ProofSystem/TableauxSystem/Rule/TableauFinish.php<small style="float: right;padding-right: 10px;">1</small>
 </h3>
 <div><table class="table markers table-bordered">
 <thead><tr>
@@ -2143,39 +3349,9 @@
 </tr></thead>
 <tbody><tr class="notice">
 <td>notice</td>
-<td>49</td>
+<td>42</td>
 <td>Parameter $logic could not be found in apply()</td>
 </tr></tbody>
-</table></div>
-</div>
-<div class="package-contents"></div>
-<div class="package-contents">
-<a name="ProofSystem/TableauxSystem/Rule/Node.php" id="ProofSystem/TableauxSystem/Rule/Node.php"></a><h3>
-<i class="icon-file"></i>ProofSystem/TableauxSystem/Rule/Node.php<small style="float: right;padding-right: 10px;">3</small>
-</h3>
-<div><table class="table markers table-bordered">
-<thead><tr>
-<th>Type</th>
-<th>Line</th>
-<th>Description</th>
-</tr></thead>
-<tbody>
-<tr class="error">
-<td>error</td>
-<td>56</td>
-<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $branch in applyToBranch()</td>
-</tr>
-<tr class="error">
-<td>error</td>
-<td>96</td>
-<td>No DocBlock was found for method getExampleNode()</td>
-</tr>
-<tr class="error">
-<td>error</td>
-<td>103</td>
-<td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $branch in applyToNode()</td>
-</tr>
-</tbody>
 </table></div>
 </div>
 <div class="package-contents"></div>
@@ -2192,27 +3368,25 @@
 <tbody>
 <tr class="error">
 <td>error</td>
-<td>70</td>
-<td>Name of argument $filterClass does not match with the DocBlock's name $class in getRules()</td>
-</tr>
-<tr class="notice">
-<td>notice</td>
-<td>70</td>
-<td>Parameter $class could not be found in getRules()</td>
+<td>55</td>
+<td>No DocBlock was found for method getProofWriter()</td>
 </tr>
 <tr class="error">
 <td>error</td>
-<td>140</td>
+<td>60</td>
+<td>No DocBlock was found for method setupTableau()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>210</td>
 <td>The type hint of the argument is incorrect for the type definition of the @param tag with argument $tableau in isValidProof()</td>
 </tr>
 </tbody>
 </table></div>
 </div>
-<div class="package-contents"></div>
-<div class="package-contents"></div>
 <div class="package-contents">
-<a name="ProofWriter/Tableau/LaTeX_Qtree.php" id="ProofWriter/Tableau/LaTeX_Qtree.php"></a><h3>
-<i class="icon-file"></i>ProofWriter/Tableau/LaTeX_Qtree.php<small style="float: right;padding-right: 10px;">4</small>
+<a name="ProofSystem.php" id="ProofSystem.php"></a><h3>
+<i class="icon-file"></i>ProofSystem.php<small style="float: right;padding-right: 10px;">2</small>
 </h3>
 <div><table class="table markers table-bordered">
 <thead><tr>
@@ -2223,23 +3397,63 @@
 <tbody>
 <tr class="error">
 <td>error</td>
-<td>33</td>
-<td>No DocBlock was found for property $translations</td>
+<td>47</td>
+<td>No DocBlock was found for method getType()</td>
 </tr>
 <tr class="error">
 <td>error</td>
-<td>42</td>
-<td>No DocBlock was found for property $tableauxCommands</td>
+<td>66</td>
+<td>No DocBlock was found for method getProofWriter()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents"></div>
+<div class="package-contents">
+<a name="ProofWriter/Tableau/LaTeX_Qtree.php" id="ProofWriter/Tableau/LaTeX_Qtree.php"></a><h3>
+<i class="icon-file"></i>ProofWriter/Tableau/LaTeX_Qtree.php<small style="float: right;padding-right: 10px;">7</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>35</td>
+<td>No DocBlock was found for property $metaSymbolStrings</td>
 </tr>
 <tr class="error">
 <td>error</td>
-<td>51</td>
+<td>37</td>
+<td>No DocBlock was found for property $_metaSymbolStrings</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>47</td>
+<td>No DocBlock was found for property $_operatorStrings</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>49</td>
 <td>No DocBlock was found for method writeWorldIndex()</td>
 </tr>
 <tr class="error">
 <td>error</td>
-<td>129</td>
-<td>No DocBlock was found for method formatCommand()</td>
+<td>54</td>
+<td>Name of argument $notation does not match with the DocBlock's name $sentenceWriterType in __construct()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>54</td>
+<td>Argument $format is missing from the Docblock of __construct()</td>
+</tr>
+<tr class="notice">
+<td>notice</td>
+<td>54</td>
+<td>Parameter $sentenceWriterType could not be found in __construct()</td>
 </tr>
 </tbody>
 </table></div>
@@ -2298,7 +3512,7 @@
 </tr>
 <tr class="error">
 <td>error</td>
-<td>175</td>
+<td>168</td>
 <td>No DocBlock was found for method writeStructure()</td>
 </tr>
 </tbody>
@@ -2306,7 +3520,7 @@
 </div>
 <div class="package-contents">
 <a name="ProofWriter.php" id="ProofWriter.php"></a><h3>
-<i class="icon-file"></i>ProofWriter.php<small style="float: right;padding-right: 10px;">3</small>
+<i class="icon-file"></i>ProofWriter.php<small style="float: right;padding-right: 10px;">6</small>
 </h3>
 <div><table class="table markers table-bordered">
 <thead><tr>
@@ -2315,20 +3529,35 @@
 <th>Description</th>
 </tr></thead>
 <tbody>
-<tr class="critical">
-<td>critical</td>
+<tr class="error">
+<td>error</td>
 <td>33</td>
-<td>No short description for property $translations</td>
+<td>No DocBlock was found for property $metaSymbolStrings</td>
 </tr>
 <tr class="critical">
 <td>critical</td>
-<td>39</td>
+<td>35</td>
 <td>No short description for property $sentenceWriter</td>
 </tr>
 <tr class="critical">
 <td>critical</td>
+<td>40</td>
+<td>No short description for property $logic</td>
+</tr>
+<tr class="error">
+<td>error</td>
 <td>45</td>
-<td>No short description for property $vocabulary</td>
+<td>Name of argument $output does not match with the DocBlock's name $type in getInstance()</td>
+</tr>
+<tr class="notice">
+<td>notice</td>
+<td>45</td>
+<td>Parameter $type could not be found in getInstance()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>63</td>
+<td>Argument $format is missing from the Docblock of __construct()</td>
 </tr>
 </tbody>
 </table></div>
@@ -2338,7 +3567,7 @@
 <div class="package-contents"></div>
 <div class="package-contents">
 <a name="SentenceParser/Polish.php" id="SentenceParser/Polish.php"></a><h3>
-<i class="icon-file"></i>SentenceParser/Polish.php<small style="float: right;padding-right: 10px;">2</small>
+<i class="icon-file"></i>SentenceParser/Polish.php<small style="float: right;padding-right: 10px;">3</small>
 </h3>
 <div><table class="table markers table-bordered">
 <thead><tr>
@@ -2349,22 +3578,140 @@
 <tbody>
 <tr class="error">
 <td>error</td>
-<td>59</td>
-<td>No DocBlock was found for property $operandStack</td>
+<td>34</td>
+<td>No DocBlock was found for property $atomicSymbols</td>
 </tr>
 <tr class="error">
 <td>error</td>
-<td>61</td>
-<td>No DocBlock was found for method readRPN()</td>
+<td>36</td>
+<td>No DocBlock was found for property $operatorNameSymbols</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>62</td>
+<td>Argument $stack is missing from the Docblock of _readSentences()</td>
 </tr>
 </tbody>
 </table></div>
 </div>
-<div class="package-contents"></div>
-<div class="package-contents"></div>
 <div class="package-contents">
-<a name="SentenceWriter/Polish/LaTeXDecorator.php" id="SentenceWriter/Polish/LaTeXDecorator.php"></a><h3>
-<i class="icon-file"></i>SentenceWriter/Polish/LaTeXDecorator.php<small style="float: right;padding-right: 10px;">2</small>
+<a name="SentenceParser/Standard.php" id="SentenceParser/Standard.php"></a><h3>
+<i class="icon-file"></i>SentenceParser/Standard.php<small style="float: right;padding-right: 10px;">5</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>35</td>
+<td>No DocBlock was found for property $atomicSymbols</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>37</td>
+<td>No DocBlock was found for property $operatorNameSymbols</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>48</td>
+<td>No DocBlock was found for property $openMark</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>50</td>
+<td>No DocBlock was found for property $closeMark</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>52</td>
+<td>No DocBlock was found for method buildSymbolTable()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="SentenceParser.php" id="SentenceParser.php"></a><h3>
+<i class="icon-file"></i>SentenceParser.php<small style="float: right;padding-right: 10px;">9</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>42</td>
+<td>No DocBlock was found for property $atomicSymbols</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>43</td>
+<td>No DocBlock was found for property $operatorNameSymbols</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>46</td>
+<td>No DocBlock was found for property $spaceSymbols</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>49</td>
+<td>No DocBlock was found for property $operatorSymbolArities</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>52</td>
+<td>No DocBlock was found for property $operatorSymbolNames</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>59</td>
+<td>No short description for property $logic</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>101</td>
+<td>No DocBlock was found for method buildSymbolTable()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>183</td>
+<td>No DocBlock was found for method getOperatorSymbolNames()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>188</td>
+<td>No DocBlock was found for method getLogicOperatorSymbolNames()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="SentenceWriter/Polish/HTML.php" id="SentenceWriter/Polish/HTML.php"></a><h3>
+<i class="icon-file"></i>SentenceWriter/Polish/HTML.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>35</td>
+<td>No DocBlock was found for method writeSubscript()</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="SentenceWriter/Polish/LaTeX.php" id="SentenceWriter/Polish/LaTeX.php"></a><h3>
+<i class="icon-file"></i>SentenceWriter/Polish/LaTeX.php<small style="float: right;padding-right: 10px;">2</small>
 </h3>
 <div><table class="table markers table-bordered">
 <thead><tr>
@@ -2376,19 +3723,19 @@
 <tr class="error">
 <td>error</td>
 <td>30</td>
-<td>No DocBlock was found for property $sentenceWriter</td>
+<td>No DocBlock was found for property $operatorStrings</td>
 </tr>
 <tr class="error">
 <td>error</td>
-<td>32</td>
-<td>No DocBlock was found for property $operatorTranslations</td>
+<td>41</td>
+<td>No DocBlock was found for method writeSubscript()</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <div class="package-contents">
 <a name="SentenceWriter/Polish.php" id="SentenceWriter/Polish.php"></a><h3>
-<i class="icon-file"></i>SentenceWriter/Polish.php<small style="float: right;padding-right: 10px;">2</small>
+<i class="icon-file"></i>SentenceWriter/Polish.php<small style="float: right;padding-right: 10px;">3</small>
 </h3>
 <div><table class="table markers table-bordered">
 <thead><tr>
@@ -2400,12 +3747,17 @@
 <tr class="error">
 <td>error</td>
 <td>32</td>
-<td>No DocBlock was found for property $operatorTranslations</td>
+<td>No DocBlock was found for property $atomicStrings</td>
 </tr>
 <tr class="error">
 <td>error</td>
-<td>40</td>
-<td>No DocBlock was found for method writeAtomicSymbol()</td>
+<td>34</td>
+<td>No DocBlock was found for property $operatorStrings</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>59</td>
+<td>No DocBlock was found for method writeSubscript()</td>
 </tr>
 </tbody>
 </table></div>
@@ -2423,20 +3775,93 @@
 <tbody>
 <tr class="error">
 <td>error</td>
-<td>36</td>
-<td>No DocBlock was found for property $operatorTranslations</td>
+<td>35</td>
+<td>No DocBlock was found for property $operatorStrings</td>
 </tr>
 <tr class="error">
 <td>error</td>
-<td>45</td>
+<td>46</td>
 <td>No DocBlock was found for method writeSubscript()</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <div class="package-contents">
-<a name="SentenceWriter/Standard/LaTeXDecorator.php" id="SentenceWriter/Standard/LaTeXDecorator.php"></a><h3>
-<i class="icon-file"></i>SentenceWriter/Standard/LaTeXDecorator.php<small style="float: right;padding-right: 10px;">7</small>
+<a name="SentenceWriter/Standard/LaTeX.php" id="SentenceWriter/Standard/LaTeX.php"></a><h3>
+<i class="icon-file"></i>SentenceWriter/Standard/LaTeX.php<small style="float: right;padding-right: 10px;">2</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>35</td>
+<td>No DocBlock was found for property $operatorStrings</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>46</td>
+<td>No DocBlock was found for method writeSubscript()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="SentenceWriter/Standard.php" id="SentenceWriter/Standard.php"></a><h3>
+<i class="icon-file"></i>SentenceWriter/Standard.php<small style="float: right;padding-right: 10px;">7</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="error">
+<td>error</td>
+<td>34</td>
+<td>No DocBlock was found for property $atomicStrings</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>36</td>
+<td>No DocBlock was found for property $operatorStrings</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>47</td>
+<td>No DocBlock was found for property $options</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>51</td>
+<td>No DocBlock was found for property $openMarkString</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>52</td>
+<td>No DocBlock was found for property $closeMarkString</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>53</td>
+<td>No DocBlock was found for property $spaceString</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>55</td>
+<td>No DocBlock was found for method writeSentence()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="SentenceWriter.php" id="SentenceWriter.php"></a><h3>
+<i class="icon-file"></i>SentenceWriter.php<small style="float: right;padding-right: 10px;">5</small>
 </h3>
 <div><table class="table markers table-bordered">
 <thead><tr>
@@ -2448,60 +3873,31 @@
 <tr class="error">
 <td>error</td>
 <td>36</td>
-<td>No DocBlock was found for property $sentenceWriter</td>
+<td>No DocBlock was found for property $atomicStrings</td>
 </tr>
 <tr class="error">
 <td>error</td>
-<td>39</td>
-<td>No DocBlock was found for property $operatorTranslations</td>
+<td>37</td>
+<td>No DocBlock was found for property $operatorStrings</td>
 </tr>
 <tr class="error">
 <td>error</td>
-<td>41</td>
-<td>No DocBlock was found for property $standardOperatorSymbols</td>
+<td>40</td>
+<td>No DocBlock was found for property $options</td>
 </tr>
 <tr class="error">
 <td>error</td>
-<td>63</td>
-<td>No DocBlock was found for method writeSubscript()</td>
+<td>80</td>
+<td>No DocBlock was found for method getNotation()</td>
 </tr>
 <tr class="error">
 <td>error</td>
-<td>68</td>
-<td>No DocBlock was found for method writeOperator()</td>
-</tr>
-<tr class="error">
-<td>error</td>
-<td>74</td>
-<td>No DocBlock was found for method getOperatorSymbolCommands()</td>
-</tr>
-<tr class="error">
-<td>error</td>
-<td>79</td>
-<td>No DocBlock was found for method formatCommand()</td>
+<td>87</td>
+<td>No DocBlock was found for method getFormat()</td>
 </tr>
 </tbody>
 </table></div>
 </div>
-<div class="package-contents"></div>
-<div class="package-contents">
-<a name="SentenceWriter.php" id="SentenceWriter.php"></a><h3>
-<i class="icon-file"></i>SentenceWriter.php<small style="float: right;padding-right: 10px;">1</small>
-</h3>
-<div><table class="table markers table-bordered">
-<thead><tr>
-<th>Type</th>
-<th>Line</th>
-<th>Description</th>
-</tr></thead>
-<tbody><tr class="error">
-<td>error</td>
-<td>317</td>
-<td>Argument $sentence is missing from the Docblock of _writeSentence()</td>
-</tr></tbody>
-</table></div>
-</div>
-<div class="package-contents"></div>
 <div class="package-contents"></div>
 <div class="package-contents">
 <a name="Utilities.php" id="Utilities.php"></a><h3>
@@ -2521,24 +3917,23 @@
 </tr>
 <tr class="notice">
 <td>notice</td>
-<td>150</td>
+<td>151</td>
 <td>Parameter $var,... could not be found in debug()</td>
 </tr>
 <tr class="notice">
 <td>notice</td>
-<td>174</td>
+<td>175</td>
 <td>Parameter $var could not be found in debug()</td>
 </tr>
 </tbody>
 </table></div>
 </div>
-<div class="package-contents"></div>
 </div>
 </div>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
-            generated on 2012-04-21T00:47:25-07:00.<br></footer></div>
+            generated on 2012-11-11T22:26:43-08:00.<br></footer></div>
 </div>
 </body>
 </html>

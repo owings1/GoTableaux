@@ -1,0 +1,559 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>GoTableaux » \GoTableaux\Logic\T</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">GoTableaux</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
+<li><a href="../packages/D.html"><i class="icon-folder-open"></i> D</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
+<li><a href="../packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
+<li><a href="../packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
+<li><a href="../packages/K.html"><i class="icon-folder-open"></i> K</a></li>
+<li><a href="../packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
+<li><a href="../packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
+<li><a href="../packages/S4.html"><i class="icon-folder-open"></i> S4</a></li>
+<li><a href="../packages/S5.html"><i class="icon-folder-open"></i> S5</a></li>
+<li><a href="../packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
+<li><a href="../packages/T.html"><i class="icon-folder-open"></i> T</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">425</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul><li>todo 
+                <span class="label label-info">2</span>
+</li></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public inherited"><a href="#applyOperatorToOperands" title="applyOperatorToOperands :: Applies an operator to some operands to generate a new sentence."><span class="description">Applies an operator to some operands to generate a new sentence.</span><pre>applyOperatorToOperands()</pre></a></li>
+<li class="method public inherited"><a href="#constructProofForArgument" title="constructProofForArgument :: Builds a proof for an argument with the proof system."><span class="description">Builds a proof for an argument with the proof system.</span><pre>constructProofForArgument()</pre></a></li>
+<li class="method public inherited"><a href="#getInstance" title="getInstance :: Gets the singleton instance of a particular logic."><span class="description">Gets the singleton instance of a particular logic.</span><pre>getInstance()</pre></a></li>
+<li class="method public inherited"><a href="#getName" title="getName :: Gets the name of the Logic."><span class="description">Gets the name of the Logic.</span><pre>getName()</pre></a></li>
+<li class="method public inherited"><a href="#getOperator" title="getOperator :: Gets an operator."><span class="description">Gets an operator.</span><pre>getOperator()</pre></a></li>
+<li class="method public inherited"><a href="#getOperatorNames" title="getOperatorNames :: "><span class="description">getOperatorNames()
+        </span><pre>getOperatorNames()</pre></a></li>
+<li class="method public inherited"><a href="#getOperators" title="getOperators :: "><span class="description">getOperators()
+        </span><pre>getOperators()</pre></a></li>
+<li class="method public inherited"><a href="#getParser" title="getParser :: Gets a new sentence parser of the specified type."><span class="description">Gets a new sentence parser of the specified type.</span><pre>getParser()</pre></a></li>
+<li class="method public inherited"><a href="#getProofSystem" title="getProofSystem :: Gets the proof system."><span class="description">Gets the proof system.</span><pre>getProofSystem()</pre></a></li>
+<li class="method public inherited"><a href="#getProofWriter" title="getProofWriter :: "><span class="description">getProofWriter()
+        </span><pre>getProofWriter()</pre></a></li>
+<li class="method public inherited"><a href="#getSentences" title="getSentences :: Gets the set of sentences."><span class="description">Gets the set of sentences.</span><pre>getSentences()</pre></a></li>
+<li class="method public inherited"><a href="#negate" title="negate :: Negates a sentence."><span class="description">Negates a sentence.</span><pre>negate()</pre></a></li>
+<li class="method public inherited"><a href="#parseArgument" title="parseArgument :: Parses an argument."><span class="description">Parses an argument.</span><pre>parseArgument()</pre></a></li>
+<li class="method public inherited"><a href="#parseSentence" title="parseSentence :: Parses a sentence string."><span class="description">Parses a sentence string.</span><pre>parseSentence()</pre></a></li>
+<li class="method public inherited"><a href="#parseSentences" title="parseSentences :: Parses an array of sentence strings."><span class="description">Parses an array of sentence strings.</span><pre>parseSentences()</pre></a></li>
+<li class="method public inherited"><a href="#registerSentence" title="registerSentence :: Adds a sentence to the vocabulary, maintaining uniqueness."><span class="description">Adds a sentence to the vocabulary, maintaining uniqueness.</span><pre>registerSentence()</pre></a></li>
+<li class="nav-header private">» Private</li>
+<li class="method private inherited"><a href="#__construct" title="__construct :: Constructor. Final &amp; private, for forcing single instances for each logic."><span class="description">Constructor. Final &amp; private, for forcing single instances for each logic.</span><pre>__construct()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="property public "><a href="#%24externalLinks" title="$externalLinks :: "><span class="description">$externalLinks</span><pre>$externalLinks</pre></a></li>
+<li class="property public "><a href="#%24inheritOperatorsFrom" title="$inheritOperatorsFrom :: "><span class="description">$inheritOperatorsFrom</span><pre>$inheritOperatorsFrom</pre></a></li>
+<li class="property public inherited"><a href="#%24operatorArities" title="$operatorArities :: "><span class="description">$operatorArities</span><pre>$operatorArities</pre></a></li>
+<li class="property public "><a href="#%24title" title="$title :: "><span class="description">$title</span><pre>$title</pre></a></li>
+<li class="nav-header protected">» Protected</li>
+<li class="property protected inherited"><a href="#%24instances" title="$instances :: Holds the singleton instances of the logics."><span class="description">Holds the singleton instances of the logics.</span><pre>$instances</pre></a></li>
+<li class="property protected inherited"><a href="#%24operators" title="$operators :: "><span class="description">$operators</span><pre>$operators</pre></a></li>
+<li class="property protected inherited"><a href="#%24proofSystem" title="$proofSystem :: Holds a reference to the proof system."><span class="description">Holds a reference to the proof system.</span><pre>$proofSystem</pre></a></li>
+<li class="property protected inherited"><a href="#%24sentences" title="$sentences :: "><span class="description">$sentences</span><pre>$sentences</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CGoTableaux%5CLogic%5CT" id="\GoTableaux\Logic\T"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/GoTableaux.html">GoTableaux</a></li>
+<span class="divider">\</span><li><a href="../namespaces/GoTableaux.Logic.html">Logic</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/GoTableaux.Logic.T.html">T</a>
+</li>
+</ul>
+<div href="../classes/GoTableaux.Logic.T.html" class="element class">
+<p class="short_description">Represents normal modal logic with reflexive access relation.</p>
+<div class="details">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>package</th>
+<td><a href="..//packages/T.html">T</a></td>
+</tr></table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="applyOperatorToOperands" id="applyOperatorToOperands"></a><div class="element clickable method public applyOperatorToOperands" data-toggle="collapse" data-target=".applyOperatorToOperands .collapse">
+<h2>Applies an operator to some operands to generate a new sentence.</h2>
+<pre>applyOperatorToOperands(string | <a href="../classes/GoTableaux.Operator.html">\GoTableaux\Operator</a> $operatorOrName, array | <a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a> $operands) : \Sentence\Molecular</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic::applyOperatorToOperands()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$operatorOrName</h4>
+<code>string<a href="../classes/GoTableaux.Operator.html">\GoTableaux\Operator</a></code><p>The name of the operator, or the operator object.</p></div>
+<div class="subelement argument">
+<h4>$operands</h4>
+<code>array<a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></code><p>The sentence(s) to which to apply the operator.</p>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/GoTableaux.Exception.html">\GoTableaux\Exception</a></code></th>
+<td>on type error.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>\Sentence\Molecular</code>The resulting sentence.</div>
+</div></div>
+</div>
+<a name="constructProofForArgument" id="constructProofForArgument"></a><div class="element clickable method public constructProofForArgument" data-toggle="collapse" data-target=".constructProofForArgument .collapse">
+<h2>Builds a proof for an argument with the proof system.</h2>
+<pre>constructProofForArgument(Argument $argument) : <a href="../classes/GoTableaux.Proof.html">\GoTableaux\Proof</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic::constructProofForArgument()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$argument</h4>
+<code><a href="../classes/GoTableaux.Argument.html">\GoTableaux\Argument</a></code><p>The argument for which to build the proof.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Proof.html">\GoTableaux\Proof</a></code>$proof The resulting (putative) proof.</div>
+</div></div>
+</div>
+<a name="getInstance" id="getInstance"></a><div class="element clickable method public getInstance" data-toggle="collapse" data-target=".getInstance .collapse">
+<h2>Gets the singleton instance of a particular logic.</h2>
+<pre>getInstance(string $name) : <a href="../classes/GoTableaux.Logic.html">\GoTableaux\Logic</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>If the logic class is not loaded, it will attempt to load automatically.</p></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic::getInstance()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><p>The name of the logic.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Logic.html">\GoTableaux\Logic</a></code>The instance of the logic.</div>
+</div></div>
+</div>
+<a name="getName" id="getName"></a><div class="element clickable method public getName" data-toggle="collapse" data-target=".getName .collapse">
+<h2>Gets the name of the Logic.</h2>
+<pre>getName() : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic::getName()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The name of the logic.</div>
+</div></div>
+</div>
+<a name="getOperator" id="getOperator"></a><div class="element clickable method public getOperator" data-toggle="collapse" data-target=".getOperator .collapse">
+<h2>Gets an operator.</h2>
+<pre>getOperator(string $name) : <a href="../classes/GoTableaux.Operator.html">\GoTableaux\Operator</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic::getOperator()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><p>The name of the operator.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Operator.html">\GoTableaux\Operator</a></code>The operator object.</div>
+</div></div>
+</div>
+<a name="getOperatorNames" id="getOperatorNames"></a><div class="element clickable method public getOperatorNames" data-toggle="collapse" data-target=".getOperatorNames .collapse">
+<h2>getOperatorNames()
+        </h2>
+<pre>getOperatorNames() </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic::getOperatorNames()</td>
+</tr></table>
+</div></div>
+</div>
+<a name="getOperators" id="getOperators"></a><div class="element clickable method public getOperators" data-toggle="collapse" data-target=".getOperators .collapse">
+<h2>getOperators()
+        </h2>
+<pre>getOperators() </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic::getOperators()</td>
+</tr></table>
+</div></div>
+</div>
+<a name="getParser" id="getParser"></a><div class="element clickable method public getParser" data-toggle="collapse" data-target=".getParser .collapse">
+<h2>Gets a new sentence parser of the specified type.</h2>
+<pre>getParser(string $type) : <a href="../classes/GoTableaux.SentenceParser.html">\GoTableaux\SentenceParser</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic::getParser()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><p>Type of parser to instantiate. Default is 'Standard'.</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.SentenceParser.html">\GoTableaux\SentenceParser</a></code>The initialized sentence parser.</div>
+</div></div>
+</div>
+<a name="getProofSystem" id="getProofSystem"></a><div class="element clickable method public getProofSystem" data-toggle="collapse" data-target=".getProofSystem .collapse">
+<h2>Gets the proof system.</h2>
+<pre>getProofSystem() : <a href="../classes/GoTableaux.ProofSystem.html">\GoTableaux\ProofSystem</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic::getProofSystem()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.ProofSystem.html">\GoTableaux\ProofSystem</a></code>The logic's proof system.</div>
+</div></div>
+</div>
+<a name="getProofWriter" id="getProofWriter"></a><div class="element clickable method public getProofWriter" data-toggle="collapse" data-target=".getProofWriter .collapse">
+<h2>getProofWriter()
+        </h2>
+<pre>getProofWriter($output, $notation, $format) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic::getProofWriter()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$output</h4>
+<code></code>
+</div>
+<div class="subelement argument">
+<h4>$notation</h4>
+<code></code>
+</div>
+<div class="subelement argument">
+<h4>$format</h4>
+<code></code>
+</div>
+</div></div>
+</div>
+<a name="getSentences" id="getSentences"></a><div class="element clickable method public getSentences" data-toggle="collapse" data-target=".getSentences .collapse">
+<h2>Gets the set of sentences.</h2>
+<pre>getSentences() : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic::getSentences()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>The sentences.</div>
+</div></div>
+</div>
+<a name="negate" id="negate"></a><div class="element clickable method public negate" data-toggle="collapse" data-target=".negate .collapse">
+<h2>Negates a sentence.</h2>
+<pre>negate(Sentence $sentence) : <a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>Requires an operator named 'Negation' in the language.</p></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic::negate()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$sentence</h4>
+<code><a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></code><p>The sentence to negate.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></code>The negated sentence.</div>
+</div></div>
+</div>
+<a name="parseArgument" id="parseArgument"></a><div class="element clickable method public parseArgument" data-toggle="collapse" data-target=".parseArgument .collapse">
+<h2>Parses an argument.</h2>
+<pre>parseArgument(string | array $premiseStrings, string $conclusionString, string $notation) : <a href="../classes/GoTableaux.Argument.html">\GoTableaux\Argument</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic::parseArgument()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$premiseStrings</h4>
+<code>stringarray</code><p>The premise string(s).</p>
+</div>
+<div class="subelement argument">
+<h4>$conclusionString</h4>
+<code>string</code><p>Non-empty conclusion string.</p>
+</div>
+<div class="subelement argument">
+<h4>$notation</h4>
+<code>string</code><p>The parser type to do the parsing. Default is 'Standard'.</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Argument.html">\GoTableaux\Argument</a></code>The argument instance.</div>
+</div></div>
+</div>
+<a name="parseSentence" id="parseSentence"></a><div class="element clickable method public parseSentence" data-toggle="collapse" data-target=".parseSentence .collapse">
+<h2>Parses a sentence string.</h2>
+<pre>parseSentence(string $string, string $parserType) : <a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic::parseSentence()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$string</h4>
+<code>string</code><p>The sentence string to parse.</p></div>
+<div class="subelement argument">
+<h4>$parserType</h4>
+<code>string</code><p>The parser type to do the parsing. Default is 'Standard'.</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></code>The sentence instance, registered in the logic's vocabulary.</div>
+</div></div>
+</div>
+<a name="parseSentences" id="parseSentences"></a><div class="element clickable method public parseSentences" data-toggle="collapse" data-target=".parseSentences .collapse">
+<h2>Parses an array of sentence strings.</h2>
+<pre>parseSentences(array $strings, string $notation) : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic::parseSentences()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$strings</h4>
+<code>array</code><p>Array of sentence strings to parse.</p></div>
+<div class="subelement argument">
+<h4>$notation</h4>
+<code>string</code><p>The parser type to do the parsing. Default is 'Standard'.</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Array of {@link Sentence}s.</div>
+</div></div>
+</div>
+<a name="registerSentence" id="registerSentence"></a><div class="element clickable method public registerSentence" data-toggle="collapse" data-target=".registerSentence .collapse">
+<h2>Adds a sentence to the vocabulary, maintaining uniqueness.</h2>
+<pre>registerSentence(Sentence $sentence) : <a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>If the sentence, or one of the same form is already in the set of sentences,
+then that sentence is returned. Otherwise the passed sentence is
+returned.</p></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic::registerSentence()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$sentence</h4>
+<code><a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></code><p>The sentence to add.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></code>Old or new sentence.</div>
+</div></div>
+</div>
+<a name="__construct" id="__construct"></a><div class="element clickable method private __construct" data-toggle="collapse" data-target=".__construct .collapse">
+<h2>Constructor. Final &amp; private, for forcing single instances for each logic.</h2>
+<pre>__construct() </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic::__construct()</td>
+</tr></table>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24externalLinks" id="$externalLinks"> </a><div class="element clickable property public $externalLinks" data-toggle="collapse" data-target=".$externalLinks .collapse">
+<h2>$externalLinks</h2>
+<pre>$externalLinks </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24inheritOperatorsFrom" id="$inheritOperatorsFrom"> </a><div class="element clickable property public $inheritOperatorsFrom" data-toggle="collapse" data-target=".$inheritOperatorsFrom .collapse">
+<h2>$inheritOperatorsFrom</h2>
+<pre>$inheritOperatorsFrom </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24operatorArities" id="$operatorArities"> </a><div class="element clickable property public $operatorArities" data-toggle="collapse" data-target=".$operatorArities .collapse">
+<h2>$operatorArities</h2>
+<pre>$operatorArities </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic::$$operatorArities</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24title" id="$title"> </a><div class="element clickable property public $title" data-toggle="collapse" data-target=".$title .collapse">
+<h2>$title</h2>
+<pre>$title </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24instances" id="$instances"> </a><div class="element clickable property protected $instances" data-toggle="collapse" data-target=".$instances .collapse">
+<h2>Holds the singleton instances of the logics.</h2>
+<pre>$instances : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>access</th>
+<td>private</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic::$$instances</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="%24operators" id="$operators"> </a><div class="element clickable property protected $operators" data-toggle="collapse" data-target=".$operators .collapse">
+<h2>$operators</h2>
+<pre>$operators </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic::$$operators</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24proofSystem" id="$proofSystem"> </a><div class="element clickable property protected $proofSystem" data-toggle="collapse" data-target=".$proofSystem .collapse">
+<h2>Holds a reference to the proof system.</h2>
+<pre>$proofSystem : <a href="../classes/GoTableaux.ProofSystem.html">\GoTableaux\ProofSystem</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>access</th>
+<td>private</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic::$$proofSystem</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="%24sentences" id="$sentences"> </a><div class="element clickable property protected $sentences" data-toggle="collapse" data-target=".$sentences .collapse">
+<h2>$sentences</h2>
+<pre>$sentences </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic::$$sentences</td>
+</tr></table>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
+            generated on 2012-11-11T22:26:41-08:00.<br></footer></div>
+</div>
+</body>
+</html>

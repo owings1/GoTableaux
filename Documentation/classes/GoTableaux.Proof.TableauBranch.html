@@ -23,12 +23,18 @@
 <li><a href="../namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
 <li><a>Packages</a></li>
 <li><a href="../packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
+<li><a href="../packages/D.html"><i class="icon-folder-open"></i> D</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
 <li><a href="../packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
 <li><a href="../packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
 <li><a href="../packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
+<li><a href="../packages/K.html"><i class="icon-folder-open"></i> K</a></li>
 <li><a href="../packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
 <li><a href="../packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
+<li><a href="../packages/S4.html"><i class="icon-folder-open"></i> S4</a></li>
+<li><a href="../packages/S5.html"><i class="icon-folder-open"></i> S5</a></li>
 <li><a href="../packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
+<li><a href="../packages/T.html"><i class="icon-folder-open"></i> T</a></li>
 </ul>
 </li>
 <li class="dropdown" id="charts-menu">
@@ -39,7 +45,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">255</span></a></li>
+                <span class="label label-info">425</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul><li>todo 
                 <span class="label label-info">2</span>
@@ -72,6 +78,7 @@
 <li class="method public "><a href="#copy" title="copy :: Clones the branch. Maintains references to the nodes."><span class="description">Clones the branch. Maintains references to the nodes.</span><pre>copy()</pre></a></li>
 <li class="method public "><a href="#createNode" title="createNode :: Creates a node on the branch."><span class="description">Creates a node on the branch.</span><pre>createNode()</pre></a></li>
 <li class="method public "><a href="#find" title="find :: Finds nodes on the branch matching the given conditions."><span class="description">Finds nodes on the branch matching the given conditions.</span><pre>find()</pre></a></li>
+<li class="method public "><a href="#getIndexes" title="getIndexes :: Gets all the indexes that appear on the branch."><span class="description">Gets all the indexes that appear on the branch.</span><pre>getIndexes()</pre></a></li>
 <li class="method public "><a href="#getNodes" title="getNodes :: Gets the nodes on the branch."><span class="description">Gets the nodes on the branch.</span><pre>getNodes()</pre></a></li>
 <li class="method public "><a href="#getNodesByClassName" title="getNodesByClassName :: Gets all nodes that have certain class name."><span class="description">Gets all nodes that have certain class name.</span><pre>getNodesByClassName()</pre></a></li>
 <li class="method public "><a href="#getTableau" title="getTableau :: Gets the tableau."><span class="description">Gets the tableau.</span><pre>getTableau()</pre></a></li>
@@ -80,6 +87,7 @@
 <li class="method public "><a href="#hasNode" title="hasNode :: Checks whether a node is on the branch."><span class="description">Checks whether a node is on the branch.</span><pre>hasNode()</pre></a></li>
 <li class="method public "><a href="#isClosed" title="isClosed :: Checks whether the branch is closed."><span class="description">Checks whether the branch is closed.</span><pre>isClosed()</pre></a></li>
 <li class="method public "><a href="#isOpen" title="isOpen :: Checks whether the branch is open."><span class="description">Checks whether the branch is open.</span><pre>isOpen()</pre></a></li>
+<li class="method public "><a href="#newIndex" title="newIndex :: Gets an index that does not appear on the branch."><span class="description">Gets an index that does not appear on the branch.</span><pre>newIndex()</pre></a></li>
 <li class="method public "><a href="#nodeIsTicked" title="nodeIsTicked :: Determines whether a node is ticked relative to the branch."><span class="description">Determines whether a node is ticked relative to the branch.</span><pre>nodeIsTicked()</pre></a></li>
 <li class="method public "><a href="#removeNode" title="removeNode :: Removes all references to a node from the branch."><span class="description">Removes all references to a node from the branch.</span><pre>removeNode()</pre></a></li>
 <li class="method public "><a href="#tickNode" title="tickNode :: Ticks a node relative to the branch."><span class="description">Ticks a node relative to the branch.</span><pre>tickNode()</pre></a></li>
@@ -87,7 +95,9 @@
 <li class="nav-header">
 <i class="icon-custom icon-property"></i> Properties</li>
 <li class="nav-header private">» Private</li>
+<li class="property private "><a href="#%24_listenerCount" title="$_listenerCount :: Counts the listeners as they are added, to make an id."><span class="description">Counts the listeners as they are added, to make an id.</span><pre>$_listenerCount</pre></a></li>
 <li class="property private "><a href="#%24closed" title="$closed :: Tracks whether the branch is closed."><span class="description">Tracks whether the branch is closed.</span><pre>$closed</pre></a></li>
+<li class="property private "><a href="#%24listeners" title="$listeners :: Holds the listeners."><span class="description">Holds the listeners.</span><pre>$listeners</pre></a></li>
 <li class="property private "><a href="#%24nodes" title="$nodes :: Holds the nodes of the branch."><span class="description">Holds the nodes of the branch.</span><pre>$nodes</pre></a></li>
 <li class="property private "><a href="#%24tableau" title="$tableau :: Holds a reference to the tableau."><span class="description">Holds a reference to the tableau.</span><pre>$tableau</pre></a></li>
 <li class="property private "><a href="#%24tickedNodes" title="$tickedNodes :: Tracks the ticked nodes relative to the branch."><span class="description">Tracks the ticked nodes relative to the branch.</span><pre>$tickedNodes</pre></a></li>
@@ -107,7 +117,7 @@
 <div href="../classes/GoTableaux.Proof.TableauBranch.html" class="element class">
 <p class="short_description">Represents a tableau branch.</p>
 <div class="details">
-<p class="long_description"></p>
+<p class="long_description"><p>Core events: beforeAddNode, afterAddNode.</p></p>
 <table class="table table-bordered"><tr>
 <th>package</th>
 <td><a href="..//packages/GoTableaux.html">GoTableaux</a></td>
@@ -223,6 +233,17 @@ node fails to meet the conditions provided.</p></p>
 <code>mixed</code>The results depending on $ret.</div>
 </div></div>
 </div>
+<a name="getIndexes" id="getIndexes"></a><div class="element clickable method public getIndexes" data-toggle="collapse" data-target=".getIndexes .collapse">
+<h2>Gets all the indexes that appear on the branch.</h2>
+<pre>getIndexes() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>The indexes on the branch.</div>
+</div></div>
+</div>
 <a name="getNodes" id="getNodes"></a><div class="element clickable method public getNodes" data-toggle="collapse" data-target=".getNodes .collapse">
 <h2>Gets the nodes on the branch.</h2>
 <pre>getNodes() : array</pre>
@@ -236,14 +257,14 @@ node fails to meet the conditions provided.</p></p>
 </div>
 <a name="getNodesByClassName" id="getNodesByClassName"></a><div class="element clickable method public getNodesByClassName" data-toggle="collapse" data-target=".getNodesByClassName .collapse">
 <h2>Gets all nodes that have certain class name.</h2>
-<pre>getNodesByClassName(string $classes) : array</pre>
+<pre>getNodesByClassName(array | string $classes) : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$classes</h4>
-<code>string</code><p>The class(es).</p>
+<code>arraystring</code><p>The class(es).</p>
 </div>
 <h3>Returns</h3>
 <div class="subelement response">
@@ -320,6 +341,17 @@ node fails to meet the conditions provided.</p></p>
 <code>boolean</code>Whether the branch is open.</div>
 </div></div>
 </div>
+<a name="newIndex" id="newIndex"></a><div class="element clickable method public newIndex" data-toggle="collapse" data-target=".newIndex .collapse">
+<h2>Gets an index that does not appear on the branch.</h2>
+<pre>newIndex() : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>integer</code>An index new to the branch.</div>
+</div></div>
+</div>
 <a name="nodeIsTicked" id="nodeIsTicked"></a><div class="element clickable method public nodeIsTicked" data-toggle="collapse" data-target=".nodeIsTicked .collapse">
 <h2>Determines whether a node is ticked relative to the branch.</h2>
 <pre>nodeIsTicked(TableauNode $node) : boolean</pre>
@@ -381,9 +413,21 @@ node fails to meet the conditions provided.</p></p>
 </div>
 <h3>
 <i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24_listenerCount" id="$_listenerCount"> </a><div class="element clickable property private $_listenerCount" data-toggle="collapse" data-target=".$_listenerCount .collapse">
+<h2>Counts the listeners as they are added, to make an id.</h2>
+<pre>$_listenerCount : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
 <a name="%24closed" id="$closed"> </a><div class="element clickable property private $closed" data-toggle="collapse" data-target=".$closed .collapse">
 <h2>Tracks whether the branch is closed.</h2>
 <pre>$closed : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24listeners" id="$listeners"> </a><div class="element clickable property private $listeners" data-toggle="collapse" data-target=".$listeners .collapse">
+<h2>Holds the listeners.</h2>
+<pre>$listeners : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
 </div>
@@ -412,7 +456,7 @@ node fails to meet the conditions provided.</p></p>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
-            generated on 2012-04-21T00:47:24-07:00.<br></footer></div>
+            generated on 2012-11-11T22:26:41-08:00.<br></footer></div>
 </div>
 </body>
 </html>

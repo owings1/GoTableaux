@@ -23,12 +23,18 @@
 <li><a href="../namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
 <li><a>Packages</a></li>
 <li><a href="../packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
+<li><a href="../packages/D.html"><i class="icon-folder-open"></i> D</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
 <li><a href="../packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
 <li><a href="../packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
 <li><a href="../packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
+<li><a href="../packages/K.html"><i class="icon-folder-open"></i> K</a></li>
 <li><a href="../packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
 <li><a href="../packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
+<li><a href="../packages/S4.html"><i class="icon-folder-open"></i> S4</a></li>
+<li><a href="../packages/S5.html"><i class="icon-folder-open"></i> S5</a></li>
 <li><a href="../packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
+<li><a href="../packages/T.html"><i class="icon-folder-open"></i> T</a></li>
 </ul>
 </li>
 <li class="dropdown" id="charts-menu">
@@ -39,7 +45,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">255</span></a></li>
+                <span class="label label-info">425</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul><li>todo 
                 <span class="label label-info">2</span>
@@ -66,16 +72,10 @@
 <li class="nav-header">
 <i class="icon-custom icon-method"></i> Methods</li>
 <li class="method public inherited"><a href="#__construct" title="__construct :: Constructor."><span class="description">Constructor.</span><pre>__construct()</pre></a></li>
-<li class="method public inherited"><a href="#addTranslations" title="addTranslations :: Adds translations."><span class="description">Adds translations.</span><pre>addTranslations()</pre></a></li>
-<li class="method public inherited"><a href="#decorateSentenceWriter" title="decorateSentenceWriter :: Decorates the sentence writer."><span class="description">Decorates the sentence writer.</span><pre>decorateSentenceWriter()</pre></a></li>
 <li class="method public inherited"><a href="#getArray" title="getArray :: Gets a formatted data array of a tableau."><span class="description">Gets a formatted data array of a tableau.</span><pre>getArray()</pre></a></li>
 <li class="method public inherited"><a href="#getArrayForStructure" title="getArrayForStructure :: Creates an array structure with tree structure data for exporting."><span class="description">Creates an array structure with tree structure data for exporting.</span><pre>getArrayForStructure()</pre></a></li>
 <li class="method public inherited"><a href="#getClassesForNode" title="getClassesForNode :: Gets type information about a node."><span class="description">Gets type information about a node.</span><pre>getClassesForNode()</pre></a></li>
 <li class="method public inherited"><a href="#getInstance" title="getInstance :: Gets a child instance."><span class="description">Gets a child instance.</span><pre>getInstance()</pre></a></li>
-<li class="method public inherited"><a href="#getSentenceWriter" title="getSentenceWriter :: Gets the sentence writer object."><span class="description">Gets the sentence writer object.</span><pre>getSentenceWriter()</pre></a></li>
-<li class="method public inherited"><a href="#getTranslation" title="getTranslation :: Gets a translation."><span class="description">Gets a translation.</span><pre>getTranslation()</pre></a></li>
-<li class="method public inherited"><a href="#removeTranslation" title="removeTranslation :: Removes a translation."><span class="description">Removes a translation.</span><pre>removeTranslation()</pre></a></li>
-<li class="method public inherited"><a href="#setSentenceWriter" title="setSentenceWriter :: Sets the sentence writer object."><span class="description">Sets the sentence writer object.</span><pre>setSentenceWriter()</pre></a></li>
 <li class="method public inherited"><a href="#writeArgumentOfProof" title="writeArgumentOfProof :: Writes a proof's argument."><span class="description">Writes a proof's argument.</span><pre>writeArgumentOfProof()</pre></a></li>
 <li class="method public inherited"><a href="#writeCloseMarker" title="writeCloseMarker :: "><span class="description">writeCloseMarker()
         </span><pre>writeCloseMarker()</pre></a></li>
@@ -91,11 +91,10 @@
         </span><pre>writeWorldIndex()</pre></a></li>
 <li class="nav-header">
 <i class="icon-custom icon-property"></i> Properties</li>
+<li class="property public inherited"><a href="#%24metaSymbolStrings" title="$metaSymbolStrings :: Translations for tableau-wide markings."><span class="description">Translations for tableau-wide markings.</span><pre>$metaSymbolStrings</pre></a></li>
 <li class="nav-header protected">» Protected</li>
-<li class="property protected inherited"><a href="#%24translations" title="$translations :: Translations for tableau-wide markings."><span class="description">Translations for tableau-wide markings.</span><pre>$translations</pre></a></li>
-<li class="nav-header private">» Private</li>
-<li class="property private inherited"><a href="#%24sentenceWriter" title="$sentenceWriter :: "><span class="description">$sentenceWriter</span><pre>$sentenceWriter</pre></a></li>
-<li class="property private inherited"><a href="#%24vocabulary" title="$vocabulary :: "><span class="description">$vocabulary</span><pre>$vocabulary</pre></a></li>
+<li class="property protected inherited"><a href="#%24logic" title="$logic :: "><span class="description">$logic</span><pre>$logic</pre></a></li>
+<li class="property protected inherited"><a href="#%24sentenceWriter" title="$sentenceWriter :: "><span class="description">$sentenceWriter</span><pre>$sentenceWriter</pre></a></li>
 </ul>
 </div>
 <div class="span8">
@@ -122,7 +121,7 @@
 <i class="icon-custom icon-method"></i> Methods</h3>
 <a name="__construct" id="__construct"></a><div class="element clickable method public __construct" data-toggle="collapse" data-target=".__construct .collapse">
 <h2>Constructor.</h2>
-<pre>__construct(Proof $proof, string $sentenceWriterType) </pre>
+<pre>__construct(Logic $logic, string $notation, $format) </pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
@@ -138,61 +137,15 @@
 </table>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$proof</h4>
-<code><a href="../classes/GoTableaux.Proof.html">\GoTableaux\Proof</a></code><p>The proof to write.</p></div>
+<h4>$logic</h4>
+<code><a href="../classes/GoTableaux.Logic.html">\GoTableaux\Logic</a></code><p>The logic.</p></div>
 <div class="subelement argument">
-<h4>$sentenceWriterType</h4>
+<h4>$notation</h4>
 <code>string</code><p>The type of sentence writer to use.</p></div>
-</div></div>
-</div>
-<a name="addTranslations" id="addTranslations"></a><div class="element clickable method public addTranslations" data-toggle="collapse" data-target=".addTranslations .collapse">
-<h2>Adds translations.</h2>
-<pre>addTranslations(array $translations) : <a href="../classes/GoTableaux.ProofWriter.html">\GoTableaux\ProofWriter</a></pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="span8">
-<p class="long_description"></p>
-<table class="table table-bordered">
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\ProofWriter::addTranslations()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\ProofWriter\Tableau::addTranslations()</td>
-</tr>
-</table>
-<h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$translations</h4>
-<code>array</code><p>The translations to add, where key is to be translated into value.</p></div>
-<h3>Returns</h3>
-<div class="subelement response">
-<code><a href="../classes/GoTableaux.ProofWriter.html">\GoTableaux\ProofWriter</a></code>Current instance.</div>
-</div></div>
+<h4>$format</h4>
+<code></code>
 </div>
-<a name="decorateSentenceWriter" id="decorateSentenceWriter"></a><div class="element clickable method public decorateSentenceWriter" data-toggle="collapse" data-target=".decorateSentenceWriter .collapse">
-<h2>Decorates the sentence writer.</h2>
-<pre>decorateSentenceWriter(string $type) : <a href="../classes/GoTableaux.ProofWriter.html">\GoTableaux\ProofWriter</a></pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="span8">
-<p class="long_description"></p>
-<table class="table table-bordered">
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\ProofWriter::decorateSentenceWriter()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\ProofWriter\Tableau::decorateSentenceWriter()</td>
-</tr>
-</table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$type</h4>
-<code>string</code><p>Type of decorator.</p></div>
-<h3>Returns</h3>
-<div class="subelement response">
-<code><a href="../classes/GoTableaux.ProofWriter.html">\GoTableaux\ProofWriter</a></code>Current instance.</div>
 </div></div>
 </div>
 <a name="getArray" id="getArray"></a><div class="element clickable method public getArray" data-toggle="collapse" data-target=".getArray .collapse">
@@ -259,7 +212,7 @@
 </div>
 <a name="getInstance" id="getInstance"></a><div class="element clickable method public getInstance" data-toggle="collapse" data-target=".getInstance .collapse">
 <h2>Gets a child instance.</h2>
-<pre>getInstance(Proof $proof, string $type, string $sentenceWriterType) : <a href="../classes/GoTableaux.ProofWriter.html">\GoTableaux\ProofWriter</a></pre>
+<pre>getInstance(string $proofType, Logic $logic, $output, string $notation, string $format) : <a href="../classes/GoTableaux.ProofWriter.html">\GoTableaux\ProofWriter</a></pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
@@ -275,113 +228,24 @@
 </table>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$proof</h4>
-<code><a href="../classes/GoTableaux.Proof.html">\GoTableaux\Proof</a></code><p>The proof to write.</p></div>
+<h4>$proofType</h4>
+<code>string</code><p>The type of proof.</p></div>
 <div class="subelement argument">
-<h4>$type</h4>
-<code>string</code><p>Proof writer type.</p></div>
+<h4>$logic</h4>
+<code><a href="../classes/GoTableaux.Logic.html">\GoTableaux\Logic</a></code><p>The logic to use.</p></div>
 <div class="subelement argument">
-<h4>$sentenceWriterType</h4>
+<h4>$output</h4>
+<code></code>
+</div>
+<div class="subelement argument">
+<h4>$notation</h4>
 <code>string</code><p>The type of sentence writer to use.</p></div>
+<div class="subelement argument">
+<h4>$format</h4>
+<code>string</code><p>The sentence writer format.</p></div>
 <h3>Returns</h3>
 <div class="subelement response">
 <code><a href="../classes/GoTableaux.ProofWriter.html">\GoTableaux\ProofWriter</a></code>Created instance.</div>
-</div></div>
-</div>
-<a name="getSentenceWriter" id="getSentenceWriter"></a><div class="element clickable method public getSentenceWriter" data-toggle="collapse" data-target=".getSentenceWriter .collapse">
-<h2>Gets the sentence writer object.</h2>
-<pre>getSentenceWriter() : <a href="../classes/GoTableaux.SentenceWriter.html">\GoTableaux\SentenceWriter</a></pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="span8">
-<p class="long_description"></p>
-<table class="table table-bordered">
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\ProofWriter::getSentenceWriter()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\ProofWriter\Tableau::getSentenceWriter()</td>
-</tr>
-</table>
-<h3>Returns</h3>
-<div class="subelement response">
-<code><a href="../classes/GoTableaux.SentenceWriter.html">\GoTableaux\SentenceWriter</a></code>The sentence writer.</div>
-</div></div>
-</div>
-<a name="getTranslation" id="getTranslation"></a><div class="element clickable method public getTranslation" data-toggle="collapse" data-target=".getTranslation .collapse">
-<h2>Gets a translation.</h2>
-<pre>getTranslation(string $name) : string</pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="span8">
-<p class="long_description"></p>
-<table class="table table-bordered">
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\ProofWriter::getTranslation()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\ProofWriter\Tableau::getTranslation()</td>
-</tr>
-</table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$name</h4>
-<code>string</code><p>Name of the translation.</p></div>
-<h3>Returns</h3>
-<div class="subelement response">
-<code>string</code>The translation.</div>
-</div></div>
-</div>
-<a name="removeTranslation" id="removeTranslation"></a><div class="element clickable method public removeTranslation" data-toggle="collapse" data-target=".removeTranslation .collapse">
-<h2>Removes a translation.</h2>
-<pre>removeTranslation(string $name) : <a href="../classes/GoTableaux.ProofWriter.html">\GoTableaux\ProofWriter</a></pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="span8">
-<p class="long_description"></p>
-<table class="table table-bordered">
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\ProofWriter::removeTranslation()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\ProofWriter\Tableau::removeTranslation()</td>
-</tr>
-</table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$name</h4>
-<code>string</code><p>Name of the translation to remove.</p></div>
-<h3>Returns</h3>
-<div class="subelement response">
-<code><a href="../classes/GoTableaux.ProofWriter.html">\GoTableaux\ProofWriter</a></code>Current instance.</div>
-</div></div>
-</div>
-<a name="setSentenceWriter" id="setSentenceWriter"></a><div class="element clickable method public setSentenceWriter" data-toggle="collapse" data-target=".setSentenceWriter .collapse">
-<h2>Sets the sentence writer object.</h2>
-<pre>setSentenceWriter(SentenceWriter $sentenceWriter) : <a href="../classes/GoTableaux.ProofWriter.html">\GoTableaux\ProofWriter</a></pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="span8">
-<p class="long_description"></p>
-<table class="table table-bordered">
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\ProofWriter::setSentenceWriter()</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\ProofWriter\Tableau::setSentenceWriter()</td>
-</tr>
-</table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$sentenceWriter</h4>
-<code><a href="../classes/GoTableaux.SentenceWriter.html">\GoTableaux\SentenceWriter</a></code><p>The sentence writer to set.</p></div>
-<h3>Returns</h3>
-<div class="subelement response">
-<code><a href="../classes/GoTableaux.ProofWriter.html">\GoTableaux\ProofWriter</a></code>Current instance.</div>
 </div></div>
 </div>
 <a name="writeArgumentOfProof" id="writeArgumentOfProof"></a><div class="element clickable method public writeArgumentOfProof" data-toggle="collapse" data-target=".writeArgumentOfProof .collapse">
@@ -552,29 +416,43 @@
 </div>
 <h3>
 <i class="icon-custom icon-property"></i> Properties</h3>
-<a name="%24translations" id="$translations"> </a><div class="element clickable property protected $translations" data-toggle="collapse" data-target=".$translations .collapse">
+<a name="%24metaSymbolStrings" id="$metaSymbolStrings"> </a><div class="element clickable property public $metaSymbolStrings" data-toggle="collapse" data-target=".$metaSymbolStrings .collapse">
 <h2>Translations for tableau-wide markings.</h2>
-<pre>$translations : array</pre>
+<pre>$metaSymbolStrings : array</pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
 <table class="table table-bordered"><tr>
 <th>inherited_from</th>
-<td>\GoTableaux\ProofWriter\Tableau::$$translations</td>
+<td>\GoTableaux\ProofWriter\Tableau::$$metaSymbolStrings</td>
 </tr></table>
 </div></div>
 </div>
-<a name="%24sentenceWriter" id="$sentenceWriter"> </a><div class="element clickable property private $sentenceWriter" data-toggle="collapse" data-target=".$sentenceWriter .collapse">
+<a name="%24logic" id="$logic"> </a><div class="element clickable property protected $logic" data-toggle="collapse" data-target=".$logic .collapse">
+<h2>$logic</h2>
+<pre>$logic : <a href="../classes/GoTableaux.Logic.html">\GoTableaux\Logic</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\ProofWriter::$$logic</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\ProofWriter\Tableau::$$logic</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="%24sentenceWriter" id="$sentenceWriter"> </a><div class="element clickable property protected $sentenceWriter" data-toggle="collapse" data-target=".$sentenceWriter .collapse">
 <h2>$sentenceWriter</h2>
 <pre>$sentenceWriter : <a href="../classes/GoTableaux.SentenceWriter.html">\GoTableaux\SentenceWriter</a></pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
 <table class="table table-bordered">
-<tr>
-<th>access</th>
-<td>private</td>
-</tr>
 <tr>
 <th>inherited_from</th>
 <td>\GoTableaux\ProofWriter::$$sentenceWriter</td>
@@ -586,24 +464,6 @@
 </table>
 </div></div>
 </div>
-<a name="%24vocabulary" id="$vocabulary"> </a><div class="element clickable property private $vocabulary" data-toggle="collapse" data-target=".$vocabulary .collapse">
-<h2>$vocabulary</h2>
-<pre>$vocabulary : <a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="span8">
-<p class="long_description"></p>
-<table class="table table-bordered">
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\ProofWriter::$$vocabulary</td>
-</tr>
-<tr>
-<th>inherited_from</th>
-<td>\GoTableaux\ProofWriter\Tableau::$$vocabulary</td>
-</tr>
-</table>
-</div></div>
-</div>
 </div>
 </div>
 </div>
@@ -611,7 +471,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
-            generated on 2012-04-21T00:47:24-07:00.<br></footer></div>
+            generated on 2012-11-11T22:26:42-08:00.<br></footer></div>
 </div>
 </body>
 </html>

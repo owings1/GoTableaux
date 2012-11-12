@@ -23,12 +23,18 @@
 <li><a href="../namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
 <li><a>Packages</a></li>
 <li><a href="../packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
+<li><a href="../packages/D.html"><i class="icon-folder-open"></i> D</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
 <li><a href="../packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
 <li><a href="../packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
 <li><a href="../packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
+<li><a href="../packages/K.html"><i class="icon-folder-open"></i> K</a></li>
 <li><a href="../packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
 <li><a href="../packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
+<li><a href="../packages/S4.html"><i class="icon-folder-open"></i> S4</a></li>
+<li><a href="../packages/S5.html"><i class="icon-folder-open"></i> S5</a></li>
 <li><a href="../packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
+<li><a href="../packages/T.html"><i class="icon-folder-open"></i> T</a></li>
 </ul>
 </li>
 <li class="dropdown" id="charts-menu">
@@ -39,7 +45,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">255</span></a></li>
+                <span class="label label-info">425</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul><li>todo 
                 <span class="label label-info">2</span>
@@ -65,18 +71,49 @@
 <ul class="side-nav nav nav-list">
 <li class="nav-header">
 <i class="icon-custom icon-method"></i> Methods</li>
-<li class="method public inherited"><a href="#__construct" title="__construct :: Constructor. Sets the vocabulary."><span class="description">Constructor. Sets the vocabulary.</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#buildSymbolTable" title="buildSymbolTable :: "><span class="description">buildSymbolTable()
+        </span><pre>buildSymbolTable()</pre></a></li>
 <li class="method public inherited"><a href="#getInstance" title="getInstance :: Creates a child instance."><span class="description">Creates a child instance.</span><pre>getInstance()</pre></a></li>
-<li class="method public inherited"><a href="#getVocabulary" title="getVocabulary :: Gets the vocabulary."><span class="description">Gets the vocabulary.</span><pre>getVocabulary()</pre></a></li>
+<li class="method public inherited"><a href="#getLogicOperatorSymbolNames" title="getLogicOperatorSymbolNames :: "><span class="description">getLogicOperatorSymbolNames()
+        </span><pre>getLogicOperatorSymbolNames()</pre></a></li>
+<li class="method public inherited"><a href="#getOperatorBySymbol" title="getOperatorBySymbol :: Gets Operator object by its symbol."><span class="description">Gets Operator object by its symbol.</span><pre>getOperatorBySymbol()</pre></a></li>
+<li class="method public inherited"><a href="#getOperatorSymbolNames" title="getOperatorSymbolNames :: "><span class="description">getOperatorSymbolNames()
+        </span><pre>getOperatorSymbolNames()</pre></a></li>
+<li class="method public inherited"><a href="#isOperatorSymbol" title="isOperatorSymbol :: Tests for a symbol being an operator symbol."><span class="description">Tests for a symbol being an operator symbol.</span><pre>isOperatorSymbol()</pre></a></li>
+<li class="method public inherited"><a href="#removeSeparators" title="removeSeparators :: Removes separator (space) characters from a string."><span class="description">Removes separator (space) characters from a string.</span><pre>removeSeparators()</pre></a></li>
 <li class="method public "><a href="#stringToSentence" title="stringToSentence :: Creates a {@link Sentence sentence} from a string."><span class="description">Creates a {@link Sentence sentence} from a string.</span><pre>stringToSentence()</pre></a></li>
 <li class="nav-header protected">» Protected</li>
+<li class="method protected inherited"><a href="#__construct" title="__construct :: Constructor. Initializes the operators"><span class="description">Constructor. Initializes the operators</span><pre>__construct()</pre></a></li>
 <li class="method protected inherited"><a href="#parseAtomic" title="parseAtomic :: Parses an atomic sentence from a string that starts with an atomic symbol."><span class="description">Parses an atomic sentence from a string that starts with an atomic symbol.</span><pre>parseAtomic()</pre></a></li>
+<li class="method protected inherited"><a href="#readAtomic" title="readAtomic :: Reads an atomic sentence from a string that starts with an atomic symbol."><span class="description">Reads an atomic sentence from a string that starts with an atomic symbol.</span><pre>readAtomic()</pre></a></li>
 <li class="nav-header private">» Private</li>
 <li class="method private "><a href="#_readSentence" title="_readSentence :: Reads a string for the first occurrence of a sentence expression."><span class="description">Reads a string for the first occurrence of a sentence expression.</span><pre>_readSentence()</pre></a></li>
+<li class="method private "><a href="#closePosFromOpenPos" title="closePosFromOpenPos :: Finds a string's position for the corresponding close mark of an open
+mark at the given position."><span class="description">Finds a string's position for the corresponding close mark of an open
+mark at the given position.</span><pre>closePosFromOpenPos()</pre></a></li>
+<li class="method private "><a href="#dropOuterParens" title="dropOuterParens :: Drops outer parentheses from a string, if they exist."><span class="description">Drops outer parentheses from a string, if they exist.</span><pre>dropOuterParens()</pre></a></li>
+<li class="method private "><a href="#grabParenGroup" title="grabParenGroup :: Parses first complete parenthesized group in a string."><span class="description">Parses first complete parenthesized group in a string.</span><pre>grabParenGroup()</pre></a></li>
 <li class="nav-header">
 <i class="icon-custom icon-property"></i> Properties</li>
+<li class="property public "><a href="#%24atomicSymbols" title="$atomicSymbols :: "><span class="description">$atomicSymbols</span><pre>$atomicSymbols</pre></a></li>
+<li class="property public "><a href="#%24closeMark" title="$closeMark :: "><span class="description">$closeMark</span><pre>$closeMark</pre></a></li>
+<li class="property public "><a href="#%24openMark" title="$openMark :: "><span class="description">$openMark</span><pre>$openMark</pre></a></li>
+<li class="property public "><a href="#%24operatorNameSymbols" title="$operatorNameSymbols :: "><span class="description">$operatorNameSymbols</span><pre>$operatorNameSymbols</pre></a></li>
+<li class="property public inherited"><a href="#%24spaceSymbols" title="$spaceSymbols :: "><span class="description">$spaceSymbols</span><pre>$spaceSymbols</pre></a></li>
 <li class="nav-header protected">» Protected</li>
-<li class="property protected inherited"><a href="#%24vocabulary" title="$vocabulary :: Holds the vocabulary."><span class="description">Holds the vocabulary.</span><pre>$vocabulary</pre></a></li>
+<li class="property protected inherited"><a href="#%24logic" title="$logic :: "><span class="description">$logic</span><pre>$logic</pre></a></li>
+<li class="property protected inherited"><a href="#%24operatorSymbolArities" title="$operatorSymbolArities :: "><span class="description">$operatorSymbolArities</span><pre>$operatorSymbolArities</pre></a></li>
+<li class="property protected inherited"><a href="#%24operatorSymbolNames" title="$operatorSymbolNames :: "><span class="description">$operatorSymbolNames</span><pre>$operatorSymbolNames</pre></a></li>
+<li class="property protected inherited"><a href="#%24symbolTable" title="$symbolTable :: Maps symbols to types."><span class="description">Maps symbols to types.</span><pre>$symbolTable</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-constant"></i> Constants</li>
+<li class="constant  inherited"><a href="#ATOMIC" title="ATOMIC :: "><span class="description">ATOMIC</span><pre>ATOMIC</pre></a></li>
+<li class="constant  inherited"><a href="#OPER_BINARY" title="OPER_BINARY :: "><span class="description">OPER_BINARY</span><pre>OPER_BINARY</pre></a></li>
+<li class="constant  inherited"><a href="#OPER_TERNARY" title="OPER_TERNARY :: "><span class="description">OPER_TERNARY</span><pre>OPER_TERNARY</pre></a></li>
+<li class="constant  inherited"><a href="#OPER_UNARY" title="OPER_UNARY :: "><span class="description">OPER_UNARY</span><pre>OPER_UNARY</pre></a></li>
+<li class="constant  inherited"><a href="#PUNCT_CLOSE" title="PUNCT_CLOSE :: "><span class="description">PUNCT_CLOSE</span><pre>PUNCT_CLOSE</pre></a></li>
+<li class="constant  inherited"><a href="#PUNCT_OPEN" title="PUNCT_OPEN :: "><span class="description">PUNCT_OPEN</span><pre>PUNCT_OPEN</pre></a></li>
+<li class="constant  inherited"><a href="#PUNCT_SEPARATOR" title="PUNCT_SEPARATOR :: "><span class="description">PUNCT_SEPARATOR</span><pre>PUNCT_SEPARATOR</pre></a></li>
 </ul>
 </div>
 <div class="span8">
@@ -100,25 +137,16 @@
 </tr></table>
 <h3>
 <i class="icon-custom icon-method"></i> Methods</h3>
-<a name="__construct" id="__construct"></a><div class="element clickable method public __construct" data-toggle="collapse" data-target=".__construct .collapse">
-<h2>Constructor. Sets the vocabulary.</h2>
-<pre>__construct(Vocabulary $vocabulary) </pre>
-<div class="labels"><span class="label">Inherited</span></div>
-<div class="row collapse"><div class="span8">
-<p class="long_description"></p>
-<table class="table table-bordered"><tr>
-<th>inherited_from</th>
-<td>\GoTableaux\SentenceParser::__construct()</td>
-</tr></table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$vocabulary</h4>
-<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code><p>The vocabulary for the parser to use.</p></div>
-</div></div>
+<a name="buildSymbolTable" id="buildSymbolTable"></a><div class="element clickable method public buildSymbolTable" data-toggle="collapse" data-target=".buildSymbolTable .collapse">
+<h2>buildSymbolTable()
+        </h2>
+<pre>buildSymbolTable() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
 </div>
 <a name="getInstance" id="getInstance"></a><div class="element clickable method public getInstance" data-toggle="collapse" data-target=".getInstance .collapse">
 <h2>Creates a child instance.</h2>
-<pre>getInstance(Vocabulary $vocabulary, string $type) </pre>
+<pre>getInstance(Logic $logic, string $type) </pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
@@ -128,26 +156,100 @@
 </tr></table>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$vocabulary</h4>
-<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code><p>The vocabulary for the parser to use.</p></div>
+<h4>$logic</h4>
+<code><a href="../classes/GoTableaux.Logic.html">\GoTableaux\Logic</a></code><p>The logic whose operators/arities to use.</p>
+</div>
 <div class="subelement argument">
 <h4>$type</h4>
 <code>string</code><p>The type of parser to create.</p></div>
 </div></div>
 </div>
-<a name="getVocabulary" id="getVocabulary"></a><div class="element clickable method public getVocabulary" data-toggle="collapse" data-target=".getVocabulary .collapse">
-<h2>Gets the vocabulary.</h2>
-<pre>getVocabulary() : <a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></pre>
+<a name="getLogicOperatorSymbolNames" id="getLogicOperatorSymbolNames"></a><div class="element clickable method public getLogicOperatorSymbolNames" data-toggle="collapse" data-target=".getLogicOperatorSymbolNames .collapse">
+<h2>getLogicOperatorSymbolNames()
+        </h2>
+<pre>getLogicOperatorSymbolNames() </pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
 <table class="table table-bordered"><tr>
 <th>inherited_from</th>
-<td>\GoTableaux\SentenceParser::getVocabulary()</td>
+<td>\GoTableaux\SentenceParser::getLogicOperatorSymbolNames()</td>
+</tr></table>
+</div></div>
+</div>
+<a name="getOperatorBySymbol" id="getOperatorBySymbol"></a><div class="element clickable method public getOperatorBySymbol" data-toggle="collapse" data-target=".getOperatorBySymbol .collapse">
+<h2>Gets Operator object by its symbol.</h2>
+<pre>getOperatorBySymbol(string $symbol) : <a href="../classes/GoTableaux.Operator.html">\GoTableaux\Operator</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceParser::getOperatorBySymbol()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$symbol</h4>
+<code>string</code><p>Operator symbol.</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\GoTableaux\{@link</code></th>
+<td>ParserException} when $symbol is not an operator symbol in the vocabulary.</td>
 </tr></table>
 <h3>Returns</h3>
 <div class="subelement response">
-<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code>The vocabulary that the parser is using.</div>
+<code><a href="../classes/GoTableaux.Operator.html">\GoTableaux\Operator</a></code>Operator instance.</div>
+</div></div>
+</div>
+<a name="getOperatorSymbolNames" id="getOperatorSymbolNames"></a><div class="element clickable method public getOperatorSymbolNames" data-toggle="collapse" data-target=".getOperatorSymbolNames .collapse">
+<h2>getOperatorSymbolNames()
+        </h2>
+<pre>getOperatorSymbolNames() </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceParser::getOperatorSymbolNames()</td>
+</tr></table>
+</div></div>
+</div>
+<a name="isOperatorSymbol" id="isOperatorSymbol"></a><div class="element clickable method public isOperatorSymbol" data-toggle="collapse" data-target=".isOperatorSymbol .collapse">
+<h2>Tests for a symbol being an operator symbol.</h2>
+<pre>isOperatorSymbol(string $symbol) : boolean</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceParser::isOperatorSymbol()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$symbol</h4>
+<code>string</code><p>The symbol to check.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>Whether the symbol is an operator symbol.</div>
+</div></div>
+</div>
+<a name="removeSeparators" id="removeSeparators"></a><div class="element clickable method public removeSeparators" data-toggle="collapse" data-target=".removeSeparators .collapse">
+<h2>Removes separator (space) characters from a string.</h2>
+<pre>removeSeparators(string $string) : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceParser::removeSeparators()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$string</h4>
+<code>string</code><p>The string to replace.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The string with all separators removed.</div>
 </div></div>
 </div>
 <a name="stringToSentence" id="stringToSentence"></a><div class="element clickable method public stringToSentence" data-toggle="collapse" data-target=".stringToSentence .collapse">
@@ -170,16 +272,37 @@
 <code><a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></code>The resulting instance.</div>
 </div></div>
 </div>
+<a name="__construct" id="__construct"></a><div class="element clickable method protected __construct" data-toggle="collapse" data-target=".__construct .collapse">
+<h2>Constructor. Initializes the operators</h2>
+<pre>__construct(Logic $logic) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceParser::__construct()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$logic</h4>
+<code><a href="../classes/GoTableaux.Logic.html">\GoTableaux\Logic</a></code><p>The logic (language) for which to parse.</p>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/GoTableaux.Exception.html">\GoTableaux\Exception</a></code></th>
+<td></td>
+</tr></table>
+</div></div>
+</div>
 <a name="parseAtomic" id="parseAtomic"></a><div class="element clickable method protected parseAtomic" data-toggle="collapse" data-target=".parseAtomic .collapse">
 <h2>Parses an atomic sentence from a string that starts with an atomic symbol.</h2>
 <pre>parseAtomic(string $sentenceStr) : <a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
-<p class="long_description"><p>This is the default implementation for parsing an atomic sentence from a
-string that starts with an atomic symbol. This implementation expects
-the next symbol to be either a separator (space) character, or a
-subscript character followed by an integer. If a subscript is not given,
-it will be assigned 0.</p></p>
+<p class="long_description"><p>This provides default functionality for parsing an atomic sentence from a
+string that starts with an atomic symbol. If the atomic symbol is followed
+by an integer, the sentence's subscript will be assigned the intval of the
+remaining string.</p></p>
 <table class="table table-bordered"><tr>
 <th>inherited_from</th>
 <td>\GoTableaux\SentenceParser::parseAtomic()</td>
@@ -196,6 +319,30 @@ it will be assigned 0.</p></p>
 <h3>Returns</h3>
 <div class="subelement response">
 <code><a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></code>The resulting sentence instance.</div>
+</div></div>
+</div>
+<a name="readAtomic" id="readAtomic"></a><div class="element clickable method protected readAtomic" data-toggle="collapse" data-target=".readAtomic .collapse">
+<h2>Reads an atomic sentence from a string that starts with an atomic symbol.</h2>
+<pre>readAtomic(string $sentenceStr) : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceParser::readAtomic()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$sentenceStr</h4>
+<code>string</code><p>The string to read.</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\GoTableaux\{@link</code></th>
+<td>ParserException}.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The atomic sentence string.</div>
 </div></div>
 </div>
 <a name="_readSentence" id="_readSentence"></a><div class="element clickable method private _readSentence" data-toggle="collapse" data-target="._readSentence .collapse">
@@ -222,24 +369,241 @@ it will be assigned 0.</p></p>
 <code>string</code>The first sentence string.</div>
 </div></div>
 </div>
+<a name="closePosFromOpenPos" id="closePosFromOpenPos"></a><div class="element clickable method private closePosFromOpenPos" data-toggle="collapse" data-target=".closePosFromOpenPos .collapse">
+<h2>Finds a string's position for the corresponding close mark of an open
+mark at the given position.</h2>
+<pre>closePosFromOpenPos(string $string, integer $openPos) : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$string</h4>
+<code>string</code><p>The string to scan.</p></div>
+<div class="subelement argument">
+<h4>$openPos</h4>
+<code>integer</code><p>String position of open mark.</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\GoTableaux\SentenceParser\{@link</code></th>
+<td>Exception\Parser} on parsing error.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>integer</code>The position of the corresponding close mark.</div>
+</div></div>
+</div>
+<a name="dropOuterParens" id="dropOuterParens"></a><div class="element clickable method private dropOuterParens" data-toggle="collapse" data-target=".dropOuterParens .collapse">
+<h2>Drops outer parentheses from a string, if they exist.</h2>
+<pre>dropOuterParens(string $string) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$string</h4>
+<code>string</code><p>The string to be parsed.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The resulting string.</div>
+</div></div>
+</div>
+<a name="grabParenGroup" id="grabParenGroup"></a><div class="element clickable method private grabParenGroup" data-toggle="collapse" data-target=".grabParenGroup .collapse">
+<h2>Parses first complete parenthesized group in a string.</h2>
+<pre>grabParenGroup(string $str, boolean $includeOuter, integer $offset) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$str</h4>
+<code>string</code><p>The string to be parsed. Must contain at least one parenthesized group.</p></div>
+<div class="subelement argument">
+<h4>$includeOuter</h4>
+<code>boolean</code><p>Whether to include the outer parentheses in the returned string. Default is false.</p></div>
+<div class="subelement argument">
+<h4>$offset</h4>
+<code>integer</code><p>String offset at which to start searching.</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\GoTableaux\SentenceParser\{@link</code></th>
+<td>Exception\Parser} on no parentheses in string, or parsing error.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>Everything inside the first parenthesized group. Includes outer parentheses if $includeOuter is set to true.</div>
+</div></div>
+</div>
 <h3>
 <i class="icon-custom icon-property"></i> Properties</h3>
-<a name="%24vocabulary" id="$vocabulary"> </a><div class="element clickable property protected $vocabulary" data-toggle="collapse" data-target=".$vocabulary .collapse">
-<h2>Holds the vocabulary.</h2>
-<pre>$vocabulary : <a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></pre>
+<a name="%24atomicSymbols" id="$atomicSymbols"> </a><div class="element clickable property public $atomicSymbols" data-toggle="collapse" data-target=".$atomicSymbols .collapse">
+<h2>$atomicSymbols</h2>
+<pre>$atomicSymbols </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24closeMark" id="$closeMark"> </a><div class="element clickable property public $closeMark" data-toggle="collapse" data-target=".$closeMark .collapse">
+<h2>$closeMark</h2>
+<pre>$closeMark </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24openMark" id="$openMark"> </a><div class="element clickable property public $openMark" data-toggle="collapse" data-target=".$openMark .collapse">
+<h2>$openMark</h2>
+<pre>$openMark </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24operatorNameSymbols" id="$operatorNameSymbols"> </a><div class="element clickable property public $operatorNameSymbols" data-toggle="collapse" data-target=".$operatorNameSymbols .collapse">
+<h2>$operatorNameSymbols</h2>
+<pre>$operatorNameSymbols </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24spaceSymbols" id="$spaceSymbols"> </a><div class="element clickable property public $spaceSymbols" data-toggle="collapse" data-target=".$spaceSymbols .collapse">
+<h2>$spaceSymbols</h2>
+<pre>$spaceSymbols </pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
-<table class="table table-bordered">
-<tr>
-<th>access</th>
-<td>private</td>
-</tr>
-<tr>
+<table class="table table-bordered"><tr>
 <th>inherited_from</th>
-<td>\GoTableaux\SentenceParser::$$vocabulary</td>
-</tr>
-</table>
+<td>\GoTableaux\SentenceParser::$$spaceSymbols</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24logic" id="$logic"> </a><div class="element clickable property protected $logic" data-toggle="collapse" data-target=".$logic .collapse">
+<h2>$logic</h2>
+<pre>$logic : <a href="../classes/GoTableaux.Logic.html">\GoTableaux\Logic</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceParser::$$logic</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24operatorSymbolArities" id="$operatorSymbolArities"> </a><div class="element clickable property protected $operatorSymbolArities" data-toggle="collapse" data-target=".$operatorSymbolArities .collapse">
+<h2>$operatorSymbolArities</h2>
+<pre>$operatorSymbolArities </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceParser::$$operatorSymbolArities</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24operatorSymbolNames" id="$operatorSymbolNames"> </a><div class="element clickable property protected $operatorSymbolNames" data-toggle="collapse" data-target=".$operatorSymbolNames .collapse">
+<h2>$operatorSymbolNames</h2>
+<pre>$operatorSymbolNames </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceParser::$$operatorSymbolNames</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24symbolTable" id="$symbolTable"> </a><div class="element clickable property protected $symbolTable" data-toggle="collapse" data-target=".$symbolTable .collapse">
+<h2>Maps symbols to types.</h2>
+<pre>$symbolTable </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceParser::$$symbolTable</td>
+</tr></table>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-constant"></i> Constants</h3>
+<a name="ATOMIC" id="ATOMIC"> </a><div class="element clickable constant  ATOMIC" data-toggle="collapse" data-target=".ATOMIC .collapse">
+<h2>ATOMIC</h2>
+<pre>ATOMIC </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceParser::ATOMIC</td>
+</tr></table>
+</div></div>
+</div>
+<a name="OPER_BINARY" id="OPER_BINARY"> </a><div class="element clickable constant  OPER_BINARY" data-toggle="collapse" data-target=".OPER_BINARY .collapse">
+<h2>OPER_BINARY</h2>
+<pre>OPER_BINARY </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceParser::OPER_BINARY</td>
+</tr></table>
+</div></div>
+</div>
+<a name="OPER_TERNARY" id="OPER_TERNARY"> </a><div class="element clickable constant  OPER_TERNARY" data-toggle="collapse" data-target=".OPER_TERNARY .collapse">
+<h2>OPER_TERNARY</h2>
+<pre>OPER_TERNARY </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceParser::OPER_TERNARY</td>
+</tr></table>
+</div></div>
+</div>
+<a name="OPER_UNARY" id="OPER_UNARY"> </a><div class="element clickable constant  OPER_UNARY" data-toggle="collapse" data-target=".OPER_UNARY .collapse">
+<h2>OPER_UNARY</h2>
+<pre>OPER_UNARY </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceParser::OPER_UNARY</td>
+</tr></table>
+</div></div>
+</div>
+<a name="PUNCT_CLOSE" id="PUNCT_CLOSE"> </a><div class="element clickable constant  PUNCT_CLOSE" data-toggle="collapse" data-target=".PUNCT_CLOSE .collapse">
+<h2>PUNCT_CLOSE</h2>
+<pre>PUNCT_CLOSE </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceParser::PUNCT_CLOSE</td>
+</tr></table>
+</div></div>
+</div>
+<a name="PUNCT_OPEN" id="PUNCT_OPEN"> </a><div class="element clickable constant  PUNCT_OPEN" data-toggle="collapse" data-target=".PUNCT_OPEN .collapse">
+<h2>PUNCT_OPEN</h2>
+<pre>PUNCT_OPEN </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceParser::PUNCT_OPEN</td>
+</tr></table>
+</div></div>
+</div>
+<a name="PUNCT_SEPARATOR" id="PUNCT_SEPARATOR"> </a><div class="element clickable constant  PUNCT_SEPARATOR" data-toggle="collapse" data-target=".PUNCT_SEPARATOR .collapse">
+<h2>PUNCT_SEPARATOR</h2>
+<pre>PUNCT_SEPARATOR </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\GoTableaux\SentenceParser::PUNCT_SEPARATOR</td>
+</tr></table>
 </div></div>
 </div>
 </div>
@@ -249,7 +613,7 @@ it will be assigned 0.</p></p>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
-            generated on 2012-04-21T00:47:25-07:00.<br></footer></div>
+            generated on 2012-11-11T22:26:43-08:00.<br></footer></div>
 </div>
 </body>
 </html>

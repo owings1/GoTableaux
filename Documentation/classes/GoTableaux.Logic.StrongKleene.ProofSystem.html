@@ -23,12 +23,18 @@
 <li><a href="../namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
 <li><a>Packages</a></li>
 <li><a href="../packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
+<li><a href="../packages/D.html"><i class="icon-folder-open"></i> D</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
 <li><a href="../packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
 <li><a href="../packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
 <li><a href="../packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
+<li><a href="../packages/K.html"><i class="icon-folder-open"></i> K</a></li>
 <li><a href="../packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
 <li><a href="../packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
+<li><a href="../packages/S4.html"><i class="icon-folder-open"></i> S4</a></li>
+<li><a href="../packages/S5.html"><i class="icon-folder-open"></i> S5</a></li>
 <li><a href="../packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
+<li><a href="../packages/T.html"><i class="icon-folder-open"></i> T</a></li>
 </ul>
 </li>
 <li class="dropdown" id="charts-menu">
@@ -39,7 +45,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">255</span></a></li>
+                <span class="label label-info">425</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul><li>todo 
                 <span class="label label-info">2</span>
@@ -68,11 +74,21 @@
 <li class="method public inherited"><a href="#__construct" title="__construct :: Constructor."><span class="description">Constructor.</span><pre>__construct()</pre></a></li>
 <li class="method public inherited"><a href="#buildTrunk" title="buildTrunk :: Constructs the initial list (trunk) for an argument."><span class="description">Constructs the initial list (trunk) for an argument.</span><pre>buildTrunk()</pre></a></li>
 <li class="method public inherited"><a href="#constructProofForArgument" title="constructProofForArgument :: Constructs a proof for an argument."><span class="description">Constructs a proof for an argument.</span><pre>constructProofForArgument()</pre></a></li>
-<li class="method public inherited"><a href="#getCountermodel" title="getCountermodel :: Gets a counterexample from a Tableau proof."><span class="description">Gets a counterexample from a Tableau proof.</span><pre>getCountermodel()</pre></a></li>
+<li class="method public inherited"><a href="#getClosureRules" title="getClosureRules :: Gets the closure rules."><span class="description">Gets the closure rules.</span><pre>getClosureRules()</pre></a></li>
 <li class="method public inherited"><a href="#getLogic" title="getLogic :: Gets the logic instance."><span class="description">Gets the logic instance.</span><pre>getLogic()</pre></a></li>
+<li class="method public inherited"><a href="#getProofWriter" title="getProofWriter :: "><span class="description">getProofWriter()
+        </span><pre>getProofWriter()</pre></a></li>
 <li class="method public inherited"><a href="#getRules" title="getRules :: Gets the tableau rules."><span class="description">Gets the tableau rules.</span><pre>getRules()</pre></a></li>
+<li class="method public inherited"><a href="#getStages" title="getStages :: Returns an array of tableaux representing the state of the proof for an
+argument at each stage."><span class="description">Returns an array of tableaux representing the state of the proof for an
+argument at each stage.</span><pre>getStages()</pre></a></li>
+<li class="method public inherited"><a href="#getType" title="getType :: "><span class="description">getType()
+        </span><pre>getType()</pre></a></li>
 <li class="method public inherited"><a href="#isValidProof" title="isValidProof :: Checks whether a Tableau is a valid proof."><span class="description">Checks whether a Tableau is a valid proof.</span><pre>isValidProof()</pre></a></li>
 <li class="method public inherited"><a href="#ruleCanApply" title="ruleCanApply :: Determines whether at least one rule can apply to a tableau."><span class="description">Determines whether at least one rule can apply to a tableau.</span><pre>ruleCanApply()</pre></a></li>
+<li class="method public inherited"><a href="#setupTableau" title="setupTableau :: "><span class="description">setupTableau()
+        </span><pre>setupTableau()</pre></a></li>
+<li class="method public inherited"><a href="#step" title="step :: Applies the next applicable rule to the tableau."><span class="description">Applies the next applicable rule to the tableau.</span><pre>step()</pre></a></li>
 <li class="nav-header protected">» Protected</li>
 <li class="method protected inherited"><a href="#addRules" title="addRules :: Adds tableau rules. Duplicate entries are ignored."><span class="description">Adds tableau rules. Duplicate entries are ignored.</span><pre>addRules()</pre></a></li>
 <li class="nav-header">
@@ -179,35 +195,25 @@
 <code><a href="../classes/GoTableaux.Proof.Tableau.html">\GoTableaux\Proof\Tableau</a></code>The tableau proof.</div>
 </div></div>
 </div>
-<a name="getCountermodel" id="getCountermodel"></a><div class="element clickable method public getCountermodel" data-toggle="collapse" data-target=".getCountermodel .collapse">
-<h2>Gets a counterexample from a Tableau proof.</h2>
-<pre>getCountermodel(Proof $tableau) : \GoTableaux\ProofSystem\Model</pre>
+<a name="getClosureRules" id="getClosureRules"></a><div class="element clickable method public getClosureRules" data-toggle="collapse" data-target=".getClosureRules .collapse">
+<h2>Gets the closure rules.</h2>
+<pre>getClosureRules() : array</pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
-<p class="long_description"><p>A counterexample for a tableaux system is a model induced from an open
-branch.</p></p>
+<p class="long_description"></p>
 <table class="table table-bordered">
 <tr>
 <th>inherited_from</th>
-<td>\GoTableaux\ProofSystem\TableauxSystem::getCountermodel()</td>
+<td>\GoTableaux\ProofSystem\TableauxSystem::getClosureRules()</td>
 </tr>
 <tr>
 <th>inherited_from</th>
-<td>\GoTableaux\Logic\FDE\ProofSystem::getCountermodel()</td>
+<td>\GoTableaux\Logic\FDE\ProofSystem::getClosureRules()</td>
 </tr>
 </table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$tableau</h4>
-<code><a href="../classes/GoTableaux.Proof.html">\GoTableaux\Proof</a></code><p>The tableau from which to build the counterexample</p></div>
-<h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th><code>\GoTableaux\ProofSystem\{@link</code></th>
-<td>TableauException} on no open branches or type error.</td>
-</tr></table>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>\GoTableaux\ProofSystem\Model</code>The countermodel extracted from the proof.</div>
+<code>array</code>The rule instances.</div>
 </div></div>
 </div>
 <a name="getLogic" id="getLogic"></a><div class="element clickable method public getLogic" data-toggle="collapse" data-target=".getLogic .collapse">
@@ -244,12 +250,45 @@ branch.</p></p>
 <code><a href="../classes/GoTableaux.Logic.html">\GoTableaux\Logic</a></code>The logic instance.</div>
 </div></div>
 </div>
-<a name="getRules" id="getRules"></a><div class="element clickable method public getRules" data-toggle="collapse" data-target=".getRules .collapse">
-<h2>Gets the tableau rules.</h2>
-<pre>getRules($filterClass) : array</pre>
+<a name="getProofWriter" id="getProofWriter"></a><div class="element clickable method public getProofWriter" data-toggle="collapse" data-target=".getProofWriter .collapse">
+<h2>getProofWriter()
+        </h2>
+<pre>getProofWriter($output, $notation, $format) </pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\ProofSystem\TableauxSystem::getProofWriter()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic\FDE\ProofSystem::getProofWriter()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$output</h4>
+<code></code>
+</div>
+<div class="subelement argument">
+<h4>$notation</h4>
+<code></code>
+</div>
+<div class="subelement argument">
+<h4>$format</h4>
+<code></code>
+</div>
+</div></div>
+</div>
+<a name="getRules" id="getRules"></a><div class="element clickable method public getRules" data-toggle="collapse" data-target=".getRules .collapse">
+<h2>Gets the tableau rules.</h2>
+<pre>getRules(boolean $includeClosure) : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>Lazy instantiation of the rules. Reads $ruleClasses and resolves them
+into class names.</p></p>
 <table class="table table-bordered">
 <tr>
 <th>inherited_from</th>
@@ -262,17 +301,60 @@ branch.</p></p>
 </table>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$filterClass</h4>
-<code></code>
-</div>
-<h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th></th>
-<td></td>
-</tr></table>
+<h4>$includeClosure</h4>
+<code>boolean</code><p>Whether to include closure rules.</p></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>array</code>Array of {@link Rule}s.</div>
+<code>array</code>The rule instances.</div>
+</div></div>
+</div>
+<a name="getStages" id="getStages"></a><div class="element clickable method public getStages" data-toggle="collapse" data-target=".getStages .collapse">
+<h2>Returns an array of tableaux representing the state of the proof for an
+argument at each stage.</h2>
+<pre>getStages(Argument $argument) : array</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\ProofSystem\TableauxSystem::getStages()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic\FDE\ProofSystem::getStages()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$argument</h4>
+<code><a href="../classes/GoTableaux.Argument.html">\GoTableaux\Argument</a></code><p>The argument whose tableau stages to build.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>The stages of the tableau.</div>
+</div></div>
+</div>
+<a name="getType" id="getType"></a><div class="element clickable method public getType" data-toggle="collapse" data-target=".getType .collapse">
+<h2>getType()
+        </h2>
+<pre>getType() </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\ProofSystem::getType()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\ProofSystem\TableauxSystem::getType()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic\FDE\ProofSystem::getType()</td>
+</tr>
+</table>
 </div></div>
 </div>
 <a name="isValidProof" id="isValidProof"></a><div class="element clickable method public isValidProof" data-toggle="collapse" data-target=".isValidProof .collapse">
@@ -328,6 +410,55 @@ branch.</p></p>
 <h3>Returns</h3>
 <div class="subelement response">
 <code>boolean</code>Whether at least one rule can apply.</div>
+</div></div>
+</div>
+<a name="setupTableau" id="setupTableau"></a><div class="element clickable method public setupTableau" data-toggle="collapse" data-target=".setupTableau .collapse">
+<h2>setupTableau()
+        </h2>
+<pre>setupTableau(Argument $argument) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\ProofSystem\TableauxSystem::setupTableau()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic\FDE\ProofSystem::setupTableau()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$argument</h4>
+<code></code>
+</div>
+</div></div>
+</div>
+<a name="step" id="step"></a><div class="element clickable method public step" data-toggle="collapse" data-target=".step .collapse">
+<h2>Applies the next applicable rule to the tableau.</h2>
+<pre>step(Tableau $tableau) : boolean</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\ProofSystem\TableauxSystem::step()</td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\GoTableaux\Logic\FDE\ProofSystem::step()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$tableau</h4>
+<code><a href="../classes/GoTableaux.Proof.Tableau.html">\GoTableaux\Proof\Tableau</a></code><p>The tableau to step.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code>True if a rule applied, false if the tableau is finished.</div>
 </div></div>
 </div>
 <a name="addRules" id="addRules"></a><div class="element clickable method protected addRules" data-toggle="collapse" data-target=".addRules .collapse">
@@ -415,7 +546,7 @@ branch.</p></p>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
-            generated on 2012-04-21T00:47:24-07:00.<br></footer></div>
+            generated on 2012-11-11T22:26:41-08:00.<br></footer></div>
 </div>
 </body>
 </html>

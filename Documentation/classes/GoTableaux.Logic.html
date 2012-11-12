@@ -23,12 +23,18 @@
 <li><a href="../namespaces/GoTableaux.html"><i class="icon-th"></i> GoTableaux</a></li>
 <li><a>Packages</a></li>
 <li><a href="../packages/CPL.html"><i class="icon-folder-open"></i> CPL</a></li>
+<li><a href="../packages/D.html"><i class="icon-folder-open"></i> D</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
 <li><a href="../packages/FDE.html"><i class="icon-folder-open"></i> FDE</a></li>
 <li><a href="../packages/GO.html"><i class="icon-folder-open"></i> GO</a></li>
 <li><a href="../packages/GoTableaux.html"><i class="icon-folder-open"></i> GoTableaux</a></li>
+<li><a href="../packages/K.html"><i class="icon-folder-open"></i> K</a></li>
 <li><a href="../packages/LP.html"><i class="icon-folder-open"></i> LP</a></li>
 <li><a href="../packages/Lukasiewicz.html"><i class="icon-folder-open"></i> Lukasiewicz</a></li>
+<li><a href="../packages/S4.html"><i class="icon-folder-open"></i> S4</a></li>
+<li><a href="../packages/S5.html"><i class="icon-folder-open"></i> S5</a></li>
 <li><a href="../packages/StrongKleene.html"><i class="icon-folder-open"></i> StrongKleene</a></li>
+<li><a href="../packages/T.html"><i class="icon-folder-open"></i> T</a></li>
 </ul>
 </li>
 <li class="dropdown" id="charts-menu">
@@ -39,7 +45,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">255</span></a></li>
+                <span class="label label-info">425</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul><li>todo 
                 <span class="label label-info">2</span>
@@ -69,25 +75,34 @@
 <li class="method public "><a href="#constructProofForArgument" title="constructProofForArgument :: Builds a proof for an argument with the proof system."><span class="description">Builds a proof for an argument with the proof system.</span><pre>constructProofForArgument()</pre></a></li>
 <li class="method public "><a href="#getInstance" title="getInstance :: Gets the singleton instance of a particular logic."><span class="description">Gets the singleton instance of a particular logic.</span><pre>getInstance()</pre></a></li>
 <li class="method public "><a href="#getName" title="getName :: Gets the name of the Logic."><span class="description">Gets the name of the Logic.</span><pre>getName()</pre></a></li>
-<li class="method public "><a href="#getOperator" title="getOperator :: Gets an operator from the logic's vocabulary."><span class="description">Gets an operator from the logic's vocabulary.</span><pre>getOperator()</pre></a></li>
+<li class="method public "><a href="#getOperator" title="getOperator :: Gets an operator."><span class="description">Gets an operator.</span><pre>getOperator()</pre></a></li>
+<li class="method public "><a href="#getOperatorNames" title="getOperatorNames :: "><span class="description">getOperatorNames()
+        </span><pre>getOperatorNames()</pre></a></li>
+<li class="method public "><a href="#getOperators" title="getOperators :: "><span class="description">getOperators()
+        </span><pre>getOperators()</pre></a></li>
 <li class="method public "><a href="#getParser" title="getParser :: Gets a new sentence parser of the specified type."><span class="description">Gets a new sentence parser of the specified type.</span><pre>getParser()</pre></a></li>
 <li class="method public "><a href="#getProofSystem" title="getProofSystem :: Gets the proof system."><span class="description">Gets the proof system.</span><pre>getProofSystem()</pre></a></li>
-<li class="method public "><a href="#getVocabulary" title="getVocabulary :: Gets the vocabulary."><span class="description">Gets the vocabulary.</span><pre>getVocabulary()</pre></a></li>
-<li class="method public "><a href="#initVocabulary" title="initVocabulary :: Initializes the vocabulary."><span class="description">Initializes the vocabulary.</span><pre>initVocabulary()</pre></a></li>
+<li class="method public "><a href="#getProofWriter" title="getProofWriter :: "><span class="description">getProofWriter()
+        </span><pre>getProofWriter()</pre></a></li>
+<li class="method public "><a href="#getSentences" title="getSentences :: Gets the set of sentences."><span class="description">Gets the set of sentences.</span><pre>getSentences()</pre></a></li>
 <li class="method public "><a href="#negate" title="negate :: Negates a sentence."><span class="description">Negates a sentence.</span><pre>negate()</pre></a></li>
 <li class="method public "><a href="#parseArgument" title="parseArgument :: Parses an argument."><span class="description">Parses an argument.</span><pre>parseArgument()</pre></a></li>
 <li class="method public "><a href="#parseSentence" title="parseSentence :: Parses a sentence string."><span class="description">Parses a sentence string.</span><pre>parseSentence()</pre></a></li>
 <li class="method public "><a href="#parseSentences" title="parseSentences :: Parses an array of sentence strings."><span class="description">Parses an array of sentence strings.</span><pre>parseSentences()</pre></a></li>
+<li class="method public "><a href="#registerSentence" title="registerSentence :: Adds a sentence to the vocabulary, maintaining uniqueness."><span class="description">Adds a sentence to the vocabulary, maintaining uniqueness.</span><pre>registerSentence()</pre></a></li>
 <li class="nav-header private">» Private</li>
 <li class="method private "><a href="#__construct" title="__construct :: Constructor. Final &amp; private, for forcing single instances for each logic."><span class="description">Constructor. Final &amp; private, for forcing single instances for each logic.</span><pre>__construct()</pre></a></li>
 <li class="nav-header">
 <i class="icon-custom icon-property"></i> Properties</li>
-<li class="property public "><a href="#%24defaultOperatorSymbols" title="$defaultOperatorSymbols :: Defines the default operator symbols for the lexicon."><span class="description">Defines the default operator symbols for the lexicon.</span><pre>$defaultOperatorSymbols</pre></a></li>
-<li class="property public "><a href="#%24lexicon" title="$lexicon :: Defines the default lexicon for initializing the vocabulary."><span class="description">Defines the default lexicon for initializing the vocabulary.</span><pre>$lexicon</pre></a></li>
+<li class="property public "><a href="#%24externalLinks" title="$externalLinks :: "><span class="description">$externalLinks</span><pre>$externalLinks</pre></a></li>
+<li class="property public "><a href="#%24inheritOperatorsFrom" title="$inheritOperatorsFrom :: "><span class="description">$inheritOperatorsFrom</span><pre>$inheritOperatorsFrom</pre></a></li>
+<li class="property public "><a href="#%24operatorArities" title="$operatorArities :: "><span class="description">$operatorArities</span><pre>$operatorArities</pre></a></li>
+<li class="property public "><a href="#%24title" title="$title :: "><span class="description">$title</span><pre>$title</pre></a></li>
 <li class="nav-header protected">» Protected</li>
 <li class="property protected "><a href="#%24instances" title="$instances :: Holds the singleton instances of the logics."><span class="description">Holds the singleton instances of the logics.</span><pre>$instances</pre></a></li>
+<li class="property protected "><a href="#%24operators" title="$operators :: "><span class="description">$operators</span><pre>$operators</pre></a></li>
 <li class="property protected "><a href="#%24proofSystem" title="$proofSystem :: Holds a reference to the proof system."><span class="description">Holds a reference to the proof system.</span><pre>$proofSystem</pre></a></li>
-<li class="property protected "><a href="#%24vocabulary" title="$vocabulary :: Holds a reference to the vocabulary."><span class="description">Holds a reference to the vocabulary.</span><pre>$vocabulary</pre></a></li>
+<li class="property protected "><a href="#%24sentences" title="$sentences :: "><span class="description">$sentences</span><pre>$sentences</pre></a></li>
 </ul>
 </div>
 <div class="span8">
@@ -176,15 +191,11 @@
 </div></div>
 </div>
 <a name="getOperator" id="getOperator"></a><div class="element clickable method public getOperator" data-toggle="collapse" data-target=".getOperator .collapse">
-<h2>Gets an operator from the logic's vocabulary.</h2>
+<h2>Gets an operator.</h2>
 <pre>getOperator(string $name) : <a href="../classes/GoTableaux.Operator.html">\GoTableaux\Operator</a></pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
-<table class="table table-bordered"><tr>
-<th>see</th>
-<td>\GoTableaux\Vocabulary::getOperatorByName()</td>
-</tr></table>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$name</h4>
@@ -193,6 +204,20 @@
 <div class="subelement response">
 <code><a href="../classes/GoTableaux.Operator.html">\GoTableaux\Operator</a></code>The operator object.</div>
 </div></div>
+</div>
+<a name="getOperatorNames" id="getOperatorNames"></a><div class="element clickable method public getOperatorNames" data-toggle="collapse" data-target=".getOperatorNames .collapse">
+<h2>getOperatorNames()
+        </h2>
+<pre>getOperatorNames() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="getOperators" id="getOperators"></a><div class="element clickable method public getOperators" data-toggle="collapse" data-target=".getOperators .collapse">
+<h2>getOperators()
+        </h2>
+<pre>getOperators() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
 </div>
 <a name="getParser" id="getParser"></a><div class="element clickable method public getParser" data-toggle="collapse" data-target=".getParser .collapse">
 <h2>Gets a new sentence parser of the specified type.</h2>
@@ -215,33 +240,43 @@
 <pre>getProofSystem() : <a href="../classes/GoTableaux.ProofSystem.html">\GoTableaux\ProofSystem</a></pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="span8">
-<p class="long_description"><p>Lazily instantiates proof system.</p></p>
+<p class="long_description"></p>
 <h3>Returns</h3>
 <div class="subelement response">
 <code><a href="../classes/GoTableaux.ProofSystem.html">\GoTableaux\ProofSystem</a></code>The logic's proof system.</div>
 </div></div>
 </div>
-<a name="getVocabulary" id="getVocabulary"></a><div class="element clickable method public getVocabulary" data-toggle="collapse" data-target=".getVocabulary .collapse">
-<h2>Gets the vocabulary.</h2>
-<pre>getVocabulary() : <a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></pre>
+<a name="getProofWriter" id="getProofWriter"></a><div class="element clickable method public getProofWriter" data-toggle="collapse" data-target=".getProofWriter .collapse">
+<h2>getProofWriter()
+        </h2>
+<pre>getProofWriter($output, $notation, $format) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="span8">
-<p class="long_description"><p>Lazily initializes the vocabulary.</p></p>
-<h3>Returns</h3>
-<div class="subelement response">
-<code><a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></code>The logic's vocabulary.</div>
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$output</h4>
+<code></code>
+</div>
+<div class="subelement argument">
+<h4>$notation</h4>
+<code></code>
+</div>
+<div class="subelement argument">
+<h4>$format</h4>
+<code></code>
+</div>
 </div></div>
 </div>
-<a name="initVocabulary" id="initVocabulary"></a><div class="element clickable method public initVocabulary" data-toggle="collapse" data-target=".initVocabulary .collapse">
-<h2>Initializes the vocabulary.</h2>
-<pre>initVocabulary() : <a href="../classes/GoTableaux.Logic.html">\GoTableaux\Logic</a></pre>
+<a name="getSentences" id="getSentences"></a><div class="element clickable method public getSentences" data-toggle="collapse" data-target=".getSentences .collapse">
+<h2>Gets the set of sentences.</h2>
+<pre>getSentences() : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="span8">
-<p class="long_description"><p>This should be run to reload any changes to the lexicon. This creates a
-new <a href="Vocabulary">Vocabulary</a> object, and so also clears the set of sentences.</p></p>
+<p class="long_description"></p>
 <h3>Returns</h3>
 <div class="subelement response">
-<code><a href="../classes/GoTableaux.Logic.html">\GoTableaux\Logic</a></code>Current instance.</div>
+<code>array</code>The sentences.</div>
 </div></div>
 </div>
 <a name="negate" id="negate"></a><div class="element clickable method public negate" data-toggle="collapse" data-target=".negate .collapse">
@@ -261,20 +296,21 @@ new <a href="Vocabulary">Vocabulary</a> object, and so also clears the set of se
 </div>
 <a name="parseArgument" id="parseArgument"></a><div class="element clickable method public parseArgument" data-toggle="collapse" data-target=".parseArgument .collapse">
 <h2>Parses an argument.</h2>
-<pre>parseArgument(string | array $premiseStrings, string $conclusionString, string $parserType) : <a href="../classes/GoTableaux.Argument.html">\GoTableaux\Argument</a></pre>
+<pre>parseArgument(string | array $premiseStrings, string $conclusionString, string $notation) : <a href="../classes/GoTableaux.Argument.html">\GoTableaux\Argument</a></pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$premiseStrings</h4>
-<code>stringarray</code><p>The premise strings.</p></div>
+<code>stringarray</code><p>The premise string(s).</p>
+</div>
 <div class="subelement argument">
 <h4>$conclusionString</h4>
 <code>string</code><p>Non-empty conclusion string.</p>
 </div>
 <div class="subelement argument">
-<h4>$parserType</h4>
+<h4>$notation</h4>
 <code>string</code><p>The parser type to do the parsing. Default is 'Standard'.</p>
 </div>
 <h3>Returns</h3>
@@ -303,7 +339,7 @@ new <a href="Vocabulary">Vocabulary</a> object, and so also clears the set of se
 </div>
 <a name="parseSentences" id="parseSentences"></a><div class="element clickable method public parseSentences" data-toggle="collapse" data-target=".parseSentences .collapse">
 <h2>Parses an array of sentence strings.</h2>
-<pre>parseSentences(array $strings, string $parserType) : array</pre>
+<pre>parseSentences(array $strings, string $notation) : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="span8">
 <p class="long_description"></p>
@@ -312,12 +348,29 @@ new <a href="Vocabulary">Vocabulary</a> object, and so also clears the set of se
 <h4>$strings</h4>
 <code>array</code><p>Array of sentence strings to parse.</p></div>
 <div class="subelement argument">
-<h4>$parserType</h4>
+<h4>$notation</h4>
 <code>string</code><p>The parser type to do the parsing. Default is 'Standard'.</p>
 </div>
 <h3>Returns</h3>
 <div class="subelement response">
 <code>array</code>Array of {@link Sentence}s.</div>
+</div></div>
+</div>
+<a name="registerSentence" id="registerSentence"></a><div class="element clickable method public registerSentence" data-toggle="collapse" data-target=".registerSentence .collapse">
+<h2>Adds a sentence to the vocabulary, maintaining uniqueness.</h2>
+<pre>registerSentence(Sentence $sentence) : <a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>If the sentence, or one of the same form is already in the set of sentences,
+then that sentence is returned. Otherwise the passed sentence is
+returned.</p></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$sentence</h4>
+<code><a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></code><p>The sentence to add.</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/GoTableaux.Sentence.html">\GoTableaux\Sentence</a></code>Old or new sentence.</div>
 </div></div>
 </div>
 <a name="__construct" id="__construct"></a><div class="element clickable method private __construct" data-toggle="collapse" data-target=".__construct .collapse">
@@ -328,29 +381,29 @@ new <a href="Vocabulary">Vocabulary</a> object, and so also clears the set of se
 </div>
 <h3>
 <i class="icon-custom icon-property"></i> Properties</h3>
-<a name="%24defaultOperatorSymbols" id="$defaultOperatorSymbols"> </a><div class="element clickable property public $defaultOperatorSymbols" data-toggle="collapse" data-target=".$defaultOperatorSymbols .collapse">
-<h2>Defines the default operator symbols for the lexicon.</h2>
-<pre>$defaultOperatorSymbols : array</pre>
+<a name="%24externalLinks" id="$externalLinks"> </a><div class="element clickable property public $externalLinks" data-toggle="collapse" data-target=".$externalLinks .collapse">
+<h2>$externalLinks</h2>
+<pre>$externalLinks </pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="span8">
-<p class="long_description"></p>
-<table class="table table-bordered"><tr>
-<th>see</th>
-<td>\GoTableaux\Logic::initVocabulary()</td>
-</tr></table>
-</div></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
 </div>
-<a name="%24lexicon" id="$lexicon"> </a><div class="element clickable property public $lexicon" data-toggle="collapse" data-target=".$lexicon .collapse">
-<h2>Defines the default lexicon for initializing the vocabulary.</h2>
-<pre>$lexicon : array</pre>
+<a name="%24inheritOperatorsFrom" id="$inheritOperatorsFrom"> </a><div class="element clickable property public $inheritOperatorsFrom" data-toggle="collapse" data-target=".$inheritOperatorsFrom .collapse">
+<h2>$inheritOperatorsFrom</h2>
+<pre>$inheritOperatorsFrom </pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="span8">
-<p class="long_description"></p>
-<table class="table table-bordered"><tr>
-<th>see</th>
-<td>\GoTableaux\Vocabulary::__construct()</td>
-</tr></table>
-</div></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24operatorArities" id="$operatorArities"> </a><div class="element clickable property public $operatorArities" data-toggle="collapse" data-target=".$operatorArities .collapse">
+<h2>$operatorArities</h2>
+<pre>$operatorArities </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24title" id="$title"> </a><div class="element clickable property public $title" data-toggle="collapse" data-target=".$title .collapse">
+<h2>$title</h2>
+<pre>$title </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
 </div>
 <a name="%24instances" id="$instances"> </a><div class="element clickable property protected $instances" data-toggle="collapse" data-target=".$instances .collapse">
 <h2>Holds the singleton instances of the logics.</h2>
@@ -364,6 +417,12 @@ new <a href="Vocabulary">Vocabulary</a> object, and so also clears the set of se
 </tr></table>
 </div></div>
 </div>
+<a name="%24operators" id="$operators"> </a><div class="element clickable property protected $operators" data-toggle="collapse" data-target=".$operators .collapse">
+<h2>$operators</h2>
+<pre>$operators </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
 <a name="%24proofSystem" id="$proofSystem"> </a><div class="element clickable property protected $proofSystem" data-toggle="collapse" data-target=".$proofSystem .collapse">
 <h2>Holds a reference to the proof system.</h2>
 <pre>$proofSystem : <a href="../classes/GoTableaux.ProofSystem.html">\GoTableaux\ProofSystem</a></pre>
@@ -376,17 +435,11 @@ new <a href="Vocabulary">Vocabulary</a> object, and so also clears the set of se
 </tr></table>
 </div></div>
 </div>
-<a name="%24vocabulary" id="$vocabulary"> </a><div class="element clickable property protected $vocabulary" data-toggle="collapse" data-target=".$vocabulary .collapse">
-<h2>Holds a reference to the vocabulary.</h2>
-<pre>$vocabulary : <a href="../classes/GoTableaux.Vocabulary.html">\GoTableaux\Vocabulary</a></pre>
+<a name="%24sentences" id="$sentences"> </a><div class="element clickable property protected $sentences" data-toggle="collapse" data-target=".$sentences .collapse">
+<h2>$sentences</h2>
+<pre>$sentences </pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="span8">
-<p class="long_description"></p>
-<table class="table table-bordered"><tr>
-<th>access</th>
-<td>private</td>
-</tr></table>
-</div></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
 </div>
 </div>
 </div>
@@ -395,7 +448,7 @@ new <a href="Vocabulary">Vocabulary</a> object, and so also clears the set of se
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
-            generated on 2012-04-21T00:47:24-07:00.<br></footer></div>
+            generated on 2012-11-11T22:26:41-08:00.<br></footer></div>
 </div>
 </body>
 </html>
