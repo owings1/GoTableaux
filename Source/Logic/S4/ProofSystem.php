@@ -16,7 +16,7 @@
  */
 /**
  * Defines the S4 Tableaux System.
- * @package S4
+ * @package Logics
  */
 
 namespace GoTableaux\Logic\S4;
@@ -28,7 +28,7 @@ use \GoTableaux\Logic as Logic;
 /**
  * Represents the Tableaux system for S4.
  *
- * @package S4
+ * @package Logics
  */
 class ProofSystem extends \GoTableaux\Logic\K\ProofSystem
 {

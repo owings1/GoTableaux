@@ -16,14 +16,14 @@
  */
 /**
  * Defines the LP logic.
- * @package LP
+ * @package Logics
  */
 
 namespace GoTableaux\Logic;
 
 /**
  * Represents the Logic of Paradox.
- * @package LP
+ * @package Logics
  */
 class LP extends \GoTableaux\Logic
 {

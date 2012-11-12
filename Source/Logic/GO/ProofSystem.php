@@ -16,7 +16,7 @@
  */
 /**
  * Defines the GOTableauxSystem class.
- * @package GO
+ * @package Logics
  */
 
 namespace GoTableaux\Logic\GO;
@@ -24,7 +24,7 @@ namespace GoTableaux\Logic\GO;
 /**
  * Represents the Tableaux system for GO.
  *
- * @package GO
+ * @package Logics
  */
 class ProofSystem extends \GoTableaux\Logic\FDE\ProofSystem
 {

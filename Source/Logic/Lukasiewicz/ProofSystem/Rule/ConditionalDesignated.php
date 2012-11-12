@@ -21,7 +21,7 @@ use \GoTableaux\Proof\TableauNode as Node;
 use \GoTableaux\Logic as Logic;
 
 /**
- * @package Lukasiewicz
+ * @package Logics
  */
 class ConditionalDesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 {

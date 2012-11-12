@@ -16,7 +16,7 @@
  */
 /**
  * Defines the K3 Closure Rule class.
- * @package StrongKleene
+ * @package Logics
  */
 
 namespace GoTableaux\Logic\StrongKleene\ProofSystem\Rule;
@@ -26,7 +26,7 @@ use \GoTableaux\Proof\TableauBranch as Branch;
 
 /**
  * Represents the K3 closure rule.
- * @package StrongKleene
+ * @package Logics
  */
 class Closure extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Closure
 {

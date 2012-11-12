@@ -16,14 +16,14 @@
  */
 /**
  * Defines the LP tableaux system class.
- * @package LP
+ * @package Logics
  */
 
 namespace GoTableaux\Logic\LP;
 
 /**
  * Represents the LP tableaux system.
- * @package LP
+ * @package Logics
  */
 class ProofSystem extends \GoTableaux\Logic\FDE\ProofSystem
 {

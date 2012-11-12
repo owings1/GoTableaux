@@ -21,7 +21,7 @@ use \GoTableaux\Proof\TableauNode as Node;
 use \GoTableaux\Logic as Logic;
 
 /**
- * @package S4
+ * @package Logics
  */
 class Transitive extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Branch
 {

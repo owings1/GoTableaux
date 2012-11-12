@@ -21,7 +21,7 @@ use \GoTableaux\Proof\TableauNode as Node;
 use \GoTableaux\Logic as Logic;
 
 /**
- * @package CPL
+ * @package Logics
  */
 class NegatedDisjunction extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 {

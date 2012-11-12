@@ -21,7 +21,7 @@ use \GoTableaux\Proof\TableauNode as Node;
 use \GoTableaux\Logic as Logic;
 
 /**
- * @package FDE
+ * @package Logics
  */
 class ConjunctionDesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 {

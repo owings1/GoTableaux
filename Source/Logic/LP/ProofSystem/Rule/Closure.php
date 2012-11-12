@@ -16,7 +16,7 @@
  */
 /**
  * Defines the LP Closure Rule class.
- * @package LP
+ * @package Logics
  */
 
 namespace GoTableaux\Logic\LP\ProofSystem\Rule;
@@ -26,7 +26,7 @@ use \GoTableaux\Proof\TableauBranch as Branch;
 
 /**
  * Represents the LP closure rule.
- * @package LP
+ * @package Logics
  */
 class Closure extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Closure
 {

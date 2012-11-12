@@ -48,7 +48,7 @@ abstract class Branch extends \GoTableaux\ProofSystem\TableauxSystem\Rule
 				//Utilities::debug( 'Felicitous applies search lasted ' . round( microtime( true ) - $t, 2 ) . ' seconds.' );
 				return true;
 			} 
-		//Utilities::debug( 'Infelicitous applies search lasted ' . round( microtime( true ) - $t, 2 ) . ' seconds for ' . $this->getName() . '.' );
+		//Utilities::debug( '@package Logicsus applies search lasted ' . round( microtime( true ) - $t, 2 ) . ' seconds for ' . $this->getName() . '.' );
 		return false;
 	}
 

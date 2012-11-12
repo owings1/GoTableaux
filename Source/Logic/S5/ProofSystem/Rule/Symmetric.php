@@ -21,7 +21,7 @@ use \GoTableaux\Proof\TableauNode as Node;
 use \GoTableaux\Logic as Logic;
 
 /**
- * @package S5
+ * @package Logics
  */
 class Symmetric extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Branch
 {

@@ -21,7 +21,7 @@ use \GoTableaux\Proof\TableauNode as Node;
 use \GoTableaux\Logic as Logic;
 
 /**
- * @package T
+ * @package Logics
  */
 class Reflexive extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Branch
 {

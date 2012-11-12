@@ -21,7 +21,7 @@ use \GoTableaux\Proof\TableauNode as Node;
 use \GoTableaux\Logic as Logic;
 
 /**
- * @package K
+ * @package Logics
  */
 class NegatedNecessity extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 {

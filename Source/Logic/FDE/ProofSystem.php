@@ -16,7 +16,7 @@
  */
 /**
  * Defines the FDE tableaux system class.
- * @package FDE
+ * @package Logics
  */
 
 namespace GoTableaux\Logic\FDE;
@@ -27,7 +27,7 @@ use \GoTableaux\Logic as Logic;
 
 /**
  * Represents the FDE tableaux system.
- * @package FDE
+ * @package Logics
  */
 class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem
 {

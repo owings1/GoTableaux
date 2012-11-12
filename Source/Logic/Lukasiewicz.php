@@ -16,14 +16,14 @@
  */
 /**
  * Defines the Lukasiewicz logic.
- * @package Lukasiewicz
+ * @package Logics
  */
 
 namespace GoTableaux\Logic;
 
 /**
  * Represents Lukasiewicz 3-valued logic.
- * @package Lukasiewicz
+ * @package Logics
  */
 class Lukasiewicz extends \GoTableaux\Logic
 {

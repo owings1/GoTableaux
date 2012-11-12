@@ -16,14 +16,14 @@
  */
 /**
  * Defines the FDE logic class.
- * @package FDE
+ * @package Logics
  */
 
 namespace GoTableaux\Logic;
 
 /**
  * Represents First Degree Entailment Logic.
- * @package FDE
+ * @package Logics
  */
 class FDE extends \GoTableaux\Logic
 {	

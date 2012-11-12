@@ -21,7 +21,7 @@ use \GoTableaux\Proof\TableauNode as Node;
 use \GoTableaux\Logic as Logic;
 
 /**
- * @package GO
+ * @package Logics
  */
 class DisjunctionUndesignated extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 {

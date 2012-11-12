@@ -16,14 +16,14 @@
  */
 /**
  * Defines the L3 tableaux system class.
- * @package Lukasiewicz
+ * @package Logics
  */
 
 namespace GoTableaux\Logic\Lukasiewicz;
 
 /**
  * Represents the Lukasiewicz 3 tableaux system.
- * @package Lukasiewicz
+ * @package Logics
  */
 class ProofSystem extends \GoTableaux\Logic\FDE\ProofSystem
 {

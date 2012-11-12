@@ -16,14 +16,14 @@
  */
 /**
  * Defines the CPL class.
- * @package CPL
+ * @package Logics
  */
 
 namespace GoTableaux\Logic;
 
 /**
  * Represents Classical Propositional Logic.
- * @package CPL
+ * @package Logics
  */
 class CPL extends \GoTableaux\Logic
 {	

@@ -1,7 +1,7 @@
 <?php
 /**
  * Defines the tableaux rules for the CPL Tableaux system.
- * @package CPL
+ * @package Logics
  */
 
 /**

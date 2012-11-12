@@ -16,7 +16,7 @@
  */
 /**
  * Defines the CPLTableauxSystem class.
- * @package CPL
+ * @package Logics
  */
 
 namespace GoTableaux\Logic\CPL;
@@ -27,7 +27,7 @@ use \GoTableaux\Logic as Logic;
 
 /**
  * Represents the Tableaux system for CPL.
- * @package CPL
+ * @package Logics
  */
 class ProofSystem extends \GoTableaux\ProofSystem\TableauxSystem
 {

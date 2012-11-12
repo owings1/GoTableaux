@@ -16,14 +16,14 @@
  */
 /**
  * Defines the K3 tableaux system class.
- * @package StrongKleene
+ * @package Logics
  */
 
 namespace GoTableaux\Logic\StrongKleene;
 
 /**
  * Represents the K3 tableaux system.
- * @package StrongKleene
+ * @package Logics
  */
 class ProofSystem extends \GoTableaux\Logic\FDE\ProofSystem
 {

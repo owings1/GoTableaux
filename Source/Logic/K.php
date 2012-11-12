@@ -16,14 +16,14 @@
  */
 /**
  * Defines K, the normal modal logic.
- * @package K
+ * @package Logics
  */
 
 namespace GoTableaux\Logic;
 
 /**
  * Represents normal modal logic.
- * @package K
+ * @package Logics
  */
 class K extends \GoTableaux\Logic
 {

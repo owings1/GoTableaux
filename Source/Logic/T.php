@@ -16,14 +16,14 @@
  */
 /**
  * Defines T, normal modal logic with a reflexive access relation.
- * @package T
+ * @package Logics
  */
 
 namespace GoTableaux\Logic;
 
 /**
  * Represents normal modal logic with reflexive access relation.
- * @package T
+ * @package Logics
  */
 class T extends \GoTableaux\Logic
 {

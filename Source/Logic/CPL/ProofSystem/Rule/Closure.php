@@ -16,7 +16,7 @@
  */
 /**
  * Defines the Closure rule class for CPL.
- * @package CPL
+ * @package Logics
  */
 
 namespace GoTableaux\Logic\CPL\ProofSystem\Rule;
@@ -27,7 +27,7 @@ use \GoTableaux\Logic as Logic;
 
 /**
  * Represents the tableaux closure rule for CPL.
- * @package CPL
+ * @package Logics
  */
 class Closure extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Closure
 {
@@ -41,7 +41,7 @@ class Closure extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Closure
 				return true;
 			}
 		}
-		//Utilities::debug( 'Infelicitous applies search lasted ' . round( microtime( true ) - $t, 2 ) . ' seconds for ' . $this->getName() . '.' );
+		//Utilities::debug( '@package Logicsus applies search lasted ' . round( microtime( true ) - $t, 2 ) . ' seconds for ' . $this->getName() . '.' );
 		return false;
 	}
 	

@@ -16,7 +16,7 @@
  */
 /**
  * Defines the Closure rule class for K.
- * @package K
+ * @package Logics
  */
 
 namespace GoTableaux\Logic\K\ProofSystem\Rule;
@@ -26,7 +26,7 @@ use \GoTableaux\Logic as Logic;
 
 /**
  * Represents the tableaux closure rule for K.
- * @package K
+ * @package Logics
  */
 class Closure extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Closure
 {

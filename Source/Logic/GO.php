@@ -16,14 +16,14 @@
  */
 /**
  * Defines the GO class.
- * @package GO
+ * @package Logics
  */
 
 namespace GoTableaux\Logic;
 
 /**
  * Represents GO 3-valued Propositional Logic.
- * @package GO
+ * @package Logics
  */
 class GO extends \GoTableaux\Logic
 {	

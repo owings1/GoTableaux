@@ -16,14 +16,14 @@
  */
 /**
  * Defines S4.
- * @package S4
+ * @package Logics
  */
 
 namespace GoTableaux\Logic;
 
 /**
  * Represents normal modal logic with reflexive and transitive access relation.
- * @package S4
+ * @package Logics
  */
 class S4 extends \GoTableaux\Logic
 {

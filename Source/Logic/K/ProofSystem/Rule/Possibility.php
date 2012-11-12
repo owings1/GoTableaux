@@ -22,7 +22,7 @@ use \GoTableaux\Logic as Logic;
 use \GoTableaux\Utilities as Utilities;
 
 /**
- * @package K
+ * @package Logics
  */
 class Possibility extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Node
 {

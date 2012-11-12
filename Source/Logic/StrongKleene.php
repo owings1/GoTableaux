@@ -16,14 +16,14 @@
  */
 /**
  * Defines the Strong Kleene logic.
- * @package StrongKleene
+ * @package Logics
  */
 
 namespace GoTableaux\Logic;
 
 /**
  * Represents Strong Kleene Logic.
- * @package StrongKleene
+ * @package Logics
  */
 class StrongKleene extends \GoTableaux\Logic
 {

@@ -16,7 +16,7 @@
  */
 /**
  * Defines the T Tableaux System.
- * @package T
+ * @package Logics
  */
 
 namespace GoTableaux\Logic\T;
@@ -28,7 +28,7 @@ use \GoTableaux\Logic as Logic;
 /**
  * Represents the Tableaux system for T.
  *
- * @package T
+ * @package Logics
  */
 class ProofSystem extends \GoTableaux\Logic\K\ProofSystem
 {

@@ -16,14 +16,14 @@
  */
 /**
  * Defines S5.
- * @package S5
+ * @package Logics
  */
 
 namespace GoTableaux\Logic;
 
 /**
  * Represents normal modal logic with reflexive, symmetric, and transitive access relation.
- * @package S5
+ * @package Logics
  */
 class S5 extends \GoTableaux\Logic
 {

@@ -16,7 +16,7 @@
  */
 /**
  * Defines the S5 Tableaux System.
- * @package S5
+ * @package Logics
  */
 
 namespace GoTableaux\Logic\S5;
@@ -28,7 +28,7 @@ use \GoTableaux\Logic as Logic;
 /**
  * Represents the Tableaux system for S5.
  *
- * @package S5
+ * @package Logics
  */
 class ProofSystem extends \GoTableaux\Logic\K\ProofSystem
 {

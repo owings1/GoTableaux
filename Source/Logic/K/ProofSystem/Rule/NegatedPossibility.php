@@ -22,7 +22,7 @@ use \GoTableaux\Logic as Logic;
 use \GoTableaux\Utilities as Utilities;
 
 /**
- * @package K
+ * @package Logics
  */
 class NegatedPossibility extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Branch
 {
