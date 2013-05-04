@@ -16,14 +16,14 @@
  */
 /**
  * Defines D, normal modal logic with a serial access relation.
- * @package D
+ * @package Logics
  */
 
 namespace GoTableaux\Logic;
 
 /**
  * Represents normal modal logic with a serial access relation.
- * @package D
+ * @package Logics
  */
 class D extends \GoTableaux\Logic
 {

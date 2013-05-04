@@ -21,7 +21,7 @@ use \GoTableaux\Proof\TableauNode as Node;
 use \GoTableaux\Logic as Logic;
 
 /**
- * @package D
+ * @package Logics
  */
 class Serial extends \GoTableaux\ProofSystem\TableauxSystem\Rule\Branch
 {

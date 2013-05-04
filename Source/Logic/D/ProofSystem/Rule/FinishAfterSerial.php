@@ -16,7 +16,7 @@
  */
 /**
  * Defines the D finish rule.
- * @package D
+ * @package Logics
  */
 
 namespace GoTableaux\Logic\D\ProofSystem\Rule;
@@ -26,7 +26,7 @@ use \GoTableaux\Utilities as Util;
 
 /**
  * Forces finishing of the tableau.
- * @package D
+ * @package Logics
  */
 class FinishAfterSerial extends \GoTableaux\ProofSystem\TableauxSystem\Rule\TableauFinish
 {

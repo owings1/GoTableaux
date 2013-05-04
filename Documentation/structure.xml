@@ -681,7 +681,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/CPL/ProofSystem/Rule/Closure.php" hash="d3826b47c61a58ba99ac9ef175f8efb6" package="Default">
+  <file path="Logic/CPL/ProofSystem/Rule/Closure.php" hash="c3c91381ca24b1a4aa18106c9f0f5964" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -704,14 +704,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Utilities">\GoTableaux\Utilities</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\CPL\ProofSystem\Rule" line="32" package="CPL">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\CPL\ProofSystem\Rule" line="32" package="Logics">
       <name>Closure</name>
       <full_name>\GoTableaux\Logic\CPL\ProofSystem\Rule\Closure</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Closure</extends>
       <docblock line="28">
         <description><![CDATA[Represents the tableaux closure rule for CPL.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="28" name="package" description="CPL"/>
+        <tag line="28" name="package" description="Logics"/>
       </docblock>
       <method final="false" abstract="false" static="false" visibility="public" namespace="GoTableaux\Logic\CPL\ProofSystem\Rule" line="34" package="">
         <name>appliesToBranch</name>
@@ -756,7 +756,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/CPL/ProofSystem/Rule/Conjunction.php" hash="b583f4226c9f0c8b25df225856acae25" package="Default">
+  <file path="Logic/CPL/ProofSystem/Rule/Conjunction.php" hash="ac3cfc3be710c2987d344197f41840e9" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="32" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -766,14 +766,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\CPL\ProofSystem\Rule" line="26" package="CPL">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\CPL\ProofSystem\Rule" line="26" package="Logics">
       <name>Conjunction</name>
       <full_name>\GoTableaux\Logic\CPL\ProofSystem\Rule\Conjunction</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="CPL"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -802,7 +802,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/CPL/ProofSystem/Rule/Disjunction.php" hash="13602f97fe3c6d4afdfc84a65ebce372" package="Default">
+  <file path="Logic/CPL/ProofSystem/Rule/Disjunction.php" hash="276126495cb6054065464572c8224279" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="32" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -812,14 +812,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\CPL\ProofSystem\Rule" line="26" package="CPL">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\CPL\ProofSystem\Rule" line="26" package="Logics">
       <name>Disjunction</name>
       <full_name>\GoTableaux\Logic\CPL\ProofSystem\Rule\Disjunction</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="CPL"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -848,7 +848,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/CPL/ProofSystem/Rule/DoubleNegation.php" hash="16d0707545261e911fc33dc1771ee5ab" package="Default">
+  <file path="Logic/CPL/ProofSystem/Rule/DoubleNegation.php" hash="495d6020c72a2d66c86d54821c115925" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="32" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -858,14 +858,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\CPL\ProofSystem\Rule" line="26" package="CPL">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\CPL\ProofSystem\Rule" line="26" package="Logics">
       <name>DoubleNegation</name>
       <full_name>\GoTableaux\Logic\CPL\ProofSystem\Rule\DoubleNegation</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="CPL"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -894,7 +894,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/CPL/ProofSystem/Rule/MaterialBiconditional.php" hash="0fc98514a0883933d4a5800a07d6cb08" package="Default">
+  <file path="Logic/CPL/ProofSystem/Rule/MaterialBiconditional.php" hash="d7b34f877f2ec4620cfdb5fe4192c0e0" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="32" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -904,14 +904,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\CPL\ProofSystem\Rule" line="26" package="CPL">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\CPL\ProofSystem\Rule" line="26" package="Logics">
       <name>MaterialBiconditional</name>
       <full_name>\GoTableaux\Logic\CPL\ProofSystem\Rule\MaterialBiconditional</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="CPL"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -940,7 +940,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/CPL/ProofSystem/Rule/MaterialConditional.php" hash="3b2d6654adac006341b56a37f8a0972a" package="Default">
+  <file path="Logic/CPL/ProofSystem/Rule/MaterialConditional.php" hash="283187476f247e8ca0e13ff817898b12" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="32" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -950,14 +950,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\CPL\ProofSystem\Rule" line="26" package="CPL">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\CPL\ProofSystem\Rule" line="26" package="Logics">
       <name>MaterialConditional</name>
       <full_name>\GoTableaux\Logic\CPL\ProofSystem\Rule\MaterialConditional</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="CPL"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -986,7 +986,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/CPL/ProofSystem/Rule/NegatedConjunction.php" hash="707248f3c86c35e73cdb34ad8a113d51" package="Default">
+  <file path="Logic/CPL/ProofSystem/Rule/NegatedConjunction.php" hash="8f1550ff1ba5e8839c2add7181fc9c34" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="32" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -996,14 +996,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\CPL\ProofSystem\Rule" line="26" package="CPL">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\CPL\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedConjunction</name>
       <full_name>\GoTableaux\Logic\CPL\ProofSystem\Rule\NegatedConjunction</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="CPL"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -1032,7 +1032,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/CPL/ProofSystem/Rule/NegatedDisjunction.php" hash="cd3c3c9798d5b3ff4befda7c61ee2eb0" package="Default">
+  <file path="Logic/CPL/ProofSystem/Rule/NegatedDisjunction.php" hash="57e919c435ae37a21fa7fabea9423f96" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="32" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -1042,14 +1042,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\CPL\ProofSystem\Rule" line="26" package="CPL">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\CPL\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedDisjunction</name>
       <full_name>\GoTableaux\Logic\CPL\ProofSystem\Rule\NegatedDisjunction</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="CPL"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -1078,7 +1078,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/CPL/ProofSystem/Rule/NegatedMaterialBiconditional.php" hash="dcbcdff7d1508b0a3f757ae3676d5898" package="Default">
+  <file path="Logic/CPL/ProofSystem/Rule/NegatedMaterialBiconditional.php" hash="8d079624a4b098ab796c4b214e806589" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="32" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -1088,14 +1088,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\CPL\ProofSystem\Rule" line="26" package="CPL">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\CPL\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedMaterialBiconditional</name>
       <full_name>\GoTableaux\Logic\CPL\ProofSystem\Rule\NegatedMaterialBiconditional</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="CPL"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -1124,7 +1124,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/CPL/ProofSystem/Rule/NegatedMaterialConditional.php" hash="0bcb9b226fb9269de7d96d26f405d63f" package="Default">
+  <file path="Logic/CPL/ProofSystem/Rule/NegatedMaterialConditional.php" hash="121219b42ffc3977facb4c9a9547c206" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="32" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -1134,14 +1134,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\CPL\ProofSystem\Rule" line="26" package="CPL">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\CPL\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedMaterialConditional</name>
       <full_name>\GoTableaux\Logic\CPL\ProofSystem\Rule\NegatedMaterialConditional</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="CPL"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -1170,7 +1170,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/CPL/ProofSystem.php" hash="b048eee8eeb96424b2f60f2c9b2a7646" package="Default">
+  <file path="Logic/CPL/ProofSystem.php" hash="3295c57e67e79ad8bf164bbe729519ef" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -1192,14 +1192,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Tableau">\GoTableaux\Proof\Tableau</namespace-alias>
     <namespace-alias name="Argument">\GoTableaux\Argument</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\CPL" line="32" package="CPL">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\CPL" line="32" package="Logics">
       <name>ProofSystem</name>
       <full_name>\GoTableaux\Logic\CPL\ProofSystem</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem</extends>
       <docblock line="28">
         <description><![CDATA[Represents the Tableaux system for CPL.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="28" name="package" description="CPL"/>
+        <tag line="28" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="public" line="34" package="Default">
         <name>$ruleClasses</name>
@@ -1253,7 +1253,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/CPL.php" hash="73c89ac773c27cdf8700f5d343ca6b0e" package="Default">
+  <file path="Logic/CPL.php" hash="7166be9f0fda4d3316b50d60320bd3ac" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -1274,14 +1274,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       <error line="32" code="50018">No DocBlock was found for property $inheritOperatorsFrom</error>
       <error line="34" code="50018">No DocBlock was found for property $externalLinks</error>
     </parse_markers>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic" line="28" package="CPL">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic" line="28" package="Logics">
       <name>CPL</name>
       <full_name>\GoTableaux\Logic\CPL</full_name>
       <extends>\GoTableaux\Logic</extends>
       <docblock line="24">
         <description><![CDATA[Represents Classical Propositional Logic.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="24" name="package" description="CPL"/>
+        <tag line="24" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="public" line="30" package="Default">
         <name>$title</name>
@@ -1297,7 +1297,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </property>
     </class>
   </file>
-  <file path="Logic/D/ProofSystem/Rule/FinishAfterSerial.php" hash="30c1950f91212d60cf42a3108a88093f" package="Default">
+  <file path="Logic/D/ProofSystem/Rule/FinishAfterSerial.php" hash="8345b02fb0ac26552721f642e653f4aa" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -1315,14 +1315,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     </docblock>
     <namespace-alias name="Tableau">\GoTableaux\Proof\Tableau</namespace-alias>
     <namespace-alias name="Util">\GoTableaux\Utilities</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\D\ProofSystem\Rule" line="31" package="D">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\D\ProofSystem\Rule" line="31" package="Logics">
       <name>FinishAfterSerial</name>
       <full_name>\GoTableaux\Logic\D\ProofSystem\Rule\FinishAfterSerial</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\TableauFinish</extends>
       <docblock line="27">
         <description><![CDATA[Forces finishing of the tableau.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="27" name="package" description="D"/>
+        <tag line="27" name="package" description="Logics"/>
       </docblock>
       <method final="false" abstract="false" static="false" visibility="public" namespace="GoTableaux\Logic\D\ProofSystem\Rule" line="39" package="">
         <name>applies</name>
@@ -1345,7 +1345,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/D/ProofSystem/Rule/Serial.php" hash="391d8506009f3adec3477829e1cc6833" package="Default">
+  <file path="Logic/D/ProofSystem/Rule/Serial.php" hash="df70c5b9cb5861967d386b33a1b1023d" package="Default">
     <parse_markers>
       <error line="28" code="50010">No DocBlock was found for method appliesToBranch()</error>
       <error line="35" code="50010">No DocBlock was found for method applyToBranch()</error>
@@ -1356,14 +1356,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\D\ProofSystem\Rule" line="26" package="D">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\D\ProofSystem\Rule" line="26" package="Logics">
       <name>Serial</name>
       <full_name>\GoTableaux\Logic\D\ProofSystem\Rule\Serial</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Branch</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="D"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <method final="false" abstract="false" static="false" visibility="public" namespace="GoTableaux\Logic\D\ProofSystem\Rule" line="28" package="">
         <name>appliesToBranch</name>
@@ -1409,7 +1409,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/D/ProofSystem.php" hash="5378addfe54a9a48363bd9a593bfc946" package="Default">
+  <file path="Logic/D/ProofSystem.php" hash="76365cf1bdb476e4612dca035a4347e2" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -1431,14 +1431,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Tableau">\GoTableaux\Proof\Tableau</namespace-alias>
     <namespace-alias name="Argument">\GoTableaux\Argument</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\D" line="33" package="D">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\D" line="33" package="Logics">
       <name>ProofSystem</name>
       <full_name>\GoTableaux\Logic\D\ProofSystem</full_name>
       <extends>\GoTableaux\Logic\K\ProofSystem</extends>
       <docblock line="28">
         <description><![CDATA[Represents the Tableaux system for D.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="28" name="package" description="D"/>
+        <tag line="28" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="public" line="35" package="Default">
         <name>$ruleClasses</name>
@@ -1468,7 +1468,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </property>
     </class>
   </file>
-  <file path="Logic/D.php" hash="75c90a33bbdaf8a0cfb51057b0664ec6" package="Default">
+  <file path="Logic/D.php" hash="6de51da2fd72cffa4cc8d2c7b14ad9e8" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -1489,14 +1489,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       <error line="32" code="50018">No DocBlock was found for property $inheritOperatorsFrom</error>
       <error line="34" code="50018">No DocBlock was found for property $externalLinks</error>
     </parse_markers>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic" line="28" package="D">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic" line="28" package="Logics">
       <name>D</name>
       <full_name>\GoTableaux\Logic\D</full_name>
       <extends>\GoTableaux\Logic</extends>
       <docblock line="24">
         <description><![CDATA[Represents normal modal logic with a serial access relation.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="24" name="package" description="D"/>
+        <tag line="24" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="public" line="30" package="Default">
         <name>$title</name>
@@ -1514,7 +1514,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </property>
     </class>
   </file>
-  <file path="Logic/FDE/ProofSystem/Rule/Closure.php" hash="e3c65cd59abb90b7f086fb93e521622a" package="Default">
+  <file path="Logic/FDE/ProofSystem/Rule/Closure.php" hash="94b07f16c3b7a8796fb476f95b5c78e3" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -1536,14 +1536,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     </parse_markers>
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="31" package="FDE">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="31" package="Logics">
       <name>Closure</name>
       <full_name>\GoTableaux\Logic\FDE\ProofSystem\Rule\Closure</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Closure</extends>
       <docblock line="27">
         <description><![CDATA[Represents the tableaux closure rule for FDE.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="27" name="package" description="FDE"/>
+        <tag line="27" name="package" description="Logics"/>
       </docblock>
       <method final="false" abstract="false" static="false" visibility="public" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="33" package="">
         <name>appliesToBranch</name>
@@ -1588,7 +1588,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/FDE/ProofSystem/Rule/ConjunctionDesignated.php" hash="14e7b9af4d9c260b86c907857cc427d1" package="Default">
+  <file path="Logic/FDE/ProofSystem/Rule/ConjunctionDesignated.php" hash="2360f4c591cf2b40365f06e2ac197c20" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -1598,14 +1598,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="FDE">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="Logics">
       <name>ConjunctionDesignated</name>
       <full_name>\GoTableaux\Logic\FDE\ProofSystem\Rule\ConjunctionDesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="FDE"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -1635,7 +1635,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/FDE/ProofSystem/Rule/ConjunctionUndesignated.php" hash="ff66a7fcf2e8f07a968ccb450eff763d" package="Default">
+  <file path="Logic/FDE/ProofSystem/Rule/ConjunctionUndesignated.php" hash="89e4d905a4d30487a8b99cbcab8acf61" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -1645,14 +1645,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="FDE">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="Logics">
       <name>ConjunctionUndesignated</name>
       <full_name>\GoTableaux\Logic\FDE\ProofSystem\Rule\ConjunctionUndesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="FDE"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -1682,7 +1682,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/FDE/ProofSystem/Rule/DisjunctionDesignated.php" hash="b86ae83aabe456538dc9f908ed2f42bf" package="Default">
+  <file path="Logic/FDE/ProofSystem/Rule/DisjunctionDesignated.php" hash="46515cc5e91b0d03801bce9b31c01a25" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -1692,14 +1692,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="FDE">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="Logics">
       <name>DisjunctionDesignated</name>
       <full_name>\GoTableaux\Logic\FDE\ProofSystem\Rule\DisjunctionDesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="FDE"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -1729,7 +1729,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/FDE/ProofSystem/Rule/DisjunctionUndesignated.php" hash="9f9c85ed025436a0a05f779641065524" package="Default">
+  <file path="Logic/FDE/ProofSystem/Rule/DisjunctionUndesignated.php" hash="17efe6710670a19ee10c895ce327a20d" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -1739,14 +1739,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="FDE">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="Logics">
       <name>DisjunctionUndesignated</name>
       <full_name>\GoTableaux\Logic\FDE\ProofSystem\Rule\DisjunctionUndesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="FDE"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -1776,7 +1776,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/FDE/ProofSystem/Rule/DoubleNegationDesignated.php" hash="2d9f29e8b00fc945ab9af60e05fea29e" package="Default">
+  <file path="Logic/FDE/ProofSystem/Rule/DoubleNegationDesignated.php" hash="bd97e9ce16c635511bc93e61d75d8f08" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -1786,14 +1786,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="FDE">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="Logics">
       <name>DoubleNegationDesignated</name>
       <full_name>\GoTableaux\Logic\FDE\ProofSystem\Rule\DoubleNegationDesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="FDE"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -1823,7 +1823,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/FDE/ProofSystem/Rule/DoubleNegationUndesignated.php" hash="6181f828afc660ffc53d5f43674d1ce7" package="Default">
+  <file path="Logic/FDE/ProofSystem/Rule/DoubleNegationUndesignated.php" hash="07400c7c3fb058c8281fa29586a23bb1" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -1833,14 +1833,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="FDE">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="Logics">
       <name>DoubleNegationUndesignated</name>
       <full_name>\GoTableaux\Logic\FDE\ProofSystem\Rule\DoubleNegationUndesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="FDE"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -1870,7 +1870,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/FDE/ProofSystem/Rule/MaterialBiconditionalDesignated.php" hash="43624c7ebc3ba76ecd63927e46c5dc0f" package="Default">
+  <file path="Logic/FDE/ProofSystem/Rule/MaterialBiconditionalDesignated.php" hash="f481387607ce5aae65053540f442a880" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -1880,14 +1880,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="FDE">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="Logics">
       <name>MaterialBiconditionalDesignated</name>
       <full_name>\GoTableaux\Logic\FDE\ProofSystem\Rule\MaterialBiconditionalDesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="FDE"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -1917,7 +1917,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/FDE/ProofSystem/Rule/MaterialBiconditionalUndesignated.php" hash="61a2806ff3663d0412f8f090d37c6506" package="Default">
+  <file path="Logic/FDE/ProofSystem/Rule/MaterialBiconditionalUndesignated.php" hash="021425dee6287b11c78a66a109490779" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -1927,14 +1927,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="FDE">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="Logics">
       <name>MaterialBiconditionalUndesignated</name>
       <full_name>\GoTableaux\Logic\FDE\ProofSystem\Rule\MaterialBiconditionalUndesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="FDE"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -1964,7 +1964,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/FDE/ProofSystem/Rule/MaterialConditionalDesignated.php" hash="905752b6255e3a128164ed2a046b74bd" package="Default">
+  <file path="Logic/FDE/ProofSystem/Rule/MaterialConditionalDesignated.php" hash="a8fabdd8878206360df433809172d69a" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -1974,14 +1974,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="FDE">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="Logics">
       <name>MaterialConditionalDesignated</name>
       <full_name>\GoTableaux\Logic\FDE\ProofSystem\Rule\MaterialConditionalDesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="FDE"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -2011,7 +2011,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/FDE/ProofSystem/Rule/MaterialConditionalUndesignated.php" hash="1a5dd284c9ea5a17f68b511e17254d82" package="Default">
+  <file path="Logic/FDE/ProofSystem/Rule/MaterialConditionalUndesignated.php" hash="cf334dcec00b057dd069ec619e159b69" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -2021,14 +2021,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="FDE">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="Logics">
       <name>MaterialConditionalUndesignated</name>
       <full_name>\GoTableaux\Logic\FDE\ProofSystem\Rule\MaterialConditionalUndesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="FDE"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -2058,7 +2058,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/FDE/ProofSystem/Rule/NegatedConjunctionDesignated.php" hash="113b36bad2bc0cce54c117f97d130b65" package="Default">
+  <file path="Logic/FDE/ProofSystem/Rule/NegatedConjunctionDesignated.php" hash="1a5dc4c04b9c7d01cfbe2e5073b617a6" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -2068,14 +2068,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="FDE">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedConjunctionDesignated</name>
       <full_name>\GoTableaux\Logic\FDE\ProofSystem\Rule\NegatedConjunctionDesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="FDE"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -2105,7 +2105,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/FDE/ProofSystem/Rule/NegatedConjunctionUndesignated.php" hash="0d7ac00b4c71d6e884de3dd7a089cc4a" package="Default">
+  <file path="Logic/FDE/ProofSystem/Rule/NegatedConjunctionUndesignated.php" hash="76d115af62e6a89a361f315314f368e9" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -2115,14 +2115,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="FDE">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedConjunctionUndesignated</name>
       <full_name>\GoTableaux\Logic\FDE\ProofSystem\Rule\NegatedConjunctionUndesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="FDE"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -2152,7 +2152,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/FDE/ProofSystem/Rule/NegatedDisjunctionDesignated.php" hash="0023e4b473ae63c50f26921fe1f51dac" package="Default">
+  <file path="Logic/FDE/ProofSystem/Rule/NegatedDisjunctionDesignated.php" hash="2a99c5af17ed46b7da6bded794ccb2a9" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -2162,14 +2162,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="FDE">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedDisjunctionDesignated</name>
       <full_name>\GoTableaux\Logic\FDE\ProofSystem\Rule\NegatedDisjunctionDesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="FDE"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -2199,7 +2199,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/FDE/ProofSystem/Rule/NegatedDisjunctionUndesignated.php" hash="0cc80c78a034d209abdbab1c22ee80ea" package="Default">
+  <file path="Logic/FDE/ProofSystem/Rule/NegatedDisjunctionUndesignated.php" hash="3ab43437eea78fafb42bcea180b2af38" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -2209,14 +2209,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="FDE">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedDisjunctionUndesignated</name>
       <full_name>\GoTableaux\Logic\FDE\ProofSystem\Rule\NegatedDisjunctionUndesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="FDE"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -2246,7 +2246,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/FDE/ProofSystem/Rule/NegatedMaterialBiconditionalDesignated.php" hash="c355bcdb58da1516bc678b25ccbc64d6" package="Default">
+  <file path="Logic/FDE/ProofSystem/Rule/NegatedMaterialBiconditionalDesignated.php" hash="cd697e6b2c07ba6ae4cbe5ba8dc81d05" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -2256,14 +2256,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="FDE">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedMaterialBiconditionalDesignated</name>
       <full_name>\GoTableaux\Logic\FDE\ProofSystem\Rule\NegatedMaterialBiconditionalDesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="FDE"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -2293,7 +2293,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/FDE/ProofSystem/Rule/NegatedMaterialBiconditionalUndesignated.php" hash="1e07a55841a0b43e6cad33fb4c470104" package="Default">
+  <file path="Logic/FDE/ProofSystem/Rule/NegatedMaterialBiconditionalUndesignated.php" hash="4d12c9d0bee7885a110a9d1485035acd" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -2303,14 +2303,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="FDE">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedMaterialBiconditionalUndesignated</name>
       <full_name>\GoTableaux\Logic\FDE\ProofSystem\Rule\NegatedMaterialBiconditionalUndesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="FDE"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -2340,7 +2340,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/FDE/ProofSystem/Rule/NegatedMaterialConditionalDesignated.php" hash="3736de50bddee8a519d6a04bc3727c95" package="Default">
+  <file path="Logic/FDE/ProofSystem/Rule/NegatedMaterialConditionalDesignated.php" hash="cd801238ac916f6a0f8741cd0788dc8d" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -2350,14 +2350,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="FDE">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedMaterialConditionalDesignated</name>
       <full_name>\GoTableaux\Logic\FDE\ProofSystem\Rule\NegatedMaterialConditionalDesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="FDE"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -2387,7 +2387,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/FDE/ProofSystem/Rule/NegatedMaterialConditionalUndesignated.php" hash="c2708e44649d0e0536ad5b7d456a3bf0" package="Default">
+  <file path="Logic/FDE/ProofSystem/Rule/NegatedMaterialConditionalUndesignated.php" hash="7909ab98f6b5d2eac0aa481869d9d30a" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -2397,14 +2397,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="FDE">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedMaterialConditionalUndesignated</name>
       <full_name>\GoTableaux\Logic\FDE\ProofSystem\Rule\NegatedMaterialConditionalUndesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="FDE"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -2434,7 +2434,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/FDE/ProofSystem.php" hash="a7cd84d1d66a6454c5fad8854921d974" package="Default">
+  <file path="Logic/FDE/ProofSystem.php" hash="01934f4cc799a2cde4450bd5801eec3f" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -2456,14 +2456,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Tableau">\GoTableaux\Proof\Tableau</namespace-alias>
     <namespace-alias name="Argument">\GoTableaux\Argument</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE" line="32" package="FDE">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\FDE" line="32" package="Logics">
       <name>ProofSystem</name>
       <full_name>\GoTableaux\Logic\FDE\ProofSystem</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem</extends>
       <docblock line="28">
         <description><![CDATA[Represents the FDE tableaux system.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="28" name="package" description="FDE"/>
+        <tag line="28" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="public" line="34" package="Default">
         <name>$ruleClasses</name>
@@ -2526,7 +2526,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/FDE.php" hash="9692e8bb1479b08cc901b99b9809d85c" package="Default">
+  <file path="Logic/FDE.php" hash="6dc8e2c9f608dc6821de3919ee3f641a" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -2547,14 +2547,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       <error line="32" code="50018">No DocBlock was found for property $operatorArities</error>
       <error line="40" code="50018">No DocBlock was found for property $externalLinks</error>
     </parse_markers>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic" line="28" package="FDE">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic" line="28" package="Logics">
       <name>FDE</name>
       <full_name>\GoTableaux\Logic\FDE</full_name>
       <extends>\GoTableaux\Logic</extends>
       <docblock line="24">
         <description><![CDATA[Represents First Degree Entailment Logic.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="24" name="package" description="FDE"/>
+        <tag line="24" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="public" line="30" package="Default">
         <name>$title</name>
@@ -2578,7 +2578,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </property>
     </class>
   </file>
-  <file path="Logic/GO/ProofSystem/Rule/ConditionalUndesignated.php" hash="06e29417a3c5280c6196fa23c10e33d7" package="Default">
+  <file path="Logic/GO/ProofSystem/Rule/ConditionalUndesignated.php" hash="166dbced1e63920b0d98b94013a5f600" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -2588,14 +2588,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="GO">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="Logics">
       <name>ConditionalUndesignated</name>
       <full_name>\GoTableaux\Logic\GO\ProofSystem\Rule\ConditionalUndesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="GO"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -2625,7 +2625,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/GO/ProofSystem/Rule/ConjunctionUndesignated.php" hash="88fb5c355d401982ef9fe8e406f90ee9" package="Default">
+  <file path="Logic/GO/ProofSystem/Rule/ConjunctionUndesignated.php" hash="39980aa60167a339d3bfb93dbb002c0f" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -2635,14 +2635,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="GO">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="Logics">
       <name>ConjunctionUndesignated</name>
       <full_name>\GoTableaux\Logic\GO\ProofSystem\Rule\ConjunctionUndesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="GO"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -2672,7 +2672,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/GO/ProofSystem/Rule/DisjunctionUndesignated.php" hash="86d5a063cc7796f5133bf35cc81058d0" package="Default">
+  <file path="Logic/GO/ProofSystem/Rule/DisjunctionUndesignated.php" hash="9cf8e6227abdae7061518db17b30aa78" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -2682,14 +2682,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="GO">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="Logics">
       <name>DisjunctionUndesignated</name>
       <full_name>\GoTableaux\Logic\GO\ProofSystem\Rule\DisjunctionUndesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="GO"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -2719,7 +2719,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/GO/ProofSystem/Rule/MaterialBiconditionalUndesignated.php" hash="cf89ef795496df3bf571ea0cfbcf4b5b" package="Default">
+  <file path="Logic/GO/ProofSystem/Rule/MaterialBiconditionalUndesignated.php" hash="e4f628548700fd3b93d0bf935cc1a544" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -2729,14 +2729,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="GO">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="Logics">
       <name>MaterialBiconditionalUndesignated</name>
       <full_name>\GoTableaux\Logic\GO\ProofSystem\Rule\MaterialBiconditionalUndesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="GO"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -2766,7 +2766,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/GO/ProofSystem/Rule/MaterialConditionalUndesignated.php" hash="5147881b5c72f539f66b0b8a500200db" package="Default">
+  <file path="Logic/GO/ProofSystem/Rule/MaterialConditionalUndesignated.php" hash="e0a61195ff846ac4ce1386c2e9bbfe2b" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -2776,14 +2776,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="GO">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="Logics">
       <name>MaterialConditionalUndesignated</name>
       <full_name>\GoTableaux\Logic\GO\ProofSystem\Rule\MaterialConditionalUndesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="GO"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -2813,7 +2813,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/GO/ProofSystem/Rule/NegatedConditionalDesignated.php" hash="07b10426878e2f50e5a071d0e388352f" package="Default">
+  <file path="Logic/GO/ProofSystem/Rule/NegatedConditionalDesignated.php" hash="d704561eb7fbff96448d39ca3cacf725" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -2823,14 +2823,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="GO">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedConditionalDesignated</name>
       <full_name>\GoTableaux\Logic\GO\ProofSystem\Rule\NegatedConditionalDesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="GO"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -2860,7 +2860,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/GO/ProofSystem/Rule/NegatedConditionalUndesignated.php" hash="37f202ddf321e60c2c6e4579baa88e98" package="Default">
+  <file path="Logic/GO/ProofSystem/Rule/NegatedConditionalUndesignated.php" hash="0e71db97b474a99b452fa7fcb349c37f" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -2870,14 +2870,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="GO">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedConditionalUndesignated</name>
       <full_name>\GoTableaux\Logic\GO\ProofSystem\Rule\NegatedConditionalUndesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="GO"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -2907,7 +2907,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/GO/ProofSystem/Rule/NegatedConjunctionDesignated.php" hash="f637fee710b86b46fce01f6e0ab36c83" package="Default">
+  <file path="Logic/GO/ProofSystem/Rule/NegatedConjunctionDesignated.php" hash="7b7cca6e452a6f34720503aa2750938e" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -2917,14 +2917,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="GO">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedConjunctionDesignated</name>
       <full_name>\GoTableaux\Logic\GO\ProofSystem\Rule\NegatedConjunctionDesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="GO"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -2954,7 +2954,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/GO/ProofSystem/Rule/NegatedConjunctionUndesignated.php" hash="ba0655a8ae27b9950b019263581bd50d" package="Default">
+  <file path="Logic/GO/ProofSystem/Rule/NegatedConjunctionUndesignated.php" hash="aa5e93ce32966892499490d53269ef07" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -2964,14 +2964,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="GO">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedConjunctionUndesignated</name>
       <full_name>\GoTableaux\Logic\GO\ProofSystem\Rule\NegatedConjunctionUndesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="GO"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -3001,7 +3001,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/GO/ProofSystem/Rule/NegatedDisjunctionDesignated.php" hash="d34be4c2803c73b36ad1261d0495cb4d" package="Default">
+  <file path="Logic/GO/ProofSystem/Rule/NegatedDisjunctionDesignated.php" hash="24a90a10766521d6996bf0a4d422648a" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -3011,14 +3011,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="GO">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedDisjunctionDesignated</name>
       <full_name>\GoTableaux\Logic\GO\ProofSystem\Rule\NegatedDisjunctionDesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="GO"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -3048,7 +3048,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/GO/ProofSystem/Rule/NegatedDisjunctionUndesignated.php" hash="53c950b457a099a74d5258d8dcf83a0e" package="Default">
+  <file path="Logic/GO/ProofSystem/Rule/NegatedDisjunctionUndesignated.php" hash="71447d6359d13493eee1c89d25f95dc1" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -3058,14 +3058,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="GO">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedDisjunctionUndesignated</name>
       <full_name>\GoTableaux\Logic\GO\ProofSystem\Rule\NegatedDisjunctionUndesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="GO"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -3095,7 +3095,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/GO/ProofSystem/Rule/NegatedMaterialBiconditionalDesignated.php" hash="671f0250e044dc95a3fdda1596b627b4" package="Default">
+  <file path="Logic/GO/ProofSystem/Rule/NegatedMaterialBiconditionalDesignated.php" hash="da0c15b87030f9fb599035c853df34bd" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -3105,14 +3105,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="GO">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedMaterialBiconditionalDesignated</name>
       <full_name>\GoTableaux\Logic\GO\ProofSystem\Rule\NegatedMaterialBiconditionalDesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="GO"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -3142,7 +3142,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/GO/ProofSystem/Rule/NegatedMaterialBiconditionalUndesignated.php" hash="4466a8c8023d585809aa4e9dcf02ff91" package="Default">
+  <file path="Logic/GO/ProofSystem/Rule/NegatedMaterialBiconditionalUndesignated.php" hash="645498aee7354209bf26dfca099ac864" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -3152,14 +3152,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="GO">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedMaterialBiconditionalUndesignated</name>
       <full_name>\GoTableaux\Logic\GO\ProofSystem\Rule\NegatedMaterialBiconditionalUndesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="GO"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -3189,7 +3189,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/GO/ProofSystem/Rule/NegatedMaterialConditionalDesignated.php" hash="03bcfcc24bbde0076e31fd3655e34f95" package="Default">
+  <file path="Logic/GO/ProofSystem/Rule/NegatedMaterialConditionalDesignated.php" hash="f0625b54b4526d4ffe03488932ed4ded" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -3199,14 +3199,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="GO">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedMaterialConditionalDesignated</name>
       <full_name>\GoTableaux\Logic\GO\ProofSystem\Rule\NegatedMaterialConditionalDesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="GO"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -3236,7 +3236,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/GO/ProofSystem/Rule/NegatedMaterialConditionalUndesignated.php" hash="d97f7954670163e63019a3983209f33e" package="Default">
+  <file path="Logic/GO/ProofSystem/Rule/NegatedMaterialConditionalUndesignated.php" hash="71c937348d586e165dea88c889816e3c" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -3246,14 +3246,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="GO">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedMaterialConditionalUndesignated</name>
       <full_name>\GoTableaux\Logic\GO\ProofSystem\Rule\NegatedMaterialConditionalUndesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="GO"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -3283,7 +3283,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/GO/ProofSystem.php" hash="6084ca3e3987d30bcf13edcd3d84f07d" package="Default">
+  <file path="Logic/GO/ProofSystem.php" hash="2ffb4208fd748abf25766d73cbed33fd" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -3302,14 +3302,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <parse_markers>
       <error line="31" code="50018">No DocBlock was found for property $ruleClasses</error>
     </parse_markers>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO" line="29" package="GO">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\GO" line="29" package="Logics">
       <name>ProofSystem</name>
       <full_name>\GoTableaux\Logic\GO\ProofSystem</full_name>
       <extends>\GoTableaux\Logic\FDE\ProofSystem</extends>
       <docblock line="24">
         <description><![CDATA[Represents the Tableaux system for GO.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="24" name="package" description="GO"/>
+        <tag line="24" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="public" line="31" package="Default">
         <name>$ruleClasses</name>
@@ -3342,7 +3342,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </property>
     </class>
   </file>
-  <file path="Logic/GO.php" hash="bc543bf00bed362d7e8434931033830c" package="Default">
+  <file path="Logic/GO.php" hash="2e01aab3f192fb582f7da6697f505c61" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -3362,14 +3362,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       <error line="30" code="50018">No DocBlock was found for property $title</error>
       <error line="32" code="50018">No DocBlock was found for property $inheritOperatorsFrom</error>
     </parse_markers>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic" line="28" package="GO">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic" line="28" package="Logics">
       <name>GO</name>
       <full_name>\GoTableaux\Logic\GO</full_name>
       <extends>\GoTableaux\Logic</extends>
       <docblock line="24">
         <description><![CDATA[Represents GO 3-valued Propositional Logic.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="24" name="package" description="GO"/>
+        <tag line="24" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="public" line="30" package="Default">
         <name>$title</name>
@@ -3381,7 +3381,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </property>
     </class>
   </file>
-  <file path="Logic/K/ProofSystem/Rule/Closure.php" hash="4ebe47a641bd5c26fd70f7533d5f5527" package="Default">
+  <file path="Logic/K/ProofSystem/Rule/Closure.php" hash="5e3ed4784c38145e8f5778b70d2386f5" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -3403,14 +3403,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     </parse_markers>
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="31" package="K">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="31" package="Logics">
       <name>Closure</name>
       <full_name>\GoTableaux\Logic\K\ProofSystem\Rule\Closure</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Closure</extends>
       <docblock line="27">
         <description><![CDATA[Represents the tableaux closure rule for K.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="27" name="package" description="K"/>
+        <tag line="27" name="package" description="Logics"/>
       </docblock>
       <method final="false" abstract="false" static="false" visibility="public" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="33" package="">
         <name>appliesToBranch</name>
@@ -3455,7 +3455,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/K/ProofSystem/Rule/Conjunction.php" hash="50e8b67308be4ef3f8a19ffba1c84812" package="Default">
+  <file path="Logic/K/ProofSystem/Rule/Conjunction.php" hash="a432438f66d879dd716d75f1bd011ccf" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -3465,14 +3465,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="26" package="CPL">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="26" package="Logics">
       <name>Conjunction</name>
       <full_name>\GoTableaux\Logic\K\ProofSystem\Rule\Conjunction</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="CPL"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -3502,7 +3502,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/K/ProofSystem/Rule/Disjunction.php" hash="2c91ac7666eea923fdbd15fddc9cf011" package="Default">
+  <file path="Logic/K/ProofSystem/Rule/Disjunction.php" hash="d3342d1837eb2c04284f19d266f2590c" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -3512,14 +3512,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="26" package="CPL">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="26" package="Logics">
       <name>Disjunction</name>
       <full_name>\GoTableaux\Logic\K\ProofSystem\Rule\Disjunction</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="CPL"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -3549,7 +3549,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/K/ProofSystem/Rule/DoubleNegation.php" hash="e95764799b7a625c77e107e8a1a8b846" package="Default">
+  <file path="Logic/K/ProofSystem/Rule/DoubleNegation.php" hash="8d52f2e61f2f22d0680ac44fb6a46757" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -3559,14 +3559,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="26" package="CPL">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="26" package="Logics">
       <name>DoubleNegation</name>
       <full_name>\GoTableaux\Logic\K\ProofSystem\Rule\DoubleNegation</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="CPL"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -3596,7 +3596,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/K/ProofSystem/Rule/MaterialBiconditional.php" hash="3aa0a3adb8e1ae878c7fac794d6b9d75" package="Default">
+  <file path="Logic/K/ProofSystem/Rule/MaterialBiconditional.php" hash="899da397e9222113d4ef28412bd6e4ea" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -3606,14 +3606,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="26" package="CPL">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="26" package="Logics">
       <name>MaterialBiconditional</name>
       <full_name>\GoTableaux\Logic\K\ProofSystem\Rule\MaterialBiconditional</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="CPL"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -3643,7 +3643,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/K/ProofSystem/Rule/MaterialConditional.php" hash="d8b4456c9c3b98c9b37fe04109f17813" package="Default">
+  <file path="Logic/K/ProofSystem/Rule/MaterialConditional.php" hash="8939a60051fbf893610ef041de81a6c7" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -3653,14 +3653,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="26" package="CPL">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="26" package="Logics">
       <name>MaterialConditional</name>
       <full_name>\GoTableaux\Logic\K\ProofSystem\Rule\MaterialConditional</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="CPL"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -3690,7 +3690,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/K/ProofSystem/Rule/Necessity.php" hash="5328f2f006a98ec624611264b9ce40bb" package="Default">
+  <file path="Logic/K/ProofSystem/Rule/Necessity.php" hash="97222693bd07d95fe9da15308a3e632f" package="Default">
     <parse_markers>
       <error line="30" code="50010">No DocBlock was found for method appliesToBranch()</error>
       <error line="44" code="50010">No DocBlock was found for method applyToBranch()</error>
@@ -3703,14 +3703,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
     <namespace-alias name="Utilities">\GoTableaux\Utilities</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="27" package="K">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="27" package="Logics">
       <name>Necessity</name>
       <full_name>\GoTableaux\Logic\K\ProofSystem\Rule\Necessity</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Branch</extends>
       <docblock line="24">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="24" name="package" description="K"/>
+        <tag line="24" name="package" description="Logics"/>
       </docblock>
       <method final="false" abstract="false" static="false" visibility="public" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="30" package="">
         <name>appliesToBranch</name>
@@ -3780,7 +3780,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/K/ProofSystem/Rule/NegatedConjunction.php" hash="1943945ebda179acd961a69335eb20c0" package="Default">
+  <file path="Logic/K/ProofSystem/Rule/NegatedConjunction.php" hash="34672a5b8fff2da4126d4916eae1f522" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -3790,14 +3790,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="26" package="CPL">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedConjunction</name>
       <full_name>\GoTableaux\Logic\K\ProofSystem\Rule\NegatedConjunction</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="CPL"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -3827,7 +3827,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/K/ProofSystem/Rule/NegatedDisjunction.php" hash="b6be57502905a60fc660232a59b4611f" package="Default">
+  <file path="Logic/K/ProofSystem/Rule/NegatedDisjunction.php" hash="0ec5b499190fbc85b155808ffd654dc7" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -3837,14 +3837,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="26" package="CPL">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedDisjunction</name>
       <full_name>\GoTableaux\Logic\K\ProofSystem\Rule\NegatedDisjunction</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="CPL"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -3874,7 +3874,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/K/ProofSystem/Rule/NegatedMaterialBiconditional.php" hash="33b810397b7dec794325ee5f16ab219e" package="Default">
+  <file path="Logic/K/ProofSystem/Rule/NegatedMaterialBiconditional.php" hash="6d60184cbb04858f9af39616c109e6d5" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -3884,14 +3884,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="26" package="CPL">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedMaterialBiconditional</name>
       <full_name>\GoTableaux\Logic\K\ProofSystem\Rule\NegatedMaterialBiconditional</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="CPL"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -3921,7 +3921,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/K/ProofSystem/Rule/NegatedMaterialConditional.php" hash="f419f6d55357335b3df29c0c5d0ea047" package="Default">
+  <file path="Logic/K/ProofSystem/Rule/NegatedMaterialConditional.php" hash="504998a6a732db0f8c545e94042a3edb" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -3931,14 +3931,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="26" package="CPL">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedMaterialConditional</name>
       <full_name>\GoTableaux\Logic\K\ProofSystem\Rule\NegatedMaterialConditional</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="CPL"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -3968,7 +3968,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/K/ProofSystem/Rule/NegatedNecessity.php" hash="135bbd950d02b116cc7b9e8411f926ff" package="Default">
+  <file path="Logic/K/ProofSystem/Rule/NegatedNecessity.php" hash="46cc9b0e3847b8bb9cc357579f8babc6" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -3978,14 +3978,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="26" package="K">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedNecessity</name>
       <full_name>\GoTableaux\Logic\K\ProofSystem\Rule\NegatedNecessity</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="K"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -4015,7 +4015,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/K/ProofSystem/Rule/NegatedPossibility.php" hash="0a8f1fea8722b91501e7d053bfd200e7" package="Default">
+  <file path="Logic/K/ProofSystem/Rule/NegatedPossibility.php" hash="94bb5896734a3c628fa884d55fc10a84" package="Default">
     <parse_markers>
       <error line="30" code="50010">No DocBlock was found for method appliesToBranch()</error>
       <error line="44" code="50010">No DocBlock was found for method applyToBranch()</error>
@@ -4029,14 +4029,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
     <namespace-alias name="Utilities">\GoTableaux\Utilities</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="27" package="K">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="27" package="Logics">
       <name>NegatedPossibility</name>
       <full_name>\GoTableaux\Logic\K\ProofSystem\Rule\NegatedPossibility</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Branch</extends>
       <docblock line="24">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="24" name="package" description="K"/>
+        <tag line="24" name="package" description="Logics"/>
       </docblock>
       <method final="false" abstract="false" static="false" visibility="public" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="30" package="">
         <name>appliesToBranch</name>
@@ -4120,7 +4120,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/K/ProofSystem/Rule/Possibility.php" hash="46580d0e86c3dcba74aacb6883cb8db0" package="Default">
+  <file path="Logic/K/ProofSystem/Rule/Possibility.php" hash="8732c0ca02c20ba896762cdb33ca5ea6" package="Default">
     <parse_markers>
       <error line="29" code="50018">No DocBlock was found for property $conditions</error>
       <error line="34" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -4131,14 +4131,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
     <namespace-alias name="Utilities">\GoTableaux\Utilities</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="27" package="K">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\K\ProofSystem\Rule" line="27" package="Logics">
       <name>Possibility</name>
       <full_name>\GoTableaux\Logic\K\ProofSystem\Rule\Possibility</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="24">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="24" name="package" description="K"/>
+        <tag line="24" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="29" package="Default">
         <name>$conditions</name>
@@ -4168,7 +4168,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/K/ProofSystem.php" hash="534ac9e414c746f73d18d190ce17078e" package="Default">
+  <file path="Logic/K/ProofSystem.php" hash="0294e6bf479406cd8adf27e1e0a7528f" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -4190,14 +4190,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Tableau">\GoTableaux\Proof\Tableau</namespace-alias>
     <namespace-alias name="Argument">\GoTableaux\Argument</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\K" line="33" package="K">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\K" line="33" package="Logics">
       <name>ProofSystem</name>
       <full_name>\GoTableaux\Logic\K\ProofSystem</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem</extends>
       <docblock line="28">
         <description><![CDATA[Represents the Tableaux system for K.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="28" name="package" description="K"/>
+        <tag line="28" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="public" line="35" package="Default">
         <name>$ruleClasses</name>
@@ -4255,7 +4255,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/K.php" hash="a5b74634ee8b674a05c39ec007f8a85c" package="Default">
+  <file path="Logic/K.php" hash="718e48d874aeceb29af6e8471503fc2d" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -4277,14 +4277,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       <error line="34" code="50018">No DocBlock was found for property $operatorArities</error>
       <error line="36" code="50018">No DocBlock was found for property $externalLinks</error>
     </parse_markers>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic" line="28" package="K">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic" line="28" package="Logics">
       <name>K</name>
       <full_name>\GoTableaux\Logic\K</full_name>
       <extends>\GoTableaux\Logic</extends>
       <docblock line="24">
         <description><![CDATA[Represents normal modal logic.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="24" name="package" description="K"/>
+        <tag line="24" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="public" line="30" package="Default">
         <name>$title</name>
@@ -4306,7 +4306,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </property>
     </class>
   </file>
-  <file path="Logic/LP/ProofSystem/Rule/Closure.php" hash="51406f7b05ae53b1a7617f8cd98b478d" package="Default">
+  <file path="Logic/LP/ProofSystem/Rule/Closure.php" hash="4acf3ef47cd2432501d3a77d2b147eb4" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -4328,14 +4328,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     </parse_markers>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\LP\ProofSystem\Rule" line="31" package="LP">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\LP\ProofSystem\Rule" line="31" package="Logics">
       <name>Closure</name>
       <full_name>\GoTableaux\Logic\LP\ProofSystem\Rule\Closure</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Closure</extends>
       <docblock line="27">
         <description><![CDATA[Represents the LP closure rule.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="27" name="package" description="LP"/>
+        <tag line="27" name="package" description="Logics"/>
       </docblock>
       <method final="false" abstract="false" static="false" visibility="public" namespace="GoTableaux\Logic\LP\ProofSystem\Rule" line="33" package="">
         <name>appliesToBranch</name>
@@ -4380,7 +4380,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/LP/ProofSystem.php" hash="53f19a0d92b82b7d648a6f26cb49564a" package="Default">
+  <file path="Logic/LP/ProofSystem.php" hash="b07ce6592cb762774e215a94dc5b79bf" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -4399,14 +4399,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <parse_markers>
       <error line="30" code="50018">No DocBlock was found for property $ruleClasses</error>
     </parse_markers>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\LP" line="28" package="LP">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\LP" line="28" package="Logics">
       <name>ProofSystem</name>
       <full_name>\GoTableaux\Logic\LP\ProofSystem</full_name>
       <extends>\GoTableaux\Logic\FDE\ProofSystem</extends>
       <docblock line="24">
         <description><![CDATA[Represents the LP tableaux system.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="24" name="package" description="LP"/>
+        <tag line="24" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="public" line="30" package="Default">
         <name>$ruleClasses</name>
@@ -4435,7 +4435,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </property>
     </class>
   </file>
-  <file path="Logic/LP.php" hash="4668803b359dd606d5b4366ad4b3d5b8" package="Default">
+  <file path="Logic/LP.php" hash="cfdfef5656292660e7ad8320325333af" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -4456,14 +4456,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       <error line="32" code="50018">No DocBlock was found for property $inheritOperatorsFrom</error>
       <error line="34" code="50018">No DocBlock was found for property $externalLinks</error>
     </parse_markers>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic" line="28" package="LP">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic" line="28" package="Logics">
       <name>LP</name>
       <full_name>\GoTableaux\Logic\LP</full_name>
       <extends>\GoTableaux\Logic</extends>
       <docblock line="24">
         <description><![CDATA[Represents the Logic of Paradox.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="24" name="package" description="LP"/>
+        <tag line="24" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="public" line="30" package="Default">
         <name>$title</name>
@@ -4482,7 +4482,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </property>
     </class>
   </file>
-  <file path="Logic/Lukasiewicz/ProofSystem/Rule/ConditionalDesignated.php" hash="62eabd9871f81388cbc473eb7d1edd85" package="Default">
+  <file path="Logic/Lukasiewicz/ProofSystem/Rule/ConditionalDesignated.php" hash="6fb5bc56a73f9a5e7af06a809ea1cc7b" package="Default">
     <markers>
       <todo line="44">write test that these rules would fail</todo>
     </markers>
@@ -4495,14 +4495,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\Lukasiewicz\ProofSystem\Rule" line="26" package="Lukasiewicz">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\Lukasiewicz\ProofSystem\Rule" line="26" package="Logics">
       <name>ConditionalDesignated</name>
       <full_name>\GoTableaux\Logic\Lukasiewicz\ProofSystem\Rule\ConditionalDesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="Lukasiewicz"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -4532,7 +4532,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/Lukasiewicz/ProofSystem/Rule/ConditionalUndesignated.php" hash="31f51a5aa86336527f0fa34155c52576" package="Default">
+  <file path="Logic/Lukasiewicz/ProofSystem/Rule/ConditionalUndesignated.php" hash="65b845b81b414cb01c7eb318e96d894b" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -4542,14 +4542,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\Lukasiewicz\ProofSystem\Rule" line="26" package="Lukasiewicz">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\Lukasiewicz\ProofSystem\Rule" line="26" package="Logics">
       <name>ConditionalUndesignated</name>
       <full_name>\GoTableaux\Logic\Lukasiewicz\ProofSystem\Rule\ConditionalUndesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="Lukasiewicz"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -4579,7 +4579,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/Lukasiewicz/ProofSystem/Rule/NegatedConditionalDesignated.php" hash="056c06aa261b432590c224662f4957e2" package="Default">
+  <file path="Logic/Lukasiewicz/ProofSystem/Rule/NegatedConditionalDesignated.php" hash="08f46b411dc4fee0e5e916efe28e525e" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -4589,14 +4589,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\Lukasiewicz\ProofSystem\Rule" line="26" package="Lukasiewicz">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\Lukasiewicz\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedConditionalDesignated</name>
       <full_name>\GoTableaux\Logic\Lukasiewicz\ProofSystem\Rule\NegatedConditionalDesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="Lukasiewicz"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -4626,7 +4626,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/Lukasiewicz/ProofSystem/Rule/NegatedConditionalUndesignated.php" hash="4f270b3474c9aa23547b4ec4f9f97717" package="Default">
+  <file path="Logic/Lukasiewicz/ProofSystem/Rule/NegatedConditionalUndesignated.php" hash="9d78f63651945b64de93312606f76b92" package="Default">
     <parse_markers>
       <error line="28" code="50018">No DocBlock was found for property $conditions</error>
       <error line="33" code="50010">No DocBlock was found for method applyToNode()</error>
@@ -4636,14 +4636,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\Lukasiewicz\ProofSystem\Rule" line="26" package="Lukasiewicz">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\Lukasiewicz\ProofSystem\Rule" line="26" package="Logics">
       <name>NegatedConditionalUndesignated</name>
       <full_name>\GoTableaux\Logic\Lukasiewicz\ProofSystem\Rule\NegatedConditionalUndesignated</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Node</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="Lukasiewicz"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="28" package="Default">
         <name>$conditions</name>
@@ -4673,7 +4673,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/Lukasiewicz/ProofSystem.php" hash="578aed6cf78118ad7ef5692d15aeaa55" package="Default">
+  <file path="Logic/Lukasiewicz/ProofSystem.php" hash="b1f1d245c4b43c22d9f76bef15906db9" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -4692,14 +4692,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <parse_markers>
       <error line="30" code="50018">No DocBlock was found for property $ruleClasses</error>
     </parse_markers>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\Lukasiewicz" line="28" package="Lukasiewicz">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\Lukasiewicz" line="28" package="Logics">
       <name>ProofSystem</name>
       <full_name>\GoTableaux\Logic\Lukasiewicz\ProofSystem</full_name>
       <extends>\GoTableaux\Logic\FDE\ProofSystem</extends>
       <docblock line="24">
         <description><![CDATA[Represents the Lukasiewicz 3 tableaux system.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="24" name="package" description="Lukasiewicz"/>
+        <tag line="24" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="public" line="30" package="Default">
         <name>$ruleClasses</name>
@@ -4732,7 +4732,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </property>
     </class>
   </file>
-  <file path="Logic/Lukasiewicz.php" hash="54783b979ab38b2403068c479a233980" package="Default">
+  <file path="Logic/Lukasiewicz.php" hash="5da8a1329f06c0a3d34d3dabd4e6ab18" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -4754,14 +4754,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       <error line="34" code="50018">No DocBlock was found for property $operatorArities</error>
       <error line="36" code="50018">No DocBlock was found for property $externalLinks</error>
     </parse_markers>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic" line="28" package="Lukasiewicz">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic" line="28" package="Logics">
       <name>Lukasiewicz</name>
       <full_name>\GoTableaux\Logic\Lukasiewicz</full_name>
       <extends>\GoTableaux\Logic</extends>
       <docblock line="24">
         <description><![CDATA[Represents Lukasiewicz 3-valued logic.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="24" name="package" description="Lukasiewicz"/>
+        <tag line="24" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="public" line="30" package="Default">
         <name>$title</name>
@@ -4783,7 +4783,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </property>
     </class>
   </file>
-  <file path="Logic/S4/ProofSystem/Rule/Transitive.php" hash="7611f9c9ffd0ab12ab20819b1c767898" package="Default">
+  <file path="Logic/S4/ProofSystem/Rule/Transitive.php" hash="fac8c9bede7c29328b4e8ae689fdbe33" package="Default">
     <parse_markers>
       <error line="28" code="50010">No DocBlock was found for method appliesToBranch()</error>
       <error line="38" code="50010">No DocBlock was found for method applyToBranch()</error>
@@ -4794,14 +4794,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\S4\ProofSystem\Rule" line="26" package="S4">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\S4\ProofSystem\Rule" line="26" package="Logics">
       <name>Transitive</name>
       <full_name>\GoTableaux\Logic\S4\ProofSystem\Rule\Transitive</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Branch</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="S4"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <method final="false" abstract="false" static="false" visibility="public" namespace="GoTableaux\Logic\S4\ProofSystem\Rule" line="28" package="">
         <name>appliesToBranch</name>
@@ -4847,7 +4847,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/S4/ProofSystem.php" hash="4346077dd4409d5b5ff719a625c2963e" package="Default">
+  <file path="Logic/S4/ProofSystem.php" hash="e2af2fa88e90a41640fc27d0bad39cf7" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -4869,14 +4869,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Tableau">\GoTableaux\Proof\Tableau</namespace-alias>
     <namespace-alias name="Argument">\GoTableaux\Argument</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\S4" line="33" package="S4">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\S4" line="33" package="Logics">
       <name>ProofSystem</name>
       <full_name>\GoTableaux\Logic\S4\ProofSystem</full_name>
       <extends>\GoTableaux\Logic\K\ProofSystem</extends>
       <docblock line="28">
         <description><![CDATA[Represents the Tableaux system for S4.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="28" name="package" description="S4"/>
+        <tag line="28" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="public" line="35" package="Default">
         <name>$ruleClasses</name>
@@ -4901,7 +4901,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </property>
     </class>
   </file>
-  <file path="Logic/S4.php" hash="981d423d87dd4e08c27ab9bf13762285" package="Default">
+  <file path="Logic/S4.php" hash="6a0a2195f1fd0c27384b4c2572386624" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -4921,14 +4921,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       <error line="30" code="50018">No DocBlock was found for property $title</error>
       <error line="32" code="50018">No DocBlock was found for property $inheritOperatorsFrom</error>
     </parse_markers>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic" line="28" package="S4">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic" line="28" package="Logics">
       <name>S4</name>
       <full_name>\GoTableaux\Logic\S4</full_name>
       <extends>\GoTableaux\Logic</extends>
       <docblock line="24">
         <description><![CDATA[Represents normal modal logic with reflexive and transitive access relation.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="24" name="package" description="S4"/>
+        <tag line="24" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="public" line="30" package="Default">
         <name>$title</name>
@@ -4940,7 +4940,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </property>
     </class>
   </file>
-  <file path="Logic/S5/ProofSystem/Rule/Symmetric.php" hash="77a13547f8cfd4b4c1e3af9852675699" package="Default">
+  <file path="Logic/S5/ProofSystem/Rule/Symmetric.php" hash="4dd9bda2726ea44fea15b5cafad3de47" package="Default">
     <parse_markers>
       <error line="28" code="50010">No DocBlock was found for method appliesToBranch()</error>
       <error line="37" code="50010">No DocBlock was found for method applyToBranch()</error>
@@ -4951,14 +4951,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\S5\ProofSystem\Rule" line="26" package="S5">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\S5\ProofSystem\Rule" line="26" package="Logics">
       <name>Symmetric</name>
       <full_name>\GoTableaux\Logic\S5\ProofSystem\Rule\Symmetric</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Branch</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="S5"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <method final="false" abstract="false" static="false" visibility="public" namespace="GoTableaux\Logic\S5\ProofSystem\Rule" line="28" package="">
         <name>appliesToBranch</name>
@@ -5004,7 +5004,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/S5/ProofSystem.php" hash="9c8ed73bd2f6d8ef4e97a54ac7395c06" package="Default">
+  <file path="Logic/S5/ProofSystem.php" hash="50c806afebd0a0ef74bf0778663b0914" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -5026,14 +5026,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Tableau">\GoTableaux\Proof\Tableau</namespace-alias>
     <namespace-alias name="Argument">\GoTableaux\Argument</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\S5" line="33" package="S5">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\S5" line="33" package="Logics">
       <name>ProofSystem</name>
       <full_name>\GoTableaux\Logic\S5\ProofSystem</full_name>
       <extends>\GoTableaux\Logic\K\ProofSystem</extends>
       <docblock line="28">
         <description><![CDATA[Represents the Tableaux system for S5.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="28" name="package" description="S5"/>
+        <tag line="28" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="public" line="35" package="Default">
         <name>$ruleClasses</name>
@@ -5059,7 +5059,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </property>
     </class>
   </file>
-  <file path="Logic/S5.php" hash="fcfeb8c5ee8eab08b79378980466e5d6" package="Default">
+  <file path="Logic/S5.php" hash="5b7c6c22df9294b498852ed78fbe399a" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -5079,14 +5079,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       <error line="30" code="50018">No DocBlock was found for property $title</error>
       <error line="32" code="50018">No DocBlock was found for property $inheritOperatorsFrom</error>
     </parse_markers>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic" line="28" package="S5">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic" line="28" package="Logics">
       <name>S5</name>
       <full_name>\GoTableaux\Logic\S5</full_name>
       <extends>\GoTableaux\Logic</extends>
       <docblock line="24">
         <description><![CDATA[Represents normal modal logic with reflexive, symmetric, and transitive access relation.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="24" name="package" description="S5"/>
+        <tag line="24" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="public" line="30" package="Default">
         <name>$title</name>
@@ -5098,7 +5098,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </property>
     </class>
   </file>
-  <file path="Logic/StrongKleene/ProofSystem/Rule/Closure.php" hash="18a8dc2d7353346dbcaf05f69deb7ae9" package="Default">
+  <file path="Logic/StrongKleene/ProofSystem/Rule/Closure.php" hash="6ef6af4eb0eb7c88a7c210bd1eb3e63b" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -5120,14 +5120,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     </parse_markers>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\StrongKleene\ProofSystem\Rule" line="31" package="StrongKleene">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\StrongKleene\ProofSystem\Rule" line="31" package="Logics">
       <name>Closure</name>
       <full_name>\GoTableaux\Logic\StrongKleene\ProofSystem\Rule\Closure</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Closure</extends>
       <docblock line="27">
         <description><![CDATA[Represents the K3 closure rule.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="27" name="package" description="StrongKleene"/>
+        <tag line="27" name="package" description="Logics"/>
       </docblock>
       <method final="false" abstract="false" static="false" visibility="public" namespace="GoTableaux\Logic\StrongKleene\ProofSystem\Rule" line="33" package="">
         <name>appliesToBranch</name>
@@ -5172,7 +5172,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/StrongKleene/ProofSystem.php" hash="cf01b399b693fbbb0d72fe40536093b0" package="Default">
+  <file path="Logic/StrongKleene/ProofSystem.php" hash="c48a23806adb7bf4d145ab09deed20a7" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -5191,14 +5191,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <parse_markers>
       <error line="30" code="50018">No DocBlock was found for property $ruleClasses</error>
     </parse_markers>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\StrongKleene" line="28" package="StrongKleene">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\StrongKleene" line="28" package="Logics">
       <name>ProofSystem</name>
       <full_name>\GoTableaux\Logic\StrongKleene\ProofSystem</full_name>
       <extends>\GoTableaux\Logic\FDE\ProofSystem</extends>
       <docblock line="24">
         <description><![CDATA[Represents the K3 tableaux system.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="24" name="package" description="StrongKleene"/>
+        <tag line="24" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="public" line="30" package="Default">
         <name>$ruleClasses</name>
@@ -5227,7 +5227,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </property>
     </class>
   </file>
-  <file path="Logic/StrongKleene.php" hash="d43e5d3bcdcd0d33a454d92e9087de5f" package="Default">
+  <file path="Logic/StrongKleene.php" hash="938f5b9f5165f8fe33428fbf40e710cd" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -5248,14 +5248,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       <error line="32" code="50018">No DocBlock was found for property $inheritOperatorsFrom</error>
       <error line="34" code="50018">No DocBlock was found for property $externalLinks</error>
     </parse_markers>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic" line="28" package="StrongKleene">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic" line="28" package="Logics">
       <name>StrongKleene</name>
       <full_name>\GoTableaux\Logic\StrongKleene</full_name>
       <extends>\GoTableaux\Logic</extends>
       <docblock line="24">
         <description><![CDATA[Represents Strong Kleene Logic.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="24" name="package" description="StrongKleene"/>
+        <tag line="24" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="public" line="30" package="Default">
         <name>$title</name>
@@ -5273,7 +5273,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </property>
     </class>
   </file>
-  <file path="Logic/T/ProofSystem/Rule/Reflexive.php" hash="f950d87b165dee92de49c726e9d276a9" package="Default">
+  <file path="Logic/T/ProofSystem/Rule/Reflexive.php" hash="11ca86658078d37f652a1028ab3f575d" package="Default">
     <parse_markers>
       <error line="28" code="50010">No DocBlock was found for method appliesToBranch()</error>
       <error line="35" code="50010">No DocBlock was found for method applyToBranch()</error>
@@ -5284,14 +5284,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Branch">\GoTableaux\Proof\TableauBranch</namespace-alias>
     <namespace-alias name="Node">\GoTableaux\Proof\TableauNode</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\T\ProofSystem\Rule" line="26" package="T">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\T\ProofSystem\Rule" line="26" package="Logics">
       <name>Reflexive</name>
       <full_name>\GoTableaux\Logic\T\ProofSystem\Rule\Reflexive</full_name>
       <extends>\GoTableaux\ProofSystem\TableauxSystem\Rule\Branch</extends>
       <docblock line="23">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="23" name="package" description="T"/>
+        <tag line="23" name="package" description="Logics"/>
       </docblock>
       <method final="false" abstract="false" static="false" visibility="public" namespace="GoTableaux\Logic\T\ProofSystem\Rule" line="28" package="">
         <name>appliesToBranch</name>
@@ -5337,7 +5337,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="Logic/T/ProofSystem.php" hash="104b861da09fc88dcdca6a952e58970a" package="Default">
+  <file path="Logic/T/ProofSystem.php" hash="69d8c52cab2666213acbe3a6d9688289" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -5359,14 +5359,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     <namespace-alias name="Tableau">\GoTableaux\Proof\Tableau</namespace-alias>
     <namespace-alias name="Argument">\GoTableaux\Argument</namespace-alias>
     <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic\T" line="33" package="T">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic\T" line="33" package="Logics">
       <name>ProofSystem</name>
       <full_name>\GoTableaux\Logic\T\ProofSystem</full_name>
       <extends>\GoTableaux\Logic\K\ProofSystem</extends>
       <docblock line="28">
         <description><![CDATA[Represents the Tableaux system for T.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="28" name="package" description="T"/>
+        <tag line="28" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="public" line="35" package="Default">
         <name>$ruleClasses</name>
@@ -5390,7 +5390,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </property>
     </class>
   </file>
-  <file path="Logic/T.php" hash="730ef39fad1b28cc65742e2ead99fac6" package="Default">
+  <file path="Logic/T.php" hash="0a80d92ad8e9dc573675cf101679c337" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -5411,14 +5411,14 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       <error line="32" code="50018">No DocBlock was found for property $inheritOperatorsFrom</error>
       <error line="34" code="50018">No DocBlock was found for property $externalLinks</error>
     </parse_markers>
-    <class final="false" abstract="false" namespace="GoTableaux\Logic" line="28" package="T">
+    <class final="false" abstract="false" namespace="GoTableaux\Logic" line="28" package="Logics">
       <name>T</name>
       <full_name>\GoTableaux\Logic\T</full_name>
       <extends>\GoTableaux\Logic</extends>
       <docblock line="24">
         <description><![CDATA[Represents normal modal logic with reflexive access relation.]]></description>
         <long-description><![CDATA[]]></long-description>
-        <tag line="24" name="package" description="T"/>
+        <tag line="24" name="package" description="Logics"/>
       </docblock>
       <property final="false" static="false" visibility="public" line="30" package="Default">
         <name>$title</name>
@@ -8002,39 +8002,7 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
       </method>
     </class>
   </file>
-  <file path="ProofSystem/TableauxSystem/BranchEventListener.php" hash="13b6ec5cddd6d1f3a99e397c0b1792de" package="Default">
-    <docblock line="2">
-      <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
-      <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
-
-<p>This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.</p>
-
-<p>This program is distributed WITHOUT ANY WARRANTY.
-See the GNU Affero General Public License for more details.</p>
-
-<p>You should have received a copy of the GNU Affero General Public License
-along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-3.0.html">http://www.gnu.org/licenses/agpl-3.0.html</a>.</p>]]></long-description>
-    </docblock>
-    <parse_markers>
-      <error line="29" code="50010">No DocBlock was found for method afterAddNode()</error>
-      <error line="27" code="50000">No DocBlock was found for BranchEventListener</error>
-    </parse_markers>
-    <namespace-alias name="Logic">\GoTableaux\Logic</namespace-alias>
-    <namespace-alias name="Utilities">\GoTableaux\Utilities</namespace-alias>
-    <class final="false" abstract="false" namespace="GoTableaux\ProofSystem\TableauxSystem" line="27" package="Default">
-      <name>BranchEventListener</name>
-      <full_name>\GoTableaux\ProofSystem\TableauxSystem\BranchEventListener</full_name>
-      <extends/>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="GoTableaux\ProofSystem\TableauxSystem" line="29" package="">
-        <name>afterAddNode</name>
-        <type>function</type>
-      </method>
-    </class>
-  </file>
-  <file path="ProofSystem/TableauxSystem/Rule/Branch.php" hash="9195a40c2c57faf5e81d1e7f428c7dc9" package="Default">
+  <file path="ProofSystem/TableauxSystem/Rule/Branch.php" hash="75fdf26dd728123c7b76270277a20d33" package="Default">
     <docblock line="2">
       <description><![CDATA[GoTableaux. A multi-logic tableaux generator.]]></description>
       <long-description><![CDATA[<p>Copyright (C) 2012  Douglas Owings</p>
@@ -11939,19 +11907,9 @@ along with this program.  If not, see <a href="http://www.gnu.org/licenses/agpl-
     </class>
   </file>
   <package name="" full_name=""/>
-  <package name="CPL" full_name="CPL"/>
-  <package name="D" full_name="D"/>
   <package name="Default" full_name="Default"/>
-  <package name="FDE" full_name="FDE"/>
-  <package name="GO" full_name="GO"/>
   <package name="GoTableaux" full_name="GoTableaux"/>
-  <package name="K" full_name="K"/>
-  <package name="LP" full_name="LP"/>
-  <package name="Lukasiewicz" full_name="Lukasiewicz"/>
-  <package name="S4" full_name="S4"/>
-  <package name="S5" full_name="S5"/>
-  <package name="StrongKleene" full_name="StrongKleene"/>
-  <package name="T" full_name="T"/>
+  <package name="Logics" full_name="Logics"/>
   <namespace name="GoTableaux" full_name="GoTableaux">
     <namespace name="Exception" full_name="GoTableaux\Exception"/>
     <namespace name="Logic" full_name="GoTableaux\Logic">
